@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import Kurac from './components/Kurac';
 import { styles } from './styles.js';
 
 class App extends React.Component {
   render() {
     return (
       <View style={styles.statusBar}>
-        <Text>:tuki:</Text>
+        <Kurac name="ddebil"/>
       </View>
     );
   }
