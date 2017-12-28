@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <View style={styles.statusBar}>
-        <Kurac name="ddebil"/>
+        <Kurac name="d-debil" />
       </View>
     );
   }
