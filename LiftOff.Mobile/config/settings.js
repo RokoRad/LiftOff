@@ -1,9 +1,10 @@
+// definiranje postavki jezika
 let lang = 'hr',
     language;
 
+// za naznačeni jezik vraćamo response, default je engleski
 if (lang === 'hr') {
   import('./languages/hr.js').then((response) => { 
-    console.log(response);
     language = response.language;
   });
 } else {
@@ -12,4 +13,5 @@ if (lang === 'hr') {
   });
 }
 
+// vraćanje jezika
 export { language };
