@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import Kurac from './components/Kurac';
 import { styles } from './styles.js';
-import { storage } from './functions/storage.js'
+import { storage } from './functions/storage';
+
 class App extends React.Component {
   render() {
     return (
