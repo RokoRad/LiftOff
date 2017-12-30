@@ -1,2 +1,2 @@
-let language = 'en';
-export default language;
+let lang = 'en';
+export default lang;
