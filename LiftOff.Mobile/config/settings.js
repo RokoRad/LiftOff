@@ -1,2 +1,9 @@
 let lang = 'en';
-export default lang;
+
+if (lang === 'en') {
+  import { language } from './languages/en.js';
+} else if (lang === 'hr') {
+  import { language } from './languages/hr.js';
+}
+
+export { language };

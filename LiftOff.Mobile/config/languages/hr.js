@@ -1,5 +1,5 @@
 const language = {
-  testString: 'hrv-testString'
-}
+  testString: 'hrv'
+};
 
-export default language;
+export { language };
