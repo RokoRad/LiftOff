@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <View style={styles.statusBar}>
-        <Screen>ee</Screen>
+        <Screen>{this.children}</Screen>
       </View>
     );
   }
