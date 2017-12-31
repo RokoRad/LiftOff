@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import { NavigationItem } from '../NavigationItem';
-import { styles } from './styles.js';
+import NavigationItem from '../NavigationItem';
+import styles from './styles.js';
 //import { language } from '../../config/settings.js';
 
 const Navigation = (props) => (
