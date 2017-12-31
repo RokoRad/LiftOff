@@ -5,6 +5,7 @@ import { Navigation } from '../Navigation';
 
 const Screen = (props) => (
     <View {...props}>
+      {this.children}
       <Navigation />
     </View>
 );
