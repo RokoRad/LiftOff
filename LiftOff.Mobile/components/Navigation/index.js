@@ -4,11 +4,11 @@ import { styles } from './styles.js';
 //import { language } from '../../config/settings.js';
 
 const Navigation = (props) => (
-    <View>
-      <Text></Text>
-      <Text></Text>
-      <Text></Text>
-      <Text></Text>
+    <View style={styles.navigation}>
+      <Text style={styles.navigationItem}>a</Text>
+      <Text style={styles.navigationItem}>b</Text>
+      <Text style={styles.navigationItem}>c</Text>
+      <Text style={styles.navigationItem}>d</Text>
     </View>
 );
 
