@@ -1,9 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import styles from './styles.js';
 import LoginInput from '../LoginInput';
 import FacebookButton from '../FacebookButton';
 import LoginButton from '../LoginButton';
+import { language } from '../../config/settings.js';
 
 const LoginRegistration = () => (
   <View>
