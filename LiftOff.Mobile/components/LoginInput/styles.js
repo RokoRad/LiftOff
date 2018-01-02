@@ -1,7 +1,31 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-
+  loginInputWrapper: {
+    position: 'relative',
+    width: 230,
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  },
+  loginInputEmailIcon: {
+    position: 'absolute',
+    left: 0,
+    bottom: 10,
+    height: 11.25,
+    width: 15
+  },
+  loginInputPasswordIcon: {
+    position: 'absolute',
+    left: -3,
+    bottom: 10,
+    height: 10,
+    width: 20.25
+  },
+  loginInput: {
+    marginLeft: 20,
+    padding: 10,
+    paddingLeft: 5
+  }
 });
 
 export default styles;

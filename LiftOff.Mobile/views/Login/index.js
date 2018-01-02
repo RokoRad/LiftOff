@@ -5,7 +5,8 @@ import styles from './styles.js';
 
 const Login = () => (
     <View>
-      <LoginInput icon="" placeholder="kurac" />
+      <LoginInput icon="email" placeholder="kurac" />
+      <LoginInput icon="password" placeholder="kurac" />
     </View>
 );
 
