@@ -7,11 +7,17 @@ import LoginButton from '../../components/LoginButton';
 import LoginInput from '../../components/LoginInput';
 
 const Login = () => (
-  <View>
+  <View style={styles.loginWrapper}>
     <LoginHolder />
-    <LoginSwitch />
-    <LoginInput icon="Email" />
-    <LoginButton type="signIn" />
+    <View style={styles.loginBody}>
+      <LoginSwitch />
+      <View style={styles.inputWrapper}>
+        <LoginInput icon="Email" />
+        <LoginInput icon="Password" />
+        {/* FORGOT PASS AND FB LOGIN */}
+      </View>
+      <LoginButton type="signIn" />
+    </View>
   </View>
 );
 
