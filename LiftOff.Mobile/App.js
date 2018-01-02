@@ -12,7 +12,8 @@ import storage from './functions/storage';
 
 class App extends React.Component {
   state = {
-    loaded: false
+    loaded: false,
+    logged: storage.get('logged')
   }
 
   componentWillMount() {
@@ -33,13 +34,13 @@ class App extends React.Component {
 
   render() {
     if(!this.state.loaded) {
-      return <Splash />;
+      return null;
     } else {
       return (
         <NativeRouter style={[styles.statusBar, styles.fullScreen]}>
           <View style={[styles.statusBar, styles.fullScreen]}>
             {
-              storage.get('logged')
+              this.state.logged
               ? <Home />
               : <Login />
             }
