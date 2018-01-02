@@ -2,13 +2,15 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   inputWrapper: {
-    marginTop: 30,
-    marginBottom: 40
+    paddingTop: 45,
+    paddingBottom: 45,
+    backgroundColor: '#fff'
   },
   loginWrapper: {
     position: 'relative',
     height: '100%',
-    width: '100%'
+    width: '100%',
+    backgroundColor: '#3498db'
   },
   loginBody: {
     position: 'absolute',

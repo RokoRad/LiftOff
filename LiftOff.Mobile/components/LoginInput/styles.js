@@ -5,7 +5,9 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: 230,
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    marginTop: 5,
+    marginBottom: 5
   },
   loginInputEmailIcon: {
     position: 'absolute',
