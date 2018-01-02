@@ -5,7 +5,7 @@ import styles from './styles.js';
 // import Login from './views/Login';
 import { NativeRouter } from 'react-router-native';
 import { Font } from "expo";
-import LoginSwitch from './components/LoginSwitch'
+import Login from './views/Login'
 
 class App extends React.Component {
   state = {
@@ -39,7 +39,7 @@ class App extends React.Component {
             {
               // storage logged, else Login
             }
-            <LoginSwitch />
+            <Login />
           </View>
         </NativeRouter>
       );

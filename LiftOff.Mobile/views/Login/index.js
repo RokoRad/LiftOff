@@ -1,13 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import LoginInput from '../../components/LoginInput'
+import { View } from 'react-native';
 import styles from './styles.js';
+import LoginHolder from '../../components/LoginHolder';
+import LoginSwitch from '../../components/LoginSwitch';
+import LoginButton from '../../components/LoginButton';
+import LoginInput from '../../components/LoginInput';
 
 const Login = () => (
-    <View>
-      <LoginInput icon="Email" />
-      <LoginInput icon="Password" />
-    </View>
+  <View>
+    <LoginHolder />
+    <LoginSwitch />
+    <LoginInput icon="Email" />
+    <LoginButton type="signIn" />
+  </View>
 );
 
 export default Login;
