@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <NativeRouter>
         <View style={styles.statusBar}>
-          <Text>kurac</Text>
+          <Text>kuracc</Text>
           <Screen>eeee</Screen>
         </View>
       </NativeRouter>
