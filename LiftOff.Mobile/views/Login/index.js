@@ -7,6 +7,7 @@ import LoginSwitch from '../../components/LoginSwitch';
 import LoginButton from '../../components/LoginButton';
 import LoginInput from '../../components/LoginInput';
 import FacebookButton from '../../components/FacebookButton';
+import { Route, Link } from 'react-router-native';
 import { language } from '../../config/settings.js';
 
 const Login = () => (

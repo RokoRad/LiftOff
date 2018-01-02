@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles.js';
-import { language } from '../../config/settings.js'
+import { language } from '../../config/settings.js';
 
 const LoginSwitch = (props) => (
   <View style={styles.loginSwitchContainer}>
