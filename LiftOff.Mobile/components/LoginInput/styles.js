@@ -5,26 +5,31 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: 230,
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    marginTop: 5,
+    marginBottom: 5
   },
   loginInputEmailIcon: {
     position: 'absolute',
     left: 0,
-    bottom: 8,
+    bottom: 10,
     height: 15,
     width: 20
   },
   loginInputPasswordIcon: {
     position: 'absolute',
     left: 0,
-    bottom: 8,
+    bottom: 10,
     height: 14.5,
     width: 20
   },
   loginInput: {
-    marginLeft: 20,
+    marginLeft: 25,
     padding: 10,
-    paddingLeft: 5
+    paddingLeft: 5,
+    color: '#737373',
+    fontSize: 16,
+    fontFamily: 'barlowBold'
   }
 });
 
