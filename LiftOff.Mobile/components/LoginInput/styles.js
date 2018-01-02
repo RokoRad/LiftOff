@@ -16,10 +16,10 @@ const styles = StyleSheet.create({
   },
   loginInputPasswordIcon: {
     position: 'absolute',
-    left: -3,
+    left: 0,
     bottom: 10,
-    height: 10,
-    width: 20.25
+    height: 15,
+    width: 20
   },
   loginInput: {
     marginLeft: 20,
