@@ -18,6 +18,16 @@ const styles = StyleSheet.create({
     left: 0,
     width: '100%',
     height: 'auto'
+  },
+  forgotPassword: {
+    textAlign: 'right',
+    fontSize: 12,
+    fontFamily: 'barlowSemiBold',
+    width: 230,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    color: '#737373',
+    marginBottom: 5
   }
 });
 

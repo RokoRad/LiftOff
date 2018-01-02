@@ -2,7 +2,8 @@
 const language = {
   signIn: 'Sign in',
   signUp: 'Sign up',
-  facebook: 'Sign in with Facebook'
+  facebook: 'Sign in with Facebook',
+  forgotPassword: 'Forgot password?'
 };
 
 // vraćanje stringova
