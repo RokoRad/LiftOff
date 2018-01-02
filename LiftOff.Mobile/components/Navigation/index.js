@@ -1,13 +1,15 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-//import NavigationItem from '../NavigationItem';
+import NavigationItem from '../NavigationItem';
 import styles from './styles.js';
-//import { language } from '../../config/settings.js';
 
-const Navigation = (props) => (
+const Navigation = () => (
     <View style={styles.navigation}>
-      {/* <NavigationItem icon="" text="" /> */}
-      <Text>aaaa</Text>
+      <NavigationItem icon="" route="" />
+      <NavigationItem icon="" route="" />
+      <NavigationItem icon="" button />
+      <NavigationItem icon="" route="" />
+      <NavigationItem icon="" route="" />
     </View>
 );
 
