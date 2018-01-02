@@ -24,7 +24,10 @@ const styles = StyleSheet.create({
   loginInput: {
     marginLeft: 20,
     padding: 10,
-    paddingLeft: 5
+    paddingLeft: 5,
+    color: '#737373',
+    fontSize: 16,
+    fontFamily: 'barlowBold'
   }
 });
 
