@@ -7,7 +7,7 @@ const Navigation = () => (
     <View style={styles.navigation}>
       <NavigationItem icon="" route="" />
       <NavigationItem icon="" route="" />
-      <NavigationItem icon="" button />
+      <NavigationItem icon="" route="" button />
       <NavigationItem icon="" route="" />
       <NavigationItem icon="" route="" />
     </View>

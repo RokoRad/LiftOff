@@ -4,7 +4,11 @@ import styles from './styles.js';
 
 const NavigationItem = (props) => (
   <TouchableHighlight style={styles.navigationItem}>
-    <Image source={require('../../images/map-icon.png')} stlye={styles.navigationItemImage}/>
+    {
+      props.button 
+      ? <Text style={{backgroundColor: 'red'}}>LitOff</Text>
+      : <Image source={require('../../images/map-icon.png')} style={styles.navigationItemImage}/>
+    }
   </TouchableHighlight>
 );
 

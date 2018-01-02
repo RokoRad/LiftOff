@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#2980B9'
   },
   navigationItemImage: {
-    height: 30,
-    width: 30
+    height: 10,
+    width: 10
   }
 });
 
