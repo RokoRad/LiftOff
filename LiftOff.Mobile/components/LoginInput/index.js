@@ -5,11 +5,11 @@ import styles from './styles.js';
 const LoginInput = (props) => (
     <View style={styles.loginInputWrapper}>
       {
-        props.icon === 'email' 
+        props.icon === 'Email' 
         ? <Image source={require('../../images/email-icon.png')} style={styles.loginInputEmailIcon} resizeMode="contain"/>
         : <Image source={require('../../images/password-icon.png')} style={styles.loginInputPasswordIcon}/>
       }
-      <TextInput placeholder={props.placeholder} style={styles.loginInput} placeholderTextColor="#737373" />
+      <TextInput placeholder={props.icon} style={styles.loginInput} placeholderTextColor="#737373" />
     </View>
 );
 
