@@ -4,12 +4,12 @@ import styles from './styles.js';
 import { language } from '../../config/settings.js'
 
 const LoginSwitch = (props) => (
-  <View style={}>
+  <View style={styles.loginSwitchContainer}>
     <TouchableOpacity style={styles.loginSwitchWrapper}>
-      <Text style={styles.loginSwitchItem}>{language.singIn}<Text>
+      <Text style={styles.loginSwitchItem}>{language.signIn}</Text>
     </TouchableOpacity>
     <TouchableOpacity style={styles.loginSwitchWrapper}>
-      <Text style={styles.loginSwitchItem}>{language.singUp}<Text>
+      <Text style={styles.loginSwitchItem}>{language.signUp}</Text>
     </TouchableOpacity>
   </View>
 );

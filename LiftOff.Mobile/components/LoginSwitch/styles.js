@@ -1,19 +1,22 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  loginButtonWrapper: {
-    width: '100%',
-    backgroundColor: '#3498db',
-    display: 'flex',
-    alignItems: 'center'
+  loginSwitchWrapper: {
+    backgroundColor: 'red',
+    paddingTop: 25,
+    paddingBottom: 25,
+    width: '50%',
+    backgroundColor: '#3498db' // 2980b9 za active
   },
-  loginButton: {
-    paddingTop: 15,
-    paddingBottom: 15,
+  loginSwitchItem: {
     textAlign: 'center',
-    color: '#fff',
     fontFamily: 'barlowExtraBold',
+    color: '#fff',
     fontSize: 20
+  },
+  loginSwitchContainer: {
+    display: 'flex',
+    flexDirection: 'row'
   }
 });
 
