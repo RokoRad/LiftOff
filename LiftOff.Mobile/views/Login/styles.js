@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   inputWrapper: {
     paddingTop: 45,
-    paddingBottom: 45,
+    paddingBottom: 35,
     backgroundColor: '#fff'
   },
   loginWrapper: {

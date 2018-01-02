@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     width: 20
   },
   loginInput: {
-    marginLeft: 20,
+    marginLeft: 25,
     padding: 10,
     paddingLeft: 5,
     color: '#737373',
