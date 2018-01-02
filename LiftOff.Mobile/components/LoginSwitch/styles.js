@@ -8,6 +8,13 @@ const styles = StyleSheet.create({
     width: '50%',
     backgroundColor: '#3498db' // 2980b9 za active
   },
+  loginSwitchWrapperActive: {
+    backgroundColor: 'red',
+    paddingTop: 25,
+    paddingBottom: 25,
+    width: '50%',
+    backgroundColor: '#2980b9'
+  },
   loginSwitchItem: {
     textAlign: 'center',
     fontFamily: 'barlowExtraBold',
