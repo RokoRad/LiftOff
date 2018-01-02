@@ -12,3 +12,5 @@ export const storage = {
     Promise.all(AsyncStorage.removeItem(key).then((response) => response));
   }
 };
+
+export default storage;

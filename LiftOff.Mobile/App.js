@@ -5,7 +5,10 @@ import styles from './styles.js';
 // import Login from './views/Login';
 import { NativeRouter } from 'react-router-native';
 import { Font } from "expo";
-import Login from './views/Login'
+import Login from './views/Login';
+import Home from './views/Home';
+import Splash from './views/Spash';
+import storage from './functions/storage';
 
 class App extends React.Component {
   state = {
@@ -30,16 +33,16 @@ class App extends React.Component {
 
   render() {
     if(!this.state.loaded) {
-      return null;
-      // splash
+      return <Splash />;
     } else {
       return (
         <NativeRouter style={[styles.statusBar, styles.fullScreen]}>
           <View style={[styles.statusBar, styles.fullScreen]}>
             {
-              // storage logged, else Login
+              storage.get('logged')
+              ? <Home />
+              : <Login />
             }
-            <Login />
           </View>
         </NativeRouter>
       );
