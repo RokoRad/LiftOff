@@ -1,6 +1,7 @@
 // objekt sa stringovima engleskog jezika
 const language = {
-  testString: 'eng'
+  signIn: 'Sign in',
+  signUp: 'Sign up'
 };
 
 // vraćanje stringova
