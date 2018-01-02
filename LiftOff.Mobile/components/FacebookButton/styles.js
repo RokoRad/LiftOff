@@ -6,12 +6,17 @@ const styles = StyleSheet.create({
     width: 230,
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginTop: 5,
-    marginBottom: 40
-
+    marginTop: 10,
+    marginBottom: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8
   },
   facebookButton: {
-
+    textAlign: 'center',
+    fontSize: 16,
+    color: '#fff',
+    fontFamily: 'barlowExtraBold'
   }
 });
 
