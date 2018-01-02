@@ -10,9 +10,9 @@ const styles = StyleSheet.create({
   loginInputEmailIcon: {
     position: 'absolute',
     left: 0,
-    bottom: 10,
-    height: 11.25,
-    width: 15
+    bottom: 8,
+    height: 15,
+    width: 20
   },
   loginInputPasswordIcon: {
     position: 'absolute',
