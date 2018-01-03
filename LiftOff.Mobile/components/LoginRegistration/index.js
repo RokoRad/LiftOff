@@ -12,7 +12,7 @@ const LoginRegistration = () => (
       <LoginInput icon="Email"/>
       <LoginInput icon="Password" />
       <Text style={styles.forgotPassword}>{language.forgotPassword}</Text>
-      <FacebookButton />
+      <FacebookButton type="registration" />
     </View>
     <LoginButton type="signIn" />
   </View>

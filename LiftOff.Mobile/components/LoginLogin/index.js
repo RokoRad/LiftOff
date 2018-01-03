@@ -11,7 +11,7 @@ const LoginLogin = () => (
       <LoginInput icon="Email"/>
       <LoginInput icon="Email"/>
       <LoginInput icon="Password" />
-      <FacebookButton />
+      <FacebookButton type="login" />
     </View>
     <LoginButton type="signUp" />
   </View>
