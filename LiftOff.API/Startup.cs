@@ -23,6 +23,7 @@ namespace LiftOff.API
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
+            app.MapSignalR();
         }
 
         public void ConfigureOAuth(IAppBuilder app)
