@@ -5,10 +5,6 @@ import { NativeRouter, Route } from 'react-router-native';
 import { Font } from "expo";
 // import Login from './views/Login';
 import Home from './views/Home';
-import Map from './views/Map';
-import Settings from './views/Settings';
-import Stopwatch from './views/Stopwatch';
-import Account from './views/Account';
 // import Splash from './views/Splash';
 import storage from './functions/storage';
 
@@ -39,7 +35,7 @@ class App extends React.Component {
       return null;
     } else {
       return (
-        <NativeRouter style={[styles.statusBar, styles.fullScreen]}>
+        <NativeRouter>
           <View style={[styles.statusBar, styles.fullScreen]}>
             {/* {
               this.state.logged
@@ -47,10 +43,7 @@ class App extends React.Component {
               : <Login />
             } */}
             <Route path="/" component={Home} />
-            <Route path="/account" component={Account} />
-            {/* <Route path="/" component={Home} />
-            <Route path="/" component={Home} />
-            <Route path="/" component={Home} /> */}
+            {console.log("index")}
           </View>
         </NativeRouter>
       );

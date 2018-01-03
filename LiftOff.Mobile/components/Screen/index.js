@@ -6,7 +6,7 @@ import Navigation from '../Navigation';
 // view ima screen sa prikazom contenta i navigacije
 const Screen = (props) => (
     <View {...props} style={styles.screen}>
-      {this.children}
+      {props.children}
       <Navigation current={props.current} />
     </View>
 );
