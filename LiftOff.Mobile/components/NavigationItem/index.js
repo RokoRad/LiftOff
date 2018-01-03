@@ -9,7 +9,7 @@ const ActiveNavItem = (props) => (
     <TouchableHighlight style={styles.navigationItemActive}>
       <View>
         <Image source={require('../../images/user-nav.png')} style={styles.navigationImage}/>
-        <Text style={styles.navigationText}>kurac</Text>
+        <Text style={styles.navigationText}>{language.props.type}</Text>
       </View>
     </TouchableHighlight>
   </Link> 
@@ -20,7 +20,7 @@ const InactiveNavItem = (props) => (
     <TouchableHighlight style={styles.navigationItem}>
       <View>
         <Image source={require('../../images/user-nav.png')} style={styles.navigationImage}/>
-        <Text style={styles.navigationText}>Account</Text>
+        <Text style={styles.navigationText}>{language.props.type}</Text>
       </View>
     </TouchableHighlight>
   </Link> 

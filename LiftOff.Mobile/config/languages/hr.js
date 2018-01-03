@@ -3,7 +3,12 @@ const language = {
   signIn: 'Prijavi se',
   signUp: 'Registriraj se',
   facebook: 'Prijavi se putem Facebooka',
-  forgotPassword: 'Izgubljena lozinka?'
+  forgotPassword: 'Izgubljena lozinka?',
+  Home: 'Početna',
+  Map: 'Mapa',
+  LiftOff: 'LiftOff',
+  Account: 'Račun',
+  Settings: 'Postavke'
 };
 
 // vraćanje stringova
