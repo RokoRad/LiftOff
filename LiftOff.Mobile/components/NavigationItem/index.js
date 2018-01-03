@@ -5,7 +5,7 @@ import styles from './styles.js';
 
 const ActiveNavItem = (props) => (
   <Link to={props.route} style={styles.navigationItemWrapper} >
-    <TouchableHighlight style={styles.navigationItem}>
+    <TouchableHighlight style={styles.navigationItemActive}>
       <View>
         <Image source={require('../../images/user-nav.png')} style={styles.navigationImage}/>
         <Text style={styles.navigationText}>kurac</Text>
