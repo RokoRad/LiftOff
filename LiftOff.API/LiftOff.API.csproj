@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Data\AuthContext.cs" />
     <Compile Include="Data\Repos\AuthRepo.cs" />
     <Compile Include="Controllers\AccountController.cs" />
