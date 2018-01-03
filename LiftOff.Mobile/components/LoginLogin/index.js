@@ -1,9 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles.js';
 import LoginInput from '../LoginInput';
 import FacebookButton from '../FacebookButton';
 import LoginButton from '../LoginButton';
+
+const signUp = () => (
+  console.log("signup")
+);
 
 const LoginLogin = () => (
   <View>
@@ -13,7 +17,9 @@ const LoginLogin = () => (
       <LoginInput icon="Password" />
       <FacebookButton type="login" />
     </View>
-    <LoginButton type="signUp" />
+    <TouchableWithoutFeedback onPress={() => signUp()}>
+      <LoginButton type="signUp" />
+    </TouchableWithoutFeedback>
   </View>
 );
 

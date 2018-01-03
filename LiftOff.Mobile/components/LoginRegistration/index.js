@@ -10,6 +10,10 @@ const forgotPassword = () => (
   console.log("forgotPassword")
 );
 
+const signIn = () => (
+  console.log("signin")
+);
+
 const LoginRegistration = () => (
   <View>
     <View style={styles.inputWrapper}>
@@ -22,7 +26,9 @@ const LoginRegistration = () => (
       </TouchableWithoutFeedback>
       <FacebookButton type="registration" />
     </View>
-    <LoginButton type="signIn" />
+    <TouchableWithoutFeedback onPress={() => (signIn())}>
+      <LoginButton type="signIn" />
+    </TouchableWithoutFeedback>
   </View>
 );
 
