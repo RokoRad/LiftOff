@@ -6,14 +6,18 @@ import FacebookButton from '../FacebookButton';
 import LoginButton from '../LoginButton';
 import { language } from '../../config/settings.js';
 
-const signUp = () => (
-  console.log(loginData)
-);
-
 const loginData = {
   email: null,
   password: null
 };
+
+const signIn = () => (
+  console.log(loginData)
+);
+
+const forgotPassword = () => (
+  console.log("forgotPassword")
+);
 
 const LoginLogin = () => (
   <View>
@@ -27,7 +31,7 @@ const LoginLogin = () => (
       </TouchableWithoutFeedback>
       <FacebookButton type="login" />
     </View>
-    <TouchableWithoutFeedback onPress={() => signUp()}>
+    <TouchableWithoutFeedback onPress={() => signIn()}>
       <LoginButton type="signIn" />
     </TouchableWithoutFeedback>
   </View>
