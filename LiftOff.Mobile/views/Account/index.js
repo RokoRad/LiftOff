@@ -5,7 +5,7 @@ import styles from './styles.js';
 
 const Account = ({location}) => (
   <Screen current={location}>
-    account screen
+    <Text>account</Text>
   </Screen>
 );
 

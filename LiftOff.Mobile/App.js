@@ -5,6 +5,7 @@ import { NativeRouter, Route } from 'react-router-native';
 import { Font } from "expo";
 // import Login from './views/Login';
 import Home from './views/Home';
+import Account from './views/Account';
 // import Splash from './views/Splash';
 import storage from './functions/storage';
 
@@ -43,6 +44,7 @@ class App extends React.Component {
               : <Login />
             } */}
             <Route path="/" component={Home} />
+            <Route path="/account" component={Account} />
             {console.log("index")}
           </View>
         </NativeRouter>
