@@ -6,6 +6,9 @@ import { Font } from "expo";
 // import Login from './views/Login';
 import Home from './views/Home';
 import Account from './views/Account';
+import Map from './views/Map';
+import Stopwatch from './views/Stopwatch';
+import Settings from './views/Settings';
 // import Splash from './views/Splash';
 import storage from './functions/storage';
 
@@ -43,9 +46,11 @@ class App extends React.Component {
               ? <Home />
               : <Login />
             } */}
-            <Route path="/" component={Home} />
-            <Route path="/account" component={Account} />
-            {console.log("index")}
+            <Route exact strict path="/" component={Home} />
+            <Route exact strict path="/account" component={Account} />
+            <Route exact strict path="/map" component={Map} />
+            <Route exact strict path="/liftoff" component={Stopwatch} />
+            <Route exact strict path="/settings" component={Settings} />
           </View>
         </NativeRouter>
       );

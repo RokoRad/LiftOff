@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles.js';
+import Screen from '../../components/Screen';
 
-const Map = () => (
-  <View>
+const Map = ({location}) => (
+  <Screen current={location}>
     <Text>
       Map
     </Text>
-  </View>
+  </Screen>
 );
 
 export default Map;
