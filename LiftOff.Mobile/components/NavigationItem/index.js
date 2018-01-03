@@ -6,14 +6,14 @@ import { language } from '../../config/settings.js';
 
 const ActiveNavItem = (props) => {
   let string = props.type;
-  console.log(language.string);
+  console.log(string);
 
   return (
     <Link to={props.route} style={styles.navigationItemWrapper} >
       <TouchableHighlight style={styles.navigationItemActive}>
         <View>
           <Image source={require('../../images/user-nav.png')} style={styles.navigationImage}/>
-          <Text style={styles.navigationText}>{language.string}</Text>
+          <Text style={styles.navigationText}>{language.Home}</Text>
         </View>
       </TouchableHighlight>
     </Link> 
@@ -22,14 +22,14 @@ const ActiveNavItem = (props) => {
 
 const InactiveNavItem = (props) => {
   let string = props.type;
-  console.log(language.string);
+  console.log(string);
 
   return (
     <Link to={props.route} style={styles.navigationItemWrapper} >
       <TouchableHighlight style={styles.navigationItem}>
         <View>
           <Image source={require('../../images/user-nav.png')} style={styles.navigationImage}/>
-          <Text style={styles.navigationText}>{language.string}</Text>
+          <Text style={styles.navigationText}>{language.Home}</Text>
         </View>
       </TouchableHighlight>
     </Link> 
