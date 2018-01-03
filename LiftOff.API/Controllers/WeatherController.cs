@@ -1,5 +1,6 @@
 ﻿using LiftOff.API.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,7 +27,7 @@ namespace LiftOff.API.Controllers
             string city;
 
             apiKey = "3939e3c3ea8f513efb798c6deb5f9857";
-            city = "Split";
+            city = "Sydney";
 
             HttpWebRequest apiRequest = WebRequest.Create(
                 "http://api.openweathermap.org/data/2.5/weather?q=" + city 
@@ -40,7 +41,12 @@ namespace LiftOff.API.Controllers
                 apiResponse = reader.ReadToEnd();
             }
 
+            JObject json = JObject.Parse(apiResponse);
             ResponseWeather rootObject = JsonConvert.DeserializeObject<ResponseWeather>(apiResponse);
+
+            
+            if(json["rain"] != null) rootObject.Rain = new Rain { ThreeHours = json["rain"]["3h"].ToObject<int>() };
+            if(json["snow"] != null) rootObject.Snow = new Snow { ThreeHours = json["snow"]["3h"].ToObject<int>() };
             rootObject.UV = RequestUV(rootObject.Coord.Lat, rootObject.Coord.Lon);
 
             return rootObject;

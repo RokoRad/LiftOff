@@ -33,6 +33,8 @@ namespace LiftOff.API.Models
         public int Humidity { get; set; }
         public int Temp_min { get; set; }
         public int Temp_max { get; set; }
+        public int Sea_level { get; set; }
+        public int Ground_level { get; set; }
     }
 
     public class Wind
@@ -65,6 +67,16 @@ namespace LiftOff.API.Models
         public double Value { get; set; }
     }
 
+    public class Rain
+    {
+        public int ThreeHours { get; set; }
+    }
+
+    public class Snow
+    {
+        public int ThreeHours { get; set; }
+    }
+
     public class ResponseWeather
     {
         public Coord Coord { get; set; }
@@ -74,6 +86,8 @@ namespace LiftOff.API.Models
         public int Visibility { get; set; }
         public Wind Wind { get; set; }
         public Clouds Clouds { get; set; }
+        public Rain Rain { get; set; }
+        public Snow Snow { get; set; }
         public int Dt { get; set; }
         public Sys Sys { get; set; }
         public int Id { get; set; }
