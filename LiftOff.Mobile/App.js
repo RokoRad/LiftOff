@@ -5,7 +5,7 @@ import { NativeRouter } from 'react-router-native';
 import { Font } from "expo";
 // import Login from './views/Login';
 // import Home from './views/Home';
-import Splash from './views/Splash';
+// import Splash from './views/Splash';
 import storage from './functions/storage';
 
 import Navigation from './components/Navigation';

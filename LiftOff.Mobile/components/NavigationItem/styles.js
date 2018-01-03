@@ -1,16 +1,19 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  navigationItemWrapper: {
+    flex: 1
+  },
   navigationItem: {
-    flexGrow: 1
+    width: '100%',
+    backgroundColor: 'purple'
   },
-  navigationItemActive: {
-    flexGrow: 1,
-    backgroundColor: '#2980B9'
+  navigationImage: {
+    backgroundColor: 'pink'
   },
-  navigationItemImage: {
-    height: 10,
-    width: 10
+  navigationText: {
+    textAlign: 'center',
+    backgroundColor: 'orange'
   }
 });
 
