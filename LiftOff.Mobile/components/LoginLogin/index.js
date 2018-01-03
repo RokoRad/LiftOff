@@ -8,7 +8,7 @@ import LoginButton from '../LoginButton';
 const LoginLogin = () => (
   <View>
     <View style={styles.inputWrapper}>
-      <LoginInput icon="Email"/>
+      <LoginInput icon="Full name"/>
       <LoginInput icon="Email"/>
       <LoginInput icon="Password" />
       <FacebookButton type="login" />

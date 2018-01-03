@@ -7,7 +7,9 @@ const LoginInput = (props) => (
       {
         props.icon === 'Email' 
         ? <Image source={require('../../images/email-icon.png')} style={styles.loginInputEmailIcon}/>
-        : <Image source={require('../../images/password-icon.png')} style={styles.loginInputPasswordIcon}/>
+        : props.icon === 'Password' 
+          ? <Image source={require('../../images/password-icon.png')} style={styles.loginInputPasswordIcon}/>
+          : <Image source={require('../../images/user-icon.png')} style={styles.loginInputEmailIcon}/>
       }
       <TextInput placeholder={props.icon} style={styles.loginInput} placeholderTextColor="#737373" />
     </View>
