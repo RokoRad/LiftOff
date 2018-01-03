@@ -4,7 +4,7 @@ import styles from './styles.js';
 
 const LoginHolder = (props) => (
   <View style={styles.loginHolder}>
-    <Text>kurcic</Text>
+    <Text>kurcicc</Text>
   </View>
 
 );
