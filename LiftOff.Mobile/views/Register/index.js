@@ -19,7 +19,7 @@ const Registration = () => (
     <LoginHolder />
     <View style={styles.loginBody}>
       <LoginSwitch route="registration" />
-      <LoginRegistration />
+      <LoginLogin />
       <KeyboardSpacer />
     </View>
     <Route path="/login" component={Login} />
