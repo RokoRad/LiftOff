@@ -15,7 +15,7 @@ import Registration from '../../views/Register'; // dohvaćanje iduće rute
 // kreiranje viewa
 const Login = () => (
   <View style={styles.loginWrapper}>
-    <LoginHolder />
+    <LoginHolder type="login" />
     <View style={styles.loginBody}>
       <LoginSwitch route="login" />
       <LoginRegistration />
