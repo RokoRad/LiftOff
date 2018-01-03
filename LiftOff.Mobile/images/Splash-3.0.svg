@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320px" height="568px" viewBox="0 0 320 568" version="1.1" style="background: #3498DB;">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Splash-3.0</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M18.46,57.705817 C27.2464279,43.6007103 41.3033695,38.225 77.7176385,38.225 C114.131907,38.225 129.088023,43.5133644 138.463333,57.705817 C147.27815,71.0497879 97.9321094,76.45 106,93.297847 C115.412929,112.954483 44.3952039,111.693948 51,93.297847 C58.4819647,72.4586002 10.093293,71.1371338 18.46,57.705817 Z" id="path-1"/>
+        <rect id="path-2" x="41.5866667" y="21.2727273" width="19.2" height="6.90909091" rx="3.38"/>
+        <polygon id="path-3" points="5.76 9.78181804 11.1479134 4.83636364 5.76 0.208028343 0.372086591 4.83636364"/>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Splash-3.0">
+            <text id="LiftOff" font-family="Barlow-ExtraBold, Barlow" font-size="60" font-weight="600" letter-spacing="-0.0250000041" fill="#FFFFFF">
+                <tspan x="69.835" y="355">LiftOff</tspan>
+            </text>
+            <g id="Drone-2.12" transform="translate(159.962933, 204.089700) rotate(20.000000) translate(-159.962933, -204.089700) translate(80.462933, 136.089700)">
+                <rect id="Rectangle-20" fill="#FFFFFF" transform="translate(129.355000, 110.937500) rotate(90.000000) translate(-129.355000, -110.937500) " x="105.03" y="102.25" width="48.65" height="17.375" rx="8.6875"/>
+                <rect id="Rectangle-20" fill="#FFFFFF" transform="translate(115.173859, 83.371542) rotate(37.000000) translate(-115.173859, -83.371542) " x="89.529108" y="74.6840422" width="51.2895014" height="17.375" rx="8.6875"/>
+                <rect id="Rectangle-20" fill="#FFFFFF" transform="translate(27.568333, 110.937500) rotate(90.000000) translate(-27.568333, -110.937500) " x="3.24333333" y="102.25" width="48.65" height="17.375" rx="8.6875"/>
+                <rect id="Rectangle-5" fill="#FFFFFF" x="0" y="10.425" width="56.7045913" height="17.375" rx="8"/>
+                <rect id="Rectangle-5" fill="#FFFFFF" x="101.786667" y="10.425" width="56.7045913" height="17.375" rx="8"/>
+                <rect id="Rectangle-20" fill="#FFFFFF" transform="translate(41.257261, 83.371542) scale(-1, 1) rotate(37.000000) translate(-41.257261, -83.371542) " x="15.6125103" y="74.6840422" width="51.2895014" height="17.375" rx="8.6875"/>
+                <g id="Rectangle-9">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"/>
+                    <path stroke="#3498DB" stroke-width="3" d="M19.7331832,58.4989151 C28.4185195,44.5560935 42.6678791,39.725 77.7176385,39.725 C113.075367,39.725 128.017296,44.6139101 137.211755,58.5325896 C139.578717,62.1157235 136.683783,65.2217937 127.269799,70.10748 C126.457976,70.5288016 125.596446,70.9664233 124.500123,71.5163196 C124.034512,71.7498619 122.126366,72.703013 121.640949,72.9464999 C114.527174,76.5147988 110.776899,78.7261601 107.823487,81.4654743 C103.746882,85.2465593 102.467843,89.3948061 104.647118,93.9456984 C106.436952,97.6833342 104.797251,100.571234 99.831974,102.810014 C95.0176433,104.980735 87.5792469,106.147833 79.5680533,106.067698 C71.5934576,105.98793 63.9267455,104.680143 58.7231106,102.444708 C53.3355191,100.130247 51.1890012,97.2104393 52.4117659,93.8047167 C54.3459803,88.4174192 53.0450893,83.7994398 49.0267325,79.8421295 C46.0179627,76.8790687 41.963535,74.5356149 35.2607337,71.4687696 C35.0759763,71.3842344 29.5950834,68.9203742 28.1306893,68.2273671 C19.9922706,64.3759572 17.646771,61.8482928 19.7331832,58.4989151 Z"/>
+                </g>
+                <rect id="Rectangle-18" fill="#FFFFFF" x="19.46" y="-4.47641924e-12" width="16.2166667" height="66.025" rx="8.10833333"/>
+                <rect id="Rectangle-18" fill="#FFFFFF" x="121.246667" y="4.47641924e-12" width="16.2166667" height="66.025" rx="8.10833333"/>
+                <rect id="Rectangle-17" fill="#3498DB" x="19.46" y="27.8" width="16.2199993" height="3"/>
+                <rect id="Rectangle-17" fill="#3498DB" x="19.46" y="6.95" width="16.2199993" height="3"/>
+                <rect id="Rectangle-17" fill="#3498DB" x="121.246667" y="27.8" width="16.2166667" height="3.475"/>
+                <rect id="Rectangle-17" fill="#3498DB" x="121.246667" y="6.95" width="16.2166667" height="3.475"/>
+            </g>
+            
+            <text id="Ready-for..." font-family="Barlow-ExtraBold, Barlow" font-size="10" font-weight="600" letter-spacing="-0.0114583345" fill="#FFFFFF">
+                <tspan x="72.6575" y="305">Ready for...</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

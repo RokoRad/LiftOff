@@ -1,25 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles.js';
+// dohvaćanje svih komponenti potrebnih za kreiranje viewa
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import LoginHolder from '../../components/LoginHolder';
 import LoginSwitch from '../../components/LoginSwitch';
 import LoginButton from '../../components/LoginButton';
 import LoginInput from '../../components/LoginInput';
-import LoginRegistration from '../../components/LoginRegistration';
+import LoginLogin from '../../components/LoginLogin';
 import FacebookButton from '../../components/FacebookButton';
-import storage from '../../functions/storage';
-import { language } from '../../config/settings.js';
+import { Route } from 'react-router-native'; // dohvaćanje komponent za promjenu rute
+import Registration from '../../views/Register'; // dohvaćanje iduće rute
 
-import { Link, Route } from 'react-router-native';
-import Registration from '../../views/Register';
-
+// kreiranje viewa
 const Login = () => (
   <View style={styles.loginWrapper}>
-    <LoginHolder />
+    <LoginHolder type="login" />
     <View style={styles.loginBody}>
       <LoginSwitch route="login" />
-      <LoginRegistration />
+      <LoginLogin />
       <KeyboardSpacer />
     </View>
     <Route path="/registration" component={Registration} />

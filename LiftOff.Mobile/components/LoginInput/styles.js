@@ -30,6 +30,13 @@ const styles = StyleSheet.create({
     color: '#737373',
     fontSize: 16,
     fontFamily: 'barlowBold'
+  },
+  loginInputEmailIcon: {
+    position: 'absolute',
+    left: 0,
+    bottom: 10,
+    height: 15,
+    width: 15
   }
 });
 
