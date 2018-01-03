@@ -56,6 +56,15 @@ namespace LiftOff.API.Models
         public int Sunset { get; set; }
     }
 
+    public class UV
+    {
+        public double Lon { get; set; }
+        public double Lat { get; set; }
+        public string Date_iso { get; set; }
+        public string Date { get; set; }
+        public double Value { get; set; }
+    }
+
     public class ResponseWeather
     {
         public Coord Coord { get; set; }
@@ -70,5 +79,6 @@ namespace LiftOff.API.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int Cod { get; set; }
+        public UV UV { get; set; }
     }
 }

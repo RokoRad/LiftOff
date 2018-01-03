@@ -41,6 +41,28 @@ namespace LiftOff.API.Controllers
             }
 
             ResponseWeather rootObject = JsonConvert.DeserializeObject<ResponseWeather>(apiResponse);
+            rootObject.UV = RequestUV(rootObject.Coord.Lat, rootObject.Coord.Lon);
+
+            return rootObject;
+        }
+
+        public UV RequestUV(double lat, double lon)
+        {
+            string apiKey;
+
+            apiKey = "3939e3c3ea8f513efb798c6deb5f9857";
+
+            var requestString = "http://api.openweathermap.org/data/2.5/uvi?" + "appid=" + apiKey + "&lat=" + lat.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "&lon=" + lon.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+            HttpWebRequest apiRequest = WebRequest.Create(requestString) as HttpWebRequest;
+
+            string apiResponse = "";
+            using (HttpWebResponse response = apiRequest.GetResponse() as HttpWebResponse)
+            {
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                apiResponse = reader.ReadToEnd();
+            }
+
+            UV rootObject = JsonConvert.DeserializeObject<UV>(apiResponse);
 
             return rootObject;
         }
