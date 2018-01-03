@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles.js';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
@@ -8,10 +8,7 @@ import LoginButton from '../../components/LoginButton';
 import LoginInput from '../../components/LoginInput';
 import LoginLogin from '../../components/LoginLogin';
 import FacebookButton from '../../components/FacebookButton';
-import storage from '../../functions/storage';
-import { language } from '../../config/settings.js';
-
-import { Link, Route } from 'react-router-native';
+import { Route } from 'react-router-native';
 import Login from '../../views/Login';
 
 const Registration = () => (
