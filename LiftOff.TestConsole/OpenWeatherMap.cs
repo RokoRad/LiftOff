@@ -1,10 +1,9 @@
-﻿using LiftOff.API.Logic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace LiftOff.API.Models
+namespace LiftOff.TestConsole
 {
     public class Coord
     {

@@ -8,12 +8,21 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using LiftOff.API.App_Start;
+using System.Web.Configuration;
 
 namespace LiftOff.API.Controllers
 {
     [RoutePrefix("api/weather")]
     public class WeatherController : ApiController
     {
+        private string _weatherApiKey;
+
+        public WeatherController()
+        {
+            _weatherApiKey = WebConfigurationManager.AppSettings["WeatherApiKey"];
+        }
+
         [AllowAnonymous]
         [Route("get-all")]
         public IHttpActionResult Get()
@@ -23,15 +32,12 @@ namespace LiftOff.API.Controllers
 
         public ResponseWeather RequestWeather()
         {
-            string apiKey;
             string city;
-
-            apiKey = "3939e3c3ea8f513efb798c6deb5f9857";
             city = "Sydney";
 
             HttpWebRequest apiRequest = WebRequest.Create(
                 "http://api.openweathermap.org/data/2.5/weather?q=" + city 
-                + "&appid=" + apiKey 
+                + "&appid=" + _weatherApiKey
                 + "&units=metric") as HttpWebRequest;
 
             string apiResponse = "";
@@ -54,11 +60,7 @@ namespace LiftOff.API.Controllers
 
         public UV RequestUV(double lat, double lon)
         {
-            string apiKey;
-
-            apiKey = "3939e3c3ea8f513efb798c6deb5f9857";
-
-            var requestString = "http://api.openweathermap.org/data/2.5/uvi?" + "appid=" + apiKey + "&lat=" + lat.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "&lon=" + lon.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+            var requestString = "http://api.openweathermap.org/data/2.5/uvi?" + "appid=" + _weatherApiKey + "&lat=" + lat.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "&lon=" + lon.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
             HttpWebRequest apiRequest = WebRequest.Create(requestString) as HttpWebRequest;
 
             string apiResponse = "";

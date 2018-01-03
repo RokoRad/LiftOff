@@ -128,6 +128,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\WeatherApiConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Controllers\WeatherController.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Logic\TLTracker.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
