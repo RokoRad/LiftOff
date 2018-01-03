@@ -1,0 +1,5 @@
+Y:\Desktop\LiftOff\LiftOff.Domain\obj\Debug\LiftOff.Domain.csprojResolveAssemblyReference.cache
+Y:\Desktop\LiftOff\LiftOff.Domain\bin\Debug\LiftOff.Domain.dll
+Y:\Desktop\LiftOff\LiftOff.Domain\bin\Debug\LiftOff.Domain.pdb
+Y:\Desktop\LiftOff\LiftOff.Domain\obj\Debug\LiftOff.Domain.dll
+Y:\Desktop\LiftOff\LiftOff.Domain\obj\Debug\LiftOff.Domain.pdb
