@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableWithoutFeedback } from 'react-native';
+import { View } from 'react-native';
 import styles from './styles.js';
 import LoginInput from '../LoginInput';
 import FacebookButton from '../FacebookButton';
@@ -12,7 +12,7 @@ const registerData = {
 };
 
 const signUp = () => (
-  console.log("singUpKurac")
+  console.log(registerData)
 );
 
 const LoginRegistration = () => (
@@ -23,9 +23,7 @@ const LoginRegistration = () => (
       <LoginInput icon="Password" onChangeText={(e) => registerData.password = e} />
       <FacebookButton type="registration" />
     </View>
-    <TouchableWithoutFeedback onPress={() => (console.log("singUp"))}>
-      <LoginButton type="signUp" />
-    </TouchableWithoutFeedback>
+    <LoginButton type="signUp" onPress={() => (signUp())}/>
   </View>
 );
 
