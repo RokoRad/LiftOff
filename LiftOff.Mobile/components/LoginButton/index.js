@@ -4,7 +4,7 @@ import styles from './styles.js';
 import { language } from '../../config/settings.js'
 
 const LoginButton = (props) => (
-  <TouchableOpacity onPress={() => props.type === 'signIn' ? console.log("signIn") : console.log("signUp")}>
+  <TouchableOpacity onPress={props.onPress}>
     <View style={styles.loginButtonWrapper}>
         <Text style={styles.loginButton}>
           {

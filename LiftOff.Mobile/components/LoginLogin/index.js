@@ -12,7 +12,7 @@ const loginData = {
 };
 
 const signIn = () => (
-  console.log(loginData)
+  console.log('signInnnnn')
 );
 
 const forgotPassword = () => (
@@ -31,7 +31,7 @@ const LoginLogin = () => (
       </TouchableWithoutFeedback>
       <FacebookButton type="login" />
     </View>
-    <TouchableWithoutFeedback onPress={() => signIn()}>
+    <TouchableWithoutFeedback onPress={() => (console.log("aa")}>
       <LoginButton type="signIn" />
     </TouchableWithoutFeedback>
   </View>

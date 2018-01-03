@@ -12,7 +12,7 @@ const registerData = {
 };
 
 const signUp = () => (
-  console.log(registerData)
+  console.log("singUpKurac")
 );
 
 const LoginRegistration = () => (
@@ -23,7 +23,7 @@ const LoginRegistration = () => (
       <LoginInput icon="Password" onChangeText={(e) => registerData.password = e} />
       <FacebookButton type="registration" />
     </View>
-    <TouchableWithoutFeedback onPress={() => (signUp())}>
+    <TouchableWithoutFeedback onPress={() => (console.log("singUp"))}>
       <LoginButton type="signUp" />
     </TouchableWithoutFeedback>
   </View>
