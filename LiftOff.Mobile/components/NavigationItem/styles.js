@@ -1,16 +1,26 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  navigationItemWrapper: {
+    flex: 1
+  },
   navigationItem: {
-    flexGrow: 1
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#3498db'
   },
-  navigationItemActive: {
-    flexGrow: 1,
-    backgroundColor: '#2980B9'
+  navigationImage: {
+    marginTop: 7.5,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    height: 20,
+    width: 20
   },
-  navigationItemImage: {
-    height: 10,
-    width: 10
+  navigationText: {
+    marginTop: 2.5,
+    textAlign: 'center',
+    color: '#fff',
+    fontFamily: 'barlowRegular'
   }
 });
 

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import styles from './styles.js';
-// import Navigation from './components/Navigation';
-// import Login from './views/Login';
-import { NativeRouter } from 'react-router-native';
+import { NativeRouter, Route } from 'react-router-native';
 import { Font } from "expo";
-import Login from './views/Login';
+// import Login from './views/Login';
 import Home from './views/Home';
-import Splash from './views/Splash';
+// import Splash from './views/Splash';
 import storage from './functions/storage';
+
+import Navigation from './components/Navigation';
 
 class App extends React.Component {
   state = {
@@ -39,11 +39,13 @@ class App extends React.Component {
       return (
         <NativeRouter style={[styles.statusBar, styles.fullScreen]}>
           <View style={[styles.statusBar, styles.fullScreen]}>
-            {
+            {/* {
               this.state.logged
               ? <Home />
               : <Login />
-            }
+            } */}
+            {console.log("loaded idnex")}
+            <Route path="/" component={Home} />
           </View>
         </NativeRouter>
       );
