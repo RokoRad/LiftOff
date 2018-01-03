@@ -6,24 +6,24 @@ import LoginHolder from '../../components/LoginHolder';
 import LoginSwitch from '../../components/LoginSwitch';
 import LoginButton from '../../components/LoginButton';
 import LoginInput from '../../components/LoginInput';
-import LoginRegistration from '../../components/LoginRegistration';
+import LoginLogin from '../../components/LoginLogin';
 import FacebookButton from '../../components/FacebookButton';
 import storage from '../../functions/storage';
 import { language } from '../../config/settings.js';
 
 import { Link, Route } from 'react-router-native';
-import Registration from '../../views/Register';
+import Login from '../../views/Login';
 
-const Login = () => (
+const Registration = () => (
   <View style={styles.loginWrapper}>
     <LoginHolder />
     <View style={styles.loginBody}>
-      <LoginSwitch route="login" />
-      <LoginRegistration />
+      <LoginSwitch route="registration" />
+      <LoginLogin />
       <KeyboardSpacer />
     </View>
-    <Route path="/registration" component={Registration} />
+    <Route path="/login" component={Login} />
   </View>
 );
 
-export default Login;
+export default Registration;

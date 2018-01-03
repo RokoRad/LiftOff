@@ -1,6 +1,9 @@
 // objekt sa stringovima hrvastkog jezika
 const language = {
-  testString: 'hrv'
+  signIn: 'Prijavi se',
+  signUp: 'Registriraj se',
+  facebook: 'Prijavi se putem Facebooka',
+  forgotPassword: 'Izgubljena lozinka?'
 };
 
 // vraćanje stringova
