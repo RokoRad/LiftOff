@@ -5,11 +5,11 @@ import styles from './styles.js';
 
 const Navigation = (props) => (
     <View style={styles.navigation}>
-      <NavigationItem icon="" route="/home" type="home" current={props.current} />
-      <NavigationItem icon="" route="/map" type="map" current={props.current} />
-      <NavigationItem icon="" route="/liftoff" type="liftoff" current={props.current} />
-      <NavigationItem icon="" route="/account" type="account" current={props.current} />
-      <NavigationItem icon="" route="/settings" type="settings" current={props.current} />
+      <NavigationItem icon="" route="/home" type="Home" current={props.current} />
+      <NavigationItem icon="" route="/map" type="Map" current={props.current} />
+      <NavigationItem icon="" route="/liftoff" type="LiftOff" current={props.current} />
+      <NavigationItem icon="" route="/account" type="Account" current={props.current} />
+      <NavigationItem icon="" route="/settings" type="Settings" current={props.current} />
     </View>
 );
 
