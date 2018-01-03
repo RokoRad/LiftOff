@@ -6,19 +6,23 @@ import FacebookButton from '../FacebookButton';
 import LoginButton from '../LoginButton';
 import { language } from '../../config/settings.js';
 
+// kreira objekt sa podatcima
 const loginData = {
   email: null,
   password: null
 };
 
+// funkcija za slanje podataka
 const signIn = () => (
   console.log(loginData)
 );
 
+// fukncija za izgubljenu lozinku
 const forgotPassword = () => (
   console.log("forgotPassword")
 );
 
+// kreiranje sucelja kompineente
 const LoginLogin = () => (
   <View>
     <View style={styles.inputWrapper}>

@@ -5,16 +5,19 @@ import LoginInput from '../LoginInput';
 import FacebookButton from '../FacebookButton';
 import LoginButton from '../LoginButton';
 
+// kreiranje objekta sa podatcima
 const registerData = {
   fullName: null,
   email: null,
   password: null
 };
 
+// funkcija za slanje objekta
 const signUp = () => (
   console.log(registerData)
 );
 
+// sučelje komponente
 const LoginRegistration = () => (
   <View>
     <View style={styles.inputWrapper}>
