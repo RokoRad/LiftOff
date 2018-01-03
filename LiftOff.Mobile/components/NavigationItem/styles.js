@@ -6,14 +6,21 @@ const styles = StyleSheet.create({
   },
   navigationItem: {
     width: '100%',
-    backgroundColor: 'purple'
+    height: '100%',
+    backgroundColor: '#3498db'
   },
   navigationImage: {
-    backgroundColor: 'pink'
+    marginTop: 7.5,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    height: 20,
+    width: 20
   },
   navigationText: {
+    marginTop: 2.5,
     textAlign: 'center',
-    backgroundColor: 'orange'
+    color: '#fff',
+    fontFamily: 'barlowRegular'
   }
 });
 

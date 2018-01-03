@@ -7,12 +7,9 @@ const styles = StyleSheet.create({
     left: 0,
     height: 50,
     width: '100%',
-    // backgroundColor: '#3498db',
-    backgroundColor: 'red',
-
+    backgroundColor: '#3498db',
     display: 'flex',
-    flexDirection: 'row',
-    // alignItems: 'center'
+    flexDirection: 'row'
   }
 });
 

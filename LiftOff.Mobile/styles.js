@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
   // Screen size fix for all platforms
   fullScreen: {
     minHeight: '100%',
-    width: '100%'
+    width: '100%',
+    backgroundColor: '#fff'
   }
 });
 

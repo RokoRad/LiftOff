@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import styles from './styles.js';
-import { NativeRouter } from 'react-router-native';
+import { NativeRouter, Route } from 'react-router-native';
 import { Font } from "expo";
 // import Login from './views/Login';
-// import Home from './views/Home';
+import Home from './views/Home';
 // import Splash from './views/Splash';
 import storage from './functions/storage';
 
@@ -44,8 +44,8 @@ class App extends React.Component {
               ? <Home />
               : <Login />
             } */}
-
-            <Navigation />
+            {console.log("loaded idnex")}
+            <Route path="/" component={Home} />
           </View>
         </NativeRouter>
       );
