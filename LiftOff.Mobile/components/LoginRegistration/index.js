@@ -17,6 +17,7 @@ const signIn = () => (
 const LoginRegistration = () => (
   <View>
     <View style={styles.inputWrapper}>
+      <LoginInput icon="Full name" />
       <LoginInput icon="Email"/>
       <LoginInput icon="Password" />
       <TouchableWithoutFeedback onPress={() => (forgotPassword())}>

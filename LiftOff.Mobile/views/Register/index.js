@@ -7,7 +7,7 @@ import LoginHolder from '../../components/LoginHolder';
 import LoginSwitch from '../../components/LoginSwitch';
 import LoginButton from '../../components/LoginButton';
 import LoginInput from '../../components/LoginInput';
-import LoginLogin from '../../components/LoginLogin';
+import LoginRegistration from '../../components/LoginRegistration';
 import FacebookButton from '../../components/FacebookButton';
 import { Route } from 'react-router-native'; // dohvaćanje komponente za rutiranje
 import Login from '../../views/Login'; // dohvaćanje iduće rute
@@ -18,7 +18,7 @@ const Registration = () => (
     <LoginHolder type="register" />
     <View style={styles.loginBody}>
       <LoginSwitch route="registration" />
-      <LoginLogin />
+      <LoginRegistration />
       <KeyboardSpacer />
     </View>
     <Route path="/login" component={Login} />

@@ -6,15 +6,19 @@ import FacebookButton from '../FacebookButton';
 import LoginButton from '../LoginButton';
 
 const signUp = () => (
-  console.log("signup")
+  console.log(loginData)
 );
+
+const loginData = {
+  email: null,
+  password: null
+};
 
 const LoginLogin = () => (
   <View>
     <View style={styles.inputWrapper}>
-      <LoginInput icon="Full name"/>
-      <LoginInput icon="Email"/>
-      <LoginInput icon="Password" />
+      <LoginInput icon="Email" onChangeText={(e) => loginData.email = e}/>
+      <LoginInput icon="Password" onChangeText={(e) => loginData.password = e} />
       <FacebookButton type="login" />
     </View>
     <TouchableWithoutFeedback onPress={() => signUp()}>
