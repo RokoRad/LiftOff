@@ -4,31 +4,41 @@ import { Link } from 'react-router-native';
 import styles from './styles.js';
 import { language } from '../../config/settings.js';
 
-const ActiveNavItem = (props) => (
-  <Link to={props.route} style={styles.navigationItemWrapper} >
-    <TouchableHighlight style={styles.navigationItemActive}>
-      <View>
-        <Image source={require('../../images/user-nav.png')} style={styles.navigationImage}/>
-        <Text style={styles.navigationText}>{language.props.type}</Text>
-      </View>
-    </TouchableHighlight>
-  </Link> 
-);
+const ActiveNavItem = (props) => {
+  let string = props.type;
+  console.log(language.string);
 
-const InactiveNavItem = (props) => (
-  <Link to={props.route} style={styles.navigationItemWrapper} >
-    <TouchableHighlight style={styles.navigationItem}>
-      <View>
-        <Image source={require('../../images/user-nav.png')} style={styles.navigationImage}/>
-        <Text style={styles.navigationText}>{language.props.type}</Text>
-      </View>
-    </TouchableHighlight>
-  </Link> 
-);
+  return (
+    <Link to={props.route} style={styles.navigationItemWrapper} >
+      <TouchableHighlight style={styles.navigationItemActive}>
+        <View>
+          <Image source={require('../../images/user-nav.png')} style={styles.navigationImage}/>
+          <Text style={styles.navigationText}>{language.string}</Text>
+        </View>
+      </TouchableHighlight>
+    </Link> 
+  );
+};
+
+const InactiveNavItem = (props) => {
+  let string = props.type;
+  console.log(language.string);
+
+  return (
+    <Link to={props.route} style={styles.navigationItemWrapper} >
+      <TouchableHighlight style={styles.navigationItem}>
+        <View>
+          <Image source={require('../../images/user-nav.png')} style={styles.navigationImage}/>
+          <Text style={styles.navigationText}>{language.string}</Text>
+        </View>
+      </TouchableHighlight>
+    </Link> 
+  );
+};
 
 const NavigationItem = (props) => {
-  console.log(props.current.pathname);
-  console.log(props.route);
+  // console.log(props.current.pathname);
+  // console.log(props.route);
   if(props.current.pathname === props.route) {
     return <ActiveNavItem {...props} />;
   } else {
