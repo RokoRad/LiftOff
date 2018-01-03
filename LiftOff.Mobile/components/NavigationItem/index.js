@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TouchableHighlight, Image, View } from 'react-native';
 import { Link } from 'react-router-native';
 import styles from './styles.js';
+import { language } from '../../config/settings.js';
 
 const ActiveNavItem = (props) => (
   <Link to={props.route} style={styles.navigationItemWrapper} >
