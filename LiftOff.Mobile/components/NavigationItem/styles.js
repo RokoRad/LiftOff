@@ -9,6 +9,11 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#3498db'
   },
+  navigationItemActive: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#2980b9'
+  },
   navigationImage: {
     marginTop: 7.5,
     marginLeft: 'auto',
