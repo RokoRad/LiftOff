@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using LiftOff.API.Data.Repos;
+using LiftOff.API.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,72 +14,39 @@ namespace LiftOff.API.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-        private AuthRepo _repo = null;
+        #region Dependancy management
 
+        private AuthRepo _authRepo = null;
+    
         public AccountController()
         {
-            _repo = new AuthRepo();
-        }
-
-        // POST api/Account/Register
-        [AllowAnonymous]
-        [Route("Register")]
-        public async Task<IHttpActionResult> Register(User userModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            IdentityResult result = await _repo.RegisterUser(userModel);
-
-            IHttpActionResult errorResult = GetErrorResult(result);
-
-            if (errorResult != null)
-            {
-                return errorResult;
-            }
-
-            return Ok();
+            _authRepo = new AuthRepo();
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                _repo.Dispose();
+                _authRepo.Dispose();
             }
 
             base.Dispose(disposing);
         }
 
-        private IHttpActionResult GetErrorResult(IdentityResult result)
+        #endregion
+
+
+        // POST api/Account/Register
+        [AllowAnonymous]
+        [Route("Register")]
+        public async Task<IHttpActionResult> Register(User userModel)
         {
-            if (result == null)
-            {
-                return InternalServerError();
-            }
+            IdentityResult result = await _authRepo.RegisterUser(userModel);
 
-            if (!result.Succeeded)
-            {
-                if (result.Errors != null)
-                {
-                    foreach (string error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error);
-                    }
-                }
-
-                if (ModelState.IsValid)
-                {
-                    // No ModelState errors are available to send, so just return an empty BadRequest.
-                    return BadRequest();
-                }
-
-                return BadRequest(ModelState);
-            }
-
-            return null;
+            if   (result == null)     return InternalServerError();
+            if   (!result.Succeeded)  return BadRequest();
+            else                      return Ok();
         }
+        
     }
 }

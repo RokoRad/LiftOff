@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using LiftOff.API.Data.Repos;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,6 @@ namespace LiftOff.API.Providers
             identity.AddClaim(new Claim("role", "user"));
 
             context.Validated(identity);
-
         }
     }
 }

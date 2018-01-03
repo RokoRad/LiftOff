@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using LiftOff.API.Data;
+using LiftOff.API.Models;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -6,19 +8,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace LiftOff.API
+namespace LiftOff.API.Data.Repos
 {
     public class AuthRepo : IDisposable
     {
-        private AuthContext _ctx;
+        #region dependancy management
+
+        private AuthContext _context;
 
         private UserManager<IdentityUser> _userManager;
 
         public AuthRepo()
         {
-            _ctx = new AuthContext();
-            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
+            _context = new AuthContext();
+            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
         }
+
+        public void Dispose()
+        {
+            _context.Dispose();
+            _userManager.Dispose();
+
+        }
+
+        #endregion
 
         public async Task<IdentityResult> RegisterUser(User userModel)
         {
@@ -39,11 +52,5 @@ namespace LiftOff.API
             return user;
         }
 
-        public void Dispose()
-        {
-            _ctx.Dispose();
-            _userManager.Dispose();
-
-        }
     }
 }

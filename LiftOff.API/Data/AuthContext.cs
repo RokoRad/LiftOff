@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace LiftOff.API
+namespace LiftOff.API.Data
 {
     public class AuthContext : IdentityDbContext<IdentityUser>
     {
         public AuthContext()
             : base("AuthContext")
         {
-
+            
         }
     }
 }
