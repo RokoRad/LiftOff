@@ -1,14 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import styles from './styles.js';
 import Screen from '../../components/Screen';
+import styles from './styles.js';
 
-const Map = ({location}) => (
+const Account = ({location}) => (
   <Screen current={location}>
-    <Text>
-      Map
-    </Text>
+    <Text>account</Text>
   </Screen>
 );
 
-export default Map;
+export default Account;

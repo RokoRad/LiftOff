@@ -5,10 +5,12 @@ import { NativeRouter, Route } from 'react-router-native';
 import { Font } from "expo";
 // import Login from './views/Login';
 import Home from './views/Home';
+import Account from './views/Account';
+import Map from './views/Map';
+import Stopwatch from './views/Stopwatch';
+import Settings from './views/Settings';
 // import Splash from './views/Splash';
 import storage from './functions/storage';
-
-import Navigation from './components/Navigation';
 
 class App extends React.Component {
   state = {
@@ -37,14 +39,18 @@ class App extends React.Component {
       return null;
     } else {
       return (
-        <NativeRouter style={[styles.statusBar, styles.fullScreen]}>
+        <NativeRouter>
           <View style={[styles.statusBar, styles.fullScreen]}>
             {/* {
               this.state.logged
               ? <Home />
               : <Login />
             } */}
-            <Route path="/" component={Home} />
+            <Route exact strict path="/" component={Home} />
+            <Route exact strict path="/account" component={Account} />
+            <Route exact strict path="/map" component={Map} />
+            <Route exact strict path="/liftoff" component={Stopwatch} />
+            <Route exact strict path="/settings" component={Settings} />
           </View>
         </NativeRouter>
       );

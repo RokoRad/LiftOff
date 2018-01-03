@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableHighlight, Image, View } from 'react-native';
+import { Text, TouchableHighlight, TouchableOpacity, Image, View } from 'react-native';
 import { Link } from 'react-router-native';
 import styles from './styles.js';
 import { language } from '../../config/settings.js';
@@ -16,13 +16,11 @@ const icons = {
 // komponenta za navItem koji dijeli rutu
 const ActiveNavItem = (props) => {
   return (
-    <Link to={props.route} style={styles.navigationItemWrapper} >
-      <TouchableHighlight style={styles.navigationItemActive}>
-        <View>
-          <Image source={icons[props.type]} style={styles.navigationImage}/>
-          <Text style={styles.navigationText}>{language[props.type]}</Text>
-        </View>
-      </TouchableHighlight>
+    <Link to={props.route} style={styles.navigationItemWrapperActive}>
+      <View style={styles.navigationItem}>
+        <Image source={icons[props.type]} style={styles.navigationImage}/>
+        <Text style={styles.navigationText}>{language[props.type]}</Text>
+      </View>
     </Link> 
   );
 };
@@ -30,13 +28,11 @@ const ActiveNavItem = (props) => {
 // komponenta za navItem koje ne odgvoara ruti
 const InactiveNavItem = (props) => {
   return (
-    <Link to={props.route} style={styles.navigationItemWrapper} >
-      <TouchableHighlight style={styles.navigationItem}>
-        <View>
-          <Image source={icons[props.type]} style={styles.navigationImage}/>
-          <Text style={styles.navigationText}>{language[props.type]}</Text>
-        </View>
-      </TouchableHighlight>
+    <Link to={props.route} style={styles.navigationItemWrapper}>
+      <View style={styles.navigationItem}>
+        <Image source={icons[props.type]} style={styles.navigationImage}/>
+        <Text style={styles.navigationText}>{language[props.type]}</Text>
+      </View>
     </Link> 
   )
 };

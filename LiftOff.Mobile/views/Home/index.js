@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+ import { View, Text } from 'react-native';
 import styles from './styles.js';
 import { NativeRouter, Route } from 'react-router-native';
-import Navigation from '../../components/Navigation';
+import Screen from '../../components/Screen';
+
 
 const Home = ({location}) => (
-  <View style={{height: '100%'}}>
-    <Navigation current={location} />
-  </View>
+  <Screen current={location}>
+    <Text>ovo je sa homea</Text>
+  </Screen>
 );
 
 export default Home;

@@ -2,15 +2,17 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   navigationItemWrapper: {
-    flex: 1
-  },
-  navigationItem: {
-    width: '100%',
+    flex: 1,
+    width: '20%',
     height: '100%',
     backgroundColor: '#3498db'
   },
-  navigationItemActive: {
+  navigationItem: {
     width: '100%',
+  },
+  navigationItemWrapperActive: {
+    flex: 1,
+    width: '20%',
     height: '100%',
     backgroundColor: '#2980b9'
   },
