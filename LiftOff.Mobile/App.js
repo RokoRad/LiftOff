@@ -44,7 +44,6 @@ class App extends React.Component {
               ? <Home />
               : <Login />
             } */}
-            {console.log("loaded idnex")}
             <Route path="/" component={Home} />
           </View>
         </NativeRouter>
