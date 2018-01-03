@@ -6,7 +6,7 @@ import LoginHolder from '../../components/LoginHolder';
 import LoginSwitch from '../../components/LoginSwitch';
 import LoginButton from '../../components/LoginButton';
 import LoginInput from '../../components/LoginInput';
-import LoginLogin from '../../components/LoginLogin';
+import LoginRegistration from '../../components/LoginRegistration';
 import FacebookButton from '../../components/FacebookButton';
 import storage from '../../functions/storage';
 import { language } from '../../config/settings.js';
