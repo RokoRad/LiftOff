@@ -12,8 +12,6 @@ import Account from './views/Account';
 // import Splash from './views/Splash';
 import storage from './functions/storage';
 
-import Navigation from './components/Navigation';
-
 class App extends React.Component {
   state = {
     loaded: false,
@@ -49,9 +47,10 @@ class App extends React.Component {
               : <Login />
             } */}
             <Route path="/" component={Home} />
+            <Route path="/account" component={Account} />
+            {/* <Route path="/" component={Home} />
             <Route path="/" component={Home} />
-            <Route path="/" component={Home} />
-            <Route path="/" component={Home} />
+            <Route path="/" component={Home} /> */}
           </View>
         </NativeRouter>
       );

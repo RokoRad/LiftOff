@@ -29,6 +29,7 @@ const ActiveNavItem = (props) => {
 
 // komponenta za navItem koje ne odgvoara ruti
 const InactiveNavItem = (props) => {
+  console.log("kurac")
   return (
     <Link to={props.route} style={styles.navigationItemWrapper} >
       <TouchableHighlight style={styles.navigationItem}>

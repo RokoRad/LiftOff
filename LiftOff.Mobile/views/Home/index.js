@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+// import { View } from 'react-native';
 import styles from './styles.js';
 import { NativeRouter, Route } from 'react-router-native';
-import Navigation from '../../components/Navigation';
+import Screen from '../../components/Screen';
+
 
 const Home = ({location}) => (
-  <View style={{height: '100%'}}>
-    <Navigation current={location} />
-  </View>
+  <Screen current={location}>
+  home screen
+  </Screen>
 );
 
 export default Home;

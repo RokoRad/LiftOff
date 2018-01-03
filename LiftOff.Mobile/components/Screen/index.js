@@ -1,12 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
-// import styles from './styles.js';
+import { View, Text } from 'react-native';
+import styles from './styles.js';
 import Navigation from '../Navigation';
 
+// view ima screen sa prikazom contenta i navigacije
 const Screen = (props) => (
-    <View {...props}>
+    <View {...props} style={styles.screen}>
       {this.children}
-      <Navigation />
+      <Navigation current={props.current} />
     </View>
 );
 
