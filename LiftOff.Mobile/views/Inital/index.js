@@ -1,13 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import styles from './styles.js';
+import LoginForm from '../../components/LoginForm';
+import RegisterForm from '../../components/RegisterForm';
 
-// view ima screen sa prikazom contenta sa logina i registracije
+// landing view za login i registraciju
 const Inital = (props) => (
-  <View>
-    <View {...props} style={styles.screen}>
-      {props.children}
-    </View>
+  <View style={styles.screen}>
+    <Text>aa</Text>
   </View>
 );
 
