@@ -9,7 +9,10 @@ import { language } from '../../config/settings.js'
 // kreiranje viewa
 const LoginForm = () => (
   <View style={styles.wrapper}>
-    <Input icon="Email" />
+    <View style={styles.inputWrapper}>
+      <Input icon="Email" />
+      <Input icon="Email" />
+    </View>
     <KeyboardSpacer />
     <TouchableWithoutFeedback>
       <View style={styles.messageWrapper}>

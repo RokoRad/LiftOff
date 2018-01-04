@@ -4,8 +4,8 @@ import styles from './styles.js';
 
 const Input = (props) => (
   <View style={styles.wrapper}>
-    <Image style={styles.image} source={require('../../images/user-icon.png')} />
-    <TextInput placeholder="test" style={styles.input} placeholderTextColor="#ccc" />
+    <Image style={styles.image} source={require('../../images/user-nav.png')} />
+    <TextInput placeholder="test" style={styles.input} placeholderTextColor="#fff" />
   </View>
 );
 
