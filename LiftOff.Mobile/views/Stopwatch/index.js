@@ -58,7 +58,7 @@ class Stopwatch extends React.Component {
       <Screen current={this.props.location} style={styles.vertical}>
         <SafetyscoreStopwatch />
         <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} />
-        <StopwatchInformation battery="0.3" />
+        <StopwatchInformation minutes={30-minutes} />
         <TouchableOpacity onPress={() => bind()}>
           <Text style={{padding:10, backgroundColor: 'red'}}>hehe</Text>
         </TouchableOpacity>
