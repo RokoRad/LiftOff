@@ -283,7 +283,7 @@ namespace LiftOff.API.Logic
             Humidity = humidity;
             Pressure = pressure;
 
-            Score = -1.533004 + (5.004633 - -1.533004) / Math.Pow((1 + (Humidity / 65.60188)), 2.798462);
+            Score = 5.030759 - 0.01800218 * humidity - 0.0003456611 * Math.Pow(humidity, 2);
         }
     }
 
@@ -295,7 +295,7 @@ namespace LiftOff.API.Logic
         {
             UVIndex = uVIndex;
 
-            Score = -2748552 + (5.762977 - -2748552) / (1 + Math.Pow(UVIndex / 46487.38, 1.554429));
+            Score = 5.110701 - 0.475967 * UVIndex + 0.008266248 * Math.Pow(UVIndex, 2);
         }
     }
 }
