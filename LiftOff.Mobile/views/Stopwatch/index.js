@@ -16,8 +16,8 @@ const Stopwatch = ({location}) => (
     <View style={styles.paragraphHolder}>
       <Text style={styles.paragraph}></Text>
     </View>
-    <View style={styles.resultsHolder}>
-      <Text style={styles.results}></Text>
+    <View style={styles.paragraphHolder}>
+      <Text style={styles.paragraph}></Text>
     </View>
   </Screen>
 );

@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
     height: '100%',
     paddingBottom: 50,
     position: 'relative',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    display: 'flex'
   }
 });
 
