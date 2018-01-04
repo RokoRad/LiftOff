@@ -9,6 +9,7 @@ const Inital = (props) => (
   <View style={styles.screen}>
     <View style={styles.container}>
       <Image source={require('../../images/splash.png')} style={styles.image}/>
+      <LoginForm />
     </View>
   </View>
 );

@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { TouchableWithoutFeedback, Text, View } from 'react-native';
 import styles from './styles.js';
 
 const InitalButton = (props) => (
-  <View>
-    <Text>aa</Text>
-  </View>
+  <TouchableWithoutFeedback onPress={() => (props.action)}>
+    <View style={styles.wrapper}>
+      <Text style={styles.inner}>{props.text}</Text>
+    </View>
+  </TouchableWithoutFeedback>
 );
 
 export default InitalButton;

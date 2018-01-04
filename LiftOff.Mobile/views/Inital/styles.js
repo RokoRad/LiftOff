@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    resizeMode: 'contain'
+    resizeMode: 'contain',
+    backgroundColor: 'orange'
   }
 });
 
