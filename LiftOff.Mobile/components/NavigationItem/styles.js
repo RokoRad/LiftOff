@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     marginTop: 2.5,
     textAlign: 'center',
     color: '#fff',
-    fontFamily: 'barlowRegular'
+    fontFamily: 'barlowMedium'
   }
 });
 
