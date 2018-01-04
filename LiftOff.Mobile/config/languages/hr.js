@@ -1,7 +1,9 @@
 // objekt sa stringovima hrvastkog jezika
 const language = {
-  signIn: 'Prijavi se',
-  signUp: 'Registriraj se',
+  login: 'Prijavi se',
+  register: 'Registriraj se',
+  haveAccount: 'Imaš račun?',
+  registerAccount: 'Nemaš račun?',
   facebook: 'Prijavi se putem Facebooka',
   forgotPassword: 'Izgubljena lozinka?',
   Home: 'Početna',

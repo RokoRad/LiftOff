@@ -1,7 +1,9 @@
 // objekt sa stringovima engleskog jezika
 const language = {
-  signIn: 'Sign in',
-  signUp: 'Sign up',
+  login: 'Login',
+  register: 'Register',
+  haveAccount: 'Have account?',
+  registerAccount: 'Do not have an account?',
   facebook: 'Sign in with Facebook',
   forgotPassword: 'Forgot password?',
   Home: 'Home',
