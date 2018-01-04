@@ -8,7 +8,8 @@ const language = {
   Map: 'Map',
   LiftOff: 'LiftOff',
   Account: 'Account',
-  Settings: 'Settings'
+  Settings: 'Settings',
+  Land: 'Land'
 };
 
 // vraćanje stringova

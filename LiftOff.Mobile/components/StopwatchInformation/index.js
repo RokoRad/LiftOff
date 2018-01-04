@@ -8,7 +8,7 @@ const StopwatchInformation = (props) => (
       <Text style={styles.inner}>Estimated battery life:</Text>
     </View>
     <View style={styles.wrapper}>
-      <Text style={(props.battery > 0.3) ? (props.battery > 0.7 ? styles.green : styles.orange) : styles.red}>30 min</Text>
+      <Text style={(props.minutes > 10) ? (props.minutes > 20 ? styles.green : styles.orange) : styles.red}>{props.minutes} min</Text>
     </View>
   </View>
 );
