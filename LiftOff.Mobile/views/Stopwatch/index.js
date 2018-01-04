@@ -7,7 +7,9 @@ import StopwatchElement from '../../components/StopwatchElement';
 
 const Stopwatch = ({location}) => (
   <Screen current={location}>
-    <SafetyscoreStopwatch />
+  {/* <Text>rip</Text> */}
+  <StopwatchElement />
+    {/* <SafetyscoreStopwatch />
     <View style={styles.stopwatchHolder}>
       <StopwatchElement />
       : <StopwatchElement />
@@ -18,7 +20,7 @@ const Stopwatch = ({location}) => (
     </View>
     <View style={styles.paragraphHolder}>
       <Text style={styles.paragraph}></Text>
-    </View>
+    </View> */}
   </Screen>
 );
 
