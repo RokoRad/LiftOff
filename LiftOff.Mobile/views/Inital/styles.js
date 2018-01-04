@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     resizeMode: 'contain',
-    backgroundColor: 'orange'
+    height: 260
   }
 });
 
