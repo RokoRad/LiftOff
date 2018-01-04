@@ -9,13 +9,12 @@ import Account from './views/Account';
 import Map from './views/Map';
 import Stopwatch from './views/Stopwatch';
 import Settings from './views/Settings';
-// import Splash from './views/Splash';
 import storage from './functions/storage';
 
 class App extends React.Component {
   state = {
-    loaded: false,
-    logged: storage.get('logged')
+    loaded: false
+    // ,logged: storage.get('logged')
   }
 
   componentWillMount() {
@@ -36,16 +35,11 @@ class App extends React.Component {
 
   render() {
     if(!this.state.loaded) {
-      return null;
+      return  <Expo.AppLoading />;
     } else {
       return (
         <NativeRouter>
           <View style={[styles.statusBar, styles.fullScreen]}>
-            {/* {
-              this.state.logged
-              ? <Home />
-              : <Login />
-            } */}
             <Route exact strict path="/" component={Home} />
             <Route exact strict path="/account" component={Account} />
             <Route exact strict path="/map" component={Map} />
