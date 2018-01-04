@@ -7,7 +7,10 @@ import RegisterForm from '../../components/RegisterForm';
 // landing view za login i registraciju
 const Inital = (props) => (
   <View style={styles.screen}>
-    <Text>aa</Text>
+    <View style={styles.container}>
+      <Image source={require('../../images/splash.png')} style={styles.image}/>
+      <Text>aa</Text>
+    </View>
   </View>
 );
 
