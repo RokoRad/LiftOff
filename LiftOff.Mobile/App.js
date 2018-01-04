@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import styles from './styles.js';
 import { NativeRouter, Route } from 'react-router-native';
 import Expo from "expo";
@@ -39,7 +39,8 @@ class App extends React.Component {
     } else {
       return (
         <NativeRouter>
-          <View style={[styles.statusBar, styles.fullScreen]}>
+          <View style={styles.fullScreen}>
+            <StatusBar hidden={true} />
             <Route exact strict path="/" component={Home} />
             <Route exact strict path="/account" component={Account} />
             <Route exact strict path="/map" component={Map} />
