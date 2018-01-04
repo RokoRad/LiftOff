@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
     width: 130,
     borderRadius: 15,
-    marginTop: 20,
+    marginTop: 10,
     marginLeft: 'auto',
     marginRight: 'auto'
   },

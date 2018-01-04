@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: 'orange',
+    backgroundColor: '#3498db',
     position: 'absolute',
     height: 80,
     width: '100%',
@@ -12,17 +12,15 @@ const styles = StyleSheet.create({
     left: 0
   },
   drone: {
-    backgroundColor: 'red',
     width: '25%',
     height: '100%'
   },
   information: {
-    backgroundColor: 'blue',
     width: '50%',
     height: '100%'
   },
   rating: {
-    backgroundColor: 'red',
+    backgroundColor: '#2980b9',
     width: '25%',
     height: '100%'
   }
