@@ -4,7 +4,7 @@ import styles from './styles.js';
 import { NativeRouter, Route } from 'react-router-native';
 import Expo from "expo";
 import Login from './views/Login';
-import Login from './views/Register';
+import Register from './views/Register';
 import Home from './views/Home';
 import Account from './views/Account';
 import Map from './views/Map';
