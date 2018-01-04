@@ -12,7 +12,9 @@ const styles = StyleSheet.create({
   },
   inner: {
     color: '#fff',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 25,
+    fontFamily: 'barlowBold'
   }
 });
 

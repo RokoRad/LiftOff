@@ -1,14 +1,14 @@
 import React from 'react';
-import { TouchableWithoutFeedback, Text, View } from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 import styles from './styles.js';
 import { language } from '../../config/settings.js'
 
 const InitalButton = (props) => (
-  <TouchableWithoutFeedback onPress={() => (props.action)}>
+  <TouchableOpacity onPress={() => (props.action)} opacity={0.8}>
     <View style={styles.wrapper}>
-      <Text style={styles.inner}>{props.text}</Text>
+      <Text style={styles.inner}>{language[props.text]}</Text>
     </View>
-  </TouchableWithoutFeedback>
+  </TouchableOpacity>
 );
 
 export default InitalButton;

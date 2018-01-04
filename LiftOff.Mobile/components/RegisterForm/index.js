@@ -6,7 +6,7 @@ import InitalButton from '../InitalButton';
 // kreiranje viewa
 const RegisterForm = () => (
   <View>
-    <InitalButton text="Register" action="register()"/>
+    <InitalButton text="register" action="register()"/>
   </View>
 );
 

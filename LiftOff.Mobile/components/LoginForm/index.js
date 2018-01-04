@@ -6,7 +6,7 @@ import InitalButton from '../InitalButton';
 // kreiranje viewa
 const LoginForm = () => (
   <View style={styles.wrapper}>
-    <InitalButton text="Login" action="login()"/>
+    <InitalButton text="login" action="login()"/>
   </View>
 );
 
