@@ -9,19 +9,19 @@ const styles = StyleSheet.create({
   },
   inner: {
     backgroundColor: '#fff',
-    color: '#2980b9',
-    fontSize: 80,
+    color: '#47525e',
+    fontSize: 100,
     borderRadius: 15,
     fontFamily: 'barlowSemiBold',
     textAlign: 'center'
   },
   double: {
     fontFamily: 'barlowExtraBold',
-    color: '#2980b9',
-    fontSize: 40,
+    color: '#47525e',
+    fontSize: 80,
     marginLeft: 5,
     marginRight: 5,
-    marginTop: 17.5
+    marginTop: 25
   }
 });
 
