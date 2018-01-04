@@ -5,7 +5,7 @@ import styles from './styles.js';
 const StopwatchLog = () => (
   <View style={styles.wrapper}>
     <View style={styles.left}>
-      <Text></Text>
+      <Text style={styles.leftInner}></Text>
     </View>
     <View style={styles.middle}>
       <Text style={styles.middleInner}>Split, Croatia (12.2E, 45N)</Text>
