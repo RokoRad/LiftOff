@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import styles from './styles.js';
-// import Navigation from './components/Navigation';
+import { NativeRouter, Route } from 'react-router-native';
+import Expo from "expo";
 // import Login from './views/Login';
-import { NativeRouter } from 'react-router-native';
-import { Font } from "expo";
-import Login from './views/Login';
 import Home from './views/Home';
-import Splash from './views/Splash';
+import Account from './views/Account';
+import Map from './views/Map';
+import Stopwatch from './views/Stopwatch';
+import Settings from './views/Settings';
 import storage from './functions/storage';
 
 class App extends React.Component {
   state = {
-    loaded: false,
-    logged: storage.get('logged')
+    loaded: false
+    //,logged: storage.get('logged')
   }
 
   componentWillMount() {
@@ -24,7 +25,7 @@ class App extends React.Component {
     await Expo.Font.loadAsync({
       /* 700 */ 'barlowBold': require('./fonts/Barlow-Bold.ttf'),
       /* 800 */ 'barlowExtraBold': require('./fonts/Barlow-ExtraBold.ttf'),
-      /* 300 */ 'barlowLight': require('./fonts/Barlow-Light.ttf'),
+      // /* 300 */ 'barlowLight': require('./fonts/Barlow-Light.ttf'),
       /* 500 */ 'barlowMedium': require('./fonts/Barlow-Medium.ttf'),
       /* 400 */ 'barlowRegular': require('./fonts/Barlow-Regular.ttf'),
       /* 600 */ 'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf')
@@ -34,16 +35,17 @@ class App extends React.Component {
 
   render() {
     if(!this.state.loaded) {
-      return null;
+      return  <Expo.AppLoading />;
     } else {
       return (
-        <NativeRouter style={[styles.statusBar, styles.fullScreen]}>
-          <View style={[styles.statusBar, styles.fullScreen]}>
-            {
-              this.state.logged
-              ? <Home />
-              : <Login />
-            }
+        <NativeRouter>
+          <View style={styles.fullScreen}>
+            <StatusBar hidden={true} />
+            <Route exact strict path="/" component={Home} />
+            <Route exact strict path="/account" component={Account} />
+            <Route exact strict path="/map" component={Map} />
+            <Route exact strict path="/liftoff" component={Stopwatch} />
+            <Route exact strict path="/settings" component={Settings} />
           </View>
         </NativeRouter>
       );

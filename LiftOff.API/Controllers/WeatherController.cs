@@ -1,4 +1,4 @@
-﻿using LiftOff.API.Models;
+using LiftOff.API.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -11,6 +11,7 @@ using System.Web.Http;
 using LiftOff.API.App_Start;
 using System.Web.Configuration;
 using LiftOff.API.Logic;
+using LiftOff.Domain.Commands;
 
 namespace LiftOff.API.Controllers
 {
@@ -30,6 +31,28 @@ namespace LiftOff.API.Controllers
             WeatherFetcher.Instance.AddTimeLocationToTrack(timeLocation);
 
             return Ok(WeatherFetcher.Instance.getConditionsRating(WeatherFetcher.Instance.GetStoredWeatherData(timeLocation)));
+        }
+
+        private readonly GetWeatherCommand _getWeatherCommand;
+
+        public WeatherController()
+        {
+            _getWeatherCommand = new GetWeatherCommand();
+        }
+
+        [HttpGet]
+        [Route("get-weather")]
+        public Task<string> GetWeather(string lat, string lon)
+        {
+
+            return _getWeatherCommand.Execute(lat, lon);
+        }
+
+        [HttpGet]
+        [Route("get-five-day")]
+        public string GetFiveDayForecast(string lat, string lon)
+        {
+            return "";
         }
     }
 }

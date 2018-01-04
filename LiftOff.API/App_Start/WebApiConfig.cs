@@ -10,7 +10,7 @@ namespace LiftOff.API
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
-        {
+        {        
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
@@ -18,7 +18,7 @@ namespace LiftOff.API
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
+          
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }

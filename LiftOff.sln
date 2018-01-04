@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiftOff.API", "LiftOff.API\LiftOff.API.csproj", "{1BCEBF67-5687-42F6-BDC5-2A6B6BD05FBF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiftOff.TestingForm", "LiftOff.TestingForm\LiftOff.TestingForm.csproj", "{94473598-9DE1-4800-BFBA-C7821BD4DE64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiftOff.Domain", "LiftOff.Domain\LiftOff.Domain.csproj", "{385473BB-267D-4B46-AC5B-17A9E9A59420}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,7 @@ Global
 		{94473598-9DE1-4800-BFBA-C7821BD4DE64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94473598-9DE1-4800-BFBA-C7821BD4DE64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94473598-9DE1-4800-BFBA-C7821BD4DE64}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
