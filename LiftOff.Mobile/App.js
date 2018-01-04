@@ -14,7 +14,7 @@ import storage from './functions/storage';
 class App extends React.Component {
   state = {
     loaded: false
-    // ,logged: storage.get('logged')
+    //,logged: storage.get('logged')
   }
 
   componentWillMount() {
