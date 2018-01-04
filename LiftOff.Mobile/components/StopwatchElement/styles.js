@@ -1,16 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  wrapper: {
+  inner: {
     backgroundColor: 'red',
     paddingTop: 20,
     paddingLeft: 10,
     paddingBottom: 20,
-    paddingRight: 10
-  },
-  inner: {
+    paddingRight: 10,
     color: '#fff',
-    fontSize: 40
+    fontSize: 40,
+    width: 'auto'
   }
 });
 
