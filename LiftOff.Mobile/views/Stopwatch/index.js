@@ -8,6 +8,7 @@ import StopwatchInformation from '../../components/StopwatchInformation';
 
 const Stopwatch = ({location}) => (
   <Screen current={location} style={styles.vertical}>
+    <SafetyscoreStopwatch />
     <StopwatchElement minutes="22" seconds="33" />
     <StopwatchInformation battery="0.3" />
   </Screen>
