@@ -5,18 +5,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#3498db'
   },
   starter: {
-    backgroundColor: '#3498db',
-    paddingTop: 20,
-    paddingBottom: 20,
-    width: 150,
+    backgroundColor: '#2980b9',
+    paddingTop: 15,
+    paddingBottom: 15,
+    width: 115,
     borderRadius: 15,
-    marginTop: 20,
+    marginTop: 7.5,
     marginLeft: 'auto',
     marginRight: 'auto'
   },
   starterText: {
     color: '#fff',
-    fontSize: 40,
+    fontSize: 30,
     textAlign: 'center',
     fontFamily: 'barlowSemiBold'
   }
