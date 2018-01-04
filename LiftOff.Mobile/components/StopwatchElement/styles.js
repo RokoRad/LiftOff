@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
     borderRadius: 15,
     width: 'auto',
-    fontFamily: 'barlowSemiBold'
+    fontFamily: 'barlowSemiBold',
+    minWidth: 60,
+    textAlign: 'center'
   },
   double: {
     fontFamily: 'barlowExtraBold',

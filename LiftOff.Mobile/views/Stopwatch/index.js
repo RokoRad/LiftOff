@@ -6,9 +6,6 @@ import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
 import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchInformation from '../../components/StopwatchInformation';
 
-
-import storage from '../../functions/storage';
-
 let seconds = 0,
   minutes = 0,
   current = 0,
