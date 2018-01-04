@@ -9,7 +9,7 @@ using LiftOff.API.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace LiftOff.API.WeatherFetcher
+namespace LiftOff.API.Logic
 {
     public static class Constants
     {
@@ -26,6 +26,8 @@ namespace LiftOff.API.WeatherFetcher
 
     public class WeatherFetcher
     {
+        public static WeatherFetcher Instance = new WeatherFetcher();
+
         public List<TLEntity> TLEntities { get; set; } = new List<TLEntity>();
         public List<WeatherData> WeatherData { get; set; } = new List<WeatherData>();
         private OpenWeatherAPI _openWeatherApi = new OpenWeatherAPI();
@@ -53,6 +55,9 @@ namespace LiftOff.API.WeatherFetcher
 
         public void Refresh()
         {
+            //debug
+            System.Diagnostics.Debug.WriteLine("refreshing data");
+
             List<WeatherData> NewWeatherData = new List<WeatherData>();
 
             GetNextNEntities().ForEach(TLE => {

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 
-namespace LiftOff.API.WeatherFetcher
+namespace LiftOff.API.Logic
 {
     public class OpenWeatherAPI
     {
@@ -18,6 +18,9 @@ namespace LiftOff.API.WeatherFetcher
 
         public WeatherData GetWeatherDataFromApi(TimeLocation timeLocation)
         {
+            //debug
+            System.Diagnostics.Debug.WriteLine("requested openweather server");
+
             return WeatherDataFromJObject(
                     timeLocation,
                     requestApi(_openWeatherAPIs.weather, timeLocation),

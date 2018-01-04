@@ -78,10 +78,13 @@ namespace LiftOff.API.Models
 
         public VisibilityRating(double cloudiness, double visibility)
         {
-            Cloudiness = cloudiness;
-            Visibilty = visibility;
+            // ne radi dok se ne spoje na api
+            //Cloudiness = cloudiness;
+            //Visibilty = visibility;
+            //
+            //Score = 0.0314211 + 0.7232571 * Visibilty - 0.02272055 * Math.Pow(Visibilty, 2);
 
-            Score = 0.0314211 + 0.7232571 * Visibilty - 0.02272055 * Math.Pow(Visibilty, 2);
+            Score = 3;
         }
     }
 

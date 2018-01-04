@@ -10,39 +10,26 @@ using System.Net.Http;
 using System.Web.Http;
 using LiftOff.API.App_Start;
 using System.Web.Configuration;
-using LiftOff.API.WeatherFetcher;
+using LiftOff.API.Logic;
 
 namespace LiftOff.API.Controllers
 {
     [RoutePrefix("api/weather")]
     public class WeatherController : ApiController
     {
-        private WeatherFetcher.WeatherFetcher _weatherFetcher;
-
-        public WeatherController()
-        {
-            _weatherFetcher = new WeatherFetcher.WeatherFetcher();
-        }
-
-        [AllowAnonymous]
-        [Route("get-all")]
-        public IHttpActionResult Get()
-        {
-            OpenWeatherAPI openWeatherAPI = new OpenWeatherAPI();
-
-            return Ok(openWeatherAPI.GetWeatherDataFromApi(new TimeLocation() { Location = new Coordinates() { Latitude = 1, Longitude = 1}, Time = new DateTime() }));
-        }
-
         [AllowAnonymous]
         [HttpPost]
         [Route("getScore")]
         public IHttpActionResult GetScore([FromBody]JObject json)
         {
+            //debug
+            System.Diagnostics.Debug.WriteLine("got a Liftoff.api request for weather data");
+
             TimeLocation timeLocation = JsonConvert.DeserializeObject<TimeLocation>(JsonConvert.SerializeObject(json));
 
-            _weatherFetcher.AddTimeLocationToTrack(timeLocation);
+            WeatherFetcher.Instance.AddTimeLocationToTrack(timeLocation);
 
-            return Ok(_weatherFetcher.getConditionsRating(_weatherFetcher.GetStoredWeatherData(timeLocation)));
+            return Ok(WeatherFetcher.Instance.getConditionsRating(WeatherFetcher.Instance.GetStoredWeatherData(timeLocation)));
         }
     }
 }
