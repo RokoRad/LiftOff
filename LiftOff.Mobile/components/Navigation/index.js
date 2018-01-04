@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import NavigationItem from '../NavigationItem';
-import { Route } from 'react-router-native';
 import styles from './styles.js';
 
 const Navigation = (props) => (

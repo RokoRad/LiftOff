@@ -4,13 +4,10 @@ const styles = StyleSheet.create({
   wrapper: {
     width: '80%',
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    marginTop: -15
   },
   inputWrapper: {
-    minHeight: 150,
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%'
   },
   message: {
     color: '#fff',
@@ -22,7 +19,7 @@ const styles = StyleSheet.create({
     fontFamily: 'barlowBold'
   },
   messageWrapper: {
-    marginBottom: 10
+    marginBottom: 30
   }
 });
 
