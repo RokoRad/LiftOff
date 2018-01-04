@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Web.Http;
 using LiftOff.API.App_Start;
 using System.Web.Configuration;
+using LiftOff.API.Logic;
 
 namespace LiftOff.API.Controllers
 {
@@ -17,10 +18,12 @@ namespace LiftOff.API.Controllers
     public class WeatherController : ApiController
     {
         private string _weatherApiKey;
+        private WeatherFetcher _weatherFetcher;
 
         public WeatherController()
         {
             _weatherApiKey = WebConfigurationManager.AppSettings["WeatherApiKey"];
+            _weatherFetcher = new WeatherFetcher();
         }
 
         [AllowAnonymous]
@@ -73,6 +76,18 @@ namespace LiftOff.API.Controllers
             UV rootObject = JsonConvert.DeserializeObject<UV>(apiResponse);
 
             return rootObject;
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("getScore")]
+        public IHttpActionResult GetScore([FromBody]JObject json)
+        {
+            TimeLocation timeLocation = JsonConvert.DeserializeObject<TimeLocation>(JsonConvert.SerializeObject(json));
+
+            _weatherFetcher.AddTimeLocationToTrack(timeLocation);
+
+            return Ok(_weatherFetcher.getConditionsRating(_weatherFetcher.GetStoredWeatherData(timeLocation)));
         }
     }
 }

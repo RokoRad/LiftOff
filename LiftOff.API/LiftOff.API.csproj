@@ -140,7 +140,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
-    <Compile Include="Logic\TLTracker.cs" />
+    <Compile Include="Logic\Logic.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

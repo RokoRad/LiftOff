@@ -23,18 +23,18 @@ namespace LiftOff.API.Models
     public class Main
     {
         public double Temp { get; set; }
-        public int Pressure { get; set; }
-        public int Humidity { get; set; }
-        public int Temp_min { get; set; }
-        public int Temp_max { get; set; }
-        public int Sea_level { get; set; }
-        public int Ground_level { get; set; }
+        public double Pressure { get; set; }
+        public double Humidity { get; set; }
+        public double Temp_min { get; set; }
+        public double Temp_max { get; set; }
+        public double Sea_level { get; set; }
+        public double Ground_level { get; set; }
     }
 
     public class Wind
     {
         public double Speed { get; set; }
-        public int Def { get; set; }
+        public double Deg { get; set; }
     }
 
     public class Clouds
@@ -48,8 +48,8 @@ namespace LiftOff.API.Models
         public int Id { get; set; }
         public double Message { get; set; }
         public string Country { get; set; }
-        public int Sunrise { get; set; }
-        public int Sunset { get; set; }
+        public double Sunrise { get; set; }
+        public double Sunset { get; set; }
     }
 
     public class UV

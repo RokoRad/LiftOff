@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Configuration;
 using LiftOff.API.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace LiftOff.API.Logic
 {
@@ -43,11 +44,16 @@ namespace LiftOff.API.Logic
         public DateTime LastRefresh { get; set; }
     }
 
-    public class WeatherLogic
+    public class WeatherFetcher
     {
         public List<TLEntity> TLEntities { get; set; } = new List<TLEntity>();
         public List<ResponseWeather> WeatherResponses { get; set; } = new List<ResponseWeather>();
-        private string _weatherApiKey = WebConfigurationManager.AppSettings["WeatherApiKey"]
+        private string _weatherApiKey = WebConfigurationManager.AppSettings["WeatherApiKey"];
+
+        public WeatherFetcher()
+        {
+            StartRefresher();
+        }
 
         public DateTime LastRefresh = new DateTime();
 
@@ -89,6 +95,11 @@ namespace LiftOff.API.Logic
             var res = RequestWeather(timeLocation);
             System.Diagnostics.Debug.WriteLine(res.Main.Temp);
             return res;
+        }
+
+        public ResponseWeather GetStoredWeatherData(TimeLocation timeLocation)
+        {
+            return WeatherResponses.First(WR => WR.TimeLocation.Equals(timeLocation));
         }
 
         public void ClearUnusedWeatherData()
@@ -150,6 +161,141 @@ namespace LiftOff.API.Logic
             UV rootObject = JsonConvert.DeserializeObject<UV>(apiResponse);
 
             return rootObject;
+        }
+
+        public ConditionsRating getConditionsRating(ResponseWeather responseWeather)
+        {
+            return new ConditionsRating
+            (
+                new WindRating(responseWeather.Wind.Speed, responseWeather.Wind.Deg),
+                new WeatherRating(responseWeather.Weather[0].Id, responseWeather.Weather[0].Main, responseWeather.Weather[0].Description),
+                new VisibilityRating(responseWeather.Clouds.All, responseWeather.Visibility),
+                new TemperatureRating(responseWeather.Main.Temp, responseWeather.Main.Temp_max, responseWeather.Main.Temp_min),
+                new AtmosphereRating(responseWeather.Main.Humidity, responseWeather.Main.Pressure),
+                new UVRating(responseWeather.UV.Value)
+            );
+        }
+    }
+
+    public class Rating
+    {
+        public double Score { get; set; }
+    }
+
+    public class ConditionsRating : Rating
+    {
+        public ConditionsRating(
+            WindRating windRating, 
+            WeatherRating weatherRating, 
+            VisibilityRating visibilityRating, 
+            TemperatureRating temperatureRating,
+            AtmosphereRating atmosphereRating,
+            UVRating uVRating)
+        {
+            WindRating = windRating;
+            WeatherRating = weatherRating;
+            VisibilityRating = visibilityRating;
+            TemperatureRating = temperatureRating;
+            AtmosphereRating = atmosphereRating;
+            UVRating = uVRating;
+
+            Ratings = new List<Rating>() { WindRating, WeatherRating, VisibilityRating, TemperatureRating, AtmosphereRating, UVRating };
+
+            Score = Ratings.Average(r => r.Score);
+        }
+
+        List<Rating> Ratings { get; set; }
+        public WindRating WindRating { get; set; }
+        public WeatherRating WeatherRating { get; set; }
+        public VisibilityRating VisibilityRating { get; set; }
+        public TemperatureRating TemperatureRating { get; set; }
+        public AtmosphereRating AtmosphereRating { get; set; }
+        public UVRating UVRating { get; set; }
+    }
+
+    public class WindRating : Rating
+    {
+        public double Speed { get; set; }
+        public double Direction { get; set; }
+
+        public WindRating(double speed, double direction)
+        {
+            Speed = speed;
+            Direction = direction;
+
+            Score = 5.174242 - 0.1529221 * Speed - 0.00002164502 * Math.Pow(Speed, 2);
+        }
+    }
+
+    public class WeatherRating : Rating
+    {
+        public int WeatherID { get; set; }
+        public string Weather { get; set; }
+        public string WeatherDescription { get; set; }
+
+        public WeatherRating(int weatherId, string weather, string weatherDescription)
+        {
+            WeatherID = weatherId;
+            Weather = weather;
+            WeatherDescription = weatherDescription;
+
+            Score = 4;
+        }
+    }
+
+    public class VisibilityRating : Rating
+    {
+        public double Cloudiness { get; set; }
+        public double Visibilty { get; set; }
+
+        public VisibilityRating(double cloudiness, double visibility)
+        {
+            Cloudiness = cloudiness;
+            Visibilty = visibility;
+
+            Score = 0.0314211 + 0.7232571 * Visibilty - 0.02272055 * Math.Pow(Visibilty, 2);
+        }
+    }
+
+    public class TemperatureRating : Rating
+    {
+        public double Temperature { get; set; }
+        public double MaxTemperature { get; set; }
+        public double MinTemperature { get; set; }
+
+        public TemperatureRating(double temperature, double maxTemperature, double minTemperature)
+        {
+            Temperature = temperature;
+            MaxTemperature = maxTemperature;
+            MinTemperature = minTemperature;
+            
+            Score = -0.08571429 + 0.4571429 * Temperature - 0.01142857 * Math.Pow(Temperature, 2);
+        }
+    }
+
+    public class AtmosphereRating : Rating
+    {
+        public double Humidity { get; set; }
+        public double Pressure { get; set; }
+
+        public AtmosphereRating(double humidity, double pressure)
+        {
+            Humidity = humidity;
+            Pressure = pressure;
+
+            Score = -1.533004 + (5.004633 - -1.533004) / Math.Pow((1 + (Humidity / 65.60188)), 2.798462);
+        }
+    }
+
+    public class UVRating : Rating
+    {
+        public double UVIndex { get; set; }
+
+        public UVRating(double uVIndex)
+        {
+            UVIndex = uVIndex;
+
+            Score = -2748552 + (5.762977 - -2748552) / (1 + Math.Pow(UVIndex / 46487.38, 1.554429));
         }
     }
 }
