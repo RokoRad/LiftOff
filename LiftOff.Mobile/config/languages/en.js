@@ -2,6 +2,8 @@
 const language = {
   login: 'Login',
   register: 'Register',
+  haveAccount: 'Have account?',
+  registerMessage: 'Create account!',
   facebook: 'Sign in with Facebook',
   forgotPassword: 'Forgot password?',
   Home: 'Home',
