@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TextInput, Image } from 'react-native';
 import styles from './styles.js';
 
-const LoginInput = (props) => (
+const Input = (props) => (
     <View style={styles.loginInputWrapper}>
       {
         props.icon === 'Email' 
@@ -15,4 +15,4 @@ const LoginInput = (props) => (
     </View>
 );
 
-export default LoginInput;
+export default Input;

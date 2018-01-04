@@ -3,7 +3,7 @@ const language = {
   login: 'Login',
   register: 'Register',
   haveAccount: 'Have account?',
-  registerAccount: 'Create account!',
+  registerAccount: 'Do not have an account?',
   facebook: 'Sign in with Facebook',
   forgotPassword: 'Forgot password?',
   Home: 'Home',

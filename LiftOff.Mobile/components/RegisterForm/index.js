@@ -5,7 +5,14 @@ import InitalButton from '../InitalButton';
 
 // kreiranje viewa
 const RegisterForm = () => (
-  <View>
+  <View style={styles.wrapper}>
+    <TouchableWithoutFeedback>
+      <View style={styles.messageWrapper}>
+        <Text style={styles.message}>
+          {language.loginAccount} <Text style={styles.messageBold}>{language.login}</Text>
+        </Text>
+      </View>
+    </TouchableWithoutFeedback>
     <InitalButton text="register" action="register()"/>
   </View>
 );

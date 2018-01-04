@@ -3,7 +3,7 @@ const language = {
   login: 'Prijavi se',
   register: 'Registriraj se',
   haveAccount: 'Imaš račun?',
-  registerAccount: 'Kreiraj račun!',
+  registerAccount: 'Nemaš račun?',
   facebook: 'Prijavi se putem Facebooka',
   forgotPassword: 'Izgubljena lozinka?',
   Home: 'Početna',
