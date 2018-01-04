@@ -7,14 +7,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#3498db'
   },
   container: {
-    width: '60%',
+    width: '80%',
     marginLeft: 'auto',
-    marginRight: 'auto',
-    display: 'flex',
-    alignItems: 'center'
+    marginRight: 'auto'
   },
   image: {
-    
+    width: '100%',
+    resizeMode: 'contain'
   }
 });
 
