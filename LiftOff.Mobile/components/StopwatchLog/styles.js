@@ -4,13 +4,16 @@ const styles = StyleSheet.create({
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
-    paddingTop: 3,
-    paddingBottom: 3
+    marginTop: 3,
+    marginBottom: 3,
+    borderWidth: 1,
+    borderColor: '#9fb7d3',
+    borderRadius: 7
   },
   left: {
     width: '20%',
     height: '100%',
-    borderRadius: 7,
+    borderRadius: 6,
     backgroundColor: '#3498db' 
   },
   leftInner: {
@@ -18,16 +21,16 @@ const styles = StyleSheet.create({
   },
   middle: {
     width: '60%',
-    paddingTop: 15,
-    paddingBottom: 15
+    paddingTop: 12,
+    paddingBottom: 12
   },
   middleInner: {
     textAlign: 'center'
   },
   right: {
     width: '20%',
-    paddingTop: 15,
-    paddingBottom: 15
+    paddingTop: 12,
+    paddingBottom: 12
   },
   rightInner: {
     textAlign: 'center'

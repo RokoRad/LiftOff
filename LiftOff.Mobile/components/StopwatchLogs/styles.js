@@ -16,15 +16,21 @@ const styles = StyleSheet.create({
   },
   left: {
     width: '20%',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'barlowMedium',
+    fontSize: 12
   },
   middle: {
     width: '60%',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'barlowMedium',
+    fontSize: 12
   },
   right: {
     width: '20%',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'barlowMedium',
+    fontSize: 12
   }
 });
 

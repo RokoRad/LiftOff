@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#2980b9',
     paddingTop: 15,
     paddingBottom: 15,
-    width: 130,
+    width: 115,
     borderRadius: 15,
-    marginTop: 10,
+    marginTop: 7.5,
     marginLeft: 'auto',
     marginRight: 'auto'
   },
