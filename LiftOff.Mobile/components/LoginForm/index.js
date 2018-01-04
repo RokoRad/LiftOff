@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 import styles from './styles.js';
 import InitalButton from '../InitalButton';
 import Input from '../Input';
@@ -9,6 +10,7 @@ import { language } from '../../config/settings.js'
 const LoginForm = () => (
   <View style={styles.wrapper}>
     <Input icon="Email" />
+    <KeyboardSpacer />
     <TouchableWithoutFeedback>
       <View style={styles.messageWrapper}>
         <Text style={styles.message}>
