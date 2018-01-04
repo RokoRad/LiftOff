@@ -4,11 +4,11 @@ import styles from './styles.js';
 import StopwatchLog from '../StopwatchLog';
 
 const StopwatchLogs = () => (
-  <View>
-    <View>
-      <Text>Log</Text>
-      <Text>Location</Text>
-      <Text>Time</Text>
+  <View style={styles.wrapper}>
+    <View style={styles.head}>
+      <Text style={styles.left}>Log</Text>
+      <Text style={styles.middle}>Location</Text>
+      <Text style={styles.right}>Time</Text>
     </View>
     <StopwatchLog />
     <StopwatchLog />
