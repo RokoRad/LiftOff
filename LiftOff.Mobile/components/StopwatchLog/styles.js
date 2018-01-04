@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
     paddingBottom: 12
   },
   middleInner: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 14
   },
   right: {
     width: '20%',
@@ -33,7 +34,8 @@ const styles = StyleSheet.create({
     paddingBottom: 12
   },
   rightInner: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 16
   }
 });
 

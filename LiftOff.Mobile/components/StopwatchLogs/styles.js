@@ -35,15 +35,3 @@ const styles = StyleSheet.create({
 });
 
 export default styles;
-
-{/* <View style={styles.wrapper}>
-<View style={styles.head}>
-  <Text style={styles.left}>Log</Text>
-  <Text style={styles.middle}>Location</Text>
-  <Text style={styles.right}>Time</Text>
-</View>
-<StopwatchLog />
-<StopwatchLog />
-<StopwatchLog />
-<StopwatchLog />
-</View> */}
