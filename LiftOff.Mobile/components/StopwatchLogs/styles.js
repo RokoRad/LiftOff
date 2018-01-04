@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
   wrapper: {
     width: '80%',
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',   
+    marginTop: 20,
   },
   head: {
     borderBottomColor: '#9fb7d3',

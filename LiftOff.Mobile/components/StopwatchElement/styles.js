@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: '35%'
+    marginTop: 90
   },
   inner: {
     backgroundColor: '#fff',
