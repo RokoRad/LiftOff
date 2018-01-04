@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: '50%'
   },
   inner: {
     backgroundColor: '#3498db',

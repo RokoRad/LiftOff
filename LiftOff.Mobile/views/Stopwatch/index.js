@@ -7,22 +7,9 @@ import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchInformation from '../../components/StopwatchInformation';
 
 const Stopwatch = ({location}) => (
-  <Screen current={location}>
-  {/* <Text>rip</Text> */}
-  <StopwatchElement minutes="22" seconds="33" />
-  <StopwatchInformation battery="0.3" />
-    {/* <SafetyscoreStopwatch />
-    <View style={styles.stopwatchHolder}>
-      <StopwatchElement />
-      : <StopwatchElement />
-      : <StopwatchElement />
-    </View>
-    <View style={styles.paragraphHolder}>
-      <Text style={styles.paragraph}></Text>
-    </View>
-    <View style={styles.paragraphHolder}>
-      <Text style={styles.paragraph}></Text>
-    </View> */}
+  <Screen current={location} style={styles.vertical}>
+    <StopwatchElement minutes="22" seconds="33" />
+    <StopwatchInformation battery="0.3" />
   </Screen>
 );
 
