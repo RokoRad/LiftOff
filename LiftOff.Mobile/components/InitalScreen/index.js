@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import styles from './styles.js';
 
-// kreiranje viewa
-const InitalScreen = () => (
+// view ima screen sa prikazom contenta sa logina i registracije
+const InitalScreen = (props) => (
   <View>
-    <Text>aaa</Text>
+    <View {...props} style={styles.screen}>
+      {props.children}
+    </View>
   </View>
 );
 
