@@ -4,6 +4,7 @@ import styles from './styles.js';
 import Screen from '../../components/Screen';
 import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
 import StopwatchElement from '../../components/StopwatchElement';
+import StopwatchLogs from '../../components/StopwatchLogs';
 import { language } from '../../config/settings.js';
 
 let seconds = 0,
@@ -67,6 +68,7 @@ class Stopwatch extends React.Component {
             }
           </Text>
         </TouchableOpacity>
+        <StopwatchLogs />
       </Screen>
     );
   }
