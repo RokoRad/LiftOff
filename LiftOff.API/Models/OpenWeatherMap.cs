@@ -1,4 +1,4 @@
-﻿using LiftOff.API.Logic;
+﻿using LiftOff.API.WeatherFetcher;
 using System;
 using System.Collections.Generic;
 using System.Linq;

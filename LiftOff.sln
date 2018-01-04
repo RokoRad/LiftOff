@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiftOff.API", "LiftOff.API\LiftOff.API.csproj", "{1BCEBF67-5687-42F6-BDC5-2A6B6BD05FBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiftOff.TestConsole", "LiftOff.TestConsole\LiftOff.TestConsole.csproj", "{655A528A-4567-44F8-8B3F-77EA30DFB624}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{1BCEBF67-5687-42F6-BDC5-2A6B6BD05FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BCEBF67-5687-42F6-BDC5-2A6B6BD05FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BCEBF67-5687-42F6-BDC5-2A6B6BD05FBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{655A528A-4567-44F8-8B3F-77EA30DFB624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{655A528A-4567-44F8-8B3F-77EA30DFB624}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{655A528A-4567-44F8-8B3F-77EA30DFB624}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{655A528A-4567-44F8-8B3F-77EA30DFB624}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

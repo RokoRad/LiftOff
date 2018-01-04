@@ -10,72 +10,27 @@ using System.Net.Http;
 using System.Web.Http;
 using LiftOff.API.App_Start;
 using System.Web.Configuration;
-using LiftOff.API.Logic;
+using LiftOff.API.WeatherFetcher;
 
 namespace LiftOff.API.Controllers
 {
     [RoutePrefix("api/weather")]
     public class WeatherController : ApiController
     {
-        private string _weatherApiKey;
-        private WeatherFetcher _weatherFetcher;
+        private WeatherFetcher.WeatherFetcher _weatherFetcher;
 
         public WeatherController()
         {
-            _weatherApiKey = WebConfigurationManager.AppSettings["WeatherApiKey"];
-            _weatherFetcher = new WeatherFetcher();
+            _weatherFetcher = new WeatherFetcher.WeatherFetcher();
         }
 
         [AllowAnonymous]
         [Route("get-all")]
         public IHttpActionResult Get()
         {
-            return Ok(RequestWeather());
-        }
+            OpenWeatherAPI openWeatherAPI = new OpenWeatherAPI();
 
-        public ResponseWeather RequestWeather()
-        {
-            string city;
-            city = "Sydney";
-
-            HttpWebRequest apiRequest = WebRequest.Create(
-                "http://api.openweathermap.org/data/2.5/weather?q=" + city 
-                + "&appid=" + _weatherApiKey
-                + "&units=metric") as HttpWebRequest;
-
-            string apiResponse = "";
-            using (HttpWebResponse response = apiRequest.GetResponse() as HttpWebResponse)
-            {
-                StreamReader reader = new StreamReader(response.GetResponseStream());
-                apiResponse = reader.ReadToEnd();
-            }
-
-            JObject json = JObject.Parse(apiResponse);
-            ResponseWeather rootObject = JsonConvert.DeserializeObject<ResponseWeather>(apiResponse);
-
-            
-            if(json["rain"] != null) rootObject.Rain = new Rain { ThreeHours = json["rain"]["3h"].ToObject<int>() };
-            if(json["snow"] != null) rootObject.Snow = new Snow { ThreeHours = json["snow"]["3h"].ToObject<int>() };
-            rootObject.UV = RequestUV(rootObject.Coord.Lat, rootObject.Coord.Lon);
-
-            return rootObject;
-        }
-
-        public UV RequestUV(double lat, double lon)
-        {
-            var requestString = "http://api.openweathermap.org/data/2.5/uvi?" + "appid=" + _weatherApiKey + "&lat=" + lat.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "&lon=" + lon.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
-            HttpWebRequest apiRequest = WebRequest.Create(requestString) as HttpWebRequest;
-
-            string apiResponse = "";
-            using (HttpWebResponse response = apiRequest.GetResponse() as HttpWebResponse)
-            {
-                StreamReader reader = new StreamReader(response.GetResponseStream());
-                apiResponse = reader.ReadToEnd();
-            }
-
-            UV rootObject = JsonConvert.DeserializeObject<UV>(apiResponse);
-
-            return rootObject;
+            return Ok(openWeatherAPI.GetWeatherDataFromApi(new TimeLocation() { Location = new Coordinates() { Latitude = 1, Longitude = 1}, Time = new DateTime() }));
         }
 
         [AllowAnonymous]
