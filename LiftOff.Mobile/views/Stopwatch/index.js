@@ -5,6 +5,7 @@ import Screen from '../../components/Screen';
 import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
 import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchInformation from '../../components/StopwatchInformation';
+import { language } from '../../config/settings.js';
 
 let seconds = 0,
   minutes = 0,
