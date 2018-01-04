@@ -4,7 +4,6 @@ import styles from './styles.js';
 import Screen from '../../components/Screen';
 import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
 import StopwatchElement from '../../components/StopwatchElement';
-import StopwatchInformation from '../../components/StopwatchInformation';
 import { language } from '../../config/settings.js';
 
 let seconds = 0,
@@ -59,7 +58,6 @@ class Stopwatch extends React.Component {
       <Screen current={this.props.location} style={styles.vertical}>
         <SafetyscoreStopwatch />
         <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} />
-        <StopwatchInformation minutes={30-minutes} />
         <TouchableOpacity onPress={() => bind()} style={styles.starter}>
           <Text style={styles.starterText}>
             {
