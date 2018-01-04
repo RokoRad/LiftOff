@@ -6,10 +6,10 @@ import KeyboardSpacer from 'react-native-keyboard-spacer';
 import { Route } from 'react-router-native'; // dohvaćanje komponente za rutiranje
 
 // kreiranje viewa
-const Registration = () => (
+const Register = () => (
   <View>
     <Text>register</Text>
   </View>
 );
 
-export default Registration;
+export default Register;
