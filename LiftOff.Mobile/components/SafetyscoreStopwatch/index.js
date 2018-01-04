@@ -8,13 +8,17 @@ const SafetyscoreStopwatch = () => (
     <View style={styles.drone}></View>
     <View style={styles.information}>
       <View>
-        <Text style={styles.informationTitle}></Text>
+        <Text style={styles.informationTitle}>Flight rating:</Text>
       </View>
       <View>
-        <Text style={styles.informationText}></Text>
+        <Text style={styles.informationText}>Ovo je neki okvir tekst koji se vraća sa backenda. Naime, on se generira i vraća nazad.</Text>
       </View>
     </View>
-    <View style={styles.rating}></View>
+    <View style={styles.rating}>
+      <Text style={styles.ratingInner}>
+        6.7
+      </Text>
+    </View>
   </View>
 );
 

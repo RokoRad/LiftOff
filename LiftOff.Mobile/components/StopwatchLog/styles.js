@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   rightInner: {
     textAlign: 'center',
-    fontSize: 16
+    fontSize: 14
   }
 });
 
