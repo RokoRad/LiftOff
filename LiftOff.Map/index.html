@@ -25,14 +25,14 @@
             position: absolute;
             bottom: 30px;
             right: 20px;
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             background-image: url('./marker.png');
             background-size: contain;
             cursor: pointer;
         }
         #picker {
-            bottom: 100px;
+            bottom: 80px;
             background-image: url('./date.png');
         }
         #map {
@@ -46,7 +46,7 @@
             background-color: #fff;
             font-size: 16px;
             text-overflow: ellipsis;
-            width: 300px;
+            width: 250px;
             position: absolute;
             margin-top: 30px;
             border: 0;
@@ -209,6 +209,22 @@
         //     map.setCenter(pos);
         //   });
         // }
+        var marker = new google.maps.Marker({
+            position: {
+              lat: 43.508133, 
+              lng: 16.440193
+            },
+            map: map,
+            title:"My Site",
+          });
+          google.maps.event.addDomListener(document.getElementById('marker'), 'click', function(evt) {
+            map.clear();
+              var marker = new google.maps.Marker({
+                position: map.getCenter(),
+                map: map
+              });
+              map.panTo(marker.getPosition());
+          });
       }
       flatpickr('#picker', {
           enableTime: true,
