@@ -3,7 +3,6 @@ import { View, Text } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import { Link } from 'react-router-native';
 import styles from './styles.js';
-import InitalButton from '../InitalButton';
 import Input from '../Input';
 import { language } from '../../config/settings.js'
 
@@ -21,7 +20,6 @@ const RegisterForm = () => (
         </Text>
       </View>
     </Link>
-    <InitalButton text="register" action="register()"/>
   </View>
 );
 
