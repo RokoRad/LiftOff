@@ -210,20 +210,12 @@
         //   });
         // }
         var marker = new google.maps.Marker({
-            position: {
-              lat: 43.508133, 
-              lng: 16.440193
-            },
-            map: map,
-            title:"My Site",
+            position: map.getCenter(),
+            map: map
           });
           google.maps.event.addDomListener(document.getElementById('marker'), 'click', function(evt) {
-            map.clear();
-              var marker = new google.maps.Marker({
-                position: map.getCenter(),
-                map: map
-              });
-              map.panTo(marker.getPosition());
+            marker.setPosition(map.getCenter());
+            console.log(map.getCenter());
           });
       }
       flatpickr('#picker', {
