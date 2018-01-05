@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     width: '100%',
     resizeMode: 'contain',
     height: 200,
-    marginTop: 40
+    marginTop: '20%'
   },
   message: {
     color: '#fff',
