@@ -40,22 +40,22 @@
             right: 0;
             left: 0;
         }
-      #pac-input {
-        background-color: #fff;
-        font-size: 16px;
-        text-overflow: ellipsis;
-        width: 300px;
-        position: absolute;
-        margin-top: 30px;
-        border: 0;
-        box-shadow: 0px 0px 20px 0px rgba(63,110,167,1);
-        padding: 5px 10px;
-        font-family: 'Barlow';
-        font-weight: 500
-      }
-      #pac-input:focus {
-          border: 0;
-      }
+        #pac-input {
+            background-color: #fff;
+            font-size: 16px;
+            text-overflow: ellipsis;
+            width: 300px;
+            position: absolute;
+            margin-top: 30px;
+            border: 0;
+            box-shadow: 0px 0px 20px 0px rgba(63,110,167,1);
+            padding: 5px 10px;
+            font-family: 'Barlow';
+            font-weight: 500
+        }
+        #pac-input:focus {
+            border: 0;
+        }
     </style>
   </head>
   <body>
@@ -179,30 +179,17 @@
         var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
-
-        // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
           searchBox.setBounds(map.getBounds());
         });
-
-        // Listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place.
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
-
           if (places.length == 0) {
             return;
           }
-
-          // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();
           places.forEach(function(place) {
-            if (!place.geometry) {
-              console.log("Returned place contains no geometry");
-              return;
-            }
             if (place.geometry.viewport) {
-              // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
             } else {
               bounds.extend(place.geometry.location);
@@ -211,7 +198,6 @@
           map.fitBounds(bounds);
         });
       }
-
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOjoILUp1U0rstyb4QMWlxG18fSp91n7s&libraries=places&callback=initMap" async defer></script>
   </body>
