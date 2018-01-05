@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './styles.js';
 import LoginForm from '../../components/LoginForm';
 import RegisterForm from '../../components/RegisterForm';
@@ -26,9 +26,20 @@ class Inital extends Component {
               <Image source={require('../../images/splash.png')} style={styles.image}/>
               {this.state.login === true
               ? <LoginForm />
-              : <RegisterLogin />
+              : <RegisterForm />
               }
               <InitalButton type={(this.state.login === true) ? 'login' : 'register'} action={(this.state.login === true) ? 'login()' : 'register()'} />
+
+              <TouchableOpacity onPress={this.changeState}>
+                <View>
+                  <Text>
+                    testtest
+                  </Text>
+                </View>
+              </TouchableOpacity>
+
+
+
             </View>
           </View>    
       );
