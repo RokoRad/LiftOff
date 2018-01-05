@@ -83,13 +83,17 @@
 
       #pac-input {
         background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
+        font-size: 16px;
         text-overflow: ellipsis;
         width: 400px;
+        position: absolute;
+        margin-top: 30px;
+        border: 0;
+        box-shadow: 0px 0px 20px 0px rgba(63,110,167,1);
+        padding: 5px 10px;
+      }
+      #pac-input:focus {
+          border: 0;
       }
 
       #pac-input:focus {
@@ -235,7 +239,6 @@
           searchBox.setBounds(map.getBounds());
         });
 
-        var markers = [];
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function() {
@@ -245,12 +248,6 @@
             return;
           }
 
-          // Clear out the old markers.
-          markers.forEach(function(marker) {
-            marker.setMap(null);
-          });
-          markers = [];
-
           // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();
           places.forEach(function(place) {
@@ -258,22 +255,6 @@
               console.log("Returned place contains no geometry");
               return;
             }
-            var icon = {
-              url: place.icon,
-              size: new google.maps.Size(71, 71),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(17, 34),
-              scaledSize: new google.maps.Size(25, 25)
-            };
-
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-              map: map,
-              icon: icon,
-              title: place.name,
-              position: place.geometry.location
-            }));
-
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
