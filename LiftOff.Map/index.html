@@ -40,7 +40,7 @@
             right: 0;
             left: 0;
         }
-        #pac-input {
+        #input {
             background-color: #fff;
             font-size: 16px;
             text-overflow: ellipsis;
@@ -53,14 +53,14 @@
             font-family: 'Barlow';
             font-weight: 500
         }
-        #pac-input:focus {
+        #input:focus {
             border: 0;
         }
     </style>
   </head>
   <body>
     <div class="wrapper">
-        <input id="pac-input" class="controls" type="text" placeholder="Search place">
+        <input id="input" class="controls" type="text" placeholder="Search place">
         <div id="map"></div>
         <div id="marker"></div>
         <div id="picker"></div>
@@ -176,7 +176,7 @@
             }
         ]
         });
-        var input = document.getElementById('pac-input');
+        var input = document.getElementById('input');
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
         map.addListener('bounds_changed', function() {
@@ -197,6 +197,15 @@
           });
           map.fitBounds(bounds);
         });
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            map.setCenter(pos);
+          });
+        }
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOjoILUp1U0rstyb4QMWlxG18fSp91n7s&libraries=places&callback=initMap" async defer></script>
