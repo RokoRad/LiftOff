@@ -8,18 +8,6 @@ const styles = StyleSheet.create({
     marginTop: -15
   },
   inputWrapper: {
-  },
-  message: {
-    color: '#fff',
-    fontFamily: 'barlowMedium',
-    textAlign: 'right',
-    fontSize: 14
-  },
-  messageBold: {
-    fontFamily: 'barlowBold'
-  },
-  messageWrapper: {
-    marginBottom: 30
   }
 });
 

@@ -8,7 +8,15 @@ const styles = StyleSheet.create({
     width: 100,
     marginLeft: 'auto',
     marginRight: 'auto',
-    borderRadius: 7
+    borderRadius: 7,    
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    shadowOffset: {
+        height: 5,
+        width: 5
+    },
+    elevation: 5,
+    marginBottom: 15
   },
   inner: {
     color: '#fff',

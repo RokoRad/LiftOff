@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     },
     image: {
       position: 'absolute',
-      height: 20,
-      width: 20,
+      height: 15,
+      width: 15,
       bottom: 10
     },
     input: {
