@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Map from './components/Map';
+// APP JS
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Map zoom={11} />, document.getElementById('root'));
+ReactDOM.render(/* APPJS */, document.getElementById('root'));
 registerServiceWorker();
