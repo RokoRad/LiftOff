@@ -4,14 +4,14 @@ import styles from './styles.js';
 
 const types = {
   Name: require('../../images/user-nav.png'),
-  Email: require('../../images/user-nav.png'),
-  Password: require('../../images/user-nav.png')
+  Email: require('../../images/email-icon.png'),
+  Password: require('../../images/password-icon.png')
 }
 
 const Input = (props) => (
   <View style={styles.wrapper}>
     <Image style={styles.image} source={types[props.type]} />
-    <TextInput placeholder={props.type} style={styles.input} placeholderTextColor="#fff" />
+    <TextInput placeholder={props.type} style={styles.input} placeholderTextColor="#fff" secureTextEntry={props.type === 'Password' ? true : false} />
   </View>
 );
 
