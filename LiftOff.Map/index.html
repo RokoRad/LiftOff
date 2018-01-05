@@ -199,17 +199,23 @@
           });
           map.fitBounds(bounds);
         });
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            map.setCenter(pos);
-          });
-        }
+        // if (navigator.geolocation) {
+        //   navigator.geolocation.getCurrentPosition(function(position) {
+        //     var pos = {
+        //       lat: position.coords.latitude,
+        //       lng: position.coords.longitude
+        //     };
+        //     map.setCenter(pos);
+        //   });
+        // }
       }
-      flatpickr('#picker', {enableTime: true});
+      flatpickr('#picker', {
+          enableTime: true,
+          onClose: function(response) {
+              console.log(response)
+          }
+        }
+    );
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOjoILUp1U0rstyb4QMWlxG18fSp91n7s&libraries=places&callback=initMap" async defer></script>
   </body>
