@@ -5,7 +5,10 @@ import Screen from '../../components/Screen';
 
 const Map = ({location}) => (
   <Screen current={location}>
-    <WebView cacheEnabled={true} javaScriptEnabled={true} source={{uri: 'http://192.168.0.111:8080/'}} />
+    <WebView 
+    /* cacheEnabled={true} 
+    javaScriptEnabled={true}  */
+    source={{uri: 'http://192.168.1.104:8080/'}} />
   </Screen>
 );
 
