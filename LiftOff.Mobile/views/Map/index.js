@@ -5,7 +5,7 @@ import Screen from '../../components/Screen';
 
 const Map = ({location}) => (
   <Screen current={location}>
-    <WebView source={{uri: 'https://www.google.hr/maps'}} />
+    <WebView source={{uri: 'http://192.168.1.104:3000/'}} />
   </Screen>
 );
 
