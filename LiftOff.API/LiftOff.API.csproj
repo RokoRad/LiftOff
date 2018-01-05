@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="index.html" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
@@ -147,6 +148,8 @@
     <Compile Include="Controllers\WeatherController.cs" />
     <Compile Include="Data\AuthContext.cs" />
     <Compile Include="Data\Repos\AuthRepo.cs" />
+    <Compile Include="Domain\Command\GetFiveDayForecastCommand.cs" />
+    <Compile Include="Domain\Command\GetWeatherCommand.cs" />
     <Compile Include="Logic\OpenWeatherAPI.cs" />
     <Compile Include="Logic\WeatherFetcher.cs" />
     <Compile Include="Models\OldWeatherRating.cs" />
@@ -155,6 +158,8 @@
     <Compile Include="Models\WeatherRating.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="RealTimeEngine\WeatherGetter.cs" />
+    <Compile Include="RealTimeEngine\WeatherHub.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
