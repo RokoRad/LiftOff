@@ -28,7 +28,7 @@ class Inital extends Component {
               ? <LoginForm />
               : <RegisterLogin />
               }
-              <InitalButton type="login" action="login()" />
+              <InitalButton type={this.state.login ? 'login' : 'register'} action={this.state.login ? 'login()' : 'register()'} />
             </View>
           </View>    
       );
