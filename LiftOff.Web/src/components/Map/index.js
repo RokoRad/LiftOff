@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import GoogleMapReact from 'google-map-react';
 import './styles.css';
 
-const Map = () => (
-  <div>
-    mapa
-  </div>
+const center = {lat: 59.95, lng: 30.33};
+
+const Map = (props) => (
+  <GoogleMapReact defaultCenter={center} defaultZoom={props.zoom} />
 );
 
 export default Map;
