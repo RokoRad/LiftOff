@@ -36,7 +36,7 @@ class Inital extends Component {
                   </Text>
                 </View>
               </TouchableWithoutFeedback>
-              <InitalButton type={(this.state.login === true) ? 'login' : 'register'} action={(this.state.login === true) ? 'login' : 'register'} />
+              <InitalButton type={(this.state.login === true) ? 'login' : 'register'} action={(this.state.login === true) ? 'login' : 'register'} router={this.props.history}/>
             </View>
           </View>    
       );
