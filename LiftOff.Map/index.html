@@ -3,6 +3,8 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Barlow:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <meta charset="utf-8">
     <title>LiftOff - Map</title>
     <style>
@@ -207,6 +209,7 @@
           });
         }
       }
+      flatpickr('#picker', {enableTime: true});
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOjoILUp1U0rstyb4QMWlxG18fSp91n7s&libraries=places&callback=initMap" async defer></script>
   </body>
