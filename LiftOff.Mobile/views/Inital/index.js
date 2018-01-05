@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles.js';
 import LoginForm from '../../components/LoginForm';
 import RegisterForm from '../../components/RegisterForm';
@@ -14,7 +14,7 @@ class Inital extends Component {
      };
   };
 
-  changeState = () => {
+  changeView = () => {
      this.setState({
        login: !this.state.login 
     });
@@ -29,24 +29,15 @@ class Inital extends Component {
               ? <LoginForm />
               : <RegisterForm />
               }
-              <View style={styles.messageWrapper}>
-                <Text style={styles.message}>
-                  {language.haveAccount} <Text style={styles.messageBold}>{language.login}</Text> 
-                  {/* registerAccount register */}
-                </Text>
-              </View>
-              <InitalButton type={(this.state.login === true) ? 'login' : 'register'} action={(this.state.login === true) ? 'login()' : 'register()'} />
-
-              <TouchableOpacity onPress={this.changeState}>
-                <View>
-                  <Text>
-                    testtest
+              <TouchableWithoutFeedback onPress={this.changeView}>
+                <View style={styles.messageWrapper}>
+                  <Text style={styles.message}>
+                    {(this.state.login === true) ? language.registerAccount : language.haveAccount}
+                    <Text style={styles.messageBold}>{(this.state.login === true) ? language.register : language.login}</Text>
                   </Text>
                 </View>
-              </TouchableOpacity>
-
-
-
+              </TouchableWithoutFeedback>
+              <InitalButton type={(this.state.login === true) ? 'login' : 'register'} action={(this.state.login === true) ? 'login()' : 'register()'} />
             </View>
           </View>    
       );
