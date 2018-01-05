@@ -1,13 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { WebView  } from 'react-native';
 import styles from './styles.js';
 import Screen from '../../components/Screen';
 
 const Map = ({location}) => (
   <Screen current={location}>
-    <Text>
-      Map
-    </Text>
+    <WebView source={{uri: 'https://www.google.hr/maps'}} />
   </Screen>
 );
 
