@@ -24,7 +24,8 @@ namespace LiftOff.API.Logic
 			return WeatherDataFromJObject(
 				timeLocation,
 				requestApi(_openWeatherAPIs.weather, timeLocation),
-				requestApi(_openWeatherAPIs.uvi, timeLocation));
+				requestApi(_openWeatherAPIs.uvi, timeLocation)
+            );
 		}
 
 		private JObject requestApi(_openWeatherAPIs api, TimeLocation timeLocation)
@@ -54,17 +55,17 @@ namespace LiftOff.API.Logic
 			{
 				TimeLocation = timeLocation,
 
-				Humidity = (double)weatherJson["main"]["humidity"],
-				Presssure = (double)weatherJson["main"]["pressure"],
-				Temperature = (double)weatherJson["main"]["temp"],
-				Max_Temperature = (double)weatherJson["main"]["temp_max"],
-				Min_Temperature = (double)weatherJson["main"]["temp_min"],
-				UVIndex = (double)uviJson["value"],
-				WindSpeed = (double)weatherJson["wind"]["speed"],
-				WindDirection = (double)weatherJson["wind"]["deg"],
-				WeatherID = (int)((weatherJson["weather"] as JArray).First() as JObject)["id"],
-				Weather = (string)((weatherJson["weather"] as JArray).First() as JObject)["main"],
-				Description = (string)((weatherJson["weather"] as JArray).First() as JObject)["description"]
+				Humidity            = (double)weatherJson["main"]["humidity"],
+				Presssure           = (double)weatherJson["main"]["pressure"],
+				Temperature         = (double)weatherJson["main"]["temp"],
+				Max_Temperature     = (double)weatherJson["main"]["temp_max"],
+				Min_Temperature     = (double)weatherJson["main"]["temp_min"],
+				UVIndex             = (double)uviJson["value"],
+				WindSpeed           = (double)weatherJson["wind"]["speed"],
+				WindDirection       = (double)weatherJson["wind"]["deg"],
+				WeatherID           = (int)((weatherJson["weather"] as JArray).First() as JObject)["id"],
+				Weather             = (string)((weatherJson["weather"] as JArray).First() as JObject)["main"],
+				WeatherDescription  = (string)((weatherJson["weather"] as JArray).First() as JObject)["description"]
 				// Visibility = // TODO
 				// Cloudiness = // TODO
 			};

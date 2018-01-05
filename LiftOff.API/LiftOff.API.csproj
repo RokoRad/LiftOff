@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -150,9 +151,10 @@
     <Compile Include="Data\Repos\AuthRepo.cs" />
     <Compile Include="Domain\Command\GetFiveDayForecastCommand.cs" />
     <Compile Include="Domain\Command\GetWeatherCommand.cs" />
+    <Compile Include="Logic\FlySafe.cs" />
     <Compile Include="Logic\OpenWeatherAPI.cs" />
+    <Compile Include="Logic\LogicIO.cs" />
     <Compile Include="Logic\WeatherFetcher.cs" />
-    <Compile Include="Models\OldWeatherRating.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\WeatherData.cs" />
     <Compile Include="Models\WeatherRating.cs" />

@@ -23,7 +23,7 @@ namespace LiftOff.API.Models
 		public double WindDirection { get; set; }
 		public int WeatherID { get; set; }
 		public string Weather { get; set; }
-		public string Description { get; set; }
+		public string WeatherDescription { get; set; }
 	}
 
 	public class TimeLocation

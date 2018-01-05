@@ -11,102 +11,101 @@ using Newtonsoft.Json.Linq;
 
 namespace LiftOff.API.Logic
 {
-	public static class LogicConstants
-	{
-		public static int NumberOfEntitesPerFetch = 40;
-		public static double LatitudeLongitudeTolerance = 0.1;
-		public static TimeSpan TimeTolerance = TimeSpan.FromHours(1);
-	}
-
-	public class TLEntity
-	{
-		public TimeLocation TimeLocation { get; set; }
-		public DateTime LastRefresh { get; set; }
-	}
-
 	public class WeatherFetcher
 	{
-		public static WeatherFetcher Instance = new WeatherFetcher();
+		public static readonly WeatherFetcher Instance = new WeatherFetcher();
 
-		public List<TLEntity> TLEntities { get; set; } = new List<TLEntity>();
-		public List<WeatherData> WeatherData { get; set; } = new List<WeatherData>();
+        public WeatherFetcher()
+        {
+            _startRefresher();
+        }
+
+
+        private List<TLEntity> _TLEntities { get; set; } = new List<TLEntity>();
+		private List<WeatherData> _weatherData { get; set; } = new List<WeatherData>();
 		private OpenWeatherAPI _openWeatherApi = new OpenWeatherAPI();
 
-		public WeatherFetcher()
-		{
-			StartRefresher();
-		}
 
-		public DateTime LastRefresh = new DateTime();
+        private void _refresh()
+        {
+            //debug
+            System.Diagnostics.Debug.WriteLine("refreshing data");
 
-		public void AddTimeLocationToTrack(TimeLocation timeLocation)
-		{
-			if (!TLEntities.Any(TLE => TLE.TimeLocation.Equals(timeLocation)))
-			{
-				TLEntities.Add(new TLEntity { TimeLocation = timeLocation, LastRefresh = new DateTime() });
-				WeatherData.Add(_openWeatherApi.GetWeatherDataFromApi(timeLocation));
-			}
-		}
+            List<WeatherData> NewWeatherData = new List<WeatherData>();
 
-		public List<TLEntity> GetNextNEntities()
-		{
-			return TLEntities.OrderBy(TLE => TLE.LastRefresh).Take(LogicConstants.NumberOfEntitesPerFetch).ToList();
-		}
+            _getNextNEntities().ForEach(TLE => {
+                NewWeatherData.Add(_openWeatherApi.GetWeatherDataFromApi(TLE.TimeLocation));
+                TLE.LastRefresh = DateTime.Now;
+            });
 
-		public void Refresh()
-		{
-			//debug
-			System.Diagnostics.Debug.WriteLine("refreshing data");
+            for (int i = 0; i < _weatherData.Count(); i++)
+                for (int j = 0; j < NewWeatherData.Count(); j++)
+                    if (_weatherData[i].TimeLocation.Equals(NewWeatherData[j].TimeLocation))
+                        _weatherData[i] = NewWeatherData[j];
+        }
 
-			List<WeatherData> NewWeatherData = new List<WeatherData>();
+        private void _clearUnusedWeatherData()
+        {
+            _weatherData.ToList().ForEach(WR => { if (!_TLEntities.Any(TLE => TLE.TimeLocation.Equals(WR.TimeLocation))) _weatherData.Remove(WR); });
+        }
 
-			GetNextNEntities().ForEach(TLE => {
-				NewWeatherData.Add(_openWeatherApi.GetWeatherDataFromApi(TLE.TimeLocation));
-				TLE.LastRefresh = DateTime.Now;
-			});
+        private List<TLEntity> _getNextNEntities()
+        {
+            return _TLEntities.OrderBy(TLE => TLE.LastRefresh).Take(LogicConstants.NumberOfEntitesPerFetch).ToList();
+        }
 
-			for (int i = 0; i < WeatherData.Count(); i++)
-			for (int j = 0; j < NewWeatherData.Count(); j++)
-				if (WeatherData[i].TimeLocation.Equals(NewWeatherData[j].TimeLocation))
-					WeatherData[i] = NewWeatherData[j];
+        private void _startRefresher()
+        {
+            var startTimeSpan = TimeSpan.Zero;
+            var periodTimeSpan = TimeSpan.FromMinutes(1.2);
 
-			LastRefresh = DateTime.Now;
-		}
-
-		public WeatherData GetStoredWeatherData(TimeLocation timeLocation)
-		{
-			return WeatherData.First(WR => WR.TimeLocation.Equals(timeLocation));
-		}
-
-		public void ClearUnusedWeatherData()
-		{
-			WeatherData.ToList().ForEach(WR => { if (!TLEntities.Any(TLE => TLE.TimeLocation.Equals(WR.TimeLocation))) WeatherData.Remove(WR); });
-		}
-
-		public void StartRefresher()
-		{
-			var startTimeSpan = TimeSpan.Zero;
-			var periodTimeSpan = TimeSpan.FromMinutes(1.2);
-
-			var timer = new System.Threading.Timer((e) =>
-			{
-				Refresh();
-			}, null, startTimeSpan, periodTimeSpan);
-		}
-
-		public OldWeatherRating getConditionsRating(WeatherData weatherData)
-		{
-			return new OldWeatherRating
-			(
-				new WindRating(weatherData.WindSpeed, weatherData.WindDirection),
-				new ConditionsRating(weatherData.WeatherID, weatherData.Weather, weatherData.Description),
-				new VisibilityRating(weatherData.Cloudiness, weatherData.Visibility),
-				new TemperatureRating(weatherData.Temperature, weatherData.Max_Temperature, weatherData.Min_Temperature),
-				new AtmosphereRating(weatherData.Humidity, weatherData.Presssure),
-				new UVRating(weatherData.UVIndex)
-			);
-		}
-	}
+            var timer = new System.Threading.Timer((e) =>
+            {
+                _refresh();
+            }, null, startTimeSpan, periodTimeSpan);
+        }
 
 
+        public void AddTimeLocationToTrack(TimeLocation timeLocation)
+        {
+            if (!_TLEntities.Any(TLE => TLE.TimeLocation.Equals(timeLocation)))
+            {
+                _TLEntities.Add(new TLEntity { TimeLocation = timeLocation, LastRefresh = new DateTime() });
+                _weatherData.Add(_openWeatherApi.GetWeatherDataFromApi(timeLocation));
+            }
+        }
+
+        public void RemoveTimeLocationFromTracking(TimeLocation timeLocation)
+        {
+            _TLEntities.Remove(_TLEntities.Single(TLE => TLE.TimeLocation.Equals(timeLocation)));
+        }
+
+        public WeatherData GetStoredWeatherData(TimeLocation timeLocation)
+        {
+            return _weatherData.First(WR => WR.TimeLocation.Equals(timeLocation));
+        }
+
+        public WeatherRating getConditionsRating(WeatherData weatherData)
+        {
+            return FlySafe.RateWeather(weatherData);
+        }
+
+        public WeatherRating GetConditionsRating(TimeLocation timeLocation)
+        {
+            return getConditionsRating(GetStoredWeatherData(timeLocation));
+        }
+    }
+
+    public static class LogicConstants
+    {
+        public static int NumberOfEntitesPerFetch = 40;
+        public static double LatitudeLongitudeTolerance = 0.1;
+        public static TimeSpan TimeTolerance = TimeSpan.FromHours(1);
+    }
+
+    public class TLEntity
+    {
+        public TimeLocation TimeLocation { get; set; }
+        public DateTime LastRefresh { get; set; }
+    }
 }

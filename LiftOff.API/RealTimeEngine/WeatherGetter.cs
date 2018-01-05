@@ -1,4 +1,5 @@
-﻿using LiftOff.Domain.Commands;
+﻿using LiftOff.API.Models;
+using LiftOff.Domain.Commands;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using System;
@@ -8,6 +9,8 @@ namespace LiftOff.API.RealTimeEngine
 {
 	public class Client
 	{
+        public TimeLocation TimeLocation { get; set; }
+
 		public string Latitude { get; set; }
 		public string Longitude { get; set; }
 		public string Units { get; set; }
