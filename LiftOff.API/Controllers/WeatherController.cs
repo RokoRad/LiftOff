@@ -1,32 +1,35 @@
-﻿using System;
+﻿using LiftOff.API.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
-using LiftOff.Domain.Commands;
-using System.Threading.Tasks;
+using LiftOff.API.App_Start;
+using System.Web.Configuration;
+using LiftOff.API.Logic;
 
 namespace LiftOff.API.Controllers
 {
-    [RoutePrefix("weather")]
-    public class WeatherController : ApiController
-    {
-        private readonly GetWeatherCommand _getWeatherCommand;
+	[RoutePrefix("api/weather")]
+	public class WeatherController : ApiController
+	{
+		[AllowAnonymous]
+		[HttpPost]
+		[Route("getScore")]
+		public IHttpActionResult GetScore([FromBody]JObject json)
+		{
+			//debug
+			System.Diagnostics.Debug.WriteLine("got a Liftoff.api request for weather data");
 
-        public WeatherController()
-        {
-            _getWeatherCommand = new GetWeatherCommand();
-        }
+			TimeLocation timeLocation = JsonConvert.DeserializeObject<TimeLocation>(JsonConvert.SerializeObject(json));
 
-        [HttpGet]
-        [Route("get-weather")]
-        public Task<string> GetWeather(string lat, string lon) {
+			WeatherFetcher.Instance.AddTimeLocationToTrack(timeLocation);
 
-            return _getWeatherCommand.Execute(lat, lon);
-        }
-
-        [HttpGet]
-        [Route("get-five-day")]
-        public string GetFiveDayForecast(string lat, string lon)
-        {
-            return "";
-        }
-    }
+			return Ok(WeatherFetcher.Instance.getConditionsRating(WeatherFetcher.Instance.GetStoredWeatherData(timeLocation)));
+		}
+	}
 }

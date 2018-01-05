@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using LiftOff.API.Data.Repos;
+using LiftOff.API.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,75 +11,42 @@ using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
-    [RoutePrefix("api/Account")]
-    public class AccountController : ApiController
-    {
-        private AuthRepo _repo = null;
+	[RoutePrefix("api/Account")]
+	public class AccountController : ApiController
+	{
+		#region Dependancy management
 
-        public AccountController()
-        {
-            _repo = new AuthRepo();
-        }
+		private AuthRepo _authRepo = null;
 
-        // POST api/Account/Register
-        [AllowAnonymous]
-        [Route("Register")]
-        public async Task<IHttpActionResult> Register(User userModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+		public AccountController()
+		{
+			_authRepo = new AuthRepo();
+		}
 
-            IdentityResult result = await _repo.RegisterUser(userModel);
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				_authRepo.Dispose();
+			}
 
-            IHttpActionResult errorResult = GetErrorResult(result);
+			base.Dispose(disposing);
+		}
 
-            if (errorResult != null)
-            {
-                return errorResult;
-            }
+		#endregion
 
-            return Ok();
-        }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _repo.Dispose();
-            }
+		// POST api/Account/Register
+		[AllowAnonymous]
+		[Route("Register")]
+		public async Task<IHttpActionResult> Register(User userModel)
+		{
+			IdentityResult result = await _authRepo.RegisterUser(userModel);
 
-            base.Dispose(disposing);
-        }
+			if (result == null) return InternalServerError();
+			if (!result.Succeeded) return BadRequest();
+			else return Ok();
+		}
 
-        private IHttpActionResult GetErrorResult(IdentityResult result)
-        {
-            if (result == null)
-            {
-                return InternalServerError();
-            }
-
-            if (!result.Succeeded)
-            {
-                if (result.Errors != null)
-                {
-                    foreach (string error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error);
-                    }
-                }
-
-                if (ModelState.IsValid)
-                {
-                    // No ModelState errors are available to send, so just return an empty BadRequest.
-                    return BadRequest();
-                }
-
-                return BadRequest(ModelState);
-            }
-
-            return null;
-        }
-    }
+	}
 }
