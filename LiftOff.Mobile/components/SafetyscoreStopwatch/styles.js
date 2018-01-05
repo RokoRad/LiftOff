@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#3498db',
     position: 'absolute',
-    height: 80,
+    height: 'auto',
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     width: '50%',
     height: '100%',
     paddingTop: 3,
-    paddingBottom: 3
+    paddingBottom: 8
   },
   rating: {
     backgroundColor: '#2980b9',
