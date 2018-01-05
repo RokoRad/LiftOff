@@ -18,7 +18,7 @@ class Stopwatch extends Component {
   };
 
   bind = () => {
-    let temp;
+    var temp;
     if(this.state.active === false) {
       this.setState({
         seconds: 0,
@@ -37,7 +37,9 @@ class Stopwatch extends Component {
         console.log(this.state.seconds);
       }, 1000);
     } else {
-      clearInterval(136);
+      for(let i = 100; i<900; i++) {
+        clearInterval(i);
+      }
     }
     this.setState({
       active: !this.state.active
@@ -63,5 +65,6 @@ class Stopwatch extends Component {
       );
   }
 }
+
 
 export default Stopwatch;
