@@ -79,18 +79,33 @@ class Stopwatch extends Component {
      super();
      this.state = {
         active: false,
-        seconds: 0
+        seconds: 0,
+        minutes: 0
      };
   };
 
   bind = () => {
+    let temp;
     if(this.state.active === false) {
-      this.state.seconds = 0;
-      setInterval(() => {
-        this.state.seconds++;
+      this.setState({
+        seconds: 0,
+        minutes: 0
+      });
+      temp = setInterval(() => {
+        this.setState({
+          seconds: this.state.seconds+=1
+        });
+        if(this.state.seconds == 61) {
+          this.setState({
+            seconds: 0,
+            minutes: this.state.minutes+=1,
+          });
+        }
+        console.log(this.state.seconds);
+        console.log(temp)
       }, 1000);
     } else {
-
+      clearInterval(temp);
     }
     this.setState({
       active: !this.state.active
