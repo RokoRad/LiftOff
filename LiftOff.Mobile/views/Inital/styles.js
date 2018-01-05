@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     resizeMode: 'contain',
-    height: 260,
-    marginTop: 15
+    height: 200,
+    marginTop: 30
   },
   message: {
     color: '#fff',
@@ -27,7 +27,10 @@ const styles = StyleSheet.create({
     fontFamily: 'barlowBold'
   },
   messageWrapper: {
-    marginBottom: 30
+    width: '80%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    paddingBottom: 30
   }
 });
 

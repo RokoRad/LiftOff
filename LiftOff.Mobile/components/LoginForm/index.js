@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import styles from './styles.js';
 import Input from '../Input';
-import { language } from '../../config/settings.js'
 
 // kreiranje viewa
 const LoginForm = () => (

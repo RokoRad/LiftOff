@@ -32,8 +32,7 @@ class Inital extends Component {
               <TouchableWithoutFeedback onPress={this.changeView}>
                 <View style={styles.messageWrapper}>
                   <Text style={styles.message}>
-                    {(this.state.login === true) ? language.registerAccount : language.haveAccount}
-                    <Text style={styles.messageBold}>{(this.state.login === true) ? language.register : language.login}</Text>
+                    {(this.state.login === true) ? language.registerAccount : language.haveAccount} <Text style={styles.messageBold}>{(this.state.login === true) ? language.register : language.login}</Text>
                   </Text>
                 </View>
               </TouchableWithoutFeedback>
@@ -43,15 +42,5 @@ class Inital extends Component {
       );
   }
 }
-
-// landing view za login
-// const Inital = (props) => (
-//   <View style={styles.screen}>
-//     <View style={styles.container}>
-//       <Image source={require('../../images/splash.png')} style={styles.image}/>
-//       <LoginForm />
-//     </View>
-//   </View>
-// );
 
 export default Inital;
