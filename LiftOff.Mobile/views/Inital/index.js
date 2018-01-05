@@ -4,7 +4,7 @@ import styles from './styles.js';
 import LoginForm from '../../components/LoginForm';
 import RegisterForm from '../../components/RegisterForm';
 import InitalButton from '../../components/InitalButton';
-import { language } from '../../config/settings.js'
+import { language } from '../../config/settings.js';
 
 class Inital extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class Inital extends Component {
   };
 
   changeView = () => {
-     this.setState({
+    this.setState({
        login: !this.state.login 
     });
   };
@@ -36,7 +36,7 @@ class Inital extends Component {
                   </Text>
                 </View>
               </TouchableWithoutFeedback>
-              <InitalButton type={(this.state.login === true) ? 'login' : 'register'} action={(this.state.login === true) ? 'login()' : 'register()'} />
+              <InitalButton type={(this.state.login === true) ? 'login' : 'register'} action={(this.state.login === true) ? 'login' : 'register'} />
             </View>
           </View>    
       );
