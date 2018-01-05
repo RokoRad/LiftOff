@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
-import { Link } from 'react-router-native';
 import styles from './styles.js';
 import Input from '../Input';
 import { language } from '../../config/settings.js'
@@ -14,13 +13,11 @@ const LoginForm = () => (
       <Input icon="Email" />
     </View>
     <KeyboardSpacer />
-    <Link to="/register">
-      <View style={styles.messageWrapper}>
-        <Text style={styles.message}>
-          {language.registerAccount} <Text style={styles.messageBold}>{language.register}</Text>
-        </Text>
-      </View>
-    </Link>
+    <View style={styles.messageWrapper}>
+       <Text style={styles.message}>
+        {language.registerAccount} <Text style={styles.messageBold}>{language.register}</Text>
+      </Text>
+    </View>
   </View>
 );
 
