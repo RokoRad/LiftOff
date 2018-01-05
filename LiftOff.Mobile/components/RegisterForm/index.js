@@ -7,9 +7,9 @@ import Input from '../Input';
 // kreiranje viewa
 const RegisterForm = () => (
   <View style={styles.wrapper}>
-    <Input icon="Email" />
-    <Input icon="Email" />
-    <Input icon="Email" />
+    <Input type="Name" />
+    <Input type="Email" />
+    <Input type="Password" />
     <KeyboardSpacer />
   </View>
 );

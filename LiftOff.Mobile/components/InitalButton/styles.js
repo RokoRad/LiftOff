@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
         height: 5,
         width: 5
     },
-    elevation: 5
+    elevation: 5,
+    marginBottom: 15
   },
   inner: {
     color: '#fff',
