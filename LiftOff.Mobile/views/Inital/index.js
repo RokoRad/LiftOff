@@ -4,6 +4,7 @@ import styles from './styles.js';
 import LoginForm from '../../components/LoginForm';
 import RegisterForm from '../../components/RegisterForm';
 import InitalButton from '../../components/InitalButton';
+import { language } from '../../config/settings.js'
 
 class Inital extends Component {
   constructor() {
@@ -28,6 +29,12 @@ class Inital extends Component {
               ? <LoginForm />
               : <RegisterForm />
               }
+              <View style={styles.messageWrapper}>
+                <Text style={styles.message}>
+                  {language.haveAccount} <Text style={styles.messageBold}>{language.login}</Text> 
+                  {/* registerAccount register */}
+                </Text>
+              </View>
               <InitalButton type={(this.state.login === true) ? 'login' : 'register'} action={(this.state.login === true) ? 'login()' : 'register()'} />
 
               <TouchableOpacity onPress={this.changeState}>

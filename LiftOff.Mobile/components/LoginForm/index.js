@@ -13,11 +13,6 @@ const LoginForm = () => (
       <Input icon="Email" />
     </View>
     <KeyboardSpacer />
-    <View style={styles.messageWrapper}>
-       <Text style={styles.message}>
-        {language.registerAccount} <Text style={styles.messageBold}>{language.register}</Text>
-      </Text>
-    </View>
   </View>
 );
 

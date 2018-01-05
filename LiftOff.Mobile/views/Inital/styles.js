@@ -16,6 +16,18 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     height: 260,
     marginTop: 15
+  },
+  message: {
+    color: '#fff',
+    fontFamily: 'barlowMedium',
+    textAlign: 'right',
+    fontSize: 14
+  },
+  messageBold: {
+    fontFamily: 'barlowBold'
+  },
+  messageWrapper: {
+    marginBottom: 30
   }
 });
 

@@ -6,18 +6,6 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: -15
-  },
-  message: {
-    color: '#fff',
-    fontFamily: 'barlowMedium',
-    textAlign: 'right',
-    fontSize: 14
-  },
-  messageBold: {
-    fontFamily: 'barlowBold'
-  },
-  messageWrapper: {
-    marginBottom: 20
   }
 });
 

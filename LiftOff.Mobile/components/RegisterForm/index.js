@@ -12,11 +12,6 @@ const RegisterForm = () => (
     <Input icon="Email" />
     <Input icon="Email" />
     <KeyboardSpacer />
-    <View style={styles.messageWrapper}>
-      <Text style={styles.message}>
-        {language.haveAccount} <Text style={styles.messageBold}>{language.login}</Text>
-      </Text>
-    </View>
   </View>
 );
 
