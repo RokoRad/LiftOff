@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles.js';
 import Screen from '../../components/Screen';
-//import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
-// import StopwatchElement from '../../components/StopwatchElement';
+import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
+import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchLogs from '../../components/StopwatchLogs';
 import { language } from '../../config/settings.js';
 
@@ -49,8 +49,8 @@ class Stopwatch extends Component {
   render() {
       return (
         <Screen current={this.props.location} style={styles.vertical}>
-          {/* <SafetyscoreStopwatch /> */}
-          {/* <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} /> */}
+          <SafetyscoreStopwatch />
+          <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} />
           <TouchableOpacity onPress={this.bind} style={styles.starter}>
             <Text style={styles.starterText}>
               {

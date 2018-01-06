@@ -5,7 +5,9 @@ import Screen from '../../components/Screen';
 
 const Settings = ({location}) => (
   <Screen current={location}>
-    <Text>settings</Text>
+    <Text>
+      Settings
+    </Text>
   </Screen>
 );
 
