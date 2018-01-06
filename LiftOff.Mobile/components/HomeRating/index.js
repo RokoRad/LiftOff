@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import styles from './styles.js';
+import { language } from '../../config/settings.js'
 
 const HomeRating = (props) => (
   <View style={styles.wrapper}>
@@ -9,11 +10,17 @@ const HomeRating = (props) => (
     </View>
     <View style={styles.bottom}>
       <View style={styles.left}>
-        <Text style={styles.title}></Text>
-        <Text style={styles.text}></Text>
+        <Text style={styles.title}>
+          {language.ratingTitle}
+        </Text>
+        <Text style={styles.text}>
+          {props.string}
+        </Text>
       </View>
       <View style={styles.right}>
-        <Text style={styles.rating}></Text>
+        <Text style={styles.rating}>
+          {props.rating}
+        </Text>
       </View>
     </View>
   </View>

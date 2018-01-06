@@ -11,7 +11,8 @@ const language = {
   LiftOff: 'LiftOff',
   Account: 'Račun',
   Settings: 'Postavke',
-  Land: 'Sleti'
+  Land: 'Sleti',
+  ratingTitle: 'Ocjena vremena'
 };
 
 // vraćanje stringova
