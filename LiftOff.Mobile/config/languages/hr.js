@@ -12,7 +12,8 @@ const language = {
   Account: 'Račun',
   Settings: 'Postavke',
   Land: 'Sleti',
-  ratingTitle: 'Ocjena vremena'
+  ratingTitle: 'Ocjena vremena',
+  logToast: 'Zapis sačuvan'
 };
 
 // vraćanje stringova

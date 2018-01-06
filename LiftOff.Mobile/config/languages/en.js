@@ -12,7 +12,8 @@ const language = {
   Account: 'Account',
   Settings: 'Settings',
   Land: 'Land',
-  ratingTitle: 'Weather rating'
+  ratingTitle: 'Weather rating',
+  logToast: 'Log saved'
 };
 
 // vraćanje stringova

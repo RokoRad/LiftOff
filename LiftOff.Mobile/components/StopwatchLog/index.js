@@ -3,6 +3,7 @@ import globals from '../../config/styles.js';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import Toast from 'react-native-simple-toast';
 import styles from './styles.js';
+import { language } from '../../config/settings.js';
 
 class StopwatchLog extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class StopwatchLog extends Component {
       this.setState({
         active: !this.state.active
       });
-      Toast.show('Saved log.');
+      Toast.show(language.logToast);
       // šalje request
     }
   };
