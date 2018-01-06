@@ -5,16 +5,7 @@ import styles from './styles.js';
 import { language } from '../../config/settings.js'
 import colorGenerator from '../../functions/colorGenerator';
 
-const HomeRating = (props) => {
-  function animate() {
-    this.image
-        .skewX(5, { spring: true })
-        .skewY(5, { spring: true })
-        .wait()
-        .rotate(360*20, { duration: 2000 })
-        .start()
-  }
-  render(
+const HomeRating = (props) => (
     <View style={[styles.wrapper, styles[colorGenerator(props.rating)]]}>
       <View style={styles.top}>
         <Anime.Image source={require('../../images/drone.png')} style={styles.drone} ref={ ref => this.image = ref }/>
@@ -35,7 +26,6 @@ const HomeRating = (props) => {
         </View>
     </View>
   </View>
-  );
-};
+);
 
 export default HomeRating;
