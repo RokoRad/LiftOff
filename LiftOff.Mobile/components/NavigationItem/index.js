@@ -14,11 +14,11 @@ const icons = {
 }
 
 const NavigationItem = (props) => (
-  <Link to={props.route} style={props.current.pathname === props.route ? styles.navigationItemWrapperActive : styles.navigationItemWrapper}>
-    {/* ovisno o jednakosti trenutne rute sa linkom itema, pokazuje aktivnu ili obicnu klasu sa stilovima na komponenti */}
+  <Link to={props.route} style={styles.navigationItemWrapper}>
     <View style={styles.navigationItem}>
       <Image source={icons[props.type]} style={styles.navigationImage}/>
-      <Text style={styles.navigationText}>{language[props.type]}</Text>
+      {/* ovisno o jednakosti trenutne rute sa linkom itema, pokazuje aktivnu ili obicnu klasu sa stilovima na komponenti */}
+      <Text style={props.current.pathname === props.route ? styles.navigationTextActive : styles.navigationText}>{language[props.type]}</Text>
     </View>
   </Link> 
 );

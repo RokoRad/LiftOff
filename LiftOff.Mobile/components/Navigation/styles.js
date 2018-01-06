@@ -9,7 +9,14 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#3498db',
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    shadowOffset: {
+        height: 5,
+        width: 5
+    },
+    elevation: 5,
   }
 });
 
