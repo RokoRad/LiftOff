@@ -11,12 +11,12 @@ const StopwatchLogs = () => (
       <Text style={styles.right}>Time</Text>
     </View>
     <ScrollView style={styles.scroll}>
+      <StopwatchLog active />
+      <StopwatchLog />
+      <StopwatchLog active />
       <StopwatchLog />
       <StopwatchLog />
-      <StopwatchLog />
-      <StopwatchLog />
-      <StopwatchLog />
-      <StopwatchLog />
+      <StopwatchLog active />
       <StopwatchLog />
       <StopwatchLog />
     </ScrollView>

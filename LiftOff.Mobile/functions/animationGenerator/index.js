@@ -3,26 +3,26 @@ import * as Animatable from 'react-native-animatable';
 Animatable.initializeRegistryWithDefinitions({
   green: {
     from: {
-      rotation: -1
+      rotate: '-1deg'
     },
     to: {
-      rotation: 1
+      rotation: '1deg'
     }    
   },
   orange: {
     from: {
-      rotation: -2
+      rotation: '-2deg'
     },
     to: {
-      rotation: 2
+      rotation: '2deg'
     }    
   },
   red: {
     from: {
-      rotation: -3
+      rotation: '-3deg'
     },
     to: {
-      rotation: 3
+      rotation: '3deg'
     }    
   }
 });

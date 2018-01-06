@@ -34,7 +34,6 @@ class Stopwatch extends Component {
             minutes: this.state.minutes+=1,
           });
         }
-        console.log(this.state.seconds);
       }, 1000);
     } else {
       for(let i = 100; i<900; i++) {

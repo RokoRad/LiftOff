@@ -14,7 +14,10 @@ const styles = StyleSheet.create({
     width: '20%',
     height: '100%',
     borderRadius: 6,
-    backgroundColor: '#3498db' 
+    backgroundColor: '#2980b9'
+  },
+  active: {
+    backgroundColor: '#3498db',
   },
   leftInner: {
     textAlign: 'center'
