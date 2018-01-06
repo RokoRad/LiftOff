@@ -221,8 +221,11 @@
       flatpickr('#picker', {
           enableTime: true,
           disableMobile: true,
-          onClose: function(response) {
-              console.log(response);
+          onChange: function(selectedDates, dateStr, fp) {
+            if (!selectedDates.length)
+              return;
+            const ISODate = selectedDates[0].toISOString();
+            console.log(ISODate);
           }
         }
     );
@@ -230,3 +233,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOjoILUp1U0rstyb4QMWlxG18fSp91n7s&libraries=places&callback=initMap" async defer></script>
   </body>
 </html>
+
+onChange: function(selectedDates, dateStr, fp) {
+  if (!selectedDates.length)
+      return;
+  const ISODate = selectedDates[0].toISOString(); // iso date str
+  const utcDate =  selectedDates[0].fp_toUTC(); // utc date obj
+}

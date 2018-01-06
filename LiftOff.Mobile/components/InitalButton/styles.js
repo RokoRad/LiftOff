@@ -3,9 +3,9 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#3f6ea7',
-    paddingTop: 15,
-    paddingBottom: 15,
-    width: 100,
+    paddingTop: 10,
+    paddingBottom: 10,
+    width: 130,
     marginLeft: 'auto',
     marginRight: 'auto',
     borderRadius: 7,    
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   inner: {
     color: '#fff',
     textAlign: 'center',
-    fontSize: 25,
+    fontSize: 20,
     fontFamily: 'barlowBold'
   }
 });
