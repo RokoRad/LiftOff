@@ -59,21 +59,6 @@ namespace LiftOff.API.Logic
 
 		private WeatherData WeatherDataFromJObject(TimeLocation timeLocation, JObject weatherJson, JObject uviJson, JObject visibilityJson)
 		{
-            var TimeLocation = timeLocation;
-
-            var Humidity = (double)weatherJson["main"]["humidity"];
-            var Presssure = (double)weatherJson["main"]["pressure"];
-            var Temperature = (double)weatherJson["main"]["temp"];
-            var Max_Temperature = (double)weatherJson["main"]["temp_max"];
-            var Min_Temperature = (double)weatherJson["main"]["temp_min"];
-            var UVIndex = (double)uviJson["value"];
-            var WindSpeed = (double)weatherJson["wind"]["speed"];
-            var WindDirection = (double)weatherJson["wind"]["deg"];
-            var WeatherID = (int)((weatherJson["weather"] as JArray).First() as JObject)["id"];
-            var Weather = (string)((weatherJson["weather"] as JArray).First() as JObject)["main"];
-            var WeatherDescription = (string)((weatherJson["weather"] as JArray).First() as JObject)["description"];
-            var Visibility = (double)visibilityJson["current"]["visibility"]["@value"];
-
             return new WeatherData()
 			{
 				TimeLocation = timeLocation,

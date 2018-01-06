@@ -52,7 +52,7 @@ namespace LiftOff.API.Logic
         //TODO
         private static double _rateVisibility(double visibility, double cloudiness)
         {
-            var score = 3.2;
+            var score = 5.03205 + (-0.08077214 - 5.03205) / (1 + Math.Pow(visibility / 1750.523, 2.638352));
 
             return Clamp(score, 0, 5);
         }
@@ -66,7 +66,7 @@ namespace LiftOff.API.Logic
 
         private static double _rateAtmosphere(double humidity, double pressure)
         {
-            var score = 5.030759 - 0.01800218 * humidity - 0.0003456611 * Math.Pow(humidity, 2);
+            var score = 5 + 0.005833333 * humidity - 0.000475 * Math.Pow( humidity , 2) - 8.333333e-7 * Math.Pow(humidity, 3);
 
             return Clamp(score, 0, 5); ;
         }
@@ -80,12 +80,12 @@ namespace LiftOff.API.Logic
 
         private static double _rateTotal(double windRating, double conditionsRating, double visibilityRating, double temperatureRating, double atmosphereRating, double uvRating)
         {
-            double windCoefficient = 1000 - 1238.65 * windRating + 557.5583 * Math.Pow(windRating, 2) - 108.15 * Math.Pow(windRating, 3) + 7.641667 * Math.Pow(windRating, 4);
-            double conditionsCoefficient = 1001 - 1191.533 * conditionsRating + 520.7167 * Math.Pow(conditionsRating, 2) - 98.86667 * Math.Pow(conditionsRating, 3) + 6.883333 * Math.Pow(conditionsRating, 4);
-            double visibilityCoefficient = 1006 - 1246.35 * visibilityRating + 561.1083 * Math.Pow(visibilityRating, 2) - 108.85 * Math.Pow(visibilityRating, 3) + 7.691667 * Math.Pow(visibilityRating, 4);
-            double temperatureCoefficient = 20 + 19.81667 * temperatureRating - 23.14167 * Math.Pow(temperatureRating, 2) + 6.483333 * Math.Pow(temperatureRating, 3) - 0.5583333 * Math.Pow(temperatureRating, 4);
-            double atmosphereCoefficient = 30 - 8.016667 * atmosphereRating - 5.475 * Math.Pow(atmosphereRating, 2) + 2.316667 * Math.Pow(atmosphereRating, 3) - 0.225 * Math.Pow(atmosphereRating, 4);
-            double uvCoefficient = 10 - 2.35 * uvRating - 1.641667 * Math.Pow(uvRating, 2) + 0.65 * Math.Pow(uvRating, 3) - 0.05833333 * Math.Pow(uvRating, 4);
+            double windCoefficient       = 50 - 36.75 * windRating + 11.375 * Math.Pow(windRating, 2) - 1.75 * Math.Pow(windRating, 3) + 0.125 * Math.Pow(windRating, 4);
+            double conditionsCoefficient = 50 - 28.35 * conditionsRating + 5.275 * Math.Pow(conditionsRating, 2) - 0.35 * Math.Pow(conditionsRating, 3) + 0.025 * Math.Pow(conditionsRating, 4);
+            double visibilityCoefficient = 51 - 42.23333 * visibilityRating + 15.01667 * Math.Pow(visibilityRating, 2) - 2.566667 * Math.Pow(visibilityRating, 3) + 0.1833333 * Math.Pow(visibilityRating, 4);
+            double temperatureCoefficient= 20 - 0.5 * temperatureRating - 6.333333 * Math.Pow(temperatureRating, 2) + 2 * Math.Pow(temperatureRating, 3) - 0.1666667 * Math.Pow(temperatureRating, 4);
+            double atmosphereCoefficient = 21 - 8.9 * atmosphereRating - 0.2333333 * Math.Pow(atmosphereRating, 2) + 0.6 * Math.Pow(atmosphereRating, 3) - 0.06666667 * Math.Pow(atmosphereRating, 4);
+            double uvCoefficient         = 15 - 2.483333 * uvRating - 3.191667 * Math.Pow(uvRating, 2) + 1.183333 * Math.Pow(uvRating, 3) - 0.1083333 * Math.Pow(uvRating, 4);
 
             double totalRating = (windCoefficient * windRating + conditionsCoefficient * conditionsRating + visibilityCoefficient * visibilityRating + temperatureCoefficient * temperatureRating + atmosphereCoefficient * atmosphereRating + uvCoefficient * uvRating) / (windCoefficient + conditionsCoefficient + visibilityCoefficient + temperatureCoefficient + atmosphereCoefficient + uvCoefficient);
 
