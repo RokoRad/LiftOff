@@ -5,7 +5,7 @@ import styles from './styles.js';
 const HomeRating = (props) => (
   <View>
     <Text>
-      rating
+      {prop.string}
     </Text>
   </View>
 );

@@ -8,8 +8,7 @@ import Screen from '../../components/Screen';
 
 const Home = ({location}) => (
   <Screen current={location}>
-    <HomeRating />
-    <HomeList />
+    <HomeRating string="blablablablabala" rating="6.7" />
   </Screen>
 );
 
