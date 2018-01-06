@@ -145,14 +145,18 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\LoggingController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Controllers\WeatherController.cs" />
-    <Compile Include="Data\AuthContext.cs" />
+    <Compile Include="Data\LiftOffContext.cs" />
     <Compile Include="Data\Repos\AuthRepo.cs" />
+    <Compile Include="Initialization\LiftOffDatabaseInitialization.cs" />
     <Compile Include="Logic\FlySafe.cs" />
     <Compile Include="Logic\OpenWeatherAPI.cs" />
     <Compile Include="Logic\LogicIO.cs" />
     <Compile Include="Logic\WeatherFetcher.cs" />
+    <Compile Include="Models\Drone.cs" />
+    <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\WeatherData.cs" />
     <Compile Include="Models\WeatherRating.cs" />

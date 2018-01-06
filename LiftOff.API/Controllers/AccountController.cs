@@ -1,4 +1,5 @@
-﻿using LiftOff.API.Data.Repos;
+﻿using LiftOff.API.Data;
+using LiftOff.API.Data.Repos;
 using LiftOff.API.Models;
 using Microsoft.AspNet.Identity;
 using System;
@@ -33,8 +34,9 @@ namespace LiftOff.API.Controllers
 			base.Dispose(disposing);
 		}
 
-		#endregion
+        #endregion
 
+        private readonly LiftOffContext _liftOffContext = new LiftOffContext();
 
 		// POST api/Account/Register
 		[AllowAnonymous]

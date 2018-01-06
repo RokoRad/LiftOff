@@ -3,7 +3,6 @@ using LiftOff.API.Models;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using System;
-using System.Diagnostics;
 using System.Threading;
 
 namespace LiftOff.API.RealTimeEngine
