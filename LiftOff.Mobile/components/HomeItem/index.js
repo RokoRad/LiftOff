@@ -24,7 +24,7 @@ const HomeItem = (props) => (
       </View>
     </View>
     <View style={styles.right}>
-      <Text style={styles.rating}>1.7</Text>
+      <Text style={[styles.rating, styles[colorGenerator(props.rating)]]}>1.7</Text>
     </View>
   </View>
 );

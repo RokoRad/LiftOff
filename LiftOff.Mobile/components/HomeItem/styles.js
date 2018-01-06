@@ -1,17 +1,15 @@
 import { StyleSheet } from 'react-native';
 
-
-/*
-    fontFamily: 'barlowMedium',
-    fontSize: 10
-    
-    
-    fontFamily: 'barlowSemiBold',
-    fontSize: 12
-    */
-
-
 const styles = StyleSheet.create({
+  green: {
+    color: '#47e389'
+  },
+  orange: {
+    color: '#FF9052'
+  },
+  red: {
+    color: '#F95F62'
+  },
   wrapper: {
     paddingTop: 10,
     paddingBottom: 10,
