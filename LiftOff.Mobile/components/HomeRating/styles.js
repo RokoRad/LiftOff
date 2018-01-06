@@ -19,25 +19,33 @@ const styles = StyleSheet.create({
     padding: 15
   },
   left: {
-    width: '75%',
+    width: '70%',
   },
   title: {
     color: '#fff',
-    fontFamily: 'barlowSemiBold'
+    fontFamily: 'barlowSemiBold',
+    fontSize: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#fff',
+    paddingBottom: 3,
+    marginBottom: 3
   },
   text: {
     color: '#fff',
-    fontFamily: 'barlowMedium'
+    fontFamily: 'barlowMedium',
+    fontSize: 10
   },
   right: {
-    width: '25%',
+    width: '30%',
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center'
   },
   rating: {
     color: '#fff',
-    fontFamily: 'barlowMedium'
+    fontFamily: 'barlowMedium',
+    textAlign: 'right',
+    width: '100%',
+    fontSize: 45
   }
 });
 

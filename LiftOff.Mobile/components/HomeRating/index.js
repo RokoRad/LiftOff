@@ -4,9 +4,22 @@ import styles from './styles.js';
 import { language } from '../../config/settings.js'
 
 const HomeRating = (props) => {
-
-
-
+  generateColor = (props.rating) => {
+    const rating = props.rating;
+    if(rating < 4) {
+      if(rating < 3) {
+        if(rating < 1.5) {
+          //red
+        } else {
+          // narancasto
+        }
+      } else {
+        //zuta
+      }
+    } else {
+      // zelena
+    }
+  };
 
   return (
     <View style={styles.wrapper}>
