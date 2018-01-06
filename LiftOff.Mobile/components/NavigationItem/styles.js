@@ -25,7 +25,9 @@ const styles = StyleSheet.create({
   },
   navigationText: {
     marginTop: 2.5,
+    marginBottom: 7.5,
     textAlign: 'center',
+    fontSize: 12,
     color: '#fff',
     fontFamily: 'barlowSemiBold'
   }
