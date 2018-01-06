@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     resizeMode: 'contain',
-    height: 200,
-    marginTop: '20%'
+    height: 250,
+    marginTop: '15%'
   },
   message: {
     color: '#fff',

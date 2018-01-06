@@ -8,7 +8,9 @@ const styles = StyleSheet.create({
       width: '100%'
     },
     input: {
-      marginLeft: 20,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      width: '90%',
       paddingTop: 10,
       paddingBottom: 10,
       paddingLeft: 5,
