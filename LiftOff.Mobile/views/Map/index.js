@@ -11,7 +11,6 @@ const onData = (data) => (
 const Map = ({location}) => (
   <Screen current={location}>
     <WebView 
-      ref="webview"
       cacheEnabled={true} 
       javaScriptEnabled={true}
       source={{uri: 'http://192.168.1.104:8080/'}}
@@ -19,7 +18,7 @@ const Map = ({location}) => (
       domStorageEnabled={true}
       onLoadStart={console.log("started")}
       onLoadEnd={console.log("ended")} 
-      style={styles.screen, {height: '110%'}} 
+      style={{height: '110%'}} 
       onMessage={onData()}/>
   </Screen>
 );
