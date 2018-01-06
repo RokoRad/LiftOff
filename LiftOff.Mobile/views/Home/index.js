@@ -7,7 +7,7 @@ import Screen from '../../components/Screen';
 
 const Home = ({location}) => (
   <Screen current={location}>
-    <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating="2.7" />
+    <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating="2.7"/>
     <HomeList />
   </Screen>
 );
