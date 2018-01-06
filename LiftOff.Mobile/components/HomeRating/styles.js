@@ -5,15 +5,6 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120
   },
-  green: {
-    backgroundColor: '#47e389'
-  },
-  orange: {
-    backgroundColor: '#FF9052'
-  },
-  red: {
-    backgroundColor: '#F95F62'
-  },
   wrapper: {
     height: '50%',
     width: '100%',
