@@ -1,14 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import styles from './styles.js';
 import HomeItem from '../HomeItem';
 
 const HomeList = (props) => (
-  <View>
-    <Text>
-      hehe
-    </Text>
-  </View>
+  <ScrollView style={styles.container}>
+    <HomeItem type="" rating=""/>
+    <HomeItem type="" rating=""/>
+    <HomeItem type="" rating=""/>
+    <HomeItem type="" rating=""/>
+    <HomeItem type="" rating=""/>
+  </ScrollView>
 );
 
 export default HomeList;
