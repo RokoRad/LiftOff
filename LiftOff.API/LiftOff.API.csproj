@@ -149,8 +149,6 @@
     <Compile Include="Controllers\WeatherController.cs" />
     <Compile Include="Data\AuthContext.cs" />
     <Compile Include="Data\Repos\AuthRepo.cs" />
-    <Compile Include="Domain\Command\GetFiveDayForecastCommand.cs" />
-    <Compile Include="Domain\Command\GetWeatherCommand.cs" />
     <Compile Include="Logic\FlySafe.cs" />
     <Compile Include="Logic\OpenWeatherAPI.cs" />
     <Compile Include="Logic\LogicIO.cs" />

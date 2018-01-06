@@ -24,14 +24,13 @@ namespace LiftOff.API.Logic
 			return WeatherDataFromJObject(
 				timeLocation,
 				requestApi(_openWeatherAPIs.weather, timeLocation),
-				requestApi(_openWeatherAPIs.uvi, timeLocation),
-                requestApi(_openWeatherAPIs.xml, timeLocation)
+				requestApi(_openWeatherAPIs.uvi, timeLocation)
             );
 		}
 
 		private JObject requestApi(_openWeatherAPIs api, TimeLocation timeLocation)
 		{
-			HttpWebRequest requestURL = WebRequest.Create(
+            HttpWebRequest requestURL = WebRequest.Create(
 					_openWeatherAPIURL
 						.Replace("[apikey]", _openWeatherAPIKey)
 						.Replace("[api]", api.ToString())
@@ -39,7 +38,7 @@ namespace LiftOff.API.Logic
 						.Replace("[lon]", timeLocation.Location.Longitude.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)))
 				as HttpWebRequest;
 
-			string apiResponse = "";
+            string apiResponse = "";
 			using (HttpWebResponse response = requestURL.GetResponse() as HttpWebResponse)
 			{
 				StreamReader reader = new StreamReader(response.GetResponseStream());
@@ -48,12 +47,12 @@ namespace LiftOff.API.Logic
 
             JObject json;
             
-            /*if (api != _openWeatherAPIs.xml)*/  JObject.Parse(apiResponse);
+            json = JObject.Parse(apiResponse);
 
 			return json;
 		}
 
-		private WeatherData WeatherDataFromJObject(TimeLocation timeLocation, JObject weatherJson, JObject uviJson, JObject visibilityJson)
+		private WeatherData WeatherDataFromJObject(TimeLocation timeLocation, JObject weatherJson, JObject uviJson)
 		{
 			return new WeatherData()
 			{

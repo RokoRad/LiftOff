@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.SignalR;
+﻿using LiftOff.API.Logic;
+using LiftOff.API.Models;
+using Microsoft.AspNet.SignalR;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,26 +9,35 @@ namespace LiftOff.API.RealTimeEngine
 {
 	public class WeatherHub : Hub
 	{
-		private static List<WeatherGetter> ClientWeatherGetters = new List<WeatherGetter>();
+		private static List<WeatherGetter> _realTimeConnections = new List<WeatherGetter>();
 
-		public void InitiateConnection(string lat, string lon)
+		public void InitiateConnection(TimeLocation timeLocation, string units)
 		{
-			ClientWeatherGetters.Add(new WeatherGetter(lat, lon, Context.ConnectionId));
+			_realTimeConnections.Add(new WeatherGetter(timeLocation, units, Context.ConnectionId));
 		}
 
-		public void UpdateLocation(string lat, string lon)
+		public void UpdateLocation(TimeLocation newTimeLocation)
 		{
-			ClientWeatherGetters.First(wg => wg.GetClient().ConnectionId == Context.ConnectionId).UpdateClientLocation(lat, lon);
+            var clientWeatherGetter = _realTimeConnections.First(wg => wg.GetClient().ConnectionId == Context.ConnectionId);
+
+            LogicIO.UnregisterTrackedTimeLocation(clientWeatherGetter.GetClient().TimeLocation, _realTimeConnections);
+            LogicIO.RegisterTimeLocationtoTrack(newTimeLocation);
+
+            clientWeatherGetter.UpdateClientLocation(newTimeLocation);
 		}
 
 		public void ChangeUnits()
 		{
-			ClientWeatherGetters.First(wg => wg.GetClient().ConnectionId == Context.ConnectionId).ChangeUnits();
+			_realTimeConnections.First(wg => wg.GetClient().ConnectionId == Context.ConnectionId).ChangeUnits();
 		}
 
 		public override Task OnDisconnected(bool stopCalled)
 		{
-			ClientWeatherGetters.RemoveAll(wg => wg.GetClient().ConnectionId == Context.ConnectionId);
+            var clientTimeLocation = _realTimeConnections.First(wg => wg.GetClient().ConnectionId == Context.ConnectionId).GetClient().TimeLocation;
+
+            LogicIO.UnregisterTrackedTimeLocation(clientTimeLocation, _realTimeConnections);
+
+            _realTimeConnections.RemoveAll(wg => wg.GetClient().ConnectionId == Context.ConnectionId);
 
 			return base.OnDisconnected(stopCalled);
 		}

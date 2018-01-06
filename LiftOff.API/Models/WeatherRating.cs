@@ -17,5 +17,17 @@ namespace LiftOff.API.Models
 		public double UVRating { get; set; }
 
 		public WeatherData weatherData { get; set; }
-	}
+
+        public bool Equals(WeatherRating weatherRating)
+        {
+            return TotalRating == weatherRating.TotalRating
+                && ConditionsRating == weatherRating.ConditionsRating
+                && WindRating == weatherRating.WindRating
+                && TemperatureRating == weatherRating.TemperatureRating
+                && AtmosphereRating == weatherRating.AtmosphereRating
+                && VisibilityRating == weatherRating.VisibilityRating
+                && UVRating == weatherRating.UVRating
+                && weatherData.Equals(weatherRating.weatherData);
+        }
+    }
 }
