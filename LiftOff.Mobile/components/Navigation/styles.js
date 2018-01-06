@@ -11,12 +11,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     shadowOpacity: 0.5,
-    shadowRadius: 5,
+    shadowRadius: 10,
     shadowOffset: {
-        height: 5,
-        width: 5
+        height: 10,
+        width: 10
     },
-    elevation: 5,
+    elevation: 10,
   }
 });
 
