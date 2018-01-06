@@ -1,18 +1,13 @@
 // objekt sa stringovima hrvastkog jezika
 const language = {
-  login: 'Prijavi se',
-  register: 'Registriraj se',
-  haveAccount: 'Imaš račun?',
-  registerAccount: 'Nemaš račun?',
+  signIn: 'Prijavi se',
+  signUp: 'Registriraj se',
   facebook: 'Prijavi se putem Facebooka',
   forgotPassword: 'Izgubljena lozinka?',
-  FlySafe: 'Fly safe',
-  Map: 'Mapa',
-  LiftOff: 'LiftOff',
-  Account: 'Račun',
-  Settings: 'Postavke',
-  Land: 'Sleti',
-  ratingTitle: 'Ocjena vremena'
+  haveAccount: 'Imaš račun?',
+  registerAccount: 'Nemaš račun?',
+  register: 'Registriraj se',
+  login: 'Prijavi se'
 };
 
 // vraćanje stringova

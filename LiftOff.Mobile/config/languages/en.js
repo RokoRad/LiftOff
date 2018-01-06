@@ -1,18 +1,13 @@
 // objekt sa stringovima engleskog jezika
 const language = {
-  login: 'Login',
-  register: 'Register',
-  haveAccount: 'Have account?',
-  registerAccount: 'Don`t have an account?',
+  signIn: 'Sign in',
+  signUp: 'Sign up',
   facebook: 'Sign in with Facebook',
   forgotPassword: 'Forgot password?',
-  FlySafe: 'Fly safe',
-  Map: 'Map',
-  LiftOff: 'LiftOff',
-  Account: 'Account',
-  Settings: 'Settings',
-  Land: 'Land',
-  ratingTitle: 'Weather rating'
+  haveAccount: 'Have an account?',
+  registerAccount: 'Don`t have an account?',
+  register: 'Sign up',
+  login: 'Sign in'
 };
 
 // vraćanje stringova
