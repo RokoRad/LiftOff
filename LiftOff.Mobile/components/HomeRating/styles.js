@@ -1,12 +1,20 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  green: {
+    backgroundColor: '#47e389'
+  },
+  yellow: {
+    backgroundColor: 'yellow'
+  },
+  red: {
+    backgroundColor: 'red'
+  },
   wrapper: {
     height: '50%',
     width: '100%',
     display: 'flex',
-    flexDirection: 'column',
-    backgroundColor: '#47e389'
+    flexDirection: 'column'
   },
   top: {
     flex: 1
