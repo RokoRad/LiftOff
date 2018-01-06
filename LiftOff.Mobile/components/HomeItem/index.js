@@ -9,10 +9,10 @@ const HomeItem = (props) => (
       <Image source={require('../../images/nav/drone-nav.png')} style={styles.icon}/>
     </View>
     <View style={styles.middle}>
-      <View style={styles.top}>
+      <View>
         <Text style={styles.title}>Wind</Text>
       </View>
-      <View style={styles.bottom}>
+      <View>
         <View style={styles.row}>
           <Text style={styles.leftText}>Speed</Text>
           <Text style={styles.rightText}>10 km/h</Text>

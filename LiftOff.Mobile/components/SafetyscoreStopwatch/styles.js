@@ -1,8 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  drone: {
+    width: 50,
+    height: 50
+  },
   wrapper: {
-    backgroundColor: '#3498db',
     position: 'absolute',
     height: 'auto',
     width: '100%',
@@ -11,7 +14,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0
   },
-  drone: {
+  droneWrapper: {
     width: '25%',
     height: '100%'
   },
@@ -21,12 +24,9 @@ const styles = StyleSheet.create({
     padding: 8
   },
   rating: {
-    backgroundColor: '#2980b9',
+    backgroundColor: 'rgba(0,0,0,0.1)',
     width: '25%',
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    height: '100%'
   },
   ratingInner: {
     color: '#fff',
