@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import globals from '../../config/styles.js';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles.js';
 
@@ -17,6 +18,7 @@ class StopwatchLog extends Component {
       this.setState({
         active: !this.state.active
       });
+      // šalje request
     }
   };
 
@@ -24,11 +26,9 @@ class StopwatchLog extends Component {
       return (
         <View style={styles.wrapper}>
           <TouchableWithoutFeedback onPress={this.active}>
-            <View style={[(this.props.active ? styles.active : null), styles.left]}>
-              <Text>
-                {
-                  this.state.active ? '+' : '-'
-                }
+            <View style={[styles.left, (this.state.active ? styles.active : null), globals.bothAligned]}>
+              <Text style={styles.inner}>
+                {this.state.active ? '✓' : '+'}
               </Text>
             </View>
           </TouchableWithoutFeedback>

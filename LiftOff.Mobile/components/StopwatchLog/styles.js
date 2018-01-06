@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   },
   left: {
     width: '20%',
-    height: '100%',
     borderRadius: 6,
     backgroundColor: '#2980b9'
   },
@@ -41,6 +40,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
     fontFamily: 'barlowRegular'
+  },
+  inner: {
+    fontSize: 20,
+    fontFamily: 'barlowBold',
+    color: '#fff'  
   }
 });
 
