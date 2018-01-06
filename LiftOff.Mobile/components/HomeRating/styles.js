@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   drone: {
-    backgroundColor: 'red'
+    width: 100,
+    height: 100
   },
   green: {
     backgroundColor: '#47e389'
