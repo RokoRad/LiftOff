@@ -38,7 +38,6 @@ namespace LiftOff.API.Controllers
 
         private readonly LiftOffContext _liftOffContext = new LiftOffContext();
 
-		// POST api/Account/Register
 		[AllowAnonymous]
 		[Route("Register")]
 		public async Task<IHttpActionResult> Register(User userModel)

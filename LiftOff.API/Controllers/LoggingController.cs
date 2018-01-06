@@ -13,6 +13,7 @@ namespace LiftOff.API.Controllers
     public class LoggingController : ApiController
     {
         private readonly LiftOffContext _liftOffContext = new LiftOffContext();
+        
 
         [HttpPost]
         [Route("logFlight")]
