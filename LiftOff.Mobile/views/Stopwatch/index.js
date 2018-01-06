@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import styles from './styles.js';
 import globals from '../../config/styles.js';
 import Screen from '../../components/Screen';
 import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
@@ -52,7 +51,7 @@ class Stopwatch extends Component {
         <Screen current={this.props.location}>
           <SafetyscoreStopwatch rating="3.7"/>
           <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} />
-          <TouchableOpacity onPress={this.bind} style={[globals.buttonWrapper, styles.starter]}>
+          <TouchableOpacity onPress={this.bind} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
             <Text style={globals.buttonInner}>
               {
                 this.state.active === true 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Image, View, Text } from 'react-native';
 import styles from './styles.js';
-import globals from '../../config/styles.js';
 import colorGenerator from '../../functions/colorGenerator';
 
 const HomeItem = (props) => (
@@ -25,7 +24,7 @@ const HomeItem = (props) => (
       </View>
     </View>
     <View style={styles.right}>
-      <Text style={[styles.rating, globals[colorGenerator(props.rating)]]}>{props.rating}</Text>
+      <Text style={[styles.rating, styles[colorGenerator(props.rating)]]}>{props.rating}</Text>
     </View>
   </View>
 );
