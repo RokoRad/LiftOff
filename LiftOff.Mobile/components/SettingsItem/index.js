@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import styles from './styles.js';
 
 const SettingsItem = (props) => (
-  <View>
+  <View style={}>
     <Text></Text>
   </View>
 );
