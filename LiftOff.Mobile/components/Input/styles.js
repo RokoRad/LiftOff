@@ -7,12 +7,6 @@ const styles = StyleSheet.create({
       marginBottom: 5,
       width: '100%'
     },
-    image: {
-      position: 'absolute',
-      height: 15,
-      width: 15,
-      bottom: 10
-    },
     input: {
       marginLeft: 20,
       paddingTop: 10,
