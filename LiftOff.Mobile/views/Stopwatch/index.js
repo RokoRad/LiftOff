@@ -49,7 +49,7 @@ class Stopwatch extends Component {
   render() {
       return (
         <Screen current={this.props.location} style={styles.vertical}>
-          <SafetyscoreStopwatch />
+          <SafetyscoreStopwatch rating="3.7"/>
           <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} />
           <TouchableOpacity onPress={this.bind} style={styles.starter}>
             <Text style={styles.starterText}>
