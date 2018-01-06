@@ -1,14 +1,41 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import Anime from 'react-native-anime';
+import * as Animatable from 'react-native-animatable';
 import styles from './styles.js';
 import { language } from '../../config/settings.js'
 import colorGenerator from '../../functions/colorGenerator';
 
+Animatable.initializeRegistryWithDefinitions({
+  green: {
+    from: {
+      rotation: -1
+    },
+    to: {
+      rotation: 1
+    }    
+  },
+  orange: {
+    from: {
+      rotation: -2
+    },
+    to: {
+      rotation: 2
+    }    
+  },
+  red: {
+    from: {
+      rotation: -3
+    },
+    to: {
+      rotation: 3
+    }    
+  }
+});
+
 const HomeRating = (props) => (
     <View style={[styles.wrapper, styles[colorGenerator(props.rating)]]}>
       <View style={styles.top}>
-        <Anime.Image source={require('../../images/drone.png')} style={styles.drone} ref={ ref => this.image = ref }/>
+        <Animatable.Image source={require('../../images/drone.png')} style={styles.drone} animation={colorGenerator(props.rating)} iterationCount="infinite" easing="ease-in-out" direction="alternate" />
       </View>
       <View style={styles.bottom}>
         <View style={styles.left}>
