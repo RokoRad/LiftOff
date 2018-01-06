@@ -4,6 +4,7 @@ html, body {
   padding: 0;
   overflow: hidden;
 }
+
 .wrapper {
   position: relative;
   height: 100vh;
@@ -11,7 +12,9 @@ html, body {
   font-family: 'Barlow';
   font-weight: 500;
 }
-#marker, #picker {
+
+#marker, 
+#picker {
   position: absolute;
   bottom: 30px;
   right: 20px;
@@ -21,10 +24,12 @@ html, body {
   background-size: contain;
   cursor: pointer;
 }
+
 #picker {
   bottom: 80px;
   background-image: url('../images/date.png');
 }
+
 #map {
   position: absolute;
   top: 0;
@@ -32,6 +37,7 @@ html, body {
   right: 0;
   left: 0;
 }
+
 #input {
   background-color: #fff;
   font-size: 16px;
@@ -44,10 +50,10 @@ html, body {
   border: 0;
   box-shadow: 0px 0px 20px 0px rgba(63,110,167,1);
   padding: 5px 10px;
-  font-family: 'Barlow';
   font-weight: 500;
   border-radius: 5px;
 }
+
 #input:focus {
-  border: 0;
+  outline: none;
 }
