@@ -19,7 +19,7 @@ const Map = ({location}) => (
       domStorageEnabled={true}
       onLoadStart={console.log("started")}
       onLoadEnd={console.log("ended")} 
-      style={styles.screen, {height: '110%'}} 
+      style={{height: '110%'}} 
       onMessage={onData()}/>
   </Screen>
 );
