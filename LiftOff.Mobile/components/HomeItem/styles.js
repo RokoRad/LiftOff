@@ -19,10 +19,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   left: {
-    width: '25%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    width: '25%'
   },
   icon: {
     width: 50,
@@ -32,16 +29,10 @@ const styles = StyleSheet.create({
     width: '50%',
     height: '100%'
   },
-  top: {
-    
-  },
   title: {
     fontFamily: 'barlowMedium',
     fontSize: 12,
     marginBottom: 5
-  },
-  bottom: {
-
   },
   row: {
     display: 'flex',
@@ -62,10 +53,7 @@ const styles = StyleSheet.create({
     fontSize: 10
   },
   right: {
-    width: '25%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    width: '25%'
   },
   rating: {
     fontFamily: 'barlowRegular',
