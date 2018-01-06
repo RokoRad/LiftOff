@@ -1,4 +1,5 @@
 function initMap() {
+  // setupiranje mape
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {
       lat: 43.508133, 
@@ -108,18 +109,21 @@ function initMap() {
       }
   ]
   });
+  //setupiranje searchboxa
   var input = document.getElementById('input');
   var searchBox = new google.maps.places.SearchBox(input);
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
   map.addListener('bounds_changed', function() {
     searchBox.setBounds(map.getBounds());
   });
+  // bindanje promjena searcha
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
     if (places.length == 0) {
       return;
     }
     var bounds = new google.maps.LatLngBounds();
+    // dropto lokacija
     places.forEach(function(place) {
       if (place.geometry.viewport) {
         bounds.union(place.geometry.viewport);
@@ -138,6 +142,7 @@ function initMap() {
   //     map.setCenter(pos);
   //   });
   // }
+  // setupiranje marker
   var marker = new google.maps.Marker({
       position: map.getCenter(),
       icon: {
@@ -146,11 +151,13 @@ function initMap() {
       },
       map: map
     });
+    // na klik markera premjesi ga u sredinu
     google.maps.event.addDomListener(document.getElementById('marker'), 'click', function(evt) {
       marker.setPosition(map.getCenter());
       console.log(map.getCenter());
     });
 }
+// setupiranje datepickera
 flatpickr('#picker', {
     enableTime: true,
     disableMobile: true,
