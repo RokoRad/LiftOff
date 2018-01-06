@@ -54,7 +54,7 @@ namespace LiftOff.TestingForm
             ConditionsScoreLabel.Text   = string.Format("{0:N1}", (Math.Truncate(weatherRating.ConditionsRating  * 10) / 10).ToString()); 
             VisibilityScoreLabel.Text   = string.Format("{0:N1}", (Math.Truncate(weatherRating.VisibilityRating  * 10) / 10).ToString()); 
             TemperatureScoreLabel.Text  = string.Format("{0:N1}", (Math.Truncate(weatherRating.TemperatureRating * 10) / 10).ToString()); 
-            
+            TotalScoreLabel.Text        = string.Format("{0:N1}", (Math.Truncate(weatherRating.TotalRating * 10) / 10).ToString());
         }
 
         private void VisibilityScoreLabel_Click(object sender, EventArgs e)

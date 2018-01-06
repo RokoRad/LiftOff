@@ -9,20 +9,25 @@ namespace LiftOff.API.Logic
 {
     public class LogicIO
     {
-        public WeatherRating GetWeatherRating(TimeLocation timeLocation)
+        public static WeatherRating GetWeatherRating(TimeLocation timeLocation)
         {
             return WeatherFetcher.Instance.GetConditionsRating(timeLocation);
         }
 
-        public void RegisterTimeLocationtoTrack(TimeLocation timeLocation)
+        public static void RegisterTimeLocationtoTrack(TimeLocation timeLocation)
         {
             WeatherFetcher.Instance.AddTimeLocationToTrack(timeLocation);
         }
 
-        public void UnregisterTrackedTimeLocation(TimeLocation timeLocation, List<WeatherGetter> realtimeConnections)
+        public static void UnregisterTrackedTimeLocation(TimeLocation timeLocation, List<WeatherGetter> realtimeConnections)
         {
-            if (!realtimeConnections.Any(wg => wg.GetClient().TimeLocation.Equals(timeLocation)))
+            object lockObj = new object();
+            lock(lockObj)
+            {
+                if (!realtimeConnections.Any(wg => wg.GetClient().TimeLocation.Equals(timeLocation)))
                 WeatherFetcher.Instance.RemoveTimeLocationFromTracking(timeLocation);
+            }
+            
         }
     }
 }

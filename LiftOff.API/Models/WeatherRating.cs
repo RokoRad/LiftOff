@@ -7,6 +7,8 @@ namespace LiftOff.API.Models
 {
 	public class WeatherRating
 	{
+        public double TotalRating { get; set; }
+
 		public double ConditionsRating { get; set; }
 		public double WindRating { get; set; }
 		public double TemperatureRating { get; set; }
