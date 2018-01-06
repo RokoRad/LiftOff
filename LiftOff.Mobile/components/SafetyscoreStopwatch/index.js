@@ -9,7 +9,7 @@ import animationGenerator from '../../functions/animationGenerator';
 
 const SafetyscoreStopwatch = (props) => (
   <View style={[styles.wrapper, globals[colorGenerator(props.rating)]]}>
-    <View style={styles.droneWrapper}>
+    <View style={[styles.droneWrapper, globals.bothAligned]}>
       <Animatable.Image source={require('../../images/drone.png')} style={styles.drone} animation={animationGenerator(colorGenerator(props.rating))} iterationCount="infinite" easing="ease-in-out" direction="alternate" />
     </View>
     <View style={styles.information}>
@@ -20,7 +20,7 @@ const SafetyscoreStopwatch = (props) => (
         <Text style={styles.informationText}>Ovo je neki okvir tekst koji se vraća sa backenda. Naime, on se generira i vraća nazad.</Text>
       </View>
     </View>
-    <View style={styles.rating}>
+    <View style={[styles.rating, globals.bothAligned]}>
       <Text style={styles.ratingInner}>
         6.7
       </Text>

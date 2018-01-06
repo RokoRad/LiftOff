@@ -16,10 +16,7 @@ const styles = StyleSheet.create({
   },
   droneWrapper: {
     width: '25%',
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    height: '100%'
   },
   information: {
     width: '50%',
@@ -29,10 +26,7 @@ const styles = StyleSheet.create({
   rating: {
     backgroundColor: 'rgba(0,0,0,0.1)',
     width: '25%',
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    height: '100%'
   },
   ratingInner: {
     color: '#fff',

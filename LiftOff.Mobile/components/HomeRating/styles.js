@@ -12,10 +12,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   top: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1
   },
   bottom: {
     backgroundColor: 'rgba(0,0,0,0.1)',

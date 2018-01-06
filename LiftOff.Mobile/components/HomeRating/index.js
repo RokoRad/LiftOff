@@ -9,7 +9,7 @@ import animationGenerator from '../../functions/animationGenerator';
 
 const HomeRating = (props) => (
     <View style={[styles.wrapper, globals[colorGenerator(props.rating)]]}>
-      <View style={styles.top}>
+      <View style={[styles.top, globals.bothAligned]}>
         <Animatable.Image source={require('../../images/drone.png')} style={styles.drone} animation={animationGenerator(colorGenerator(props.rating))} iterationCount="infinite" easing="ease-in-out" direction="alternate" />
       </View>
       <View style={styles.bottom}>

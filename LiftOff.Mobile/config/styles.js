@@ -9,6 +9,11 @@ const globals = StyleSheet.create({
   },
   red: {
     backgroundColor: '#F95F62'
+  },
+  bothAligned: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
