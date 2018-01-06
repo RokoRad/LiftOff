@@ -1,13 +1,15 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles.js';
-import { NativeRouter, Route } from 'react-router-native';
+import HomeRating from '../../components/HomeList';
+import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
 
 
 const Home = ({location}) => (
   <Screen current={location}>
-    <Text>ovo je sa homea</Text>
+    <HomeRating />
+    <HomeList />
   </Screen>
 );
 
