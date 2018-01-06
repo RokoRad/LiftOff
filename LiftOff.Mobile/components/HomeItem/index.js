@@ -1,12 +1,30 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import styles from './styles.js';
 
 const HomeItem = (props) => (
   <View>
-    <Text>
-      item
-    </Text>
+    <View>
+      {/* image */}
+    </View>
+    <View>
+      <View>
+        <Text></Text>
+      </View>
+      <View>
+        <View>
+          <Text></Text>
+          <Text></Text>
+        </View>
+        <View>
+          <Text></Text>
+          <Text></Text>
+        </View>
+      </View>
+    </View>
+    <View>
+      <Text></Text>
+    </View>
   </View>
 );
 
