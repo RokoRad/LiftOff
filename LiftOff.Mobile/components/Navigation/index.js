@@ -5,7 +5,7 @@ import styles from './styles.js';
 
 const Navigation = (props) => (
     <View style={styles.navigation}>
-      <NavigationItem route="/home" type="Home" current={props.current} />
+      <NavigationItem route="/home" type="FlySafe" current={props.current} />
       <NavigationItem route="/map" type="Map" current={props.current} />
       <NavigationItem route="/liftoff" type="LiftOff" current={props.current} />
       <NavigationItem route="/account" type="Account" current={props.current} />

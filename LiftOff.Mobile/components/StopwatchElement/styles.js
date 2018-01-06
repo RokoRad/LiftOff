@@ -5,23 +5,22 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 90
+    marginTop: '35%',
+    alignItems: 'center'
   },
   inner: {
-    backgroundColor: '#fff',
     color: '#47525e',
-    fontSize: 100,
-    borderRadius: 15,
+    fontSize: 70,
     fontFamily: 'barlowMedium',
     textAlign: 'center'
   },
   double: {
     fontFamily: 'barlowMedium',
     color: '#47525e',
-    fontSize: 80,
+    fontSize: 70,
+    lineHeight: 40,
     marginLeft: 5,
-    marginRight: 5,
-    marginTop: 5
+    marginRight: 5
   }
 });
 

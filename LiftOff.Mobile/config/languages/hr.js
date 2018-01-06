@@ -6,7 +6,7 @@ const language = {
   registerAccount: 'Nemaš račun?',
   facebook: 'Prijavi se putem Facebooka',
   forgotPassword: 'Izgubljena lozinka?',
-  Home: 'Početna',
+  FlySafe: 'Fly safe',
   Map: 'Mapa',
   LiftOff: 'LiftOff',
   Account: 'Račun',
