@@ -3997,6 +3997,12 @@ react-devtools-core@^2.5.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-anime@^0.0.47:
+  version "0.0.47"
+  resolved "https://registry.yarnpkg.com/react-native-anime/-/react-native-anime-0.0.47.tgz#022c4307104d7ba2ce5447358693d1d483a9b507"
+  dependencies:
+    lodash "^4.0.0"
+
 react-native-branch@2.0.0-beta.3:
   version "2.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.0.0-beta.3.tgz#2167af86bbc9f964bd45bd5f37684e5b54965e32"
