@@ -18,8 +18,7 @@ const styles = StyleSheet.create({
   information: {
     width: '50%',
     height: '100%',
-    paddingTop: 3,
-    paddingBottom: 8
+    padding: 8
   },
   rating: {
     backgroundColor: '#2980b9',
@@ -37,14 +36,13 @@ const styles = StyleSheet.create({
   informationTitle: {
     color: '#fff',
     fontFamily: 'barlowMedium',
-    marginTop: 5,
     marginBottom: 2,
-    fontSize: 16
+    fontSize: 14
   },
   informationText: {
     color: '#fff',
     fontFamily: 'barlowRegular',
-    fontSize: 14
+    fontSize: 12
   }
 });
 

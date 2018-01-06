@@ -6,7 +6,7 @@ const language = {
   registerAccount: 'Don`t have an account?',
   facebook: 'Sign in with Facebook',
   forgotPassword: 'Forgot password?',
-  Home: 'Home',
+  FlySafe: 'Fly safe',
   Map: 'Map',
   LiftOff: 'LiftOff',
   Account: 'Account',
