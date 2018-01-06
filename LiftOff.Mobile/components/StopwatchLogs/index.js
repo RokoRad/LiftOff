@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import styles from './styles.js';
 import StopwatchLog from '../StopwatchLog';
 
@@ -10,10 +10,16 @@ const StopwatchLogs = () => (
       <Text style={styles.middle}>Location</Text>
       <Text style={styles.right}>Time</Text>
     </View>
-    <StopwatchLog />
-    <StopwatchLog />
-    <StopwatchLog />
-    <StopwatchLog />
+    <ScrollView style={styles.scroll}>
+      <StopwatchLog />
+      <StopwatchLog />
+      <StopwatchLog />
+      <StopwatchLog />
+      <StopwatchLog />
+      <StopwatchLog />
+      <StopwatchLog />
+      <StopwatchLog />
+    </ScrollView>
   </View>
 );
 
