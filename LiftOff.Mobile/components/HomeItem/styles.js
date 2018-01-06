@@ -1,12 +1,22 @@
 import { StyleSheet } from 'react-native';
 
+
+/*
+    fontFamily: 'barlowMedium',
+    fontSize: 10
+    
+    
+    fontFamily: 'barlowSemiBold',
+    fontSize: 12
+    */
+
+
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: 'red',
     paddingTop: 10,
     paddingBottom: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#8b959f',
+    borderBottomColor: '#ced7e0',
     display: 'flex',
     flexDirection: 'row'
   },
@@ -20,14 +30,15 @@ const styles = StyleSheet.create({
   },
   middle: {
     width: '50%',
-    height: '100%',
-    backgroundColor: 'red'
+    height: '100%'
   },
   top: {
     
   },
   title: {
-
+    fontFamily: 'barlowMedium',
+    fontSize: 12,
+    marginBottom: 5
   },
   bottom: {
 
@@ -36,23 +47,29 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
-    backgroundColor: 'green'
+    position: 'relative'
   },
   leftText: {
-    textAlign: 'left'
+    textAlign: 'left',
+    width: 'auto',
+    fontFamily: 'barlowRegular',
+    fontSize: 10
   },
   rightText: {
-    textAlign: 'right'
+    position: 'absolute',
+    right: 0,
+    fontFamily: 'barlowRegular',
+    fontSize: 10
   },
   right: {
     width: '25%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'pink'
+    alignItems: 'center'
   },
   rating: {
-
+    fontFamily: 'barlowRegular',
+    fontSize: 40
   }
 });
 

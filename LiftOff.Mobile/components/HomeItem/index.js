@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, View, Text } from 'react-native';
 import styles from './styles.js';
+import colorGenerator from '../../functions/colorGenerator';
 
 const HomeItem = (props) => (
   <View style={styles.wrapper}>
@@ -14,11 +15,11 @@ const HomeItem = (props) => (
       <View style={styles.bottom}>
         <View style={styles.row}>
           <Text style={styles.leftText}>Speed</Text>
-          <Text style={styles.rightText}>aaa</Text>
+          <Text style={styles.rightText}>10 km/h</Text>
         </View>
         <View style={styles.row}>
           <Text style={styles.leftText}>Direction</Text>
-          <Text style={styles.rightText}>bbbb</Text>
+          <Text style={styles.rightText}>East</Text>
         </View>
       </View>
     </View>
