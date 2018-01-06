@@ -6,7 +6,7 @@ import colorGenerator from '../../functions/colorGenerator';
 const HomeItem = (props) => (
   <View style={styles.wrapper}>
     <View style={styles.left}>
-      {/* image */}
+      <Image source={require('../../images/nav/drone-nav.png')} style={styles.icon}/>
     </View>
     <View style={styles.middle}>
       <View style={styles.top}>
@@ -24,7 +24,7 @@ const HomeItem = (props) => (
       </View>
     </View>
     <View style={styles.right}>
-      <Text style={[styles.rating, styles[colorGenerator(props.rating)]]}>1.7</Text>
+      <Text style={[styles.rating, styles[colorGenerator(props.rating)]]}>{props.rating}</Text>
     </View>
   </View>
 );

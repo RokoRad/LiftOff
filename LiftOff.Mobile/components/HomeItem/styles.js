@@ -20,11 +20,13 @@ const styles = StyleSheet.create({
   },
   left: {
     width: '25%',
-    height: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'pink'
+    alignItems: 'center'
+  },
+  icon: {
+    width: 50,
+    height: 50
   },
   middle: {
     width: '50%',
