@@ -155,6 +155,7 @@ function initMap() {
     google.maps.event.addDomListener(document.getElementById('marker'), 'click', function(evt) {
       marker.setPosition(map.getCenter());
       console.log(map.getCenter());
+      window.postMessage(map.getCenter()); // slanje mape
     });
 }
 // setupiranje datepickera
@@ -166,6 +167,7 @@ flatpickr('#picker', {
         return;
       const ISODate = selectedDates[0].toISOString();
       console.log(ISODate);
+      window.postMessage(ISODate); // slanje date valuea
     }
   }
 );
