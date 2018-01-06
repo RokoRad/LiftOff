@@ -217,6 +217,10 @@
         // }
         var marker = new google.maps.Marker({
             position: map.getCenter(),
+            icon: {
+                url: './icon.png',
+                scaledSize: new google.maps.Size(50, 50)
+            },
             map: map
           });
           google.maps.event.addDomListener(document.getElementById('marker'), 'click', function(evt) {
