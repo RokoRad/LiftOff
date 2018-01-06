@@ -4,11 +4,11 @@ const styles = StyleSheet.create({
   green: {
     backgroundColor: '#47e389'
   },
-  yellow: {
-    backgroundColor: 'yellow'
+  orange: {
+    backgroundColor: '#FF9052'
   },
   red: {
-    backgroundColor: 'red'
+    backgroundColor: '#F95F62'
   },
   wrapper: {
     height: '50%',

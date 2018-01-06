@@ -4,14 +4,12 @@ import styles from './styles.js';
 import { language } from '../../config/settings.js'
 
 const HomeRating = (props) => {
-
-  //0-2 crveno, 2-4 zuto(narancasto) , 4-5 zeleno
   generateColor = (rating) => {
     if(rating < 4) {
       if(rating < 2) {
         return 'red';
       } else {
-        return 'yellow';
+        return 'orange';
       }
     } else {
       return 'green';
