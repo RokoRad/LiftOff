@@ -5,14 +5,15 @@ const styles = StyleSheet.create({
     width: '80%',
     marginLeft: 'auto',
     marginRight: 'auto',   
-    marginTop: 20,
+    marginTop: 20
   },
   head: {
     borderBottomColor: '#9fb7d3',
     borderBottomWidth: 1,
     paddingBottom: 3,
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginBottom: 5
   },
   left: {
     width: '20%',
@@ -31,6 +32,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'barlowMedium',
     fontSize: 12
+  },
+  scroll: {
+    height: '40%'
   }
 });
 

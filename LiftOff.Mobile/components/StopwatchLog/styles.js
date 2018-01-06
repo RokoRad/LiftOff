@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
   },
   middleInner: {
     textAlign: 'center',
-    fontSize: 14
+    fontSize: 14,
+    fontFamily: 'barlowRegular'
   },
   right: {
     width: '20%',
@@ -35,7 +36,8 @@ const styles = StyleSheet.create({
   },
   rightInner: {
     textAlign: 'center',
-    fontSize: 14
+    fontSize: 14,
+    fontFamily: 'barlowRegular'
   }
 });
 

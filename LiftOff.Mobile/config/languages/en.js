@@ -11,7 +11,8 @@ const language = {
   LiftOff: 'LiftOff',
   Account: 'Account',
   Settings: 'Settings',
-  Land: 'Land'
+  Land: 'Land',
+  ratingTitle: 'Weather rating'
 };
 
 // vraćanje stringova
