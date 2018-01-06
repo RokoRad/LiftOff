@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  drone: {
+    backgroundColor: 'red'
+  },
   green: {
     backgroundColor: '#47e389'
   },
@@ -17,7 +20,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   top: {
-    flex: 1
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   bottom: {
     backgroundColor: 'rgba(0,0,0,0.1)',

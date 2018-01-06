@@ -7,7 +7,7 @@ import colorGenerator from '../../functions/colorGenerator';
 const HomeRating = (props) => (
    <View style={[styles.wrapper, styles[colorGenerator(props.rating)]]}>
      <View style={styles.top}>
-        {/* image */}
+        <Image source={require('../../images/drone.png')} style={styles.drone} />
      </View>
      <View style={styles.bottom}>
        <View style={styles.left}>
