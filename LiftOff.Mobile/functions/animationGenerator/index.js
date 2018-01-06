@@ -6,23 +6,23 @@ Animatable.initializeRegistryWithDefinitions({
       rotate: '-1deg'
     },
     to: {
-      rotation: '1deg'
+      rotate: '1deg'
     }    
   },
   orange: {
     from: {
-      rotation: '-2deg'
+      rotate: '-2deg'
     },
     to: {
-      rotation: '2deg'
+      rotate: '2deg'
     }    
   },
   red: {
     from: {
-      rotation: '-3deg'
+      rotate: '-3deg'
     },
     to: {
-      rotation: '3deg'
+      rotate: '3deg'
     }    
   }
 });
