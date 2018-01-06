@@ -9,21 +9,21 @@ const HomeItem = (props) => (
     </View>
     <View style={styles.middle}>
       <View style={styles.top}>
-        <Text style={styles.title}></Text>
+        <Text style={styles.title}>Wind</Text>
       </View>
       <View style={styles.bottom}>
         <View style={styles.row}>
-          <Text style={styles.leftText}></Text>
-          <Text style={styles.rightText}></Text>
+          <Text style={styles.leftText}>Speed</Text>
+          <Text style={styles.rightText}>aaa</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.leftText}></Text>
-          <Text style={styles.rightText}></Text>
+          <Text style={styles.leftText}>Direction</Text>
+          <Text style={styles.rightText}>bbbb</Text>
         </View>
       </View>
     </View>
     <View style={styles.right}>
-      <Text style={styles.rating}></Text>
+      <Text style={styles.rating}>1.7</Text>
     </View>
   </View>
 );
