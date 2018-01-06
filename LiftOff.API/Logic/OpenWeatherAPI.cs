@@ -14,7 +14,7 @@ namespace LiftOff.API.Logic
 	{
 		private readonly string _openWeatherAPIKey = "3939e3c3ea8f513efb798c6deb5f9857";
 		private readonly string _openWeatherAPIURL = "http://api.openweathermap.org/data/2.5/[api]?lat=[lat]&lon=[lon]&units=metric&appid=[apikey]";
-		private enum _openWeatherAPIs { weather, uvi }
+		private enum _openWeatherAPIs { weather, uvi, xml}
 
 		public WeatherData GetWeatherDataFromApi(TimeLocation timeLocation)
 		{
@@ -24,7 +24,9 @@ namespace LiftOff.API.Logic
 			return WeatherDataFromJObject(
 				timeLocation,
 				requestApi(_openWeatherAPIs.weather, timeLocation),
-				requestApi(_openWeatherAPIs.uvi, timeLocation));
+				requestApi(_openWeatherAPIs.uvi, timeLocation),
+                requestApi(_openWeatherAPIs.xml, timeLocation)
+            );
 		}
 
 		private JObject requestApi(_openWeatherAPIs api, TimeLocation timeLocation)
@@ -43,28 +45,31 @@ namespace LiftOff.API.Logic
 				StreamReader reader = new StreamReader(response.GetResponseStream());
 				apiResponse = reader.ReadToEnd();
 			}
-			JObject json = JObject.Parse(apiResponse);
+
+            JObject json;
+            
+            /*if (api != _openWeatherAPIs.xml)*/  JObject.Parse(apiResponse);
 
 			return json;
 		}
 
-		private WeatherData WeatherDataFromJObject(TimeLocation timeLocation, JObject weatherJson, JObject uviJson)
+		private WeatherData WeatherDataFromJObject(TimeLocation timeLocation, JObject weatherJson, JObject uviJson, JObject visibilityJson)
 		{
 			return new WeatherData()
 			{
 				TimeLocation = timeLocation,
 
-				Humidity = (double)weatherJson["main"]["humidity"],
-				Presssure = (double)weatherJson["main"]["pressure"],
-				Temperature = (double)weatherJson["main"]["temp"],
-				Max_Temperature = (double)weatherJson["main"]["temp_max"],
-				Min_Temperature = (double)weatherJson["main"]["temp_min"],
-				UVIndex = (double)uviJson["value"],
-				WindSpeed = (double)weatherJson["wind"]["speed"],
-				WindDirection = (double)weatherJson["wind"]["deg"],
-				WeatherID = (int)((weatherJson["weather"] as JArray).First() as JObject)["id"],
-				Weather = (string)((weatherJson["weather"] as JArray).First() as JObject)["main"],
-				Description = (string)((weatherJson["weather"] as JArray).First() as JObject)["description"]
+				Humidity            = (double)weatherJson["main"]["humidity"],
+				Presssure           = (double)weatherJson["main"]["pressure"],
+				Temperature         = (double)weatherJson["main"]["temp"],
+				Max_Temperature     = (double)weatherJson["main"]["temp_max"],
+				Min_Temperature     = (double)weatherJson["main"]["temp_min"],
+				UVIndex             = (double)uviJson["value"],
+				WindSpeed           = (double)weatherJson["wind"]["speed"],
+				WindDirection       = (double)weatherJson["wind"]["deg"],
+				WeatherID           = (int)((weatherJson["weather"] as JArray).First() as JObject)["id"],
+				Weather             = (string)((weatherJson["weather"] as JArray).First() as JObject)["main"],
+				WeatherDescription  = (string)((weatherJson["weather"] as JArray).First() as JObject)["description"]
 				// Visibility = // TODO
 				// Cloudiness = // TODO
 			};

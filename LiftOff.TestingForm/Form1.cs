@@ -46,15 +46,15 @@ namespace LiftOff.TestingForm
                 result = streamReader.ReadToEnd();
             }
 
-            OldWeatherRating weatherRating = JsonConvert.DeserializeObject<OldWeatherRating>(result);
+            WeatherRating weatherRating = JsonConvert.DeserializeObject<WeatherRating>(result);
 
-            HumidityScoreLabel.Text     = string.Format("{0:N2}", (Math.Truncate(weatherRating.AtmosphereRating  .Score * 100) / 100).ToString()); 
-            WindScoreLabel.Text         = string.Format("{0:N2}", (Math.Truncate(weatherRating.WindRating        .Score * 100) / 100).ToString()); 
-            UVScoreLabel.Text           = string.Format("{0:N2}", (Math.Truncate(weatherRating.UVRating          .Score * 100) / 100).ToString()); 
-            ConditionsScoreLabel.Text   = string.Format("{0:N2}", (Math.Truncate(weatherRating.ConditionsRating  .Score * 100) / 100).ToString()); 
-            VisibilityScoreLabel.Text   = string.Format("{0:N2}", (Math.Truncate(weatherRating.VisibilityRating  .Score * 100) / 100).ToString()); 
-            TemperatureScoreLabel.Text  = string.Format("{0:N2}", (Math.Truncate(weatherRating.TemperatureRating  .Score * 100) / 100).ToString()); 
-            
+            HumidityScoreLabel.Text     = string.Format("{0:N1}", (Math.Truncate(weatherRating.AtmosphereRating  * 10) / 10).ToString()); 
+            WindScoreLabel.Text         = string.Format("{0:N1}", (Math.Truncate(weatherRating.WindRating        * 10) / 10).ToString()); 
+            UVScoreLabel.Text           = string.Format("{0:N1}", (Math.Truncate(weatherRating.UVRating          * 10) / 10).ToString()); 
+            ConditionsScoreLabel.Text   = string.Format("{0:N1}", (Math.Truncate(weatherRating.ConditionsRating  * 10) / 10).ToString()); 
+            VisibilityScoreLabel.Text   = string.Format("{0:N1}", (Math.Truncate(weatherRating.VisibilityRating  * 10) / 10).ToString()); 
+            TemperatureScoreLabel.Text  = string.Format("{0:N1}", (Math.Truncate(weatherRating.TemperatureRating * 10) / 10).ToString()); 
+            TotalScoreLabel.Text        = string.Format("{0:N1}", (Math.Truncate(weatherRating.TotalRating * 10) / 10).ToString());
         }
 
         private void VisibilityScoreLabel_Click(object sender, EventArgs e)

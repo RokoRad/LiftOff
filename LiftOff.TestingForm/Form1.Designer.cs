@@ -45,6 +45,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TotalScoreLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LatLabel
@@ -198,11 +200,31 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Wind";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(23, 216);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Total";
+            // 
+            // TotalScoreLabel
+            // 
+            this.TotalScoreLabel.AutoSize = true;
+            this.TotalScoreLabel.Location = new System.Drawing.Point(91, 216);
+            this.TotalScoreLabel.Name = "TotalScoreLabel";
+            this.TotalScoreLabel.Size = new System.Drawing.Size(35, 13);
+            this.TotalScoreLabel.TabIndex = 18;
+            this.TotalScoreLabel.Text = "label8";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 261);
+            this.Controls.Add(this.TotalScoreLabel);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -246,6 +268,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label TotalScoreLabel;
     }
 }
 
