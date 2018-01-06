@@ -14,7 +14,7 @@ const Map = ({location}) => (
     //source={{uri: local}}
     domStorageEnabled={true}
     onLoadStart={console.log("started")}
-    onLoad={console.log("ended")} />
+    onLoadEnd={console.log("ended")} />
   </Screen>
 );
 

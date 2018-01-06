@@ -21,8 +21,6 @@ const navActive = {
   Settings: require('../../images/nav-active/settings-nav.png')
 }
 
-
-
 const NavigationItem = (props) => (
   <Link to={props.route} style={styles.navigationItemWrapper}>
     <View style={styles.navigationItem}>
