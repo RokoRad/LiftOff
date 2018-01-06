@@ -14,7 +14,9 @@ const styles = StyleSheet.create({
       paddingLeft: 5,
       fontSize: 16,
       fontFamily: 'barlowMedium',
-      color: '#fff'
+      color: '#fff',
+      borderBottomWidth: 1,
+      borderBottomColor: '#fff'
     }
 });
 

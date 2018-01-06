@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#3498db'
   },
   container: {
-    width: '80%',
+    width: '100%',
     marginLeft: 'auto',
     marginRight: 'auto'
   },
@@ -20,16 +20,14 @@ const styles = StyleSheet.create({
   message: {
     color: '#fff',
     fontFamily: 'barlowMedium',
-    textAlign: 'right',
+    textAlign: 'center',
     fontSize: 14
   },
   messageBold: {
     fontFamily: 'barlowBold'
   },
   messageWrapper: {
-    width: '80%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    width: '100%',
     paddingBottom: 30
   }
 });
