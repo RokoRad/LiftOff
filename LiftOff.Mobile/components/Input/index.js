@@ -12,7 +12,7 @@ const types = {
 const Input = (props) => (
   <View style={styles.wrapper}>
     <Image style={styles.image} source={types[props.type]} />
-    <TextInput placeholder={props.type} style={styles.input} placeholderTextColor="#fff" secureTextEntry={props.type === 'Password' ? true : false} onChangeText={(value) => (values[props.type] = value)} />
+    <TextInput underlineColorAndroid={'transparent'} placeholder={props.type} style={styles.input} placeholderTextColor="#fff" secureTextEntry={props.type === 'Password' ? true : false} onChangeText={(value) => (values[props.type] = value)} />
   </View>
 );
 
