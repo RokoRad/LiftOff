@@ -11,7 +11,6 @@ const onData = (data) => (
 const Map = ({location}) => (
   <Screen current={location}>
     <WebView 
-      ref="webview"
       cacheEnabled={true} 
       javaScriptEnabled={true}
       source={{uri: 'http://192.168.1.104:8080/'}}
