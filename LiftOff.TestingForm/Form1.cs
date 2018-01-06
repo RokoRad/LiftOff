@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -30,7 +31,7 @@ namespace LiftOff.TestingForm
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                string json = "{ \"location\" : { \"latitude\" : " + LatTextBox.Text + ", \"longitude\" : " + LonTextBox.Text + " }, \"time\" : \"2012-04-23T18:25:43.511Z\" }";
+                string json = "{ \"location\" : { \"latitude\" : " + LatTextBox.Text + ", \"longitude\" : " + LonTextBox.Text + " }, \"time\" : \""+ dateTimePicker1.Value.ToString(CultureInfo.InvariantCulture) +"\" }";
 
                 streamWriter.Write(json);
                 streamWriter.Flush();

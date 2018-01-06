@@ -29,7 +29,10 @@ namespace LiftOff.API.Controllers
 
 			WeatherFetcher.Instance.AddTimeLocationToTrack(timeLocation);
 
-			return Ok(WeatherFetcher.Instance.getConditionsRating(WeatherFetcher.Instance.GetStoredWeatherData(timeLocation)));
+            var wr = WeatherFetcher.Instance.getConditionsRating(WeatherFetcher.Instance.GetStoredWeatherData(timeLocation));
+
+
+            return Ok(wr);
 		}
 	}
 }

@@ -98,9 +98,9 @@ namespace LiftOff.API.Logic
 
     public static class LogicConstants
     {
-        public static int NumberOfEntitesPerFetch = 40;
+        public static int NumberOfEntitesPerFetch = 30;
         public static double LatitudeLongitudeTolerance = 0.1;
-        public static TimeSpan TimeTolerance = TimeSpan.FromHours(1);
+        public static TimeSpan TimeTolerance = TimeSpan.FromHours(1.5);
     }
 
     public class TLEntity

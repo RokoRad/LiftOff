@@ -49,7 +49,6 @@ namespace LiftOff.API.Logic
             return Clamp(score, 0, 5);
         }
 
-        //TODO
         private static double _rateVisibility(double visibility, double cloudiness)
         {
             var score = 5.03205 + (-0.08077214 - 5.03205) / (1 + Math.Pow(visibility / 1750.523, 2.638352));

@@ -33,7 +33,7 @@ namespace LiftOff.API.Models
 
 		public bool IsForecast()
 		{
-			return (DateTime.Now - Time).Duration() < LogicConstants.TimeTolerance;
+            return (DateTime.Now - Time).Duration() > LogicConstants.TimeTolerance;
 		}
 
 		public bool Equals(TimeLocation timeLocation)
@@ -42,6 +42,16 @@ namespace LiftOff.API.Models
 			var sameTime = (timeLocation.Time - Time).Duration() < LogicConstants.TimeTolerance;
 			return sameLocation && sameTime;
 		}
+
+        public bool EqualsByLocation(Coordinates coordinates)
+        {
+            return Math.Abs(coordinates.Latitude - Location.Latitude) < LogicConstants.LatitudeLongitudeTolerance && Math.Abs(coordinates.Longitude - Location.Longitude) < LogicConstants.LatitudeLongitudeTolerance;
+        }
+
+        public bool EqualsByTime(DateTime time)
+        {
+            return (time - Time).Duration() < LogicConstants.TimeTolerance;
+        }
 	}
 
 	public struct Coordinates
