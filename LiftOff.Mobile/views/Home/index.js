@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
- import { View, Text } from 'react-native';
+import React from 'react';
+import { View, Text } from 'react-native';
 import styles from './styles.js';
 import { NativeRouter, Route } from 'react-router-native';
 import Screen from '../../components/Screen';
