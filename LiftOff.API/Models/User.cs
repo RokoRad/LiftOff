@@ -25,20 +25,22 @@ namespace LiftOff.API.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
         public int TotalTimeFlown { get; set; }
-        public double AverageFlightTime { get; set; }
-        public DateTime FavoriteFlightTime { get; set; }
-        public double FavoriteFlightLocation_Latitude { get; set; }
-        public double FavoriteFlightLocation_Longitude { get; set; }
+        public int TotalFlights { get; set; }
+        public double TotalFlySafeScore { get; set; }
+        //public DateTime FavoriteFlightTime { get; set; }
+        //public double FavoriteFlightLocation_Latitude { get; set; }
+        //public double FavoriteFlightLocation_Longitude { get; set; }
         public ICollection<Flight> Flights { get; set; }
         public ICollection<Drone> Drones { get; set; }
 
         public User()
         {
+            TotalFlights = 0;
             TotalTimeFlown = 0;
-            AverageFlightTime = 0;
-            FavoriteFlightTime = new DateTime();
-            FavoriteFlightLocation_Latitude = 0;
-            FavoriteFlightLocation_Longitude = 0;
+            TotalFlySafeScore = 0;
+            //FavoriteFlightTime = new DateTime();
+            //FavoriteFlightLocation_Latitude = 0;
+            //FavoriteFlightLocation_Longitude = 0;
             Flights = new HashSet<Flight>();
             Drones = new HashSet<Drone>();
         }

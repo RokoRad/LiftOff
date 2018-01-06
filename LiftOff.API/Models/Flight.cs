@@ -12,7 +12,7 @@ namespace LiftOff.API.Models
         public string UserId { get; set; }
         public TimeLocation TimeLocation { get; set; }
         public int TimeFlown { get; set; }
-        public double WeatherScore { get; set; }
+        public double FlySafeScore { get; set; }
         public DateTime FlightStartTime { get; set; }
         public Drone Drone { get; set; }
 
@@ -22,7 +22,7 @@ namespace LiftOff.API.Models
             UserId = flight.UserId;
             TimeLocation = flight.TimeLocation;
             TimeFlown = flight.TimeFlown;
-            WeatherScore = flight.WeatherScore;
+            FlySafeScore = flight.FlySafeScore;
             FlightStartTime = flight.FlightStartTime;
             Drone = flight.Drone;
         }

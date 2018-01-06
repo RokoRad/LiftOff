@@ -19,7 +19,17 @@ namespace LiftOff.API.Controllers
         [Route("logFlight")]
         public IHttpActionResult LogFlight(Flight flight)
         {
-            return Ok(_liftOffContext.Flights.Add(new Flight(flight)));
+            //treba fix => mora dohvacat User ne IdentityUser
+            var user = _liftOffContext.Users.First(usr => usr.Id == flight.UserId);
+
+            User test = new User();
+            test.TotalFlights++;
+            test.TotalTimeFlown += flight.TimeFlown;
+            test.TotalFlySafeScore += flight.FlySafeScore;
+
+            _liftOffContext.Flights.Add(new Flight(flight));
+
+            return Ok(test);
         }
     }
 }
