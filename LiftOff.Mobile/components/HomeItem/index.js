@@ -3,27 +3,27 @@ import { Image, View, Text } from 'react-native';
 import styles from './styles.js';
 
 const HomeItem = (props) => (
-  <View>
-    <View>
+  <View style={styles.wrapper}>
+    <View style={styles.left}>
       {/* image */}
     </View>
-    <View>
-      <View>
-        <Text></Text>
+    <View style={styles.middle}>
+      <View style={styles.top}>
+        <Text style={styles.title}></Text>
       </View>
-      <View>
-        <View>
-          <Text></Text>
-          <Text></Text>
+      <View style={styles.bottom}>
+        <View style={styles.row}>
+          <Text style={styles.leftText}></Text>
+          <Text style={styles.rightText}></Text>
         </View>
-        <View>
-          <Text></Text>
-          <Text></Text>
+        <View style={styles.row}>
+          <Text style={styles.leftText}></Text>
+          <Text style={styles.rightText}></Text>
         </View>
       </View>
     </View>
-    <View>
-      <Text></Text>
+    <View style={styles.right}>
+      <Text style={styles.rating}></Text>
     </View>
   </View>
 );
