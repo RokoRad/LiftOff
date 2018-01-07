@@ -7,11 +7,11 @@ import Dropdown from '../../components/Dropdown';
 import styles from './styles.js';
 
 const data = [
-  {location: {latitude: 45.815399, latitudeDelta: 0.1, longitude: 15.866568, longitudeDelta: 0.05}},
-  {location: {latitude: 45.915399, latitudeDelta: 0.1, longitude: 15.766568, longitudeDelta: 0.05}},
-  {location: {latitude: 45.715399, latitudeDelta: 0.1, longitude: 15.666568, longitudeDelta: 0.05}},
-  {location: {latitude: 45.615399, latitudeDelta: 0.1, longitude: 15.566568, longitudeDelta: 0.05}},
-  {location: {latitude: 45.515399, latitudeDelta: 0.1, longitude: 15.466568, longitudeDelta: 0.05}}
+  {location: {latitude: 45.815499, latitudeDelta: 0.1, longitude: 15.966668, longitudeDelta: 0.05}},
+  {location: {latitude: 45.815599, latitudeDelta: 0.1, longitude: 15.966768, longitudeDelta: 0.05}},
+  {location: {latitude: 45.815699, latitudeDelta: 0.1, longitude: 15.966868, longitudeDelta: 0.05}},
+  {location: {latitude: 45.815799, latitudeDelta: 0.1, longitude: 15.966968, longitudeDelta: 0.05}},
+  {location: {latitude: 45.815899, latitudeDelta: 0.1, longitude: 15.966568, longitudeDelta: 0.05}}
 ];
 
 const Account = ({location}) => (
