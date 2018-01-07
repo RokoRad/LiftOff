@@ -2,12 +2,15 @@
 using LiftOff.API.Data.Repos;
 using LiftOff.API.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 
 namespace LiftOff.API.Controllers
@@ -49,5 +52,11 @@ namespace LiftOff.API.Controllers
 			else return Ok();
 		}
 
-	}
+        [Authorize]
+        [Route("GetMyId")]
+        public IHttpActionResult GetMyId()
+        {
+            return Ok(User.Identity.GetUserId());
+        }
+    }
 }
