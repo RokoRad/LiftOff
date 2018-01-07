@@ -10,6 +10,7 @@ namespace LiftOff.API.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public double TopSpeed { get; set; }
-        public ICollection<User> Users { get; set; }
+
+        public ICollection<StatisticsUser> Users { get; set; }
     }
 }

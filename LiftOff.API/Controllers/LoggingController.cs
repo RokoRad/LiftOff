@@ -17,16 +17,24 @@ namespace LiftOff.API.Controllers
         public IHttpActionResult LogFlight(Flight flight)
         {
             //treba fix => mora dohvacat User ne IdentityUser
-            var user = _liftOffContext.Users.First(usr => usr.Id == flight.UserId);
+            //var user = _liftOffContext.Users.First(usr => usr.Id == flight.UserId);
 
-            User test = new User();
+            var test = _liftOffContext.StatisticsUsers.First(usr => usr.UserName == "aaa");
             test.TotalFlights++;
             test.TotalTimeFlown += flight.TimeFlown;
             test.TotalFlySafeScore += flight.FlySafeScore;
             test.FlightLocations.Add(flight.FlightLocation);
-            test.FavoriteFlightLocation = StatisticsCalculator.CalculateFavoriteFlightLocation(test.FlightLocations.ToList());
+            test.FavoriteFlightSpot = StatisticsCalculator.CalculateFavoriteFlightLocation(test.FlightLocations.ToList());
+            test.FlightTimes.Add(flight.FlightTime);
+            test.FavoriteFlightTime = StatisticsCalculator.CalculateFavoriteFlightTime(test.FlightTimes.ToList()).ToString();
 
-            _liftOffContext.Flights.Add(new Flight(flight));
+            flight.User = test;
+
+            _liftOffContext.FlightLocations.Add(flight.FlightLocation);
+            _liftOffContext.FlightTimes.Add(flight.FlightTime);
+            _liftOffContext.Flights.Add(flight);
+
+            _liftOffContext.SaveChanges();
 
             return Ok(test);
         }

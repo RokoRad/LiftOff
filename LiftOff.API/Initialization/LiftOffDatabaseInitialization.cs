@@ -31,7 +31,28 @@ namespace LiftOff.API.Initialization
                 }
             };
 
+            var users = new List<StatisticsUser>()
+            {
+                new StatisticsUser()
+                {
+                    UserName = "aaa"
+                },
+                new StatisticsUser()
+                {
+                    UserName = "bbb"
+                },
+                new StatisticsUser()
+                {
+                    UserName = "ccc"
+                },
+                new StatisticsUser()
+                {
+                    UserName = "ddd"
+                }
+            };
+
             context.Drones.AddRange(drones);
+            context.StatisticsUsers.AddRange(users);
 
             context.SaveChanges();
 

@@ -1,34 +1,41 @@
-﻿using LiftOff.API.Logic.Statistics;
+﻿using LiftOff.API.Data;
+using LiftOff.API.Logic.Statistics;
+using Newtonsoft.Json;
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace LiftOff.API.Models
 {
     public class Flight
     {
         public int Id { get; set; }
-        public User User { get; set; }
-        public string UserId { get; set; }
+
         public int TimeFlown { get; set; }
         public double FlySafeScore { get; set; }
-        public DateTime FlightStartTime { get; set; }
+
+        [Required]
+        [JsonIgnore]
+        public StatisticsUser User { get; set; }
+        [JsonIgnore]
+        public Guid UserId { get; set; }
         public Drone Drone { get; set; }
-        public FlightLocation FlightLocation { get; set; }
-        public int FlightLocationId { get; set; }
-        public FlightTime FlightTime { get; set; }
-        public int FlightTimeId { get; set; }
+        [Required]
+        public virtual FlightLocation FlightLocation { get; set; }
+        [Required]
+        public virtual FlightTime FlightTime { get; set; }
+
+        public Flight() { }
 
         public Flight(Flight flight)
         {
             User = flight.User;
-            UserId = flight.UserId;
             TimeFlown = flight.TimeFlown;
             FlySafeScore = flight.FlySafeScore;
-            FlightStartTime = flight.FlightStartTime;
-            Drone = flight.Drone;
+            Drone = new LiftOffContext().Drones.First(dr => dr.Name == flight.Drone.Name);
             FlightLocation = flight.FlightLocation;
-            FlightLocationId = flight.FlightLocationId;
             FlightTime = flight.FlightTime;
-            FlightTimeId = flight.FlightTimeId;
         }
     }
 }

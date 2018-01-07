@@ -155,10 +155,12 @@
     <Compile Include="Logic\OpenWeatherAPI.cs" />
     <Compile Include="Logic\LogicIO.cs" />
     <Compile Include="Logic\Statistics\FlightLocation.cs" />
+    <Compile Include="Logic\Statistics\FlightTime.cs" />
     <Compile Include="Logic\Statistics\StatisticsCalculator.cs" />
     <Compile Include="Logic\WeatherFetcher.cs" />
     <Compile Include="Models\Drone.cs" />
     <Compile Include="Models\Flight.cs" />
+    <Compile Include="Models\StatisticsUser.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\WeatherData.cs" />
     <Compile Include="Models\WeatherRating.cs" />

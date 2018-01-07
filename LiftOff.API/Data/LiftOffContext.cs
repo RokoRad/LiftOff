@@ -22,13 +22,14 @@ namespace LiftOff.API.Data
         public virtual DbSet<Drone> Drones { get; set; }
         public virtual DbSet<FlightLocation> FlightLocations { get; set; }
         public virtual DbSet<FlightTime> FlightTimes { get; set; }
+        public virtual DbSet<StatisticsUser> StatisticsUsers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<StatisticsUser>()
                  .HasMany(x => x.Flights);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<StatisticsUser>()
                 .HasMany(x => x.Drones)
                 .WithMany(x => x.Users);
 
@@ -41,14 +42,6 @@ namespace LiftOff.API.Data
                 .WithMany(x => x.Flights)
                 .HasForeignKey(x => x.UserId)
                 .WillCascadeOnDelete(true);
-
-            modelBuilder.Entity<Flight>()
-                .HasRequired(x => x.FlightLocation)
-                .WithMany(x => x.Flights)
-                .HasForeignKey(x => x.FlightLocationId)
-                .WillCascadeOnDelete(true);
-
-
 
             base.OnModelCreating(modelBuilder);
         }
