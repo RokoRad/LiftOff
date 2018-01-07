@@ -3,45 +3,24 @@ import Screen from '../../components/Screen';
 import style from './map.js'
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 
-const GEOLOCATION_OPTIONS = {
-  enableHighAccuracy: true,
-  timeout: 20000,
-  maximumAge: 1000
-  };
-
 class Map extends Component {
   constructor() {
      super();
      this.state = {
-        lat: 42,
-        lon: 42
+        lat: 43.508133,
+        lon: 16.440193
      };
   };
 
-  componentDidMount() {
+  async componentWillMount() {
     this.getLocation();
   }
 
-//   getLocation = async () => {
-//    let { status } = await Permissions.askAsync(Permissions.LOCATION);
-//    let temp = await Location.getCurrentPositionAsync();
-//    if (status === 'granted') {
-//     this.setState({
-//       location: temp
-//     });
-//     console.log(await Location.getCurrentPositionAsync())
-//    } else {
-//  //blabla
-//    }
-//   }
-
   getLocation = async () => {
-    const {status} = await Permissions.askAsync(Permissions.LOCATION);
+    const { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status === 'granted') {
-      Location.getCurrentPositionAsync({enableHighAccuracy: true}).then((response) => {
-        this.setState({lon: response.coords.longitude, lat: response.coords.latitude});
-        console.log(position)
-      });
+      let value = await Location.getCurrentPositionAsync({enableHighAccuracy: true, timeout: 20000, maximumAge: 1000});
+      this.setState({ lat: value.coords.latitude, lon: value.coords.longitude });
     }
   }
 
