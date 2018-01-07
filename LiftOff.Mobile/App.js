@@ -39,7 +39,7 @@ class App extends React.Component {
       return (
         <NativeRouter>
           <View style={styles.fullScreen}>
-            <StatusBar hidden={false} />
+            <StatusBar hidden={true} />
             <Route exact strict path="/" component={Inital} />
             <Route exact strict path="/home" component={Home} />
             <Route exact strict path="/account" component={Account} />
