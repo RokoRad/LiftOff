@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import Screen from '../../components/Screen';
+import MapItem from '../../components/MapItem';
 import style from './map.js'
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 
@@ -28,7 +29,9 @@ class Map extends Component {
   render() {
       return (
         <Screen current={this.props.location}>
-          <View style={{position: 'absolute', left: 0, bottom: 50, width: 50, height: 50, backgroundColor: 'red', zIndex: 999}}></View>
+          <MapItem order="1" />
+          <MapItem order="2" />
+          <MapItem order="3" />
           <MapView style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={{ latitude: this.state.lat, longitude: this.state.lon, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }} />
         </Screen>
       );

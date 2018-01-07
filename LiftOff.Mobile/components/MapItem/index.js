@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Image } from 'react-native';
 import styles from './styles.js';
 
-const MapItem = (props) => ();
+const MapItem = (props) => (
+  <View style={[styles.item, {bottom: props.order*60}]}></View>
+);
 
 export default MapItem;
