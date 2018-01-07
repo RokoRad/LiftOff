@@ -57,7 +57,9 @@ class Map extends Component {
       return (
         <Screen current={this.props.location}>
               <DatePicker
-                style={{width: 20, position: 'absolute', bottom: 10, right: 40, zIndex: 1000}}
+              iconSource={require('../../images/map/date.png')}
+              hideText={true}
+                style={{width: 100, height: 100, backgroundColor:'red', position: 'absolute', bottom: 70, right: 70, zIndex: 999}}
                 date={this.state.date}
                 mode="datetime"
                 format="YYYY-MM-DD"
@@ -65,7 +67,6 @@ class Map extends Component {
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
                 onDateChange={(date) => console.log(date)}
-                showIcon={false}
               />
           <MapItem order="1" type="marker" onPress={this.onMarker} />
           <MapItem order="2" type="picker" onPress={this.onPicker} />
