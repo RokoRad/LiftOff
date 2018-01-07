@@ -5,8 +5,8 @@ import styles from './styles.js';
 
 const AccountItem = (props) => (
   <View style={styles.wrapper}>
-    <Text style={styles.title}>{props.title}<Text>
-    <Text style={styles.content}>{props.content}<Text>
+    <Text style={styles.string}>{props.title}</Text>
+    <Text style={styles.string}>{props.content}</Text>
   </View>
 );
 

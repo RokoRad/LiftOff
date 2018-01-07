@@ -4,7 +4,7 @@ import { language } from '../../config/settings.js';
 import styles from './styles.js';
 
 const AccountWrapper = (props) => (
-
+  
 );
 
 export default AccountWrapper;
