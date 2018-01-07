@@ -6,14 +6,14 @@ import styles from './styles.js';
 
 
 var response = [
-  {title:'1', coordinate: {latitude: 45.81539953, longitude: 15.96656854 }},
-  {title:'2', coordinate: {latitude: 45.81539955, longitude: 15.96656855 }},
-  {title:'ž', coordinate: {latitude: 45.8153995500000001, longitude: 15.966568550000001 }},
-  {title:'e', coordinate: {latitude: 45.8153995500000002, longitude: 15.966568550000002 }},
-  {title:'3', coordinate: {latitude: 45.81539853, longitude: 15.96656755 }},
-  {title:'4', coordinate: {latitude: 45.81539756, longitude: 15.96656643 }},
-  {title:'5', coordinate: {latitude: 45.81539655, longitude: 15.96656566 }},
-  {title:'6', coordinate: {latitude: 45.81539552, longitude: 15.96656445 }}
+  {title:'1', coordinate: {latitude: 45.81, longitude: 15.9 }},
+  {title:'2', coordinate: {latitude: 45.82, longitude: 15.85 }},
+  {title:'ž', coordinate: {latitude: 45.82, longitude: 16 }},
+  {title:'e', coordinate: {latitude: 45.82, longitude: 15.8 }},
+  {title:'3', coordinate: {latitude: 45.83, longitude: 15.9 }},
+  {title:'4', coordinate: {latitude: 45.81, longitude: 15.77 }},
+  {title:'5', coordinate: {latitude: 45.82, longitude: 15.85 }},
+  {title:'6', coordinate: {latitude: 45.83, longitude: 15.9 }}
 ];
 
 const AccountMap = (props) => (
