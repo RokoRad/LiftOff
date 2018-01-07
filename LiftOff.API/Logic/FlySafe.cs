@@ -48,9 +48,21 @@ namespace LiftOff.API.Logic
         {
             if (weatherID == null) return null;
 
-            var score = 4.1;
+            Dictionary<int, double> WeatherIdToRating = new Dictionary<int, double>()
+            {
+                { 200, 0.7 }, { 201, 0.3 }, { 202, 0.0 }, { 210, 1.3 }, { 211, 0.2 }, { 212, 0.0 }, { 221, 0.0 }, { 230, 1.1 }, { 231, 0.5 }, { 232, 0 },
+                { 300, 2.7 }, { 301, 2.2 }, { 302, 1.3 }, { 310, 1.0 }, { 311, 0.8 }, { 312, 0.5 }, { 314, 0.3 }, { 321, 0.2 },
+                { 500, 1.8 }, { 501, 1.2 }, { 502, 0.7 }, { 503, 0.5 }, { 504, 0.2 }, { 511, 1.3 }, { 520, 0.6 }, { 522, 0.1 }, { 531, 0.0 },
+                { 600, 3.1 }, { 601, 2.7 }, { 602, 1.7 }, { 611, 1.6 }, { 612, 1.3 }, { 615, 1.4 }, { 616, 0.8 }, { 620, 1.3 }, { 621, 0.4 }, { 622, 0.2 },
+                { 701, 3.9 }, { 711, 3.7 }, { 721, 3.1 }, { 731, 2.4 }, { 741, 2.8 }, { 751, 2.1 }, { 761, 2.4 }, { 762, 1.9 }, { 771, 1.2 }, { 781, 0.0 },
+                { 800, 5.0 }, { 801, 4.9 }, { 802, 4.8 }, { 803, 4.6 }, { 804, 3.9 },
+                { 900, 0.0 }, { 901, 0.0 }, { 902, 0.0 }, { 903, 3.1 }, { 904, 3.5 }, { 906, 0.0 },
+                { 951, 5.0 }, { 952, 4.7 }, { 953, 4.1 }, { 954, 3.5 }, { 955, 3.2 }, { 956, 2.8 }, { 957, 2.4 }, { 958, 2.1 }, { 959, 1.3 }, { 960, 0.7 }, { 961, 0.4 }, { 962, 0 }
+            };
 
-            return Clamp(score, 0, 5);
+            double? score = WeatherIdToRating[(int)weatherID];
+
+            return Clamp((double)score, 0, 5);
         }
 
         private static double? _rateVisibility(double? visibility, double? cloudiness)
@@ -112,5 +124,6 @@ namespace LiftOff.API.Logic
         }
 
         private static double? Clamp(double val, double min, double max) => (val < min) ? min : ((val > max) ? max : val);
+
     }
 }
