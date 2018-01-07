@@ -1,10 +1,7 @@
 ﻿using LiftOff.API.Data;
+using LiftOff.API.Logic.Statistics;
 using LiftOff.API.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace LiftOff.API.Controllers
@@ -26,6 +23,8 @@ namespace LiftOff.API.Controllers
             test.TotalFlights++;
             test.TotalTimeFlown += flight.TimeFlown;
             test.TotalFlySafeScore += flight.FlySafeScore;
+            test.FlightLocations.Add(flight.FlightLocation);
+            test.FavoriteFlightLocation = StatisticsCalculator.CalculateFavoriteFlightLocation(test.FlightLocations.ToList());
 
             _liftOffContext.Flights.Add(new Flight(flight));
 

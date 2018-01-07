@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations.Schema;
+using LiftOff.API.Logic.Statistics;
 
 namespace LiftOff.API.Models
 {
@@ -27,20 +28,18 @@ namespace LiftOff.API.Models
         public int TotalTimeFlown { get; set; }
         public int TotalFlights { get; set; }
         public double TotalFlySafeScore { get; set; }
-        //public DateTime FavoriteFlightTime { get; set; }
-        //public double FavoriteFlightLocation_Latitude { get; set; }
-        //public double FavoriteFlightLocation_Longitude { get; set; }
+        public DateTime FavoriteFlightTime { get; set; }
+        public FlightLocation FavoriteFlightLocation { get; set; }
         public ICollection<Flight> Flights { get; set; }
         public ICollection<Drone> Drones { get; set; }
+        public ICollection<FlightLocation> FlightLocations { get; set; }
+        public ICollection<FlightTime> FlightTimes { get; set; }
 
         public User()
         {
             TotalFlights = 0;
             TotalTimeFlown = 0;
             TotalFlySafeScore = 0;
-            //FavoriteFlightTime = new DateTime();
-            //FavoriteFlightLocation_Latitude = 0;
-            //FavoriteFlightLocation_Longitude = 0;
             Flights = new HashSet<Flight>();
             Drones = new HashSet<Drone>();
         }

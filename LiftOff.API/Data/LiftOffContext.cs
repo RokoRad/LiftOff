@@ -1,4 +1,5 @@
 ﻿using LiftOff.API.Initialization;
+using LiftOff.API.Logic.Statistics;
 using LiftOff.API.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -19,6 +20,8 @@ namespace LiftOff.API.Data
 
         public virtual DbSet<Flight> Flights { get; set; }
         public virtual DbSet<Drone> Drones { get; set; }
+        public virtual DbSet<FlightLocation> FlightLocations { get; set; }
+        public virtual DbSet<FlightTime> FlightTimes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -38,6 +41,14 @@ namespace LiftOff.API.Data
                 .WithMany(x => x.Flights)
                 .HasForeignKey(x => x.UserId)
                 .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<Flight>()
+                .HasRequired(x => x.FlightLocation)
+                .WithMany(x => x.Flights)
+                .HasForeignKey(x => x.FlightLocationId)
+                .WillCascadeOnDelete(true);
+
+
 
             base.OnModelCreating(modelBuilder);
         }

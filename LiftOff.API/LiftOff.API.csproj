@@ -154,6 +154,8 @@
     <Compile Include="Logic\FlySafe.cs" />
     <Compile Include="Logic\OpenWeatherAPI.cs" />
     <Compile Include="Logic\LogicIO.cs" />
+    <Compile Include="Logic\Statistics\FlightLocation.cs" />
+    <Compile Include="Logic\Statistics\StatisticsCalculator.cs" />
     <Compile Include="Logic\WeatherFetcher.cs" />
     <Compile Include="Models\Drone.cs" />
     <Compile Include="Models\Flight.cs" />

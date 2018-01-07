@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace LiftOff.API.Models
+﻿namespace LiftOff.API.Models
 {
 	public class WeatherRating
 	{
