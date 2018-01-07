@@ -11,7 +11,9 @@ const AccountMap = (props) => (
     </Text>
     <MapView zoomEnabled={false} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} pitchEnabled={false} cacheEnabled={true} scrollEnabled={false}
       region={{ latitude: props.latitude, longitude: props.longitude, latitudeDelta: 0.1, longitudeDelta: 0.05 }} rotateEnabled={false}>
-      {props.data.map((marker, id) => (<MapView.Marker coordinate={marker.coordinate} title="aaaa" description="aaa" key={id} image={require('../../images/map/pin.png')}/>))}
+      {props.data.map((marker, id) => console.log(marker)
+        //{return(<MapView.Marker coordinate={marker.coordinate} title="aaaa" description="aaa" key={id} image={require('../../images/map/pin.png')}/>)}
+        )}
     </MapView>
   </View>
 );
