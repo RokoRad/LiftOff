@@ -25,7 +25,6 @@ class App extends React.Component {
     await Expo.Font.loadAsync({
       /* 700 */ 'barlowBold': require('./fonts/Barlow-Bold.ttf'),
       /* 800 */ 'barlowExtraBold': require('./fonts/Barlow-ExtraBold.ttf'),
-      // /* 300 */ 'barlowLight': require('./fonts/Barlow-Light.ttf'),
       /* 500 */ 'barlowMedium': require('./fonts/Barlow-Medium.ttf'),
       /* 400 */ 'barlowRegular': require('./fonts/Barlow-Regular.ttf'),
       /* 600 */ 'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf')
