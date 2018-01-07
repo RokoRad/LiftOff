@@ -1,20 +1,12 @@
 ﻿using LiftOff.API.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using LiftOff.API.App_Start;
-using System.Web.Configuration;
 using LiftOff.API.Logic;
 
 namespace LiftOff.API.Controllers
 {
-	[RoutePrefix("api/weather")]
+    [RoutePrefix("api/weather")]
 	public class WeatherController : ApiController
 	{
 		[AllowAnonymous]

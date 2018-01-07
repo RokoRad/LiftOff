@@ -22,17 +22,18 @@ namespace LiftOff.API.Logic.Statistics
 
         public static TimeOfDay CalculateFavoriteFlightTime(List<FlightTime> flightTimes)
         {
-            flightTimes
+            var sortedTimes = 
+                flightTimes
                 .OrderBy(ft => ft.FlightStartTime.Hour)
                 .ToList();
 
-            var morningFlights = flightTimes
+            var morningFlights = sortedTimes
                 .TakeWhile(ft => ft.FlightStartTime.Hour <= 12)
                 .ToList()
                 .Count;
 
             var afternoonFlights =
-                flightTimes
+                sortedTimes
                 .SkipWhile(ft => ft.FlightStartTime.Hour <= 12)
                 .ToList()
                 .TakeWhile(ft => ft.FlightStartTime.Hour <= 19)
@@ -40,7 +41,7 @@ namespace LiftOff.API.Logic.Statistics
                 .Count;
 
             var nightFlights =
-                flightTimes
+                sortedTimes
                 .SkipWhile(ft => ft.FlightStartTime.Hour <= 19)
                 .ToList()
                 .Count;
