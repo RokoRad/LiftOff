@@ -6,19 +6,19 @@ import { MapView } from 'expo';
 const MarkerCallout = (props) => (
   <MapView.Callout>
     <View>
-      <Text>{language.markerTitle}</Text>
+      <Text style={styles.title}>{language.markerTitle}</Text>
     </View>
-    <View>
-      <Text>{language.markerLocation}</Text>
-      <Text>{props.location}</Text>
+    <View style={styles.row}>
+      <Text style={styles.left}>{language.markerLocation}</Text>
+      <Text style={styles.right}>{props.location}</Text>
     </View>
-    <View>
-      <Text>{language.markerTime}</Text>
-      <Text>{props.time}</Text>
+    <View style={styles.row}>
+      <Text style={styles.left}>{language.markerTime}</Text>
+      <Text style={styles.right}>{props.time}</Text>
     </View>
-    <View>
-      <Text>{language.markerRating}</Text>
-      <Text>{props.rating}</Text>
+    <View style={styles.row}>
+      <Text style={styles.left}>{language.markerRating}</Text>
+      <Text style={[styles.right, styles.rating]}>{props.rating}</Text>
     </View>
   </MapView.Callout>
 );
