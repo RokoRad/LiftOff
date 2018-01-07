@@ -5,6 +5,8 @@ import MapItem from '../../components/MapItem';
 import style from './map.js'
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 
+const crosshairHolder = {};
+
 class Map extends Component {
   constructor() {
      super();
@@ -27,18 +29,18 @@ class Map extends Component {
   }
 
   onMarker = () => {
-    console.log("marker")
+    this.setState({
+      lat: crosshairHolder.latitude,
+      lon: crosshairHolder.longitude
+    });
   };
 
   onCrosshair = () => {
-    this.setState({
-      lat: 43.5,
-      lon: 16.5 
-    });
     // SHOW TOOLTIP
   }
 
   onRegionChange = (region) => {
+    crosshairHolder = region;
     console.log(region)
   };
 
