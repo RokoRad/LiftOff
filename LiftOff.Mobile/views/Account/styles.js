@@ -4,6 +4,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 30,
     paddingTop: 20
+  },
+  picker: {
+    padding: 0
   }
 });
 

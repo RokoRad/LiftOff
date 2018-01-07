@@ -8,11 +8,12 @@ const Settings = ({location}) => (
   <Screen current={location} style={globals.bothAligned}>
     <View>
     <Picker
-    selectedValue="java"
-    onValueChange={(lang) => console.log(lang)}>
-    <Picker.Item label="Java" value="java" />
-    <Picker.Item label="JavaScript" value="js" />
-  </Picker>
+      selectedValue="js"
+      onValueChange={(lang) => console.log(lang)}>
+      <Picker.Item label="Java" value="java" />
+      <Picker.Item label="JavaScript" value="js" />
+    </Picker>
+    
       <Text>
         Settings
       </Text>
