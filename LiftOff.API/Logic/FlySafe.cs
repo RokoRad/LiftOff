@@ -95,10 +95,8 @@ namespace LiftOff.API.Logic
             double? conditionsCoefficient = (conditionsRating != null)  ? 50 - 28.35    * (double)conditionsRating  + 5.275     * Math.Pow((double)conditionsRating, 2)  - 0.35     * Math.Pow((double)conditionsRating, 3)  + 0.025      * Math.Pow((double)conditionsRating, 4)  : (double?) null;
             double? visibilityCoefficient = (visibilityRating != null)  ? 51 - 42.23333 * (double)visibilityRating  + 15.01667  * Math.Pow((double)visibilityRating, 2)  - 2.566667 * Math.Pow((double)visibilityRating, 3)  + 0.1833333  * Math.Pow((double)visibilityRating, 4)  : (double?) null;
             double? temperatureCoefficient= (temperatureRating != null) ? 20 - 0.5      * (double)temperatureRating - 6.333333  * Math.Pow((double)temperatureRating, 2) + 2        * Math.Pow((double)temperatureRating, 3) - 0.1666667  * Math.Pow((double)temperatureRating, 4) : (double?) null;
-            double? atmosphereCoefficient = (atmosphereRating != null)  ? 21 - 8.9      * (double)atmosphereRating  - 0.2333333 * Math.Pow((double)atmosphereRating, 2)  + 0.6      * Math.Pow((double)atmosphereRating, 3)  - 0.06666667 * Math.Pow((double)atmosphereRating, 4)  : (double?) null;
+            double? atmosphereCoefficient = (atmosphereRating != null)  ? 10 - 5.733333 * (double)atmosphereRating  + 0.5333333 * Math.Pow((double)atmosphereRating, 2)  + 0.2333333* Math.Pow((double)atmosphereRating, 3)  - 0.03333333 * Math.Pow((double)atmosphereRating, 4)  : (double?) null;
             double? uvCoefficient         = (uvRating != null)          ? 15 - 2.483333 * (double)uvRating          - 3.191667  * Math.Pow((double)uvRating, 2)          + 1.183333 * Math.Pow((double)uvRating, 3)          - 0.1083333  * Math.Pow((double)uvRating, 4)          : (double?) null;
-
-
 
             double totalRating = (
                   (windCoefficient         ?? 0) * ((windRating        .HasValue) ?(double)windRating        : 0)

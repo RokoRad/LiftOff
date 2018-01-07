@@ -146,33 +146,23 @@ namespace LiftOff.API.Logic
                 if (isequalbytimetodatetime) jWeatherData = JWeatherDataForecast as JObject;
             }
 
-            var Humidity = (double)jWeatherData["main"]["humidity"];
-            var Presssure = (double)jWeatherData["main"]["pressure"];
-            var Temperature = (double)jWeatherData["main"]["temp"];
-            var Max_Temperature = (double)jWeatherData["main"]["temp_max"];
-            var Min_Temperature = (double)jWeatherData["main"]["temp_min"];
-            var WindSpeed = (double)jWeatherData["wind"]["speed"];
-            var WindDirection = (double)jWeatherData["wind"]["deg"];
-            var WeatherID = (int)((jWeatherData["weather"] as JArray).First() as JObject)["id"];
-            var Weather = (string)((jWeatherData["weather"] as JArray).First() as JObject)["main"];
-            var WeatherDescription = (string)((jWeatherData["weather"] as JArray).First() as JObject)["description"];
-            var Cloudiness = (double)jWeatherData["clouds"]["all"];
-
             return new WeatherData()
             {
                 TimeLocation = timeLocation,
 
-                Humidity = (double)jWeatherData["main"]["humidity"],
-                Presssure = (double)jWeatherData["main"]["pressure"],
-                Temperature = (double)jWeatherData["main"]["temp"],
-                Max_Temperature = (double)jWeatherData["main"]["temp_max"],
-                Min_Temperature = (double)jWeatherData["main"]["temp_min"],
-                WindSpeed = (double)jWeatherData["wind"]["speed"],
-                WindDirection = (double)jWeatherData["wind"]["deg"],
-                WeatherID = (int)((jWeatherData["weather"] as JArray).First() as JObject)["id"],
-                Weather = (string)((jWeatherData["weather"] as JArray).First() as JObject)["main"],
-                WeatherDescription = (string)((jWeatherData["weather"] as JArray).First() as JObject)["description"],
-                Cloudiness = (double)jWeatherData["clouds"]["all"],
+                Humidity = ParseTo<double>(jWeatherData, new string[] { "main", "humidity" }),
+                Presssure = ParseTo<double>(jWeatherData, new string[] { "main", "pressure" }),
+                Temperature = ParseTo<double>(jWeatherData, new string[] { "main", "temp" }),
+                Max_Temperature = ParseTo<double>(jWeatherData, new string[] { "main", "temp_max" }),
+                Min_Temperature = ParseTo<double>(jWeatherData, new string[] { "main", "temp_min" }),
+                UVIndex = null,
+                WindSpeed = ParseTo<double>(jWeatherData, new string[] { "wind", "speed" }),
+                WindDirection = ParseTo<double>(jWeatherData, new string[] { "wind", "deg" }),
+                WeatherID = ParseTo<int>((jWeatherData["weather"] as JArray).First() as JObject, new string[] { "id" }),
+                Weather = ParseToString((jWeatherData["weather"] as JArray).First() as JObject, new string[] { "main" }),
+                WeatherDescription = ParseToString((jWeatherData["weather"] as JArray).First() as JObject, new string[] { "description" }),
+                Visibility = null,
+                Cloudiness = ParseTo<double>(jWeatherData, new string[] { "clouds", "all" }),
             };
         }
 
