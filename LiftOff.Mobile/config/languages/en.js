@@ -3,15 +3,16 @@ const language = {
   login: 'Login',
   register: 'Register',
   haveAccount: 'Have account?',
-  registerAccount: 'Do not have an account?',
+  registerAccount: 'Don`t have an account?',
   facebook: 'Sign in with Facebook',
   forgotPassword: 'Forgot password?',
-  Home: 'Home',
+  FlySafe: 'Fly safe',
   Map: 'Map',
   LiftOff: 'LiftOff',
   Account: 'Account',
   Settings: 'Settings',
-  Land: 'Land'
+  Land: 'Land',
+  ratingTitle: 'Weather rating'
 };
 
 // vraćanje stringova

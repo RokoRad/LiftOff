@@ -14,13 +14,13 @@ namespace LiftOff.API.Data.Repos
 	{
 		#region dependancy management
 
-		private AuthContext _context;
+		private LiftOffContext _context;
 
 		private UserManager<IdentityUser> _userManager;
 
 		public AuthRepo()
 		{
-			_context = new AuthContext();
+			_context = new LiftOffContext();
 			_userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
 		}
 
@@ -28,7 +28,6 @@ namespace LiftOff.API.Data.Repos
 		{
 			_context.Dispose();
 			_userManager.Dispose();
-
 		}
 
 		#endregion

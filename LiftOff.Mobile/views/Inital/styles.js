@@ -4,32 +4,36 @@ const styles = StyleSheet.create({
   screen: {
     height: '100%',
     position: 'relative',
-    backgroundColor: '#3498db'
+    backgroundColor: '#3498db',
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'row'
   },
   container: {
-    width: '80%',
+    width: '100%',
     marginLeft: 'auto',
     marginRight: 'auto'
   },
   image: {
     width: '100%',
     resizeMode: 'contain',
-    height: 200,
-    marginTop: 40
+    height: 250,
+    maxWidth: 230,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginBottom: 10
   },
   message: {
     color: '#fff',
     fontFamily: 'barlowMedium',
-    textAlign: 'right',
+    textAlign: 'center',
     fontSize: 14
   },
   messageBold: {
     fontFamily: 'barlowBold'
   },
   messageWrapper: {
-    width: '80%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    width: '100%',
     paddingBottom: 30
   }
 });

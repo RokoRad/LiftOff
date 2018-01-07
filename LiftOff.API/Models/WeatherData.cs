@@ -1,4 +1,4 @@
-﻿using LiftOff.API.Logic;
+using LiftOff.API.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,27 @@ namespace LiftOff.API.Models
 		public int?    WeatherID { get; set; }
 		public string  Weather { get; set; }
 		public string  WeatherDescription { get; set; }
-	}
+
+        public string Units { get; set; } = "metric";
+
+        public bool Equals(WeatherData weatherData)
+        {
+            return TimeLocation.Equals(weatherData.TimeLocation)
+                && Humidity == weatherData.Humidity
+                && Presssure == weatherData.Presssure
+                && Temperature == weatherData.Temperature
+                && Max_Temperature == weatherData.Max_Temperature
+                && Min_Temperature == weatherData.Min_Temperature
+                && Visibility == weatherData.Visibility
+                && Cloudiness == weatherData.Cloudiness
+                && UVIndex == weatherData.UVIndex
+                && WindSpeed == weatherData.WindSpeed
+                && WindDirection == weatherData.WindDirection
+                && WeatherID == weatherData.WeatherID
+                && Weather == weatherData.Weather
+                && WeatherDescription == weatherData.WeatherDescription;
+        }
+    }
 
 	public class TimeLocation
 	{

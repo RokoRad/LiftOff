@@ -7,20 +7,18 @@ const styles = StyleSheet.create({
       marginBottom: 5,
       width: '100%'
     },
-    image: {
-      position: 'absolute',
-      height: 15,
-      width: 15,
-      bottom: 10
-    },
     input: {
-      marginLeft: 20,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      width: '90%',
       paddingTop: 10,
       paddingBottom: 10,
       paddingLeft: 5,
       fontSize: 16,
       fontFamily: 'barlowMedium',
-      color: '#fff'
+      color: '#fff',
+      borderBottomWidth: 1,
+      borderBottomColor: '#fff'
     }
 });
 

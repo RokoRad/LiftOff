@@ -1,4 +1,4 @@
-﻿using LiftOff.API.Models;
+using LiftOff.API.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;

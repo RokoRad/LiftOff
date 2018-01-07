@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace LiftOff.API.Models
 {
-	public class User
+    public class User
 	{
 		[Required]
 		public string UserName { get; set; }
@@ -19,5 +14,5 @@ namespace LiftOff.API.Models
 		[Required]
 		[DataType(DataType.EmailAddress)]
 		public string Email { get; set; }
-	}
+    }
 }
