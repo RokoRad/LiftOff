@@ -5,12 +5,21 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingTop: 5,
-    paddingBottom: 5
+    paddingTop: 10,
+    paddingBottom: 10
   },
   string: {
     fontFamily: 'barlowRegular',
     fontSize: 14
+  },
+  dropdownButton: {
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    paddingTop: 10,
+    paddingBottom: 10,
+    width: '100%'
   }
 });
 

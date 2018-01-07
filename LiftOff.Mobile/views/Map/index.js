@@ -4,7 +4,7 @@ import Screen from '../../components/Screen';
 import MapItem from '../../components/MapItem';
 import MarkerCallout from '../../components/MarkerCallout';
 import style from '../../functions/mapStyle';
-import DatePicker from 'react-native-datepicker';
+import DatePicker from '../../external/react-native-datepicker';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 
 const crosshairHolder = {
@@ -73,7 +73,7 @@ class Map extends Component {
           <MapItem order="3" type="crosshair" onPress={this.onCrosshair} />
           <MapView onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} 
             region={{ latitude: this.state.latitude, longitude: this.state.longitude, latitudeDelta: this.state.latitudeDelta, longitudeDelta: this.state.longitudeDelta }}>
-          <MapView.Marker ref={(ref) => { this.marker = ref; } } coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }}>
+          <MapView.Marker image={require('../../images/map/pin.png')} style={{height: 30, width: 30}} ref={(ref) => { this.marker = ref; } } coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }}>
             <MarkerCallout location="Split, HR" time="12:36 11.6." rating="4.7" />
           </MapView.Marker>
          </MapView>
