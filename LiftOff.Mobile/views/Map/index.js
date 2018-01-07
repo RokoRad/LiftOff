@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import Screen from '../../components/Screen';
 import MapItem from '../../components/MapItem';
 import style from './map.js'
+import DatePicker from 'react-native-datepicker'
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 
 const crosshairHolder = {};
@@ -55,12 +56,23 @@ class Map extends Component {
   render() {
       return (
         <Screen current={this.props.location}>
+              <DatePicker
+        style={{width: 200}}
+        date={this.state.date}
+        mode="datetime"
+        placeholder="select date"
+        format="YYYY-MM-DD"
+        minDate={new Date().toISOString().slice(0, 10)}
+        confirmBtnText="Confirm"
+        cancelBtnText="Cancel"
+        onDateChange={(date) => {this.setState({date: date})}}
+      />
           <MapItem order="1" type="marker" onPress={this.onMarker} />
           <MapItem order="2" type="picker" onPress={this.onPicker} />
           <MapItem order="3" type="crosshair" onPress={this.onCrosshair} />
-          <MapView onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={{ latitude: this.state.latitude, longitude: this.state.longitude, latitudeDelta: this.state.latitudeDelta, longitudeDelta: this.state.longitudeDelta }}>
+          {/* <MapView onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={{ latitude: this.state.latitude, longitude: this.state.longitude, latitudeDelta: this.state.latitudeDelta, longitudeDelta: this.state.longitudeDelta }}>
           <MapView.Marker coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }} title="naslov" description="blabla" />
-         </MapView>
+         </MapView> */}
         </Screen>
       );
   }
