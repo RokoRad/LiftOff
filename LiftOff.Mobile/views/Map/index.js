@@ -5,7 +5,6 @@ import MapItem from '../../components/MapItem';
 import MarkerCallout from '../../components/MarkerCallout';
 import style from './map.js'
 import DatePicker from 'react-native-datepicker';
-import { language } from '../../config/settings.js';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 
 const crosshairHolder = {
@@ -51,7 +50,7 @@ class Map extends Component {
   onCrosshair = () => {
     /// REQUEST
     this.setState({
-      latitude: 43,
+      latitude: 43.6,
       latitudeDelta: 0.09,
       longitude: 16.5,
       longitudeDelta: 0.04
