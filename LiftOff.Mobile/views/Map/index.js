@@ -6,7 +6,12 @@ import style from './map.js'
 import DatePicker from 'react-native-datepicker'
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 
-const crosshairHolder = {};
+const crosshairHolder = {
+  latitude: 43.508133,
+  latitudeDelta: 0.0922,
+  longitude: 16.440193,
+  longitudeDelta: 0.0421
+};
 
 class Map extends Component {
   constructor() {
