@@ -65,9 +65,9 @@ class Map extends Component {
           <DatePicker iconSource={require('../../images/map/date.png')} hideText={true}
             style={{width: 40, height: 40, position: 'absolute', bottom: 125, right: 10, zIndex: 999}} customStyles={{ dateIcon:{width: 40, height: 40 }}} mode="datetime" 
             format="YYYY-MM-DD-hh-mm" minDate={new Date().toISOString().slice(0, 10)} maxDate={new Date(Date.now() + 5*24*60*60*1000).toISOString().slice(0, 10)}
-            confirmBtnText="Confirm" cancelBtnText="Cancel" onDateChange={(date) => console.log(date)} cacheEnabled={true} />
+            confirmBtnText="Confirm" cancelBtnText="Cancel" onDateChange={(date) => console.log(date)} cacheEnabled={true} loadingEnabled={true} loadingIndicatorColor="#fff" loadingBackgroundColor="#3498db" />
           <MapItem order="3" type="crosshair" onPress={this.onCrosshair} />
-          <MapView onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} 
+          <MapView showsTraffic={false} showsBuildings={false} onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} 
             region={{ latitude: this.state.latitude, longitude: this.state.longitude, latitudeDelta: this.state.latitudeDelta, longitudeDelta: this.state.longitudeDelta }}>
           <MapView.Marker image={require('../../images/map/pin.png')} style={{height: 30, width: 30}} ref={(ref) => { this.marker = ref; } } coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }}>
             <MarkerCallout location="Primošten, HR" time="15.3.2018." rating="5.0" />
