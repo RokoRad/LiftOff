@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import Screen from '../../components/Screen';
 import MapItem from '../../components/MapItem';
+import MarkerCallout from '../../components/MarkerCallout';
 import style from './map.js'
 import DatePicker from 'react-native-datepicker';
 import { language } from '../../config/settings.js';
@@ -73,23 +74,7 @@ class Map extends Component {
           <MapView onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} 
             region={{ latitude: this.state.latitude, longitude: this.state.longitude, latitudeDelta: this.state.latitudeDelta, longitudeDelta: this.state.longitudeDelta }}>
           <MapView.Marker ref={(ref) => { this.marker = ref; } } coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }}>
-            <MapView.Callout>
-                <View>
-                  <Text>{language.markerTitle}</Text>
-                </View>
-                <View>
-                  <Text>{language.markerLocation}</Text>
-                  <Text>Split, HR</Text>
-                </View>
-                <View>
-                  <Text>{language.markerTime}</Text>
-                  <Text>12:36 11.6.</Text>
-                </View>
-                <View>
-                  <Text>{language.markerRating}</Text>
-                  <Text>4.7</Text>
-                </View>
-            </MapView.Callout>
+            <MarkerCallout location="Split, HR" time="12:36 11.6." rating="4.7" />
           </MapView.Marker>
          </MapView>
         </Screen>
