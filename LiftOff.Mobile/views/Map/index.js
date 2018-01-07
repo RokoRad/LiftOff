@@ -46,7 +46,6 @@ class Map extends Component {
 
   onRegionChange = (region) => {
     crosshairHolder = region;
-    console.log(region)
   };
 
   render() {
@@ -55,7 +54,7 @@ class Map extends Component {
           <MapItem order="1" type="marker" onPress={this.onMarker} />
           <DatePicker iconSource={require('../../images/map/date.png')} hideText={true}
             style={{width: 40, height: 40, position: 'absolute', bottom: 125, right: 10, zIndex: 999}} customStyles={{ dateIcon:{width: 40, height: 40 }}} mode="datetime" 
-            format="YYYY-MM-DD" minDate={new Date().toISOString().slice(0, 10)} confirmBtnText="Confirm" cancelBtnText="Cancel" onDateChange={(date) => console.log(date)} />
+            format="YYYY-MM-DD-hh-mm" minDate={new Date().toISOString().slice(0, 10)} confirmBtnText="Confirm" cancelBtnText="Cancel" onDateChange={(date) => console.log(date)} />
           <MapItem order="3" type="crosshair" onPress={this.onCrosshair} />
           <MapView onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={{ latitude: this.state.latitude, longitude: this.state.longitude, latitudeDelta: this.state.latitudeDelta, longitudeDelta: this.state.longitudeDelta }}>
           <MapView.Marker coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }} title="naslov" description="blabla" />
