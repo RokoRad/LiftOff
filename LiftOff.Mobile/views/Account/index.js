@@ -10,11 +10,14 @@ const Account = ({location}) => (
     <AccountMap latitude={45.815399} longitude={15.966568} />
     <View style={styles.container}>
       <AccountItem title="Username" content="dbaric"/>
-      <AccountItem title="Username" content="dbaric"/>
-      <AccountItem title="Username" content="dbaric"/>
-      <AccountItem title="Username" content="dbaric"/>
-      <AccountItem title="Username" content="dbaric"/>
-      <AccountItem title="Username" content="dbaric"/>
+      <AccountItem title="Email" content="dbaric@dump.hr"/>
+      <AccountItem title="Drone" dropdown/>
+      <AccountItem title="Total flights" content="18"/>
+      <AccountItem title="Total flights" content="18"/>
+      <AccountItem title="Total flights" content="18"/>
+      <AccountItem title="Total flights" content="18"/>
+      <AccountItem title="Total flights" content="18"/>
+      <AccountItem title="Total flights" content="18"/>
     </View>
   </Screen>
 );
