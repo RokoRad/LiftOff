@@ -11,6 +11,15 @@ const styles = StyleSheet.create({
   string: {
     fontFamily: 'barlowRegular',
     fontSize: 14
+  },
+  dropdownButton: {
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    paddingTop: 10,
+    paddingBottom: 10,
+    width: '100%'
   }
 });
 
