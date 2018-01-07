@@ -6,3 +6,6 @@ optimizirat klase <br>
 izbrisat nepotrebne lang-stringove <br>
 *probat neki ux <br>
 link - crni background fixat <br>
+
+
+RUČNO NAMISTIT PICKERE U MODULUSIMA!!!!! <br>

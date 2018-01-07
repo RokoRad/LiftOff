@@ -7,14 +7,10 @@ import values from '../../functions/values';
 
 const InitalButton = (props) => {
   const login = () => {
-    console.log("login:")
-    console.log(values);
     props.router.push("/home");
   };
   
   const register = () => {
-    console.log("register:");
-    console.log(values);
     props.router.push("/home");
   };
 

@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     height: 120
   },
   wrapper: {
-    height: '50%',
+    height: '40%',
     width: '100%',
     display: 'flex',
     flexDirection: 'column'
