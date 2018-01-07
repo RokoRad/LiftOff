@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import Screen from '../../components/Screen';
 import MapItem from '../../components/MapItem';
 import style from './map.js'
@@ -43,10 +43,18 @@ class Map extends Component {
       longitude: crosshairHolder.longitude,
       longitudeDelta: crosshairHolder.longitudeDelta
     });
+    this.marker.hideCallout();
   };
 
   onCrosshair = () => {
-    // SHOW TOOLTIP
+    /// REQUEST
+    this.setState({
+      latitude: 43,
+      latitudeDelta: 0.09,
+      longitude: 16.5,
+      longitudeDelta: 0.04
+    });
+    this.marker.showCallout();
   };
 
   onRegionChange = (region) => {
@@ -61,8 +69,15 @@ class Map extends Component {
             style={{width: 40, height: 40, position: 'absolute', bottom: 125, right: 10, zIndex: 999}} customStyles={{ dateIcon:{width: 40, height: 40 }}} mode="datetime" 
             format="YYYY-MM-DD-hh-mm" minDate={new Date().toISOString().slice(0, 10)} confirmBtnText="Confirm" cancelBtnText="Cancel" onDateChange={(date) => console.log(date)} />
           <MapItem order="3" type="crosshair" onPress={this.onCrosshair} />
-          <MapView onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={{ latitude: this.state.latitude, longitude: this.state.longitude, latitudeDelta: this.state.latitudeDelta, longitudeDelta: this.state.longitudeDelta }}>
-          <MapView.Marker coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }} title="naslov" description="blabla" />
+          <MapView onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} 
+            region={{ latitude: this.state.latitude, longitude: this.state.longitude, latitudeDelta: this.state.latitudeDelta, longitudeDelta: this.state.longitudeDelta }}>
+          <MapView.Marker ref={(ref) => { this.marker = ref; } } coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }}>
+            <MapView.Callout>
+                <View>
+                  <Text>This is a plain view</Text>
+                </View>
+            </MapView.Callout>
+          </MapView.Marker>
          </MapView>
         </Screen>
       );
