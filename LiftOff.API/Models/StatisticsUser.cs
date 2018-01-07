@@ -1,4 +1,5 @@
 ﻿using LiftOff.API.Logic.Statistics;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LiftOff.API.Models
 {
-    public class StatisticsUser
+    public class StatisticsUser 
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -17,7 +18,8 @@ namespace LiftOff.API.Models
         public double TotalFlySafeScore { get; set; }
         public string FavoriteFlightTime { get; set; }
         public string FavoriteFlightSpot { get; set; }
-
+        
+        public virtual string IdentityUserId { get; set; }
         public virtual ICollection<Flight> Flights { get; set; }
         public virtual ICollection<Drone> Drones { get; set; }
         public virtual ICollection<FlightLocation> FlightLocations { get; set; }

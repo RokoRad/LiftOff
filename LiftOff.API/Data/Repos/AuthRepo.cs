@@ -42,6 +42,14 @@ namespace LiftOff.API.Data.Repos
 
 			var result = await _userManager.CreateAsync(user, userModel.Password);
 
+            StatisticsUser statisticsUser = new StatisticsUser()
+            {
+                IdentityUserId = user.Id
+            };
+
+            _context.StatisticsUsers.Add(statisticsUser);
+            _context.SaveChanges();
+
 			return result;
 		}
 
