@@ -13,7 +13,11 @@ const language = {
   Settings: 'Settings',
   Land: 'Land',
   ratingTitle: 'Weather rating',
-  logToast: 'Log saved'
+  logToast: 'Log saved',
+  markerTitle: 'We`ve found perfect spot!',
+  markerLocation: 'Location',
+  markerTime: 'Time',
+  markerRating: 'Expected FlySafe score'
 };
 
 // vraćanje stringova

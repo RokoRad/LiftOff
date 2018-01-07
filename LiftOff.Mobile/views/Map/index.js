@@ -3,7 +3,8 @@ import { View, Text } from 'react-native';
 import Screen from '../../components/Screen';
 import MapItem from '../../components/MapItem';
 import style from './map.js'
-import DatePicker from 'react-native-datepicker'
+import DatePicker from 'react-native-datepicker';
+import { language } from '../../config/settings.js';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 
 const crosshairHolder = {
@@ -74,7 +75,19 @@ class Map extends Component {
           <MapView.Marker ref={(ref) => { this.marker = ref; } } coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }}>
             <MapView.Callout>
                 <View>
-                  <Text>This is a plain view</Text>
+                  <Text>{language.markerTitle}</Text>
+                </View>
+                <View>
+                  <Text>{language.markerLocation}</Text>
+                  <Text>Split, HR</Text>
+                </View>
+                <View>
+                  <Text>{language.markerTime}</Text>
+                  <Text>12:36 11.6.</Text>
+                </View>
+                <View>
+                  <Text>{language.markerRating}</Text>
+                  <Text>4.7</Text>
                 </View>
             </MapView.Callout>
           </MapView.Marker>

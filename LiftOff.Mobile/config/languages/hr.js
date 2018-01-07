@@ -13,7 +13,11 @@ const language = {
   Settings: 'Postavke',
   Land: 'Sleti',
   ratingTitle: 'Ocjena vremena',
-  logToast: 'Zapis sačuvan'
+  logToast: 'Zapis sačuvan',
+  markerTitle: 'Pronašli smo super lokaciju!',
+  markerLocation: 'Lokacija',
+  markerTime: 'Vrijeme',
+  markerRating: 'Predviđena FlySafe ocjena'
 };
 
 // vraćanje stringova
