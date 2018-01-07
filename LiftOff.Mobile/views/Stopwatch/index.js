@@ -7,6 +7,17 @@ import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchLogs from '../../components/StopwatchLogs';
 import { language } from '../../config/settings.js';
 
+const data = [
+  {id: 1, active: true, location: 'Čavoglave, Croatia', time: '22:10'},
+  {id: 2, active: false, location: 'Čavoglave, Croatia', time: '12:10'},
+  {id: 3, active: false, location: 'Čavoglave, Croatia', time: '07:10'},
+  {id: 4, active: true, location: 'Čavoglave, Croatia', time: '22:10'},
+  {id: 5, active: false, location: 'Čavoglave, Croatia', time: '12:10'},
+  {id: 6, active: false, location: 'Čavoglave, Croatia', time: '07:10'}
+];
+
+const holder = {};
+
 class Stopwatch extends Component {
   constructor() {
      super();
@@ -36,6 +47,7 @@ class Stopwatch extends Component {
         }
       }, 1000);
     } else {
+      holder = null;
       for(let i = 100; i<900; i++) {
         clearInterval(i);
       }
@@ -59,7 +71,7 @@ class Stopwatch extends Component {
               }
             </Text>
           </TouchableOpacity>
-          <StopwatchLogs />
+          <StopwatchLogs data={data} />
         </Screen>  
       );
   }

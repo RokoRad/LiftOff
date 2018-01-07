@@ -6,7 +6,7 @@ import styles from './styles.js';
 
 const Default = (props) => [
   <Text style={styles.string} key={Math.random()}>{props.title}</Text>,
-  <Text style={styles.string} key={Math.random()}>{props.content}</Text>
+  <Text style={[styles.string, styles.bold]} key={Math.random()}>{props.content}</Text>
 ];
 
 const Pick = () => (
