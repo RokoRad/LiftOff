@@ -9,15 +9,15 @@ const styles = StyleSheet.create({
   text: {
     color: '#f3705a',
     position: 'absolute',
-    bottom: 10,
+    top: 10,
     right: 10,
     fontFamily: 'barlowSemiBold',
     fontSize: 10,
     zIndex: 999
   },
   image: {
-    height: 45,
-    width: 45
+    height: 35,
+    width: 35
   }
 });
 
