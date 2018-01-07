@@ -52,11 +52,11 @@ namespace LiftOff.API.Controllers
 			else return Ok();
 		}
 
-        [Authorize]
-        [Route("GetMyId")]
-        public IHttpActionResult GetMyId()
-        {
-            return Ok(User.Identity.GetUserId());
-        }
+        //[Authorize]
+        //[Route("GetMyId")]
+        //public IHttpActionResult GetMyId()
+        //{
+        //    return Ok(User.Identity.GetUserId());
+        //}
     }
 }

@@ -1,6 +1,7 @@
 ﻿using LiftOff.API.Data;
 using LiftOff.API.Logic.Statistics;
 using LiftOff.API.Models;
+using Microsoft.AspNet.Identity;
 using System.Linq;
 using System.Web.Http;
 
@@ -13,11 +14,14 @@ namespace LiftOff.API.Controllers
         
 
         [HttpPost]
+        [Authorize]
         [Route("logFlight")]
         public IHttpActionResult LogFlight(Flight flight)
         {
             //treba fix => mora dohvacat User ne IdentityUser
             //var user = _liftOffContext.Users.First(usr => usr.Id == flight.UserId);
+
+            var userID = User.Identity.GetUserId();
 
             var test = _liftOffContext.StatisticsUsers.First(usr => usr.UserName == "aaa");
             test.TotalFlights++;
