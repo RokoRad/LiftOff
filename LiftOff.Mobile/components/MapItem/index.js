@@ -5,7 +5,6 @@ import globals from '../../config/styles.js';
 
 const icons = {
   marker: require('../../images/map/marker.png'),
-  picker: require('../../images/map/date.png'),
   crosshair: require('../../images/map/marker.png')
 };
 
