@@ -18,16 +18,16 @@ const styles = StyleSheet.create({
     fontFamily: 'barlowRegular',
   },
   rating: {
-
+    fontFamily: 'barlowSemiBold'
   },
   green: {
-
+    color: '#47E389'
   },
   orange: {
-
+    color: '#FF9052'
   },
   red: {
-    
+    color: '#F95F62'
   }
 });
 
