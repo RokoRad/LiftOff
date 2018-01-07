@@ -9,12 +9,18 @@ const icons = {
   crosshair: require('../../images/map/marker.png')
 };
 
-const MapItem = (props) => (
-  <TouchableWithoutFeedback>
-    <View style={[globals.bothAligned, styles.item, {bottom: props.order*60}]}>
-      <Image style={styles.image} source={icons[props.type]} />
-    </View>
-  </TouchableWithoutFeedback>
-);
+const MapItem = (props) => {
+  action = (value) => (
+    console.log(value)
+  );
+
+  return (
+    <TouchableWithoutFeedback onPress={() => action(props.type)}>
+      <View style={[globals.bothAligned, styles.item, {bottom: props.order*62.5}]}>
+        <Image style={styles.image} source={icons[props.type]} />
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
 
 export default MapItem;
