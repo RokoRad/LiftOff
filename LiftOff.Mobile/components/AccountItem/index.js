@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import ModalPicker from 'react-native-modal-picker';
 import { language } from '../../config/settings.js';
 import styles from './styles.js';
 
