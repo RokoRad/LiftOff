@@ -18,7 +18,7 @@ const crosshairHolder = {
 class Map extends Component {
   constructor() {
      super();
-     if(storage.get('pin')) {
+     if(storage.get('pin') !== null) {
         this.state = JSON.parse(storage.get('pin'));
         console.log("ima pin")
      } else {
