@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, View } from 'react-native';
+import { Text, Image, View, TouchableOpacity } from 'react-native';
 import { Link } from 'react-router-native';
 import styles from './styles.js';
 import { language } from '../../config/settings.js';
@@ -22,7 +22,7 @@ const navActive = {
 }
 
 const NavigationItem = (props) => (
-  <Link to={props.route} style={styles.navigationItemWrapper}>
+  <Link to={props.route} style={styles.navigationItemWrapper} component={TouchableOpacity} activeOpacity={1}>
     <View style={styles.navigationItem}>
       {/* ovisno o jednakosti trenutne rute sa linkom itema, pokazuje aktivnu ili obicnu klasu sa stilovima na komponenti */}
       <Image source={props.current.pathname === props.route ? navActive[props.type] : nav[props.type]} style={styles.navigationImage}/>

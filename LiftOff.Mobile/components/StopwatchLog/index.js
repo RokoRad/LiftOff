@@ -36,10 +36,10 @@ class StopwatchLog extends Component {
             </View>
           </TouchableWithoutFeedback>
           <View style={styles.middle}>
-            <Text style={styles.middleInner} numberOfLines={1} ellipsizeMode="tail">Split, Croatia</Text>
+            <Text style={styles.middleInner} numberOfLines={1} ellipsizeMode="tail">{this.props.location}</Text>
           </View>
           <View style={styles.right}>
-            <Text style={styles.rightInner}>12:22</Text>
+            <Text style={styles.rightInner}>{this.props.time}</Text>
           </View>
         </View>
       );

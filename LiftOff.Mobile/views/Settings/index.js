@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Picker } from 'react-native';
 import styles from './styles.js';
 import globals from '../../config/styles.js';
 import Screen from '../../components/Screen';
@@ -7,9 +7,13 @@ import Screen from '../../components/Screen';
 const Settings = ({location}) => (
   <Screen current={location} style={globals.bothAligned}>
     <View>
-      <Text>
-        Settings
-      </Text>
+    <Picker
+      selectedValue="js"
+      onValueChange={(lang) => console.log(lang)}>
+      <Picker.Item label="Java" value="java" />
+      <Picker.Item label="JavaScript" value="js" />
+    </Picker>
+    
       <Text>
         Settings
       </Text>

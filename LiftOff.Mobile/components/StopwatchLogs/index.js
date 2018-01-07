@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from 'react-native';
 import styles from './styles.js';
 import StopwatchLog from '../StopwatchLog';
 
-const StopwatchLogs = () => (
+const StopwatchLogs = (props) => (
   <View style={styles.wrapper}>
     <View style={styles.head}>
       <Text style={styles.left}>Log</Text>
@@ -11,14 +11,7 @@ const StopwatchLogs = () => (
       <Text style={styles.right}>Time</Text>
     </View>
     <ScrollView style={styles.scroll}>
-      <StopwatchLog active />
-      <StopwatchLog />
-      <StopwatchLog active />
-      <StopwatchLog />
-      <StopwatchLog />
-      <StopwatchLog active />
-      <StopwatchLog />
-      <StopwatchLog />
+      {props.data.map((value) => <StopwatchLog location={value.location} time={value.time} active={value.active} key={value.id} />)}
     </ScrollView>
   </View>
 );
