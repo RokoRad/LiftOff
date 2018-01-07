@@ -17,7 +17,7 @@ const SafetyscoreStopwatch = (props) => (
         <Text style={styles.informationTitle}>Flight rating:</Text>
       </View>
       <View>
-        <Text style={styles.informationText}>Ovo je neki okvir tekst koji se vraća sa backenda. Naime, on se generira i vraća nazad.</Text>
+        <Text style={styles.informationText}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</Text>
       </View>
     </View>
     <View style={[styles.rating, globals.bothAligned]}>

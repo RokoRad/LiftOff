@@ -12,12 +12,12 @@ const styles = StyleSheet.create({
     top: 10,
     right: 10,
     fontFamily: 'barlowSemiBold',
-    fontSize: 12,
+    fontSize: 14,
     zIndex: 999
   },
   image: {
-    height: 40,
-    width: 40
+    height: 45,
+    width: 45
   }
 });
 
