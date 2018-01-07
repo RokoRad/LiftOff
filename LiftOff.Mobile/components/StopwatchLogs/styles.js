@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto',   
     marginTop: 40,
-    paddingBottom: 20
+    paddingBottom: 40
   },
   head: {
     borderBottomColor: '#9fb7d3',

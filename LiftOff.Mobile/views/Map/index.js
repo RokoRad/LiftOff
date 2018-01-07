@@ -5,6 +5,7 @@ import MapItem from '../../components/MapItem';
 import MarkerCallout from '../../components/MarkerCallout';
 import style from '../../functions/mapStyle';
 import DatePicker from '../../external/react-native-datepicker';
+import storage from '../../functions/storage';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 
 const crosshairHolder = {
@@ -17,12 +18,18 @@ const crosshairHolder = {
 class Map extends Component {
   constructor() {
      super();
-     this.state = {
-        latitude: 43.508133,
-        latitudeDelta: 0.0922,
-        longitude: 16.440193,
-        longitudeDelta: 0.0421
-     };
+     if(storage.get('pin')) {
+        this.state = JSON.parse(storage.get('pin'));
+        console.log("ima pin")
+     } else {
+        this.state = {
+          latitude: 43.508133,
+          latitudeDelta: 0.0922,
+          longitude: 16.440193,
+          longitudeDelta: 0.0421
+        };
+        console.log("nema pin")
+     }
   };
 
   componentWillMount() {
@@ -38,13 +45,23 @@ class Map extends Component {
   }
 
   onMarker = () => {
+    this.marker.hideCallout();
+
     this.setState({
       latitude: crosshairHolder.latitude,
       latitudeDelta: crosshairHolder.latitudeDelta,
       longitude: crosshairHolder.longitude,
       longitudeDelta: crosshairHolder.longitudeDelta
     });
-    this.marker.hideCallout();
+
+    storage.set('pin', JSON.stringify({
+      latitude: crosshairHolder.latitude,
+      latitudeDelta: crosshairHolder.latitudeDelta,
+      longitude: crosshairHolder.longitude,
+      longitudeDelta: crosshairHolder.longitudeDelta
+    }));
+    console.log("dodan pin")
+    // u storage
   };
 
   onCrosshair = () => {
