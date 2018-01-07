@@ -5,7 +5,7 @@ import globals from '../../config/styles.js';
 
 const icons = {
   marker: require('../../images/map/marker.png'),
-  crosshair: require('../../images/map/marker.png')
+  crosshair: require('../../images/map/crosshair.png')
 };
 
 const MapItem = (props) => (

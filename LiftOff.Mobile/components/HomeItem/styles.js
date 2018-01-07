@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   left: {
-    width: '25%'
+    width: '25%',
+    justifyContent: 'flex-start'
   },
   icon: {
     width: 50,
