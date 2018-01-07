@@ -26,13 +26,31 @@ class Map extends Component {
     }
   }
 
+  onMarker = () => {
+    console.log("marker")
+  };
+
+  onCrosshair = () => {
+    this.setState({
+      lat: 43.5,
+      lon: 16.5 
+    });
+    // SHOW TOOLTIP
+  }
+
+  onRegionChange = (region) => {
+    console.log(region)
+  };
+
   render() {
       return (
         <Screen current={this.props.location}>
-          <MapItem order="1" type="marker" />
+          <MapItem order="1" type="marker" onPress={this.onMarker} />
           <MapItem order="2" type="picker" />
-          <MapItem order="3" type="crosshair" />
-          <MapView style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={{ latitude: this.state.lat, longitude: this.state.lon, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }} />
+          <MapItem order="3" type="crosshair" onPress={this.onCrosshair} />
+          <MapView onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={{ latitude: this.state.lat, longitude: this.state.lon, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }}>
+          <MapView.Marker coordinate={{latitude: this.state.lat, longitude: this.state.lon}} title="naslov" description="blabla" />
+         </MapView>
         </Screen>
       );
   }
