@@ -15,9 +15,10 @@
     "react": "16.0.0",
     "react-native": "0.50.3",
     "react-native-animatable": "^1.2.4",
-    "react-native-keyboard-spacer": "^0.4.1",
-    "react-native-simple-toast": "0.0.7",
     "react-native-datepicker": "1.6.0",
+    "react-native-keyboard-spacer": "^0.4.1",
+    "react-native-modal-picker": "0.0.16",
+    "react-native-simple-toast": "0.0.7",
     "react-router": "^4.2.0",
     "react-router-native": "^4.2.0"
   },
