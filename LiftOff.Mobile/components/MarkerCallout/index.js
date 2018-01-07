@@ -6,7 +6,7 @@ import styles from './styles.js';
 import { MapView } from 'expo';
 
 const MarkerCallout = (props) => (
-  <MapView.Callout>
+  <MapView.Callout style={{width: 200}}>
     <View>
       <Text style={styles.title}>{language.markerTitle}</Text>
     </View>
