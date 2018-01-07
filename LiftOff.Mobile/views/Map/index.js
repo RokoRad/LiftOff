@@ -20,7 +20,7 @@ class Map extends Component {
   };
 
   componentWillMount() {
-    this.getLocation();
+    // this.getLocation();
   }
 
   getLocation = async () => {
