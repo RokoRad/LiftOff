@@ -29,9 +29,9 @@ class Map extends Component {
   render() {
       return (
         <Screen current={this.props.location}>
-          <MapItem order="1" />
-          <MapItem order="2" />
-          <MapItem order="3" />
+          <MapItem order="1" type="marker" />
+          <MapItem order="2" type="picker" />
+          <MapItem order="3" type="crosshair" />
           <MapView style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={{ latitude: this.state.lat, longitude: this.state.lon, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }} />
         </Screen>
       );
