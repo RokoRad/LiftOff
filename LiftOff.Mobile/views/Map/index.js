@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import Screen from '../../components/Screen';
 import MapItem from '../../components/MapItem';
 import MarkerCallout from '../../components/MarkerCallout';
-import style from './map.js'
+import style from '../../functions/mapStyle';
 import DatePicker from 'react-native-datepicker';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 
