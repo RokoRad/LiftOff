@@ -22,15 +22,15 @@ namespace LiftOff.API.Controllers
 		[Route("getScore")]
 		public IHttpActionResult GetScore([FromBody]JObject json)
 		{
-			//debug
-			System.Diagnostics.Debug.WriteLine("got a Liftoff.api request for weather data");
+            TimeLocation timeLocation = JsonConvert.DeserializeObject<TimeLocation>(JsonConvert.SerializeObject(json));
 
-			TimeLocation timeLocation = JsonConvert.DeserializeObject<TimeLocation>(JsonConvert.SerializeObject(json));
+            if (!timeLocation.TimeIsValid())     return BadRequest("time requested is not valid");
+            if (!timeLocation.LocationIsValid()) return BadRequest("location requested is not valid");
 
 			WeatherFetcher.Instance.AddTimeLocationToTrack(timeLocation);
-
-            var wr = WeatherFetcher.Instance.getConditionsRating(WeatherFetcher.Instance.GetStoredWeatherData(timeLocation));
-
+            var wd = WeatherFetcher.Instance.GetStoredWeatherData(timeLocation);
+            var wr = WeatherFetcher.Instance.getConditionsRating(wd);
+            WeatherFetcher.Instance.RemoveTimeLocationFromTracking(timeLocation);
 
             return Ok(wr);
 		}

@@ -68,40 +68,70 @@ namespace LiftOff.API.Logic
             return json;
 		}
 
+        private T? ParseTo<T>(JObject fromObject, string[] keys) where T : struct
+        {
+            var parsingToken = fromObject as JToken;
+            foreach (var key in keys)
+                try
+                {
+                    parsingToken = parsingToken[key];
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            return parsingToken.ToObject<T?>();
+        }
+
+        private string ParseToString(JObject fromObject, string[] keys)
+        {
+            var parsingToken = fromObject as JToken;
+            foreach (var key in keys)
+                try
+                {
+                    parsingToken = parsingToken[key];
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            return (string)parsingToken;
+        }
+
 		private WeatherData WeatherDataFromJObject(TimeLocation timeLocation, JObject weatherJson, JObject uviJson, JObject visibilityJson)
 		{
-            var Humidity = (double)weatherJson["main"]["humidity"];
-            var Presssure = (double)weatherJson["main"]["pressure"];
-            var Temperature = (double)weatherJson["main"]["temp"];
-            var Max_Temperature = (double)weatherJson["main"]["temp_max"];
-            var Min_Temperature = (double)weatherJson["main"]["temp_min"];
-            var UVIndex = (double)uviJson["value"];
-            var WindSpeed = (double)weatherJson["wind"]["speed"];
-            var WindDirection = (double)weatherJson["wind"]["deg"];
-            var WeatherID = (int)((weatherJson["weather"] as JArray).First() as JObject)["id"];
-            var Weather = (string)((weatherJson["weather"] as JArray).First() as JObject)["main"];
-            var WeatherDescription = (string)((weatherJson["weather"] as JArray).First() as JObject)["description"];
-            var Visibility = (double)visibilityJson["current"]["visibility"]["@value"];
-            var Cloudiness = (double)visibilityJson["current"]["clouds"]["@value"];
+            var Humidity           = ParseTo<double>(weatherJson, new string[]{ "main", "humidity"});
+            var Presssure          = ParseTo<double>(weatherJson, new string[] { "main", "pressure" });
+            var Temperature        = ParseTo<double>(weatherJson, new string[] { "main", "temp" });
+            var Max_Temperature    = ParseTo<double>(weatherJson, new string[] { "main", "temp_max" });
+            var Min_Temperature    = ParseTo<double>(weatherJson, new string[] { "main", "temp_min" });
+            var UVIndex            = ParseTo<double>(uviJson, new string[] { "value" });
+            var WindSpeed          = ParseTo<double>(weatherJson, new string[] { "wind", "speed" });
+            var WindDirection      = ParseTo<double>(weatherJson, new string[] { "wind", "deg" });
+            var WeatherID          = ParseTo<int>((weatherJson["weather"] as JArray).First() as JObject, new string[] { "id" });
+            var Weather            = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "main" });
+            var WeatherDescription = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "description" });
+            var Visibility         = ParseTo<double>(visibilityJson, new string[] { "current", "visibility", "@value" });
+            var Cloudiness         = ParseTo<double>(visibilityJson, new string[] { "current", "clouds", "@value" });
 
             return new WeatherData()
 			{
 				TimeLocation = timeLocation,
 
-				Humidity            = (double)weatherJson["main"]["humidity"],
-				Presssure           = (double)weatherJson["main"]["pressure"],
-				Temperature         = (double)weatherJson["main"]["temp"],
-				Max_Temperature     = (double)weatherJson["main"]["temp_max"],
-				Min_Temperature     = (double)weatherJson["main"]["temp_min"],
-				UVIndex             = (double)uviJson["value"],
-				WindSpeed           = (double)weatherJson["wind"]["speed"],
-				WindDirection       = (double)weatherJson["wind"]["deg"],
-				WeatherID           = (int)((weatherJson["weather"] as JArray).First() as JObject)["id"],
-				Weather             = (string)((weatherJson["weather"] as JArray).First() as JObject)["main"],
-				WeatherDescription  = (string)((weatherJson["weather"] as JArray).First() as JObject)["description"],
-				Visibility          = (double)visibilityJson["current"]["visibility"]["@value"],
-			    Cloudiness          = (double)visibilityJson["current"]["clouds"]["@value"]
-            };
+				Humidity            = ParseTo<double>(weatherJson, new string[]{ "main", "humidity"}),
+				Presssure           = ParseTo<double>(weatherJson, new string[] { "main", "pressure" }),
+				Temperature         = ParseTo<double>(weatherJson, new string[] { "main", "temp" }),
+				Max_Temperature     = ParseTo<double>(weatherJson, new string[] { "main", "temp_max" }),
+				Min_Temperature     = ParseTo<double>(weatherJson, new string[] { "main", "temp_min" }),
+				UVIndex             = ParseTo<double>(uviJson, new string[] { "value" }),
+				WindSpeed           = ParseTo<double>(weatherJson, new string[] { "wind", "speed" }),
+				WindDirection       = ParseTo<double>(weatherJson, new string[] { "wind", "deg" }),
+				WeatherID           = ParseTo<int>((weatherJson["weather"] as JArray).First() as JObject, new string[] { "id" }),
+				Weather             = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "main" }),
+				WeatherDescription  = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "description" }),
+				Visibility          = ParseTo<double>(visibilityJson, new string[] { "current", "visibility", "@value" }),
+			    Cloudiness          = ParseTo<double>(visibilityJson, new string[] { "current", "clouds", "@value" }),
+        };
 		}
 
         public WeatherData WeatherDataFromForecastJObject(TimeLocation timeLocation, JObject forecast)
