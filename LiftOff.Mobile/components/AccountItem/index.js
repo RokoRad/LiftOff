@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import ModalDropdown from 'react-native-modal-dropdown';
+import ModalDropdown from '../../external/react-native-modal-dropdown';
 import { language } from '../../config/settings.js';
 import styles from './styles.js';
 
