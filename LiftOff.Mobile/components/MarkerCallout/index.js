@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { language } from '../../config/settings.js';
+import colorGenerator from '../../functions/colorGenerator';
 import styles from './styles.js';
 import { MapView } from 'expo';
 
@@ -19,7 +20,7 @@ const MarkerCallout = (props) => (
     </View>
     <View style={styles.row}>
       <Text style={styles.string}>{language.markerRating}</Text>
-      <Text style={[styles.string, styles.rating]}>{props.rating}</Text>
+      <Text style={[styles.string, styles.rating, styles[colorGenerator(props.rating)]]}>{props.rating}</Text>
     </View>
   </MapView.Callout>
 );
