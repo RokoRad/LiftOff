@@ -13,33 +13,44 @@ class Map extends Component {
   constructor() {
      super();
      this.state = {
-        mapRegion: { latitude: 37.78825, longitude: -122.4324, latitudeDelta: 0.0922, longitudeDelta: 0.0421 },
-        locationResult: null,
-        location: {coords: { latitude: 37.78825, longitude: -122.4324}}
+        lat: 42,
+        lon: 42
      };
   };
 
   componentDidMount() {
-    this._getLocationAsync();
+    this.getLocation();
   }
 
-  _getLocationAsync = async () => {
-   let { status } = await Permissions.askAsync(Permissions.LOCATION);
-   if (status !== 'granted') {
-     this.setState({
-       locationResult: 'Permission to access location was denied',
-       location,
-     });
-   }
+//   getLocation = async () => {
+//    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+//    let temp = await Location.getCurrentPositionAsync();
+//    if (status === 'granted') {
+//     this.setState({
+//       location: temp
+//     });
+//     console.log(await Location.getCurrentPositionAsync())
+//    } else {
+//  //blabla
+//    }
+//   }
 
-   let location = await Location.getCurrentPositionAsync({});
-   this.setState({ locationResult: JSON.stringify(location), location });
- };
+  getLocation = async () => {
+    const {status} = await Permissions.askAsync(Permissions.LOCATION);
+    if (status === 'granted') {
+      Location.getCurrentPositionAsync({enableHighAccuracy: true}).then((response) => {
+        this.setState({lon: response.coords.longitude, lat: response.coords.latitude});
+        console.log(position)
+      });
+    }
+  }
 
   render() {
       return (
         <Screen current={this.props.location}>
-          <MapView style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={{ latitude: this.state.location.coords.latitude, longitude: this.state.location.coords.longitude, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }}/>
+          <MapView style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} 
+          region={{ latitude: this.state.lat, longitude: this.state.lon, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }}
+          />
         </Screen>
       );
   }
