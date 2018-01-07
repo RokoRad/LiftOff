@@ -14,7 +14,7 @@ const language = {
   Land: 'Land',
   ratingTitle: 'Weather rating',
   logToast: 'Log saved',
-  markerTitle: 'We`ve found perfect spot!',
+  markerTitle: 'We found a perfect spot!',
   markerLocation: 'Location',
   markerTime: 'Time',
   markerRating: 'Expected FlySafe score'
