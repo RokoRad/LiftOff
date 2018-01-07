@@ -1,25 +1,20 @@
 import React from 'react';
-import { WebView  } from 'react-native';
 import Screen from '../../components/Screen';
-
-const local = '../../../LiftOff.Map/index.html';
-
-const onData = (data) => (
-  console.log(data)
-);
+import style from './map.js'
+import { MapView } from 'expo';
 
 const Map = ({location}) => (
-  <Screen current={location}>
-    <WebView 
-      cacheEnabled={true} 
-      javaScriptEnabled={true}
-      source={{uri: 'http://192.168.1.104:8080/'}}
-      //source={{uri: local}}
-      domStorageEnabled={true}
-      onLoadStart={console.log("started")}
-      onLoadEnd={console.log("ended")} 
-      style={{height: '110%'}} 
-      onMessage={onData()}/>
+   <Screen current={location}>
+      <MapView
+        style={{ flex: 1 }},
+        customMapStyle={}
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+      />
   </Screen>
 );
 
