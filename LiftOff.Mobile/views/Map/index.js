@@ -12,14 +12,14 @@ class Map extends Component {
      };
   };
 
-  async componentWillMount() {
+  componentWillMount() {
     this.getLocation();
   }
 
   getLocation = async () => {
     const { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status === 'granted') {
-      let value = await Location.getCurrentPositionAsync({enableHighAccuracy: true, timeout: 20000, maximumAge: 1000});
+      let value = await Location.getCurrentPositionAsync({timeout: 2000, maximumAge: 1000});
       this.setState({ lat: value.coords.latitude, lon: value.coords.longitude });
     }
   }
