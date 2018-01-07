@@ -34,5 +34,18 @@ namespace LiftOff.API.Controllers
 
             return Ok(wr);
 		}
-	}
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("getBestRatingNearMe")]
+        public IHttpActionResult GetBestRatingNearMe([FromBody]JObject json)
+        {
+            TimeLocation timeLocation = JsonConvert.DeserializeObject<TimeLocation>(JsonConvert.SerializeObject(json));
+
+            if (!timeLocation.TimeIsValid()) return BadRequest("time requested is not valid");
+            if (!timeLocation.LocationIsValid()) return BadRequest("location requested is not valid");
+
+            return Ok(WeatherFetcher.Instance.GetBestWeatherRatingNearLocation(timeLocation));
+        }
+    }
 }

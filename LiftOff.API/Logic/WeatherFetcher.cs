@@ -94,6 +94,27 @@ namespace LiftOff.API.Logic
         {
             return getConditionsRating(GetStoredWeatherData(timeLocation));
         }
+
+        public WeatherRating GetBestWeatherRatingNearLocation(TimeLocation timeLocation)
+        {
+            List<WeatherData> WeatherDataNearLocation = new List<WeatherData>();
+
+            for (int i = -LogicConstants.MapParseSize; i < LogicConstants.MapParseSize; i++)
+                for (int j = -LogicConstants.MapParseSize; j < LogicConstants.MapParseSize; j++)
+                    WeatherDataNearLocation.AddRange(_openWeatherApi.GetForecastsPackageFromApi(new TimeLocation()
+                    {
+                        Location = new Coordinates()
+                        {
+                            Latitude = timeLocation.Location.Latitude + LogicConstants.MapParseDensity.Latitude * i,
+                            Longitude = timeLocation.Location.Longitude + LogicConstants.MapParseDensity.Longitude * j
+                        },
+                        Time = timeLocation.Time
+                    }));
+
+            List<WeatherRating> WeatherRatingsNearLocation = WeatherDataNearLocation.Select(WD => FlySafe.RateWeather(WD)).ToList();
+
+            return WeatherRatingsNearLocation.OrderByDescending(WR => WR.TotalRating).First();
+        }
     }
 
     public static class LogicConstants
@@ -101,6 +122,8 @@ namespace LiftOff.API.Logic
         public static int NumberOfEntitesPerFetch = 30;
         public static double LatitudeLongitudeTolerance = 0.1;
         public static TimeSpan TimeTolerance = TimeSpan.FromHours(1.5);
+        public static Coordinates MapParseDensity = new Coordinates() { Latitude = 0.009009009, Longitude = 0.01440776866 };
+        public static int MapParseSize = 3;
     }
 
     public class TLEntity

@@ -18,6 +18,14 @@ namespace LiftOff.API.Logic
 		private enum _openWeatherAPIs { weather, uvi, forecast}
         private enum _openWeatherModes { json, xml}
 
+        public List<WeatherData> GetForecastsPackageFromApi(TimeLocation timeLocation)
+        {
+            return WeatherDataForecastsFromForecastJObject(
+                timeLocation,
+                requestApi(_openWeatherAPIs.forecast, _openWeatherModes.json, timeLocation)
+                );
+        }
+
 		public WeatherData GetWeatherDataFromApi(TimeLocation timeLocation)
 		{
 			//debug
@@ -164,6 +172,35 @@ namespace LiftOff.API.Logic
                 Visibility = null,
                 Cloudiness = ParseTo<double>(jWeatherData, new string[] { "clouds", "all" }),
             };
+        }
+
+        public List<WeatherData> WeatherDataForecastsFromForecastJObject(TimeLocation timeLocation, JObject forecast)
+        {
+            List<WeatherData> WeatherDataForecasts = new List<WeatherData>();
+
+            foreach (JObject JWeatherDataForecast in (forecast["list"] as JArray))
+            {
+                WeatherDataForecasts.Add(new WeatherData()
+                {
+                    TimeLocation = timeLocation,
+
+                    Humidity = ParseTo<double>(JWeatherDataForecast, new string[] { "main", "humidity" }),
+                    Presssure = ParseTo<double>(JWeatherDataForecast, new string[] { "main", "pressure" }),
+                    Temperature = ParseTo<double>(JWeatherDataForecast, new string[] { "main", "temp" }),
+                    Max_Temperature = ParseTo<double>(JWeatherDataForecast, new string[] { "main", "temp_max" }),
+                    Min_Temperature = ParseTo<double>(JWeatherDataForecast, new string[] { "main", "temp_min" }),
+                    UVIndex = null,
+                    WindSpeed = ParseTo<double>(JWeatherDataForecast, new string[] { "wind", "speed" }),
+                    WindDirection = ParseTo<double>(JWeatherDataForecast, new string[] { "wind", "deg" }),
+                    WeatherID = ParseTo<int>((JWeatherDataForecast["weather"] as JArray).First() as JObject, new string[] { "id" }),
+                    Weather = ParseToString((JWeatherDataForecast["weather"] as JArray).First() as JObject, new string[] { "main" }),
+                    WeatherDescription = ParseToString((JWeatherDataForecast["weather"] as JArray).First() as JObject, new string[] { "description" }),
+                    Visibility = null,
+                    Cloudiness = ParseTo<double>(JWeatherDataForecast, new string[] { "clouds", "all" }),
+                });
+            }
+
+            return WeatherDataForecasts;
         }
 
         public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
