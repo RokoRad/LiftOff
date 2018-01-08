@@ -29,7 +29,7 @@ namespace LiftOff.API.RealTimeEngine
             return (celsius.HasValue) ? celsius * 9 / 5 + 32 : null;
         }
 
-        public static double? ConverToCelzius(double? fahrenheit)
+        public static double? ConvertToCelzius(double? fahrenheit)
         {
             return (fahrenheit.HasValue) ? (fahrenheit - 32) * 5 / 9 : null;
         }
@@ -111,8 +111,8 @@ namespace LiftOff.API.RealTimeEngine
             }
             else if (weatherRating.weatherData.Units == "imperial")
             {
-                newWeatherRating.weatherData.Max_Temperature = Conversions.ConverToCelzius(newWeatherRating.weatherData.Max_Temperature);
-                newWeatherRating.weatherData.Min_Temperature = Conversions.ConverToCelzius(newWeatherRating.weatherData.Min_Temperature);
+                newWeatherRating.weatherData.Max_Temperature = Conversions.ConvertToCelzius(newWeatherRating.weatherData.Max_Temperature);
+                newWeatherRating.weatherData.Min_Temperature = Conversions.ConvertToCelzius(newWeatherRating.weatherData.Min_Temperature);
 
                 newWeatherRating.weatherData.Visibility = Conversions.ConvertToMeters(newWeatherRating.weatherData.Visibility);
 
