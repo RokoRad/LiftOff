@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    paddingRight: 7
   },
   string: {
     fontFamily: 'barlowRegular',

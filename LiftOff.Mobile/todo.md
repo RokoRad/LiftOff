@@ -12,12 +12,7 @@ Todo:
 - nav ikone full res
 margin left an rating home dodat za 10km/h
 animirat vatricu
-maknit zadnju crtu
-onpress maknit opacity na stoperici
 2d tranzicije drona
-padding scrolla /profile
-donre dropdown bottom margin 3 => 1
-/profile donji margin nek ide ispod shadowa
 mapa nek ikone imaju svoj dock sa borderradiusu i shadowu ka na navbaru
 navbar manji weight
 sto kad su krivi login podatci?
