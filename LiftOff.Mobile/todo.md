@@ -6,10 +6,10 @@ optimizirat klase <br>
 - nav ikone full res
 animirat vatricu
 mapa nek ikone imaju svoj dock sa borderradiusu i shadowu ka na navbaru
-navbar manji weight
 sto kad su krivi login podatci? (!!!) TOAST
 -score na logovima
 hiddat password chars
 onPress mape dodat pin
 stopericu fiksat tak osta ce se pokrenit on mount
 tooltip se pokazuje na svaki onclick
+min value za input !!!
