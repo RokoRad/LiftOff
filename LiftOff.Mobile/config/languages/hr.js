@@ -15,7 +15,8 @@ const language = {
   markerTitle: 'Pronašli smo super lokaciju!',
   markerLocation: 'Lokacija',
   markerTime: 'Vrijeme',
-  markerRating: 'Predviđena FlySafe ocjena'
+  markerRating: 'Predviđena FlySafe ocjena',
+  gpsFail: 'Uključi GPS'
 };
 
 // vraćanje stringova

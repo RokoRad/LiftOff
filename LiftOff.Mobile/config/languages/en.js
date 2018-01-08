@@ -15,7 +15,8 @@ const language = {
   markerTitle: 'We found a perfect spot!',
   markerLocation: 'Location',
   markerTime: 'Time',
-  markerRating: 'Expected FlySafe score'
+  markerRating: 'Expected FlySafe score',
+  gpsFail: 'Enable GPS'
 };
 
 // vraćanje stringova
