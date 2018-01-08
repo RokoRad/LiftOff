@@ -4,8 +4,6 @@ const language = {
   register: 'Register',
   haveAccount: 'Have account?',
   registerAccount: 'Don`t have an account?',
-  facebook: 'Sign in with Facebook',
-  forgotPassword: 'Forgot password?',
   FlySafe: 'FlySafe',
   Planning: 'Planning',
   LiftOff: 'LiftOff',

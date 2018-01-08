@@ -4,8 +4,6 @@ const language = {
   register: 'Registriraj se',
   haveAccount: 'Imaš račun?',
   registerAccount: 'Nemaš račun?',
-  facebook: 'Prijavi se putem Facebooka',
-  forgotPassword: 'Izgubljena lozinka?',
   FlySafe: 'FlySafe',
   Planning: 'Planiranje',
   LiftOff: 'LiftOff',
