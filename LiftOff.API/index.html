@@ -29,9 +29,15 @@
 <script src="signalr/hubs"></script>
 
 <script type="text/javascript">
-	$(function () {
+    $(function () {
+        jQuery.support.cors = true;
 		// Declare a proxy to reference the hub.
-		var weather = $.connection.weatherHub;
+        $.connection.hub.url = 'http://liftoffapi.azurewebsites.net/signalr';
+
+        //var connection = $.hubConnection();
+        //var weather = connection.createHubProxy('weatherHub');
+        var weather = $.connection.weatherHub;
+
 		// Create a function that the hub can call to broadcast messages.
 		weather.client.broadcastWeather =  function (weather) {
 			var encodedMsg = $('<div />').text(weather).html();
@@ -56,6 +62,35 @@
 			});
 		});
 	});
+    //$.getScript('http://liftoffapi.azurewebsites.net/Scripts/jquery.signalR-2.1.1.min.js', function () {
+    //    $.getScript('http://liftoffapi.azurewebsites.net/signalr/hubs', function () {
+    //        $.connection.hub.url = 'http://liftoffapi.azurewebsites.net/signalr';
+    //        var weather = $.connection.weatherHub;
+
+    //        weather.client.broadcastWeather = function (weather) {
+    //            var encodedMsg = $('<div />').text(weather).html();
+    //            // Add the message to the page.
+    //            $('#discussion').append('<li>' + encodedMsg + '</li>');
+    //            console.log(weather);
+    //        };
+
+    //        $('#latitude').val(prompt('Enter your latitude:', ''));
+    //        $('#longitude').val(prompt('Enter your longitude:', ''));
+
+    //        $('#message').focus();
+
+    //        $.connection.hub.start().done(function () {
+    //            weather.server.initiateConnection({ Location: { Latitude: $('#latitude').val(), Longitude: $('#longitude').val() }, Date: (new Date()).toISOString() }, "metric");
+    //            $('#sendmessage').click(function () {
+    //                //weather.server.updateLocation({ Location: { Latitude: $('#newLatitude').val(), Longitude: $('#newLongitude').val() }, Date: $.now() });
+    //                weather.server.changeUnits();
+
+    //                $('#newLatitude').val('').focus();
+    //                $('#newLongitude').val('');
+    //            });
+    //        });
+    //    });
+    //});
 </script>
 </body>
 </html>
