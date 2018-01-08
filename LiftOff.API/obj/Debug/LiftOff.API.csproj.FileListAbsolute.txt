@@ -64,7 +64,6 @@ C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Microsoft.Owin.Host.SystemWeb.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Microsoft.Owin.Security.Cookies.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Microsoft.Owin.Security.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Newtonsoft.Json.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Owin.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\System.Net.Http.Formatting.dll
@@ -282,6 +281,7 @@ Y:\Desktop\LiftOff\LiftOff.API\bin\System.Web.Http.Owin.xml
 Y:\Desktop\LiftOff\LiftOff.API\bin\System.Net.Http.Formatting.xml
 Y:\Desktop\LiftOff\LiftOff.API\bin\System.Web.Http.xml
 Y:\Desktop\LiftOff\LiftOff.API\bin\System.Web.Http.WebHost.xml
+<<<<<<< HEAD
 C:\Users\Drazen\Desktop\LiftOff\LiftOff.API\bin\LiftOff.API.dll.config
 C:\Users\Drazen\Desktop\LiftOff\LiftOff.API\bin\LiftOff.API.dll
 C:\Users\Drazen\Desktop\LiftOff\LiftOff.API\bin\LiftOff.API.pdb
@@ -376,3 +376,6 @@ C:\Users\Drazen\Desktop\LiftOff\LiftOff.API\bin\System.Web.Http.WebHost.xml
 C:\Users\Drazen\Desktop\LiftOff\LiftOff.API\obj\Debug\LiftOff.API.csprojResolveAssemblyReference.cache
 C:\Users\Drazen\Desktop\LiftOff\LiftOff.API\obj\Debug\LiftOff.API.dll
 C:\Users\Drazen\Desktop\LiftOff\LiftOff.API\obj\Debug\LiftOff.API.pdb
+=======
+C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\obj\Debug\LiftOff.API.csproj.CoreCompileInputs.cache
+>>>>>>> 373b6f39f3a47bf41e9b3e48f96f91023b91e000
