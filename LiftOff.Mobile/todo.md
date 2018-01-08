@@ -26,3 +26,11 @@ donre dropdown bottom margin 3 => 1
 /profile donji margin nek ide ispod shadowa
 mapa nek ikone imaju svoj dock sa borderradiusu i shadowu ka na navbaru
 navbar manji weight
+sto kad su krivi login podatci?
+- stavit nativni dropdown
+- pomaknit prema doli sve da se ne conflicta sa status baron
+- rjesit crno sranje s navbara
+- cachirat mapu
+- rjesit bolji ux za mapu (pinn)
+- podignit malo navbar da se ne konflikta sa iphone x elementon za izlazit iz appa (ubacit bili rectangle ispod njega)
+-score na logovima
