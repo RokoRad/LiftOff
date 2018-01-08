@@ -18,8 +18,6 @@ navbar manji weight
 sto kad su krivi login podatci?
 - stavit nativni dropdown
 - pomaknit prema doli sve da se ne conflicta sa status baron
-- rjesit crno sranje s navbara
-- cachirat mapu
 - rjesit bolji ux za mapu (pinn)
 - podignit malo navbar da se ne konflikta sa iphone x elementon za izlazit iz appa (ubacit bili rectangle ispod njega)
 -score na logovima
