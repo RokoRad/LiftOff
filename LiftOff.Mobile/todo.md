@@ -25,3 +25,4 @@ padding scrolla /profile
 donre dropdown bottom margin 3 => 1
 /profile donji margin nek ide ispod shadowa
 mapa nek ikone imaju svoj dock sa borderradiusu i shadowu ka na navbaru
+navbar manji weight
