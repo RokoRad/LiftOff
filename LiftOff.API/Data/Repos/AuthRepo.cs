@@ -46,7 +46,8 @@ namespace LiftOff.API.Data.Repos
 
             StatisticsUser statisticsUser = new StatisticsUser()
             {
-                IdentityUserId = user.Id
+                IdentityUserId = user.Id,
+                UserName = user.UserName
             };
 
             _context.StatisticsUsers.Add(statisticsUser);
