@@ -8,7 +8,7 @@ import values from '../../functions/values';
 
 const encode = (value) => {
   let object = [];
-  for (var property in value) {
+  for (let property in value) {
     var encodedKey = encodeURIComponent(property);
     var encodedValue = encodeURIComponent(value[property]);
     object.push(encodedKey + "=" + encodedValue);
@@ -24,28 +24,40 @@ const InitalButton = (props) => {
       password: values.password,
       grant_type: 'password'
     };
-
-    axios({
-      method: 'post',
-      url: 'http://liftoffapi.azurewebsites.net/token',
+    fetch('http://liftoffapi.azurewebsites.net/token', {  
+      method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       },
-      data: encode(details)
+      body: encode(details)
     }).then((response) => {
-      if(response.status === 200) {
-        console.log(response);
-        // AsyncStorage.setItem('@token', '3');
-        // AsyncStorage.getItem('@token').then((value) => console.log(value));
-        // prosa
-        props.router.push("/home");
+      if (response.status === 200) {
+        console.log("prosa")
       } else {
         console.log(response)
-        // error
       }
-    }).catch((error) => 
+    }).catch((error) => {
       console.log(error)
-    );
+    });
+    // axios.post('http://liftoffapi.azurewebsites.net/token', {
+    //   headers: {
+    //     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    //   },
+    //   body: encode(details)
+    // }).then((response) => {
+    //   if(response.status === 200) {
+    //     console.log(response);
+    //     // AsyncStorage.setItem('@token', '3');
+    //     // AsyncStorage.getItem('@token').then((value) => console.log(value));
+    //     // prosa
+    //     props.router.push("/home");
+    //   } else {
+    //     console.log(response)
+    //     // error
+    //   }
+    // }).catch((error) => 
+    //   console.log(error)
+    // );
   };
 
   const register = () => {
@@ -57,7 +69,7 @@ const InitalButton = (props) => {
     axios({
       method: 'post',
       url: 'http://liftoffapi.azurewebsites.net/api/account/register',
-      data: values
+      body: values
     }).then((response) => {
       if(response.status === 200) {
         axios({
@@ -66,7 +78,7 @@ const InitalButton = (props) => {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
           },
-          data: encode(details)
+          body: encode(details)
         }).then((response) => {
           if(response.status === 200) {
             // prosa

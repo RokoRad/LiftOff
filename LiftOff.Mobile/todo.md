@@ -1,11 +1,9 @@
-rezolucija slika <br>
 vidi šta se da napravit sa kompresanjem stilova <br>
 dodat komentare <br>
 izbrisat fontove <br>
 optimizirat klase <br>
 izbrisat nepotrebne lang-stringove <br>
 *probat neki ux <br>
-
 Todo:
 - ikone nove uacit
 - rjesit bolji ux za mapu (pinn)
