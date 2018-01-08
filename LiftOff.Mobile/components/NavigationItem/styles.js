@@ -26,12 +26,7 @@ const styles = StyleSheet.create({
     fontFamily: 'barlowSemiBold'
   },
   navigationTextActive: {
-    marginTop: 2.5,
-    marginBottom: 7.5,
-    textAlign: 'center',
-    fontSize: 12,
-    color: '#2980b9',
-    fontFamily: 'barlowSemiBold'
+    color: '#2980b9'
   }
 });
 

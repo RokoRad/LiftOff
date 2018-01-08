@@ -26,7 +26,7 @@ const NavigationItem = (props) => (
     <View style={styles.navigationItem}>
       {/* ovisno o jednakosti trenutne rute sa linkom itema, pokazuje aktivnu ili obicnu klasu sa stilovima na komponenti */}
       <Image source={props.current.pathname === props.route ? navActive[props.type] : nav[props.type]} style={styles.navigationImage}/>
-      <Text style={props.current.pathname === props.route ? styles.navigationTextActive : styles.navigationText}>{language[props.type]}</Text>
+      <Text style={[(props.current.pathname === props.route ? styles.navigationTextActive : null), styles.navigationText]}>{language[props.type]}</Text>
     </View>
   </Link> 
 );
