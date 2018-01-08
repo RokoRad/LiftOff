@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
   text: {
     color: '#f3705a',
     position: 'absolute',
-    bottom: 10,
-    right: 10,
+    bottom: 7,
+    right: 7,
     fontFamily: 'barlowSemiBold',
     fontSize: 14,
     zIndex: 999
