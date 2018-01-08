@@ -18,6 +18,8 @@ Tebi ko klijentu su onda dostupne 2 metode za pozvat kad oces:
 
 Tebi server salje podatke kroz funkciju broadcastWeather i dobijas weather u formatu WeatherRating koji ti je definiran u fileu Objekti.js
 
+Nisan skroz siguran oce ovo radit iz prve jer nisan radia sa RN pa ces mi javit jel radi
+Mos console.logat prvi response jer bi ti on triba doc nazad u roku od sekunde
 2. --Logging--
 
 Logging se obavlja na nacin da se pozove ruta na /api/logging/logFlight sa parametron Flight (Objekti.js) i ti kao response dobijes User objekt

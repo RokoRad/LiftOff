@@ -1,0 +1,53 @@
+"Flight": {
+    "TimeFlown": int (broj sekundi koji si letia),
+    "FlySafeScore": double,
+    "Drone": {
+        "Name": string
+    },
+    "FlightLocation": {
+        "FlightSpot": string (misto),
+        "Latitude": double,
+        "Longitude": double
+    },
+    "FlightTime": {
+        "FlightStartTime": datetime
+    }
+}
+
+"TimeLocation": {
+    "Location": {
+        "Latitude": double,
+        "Longitude": double
+    },
+    "Time": datetime
+}
+
+"WeatherData": {
+    "TimeLocation": TimeLocation,
+    "Humidity": double?,
+    "Pressure": double?,
+    "Temperature": double?,
+    "Max_Temperature": double?,
+    "Min_Temperature": double?,
+    "Visibility": double?,
+    "Cloudiness": double?,
+    "UVIndex": double?,
+    "WindSpeed": double?,
+    "WindDirection": double?,
+    "WeatherId": int?,
+    "Weather": string,
+    "WeatherDescription": string,
+    "Units": string ("metric"/"imperial" da znas oces stavljat C/F i km/h/mph)
+}
+
+"WeatherRating": {
+    "TimeLocation": TimeLocation,
+    "TotalRating": double?,
+    "ConditionsRating": double?,
+    "WindRating": double?,
+    "TemperatureRating": double?,
+    "AtmosphereRating": double?,
+    "VisibilityRating": double?,
+    "UVRating": double?,
+    "weatherData": WeatherData
+}
