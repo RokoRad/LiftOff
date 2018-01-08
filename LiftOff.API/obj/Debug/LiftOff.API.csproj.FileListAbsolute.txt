@@ -64,7 +64,6 @@ C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Microsoft.Owin.Host.SystemWeb.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Microsoft.Owin.Security.Cookies.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Microsoft.Owin.Security.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Newtonsoft.Json.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\Owin.dll
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\bin\System.Net.Http.Formatting.dll
@@ -282,3 +281,4 @@ Y:\Desktop\LiftOff\LiftOff.API\bin\System.Web.Http.Owin.xml
 Y:\Desktop\LiftOff\LiftOff.API\bin\System.Net.Http.Formatting.xml
 Y:\Desktop\LiftOff\LiftOff.API\bin\System.Web.Http.xml
 Y:\Desktop\LiftOff\LiftOff.API\bin\System.Web.Http.WebHost.xml
+C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\obj\Debug\LiftOff.API.csproj.CoreCompileInputs.cache
