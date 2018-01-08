@@ -5,7 +5,7 @@ import values from '../../functions/values';
 
 const Input = (props) => (
   <View style={styles.wrapper}>
-    <TextInput underlineColorAndroid={'transparent'} placeholder={props.type} style={styles.input} placeholderTextColor="#fff" secureTextEntry={props.type === 'Password' ? true : false} onChangeText={(value) => (values[props.type] = value)} />
+    <TextInput underlineColorAndroid={'transparent'} placeholder={props.type.toUpperCase()} style={styles.input} placeholderTextColor="#fff" secureTextEntry={props.type === 'password' ? true : false} onChangeText={(value) => (values[props.type] = value)} />
   </View>
 );
 

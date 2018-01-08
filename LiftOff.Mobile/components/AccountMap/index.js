@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
-import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
+import { MapView, PROVIDER_GOOGLE } from 'expo';
+import * as Animatable from 'react-native-animatable';
+import animationGenerator from '../../functions/animationGenerator';
 import style from '../../functions/mapStyle';
 import styles from './styles.js';
 
@@ -16,10 +18,11 @@ var response = [
   {title:'6', coordinate: {latitude: 45.83, longitude: 15.9 }}
 ];
 
+
 const AccountMap = (props) => (
   <View style={styles.wrapper}>
     <Text style={styles.text}>
-      More than {response.length} flew here <Image source={require('../../images/map/fire.png')} style={styles.image}/>
+      More than {response.length} flew here <Image source={require('../../images/map/fire.png')} style={styles.image} />
     </Text>
     <MapView zoomEnabled={true} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} cacheEnabled={true}
       region={{ latitude: props.latitude, longitude: props.longitude, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>
