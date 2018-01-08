@@ -7,7 +7,7 @@ import { language } from '../../config/settings.js';
 // objekt sa ppisom ruta do ikona
 const nav = {
   FlySafe: require('../../images/nav/drone-nav.png'),
-  Map: require('../../images/nav/map-nav.png'),
+  Planning: require('../../images/nav/map-nav.png'),
   LiftOff: require('../../images/nav/stopwatch-nav.png'),
   Account: require('../../images/nav/user-nav.png'),
   Settings: require('../../images/nav/settings-nav.png')
@@ -15,7 +15,7 @@ const nav = {
 
 const navActive = {
   FlySafe: require('../../images/nav-active/drone-nav.png'),
-  Map: require('../../images/nav-active/map-nav.png'),
+  Planning: require('../../images/nav-active/map-nav.png'),
   LiftOff: require('../../images/nav-active/stopwatch-nav.png'),
   Account: require('../../images/nav-active/user-nav.png'),
   Settings: require('../../images/nav-active/settings-nav.png')

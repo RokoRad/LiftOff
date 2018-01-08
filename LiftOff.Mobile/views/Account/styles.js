@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
     padding: 30,
     paddingTop: 20
   },
-  picker: {
-    padding: 0
+  scrollview: {
+    height: '35%'
   }
 });
 

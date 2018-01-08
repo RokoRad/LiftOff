@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
   bold: {
-    fontFamily: 'barlowSemiBold'
+    fontFamily: 'barlowSemiBold',
+    color: '#2980b9'
   },
   dropdownButton: {
     borderTopWidth: 1,

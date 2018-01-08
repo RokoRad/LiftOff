@@ -37,12 +37,12 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontFamily: 'barlowMedium',
     marginBottom: 2,
-    fontSize: 14
+    fontSize: 12
   },
   informationText: {
     color: '#fff',
     fontFamily: 'barlowRegular',
-    fontSize: 12
+    fontSize: 10
   }
 });
 
