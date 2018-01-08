@@ -16,6 +16,7 @@ const crosshairHolder = {
   longitudeDelta: 0.0421
 };
 
+
 class Map extends Component {
   constructor() {
      super();
@@ -23,16 +24,16 @@ class Map extends Component {
   };
 
   componentWillMount() {
-    this.getLocation();
+    this._getLocation();
   }
 
-  getLocation = async () => {
+  _getLocation = async () => {
     const { locationServicesEnabled } = await Location.getProviderStatusAsync();
     if(!locationServicesEnabled) {
       Toast.show(language.gpsFail);
     } else {
-      const response = await Permissions.askAsync(Permissions.LOCATION);
-      if (response.status === 'granted') {
+      const { status } = await Permissions.askAsync(Permissions.LOCATION);
+      if (status === 'granted') {
         let value = await Location.getCurrentPositionAsync({enableHighAccuracy: false, timeout: 2000, maximumAge: 1000});
         this.setState({ lat: value.coords.latitude, lon: value.coords.longitude });
       } else {
