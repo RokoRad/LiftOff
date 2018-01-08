@@ -8,8 +8,8 @@ import Input from '../Input';
 const LoginForm = () => (
   <View style={styles.wrapper}>
     <View style={styles.inputWrapper}>
-      <Input type="Email" />
-      <Input type="Password" />
+      <Input type="username" />
+      <Input type="password" />
     </View>
     <KeyboardSpacer />
   </View>

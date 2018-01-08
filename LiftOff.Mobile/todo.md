@@ -14,3 +14,14 @@ Todo:
 - rjesit bolji ux za mapu (pinn)
 - podignit malo navbar da se ne konflikta sa iphone x elementon za izlazit iz appa (ubacit bili rectangle ispod njega)
 - settings ubacit chekcbox za "don't show ither users where I flown"
+- nav ikone full res
+margin left an rating home dodat za 10km/h
+uber like button za kalibraciju
+animirat vatricu
+maknit zadnju crtu
+onpress maknit opacity na stoperici
+2d tranzicije drona
+padding scrolla /profile
+donre dropdown bottom margin 3 => 1
+/profile donji margin nek ide ispod shadowa
+mapa nek ikone imaju svoj dock sa borderradiusu i shadowu ka na navbaru
