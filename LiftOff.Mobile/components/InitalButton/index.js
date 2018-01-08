@@ -7,6 +7,7 @@ import values from '../../functions/values';
 
 const InitalButton = (props) => {
   const login = () => {
+    
     props.router.push("/home");
   };
   
