@@ -24,6 +24,7 @@ const InitalButton = (props) => {
       password: values.password,
       grant_type: 'password'
     };
+
     fetch('http://liftoffapi.azurewebsites.net/token', {  
       method: 'POST',
       headers: {
@@ -32,32 +33,14 @@ const InitalButton = (props) => {
       body: encode(details)
     }).then((response) => {
       if (response.status === 200) {
-        console.log("prosa")
+        AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
+        props.router.push("/home");
       } else {
-        console.log(response)
+        // krivi login podatci
       }
     }).catch((error) => {
-      console.log(error)
+      // server error
     });
-    // axios.post('http://liftoffapi.azurewebsites.net/token', {
-    //   headers: {
-    //     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-    //   },
-    //   body: encode(details)
-    // }).then((response) => {
-    //   if(response.status === 200) {
-    //     console.log(response);
-    //     // AsyncStorage.setItem('@token', '3');
-    //     // AsyncStorage.getItem('@token').then((value) => console.log(value));
-    //     // prosa
-    //     props.router.push("/home");
-    //   } else {
-    //     console.log(response)
-    //     // error
-    //   }
-    // }).catch((error) => 
-    //   console.log(error)
-    // );
   };
 
   const register = () => {
@@ -66,36 +49,39 @@ const InitalButton = (props) => {
       password: values.password,
       grant_type: 'password'
     };
-    axios({
-      method: 'post',
-      url: 'http://liftoffapi.azurewebsites.net/api/account/register',
-      body: values
+
+    fetch('http://liftoffapi.azurewebsites.net/api/account/register', {  
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values)
     }).then((response) => {
-      if(response.status === 200) {
-        axios({
-          method: 'post',
-          url: 'http://liftoffapi.azurewebsites.net/token',
+      console.log(response)
+      if (response.status === 200) {
+        fetch('http://liftoffapi.azurewebsites.net/token', {  
+          method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
           },
           body: encode(details)
         }).then((response) => {
-          if(response.status === 200) {
-            // prosa
+          if (response.status === 200) {
+            AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
             props.router.push("/home");
           } else {
-            // error
+            // krivi login podatci
           }
-        }).catch((error) => 
-          console.log(error)
-        );
+        }).catch((error) => {
+          // server error
+        });
       } else {
-        // error
+        // krivi register podatci
       }
-    }).catch((error) => 
-      console.log(error)
-    );
-  };
+    }).catch((error) => {
+      // server error
+    });
+  }
 
   return (
     <TouchableOpacity onPress={() => (props.action === 'login' ? login() : register())} opacity={0.8}>

@@ -28,3 +28,6 @@ sto kad su krivi login podatci?
 - rjesit bolji ux za mapu (pinn)
 - podignit malo navbar da se ne konflikta sa iphone x elementon za izlazit iz appa (ubacit bili rectangle ispod njega)
 -score na logovima
+.padding bottom home 
+placeholderi u uppercase
+hiddat password chars
