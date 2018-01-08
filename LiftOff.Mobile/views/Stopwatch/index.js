@@ -27,14 +27,9 @@ class Stopwatch extends Component {
         minutes: 0
      };
   };
-
   bind = () => {
     var temp;
     if(this.state.active === false) {
-      this.setState({
-        seconds: 0,
-        minutes: 0
-      });
       temp = setInterval(() => {
         this.setState({
           seconds: this.state.seconds+=1
@@ -47,6 +42,10 @@ class Stopwatch extends Component {
         }
       }, 1000);
     } else {
+      this.setState({
+        seconds: 0,
+        minutes: 0
+      });
       holder = null;
       for(let i = 100; i<900; i++) {
         clearInterval(i);
