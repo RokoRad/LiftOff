@@ -7,7 +7,7 @@ using System.Web;
 
 namespace LiftOff.API.Logic
 {
-    public class LogicIO
+    public static class LogicIO
     {
         public static WeatherRating GetWeatherRating(TimeLocation timeLocation)
         {
@@ -27,7 +27,6 @@ namespace LiftOff.API.Logic
                 if (!realtimeConnections.Any(wg => wg.GetClient().TimeLocation.Equals(timeLocation)))
                 WeatherFetcher.Instance.RemoveTimeLocationFromTracking(timeLocation);
             }
-            
         }
     }
 }

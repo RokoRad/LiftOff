@@ -2,9 +2,11 @@
 using LiftOff.API.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security.OAuth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -14,13 +16,13 @@ namespace LiftOff.API.Data.Repos
 	{
 		#region dependancy management
 
-		private AuthContext _context;
+		private LiftOffContext _context;
 
 		private UserManager<IdentityUser> _userManager;
 
 		public AuthRepo()
 		{
-			_context = new AuthContext();
+			_context = new LiftOffContext();
 			_userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
 		}
 
@@ -28,7 +30,6 @@ namespace LiftOff.API.Data.Repos
 		{
 			_context.Dispose();
 			_userManager.Dispose();
-
 		}
 
 		#endregion
@@ -42,6 +43,14 @@ namespace LiftOff.API.Data.Repos
 			};
 
 			var result = await _userManager.CreateAsync(user, userModel.Password);
+
+            StatisticsUser statisticsUser = new StatisticsUser()
+            {
+                IdentityUserId = user.Id
+            };
+
+            _context.StatisticsUsers.Add(statisticsUser);
+            _context.SaveChanges();
 
 			return result;
 		}

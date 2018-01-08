@@ -1,17 +1,13 @@
-﻿using LiftOff.API.Data.Repos;
+﻿using LiftOff.API.Data;
+using LiftOff.API.Data.Repos;
 using LiftOff.API.Models;
 using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
-	[RoutePrefix("api/Account")]
+    [RoutePrefix("api/Account")]
 	public class AccountController : ApiController
 	{
 		#region Dependancy management
@@ -33,10 +29,10 @@ namespace LiftOff.API.Controllers
 			base.Dispose(disposing);
 		}
 
-		#endregion
+        #endregion
 
+        private readonly LiftOffContext _liftOffContext = new LiftOffContext();
 
-		// POST api/Account/Register
 		[AllowAnonymous]
 		[Route("Register")]
 		public async Task<IHttpActionResult> Register(User userModel)
@@ -48,5 +44,11 @@ namespace LiftOff.API.Controllers
 			else return Ok();
 		}
 
-	}
+        //[Authorize]
+        //[Route("GetMyId")]
+        //public IHttpActionResult GetMyId()
+        //{
+        //    return Ok(User.Identity.GetUserId());
+        //}
+    }
 }

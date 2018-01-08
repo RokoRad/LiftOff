@@ -1,20 +1,12 @@
 ﻿using LiftOff.API.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using LiftOff.API.App_Start;
-using System.Web.Configuration;
 using LiftOff.API.Logic;
 
 namespace LiftOff.API.Controllers
 {
-	[RoutePrefix("api/weather")]
+    [RoutePrefix("api/weather")]
 	public class WeatherController : ApiController
 	{
 		[AllowAnonymous]
@@ -22,14 +14,30 @@ namespace LiftOff.API.Controllers
 		[Route("getScore")]
 		public IHttpActionResult GetScore([FromBody]JObject json)
 		{
-			//debug
-			System.Diagnostics.Debug.WriteLine("got a Liftoff.api request for weather data");
+            TimeLocation timeLocation = JsonConvert.DeserializeObject<TimeLocation>(JsonConvert.SerializeObject(json));
 
-			TimeLocation timeLocation = JsonConvert.DeserializeObject<TimeLocation>(JsonConvert.SerializeObject(json));
+            if (!timeLocation.TimeIsValid())     return BadRequest("time requested is not valid");
+            if (!timeLocation.LocationIsValid()) return BadRequest("location requested is not valid");
 
 			WeatherFetcher.Instance.AddTimeLocationToTrack(timeLocation);
+            var wd = WeatherFetcher.Instance.GetStoredWeatherData(timeLocation);
+            var wr = WeatherFetcher.Instance.getConditionsRating(wd);
+            WeatherFetcher.Instance.RemoveTimeLocationFromTracking(timeLocation);
 
-			return Ok(WeatherFetcher.Instance.getConditionsRating(WeatherFetcher.Instance.GetStoredWeatherData(timeLocation)));
+            return Ok(wr);
 		}
-	}
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("getBestRatingNearMe")]
+        public IHttpActionResult GetBestRatingNearMe([FromBody]JObject json)
+        {
+            TimeLocation timeLocation = JsonConvert.DeserializeObject<TimeLocation>(JsonConvert.SerializeObject(json));
+
+            if (!timeLocation.TimeIsValid()) return BadRequest("time requested is not valid");
+            if (!timeLocation.LocationIsValid()) return BadRequest("location requested is not valid");
+
+            return Ok(WeatherFetcher.Instance.GetBestWeatherRatingNearLocation(timeLocation));
+        }
+    }
 }

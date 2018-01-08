@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Http;
 using LiftOff.API.App_Start;
 using Microsoft.Owin.Host.SystemWeb;
+using System.Security.Claims;
 
 [assembly: OwinStartup(typeof(LiftOff.API.Startup))]
 namespace LiftOff.API
@@ -17,7 +18,7 @@ namespace LiftOff.API
 	{
 		public void Configuration(IAppBuilder app)
 		{
-			HttpConfiguration config = new HttpConfiguration();
+            HttpConfiguration config = new HttpConfiguration();
 
 			ConfigureOAuth(app);
 
@@ -38,8 +39,8 @@ namespace LiftOff.API
 				Provider = new SimpleAuthorizationServerProvider()
 			};
 
-			// Token Generation
-			app.UseOAuthAuthorizationServer(OAuthServerOptions);
+            // Token Generation
+            app.UseOAuthAuthorizationServer(OAuthServerOptions);
 			app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
 
 		}

@@ -38,23 +38,18 @@
 			// Add the message to the page.
 			$('#discussion').append('<li>' + encodedMsg + '</li>');
 			console.log(weather);
-		}; 
+        }; 
 
-		weather.client.broadcast =  function (weather) {
-			$('#discussion').append('<li>' + weather + '</li>');
-			console.log('aaa');
-		};
-		// Get the user name and store it to prepend to messages.
 		$('#latitude').val(prompt('Enter your latitude:', ''));
-		$('#longitude').val(prompt('Enter your longitude:', ''));
-		// Set initial focus to message input box.
-		$('#message').focus();
-		// Start the connection.
-		$.connection.hub.start().done(function () {
-			console.log("connected");
-			weather.server.initiateConnection($('#latitude').val(), $('#longitude').val());
+        $('#longitude').val(prompt('Enter your longitude:', ''));
+
+        $('#message').focus();
+
+        $.connection.hub.start().done(function () {
+            weather.server.initiateConnection({ Location: { Latitude: $('#latitude').val(), Longitude: $('#longitude').val() }, Date: (new Date()).toISOString() }, "metric");
 			$('#sendmessage').click(function () {
-				weather.server.updateLocation($('#newLatitude').val(), $('#newLongitude').val());
+                //weather.server.updateLocation({ Location: { Latitude: $('#newLatitude').val(), Longitude: $('#newLongitude').val() }, Date: $.now() });
+                weather.server.changeUnits();
 
 				$('#newLatitude').val('').focus();
 				$('#newLongitude').val('');

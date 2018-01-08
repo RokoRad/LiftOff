@@ -47,6 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.TotalScoreLabel = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // LatLabel
@@ -218,11 +219,19 @@
             this.TotalScoreLabel.TabIndex = 18;
             this.TotalScoreLabel.Text = "label8";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(67, 71);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 261);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.TotalScoreLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
@@ -270,6 +279,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label TotalScoreLabel;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
