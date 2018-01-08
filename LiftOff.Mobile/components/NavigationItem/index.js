@@ -21,14 +21,17 @@ const navActive = {
   Settings: require('../../images/nav-active/settings-nav.png')
 }
 
-const NavigationItem = (props) => (
-  <Link to={props.route} style={styles.navigationItemWrapper} component={TouchableOpacity} activeOpacity={1}>
-    <View style={styles.navigationItem}>
-      {/* ovisno o jednakosti trenutne rute sa linkom itema, pokazuje aktivnu ili obicnu klasu sa stilovima na komponenti */}
-      <Image source={props.current.pathname === props.route ? navActive[props.type] : nav[props.type]} style={styles.navigationImage}/>
-      <Text style={[(props.current.pathname === props.route ? styles.navigationTextActive : null), styles.navigationText]}>{language[props.type]}</Text>
-    </View>
-  </Link> 
-);
+const NavigationItem = (props) => {
+  const isActive = props.current.pathname === props.route;
+
+  return (
+    <Link to={props.route} style={styles.navigationItemWrapper} component={TouchableOpacity} activeOpacity={1}>
+      <View style={styles.navigationItem}>
+        <Image source={isActive ? navActive[props.type] : nav[props.type]} style={styles.navigationImage}/>
+        <Text style={[styles.navigationText, (isActive ? styles.navigationTextActive : null)]}>{language[props.type]}</Text>
+      </View>
+    </Link> 
+  )
+};
 
 export default NavigationItem;
