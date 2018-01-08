@@ -1,0 +1,29 @@
+Sta sve triba pospojit
+
+1. RealTime
+2. Logging
+3. Settings
+
+
+1. --RealTime--
+
+Skini paket https://github.com/olofd/react-native-signalr
+
+Kad ga skines copy-paste kod koji je napisan u RealTimeDrazen.js na prikladno misto,
+odakle onda mos dalje distribuirat podatke koji ti dodu.
+
+Tebi ko klijentu su onda dostupne 2 metode za pozvat kad oces:
+1. ChangeUnits() koja ne prima parametar nego samo prominit units useru
+2. UpdateLocation(TimeLocation timeLocation) koja prima TimeLocation koja ti je definirana u Objekti.js i ona ce prominit userovu lokaciju odakle se dohvacaju podatci
+
+Tebi server salje podatke kroz funkciju broadcastWeather i dobijas weather u formatu WeatherRating koji ti je definiran u fileu Objekti.js
+
+2. --Logging--
+
+Logging se obavlja na nacin da se pozove ruta na /api/logging/logFlight sa parametron Flight (Objekti.js) i ti kao response dobijes User objekt
+pomocu kojeg tribas onda updejtat statistike na profilu
+
+
+3. --Settings--
+
+znas vec sta triba valjda
