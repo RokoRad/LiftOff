@@ -6,13 +6,18 @@ const language = {
   registerAccount: 'Don`t have an account?',
   facebook: 'Sign in with Facebook',
   forgotPassword: 'Forgot password?',
-  FlySafe: 'Fly safe',
-  Map: 'Map',
+  FlySafe: 'FlySafe',
+  Planning: 'Planning',
   LiftOff: 'LiftOff',
   Account: 'Account',
   Settings: 'Settings',
   Land: 'Land',
-  ratingTitle: 'Weather rating'
+  ratingTitle: 'Weather rating',
+  logToast: 'Log saved',
+  markerTitle: 'We found a perfect spot!',
+  markerLocation: 'Location',
+  markerTime: 'Time',
+  markerRating: 'Expected FlySafe score'
 };
 
 // vraćanje stringova

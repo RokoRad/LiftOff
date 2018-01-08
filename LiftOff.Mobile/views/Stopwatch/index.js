@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import styles from './styles.js';
+import globals from '../../config/styles.js';
 import Screen from '../../components/Screen';
 import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
 import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchLogs from '../../components/StopwatchLogs';
 import { language } from '../../config/settings.js';
+
+const data = [
+  {id: 1, active: true, location: 'Čavoglave, Croatia', time: '22:10'},
+  {id: 2, active: false, location: 'Čavoglave, Croatia', time: '12:10'},
+  {id: 3, active: false, location: 'Čavoglave, Croatia', time: '07:10'},
+  {id: 4, active: true, location: 'Čavoglave, Croatia', time: '22:10'},
+  {id: 5, active: false, location: 'Čavoglave, Croatia', time: '12:10'},
+  {id: 6, active: false, location: 'Čavoglave, Croatia', time: '07:10'}
+];
+
+const holder = {};
 
 class Stopwatch extends Component {
   constructor() {
@@ -16,14 +27,9 @@ class Stopwatch extends Component {
         minutes: 0
      };
   };
-
   bind = () => {
     var temp;
     if(this.state.active === false) {
-      this.setState({
-        seconds: 0,
-        minutes: 0
-      });
       temp = setInterval(() => {
         this.setState({
           seconds: this.state.seconds+=1
@@ -34,9 +40,13 @@ class Stopwatch extends Component {
             minutes: this.state.minutes+=1,
           });
         }
-        console.log(this.state.seconds);
       }, 1000);
     } else {
+      this.setState({
+        seconds: 0,
+        minutes: 0
+      });
+      holder = null;
       for(let i = 100; i<900; i++) {
         clearInterval(i);
       }
@@ -48,11 +58,11 @@ class Stopwatch extends Component {
 
   render() {
       return (
-        <Screen current={this.props.location} style={styles.vertical}>
-          <SafetyscoreStopwatch />
+        <Screen current={this.props.location}>
+          <SafetyscoreStopwatch rating="3.7"/>
           <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} />
-          <TouchableOpacity onPress={this.bind} style={styles.starter}>
-            <Text style={styles.starterText}>
+          <TouchableOpacity onPress={this.bind} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
+            <Text style={globals.buttonInner}>
               {
                 this.state.active === true 
                 ? 'Land'
@@ -60,7 +70,7 @@ class Stopwatch extends Component {
               }
             </Text>
           </TouchableOpacity>
-          <StopwatchLogs />
+          <StopwatchLogs data={data} />
         </Screen>  
       );
   }

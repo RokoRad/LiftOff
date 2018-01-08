@@ -1,18 +1,28 @@
 import React from 'react';
 import { Image, View, Text } from 'react-native';
 import styles from './styles.js';
+import globals from '../../config/styles.js';
 import colorGenerator from '../../functions/colorGenerator';
+
+const icons = {
+  humidity: require('../../images/weather/humidity.png'),
+  rain: require('../../images/weather/rain.png'),
+  temperature: require('../../images/weather/temperature.png'),
+  uv: require('../../images/weather/uv.png'),
+  visibility: require('../../images/weather/visibility.png'),
+  wind: require('../../images/weather/wind.png')
+}
 
 const HomeItem = (props) => (
   <View style={styles.wrapper}>
-    <View style={styles.left}>
-      <Image source={require('../../images/nav/drone-nav.png')} style={styles.icon}/>
+    <View style={[styles.left, globals.bothAligned]}>
+      <Image source={icons[props.type]} style={styles.icon}/>
     </View>
     <View style={styles.middle}>
-      <View style={styles.top}>
+      <View>
         <Text style={styles.title}>Wind</Text>
       </View>
-      <View style={styles.bottom}>
+      <View>
         <View style={styles.row}>
           <Text style={styles.leftText}>Speed</Text>
           <Text style={styles.rightText}>10 km/h</Text>
@@ -23,7 +33,7 @@ const HomeItem = (props) => (
         </View>
       </View>
     </View>
-    <View style={styles.right}>
+    <View style={[styles.right, globals.bothAligned]}>
       <Text style={[styles.rating, styles[colorGenerator(props.rating)]]}>{props.rating}</Text>
     </View>
   </View>

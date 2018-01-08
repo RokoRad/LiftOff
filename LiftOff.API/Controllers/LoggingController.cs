@@ -12,27 +12,29 @@ namespace LiftOff.API.Controllers
     {
         private readonly LiftOffContext _liftOffContext = new LiftOffContext();
         
-
         [HttpPost]
-        [Authorize]
+        //production
+        //[Authorize]
         [Route("logFlight")]
         public IHttpActionResult LogFlight(Flight flight)
         {
-            //treba fix => mora dohvacat User ne IdentityUser
-            //var user = _liftOffContext.Users.First(usr => usr.Id == flight.UserId);
+            var userId = User.Identity.GetUserId();
+            //production
+            //var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
 
-            var userID = User.Identity.GetUserId();
+            //testing
+            var user = _liftOffContext.StatisticsUsers.First(usr => usr.UserName == "aaa");
 
-            var test = _liftOffContext.StatisticsUsers.First(usr => usr.UserName == "aaa");
-            test.TotalFlights++;
-            test.TotalTimeFlown += flight.TimeFlown;
-            test.TotalFlySafeScore += flight.FlySafeScore;
-            test.FlightLocations.Add(flight.FlightLocation);
-            test.FavoriteFlightSpot = StatisticsCalculator.CalculateFavoriteFlightLocation(test.FlightLocations.ToList());
-            test.FlightTimes.Add(flight.FlightTime);
-            test.FavoriteFlightTime = StatisticsCalculator.CalculateFavoriteFlightTime(test.FlightTimes.ToList()).ToString();
+            user.TotalFlights++;
+            user.TotalTimeFlown += flight.TimeFlown;
+            user.TotalFlySafeScore += flight.FlySafeScore;
+            user.FlightLocations.Add(flight.FlightLocation);
+            user.FavoriteFlightSpot = StatisticsCalculator.CalculateFavoriteFlightLocation(user.FlightLocations.ToList());
+            user.FlightTimes.Add(flight.FlightTime);
+            user.FavoriteFlightTime = StatisticsCalculator.CalculateFavoriteFlightTime(user.FlightTimes.ToList()).ToString();
 
-            flight.User = test;
+            flight.User = user;
+            flight.Drone = _liftOffContext.Drones.FirstOrDefault(dr => dr.Name == flight.Drone.Name);
 
             _liftOffContext.FlightLocations.Add(flight.FlightLocation);
             _liftOffContext.FlightTimes.Add(flight.FlightTime);
@@ -40,7 +42,7 @@ namespace LiftOff.API.Controllers
 
             _liftOffContext.SaveChanges();
 
-            return Ok(test);
+            return Ok(user);
         }
     }
 }

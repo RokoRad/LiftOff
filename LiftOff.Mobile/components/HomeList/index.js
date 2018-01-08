@@ -5,11 +5,12 @@ import HomeItem from '../HomeItem';
 
 const HomeList = (props) => (
   <ScrollView style={styles.container}>
-    <HomeItem type="" rating="1.7"/>
-    <HomeItem type="" rating="3"/>
-    <HomeItem type="" rating="4.1"/>
-    <HomeItem type="" rating="3.3"/>
-    <HomeItem type="" rating="2"/>
+    <HomeItem type="humidity" rating="1.7"/>
+    <HomeItem type="rain" rating="3.0"/>
+    <HomeItem type="temperature" rating="4.1"/>
+    <HomeItem type="uv" rating="3.3"/>
+    <HomeItem type="visibility" rating="2.0"/>
+    <HomeItem type="wind" rating="2.4"/>
   </ScrollView>
 );
 

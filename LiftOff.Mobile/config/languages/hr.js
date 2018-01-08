@@ -6,13 +6,18 @@ const language = {
   registerAccount: 'Nemaš račun?',
   facebook: 'Prijavi se putem Facebooka',
   forgotPassword: 'Izgubljena lozinka?',
-  FlySafe: 'Fly safe',
-  Map: 'Mapa',
+  FlySafe: 'FlySafe',
+  Planning: 'Planiranje',
   LiftOff: 'LiftOff',
   Account: 'Račun',
   Settings: 'Postavke',
   Land: 'Sleti',
-  ratingTitle: 'Ocjena vremena'
+  ratingTitle: 'Ocjena vremena',
+  logToast: 'Zapis sačuvan',
+  markerTitle: 'Pronašli smo super lokaciju!',
+  markerLocation: 'Lokacija',
+  markerTime: 'Vrijeme',
+  markerRating: 'Predviđena FlySafe ocjena'
 };
 
 // vraćanje stringova

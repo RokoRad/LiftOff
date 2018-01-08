@@ -1,17 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  green: {
-    backgroundColor: '#47e389'
-  },
-  orange: {
-    backgroundColor: '#FF9052'
-  },
-  red: {
-    backgroundColor: '#F95F62'
+  drone: {
+    width: 120,
+    height: 120
   },
   wrapper: {
-    height: '50%',
+    height: '40%',
     width: '100%',
     display: 'flex',
     flexDirection: 'column'

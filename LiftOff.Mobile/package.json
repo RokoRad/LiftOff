@@ -1,0 +1,31 @@
+{
+  "name": "LiftOff.Mobile",
+  "version": "1.0.0",
+  "devDependencies": {
+    "prop-types": "^15.6.0",
+    "react-native-modal-dropdown": "^0.5.0",
+    "react-native-scripts": "1.8.1"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start --reset-cache",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios"
+  },
+  "dependencies": {
+    "expo": "^23.0.4",
+    "react": "16.0.0",
+    "react-native": "0.50.3",
+    "react-native-animatable": "^1.2.4",
+    "react-native-datepicker": "1.6.0",
+    "react-native-keyboard-spacer": "^0.4.1",
+    "react-native-simple-toast": "0.0.7",
+    "react-router": "^4.2.0",
+    "react-router-native": "^4.2.0"
+  },
+  "rnpm": {
+    "assets": [
+      "./fonts/"
+    ]
+  }
+}

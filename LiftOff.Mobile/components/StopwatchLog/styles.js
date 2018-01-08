@@ -5,16 +5,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     marginTop: 3,
-    marginBottom: 3,
-    borderWidth: 1,
-    borderColor: '#9fb7d3',
-    borderRadius: 7
+    marginBottom: 3
   },
   left: {
-    width: '20%',
-    height: '100%',
-    borderRadius: 6,
-    backgroundColor: '#3498db' 
+    width: '20%'
+  },
+  active: {
   },
   leftInner: {
     textAlign: 'center'
@@ -38,6 +34,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
     fontFamily: 'barlowRegular'
+  },
+  inner: {
+    fontSize: 20,
+    fontFamily: 'barlowBold',
+    color: 'red'  
   }
 });
 

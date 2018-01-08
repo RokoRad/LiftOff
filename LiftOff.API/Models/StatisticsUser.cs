@@ -18,7 +18,7 @@ namespace LiftOff.API.Models
         public double TotalFlySafeScore { get; set; }
         public string FavoriteFlightTime { get; set; }
         public string FavoriteFlightSpot { get; set; }
-        
+        public bool ShowWhereIFly { get; set; } = true;
         public virtual string IdentityUserId { get; set; }
         public virtual ICollection<Flight> Flights { get; set; }
         public virtual ICollection<Drone> Drones { get; set; }
