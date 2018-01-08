@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, View } from 'react-native';
+import { TouchableOpacity, Text, View, AsyncStorage } from 'react-native';
 import { Redirect } from 'react-router';
 import axios from 'axios';
 import globals from '../../config/styles.js';
@@ -34,23 +34,55 @@ const InitalButton = (props) => {
       data: encode(details)
     }).then((response) => {
       if(response.status === 200) {
+        console.log(response);
+        // AsyncStorage.setItem('@token', '3');
+        // AsyncStorage.getItem('@token').then((value) => console.log(value));
         // prosa
         props.router.push("/home");
       } else {
+        console.log(response)
         // error
       }
-    });
+    }).catch((error) => 
+      console.log(error)
+    );
   };
 
   const register = () => {
-
-
-
-    axios.post('http://liftoffapi.azurewebsites.net/api/account/register', values).then((response) =>
-      props.router.push("/home")
-    ).catch((error) =>
-      console.log('errrrr', JSON.stringify(error))
-      );
+    const details = {
+      username: values.username,
+      password: values.password,
+      grant_type: 'password'
+    };
+    axios({
+      method: 'post',
+      url: 'http://liftoffapi.azurewebsites.net/api/account/register',
+      data: values
+    }).then((response) => {
+      if(response.status === 200) {
+        axios({
+          method: 'post',
+          url: 'http://liftoffapi.azurewebsites.net/token',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+          },
+          data: encode(details)
+        }).then((response) => {
+          if(response.status === 200) {
+            // prosa
+            props.router.push("/home");
+          } else {
+            // error
+          }
+        }).catch((error) => 
+          console.log(error)
+        );
+      } else {
+        // error
+      }
+    }).catch((error) => 
+      console.log(error)
+    );
   };
 
   return (

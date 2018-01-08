@@ -7,16 +7,12 @@ izbrisat nepotrebne lang-stringove <br>
 *probat neki ux <br>
 
 Todo:
-- stavit nativni dropdown
-- pomaknit prema doli sve da se ne conflicta sa status baron
 - ikone nove uacit
-- cachirat mapu
 - rjesit bolji ux za mapu (pinn)
 - podignit malo navbar da se ne konflikta sa iphone x elementon za izlazit iz appa (ubacit bili rectangle ispod njega)
 - settings ubacit chekcbox za "don't show ither users where I flown"
 - nav ikone full res
 margin left an rating home dodat za 10km/h
-uber like button za kalibraciju
 animirat vatricu
 maknit zadnju crtu
 onpress maknit opacity na stoperici
