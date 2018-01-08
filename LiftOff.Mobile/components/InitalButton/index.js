@@ -8,11 +8,12 @@ import values from '../../functions/values';
 
 const InitalButton = (props) => {
   const login = () => {
-    axios.post('http://localhost:52037/token', {...values, grant_type: 'password'}).then((reponse) =>
-      console.log(reponse);
-    ).catch((error) => 
-      console.log(error)
-    );
+    // axios.post('http://localhost:52037/token', {...values, grant_type: 'password'}).then((response) =>
+    //   console.log(response)
+    // ).catch((error) => 
+    //   console.log('err', JSON.stringify(error))
+    // );
+    //axios.get('https://jsonplaceholder.typicode.com/posts/1').then(response => console.log(response)).catch(err => console.log('err', err));
   //   fetch('http://localhost:52037/token', {
   //     method: 'POST',
   //     body: JSON.stringify({
@@ -26,14 +27,15 @@ const InitalButton = (props) => {
   // ).catch((error) =>
   //   console.log(error)
   // )
+  props.router.push("/home")
   };
 
   const register = () => {
-    axios.post('http://localhost:52037/api/account/register', ...values).then((reponse) =>
-      console.log(reponse);
-    ).catch((error) => 
-      console.log(error)
-    );
+    // axios.post('http://localhost:52037/api/account/register', ...values).then((response) =>
+    //   console.log(response)
+    // ).catch((error) => 
+    //   console.log(error)
+    // );
   // fetch('http://localhost:52037/api/account/register', {
   //   method: 'POST',
   //   body: JSON.stringify({
