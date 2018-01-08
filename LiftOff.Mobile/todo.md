@@ -15,12 +15,8 @@ animirat vatricu
 2d tranzicije drona
 mapa nek ikone imaju svoj dock sa borderradiusu i shadowu ka na navbaru
 navbar manji weight
-sto kad su krivi login podatci?
-- stavit nativni dropdown
-- pomaknit prema doli sve da se ne conflicta sa status baron
+sto kad su krivi login podatci? (!!!) TOAST
 - rjesit bolji ux za mapu (pinn)
 - podignit malo navbar da se ne konflikta sa iphone x elementon za izlazit iz appa (ubacit bili rectangle ispod njega)
 -score na logovima
-.padding bottom home 
-placeholderi u uppercase
 hiddat password chars
