@@ -4,11 +4,11 @@ Animatable.initializeRegistryWithDefinitions({
   green: {
     from: {
       rotate: '-1deg',
-      translateX: 3
+      translateX: 2
     },
     to: {
       rotate: '1deg',
-      translateX: -3
+      translateX: -2
     }    
   },
   orange: {
@@ -30,6 +30,14 @@ Animatable.initializeRegistryWithDefinitions({
       rotate: '3deg',
       translateX: -8
     }    
+  },
+  fire: {
+    from: {
+      translateY: -10
+    },
+    to: {
+      translateY: 10
+    }
   }
 });
 
