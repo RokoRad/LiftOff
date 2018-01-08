@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Picker } from 'react-native';
+import { View, Text, Picker, ScrollView } from 'react-native';
 import Screen from '../../components/Screen';
 import AccountItem from '../../components/AccountItem';
 import AccountMap from '../../components/AccountMap';
@@ -13,12 +13,14 @@ const Account = ({location}) => (
       <AccountItem title="Username" content="dbaric"/>
       <AccountItem title="Email" content="dbaric@dump.hr"/>
       <Dropdown />
-      <AccountItem title="Total flights" content="18"/>
-      <AccountItem title="Total flights" content="18"/>
-      <AccountItem title="Total flights" content="18"/>
-      <AccountItem title="Total flights" content="18"/>
-      <AccountItem title="Total flights" content="18"/>
-      <AccountItem title="Total flights" content="18"/>
+      <ScrollView style={styles.scrollview}>
+        <AccountItem title="Total flights" content="18"/>
+        <AccountItem title="Total flights" content="18"/>
+        <AccountItem title="Total flights" content="18"/>
+        <AccountItem title="Total flights" content="18"/>
+        <AccountItem title="Total flights" content="18"/>
+        <AccountItem title="Total flights" content="18"/>
+      </ScrollView>
     </View>
   </Screen>
 );

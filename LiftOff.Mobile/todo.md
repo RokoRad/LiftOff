@@ -13,3 +13,4 @@ Todo:
 - cachirat mapu
 - rjesit bolji ux za mapu (pinn)
 - podignit malo navbar da se ne konflikta sa iphone x elementon za izlazit iz appa (ubacit bili rectangle ispod njega)
+- settings ubacit chekcbox za "don't show ither users where I flown"

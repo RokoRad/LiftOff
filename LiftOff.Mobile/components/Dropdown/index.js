@@ -11,7 +11,7 @@ class Dropdown extends Component {
 
  render() {
     return (
-     <Picker onValueChange={(value) => this.setState({value: value})} style={{padding: 0, margin: 0}}>
+     <Picker onValueChange={(value) => this.setState({value: value})} style={{padding: 0, paddingTop: 10, paddingBottom: 10, margin: 0, borderBottomWidth: 1, borderTopWidth: 1, borderColor: '#ccc'}}>
        <Picker.Item label="Drone" value="key1" />
        <Picker.Item label="Drone" value="key2" />
        <Picker.Item label="Drone" value="key3" />
