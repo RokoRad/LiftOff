@@ -6,6 +6,8 @@ import globals from '../../config/styles.js';
 import { language } from '../../config/settings.js';
 import values from '../../functions/values';
 
+//{...values, grant_type: 'password'})
+
 const InitalButton = (props) => {
   const login = () => {
     axios.post('http://liftoffapi.azurewebsites.net/token', {...values, grant_type: 'password'}).then((response) =>
