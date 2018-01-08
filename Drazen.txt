@@ -20,6 +20,8 @@ Tebi server salje podatke kroz funkciju broadcastWeather i dobijas weather u for
 
 Nisan skroz siguran oce ovo radit iz prve jer nisan radia sa RN pa ces mi javit jel radi
 Mos console.logat prvi response jer bi ti on triba doc nazad u roku od sekunde
+
+trenutno nemoras slat token kod uspostavljanja te realtime veze al cemo to prominit kasnije, bitno je sad samo da radi ovako
 2. --Logging--
 
 Logging se obavlja na nacin da se pozove ruta na /api/logging/logFlight sa parametron Flight (Objekti.js) i ti kao response dobijes User objekt
