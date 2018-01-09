@@ -5,6 +5,7 @@ const proxy = connection.createHubProxy('weatherHub');
 
 proxy.on('broadcastWeather', (weatherRating) => {
     //radi sta triba sa weatherRatingon
+    console.log(weatherRating);
 });
 
 connection.start().done(() => {
