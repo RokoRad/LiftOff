@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, AsyncStorage } from 'react-native';
 import signalr from 'react-native-signalr';
 import HomeRating from '../../components/HomeRating';
@@ -19,7 +19,7 @@ let timeLocation = {
     Latitude: 23,
     Longitude: 33
   },
-  Time: '2018-01-09T12:53:51+01:00'
+  Time: JSON.stringify(new Date().toISOString())
 };
 
 let units = 'metric'
@@ -30,13 +30,37 @@ connection.start().done(() => {
   // error pri spajanju
 });
 
+// const Home = ({location}) => (
+  // <Screen current={location}>
+  //   <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating="4.7"/>
+  //   <HomeList list="" />
+  // </Screen>
+// );
 
+class Home extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      list: ''
+    }
+  };
 
-const Home = ({location}) => (
-  <Screen current={location}>
-    <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating="4.7"/>
-    <HomeList list={AsyncStorage.getItem('@realtime').then((value) => value).catch((error) => (error))} />
-  </Screen>
-);
+  componentWillMount() {
+    proxy.on('broadcastWeather', (value) => {
+      this.setState({
+        list: value
+      })
+    });
+  }
+ 
+  render() {
+    return(
+      <Screen current={location}>
+        <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating="4.7"/>
+        <HomeList list={this.state.list} />
+      </Screen>
+    );
+  }
+}
 
 export default Home;
