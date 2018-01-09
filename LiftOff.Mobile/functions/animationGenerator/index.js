@@ -2,42 +2,55 @@ import * as Animatable from 'react-native-animatable';
 
 Animatable.initializeRegistryWithDefinitions({
   green: {
-    from: {
+    0: {
       rotate: '-1deg',
-      translateX: 2
+      translateX: 2,
+      translateY: -1
     },
-    to: {
+    0.5: {
+      rotate: '0deg',
+      translateX: 0,
+      translateY: 0
+    },
+    1: {
       rotate: '1deg',
-      translateX: -2
+      translateX: -2,
+      translateY: -1
     }    
   },
   orange: {
-    from: {
+    0: {
       rotate: '-2deg',
-      translateX: 5
+      translateX: 5,
+      translateY: -3
     },
-    to: {
+    0.5: {
+      rotate: '0deg',
+      translateX: 0,
+      translateY: 0
+    },
+    1: {
       rotate: '2deg',
-      translateX: -5
+      translateX: -5,
+      translateY: -3
     }    
   },
   red: {
-    from: {
+    0: {
       rotate: '-3deg',
-      translateX: 8
+      translateX: -15,
+      translateY: -5
     },
-    to: {
+    0.5: {
+      rotate: '0deg',
+      translateX: 0,
+      translateY: 0
+    },
+    1: {
       rotate: '3deg',
-      translateX: -8
+      translateX: 15,
+      translateY: -5
     }    
-  },
-  fire: {
-    from: {
-      translateY: -10
-    },
-    to: {
-      translateY: 10
-    }
   }
 });
 

@@ -6,6 +6,7 @@ import globals from '../../config/styles.js';
 import { language } from '../../config/settings.js'
 import colorGenerator from '../../functions/colorGenerator';
 import animationGenerator from '../../functions/animationGenerator';
+import round from '../../functions/round';
 
 const HomeRating = (props) => (
     <View style={[styles.wrapper, globals[colorGenerator(props.rating)]]}>
@@ -23,7 +24,7 @@ const HomeRating = (props) => (
         </View>
         <View style={styles.right}>
           <Text style={styles.rating}>
-            {props.rating}
+            {round(props.rating)}
           </Text>
         </View>
     </View>

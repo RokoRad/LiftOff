@@ -3,6 +3,7 @@ import { Image, View, Text } from 'react-native';
 import styles from './styles.js';
 import globals from '../../config/styles.js';
 import colorGenerator from '../../functions/colorGenerator';
+import round  from '../../functions/round';
 
 const icons = {
   humidity: require('../../images/weather/humidity.png'),
@@ -24,17 +25,19 @@ const HomeItem = (props) => (
       </View>
       <View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>Speed</Text>
-          <Text style={styles.rightText}>10 km/h</Text>
+          <Text style={styles.leftText}>{props.paramOneName}</Text>
+          <Text style={styles.rightText}>{props.paramOneValue}</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>Direction</Text>
-          <Text style={styles.rightText}>East</Text>
+          <Text style={styles.leftText}>{props.paramTwoName}</Text>
+          <Text style={styles.rightText}>{props.paramTwoValue}</Text>
         </View>
       </View>
     </View>
     <View style={[styles.right, globals.bothAligned]}>
-      <Text style={[styles.rating, styles[colorGenerator(props.rating)]]}>{props.rating}</Text>
+      <Text style={[styles.rating, (props.rating !== null ? styles[colorGenerator(props.rating)] : null)]}>
+        {(props.rating !== null ? round(props.rating) : '/')}
+      </Text>
     </View>
   </View>
 );

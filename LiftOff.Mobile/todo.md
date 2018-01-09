@@ -8,8 +8,10 @@ animirat vatricu
 mapa nek ikone imaju svoj dock sa borderradiusu i shadowu ka na navbaru
 sto kad su krivi login podatci? (!!!) TOAST
 -score na logovima
-hiddat password chars
 onPress mape dodat pin
 stopericu fiksat tak osta ce se pokrenit on mount
 tooltip se pokazuje na svaki onclick
 min value za input !!!
+ako je neki score null prikazat nesto na /home!!
+TOKEN NE GETTA DOBRO
+splash screen dok se loadaju podatci

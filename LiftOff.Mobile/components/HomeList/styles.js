@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 15,
     paddingTop: 5,
-    paddingBottom: 50,
+    paddingBottom: 200,
     height: '60%'
   }
 });

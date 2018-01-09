@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
   },
   rating: {
     fontFamily: 'barlowRegular',
-    fontSize: 40
+    fontSize: 40,
+    color: '#2980b9'
   }
 });
 
