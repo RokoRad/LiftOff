@@ -11,6 +11,10 @@ import Stopwatch from './views/Stopwatch';
 import Settings from './views/Settings';
 
 class App extends React.Component {
+  state = {
+    loaded: false
+  }
+
   componentWillMount() {
     this.loadFonts();
   }
