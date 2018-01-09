@@ -79,8 +79,8 @@ class Home extends React.Component {
  
   render() {
     return(
-      <Screen current={location}>
-        <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating="4.7"/>
+      <Screen current={this.props.location}>
+        <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating={this.state.list.TotalRating} />
         <HomeList list={this.state.list} />
       </Screen>
     );
