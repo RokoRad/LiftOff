@@ -36,7 +36,9 @@ const HomeItem = (props) => (
       </View>
     </View>
     <View style={[styles.right, globals.bothAligned]}>
-      <Text style={[styles.rating, styles[colorGenerator(props.rating)]]}>{round(props.rating)}</Text>
+      <Text style={[styles.rating, (props.rating !== null ? styles[colorGenerator(props.rating)] : null)]}>
+        {(props.rating !== null ? round(props.rating) : '/')}
+      </Text>
     </View>
   </View>
 );

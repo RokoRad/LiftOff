@@ -30,13 +30,6 @@ connection.start().done(() => {
   // error pri spajanju
 });
 
-// const Home = ({location}) => (
-  // <Screen current={location}>
-  //   <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating="4.7"/>
-  //   <HomeList list="" />
-  // </Screen>
-// );
-
 class Home extends React.Component {
   constructor() {
     super();
