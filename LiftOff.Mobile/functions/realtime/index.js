@@ -20,4 +20,23 @@ connection.start().done(() => {
   // error pri spajanju
 });
 
+
+
+
+let dateTime, // normalni date, nije ISO
+    location; // objekt sa latitude i longitude
+
+const changeDateTime = (value) => (dateTime = value),
+      changeLocation = (value) => (location = value),
+      updateServer = (dateTime, location) => {
+        const timeLocation = {
+          Location: {
+            Latitude: location.latitude,
+            Longitutde: location.longitude
+          },
+          Time: dateTime
+        }
+        proxy.invoke('', timeLocation);
+};
+
 export default proxy;

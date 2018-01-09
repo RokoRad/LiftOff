@@ -1,4 +1,4 @@
-const defautlList = {
+const defaultList = {
   AtmosphereRating: null,
   ConditionsRating: null,
   TemperatureRating: null,
