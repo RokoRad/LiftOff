@@ -145,7 +145,7 @@ namespace LiftOff.API.RealTimeEngine
                 if (weatherRating.weatherData.Units != Client.Units)
                     weatherRating = ChangeUnits(weatherRating);
 
-                Clients.Client(Client.ConnectionId).broadcastWeather(FormatRating(weatherRating));
+                Clients.Client(Client.ConnectionId).broadcastWeather(weatherRating);
             }
         }
 
