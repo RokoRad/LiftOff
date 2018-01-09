@@ -13,3 +13,4 @@ tooltip se pokazuje na svaki onclick
 ako je neki score null prikazat nesto na /home!!
 TOKEN NE GETTA DOBRO
 splash screen dok se loadaju podatci
+TOAST CENTRIRAT

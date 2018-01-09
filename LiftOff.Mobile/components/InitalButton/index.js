@@ -26,7 +26,7 @@ const InitalButton = (props) => {
       grant_type: 'password'
     };
 
-    if(values.username > 0 && values.password > 8) {
+    if([values.username].length > 0 && [values.password].length > 8) {
       fetch('http://liftoffapi.azurewebsites.net/token', {  
         method: 'POST',
         headers: {
@@ -44,7 +44,7 @@ const InitalButton = (props) => {
         Toast.show(language.serverError);
       });
     } else {
-      if(values.password.length() < 8) {
+      if([values.password].length < 8) {
         Toast.show(language.passwordLength);
       } else {
         Toast.show(language.loginError);
@@ -59,7 +59,7 @@ const InitalButton = (props) => {
       grant_type: 'password'
     };
 
-    if(values.email > 0 && values.username > 0 && values.password > 8) {
+    if([values.email].length > 0 && [values.username].length > 0 && [values.password].length > 8) {
       fetch('http://liftoffapi.azurewebsites.net/api/account/register', {  
         method: 'POST',
         headers: {
@@ -90,7 +90,7 @@ const InitalButton = (props) => {
         Toast.show(language.serverError);
       });
     } else {
-      if (values.password.length() < 8) {
+      if ([values.password].length < 8) {
         Toast.show(language.passwordLength);
       } else {
         Toast.show(language.registerError);
