@@ -5,6 +5,7 @@ import axios from 'axios';
 import globals from '../../config/styles.js';
 import { language } from '../../config/settings.js';
 import values from '../../functions/values';
+import Toast from 'react-native-simple-toast';
 
 const encode = (value) => {
   let object = [];
@@ -36,10 +37,13 @@ const InitalButton = (props) => {
         AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
         props.router.push("/home");
       } else {
-        // krivi login podatci
+        if (values.password.length < 8) {
+          Toast.show(language.passwordLength);
+        }
+        Toast.show(language.loginError);
       }
     }).catch((error) => {
-      // server error
+      Toast.show(language.serverError);
     });
   };
 
@@ -69,17 +73,18 @@ const InitalButton = (props) => {
           if (response.status === 200) {
             AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
             props.router.push("/home");
-          } else {
-            // krivi login podatci
           }
         }).catch((error) => {
-          // server error
+          Toast.show(language.serverError);
         });
       } else {
-        // krivi register podatci
+        if (values.password.length < 8) {
+          Toast.show(language.passwordLength);
+        }
+        Toast.show(language.registerError);
       }
     }).catch((error) => {
-      // server error
+      Toast.show(language.serverError);
     });
   }
 

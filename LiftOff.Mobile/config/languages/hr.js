@@ -17,7 +17,10 @@ const language = {
   markerTime: 'Vrijeme',
   markerRating: 'Predviđena FlySafe ocjena',
   gpsFail: 'Uključi GPS',
-  serverError: 'Spajanje prekinuto'
+  serverError: 'Spajanje prekinuto',
+  loginError: 'Krivi unos',
+  registerError: 'Neuspiješna validacija',
+  passwordLength: 'Lozinka mora minimalno imati 8 znakova'
 };
 
 // vraćanje stringova
