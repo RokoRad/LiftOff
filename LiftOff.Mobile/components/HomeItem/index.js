@@ -3,6 +3,7 @@ import { Image, View, Text } from 'react-native';
 import styles from './styles.js';
 import globals from '../../config/styles.js';
 import colorGenerator from '../../functions/colorGenerator';
+import round  from '../../functions/round';
 
 const icons = {
   humidity: require('../../images/weather/humidity.png'),
@@ -12,8 +13,6 @@ const icons = {
   visibility: require('../../images/weather/visibility.png'),
   wind: require('../../images/weather/wind.png')
 }
-
-const round = (value) => (Math.round(value * 10) / 10);
 
 const HomeItem = (props) => (
   <View style={styles.wrapper}>
