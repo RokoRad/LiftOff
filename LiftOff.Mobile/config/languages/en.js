@@ -16,7 +16,8 @@ const language = {
   markerLocation: 'Location',
   markerTime: 'Time',
   markerRating: 'Expected FlySafe score',
-  gpsFail: 'Enable GPS'
+  gpsFail: 'Enable GPS',
+  serverError: 'Connecting interrupted'
 };
 
 // vraćanje stringova

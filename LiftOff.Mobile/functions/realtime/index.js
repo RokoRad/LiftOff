@@ -1,4 +1,6 @@
 import signalr from 'react-native-signalr';
+import Toast from 'react-native-simple-toast';
+import language from '../../config/settings.js';
 
 const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/');
   connection.logging = true;
@@ -21,6 +23,11 @@ connection.start().done(() => {
 });
 
 
+connection.start().done(() => {
+  proxy.invoke('')
+}),fail(() => {
+  Toast.show(language.serverError);
+});
 
 
 let dateTime, // normalni date, nije ISO
@@ -28,6 +35,7 @@ let dateTime, // normalni date, nije ISO
 
 const changeDateTime = (value) => (dateTime = value),
       changeLocation = (value) => (location = value),
+      changeMetrics = () => (proxy.invoke('changeUnits')),
       updateServer = (dateTime, location) => {
         const timeLocation = {
           Location: {
@@ -36,7 +44,7 @@ const changeDateTime = (value) => (dateTime = value),
           },
           Time: dateTime
         }
-        proxy.invoke('', timeLocation);
+        proxy.invoke('updateLocation', timeLocation);
 };
 
 export default proxy;

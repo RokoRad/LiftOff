@@ -16,7 +16,8 @@ const language = {
   markerLocation: 'Lokacija',
   markerTime: 'Vrijeme',
   markerRating: 'Predviđena FlySafe ocjena',
-  gpsFail: 'Uključi GPS'
+  gpsFail: 'Uključi GPS',
+  serverError: 'Spajanje prekinuto'
 };
 
 // vraćanje stringova
