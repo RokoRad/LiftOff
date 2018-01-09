@@ -4,47 +4,48 @@ import signalr from 'react-native-signalr';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
+import proxy from '../../functions/realtime'
 
-const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/');
-connection.logging = true;
-const proxy = connection.createHubProxy('weatherHub');
+// const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/');
+// connection.logging = true;
+// const proxy = connection.createHubProxy('weatherHub');
 
 
-proxy.on('broadcastWeather', (value) => {
-  AsyncStorage.setItem('@realtime', JSON.stringify(value));
-});
+// proxy.on('broadcastWeather', (value) => {
+//   AsyncStorage.setItem('@realtime', JSON.stringify(value));
+// });
 
-let timeLocation = {
-  Location: {
-    Latitude: 23,
-    Longitude: 33
-  },
-  Time: new Date()
-};
+// let timeLocation = {
+//   Location: {
+//     Latitude: 23,
+//     Longitude: 33
+//   },
+//   Time: new Date()
+// };
 
-let units = 'metric'
+// let units = 'metric'
 
-connection.start().done(() => {
-  proxy.invoke('initiateConnection', timeLocation, units);
-}).fail(() => {
-  // error pri spajanju
-});
+// connection.start().done(() => {
+//   proxy.invoke('initiateConnection', timeLocation, units);
+// }).fail(() => {
+//   // error pri spajanju
+// });
 
 class Home extends React.Component {
   constructor() {
     super();
     this.state = {
       list: {
-        AtmosphereRating: 3.9017599873536,
-        ConditionsRating: 5,
-        TemperatureRating: 4.203419248287,
-        TotalRating: 4.50418331174321,
-        UVRating: 2.742936502,
+        AtmosphereRating: null,
+        ConditionsRating: null,
+        TemperatureRating: null,
+        TotalRating: null,
+        UVRating: null,
         VisibilityRating: null,
-        WindRating: 4.543835536772511,
+        WindRating: null,
         weatherData: {
-          Cloudiness: 0,
-          Humidity: 52,
+          Cloudiness: null,
+          Humidity: null,
           Max_Temperature: 15.03,
           Min_Temperature: 15.03,
           Presssure: 1004.53,
@@ -80,7 +81,9 @@ class Home extends React.Component {
   render() {
     return(
       <Screen current={this.props.location}>
-        <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating={this.state.list.TotalRating} />
+        <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating="3"
+        //rating={this.state.list.TotalRating} 
+        />
         <HomeList list={this.state.list} />
       </Screen>
     );

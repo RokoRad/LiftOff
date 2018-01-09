@@ -24,7 +24,10 @@ const HomeRating = (props) => (
         </View>
         <View style={styles.right}>
           <Text style={styles.rating}>
-            {round(props.rating)}
+              {props.rating}
+            {
+              // round(props.rating)
+              }
           </Text>
         </View>
     </View>
