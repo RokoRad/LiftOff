@@ -9,14 +9,8 @@ import Account from './views/Account';
 import Map from './views/Map';
 import Stopwatch from './views/Stopwatch';
 import Settings from './views/Settings';
-import storage from './functions/storage';
 
 class App extends React.Component {
-  state = {
-    loaded: false
-    //,logged: storage.get('logged')
-  }
-
   componentWillMount() {
     this.loadFonts();
   }
