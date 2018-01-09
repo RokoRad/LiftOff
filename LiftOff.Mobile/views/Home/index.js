@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
+import realtime from '../../functions/realtime';
 
 const Home = ({location}) => (
   <Screen current={location}>
