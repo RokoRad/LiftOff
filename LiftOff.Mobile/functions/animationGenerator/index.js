@@ -21,7 +21,7 @@ Animatable.initializeRegistryWithDefinitions({
   orange: {
     0: {
       rotate: '-2deg',
-      translateX: 7,
+      translateX: 5,
       translateY: -3
     },
     0.5: {
@@ -31,8 +31,8 @@ Animatable.initializeRegistryWithDefinitions({
     },
     1: {
       rotate: '2deg',
-      translateX: -7,
-      translateY: 3
+      translateX: -5,
+      translateY: -3
     }    
   },
   red: {
