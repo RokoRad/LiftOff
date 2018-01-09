@@ -4,33 +4,30 @@ import signalr from 'react-native-signalr';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
-import { proxy, setup } from '../../functions/realtime';
+// import { proxy, timeLocation, units } from '../../functions/realtime';
 import defaultList from '../../config/defaultList.js';
+import Toast from 'react-native-simple-toast';
+import language from '../../config/settings.js';
 
-// const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/');
-// connection.logging = true;
-// const proxy = connection.createHubProxy('weatherHub');
+const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/'),
+      proxy = connection.createHubProxy('weatherHub');
+connection.logging = true;
 
+const timeLocation = {
+  Location: {
+    Latitude: 43.508133,
+    Longitutde: 16.440193
+  },
+  Time: new Date()
+}
+let units = 'metric';
 
-// proxy.on('broadcastWeather', (value) => {
-//   AsyncStorage.setItem('@realtime', JSON.stringify(value));
-// });
+connection.start().done(() => {
+  proxy.invoke('initiateConnection', timeLocation, units);
+}).fail(() => {
+  Toast.show(language.serverError);
+});
 
-// let timeLocation = {
-//   Location: {
-//     Latitude: 23,
-//     Longitude: 33
-//   },
-//   Time: new Date()
-// };
-
-// let units = 'metric'
-
-// connection.start().done(() => {
-//   proxy.invoke('initiateConnection', timeLocation, units);
-// }).fail(() => {
-//   // error pri spajanju
-// });
 
 class Home extends React.Component {
   constructor() {
@@ -41,7 +38,6 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
-    setup();
     proxy.on('broadcastWeather', (value) => {
       console.log(value)
       this.setState({

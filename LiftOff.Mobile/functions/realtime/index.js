@@ -6,6 +6,12 @@ const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/')
       proxy = connection.createHubProxy('weatherHub');
 connection.logging = true;
 
+connection.start().done(() => {
+  proxy.invoke('initiateConnection', timeLocation, units);
+}).fail(() => {
+  Toast.show(language.serverError);
+});
+
 const timeLocation = {
   Location: {
     Latitude: 43.508133,
@@ -15,15 +21,9 @@ const timeLocation = {
 }
 let units = 'metric';
 
-// kreiranje konekcije sa serverom
-function setup() {
-  connection.start().done(() => {
-    proxy.invoke('initiateConnection', timeLocation, units);
-  }).fail(() => {
-    Toast.show(language.serverError);
-  });
+window.onLoad = function() {
+  setup();
 }
-
 // setupiranje variabli za promjenu podataka
 let dateTime, // normalni date, nije ISO
     location; // objekt sa latitude i longitude
@@ -43,7 +43,6 @@ const changeDateTime = (value) => (dateTime = value),
         proxy.invoke('updateLocation', timeLocation);
 };
 
-export { proxy, setup };
 // export default {
 //   proxy,
 //   timeLocation,

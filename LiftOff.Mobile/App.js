@@ -21,11 +21,11 @@ class App extends React.Component {
 
   async loadFonts() {
     await Expo.Font.loadAsync({
-      /* 700 */ 'barlowBold': require('./fonts/Barlow-Bold.ttf'),
-      /* 800 */ 'barlowExtraBold': require('./fonts/Barlow-ExtraBold.ttf'),
-      /* 500 */ 'barlowMedium': require('./fonts/Barlow-Medium.ttf'),
-      /* 400 */ 'barlowRegular': require('./fonts/Barlow-Regular.ttf'),
-      /* 600 */ 'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf')
+      'barlowBold': require('./fonts/Barlow-Bold.ttf'),
+      'barlowExtraBold': require('./fonts/Barlow-ExtraBold.ttf'),
+      'barlowMedium': require('./fonts/Barlow-Medium.ttf'),
+      'barlowRegular': require('./fonts/Barlow-Regular.ttf'),
+      'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf')
     });
     this.setState({loaded: true});
   };

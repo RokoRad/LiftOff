@@ -9,10 +9,10 @@ const HomeList = (props) => {
     <ScrollView style={styles.container}>
       <HomeItem type="humidity" rating={nester.AtmosphereRating} />
       <HomeItem type="rain" rating={nester.ConditionsRating} />
-      <HomeItem type="temperature" rating={nester.TemperatureRating} />
+      <HomeItem type="temperature" rating={nester.TemperatureRating} paramOneName="MaxTemperature" paramOneValue={nester.weatherData.Max_Temperature} paramTwoName="MinTemperature" paramTwoValue={nester.weatherData.Min_Temperature} />
       <HomeItem type="uv" rating={nester.UVRating} />
       <HomeItem type="visibility" rating={nester.VisibilityRating} />
-      <HomeItem type="wind" rating={nester.WindRating} paramOnename="WindDirection" paramOneValue={nester.WindDirection} paramTwoName="WindSpeed" paramTwoValue={nester.WindSpeed} />
+      <HomeItem type="wind" rating={nester.WindRating} paramOneName="WindDirection" paramOneValue={nester.WindDirection} paramTwoName="WindSpeed" paramTwoValue={nester.WindSpeed} />
     </ScrollView>
 )};
 
@@ -30,26 +30,23 @@ export default HomeList;
 //   VisibilityRating: null,
 //   WindRating: null,
 //   weatherData: {
+
+// rain
 //     Cloudiness: null,
 //     Humidity: null,
-//     Max_Temperature: 15.03,
-//     Min_Temperature: 15.03,
+
+
 //     Presssure: 1004.53,
+
+// uv
 //     Temperature: 15.03,
-//     TimeLocation: {
-//       Location: {
-//         Latitude: 23,
-//         Longitude: 33,
-//       },
-//       Time: "2018-01-09T19:26:18.4557311+00:00",
-//     },
 //     UVIndex: 5.5,
-//     Units: "metric",
+
+// rain
 //     Visibility: null,
 //     Weather: "Clear",
+
 //     WeatherDescription: "clear sky",
 //     WeatherID: 800,
-//     WindDirection: 44.0012,
-//     WindSpeed: 4.12,
 //   },
 // }
