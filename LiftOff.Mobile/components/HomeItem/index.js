@@ -13,6 +13,8 @@ const icons = {
   wind: require('../../images/weather/wind.png')
 }
 
+const round = (value) => (Math.round(value * 10) / 10);
+
 const HomeItem = (props) => (
   <View style={styles.wrapper}>
     <View style={[styles.left, globals.bothAligned]}>
@@ -34,7 +36,7 @@ const HomeItem = (props) => (
       </View>
     </View>
     <View style={[styles.right, globals.bothAligned]}>
-      <Text style={[styles.rating, styles[colorGenerator(props.rating)]]}>{props.rating}</Text>
+      <Text style={[styles.rating, styles[colorGenerator(props.rating)]]}>{round(props.rating)}</Text>
     </View>
   </View>
 );
