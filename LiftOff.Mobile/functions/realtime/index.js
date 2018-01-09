@@ -1,13 +1,13 @@
 import signalr from 'react-native-signalr';
+import { AsyncStorage } from 'react-native';
+
+
 const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/');
 connection.logging = true;
-
 const proxy = connection.createHubProxy('weatherHub');
-let response;
 
-proxy.on('broadcastWeather', (weatherRating) => {
-  response = weatherRating;
-  console.log(weatherRating)
+const response = proxy.on('broadcastWeather', (value) => {
+  AsyncStorage.setItem('@realtime', value);
 });
 
 let timeLocation = {
@@ -15,15 +15,13 @@ let timeLocation = {
     Latitude: 23,
     Longitude: 33
   },
-  Time: '2018-01-09T12:53:51+00:00'
+  Time: '2018-01-09T12:53:51+01:00'
 };
 
 let units = 'metric'
 
 connection.start().done(() => {
-        proxy.invoke('initiateConnection', timeLocation, units);
-    }).fail(() => {
-        console.log('Failed');
-}   );
-
-export default response;
+  proxy.invoke('initiateConnection', timeLocation, units);
+}).fail(() => {
+  // error pri spajanju
+});
