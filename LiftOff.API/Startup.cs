@@ -10,6 +10,7 @@ using System.Web.Http;
 using LiftOff.API.App_Start;
 using Microsoft.Owin.Host.SystemWeb;
 using System.Security.Claims;
+using Microsoft.AspNet.SignalR;
 
 [assembly: OwinStartup(typeof(LiftOff.API.Startup))]
 namespace LiftOff.API
@@ -26,7 +27,9 @@ namespace LiftOff.API
 			app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 			app.UseWebApi(config);
 
-			app.MapSignalR();
+            var hubConfiguration = new HubConfiguration();
+            hubConfiguration.EnableDetailedErrors = true;
+            app.MapSignalR(hubConfiguration);
 		}
 
 		public void ConfigureOAuth(IAppBuilder app)
