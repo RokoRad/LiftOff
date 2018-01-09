@@ -4,7 +4,7 @@ import signalr from 'react-native-signalr';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
-import proxy from '../../functions/realtime';
+import { proxy, setup } from '../../functions/realtime';
 import defaultList from '../../config/defaultList.js';
 
 // const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/');
@@ -41,7 +41,9 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
+    setup();
     proxy.on('broadcastWeather', (value) => {
+      console.log(value)
       this.setState({
         list: value
       })

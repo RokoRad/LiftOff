@@ -16,11 +16,13 @@ const timeLocation = {
 let units = 'metric';
 
 // kreiranje konekcije sa serverom
-connection.start().done(() => {
-  proxy.invoke('initiateConnection', timeLocation, units);
-}).fail(() => {
-  Toast.show(language.serverError);
-});
+function setup() {
+  connection.start().done(() => {
+    proxy.invoke('initiateConnection', timeLocation, units);
+  }).fail(() => {
+    Toast.show(language.serverError);
+  });
+}
 
 // setupiranje variabli za promjenu podataka
 let dateTime, // normalni date, nije ISO
@@ -41,11 +43,13 @@ const changeDateTime = (value) => (dateTime = value),
         proxy.invoke('updateLocation', timeLocation);
 };
 
-export default {
-  timeLocation,
-  units,
-  changeDateTime,
-  changeLocation,
-  changeMetrics,
-  updateServer
-};
+export { proxy, setup };
+// export default {
+//   proxy,
+//   timeLocation,
+//   units,
+//   changeDateTime,
+//   changeLocation,
+//   changeMetrics,
+//   updateServer
+// };
