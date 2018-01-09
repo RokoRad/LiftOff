@@ -4,8 +4,6 @@ const language = {
   register: 'Register',
   haveAccount: 'Have account?',
   registerAccount: 'Don`t have an account?',
-  facebook: 'Sign in with Facebook',
-  forgotPassword: 'Forgot password?',
   FlySafe: 'FlySafe',
   Planning: 'Planning',
   LiftOff: 'LiftOff',
@@ -17,7 +15,8 @@ const language = {
   markerTitle: 'We found a perfect spot!',
   markerLocation: 'Location',
   markerTime: 'Time',
-  markerRating: 'Expected FlySafe score'
+  markerRating: 'Expected FlySafe score',
+  gpsFail: 'Enable GPS'
 };
 
 // vraćanje stringova

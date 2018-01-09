@@ -5,8 +5,9 @@ import MapItem from '../../components/MapItem';
 import MarkerCallout from '../../components/MarkerCallout';
 import style from '../../functions/mapStyle';
 import DatePicker from '../../external/react-native-datepicker';
-//import storage from '../../functions/storage';
+import Toast from 'react-native-simple-toast';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
+import { language } from '../../config/settings.js';
 
 const crosshairHolder = {
   latitude: 43.508133,
@@ -15,6 +16,7 @@ const crosshairHolder = {
   longitudeDelta: 0.0421
 };
 
+
 class Map extends Component {
   constructor() {
      super();
@@ -22,14 +24,21 @@ class Map extends Component {
   };
 
   componentWillMount() {
-    // this.getLocation();
+    this._getLocation();
   }
 
-  getLocation = async () => {
-    const { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status === 'granted') {
-      let value = await Location.getCurrentPositionAsync({timeout: 2000, maximumAge: 1000});
-      this.setState({ lat: value.coords.latitude, lon: value.coords.longitude });
+  _getLocation = async () => {
+    const { locationServicesEnabled } = await Location.getProviderStatusAsync();
+    if(!locationServicesEnabled) {
+      Toast.show(language.gpsFail);
+    } else {
+      const { status } = await Permissions.askAsync(Permissions.LOCATION);
+      if (status === 'granted') {
+        let value = await Location.getCurrentPositionAsync({enableHighAccuracy: false, timeout: 2000, maximumAge: 1000});
+        this.setState({ lat: value.coords.latitude, lon: value.coords.longitude });
+      } else {
+        console.log(response)
+      }
     }
   }
 

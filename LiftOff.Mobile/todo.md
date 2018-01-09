@@ -1,16 +1,15 @@
-rezolucija slika <br>
 vidi šta se da napravit sa kompresanjem stilova <br>
 dodat komentare <br>
-izbrisat fontove <br>
 optimizirat klase <br>
-izbrisat nepotrebne lang-stringove <br>
-*probat neki ux <br>
-
-Todo:
-- stavit nativni dropdown
-- pomaknit prema doli sve da se ne conflicta sa status baron
 - ikone nove uacit
-- cachirat mapu
-- rjesit bolji ux za mapu (pinn)
-- podignit malo navbar da se ne konflikta sa iphone x elementon za izlazit iz appa (ubacit bili rectangle ispod njega)
 - settings ubacit chekcbox za "don't show ither users where I flown"
+- nav ikone full res
+animirat vatricu
+mapa nek ikone imaju svoj dock sa borderradiusu i shadowu ka na navbaru
+sto kad su krivi login podatci? (!!!) TOAST
+-score na logovima
+hiddat password chars
+onPress mape dodat pin
+stopericu fiksat tak osta ce se pokrenit on mount
+tooltip se pokazuje na svaki onclick
+min value za input !!!

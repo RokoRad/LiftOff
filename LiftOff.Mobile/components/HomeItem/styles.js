@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   rightText: {
     position: 'absolute',
-    right: 0,
+    right: 5,
     fontFamily: 'barlowRegular',
     fontSize: 10
   },

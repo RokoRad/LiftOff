@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, Image, TouchableWithoutFeedback, AsyncStorage } from 'react-native';
+import { Redirect } from 'react-router';
 import styles from './styles.js';
 import LoginForm from '../../components/LoginForm';
 import RegisterForm from '../../components/RegisterForm';
@@ -13,6 +14,12 @@ class Inital extends Component {
         login: true
      };
   };
+
+  componentWillMount = () => {
+    if (AsyncStorage.getItem('@token').then()) {
+      this.props.history.push('/home')
+    }
+  }
 
   changeView = () => {
     this.setState({

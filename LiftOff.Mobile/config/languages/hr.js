@@ -4,8 +4,6 @@ const language = {
   register: 'Registriraj se',
   haveAccount: 'Imaš račun?',
   registerAccount: 'Nemaš račun?',
-  facebook: 'Prijavi se putem Facebooka',
-  forgotPassword: 'Izgubljena lozinka?',
   FlySafe: 'FlySafe',
   Planning: 'Planiranje',
   LiftOff: 'LiftOff',
@@ -17,7 +15,8 @@ const language = {
   markerTitle: 'Pronašli smo super lokaciju!',
   markerLocation: 'Lokacija',
   markerTime: 'Vrijeme',
-  markerRating: 'Predviđena FlySafe ocjena'
+  markerRating: 'Predviđena FlySafe ocjena',
+  gpsFail: 'Uključi GPS'
 };
 
 // vraćanje stringova

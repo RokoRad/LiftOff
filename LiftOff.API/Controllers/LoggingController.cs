@@ -2,6 +2,7 @@
 using LiftOff.API.Logic.Statistics;
 using LiftOff.API.Models;
 using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
@@ -13,17 +14,13 @@ namespace LiftOff.API.Controllers
         private readonly LiftOffContext _liftOffContext = new LiftOffContext();
         
         [HttpPost]
-        //production
-        //[Authorize]
+        [Authorize]
         [Route("logFlight")]
         public IHttpActionResult LogFlight(Flight flight)
         {
             var userId = User.Identity.GetUserId();
-            //production
-            //var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
-
-            //testing
-            var user = _liftOffContext.StatisticsUsers.First(usr => usr.UserName == "aaa");
+            
+            var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
 
             user.TotalFlights++;
             user.TotalTimeFlown += flight.TimeFlown;
@@ -43,6 +40,19 @@ namespace LiftOff.API.Controllers
             _liftOffContext.SaveChanges();
 
             return Ok(user);
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("getLogs")]
+        public IHttpActionResult GetLogs()
+        {
+            var userId = User.Identity.GetUserId();
+            var statsUserId = _liftOffContext.StatisticsUsers.FirstOrDefault(usr => usr.IdentityUserId == userId).Id;
+
+            var flights = _liftOffContext.Flights.Where(fl => fl.UserId == statsUserId).ToList();
+
+            return Ok(flights);
         }
     }
 }
