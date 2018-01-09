@@ -9,9 +9,9 @@ const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/')
 connection.logging = true;
 const proxy = connection.createHubProxy('weatherHub');
 
-const response = proxy.on('broadcastWeather', (value) => {
-  //console.log(value)
-  return value["broadcastWeather"];
+
+proxy.on('broadcastWeather', (value) => {
+  AsyncStorage.setItem('@realtime', JSON.stringify(value));
 });
 
 let timeLocation = {
@@ -30,13 +30,12 @@ connection.start().done(() => {
   // error pri spajanju
 });
 
-console.log(response)
 
 
 const Home = ({location}) => (
   <Screen current={location}>
     <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating="4.7"/>
-    <HomeList list="" />
+    <HomeList list={AsyncStorage.getItem('@realtime').then((value) => value).catch((error) => (error))} />
   </Screen>
 );
 

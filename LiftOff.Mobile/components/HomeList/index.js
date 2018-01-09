@@ -3,7 +3,11 @@ import { ScrollView } from 'react-native';
 import styles from './styles.js';
 import HomeItem from '../HomeItem';
 
-const HomeList = (props) => (
+const HomeList = (props) => {
+  console.log("aaa")
+  console.log(props.list);
+  console.log("aaa")
+  return(
   <ScrollView style={styles.container}>
     <HomeItem type="humidity" rating="1.7"/>
     <HomeItem type="rain" rating="3.0"/>
@@ -12,6 +16,6 @@ const HomeList = (props) => (
     <HomeItem type="visibility" rating="2.0"/>
     <HomeItem type="wind" rating="2.4"/>
   </ScrollView>
-);
+)};
 
 export default HomeList;
