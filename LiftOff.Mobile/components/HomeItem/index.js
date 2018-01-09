@@ -25,12 +25,12 @@ const HomeItem = (props) => (
       </View>
       <View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>Speed</Text>
-          <Text style={styles.rightText}>10 km/h</Text>
+          <Text style={styles.leftText}>{props.paramOneName}</Text>
+          <Text style={styles.rightText}>{props.paramOneValue}</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>Direction</Text>
-          <Text style={styles.rightText}>East</Text>
+          <Text style={styles.leftText}>{props.paramTwoName}</Text>
+          <Text style={styles.rightText}>{props.paramTwoValue}</Text>
         </View>
       </View>
     </View>
