@@ -26,25 +26,30 @@ const InitalButton = (props) => {
       grant_type: 'password'
     };
 
-    fetch('http://liftoffapi.azurewebsites.net/token', {  
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-      },
-      body: encode(details)
-    }).then((response) => {
-      if (response.status === 200) {
-        AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
-        props.router.push("/home");
-      } else {
-        if (values.password.length < 8) {
-          Toast.show(language.passwordLength);
+    if(values.username > 0 && values.password > 8) {
+      fetch('http://liftoffapi.azurewebsites.net/token', {  
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: encode(details)
+      }).then((response) => {
+        if (response.status === 200) {
+          AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
+          props.router.push("/home");
+        } else {
+          Toast.show(language.loginError);
         }
+      }).catch((error) => {
+        Toast.show(language.serverError);
+      });
+    } else {
+      if(values.password.length() < 8) {
+        Toast.show(language.passwordLength);
+      } else {
         Toast.show(language.loginError);
       }
-    }).catch((error) => {
-      Toast.show(language.serverError);
-    });
+    }
   };
 
   const register = () => {
@@ -54,38 +59,43 @@ const InitalButton = (props) => {
       grant_type: 'password'
     };
 
-    fetch('http://liftoffapi.azurewebsites.net/api/account/register', {  
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(values)
-    }).then((response) => {
-      console.log(response)
-      if (response.status === 200) {
-        fetch('http://liftoffapi.azurewebsites.net/token', {  
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-          },
-          body: encode(details)
-        }).then((response) => {
-          if (response.status === 200) {
-            AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
-            props.router.push("/home");
-          }
-        }).catch((error) => {
-          Toast.show(language.serverError);
-        });
-      } else {
-        if (values.password.length < 8) {
-          Toast.show(language.passwordLength);
+    if(values.email > 0 && values.username > 0 && values.password > 8) {
+      fetch('http://liftoffapi.azurewebsites.net/api/account/register', {  
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      }).then((response) => {
+        console.log(response)
+        if (response.status === 200) {
+          fetch('http://liftoffapi.azurewebsites.net/token', {  
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            body: encode(details)
+          }).then((response) => {
+            if (response.status === 200) {
+              AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
+              props.router.push("/home");
+            }
+          }).catch((error) => {
+            Toast.show(language.serverError);
+          });
+        } else {
+          Toast.show(language.registerError);
         }
+      }).catch((error) => {
+        Toast.show(language.serverError);
+      });
+    } else {
+      if (values.password.length() < 8) {
+        Toast.show(language.passwordLength);
+      } else {
         Toast.show(language.registerError);
       }
-    }).catch((error) => {
-      Toast.show(language.serverError);
-    });
+    }
   }
 
   return (

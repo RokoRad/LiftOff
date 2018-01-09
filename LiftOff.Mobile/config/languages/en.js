@@ -19,7 +19,7 @@ const language = {
   gpsFail: 'Enable GPS',
   serverError: 'Connecting interrupted',
   loginError: 'Wrong information',
-  registerError: 'validation failed',
+  registerError: 'Validation failed',
   passwordLength: 'Password must contain at least 8 characters'
 };
 

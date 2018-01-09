@@ -17,7 +17,8 @@ class Inital extends Component {
 
   componentWillMount = () => {
     if (AsyncStorage.getItem('@token').then()) {
-      this.props.history.push('/home')
+      AsyncStorage.getItem('@token').then((value) => console.log(value))
+      //this.props.history.push('/home')
     }
   }
 

@@ -20,7 +20,7 @@ const language = {
   serverError: 'Spajanje prekinuto',
   loginError: 'Krivi unos',
   registerError: 'Neuspiješna validacija',
-  passwordLength: 'Lozinka mora minimalno imati 8 znakova'
+  passwordLength: 'Lozinka mora imati minimalno 8 znakova'
 };
 
 // vraćanje stringova
