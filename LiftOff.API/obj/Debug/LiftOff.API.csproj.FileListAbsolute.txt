@@ -379,3 +379,7 @@ C:\Users\Drazen\Desktop\LiftOff\LiftOff.API\obj\Debug\LiftOff.API.pdb
 =======
 C:\Users\DUMP\Desktop\LiftOff\LiftOff.API\obj\Debug\LiftOff.API.csproj.CoreCompileInputs.cache
 >>>>>>> 373b6f39f3a47bf41e9b3e48f96f91023b91e000
+C:\Users\Roko\Desktop\LiftOff\LiftOff.API\bin\MoreLinq.dll
+C:\Users\Roko\Desktop\LiftOff\LiftOff.API\bin\System.ValueTuple.dll
+C:\Users\Roko\Desktop\LiftOff\LiftOff.API\bin\MoreLinq.xml
+C:\Users\Roko\Desktop\LiftOff\LiftOff.API\bin\System.ValueTuple.xml
