@@ -14,6 +14,7 @@ namespace LiftOff.API.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         public string UserName { get; set; }
+        public string Email { get; set; }
         public int TotalTimeFlown { get; set; }
         public int TotalFlights { get; set; }
         public double TotalFlySafeScore { get; set; }
