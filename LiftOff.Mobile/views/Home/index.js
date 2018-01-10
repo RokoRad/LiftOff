@@ -9,6 +9,16 @@ import defaultList from '../../config/defaultList.js';
 import Toast from 'react-native-simple-toast';
 import language from '../../config/settings.js';
 
+let a = {
+  location: {
+    latitude: 43.5,
+    longitude: 16.4
+  },
+  time: "2018-01-10T20:26:10+00:00" 
+};
+
+a = JSON.stringify(a);
+
 class Home extends React.Component {
   constructor() {
     super();
@@ -23,20 +33,15 @@ class Home extends React.Component {
       headers: {
         'Content-type': 'application/json'
       },
-      body: {
-          "location" : {
-            "latitude" : 43.5,
-            "longitude" : 16.4
-          },
-          "time" : "2018-01-10T20:26:10+00:00"
-      }
-    }).then((a) => console.log(a)).catch((e) => console.log(e));
-    proxy.on('broadcastWeather', (value) => {
-      console.log(value)
-      this.setState({
-        list: value
-      })
-    });
+      body: a
+    }
+    ).then((a) => console.log(a)).catch((e) => console.log(e));
+    // proxy.on('broadcastWeather', (value) => {
+    //   console.log(value)
+    //   this.setState({
+    //     list: value
+    //   })
+    // });
 
     connection.start().done(() => {
       proxy.invoke('initiateConnection', timeLocation, units);
