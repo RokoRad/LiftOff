@@ -1,5 +1,6 @@
 ﻿using LiftOff.API.Logic.Statistics;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,10 +20,15 @@ namespace LiftOff.API.Models
         public string FavoriteFlightTime { get; set; }
         public string FavoriteFlightSpot { get; set; }
         public bool ShowWhereIFly { get; set; } = true;
+        [JsonIgnore]
         public virtual string IdentityUserId { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Flight> Flights { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Drone> Drones { get; set; }
+        [JsonIgnore]
         public virtual ICollection<FlightLocation> FlightLocations { get; set; }
+        [JsonIgnore]
         public virtual ICollection<FlightTime> FlightTimes { get; set; }
 
         public StatisticsUser()
