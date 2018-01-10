@@ -13,7 +13,7 @@ namespace LiftOff.API.Controllers
         private readonly LiftOffContext _liftOffContext = new LiftOffContext();
 
         [Authorize]
-        [HttpGet]
+        [HttpPost]
         [Route("getFlightsNearMe")]
         public IHttpActionResult GetFlightsNearMe([FromBody]JObject json)
         {
@@ -22,7 +22,12 @@ namespace LiftOff.API.Controllers
             if (!timeLocation.TimeIsValid()) return BadRequest("time requested is not valid");
             if (!timeLocation.LocationIsValid()) return BadRequest("location requested is not valid");
 
-            return Ok(GetFlightsNearMeQuery.Execute(timeLocation));
+            var flights = GetFlightsNearMeQuery.Execute(timeLocation);
+
+            if (flights != null && flights.Count != 0)
+                return Ok(flights);
+            else
+                return Ok("no flights");
         }
     }
 }
