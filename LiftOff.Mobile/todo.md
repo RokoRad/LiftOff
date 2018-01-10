@@ -10,6 +10,7 @@ mapa nek ikone imaju svoj dock sa borderradiusu i shadowu ka na navbaru
 onPress mape dodat pin
 stopericu fiksat tak osta ce se pokrenit on mount
 tooltip se pokazuje na svaki onclick
+integer to dobule na frontendu
 splash screen dok se loadaju podatci
 TOAST CENTRIRAT
 

@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, Image } from 'react-native';
 import styles from './styles.js';
 import values from '../../functions/values';
-
-const capitalize = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
+import capitalize from '../../functions/capitalize';
 
 const Input = (props) => (
   <View style={styles.wrapper}>

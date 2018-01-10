@@ -4,6 +4,7 @@ import styles from './styles.js';
 import globals from '../../config/styles.js';
 import colorGenerator from '../../functions/colorGenerator';
 import round  from '../../functions/round';
+import capitalize from '../../functions/capitalize';
 
 const icons = {
   atmosphere: require('../../images/weather/atmosphere.png'),
@@ -21,7 +22,7 @@ const HomeItem = (props) => (
     </View>
     <View style={styles.middle}>
       <View>
-        <Text style={styles.title}>Wind</Text>
+        <Text style={styles.title}>{capitalize(props.type)}</Text>
       </View>
       <View>
         <View style={styles.row}>

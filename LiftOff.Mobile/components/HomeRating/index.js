@@ -20,17 +20,7 @@ const HomeRating = (props) => (
             {language.ratingTitle}
           </Text>
           <Text style={styles.text}>
-          {(lng === 'hr') ? props.string.Croatian : props.string.English}
-        
-          
-            {/* {AsyncStorage.getItem('language').then((response) => {
-              if(response === 'hr') {
-                return props.string.Croatian
-              } else {
-                return props.string.English
-                {props.string.English}{props.string.English}
-              }
-            })} */}
+            {(lng === 'hr') ? props.string.Croatian : props.string.English}
           </Text>
         </View>
         <View style={styles.right}>
