@@ -1,10 +1,10 @@
 import React from 'react';
 import './style.css';
 
-const Dashboard = () => (
+const Inital = () => (
   <div>
-    sadhboard
+    inital
   </div>
 );
 
-export default Dashboard;
+export default Inital;
