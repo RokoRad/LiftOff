@@ -14,7 +14,7 @@ namespace LiftOff.API.RealTimeEngine
 		public void InitiateConnection(TimeLocation timeLocation, string units)
 		{
             //debug
-            timeLocation.Time = System.DateTime.Now;
+            //timeLocation.Time = System.DateTime.Now;
 
             if (timeLocation.LocationIsValid() && timeLocation.TimeIsValid())
                 _realTimeConnections.Add(new WeatherGetter(timeLocation, units, Context.ConnectionId));

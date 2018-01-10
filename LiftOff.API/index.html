@@ -43,16 +43,16 @@
 
 			$('#message').focus();
 
-			$.connection.hub.start().done(function () {
-				weather.server.initiateConnection({ Location: { Latitude: $('#latitude').val(), Longitude: $('#longitude').val() }, Date: (new Date()).toISOString() }, "metric");
-				$('#sendmessage').click(function () {
-					//weather.server.updateLocation({ Location: { Latitude: $('#newLatitude').val(), Longitude: $('#newLongitude').val() }, Date: (new Date()).toISOString() });
-					weather.server.changeUnits();
+			//$.connection.hub.start().done(function () {
+			//	weather.server.initiateConnection({ Location: { Latitude: $('#latitude').val(), Longitude: $('#longitude').val() }, Date: (new Date()).toISOString() }, "metric");
+			//	$('#sendmessage').click(function () {
+			//		//weather.server.updateLocation({ Location: { Latitude: $('#newLatitude').val(), Longitude: $('#newLongitude').val() }, Date: (new Date()).toISOString() });
+			//		weather.server.changeUnits();
 
-					$('#newLatitude').val('').focus();
-					$('#newLongitude').val('');
-				});
-			});
+			//		$('#newLatitude').val('').focus();
+			//		$('#newLongitude').val('');
+			//	});
+			//});
 		});
 	</script>
 </body>
