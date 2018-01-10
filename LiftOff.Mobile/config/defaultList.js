@@ -1,4 +1,8 @@
 const defaultList = {
+  AdvisoryRating: {
+    Croatian: "Situacija nije idealna. Vrijeme sprječava let. Vjetar je miran. Odlična vidljivost",
+    English: "Situation not ideal. Weather prevents flight. Wind's calm. Great visiblity"
+  },  
   AtmosphereRating: null,
   ConditionsRating: null,
   TemperatureRating: null,

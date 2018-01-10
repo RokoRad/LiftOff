@@ -4,20 +4,19 @@ import signalr from 'react-native-signalr';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
-import { connection, proxy, timeLocation, units } from '../../functions/realtime';
+import { connection, proxy } from '../../functions/realtime';
 import defaultList from '../../config/defaultList.js';
 import Toast from 'react-native-simple-toast';
 import language from '../../config/settings.js';
 
-let a = {
+timeLocation = {
   location: {
-    latitude: 43.5,
-    longitude: 16.4
+    Latitude: 43.508133,
+    Longitutde: 16.440193
   },
-  time: "2018-01-10T20:26:10+00:00" 
+  time: new Date()
 };
-
-a = JSON.stringify(a);
+units = 'metric'
 
 class Home extends React.Component {
   constructor() {
@@ -28,24 +27,17 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
-    fetch('http://www.liftoffapi.azurewebsites.net/api/weather/getscore', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: a
-    }
-    ).then((a) => console.log(a)).catch((e) => console.log(e));
-    // proxy.on('broadcastWeather', (value) => {
-    //   console.log(value)
-    //   this.setState({
-    //     list: value
-    //   })
-    // });
+    proxy.on('broadcastWeather', (value) => {
+      console.log(value)
+      this.setState({
+        list: value
+      })
+    });
 
     connection.start().done(() => {
       proxy.invoke('initiateConnection', timeLocation, units);
-    }).fail(() => {
+    }).fail((error) => {
+      console.log(error)
       // error pri spajanju
     });
   }
@@ -53,7 +45,7 @@ class Home extends React.Component {
   render() {
     return(
       <Screen current={this.props.location}>
-        <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating={this.state.list.TotalRating} />
+        <HomeRating string={this.state.list.AdvisoryRating} rating={this.state.list.TotalRating} />
         <HomeList list={this.state.list} />
       </Screen>
     );

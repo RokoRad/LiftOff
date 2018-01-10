@@ -1,8 +1,8 @@
 import signalr from 'react-native-signalr';
 
-const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/'),
+const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
       proxy = connection.createHubProxy('weatherHub');
-connection.logging = false;
+connection.logging = true;
 
 const timeLocation = {
   Location: {
@@ -11,7 +11,7 @@ const timeLocation = {
   },
   Time: new Date()
 }
-let units = 'metric';
+const units = 'metric';
 
 // setupiranje variabli za promjenu podataka
 let dateTime, // normalni date, nije ISO

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, AsyncStorage } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import styles from './styles.js';
 import globals from '../../config/styles.js';
@@ -19,7 +19,14 @@ const HomeRating = (props) => (
             {language.ratingTitle}
           </Text>
           <Text style={styles.text}>
-            {props.string}
+            {/* {AsyncStorage.getItem('language').then((response) => {
+              if(response === 'hr') {
+                return props.string.Croatian
+              } else {
+                return props.string.English
+              }
+            })} */}
+            {props.string.English}
           </Text>
         </View>
         <View style={styles.right}>
