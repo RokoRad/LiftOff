@@ -46,14 +46,15 @@ namespace LiftOff.API.Controllers
 		}
 
         [Authorize]
+        [HttpGet]
         [Route("GetUserData")]
-        public IHttpActionResult Get()
+        public IHttpActionResult GetUserData()
         {
             var userId = User.Identity.GetUserId();
 
-            var user = _liftOffContext.Users.First(usr => usr.Id == userId);
+            var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
 
-            return Ok(new { username = user.UserName, email = user.Email});
+            return Ok(user);
         }
 
         //[Authorize]

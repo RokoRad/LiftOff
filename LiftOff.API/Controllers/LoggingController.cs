@@ -59,16 +59,16 @@ namespace LiftOff.API.Controllers
             return Ok(flights);
         }
 
-        [HttpGet]
-        [Authorize]
-        [Route("getStats")]
-        public IHttpActionResult GetStats()
-        {
-            var userId = User.Identity.GetUserId();
+        //[HttpGet]
+        //[Authorize]
+        //[Route("getStats")]
+        //public IHttpActionResult GetStats()
+        //{
+        //    var userId = User.Identity.GetUserId();
 
-            var user = _liftOffContext.StatisticsUsers.FirstOrDefault(usr => usr.IdentityUserId == userId);
+        //    var user = _liftOffContext.StatisticsUsers.FirstOrDefault(usr => usr.IdentityUserId == userId);
 
-            return Ok(user);
-        }
+        //    return Ok(user);
+        //}
     }
 }
