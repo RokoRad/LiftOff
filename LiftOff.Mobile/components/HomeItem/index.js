@@ -27,11 +27,11 @@ const HomeItem = (props) => (
       <View>
         <View style={styles.row}>
           <Text style={styles.leftText}>{props.fName}</Text>
-          <Text style={styles.rightText}>{props.fVal}</Text>
+          <Text style={styles.rightText}>{(isNaN(props.fVal)) ? props.fVal : round(props.fVal)}</Text>
         </View>
         <View style={styles.row}>
           <Text style={styles.leftText}>{props.sName}</Text>
-          <Text style={styles.rightText}>{props.sVal}</Text>
+          <Text style={styles.rightText}>{(isNaN(props.sVal)) ? props.sVal : round(props.fVal)}</Text>
         </View>
       </View>
     </View>
