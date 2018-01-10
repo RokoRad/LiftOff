@@ -5,6 +5,7 @@ import axios from 'axios';
 import globals from '../../config/styles.js';
 import { language } from '../../config/settings.js';
 import values from '../../functions/values';
+import Toast from 'react-native-simple-toast';
 
 const encode = (value) => {
   let object = [];
@@ -25,22 +26,32 @@ const InitalButton = (props) => {
       grant_type: 'password'
     };
 
-    fetch('http://liftoffapi.azurewebsites.net/token', {  
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-      },
-      body: encode(details)
-    }).then((response) => {
-      if (response.status === 200) {
-        AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
-        props.router.push("/home");
+    if(true
+      //[values.username].length > 0 && [values.password].length > 8
+    ) {
+      fetch('http://liftoffapi.azurewebsites.net/token', {  
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: encode(details)
+      }).then((response) => {
+        if (response.status === 200) {
+          AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
+          props.router.push("/home");
+        } else {
+          Toast.show(language.loginError);
+        }
+      }).catch((error) => {
+        Toast.show(language.serverError);
+      });
+    } else {
+      if([values.password].length < 8) {
+        Toast.show(language.passwordLength);
       } else {
-        // krivi login podatci
+        Toast.show(language.loginError);
       }
-    }).catch((error) => {
-      // server error
-    });
+    }
   };
 
   const register = () => {
@@ -50,37 +61,45 @@ const InitalButton = (props) => {
       grant_type: 'password'
     };
 
-    fetch('http://liftoffapi.azurewebsites.net/api/account/register', {  
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(values)
-    }).then((response) => {
-      console.log(response)
-      if (response.status === 200) {
-        fetch('http://liftoffapi.azurewebsites.net/token', {  
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-          },
-          body: encode(details)
-        }).then((response) => {
-          if (response.status === 200) {
-            AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
-            props.router.push("/home");
-          } else {
-            // krivi login podatci
-          }
-        }).catch((error) => {
-          // server error
-        });
+    if(true
+      //[values.email].length > 0 && [values.username].length > 0 && [values.password].length > 8
+    ) {
+      fetch('http://liftoffapi.azurewebsites.net/api/account/register', {  
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      }).then((response) => {
+        console.log(response)
+        if (response.status === 200) {
+          fetch('http://liftoffapi.azurewebsites.net/token', {  
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            body: encode(details)
+          }).then((response) => {
+            if (response.status === 200) {
+              AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
+              props.router.push("/home");
+            }
+          }).catch((error) => {
+            Toast.show(language.serverError);
+          });
+        } else {
+          Toast.show(language.registerError);
+        }
+      }).catch((error) => {
+        Toast.show(language.serverError);
+      });
+    } else {
+      if ([values.password].length < 8) {
+        Toast.show(language.passwordLength);
       } else {
-        // krivi register podatci
+        Toast.show(language.registerError);
       }
-    }).catch((error) => {
-      // server error
-    });
+    }
   }
 
   return (

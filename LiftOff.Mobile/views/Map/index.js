@@ -8,6 +8,7 @@ import DatePicker from '../../external/react-native-datepicker';
 import Toast from 'react-native-simple-toast';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 import { language } from '../../config/settings.js';
+import { changeDateTime, changeLocation, updateServer, timeLocation } from '../../functions/realtime';
 
 const crosshairHolder = {
   latitude: 43.508133,
@@ -15,7 +16,6 @@ const crosshairHolder = {
   longitude: 16.440193,
   longitudeDelta: 0.0421
 };
-
 
 class Map extends Component {
   constructor() {
@@ -25,6 +25,10 @@ class Map extends Component {
 
   componentWillMount() {
     this._getLocation();
+  }
+
+  componentWillUnmount() {
+    updateServer();
   }
 
   _getLocation = async () => {
@@ -43,6 +47,7 @@ class Map extends Component {
   }
 
   onMarker = () => {
+    changeLocation(crosshairHolder);
     this.marker.hideCallout();
     this.setState({
       latitude: crosshairHolder.latitude,
@@ -52,6 +57,11 @@ class Map extends Component {
     });
   };
 
+  onDate = (date) => {
+    changeLocation(date);
+    console.log(date)
+  }
+
   onCrosshair = () => {
     /// REQUEST
     this.setState({
@@ -60,6 +70,7 @@ class Map extends Component {
       longitude: 15.927,
       longitudeDelta: 0.04
     });
+    //
     this.marker.showCallout();
   };
 
@@ -70,18 +81,32 @@ class Map extends Component {
   render() {
       return (
         <Screen current={this.props.location}>
+
           <MapItem order="1" type="marker" onPress={this.onMarker} />
+
+
+
           <DatePicker iconSource={require('../../images/map/date.png')} hideText={true}
             style={{width: 40, height: 40, position: 'absolute', bottom: 125, right: 10, zIndex: 999}} customStyles={{ dateIcon:{width: 40, height: 40 }}} mode="datetime" 
             format="YYYY-MM-DD-hh-mm" minDate={new Date().toISOString().slice(0, 10)} maxDate={new Date(Date.now() + 5*24*60*60*1000).toISOString().slice(0, 10)}
-            confirmBtnText="Confirm" cancelBtnText="Cancel" onDateChange={(date) => console.log(date)} cacheEnabled={true} loadingEnabled={true} loadingIndicatorColor="#fff" loadingBackgroundColor="#3498db" />
+            confirmBtnText="Confirm" cancelBtnText="Cancel" onDateChange={this.onDate} cacheEnabled={true} loadingEnabled={true} loadingIndicatorColor="#fff" loadingBackgroundColor="#3498db" />
+          
+          
+          
           <MapItem order="3" type="crosshair" onPress={this.onCrosshair} />
+
+
           <MapView showsTraffic={false} showsBuildings={false} onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} 
             region={{ latitude: this.state.latitude, longitude: this.state.longitude, latitudeDelta: this.state.latitudeDelta, longitudeDelta: this.state.longitudeDelta }}>
+
+
           <MapView.Marker image={require('../../images/map/pin.png')} style={{height: 30, width: 30}} ref={(ref) => { this.marker = ref; } } coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }}>
             <MarkerCallout location="Primošten, HR" time="15.3.2018." rating="5.0" />
           </MapView.Marker>
+
+
          </MapView>
+
         </Screen>
       );
   }

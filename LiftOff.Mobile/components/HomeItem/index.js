@@ -4,10 +4,11 @@ import styles from './styles.js';
 import globals from '../../config/styles.js';
 import colorGenerator from '../../functions/colorGenerator';
 import round  from '../../functions/round';
+import capitalize from '../../functions/capitalize';
 
 const icons = {
-  humidity: require('../../images/weather/humidity.png'),
-  rain: require('../../images/weather/rain.png'),
+  atmosphere: require('../../images/weather/atmosphere.png'),
+  conditions: require('../../images/weather/conditions.png'),
   temperature: require('../../images/weather/temperature.png'),
   uv: require('../../images/weather/uv.png'),
   visibility: require('../../images/weather/visibility.png'),
@@ -21,16 +22,16 @@ const HomeItem = (props) => (
     </View>
     <View style={styles.middle}>
       <View>
-        <Text style={styles.title}>Wind</Text>
+        <Text style={styles.title}>{capitalize(props.type)}</Text>
       </View>
       <View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>{props.paramOneName}</Text>
-          <Text style={styles.rightText}>{props.paramOneValue}</Text>
+          <Text style={styles.leftText}>{props.fName}</Text>
+          <Text style={styles.rightText}>{props.fVal}</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>{props.paramTwoName}</Text>
-          <Text style={styles.rightText}>{props.paramTwoValue}</Text>
+          <Text style={styles.leftText}>{props.sName}</Text>
+          <Text style={styles.rightText}>{props.sVal}</Text>
         </View>
       </View>
     </View>

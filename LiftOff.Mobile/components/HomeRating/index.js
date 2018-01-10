@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, AsyncStorage } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import styles from './styles.js';
 import globals from '../../config/styles.js';
-import { language } from '../../config/settings.js'
+import { lng, language } from '../../config/settings.js'
 import colorGenerator from '../../functions/colorGenerator';
 import animationGenerator from '../../functions/animationGenerator';
 import round from '../../functions/round';
+
 
 const HomeRating = (props) => (
     <View style={[styles.wrapper, globals[colorGenerator(props.rating)]]}>
@@ -19,7 +20,7 @@ const HomeRating = (props) => (
             {language.ratingTitle}
           </Text>
           <Text style={styles.text}>
-            {props.string}
+            {(lng === 'hr') ? props.string.Croatian : props.string.English}
           </Text>
         </View>
         <View style={styles.right}>
@@ -32,3 +33,5 @@ const HomeRating = (props) => (
 );
 
 export default HomeRating;
+
+// {(lng === 'hr') ? props.string.Croatian : props.string.English}

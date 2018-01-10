@@ -1,10 +1,8 @@
 import signalr from 'react-native-signalr';
-import Toast from 'react-native-simple-toast';
-import language from '../../config/settings.js';
 
-const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/'),
+const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
       proxy = connection.createHubProxy('weatherHub');
-connection.logging = true;
+connection.logging = false;
 
 const timeLocation = {
   Location: {
@@ -13,16 +11,7 @@ const timeLocation = {
   },
   Time: new Date()
 }
-let units = 'metric';
-
-// kreiranje konekcije sa serverom
-function setup() {
-  connection.start().done(() => {
-    proxy.invoke('initiateConnection', timeLocation, units);
-  }).fail(() => {
-    Toast.show(language.serverError);
-  });
-}
+const units = 'metric';
 
 // setupiranje variabli za promjenu podataka
 let dateTime, // normalni date, nije ISO
@@ -32,7 +21,7 @@ let dateTime, // normalni date, nije ISO
 const changeDateTime = (value) => (dateTime = value),
       changeLocation = (value) => (location = value),
       changeMetrics = () => (proxy.invoke('changeUnits')),
-      updateServer = (dateTime, location) => {
+      updateServer = () => {
         timeLocation = {
           Location: {
             Latitude: location.latitude,
@@ -43,13 +32,15 @@ const changeDateTime = (value) => (dateTime = value),
         proxy.invoke('updateLocation', timeLocation);
 };
 
-export { proxy, setup };
-// export default {
-//   proxy,
-//   timeLocation,
-//   units,
-//   changeDateTime,
-//   changeLocation,
-//   changeMetrics,
-//   updateServer
-// };
+export {
+  connection,
+  proxy,
+  timeLocation,
+  units,
+  dateTime,
+  location,
+  changeDateTime,
+  changeLocation,
+  changeMetrics,
+  updateServer
+}

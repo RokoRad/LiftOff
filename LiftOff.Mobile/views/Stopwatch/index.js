@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
 import globals from '../../config/styles.js';
 import Screen from '../../components/Screen';
 import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
@@ -16,7 +16,21 @@ const data = [
   {id: 6, active: false, location: 'Čavoglave, Croatia', time: '07:10'}
 ];
 
-const holder = {};
+const holder = {
+  timeFlown: 69,
+  flySafeScore: 2.2,
+  drone: {
+    name: 'Drone 1'
+  },
+  flightLocation: {
+    flightSpot: 'Split',
+    latitude: 43.508133,
+    longitude: 16.440193
+  },
+  flightTime: {
+    flightStartTime: new Date().toISOString()
+  }
+};
 
 class Stopwatch extends Component {
   constructor() {
@@ -24,37 +38,52 @@ class Stopwatch extends Component {
      this.state = {
         active: false,
         seconds: 0,
-        minutes: 0
+        minutes: 0,
+        startTime: 0
      };
   };
+
   bind = () => {
-    var temp;
-    if(this.state.active === false) {
-      temp = setInterval(() => {
-        this.setState({
-          seconds: this.state.seconds+=1
-        });
-        if(this.state.seconds == 61) {
-          this.setState({
-            seconds: 0,
-            minutes: this.state.minutes+=1,
-          });
-        }
-      }, 1000);
+    if(this.state.active) {
+      AsyncStorage.getItem('@token').then((value) => {
+        fetch('http://liftoffapi.azurewebsites.net/api/logging/logFlight', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + value,
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify(holder)
+        }).then((response) => console.log(response));
+      });
+      clearInterval(this.raise);
+      this.setState({
+        minutes: 0,
+        seconds: 0,
+        startTime: 0
+      })
     } else {
       this.setState({
-        seconds: 0,
-        minutes: 0
+        startTime: new Date().toISOString()
       });
-      holder = null;
-      for(let i = 100; i<900; i++) {
-        clearInterval(i);
-      }
+      this.raise = setInterval(() => {
+        if(this.state.seconds === 61) {
+          this.setState({
+            minutes: this.state.minutes+=1,
+            seconds: 0
+          });
+          console.log(this.state.seconds)
+        } else {
+          this.setState({
+            seconds: this.state.seconds+=1
+          });
+          console.log(this.state.seconds)
+        }
+      }, 1000);
     }
     this.setState({
       active: !this.state.active
     });
-  };
+  }
 
   render() {
       return (
