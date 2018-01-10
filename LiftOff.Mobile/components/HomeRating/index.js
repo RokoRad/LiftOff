@@ -20,7 +20,7 @@ const HomeRating = (props) => (
             {language.ratingTitle}
           </Text>
           <Text style={styles.text}>
-            aaa
+            {(lng === 'hr') ? props.string.Croatian : props.string.English}
           </Text>
         </View>
         <View style={styles.right}>

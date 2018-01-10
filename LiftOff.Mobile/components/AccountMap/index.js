@@ -9,7 +9,7 @@ import styles from './styles.js';
 
 const grabMarkers = () => {
   fetch('http://liftoffapi.azurewebsites.net/api/flights/getFlightsNearMe', {
-      method: 'GET',
+      method: 'POST',
     // body je timeLocation {
       body: JSON.stringify({
         TimeLocation: {
