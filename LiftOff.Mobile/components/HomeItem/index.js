@@ -6,8 +6,8 @@ import colorGenerator from '../../functions/colorGenerator';
 import round  from '../../functions/round';
 
 const icons = {
-  humidity: require('../../images/weather/humidity.png'),
-  rain: require('../../images/weather/rain.png'),
+  atmosphere: require('../../images/weather/atmosphere.png'),
+  conditions: require('../../images/weather/conditions.png'),
   temperature: require('../../images/weather/temperature.png'),
   uv: require('../../images/weather/uv.png'),
   visibility: require('../../images/weather/visibility.png'),

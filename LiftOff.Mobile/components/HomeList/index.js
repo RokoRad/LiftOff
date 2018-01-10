@@ -7,8 +7,8 @@ const HomeList = (props) => {
   const nester = props.list;
   return (
     <ScrollView style={styles.container}>
-      <HomeItem type="humidity" rating={nester.AtmosphereRating} />
-      <HomeItem type="rain" rating={nester.ConditionsRating} />
+      <HomeItem type="atmosphere" rating={nester.AtmosphereRating} />
+      <HomeItem type="conditions" rating={nester.ConditionsRating} />
       <HomeItem type="temperature" rating={nester.TemperatureRating} paramOneName="MaxTemperature" paramOneValue={nester.weatherData.Max_Temperature} paramTwoName="MinTemperature" paramTwoValue={nester.weatherData.Min_Temperature} />
       <HomeItem type="uv" rating={nester.UVRating} />
       <HomeItem type="visibility" rating={nester.VisibilityRating} />
@@ -18,6 +18,30 @@ const HomeList = (props) => {
 
 export default HomeList;
 
+// Atmosphere
+// -humidity
+// -pressure
+
+// Conditions
+// - weather
+// - weather description
+
+// Wind
+// -windspeed
+// -winddirection
+
+// Temp
+// -temp
+// -mintemp
+// -maxtemp
+
+// UV
+// -uv index
+// -cloudiness
+
+// Visibility
+// -visibility
+// -cloudiness (edited)
 
 
 
