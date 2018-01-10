@@ -17,7 +17,10 @@ const language = {
   markerTime: 'Time',
   markerRating: 'Expected FlySafe score',
   gpsFail: 'Enable GPS',
-  serverError: 'Connecting interrupted'
+  serverError: 'Connecting interrupted',
+  loginError: 'Wrong information',
+  registerError: 'Validation failed',
+  passwordLength: 'Password must contain at least 8 characters'
 };
 
 // vraćanje stringova

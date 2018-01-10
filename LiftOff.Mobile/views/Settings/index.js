@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, Picker } from 'react-native';
+import { View, Text, Picker, AsyncStorage } from 'react-native';
 import styles from './styles.js';
 import globals from '../../config/styles.js';
+import { language } from '../../config/styles.js';
 import Screen from '../../components/Screen';
 
 const Settings = ({location}) => (

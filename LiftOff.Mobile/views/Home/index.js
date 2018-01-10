@@ -4,33 +4,19 @@ import signalr from 'react-native-signalr';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
-import { proxy, setup } from '../../functions/realtime';
+import { connection, proxy } from '../../functions/realtime';
 import defaultList from '../../config/defaultList.js';
+import Toast from 'react-native-simple-toast';
+import language from '../../config/settings.js';
 
-// const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/');
-// connection.logging = true;
-// const proxy = connection.createHubProxy('weatherHub');
-
-
-// proxy.on('broadcastWeather', (value) => {
-//   AsyncStorage.setItem('@realtime', JSON.stringify(value));
-// });
-
-// let timeLocation = {
-//   Location: {
-//     Latitude: 23,
-//     Longitude: 33
-//   },
-//   Time: new Date()
-// };
-
-// let units = 'metric'
-
-// connection.start().done(() => {
-//   proxy.invoke('initiateConnection', timeLocation, units);
-// }).fail(() => {
-//   // error pri spajanju
-// });
+timeLocation = {
+  location: {
+    latitude: 13.5,
+    longitude: 26.4
+  },
+  time: new Date()
+};
+units = 'metric'
 
 class Home extends React.Component {
   constructor() {
@@ -41,21 +27,35 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
-    setup();
+    AsyncStorage.getItem('@realtime').then((value) => {
+      this.setState({
+        list: JSON.parse(value)
+      })
+    });
+    
     proxy.on('broadcastWeather', (value) => {
-      console.log(value)
+      AsyncStorage.setItem('@realtime', JSON.stringify(value)).then();
       this.setState({
         list: value
       })
     });
+
+    connection.start().done(() => {
+      proxy.invoke('initiateConnection', timeLocation, units);
+    }).fail(() => {
+      Toast.show(language.serverError);
+    });
+  }
+
+  componentDidMount() {
+    
   }
  
   render() {
+    //AsyncStorage.getItem('@realtime').then((value) => console.log(value))
     return(
       <Screen current={this.props.location}>
-        <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating="3"
-        //rating={this.state.list.TotalRating} 
-        />
+        <HomeRating string={this.state.list.AdvisoryRating} rating={this.state.list.TotalRating} />
         <HomeList list={this.state.list} />
       </Screen>
     );
