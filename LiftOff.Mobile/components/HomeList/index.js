@@ -22,7 +22,7 @@ const HomeList = (props) => {
       <HomeItem type="conditions" rating={nester.ConditionsRating} />
       <HomeItem type="temperature" rating={nester.TemperatureRating} paramOneName="MaxTemperature" paramOneValue={nester.weatherData.Max_Temperature} paramTwoName="MinTemperature" paramTwoValue={nester.weatherData.Min_Temperature} />
       <HomeItem type="uv" rating={nester.UVRating} />
-      <HomeItem type="visibility" rating={nester.VisibilityRating} params={/>
+      <HomeItem type="visibility" rating={nester.VisibilityRating} />
       <HomeItem type="wind" rating={nester.WindRating} />
     </ScrollView>
 )};
