@@ -55,7 +55,8 @@ class Stopwatch extends Component {
           body: JSON.stringify(holder)
         }).then((response) => {
           if(response.status === 200) {
-            AsyncStorage.setItem('@stats', JSON.stringify(response))
+            AsyncStorage.removeItem('@stats');
+            AsyncStorage.setItem('@stats', JSON.stringify(response));
           } else if (response.status === 401) {
 
           } else {

@@ -20,3 +20,4 @@ search na mapi (zadnje)
 home kad je null
 register button puca
 https://github.com/stefalda/ReactNativeLocalization
+swipe left right za nav
