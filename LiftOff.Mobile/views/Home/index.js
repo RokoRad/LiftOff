@@ -18,7 +18,19 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
-    fetch('http://www.liftoffapi.azurewebsites.net/api/weather/getscore').then((a) => console.log(a)).catch((e) => console.log(e));
+    fetch('http://www.liftoffapi.azurewebsites.net/api/weather/getscore', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: {
+          "location" : {
+            "latitude" : 43.5,
+            "longitude" : 16.4
+          },
+          "time" : "2018-01-10T20:26:10+00:00"
+      }
+    }).then((a) => console.log(a)).catch((e) => console.log(e));
     proxy.on('broadcastWeather', (value) => {
       console.log(value)
       this.setState({

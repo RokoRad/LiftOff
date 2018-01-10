@@ -13,3 +13,29 @@ tooltip se pokazuje na svaki onclick
 ako je neki score null prikazat nesto na /home!!
 splash screen dok se loadaju podatci
 TOAST CENTRIRAT
+
+
+Atmosphere
+-humidity
+-pressure
+
+Conditions
+- weather
+- weather description
+
+Wind
+-windspeed
+-winddirection
+
+Temp
+-temp
+-mintemp
+-maxtemp
+
+UV
+-uv index
+-cloudiness
+
+Visibility
+-visibility
+-cloudiness (edited)

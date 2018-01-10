@@ -8,7 +8,7 @@ import DatePicker from '../../external/react-native-datepicker';
 import Toast from 'react-native-simple-toast';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 import { language } from '../../config/settings.js';
-import { changeDateTime, changeLocation, updateServer } from '../../functions/realtime';
+import { changeDateTime, changeLocation, updateServer, timeLocation } from '../../functions/realtime';
 
 const crosshairHolder = {
   latitude: 43.508133,
@@ -16,7 +16,6 @@ const crosshairHolder = {
   longitude: 16.440193,
   longitudeDelta: 0.0421
 };
-
 
 class Map extends Component {
   constructor() {
