@@ -2,7 +2,7 @@ import signalr from 'react-native-signalr';
 
 const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
       proxy = connection.createHubProxy('weatherHub');
-connection.logging = true;
+connection.logging = false;
 
 const timeLocation = {
   Location: {

@@ -3,10 +3,11 @@ import { View, Text, Image, AsyncStorage } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import styles from './styles.js';
 import globals from '../../config/styles.js';
-import { language } from '../../config/settings.js'
+import { lng, language } from '../../config/settings.js'
 import colorGenerator from '../../functions/colorGenerator';
 import animationGenerator from '../../functions/animationGenerator';
 import round from '../../functions/round';
+
 
 const HomeRating = (props) => (
     <View style={[styles.wrapper, globals[colorGenerator(props.rating)]]}>
@@ -19,14 +20,15 @@ const HomeRating = (props) => (
             {language.ratingTitle}
           </Text>
           <Text style={styles.text}>
-          {props.string.English}
-
+          {(lng === 'hr') ? props.string.Croatian : props.string.English}
+        
           
             {/* {AsyncStorage.getItem('language').then((response) => {
               if(response === 'hr') {
                 return props.string.Croatian
               } else {
                 return props.string.English
+                {props.string.English}{props.string.English}
               }
             })} */}
           </Text>
