@@ -11,3 +11,5 @@ const token = {
     storage.remove('@token');
   }
 }
+
+export default token;

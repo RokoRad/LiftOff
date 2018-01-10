@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import token from '../../functions/token';
 import './style.css';
 
 class Dashboard extends React.Component {
@@ -7,13 +8,16 @@ class Dashboard extends React.Component {
   }
 
   componentWillMount() {
-
+    if(!token.get()) {
+      window.location.href = "/";
+    }
   }
-
 
   render() {
     return (
-      <div></div>
+      <div>
+        dashboard
+      </div>
     );
   }
 }
