@@ -1,13 +1,16 @@
 import React from 'react';
-import { View, Text, Picker, ScrollView } from 'react-native';
+import { View, Text, Picker, ScrollView, AsyncStorage } from 'react-native';
 import Screen from '../../components/Screen';
 import AccountItem from '../../components/AccountItem';
 import AccountMap from '../../components/AccountMap';
 import Dropdown from '../../components/Dropdown';
 import styles from './styles.js';
 
+const stats = AsyncStorage.getItem('@stats').then((value) => value);
+
 const Account = ({location}) => (
   <Screen current={location}>
+  {console.log(JSON.parse(stats))}
     <AccountMap latitude={45.80} longitude={15.95} />
     <View style={styles.container}>
       <AccountItem title="Username" content="dbaric"/>

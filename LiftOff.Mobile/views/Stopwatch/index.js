@@ -20,7 +20,7 @@ const holder = {
   timeFlown: 69,
   flySafeScore: 2.2,
   drone: {
-    name: 'Drone 1'
+    name: 'Dron 1'
   },
   flightLocation: {
     flightSpot: 'Split',
@@ -53,7 +53,14 @@ class Stopwatch extends Component {
             'Content-type': 'application/json'
           },
           body: JSON.stringify(holder)
-        }).then((response) => console.log(response));
+        }).then((response) => {
+          if(response.status === 200) {
+            AsyncStorage.setItem('@stats', JSON.stringify(response))
+          } else if (response.status === 401) {
+
+          } else {
+
+          }});
       });
       clearInterval(this.raise);
       this.setState({
