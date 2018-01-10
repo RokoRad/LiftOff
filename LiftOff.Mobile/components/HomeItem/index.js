@@ -26,12 +26,12 @@ const HomeItem = (props) => (
       </View>
       <View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>{props.paramOneName}</Text>
-          <Text style={styles.rightText}>{props.paramOneValue}</Text>
+          <Text style={styles.leftText}>{props.fName}</Text>
+          <Text style={styles.rightText}>{props.fVal}</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>{props.paramTwoName}</Text>
-          <Text style={styles.rightText}>{props.paramTwoValue}</Text>
+          <Text style={styles.leftText}>{props.sName}</Text>
+          <Text style={styles.rightText}>{props.sVal}</Text>
         </View>
       </View>
     </View>

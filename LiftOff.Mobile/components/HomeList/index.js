@@ -3,32 +3,58 @@ import { ScrollView } from 'react-native';
 import styles from './styles.js';
 import HomeItem from '../HomeItem';
 
-const params = {
-  first: {
-    name: '',
-    value: ''
-  },
-  second: {
-    name: '',
-    value: ''
-  }
-}
-
 const HomeList = (props) => {
-  const nester = props.list;
+  const list = props.list;
+  const nester = list.weatherData;
   return (
     <ScrollView style={styles.container}>
-      <HomeItem type="atmosphere" rating={nester.AtmosphereRating} />
-      <HomeItem type="conditions" rating={nester.ConditionsRating} />
-      <HomeItem type="temperature" rating={nester.TemperatureRating} paramOneName="MaxTemperature" paramOneValue={nester.weatherData.Max_Temperature} paramTwoName="MinTemperature" paramTwoValue={nester.weatherData.Min_Temperature} />
-      <HomeItem type="uv" rating={nester.UVRating} />
-      <HomeItem type="visibility" rating={nester.VisibilityRating} />
-      <HomeItem type="wind" rating={nester.WindRating} />
+      <HomeItem type="atmosphere" rating={list.AtmosphereRating} fName="Humidity" fVal={nester.Humidity} sName="Pressure" sVal={nester.Presssure} />
+      <HomeItem type="conditions" rating={list.ConditionsRating} fName="Weather" fVal={nester.Weather} sName="Weather description" sVal={nester.WeatherDescription} />
+      <HomeItem type="temperature" rating={list.TemperatureRating} fName="Min_Temperature" fVal={nester.Max_Temperature} sName="Max_Temperature" sVal={nester.Max_Temperature} />
+      <HomeItem type="visibility" rating={list.VisibilityRating} fName="Visibility" fVal={nester.Visibility} sName="Cloudiness" sVal={nester.Cloudiness} />
+      <HomeItem type="wind" rating={list.WindRating} fName="Wind direction" fVal={nester.WindDirection} sName="Wind speed" sVal={nester.WindSpeed} />
     </ScrollView>
 )};
 
 export default HomeList;
 
+
+// 17:20:22:   "AdvisoryRating": Object {
+//   17:20:22:     "Croatian": "Situacija nije idealna. Vrijeme sprječava let. Vjetar je miran. Odlična vidljivost",
+//   17:20:22:     "English": "Situation not ideal. Weather prevents flight. Wind's calm. Great visiblity",
+//   17:20:22:   },
+//   17:20:22:   "AtmosphereRating": null,
+//   17:20:22:   "ConditionsRating": null,
+//   17:20:22:   "TemperatureRating": null,
+//   17:20:22:   "TotalRating": null,
+//   17:20:22:   "UVRating": null,
+//   17:20:22:   "VisibilityRating": null,
+//   17:20:22:   "WindRating": null,
+//   17:20:22:   "weatherData": Object {
+//   17:20:22:     "Cloudiness": null,
+//   17:20:22:     "Humidity": null,
+//   17:20:22:     "Max_Temperature": 15.03,
+//   17:20:22:     "Min_Temperature": 15.03,
+//   17:20:22:     "Presssure": 1004.53,
+//   17:20:22:     "Temperature": 15.03,
+//   17:20:22:     "TimeLocation": Object {
+//   17:20:22:       "Location": Object {
+//   17:20:22:         "Latitude": 23,
+//   17:20:22:         "Longitude": 33,
+//   17:20:22:       },
+//   17:20:22:       "Time": "2018-01-09T19:26:18.4557311+00:00",
+//   17:20:22:     },
+//   17:20:22:     "UVIndex": 5.5,
+//   17:20:22:     "Units": "metric",
+//   17:20:22:     "Visibility": null,
+//   17:20:22:     "Weather": "Clear",
+//   17:20:22:     "WeatherDescription": "clear sky",
+//   17:20:22:     "WeatherID": 800,
+//   17:20:22:     "WindDirection": 44.0012,
+//   17:20:22:     "WindSpeed": 4.12,
+//   17:20:22:   },
+//   17:20:22: }
+  
 // Atmosphere
 // -humidity
 // -pressure

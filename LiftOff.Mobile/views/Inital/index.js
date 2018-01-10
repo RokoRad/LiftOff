@@ -21,6 +21,7 @@ class Inital extends Component {
     }
   }
 
+
   changeView = () => {
     this.setState({
        login: !this.state.login 

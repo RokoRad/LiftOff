@@ -11,18 +11,12 @@ import language from '../../config/settings.js';
 
 timeLocation = {
   location: {
-    latitude: 43.5,
-    longitude: 16.4
+    latitude: 13.5,
+    longitude: 26.4
   },
   time: new Date()
 };
 units = 'metric'
-
-// AsyncStorage.getItem('@timeLocation').then((value) => {
-//   console.log(value)
-// });
-
-AsyncStorage.setItem('', '')
 
 class Home extends React.Component {
   constructor() {
@@ -33,9 +27,14 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
+    AsyncStorage.getItem('@realtime').then((value) => {
+      this.setState({
+        list: JSON.parse(value)
+      })
+    });
+    
     proxy.on('broadcastWeather', (value) => {
-      //AsyncStorage.setItem('@realtime', JSON.stringify(value)).then();
-      console.log(value)
+      AsyncStorage.setItem('@realtime', JSON.stringify(value)).then();
       this.setState({
         list: value
       })
@@ -44,14 +43,19 @@ class Home extends React.Component {
     connection.start().done(() => {
       proxy.invoke('initiateConnection', timeLocation, units);
     }).fail(() => {
-      // error pri spajanju
+      Toast.show(language.serverError);
     });
+  }
+
+  componentDidMount() {
+    
   }
  
   render() {
+    //AsyncStorage.getItem('@realtime').then((value) => console.log(value))
     return(
       <Screen current={this.props.location}>
-        <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." string={this.state.list.AdvisoryRating} rating={this.state.list.TotalRating} />
+        <HomeRating string={this.state.list.AdvisoryRating} rating={this.state.list.TotalRating} />
         <HomeList list={this.state.list} />
       </Screen>
     );

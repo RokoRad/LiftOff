@@ -20,7 +20,7 @@ const HomeRating = (props) => (
             {language.ratingTitle}
           </Text>
           <Text style={styles.text}>
-            {(lng === 'hr') ? props.string.Croatian : props.string.English}
+            aaa
           </Text>
         </View>
         <View style={styles.right}>
@@ -33,3 +33,5 @@ const HomeRating = (props) => (
 );
 
 export default HomeRating;
+
+// {(lng === 'hr') ? props.string.Croatian : props.string.English}
