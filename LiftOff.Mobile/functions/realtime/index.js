@@ -18,29 +18,29 @@ let dateTime, // normalni date, nije ISO
     location; // objekt sa latitude i longitude
 
 // setupiranje poziva serveru
-// const changeDateTime = (value) => (dateTime = value),
-//       changeLocation = (value) => (location = value),
-//       changeMetrics = () => (proxy.invoke('changeUnits')),
-//       updateServer = (dateTime, location) => {
-//         timeLocation = {
-//           Location: {
-//             Latitude: location.latitude,
-//             Longitutde: location.longitude
-//           },
-//           Time: dateTime
-//         }
-//         proxy.invoke('updateLocation', timeLocation);
-// };
+const changeDateTime = (value) => (dateTime = value),
+      changeLocation = (value) => (location = value),
+      changeMetrics = () => (proxy.invoke('changeUnits')),
+      updateServer = () => {
+        timeLocation = {
+          Location: {
+            Latitude: location.latitude,
+            Longitutde: location.longitude
+          },
+          Time: dateTime
+        }
+        proxy.invoke('updateLocation', timeLocation);
+};
 
 export {
   connection,
   proxy,
   timeLocation,
-  units
-  // dateTime,
-  // location,
-  // changeDateTime,
-  // changeLocation,
-  // changeMetrics,
-  // updateServer
+  units,
+  dateTime,
+  location,
+  changeDateTime,
+  changeLocation,
+  changeMetrics,
+  updateServer
 }

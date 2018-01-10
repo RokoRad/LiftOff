@@ -11,6 +11,5 @@ onPress mape dodat pin
 stopericu fiksat tak osta ce se pokrenit on mount
 tooltip se pokazuje na svaki onclick
 ako je neki score null prikazat nesto na /home!!
-TOKEN NE GETTA DOBRO
 splash screen dok se loadaju podatci
 TOAST CENTRIRAT
