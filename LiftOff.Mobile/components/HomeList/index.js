@@ -3,6 +3,17 @@ import { ScrollView } from 'react-native';
 import styles from './styles.js';
 import HomeItem from '../HomeItem';
 
+const params = {
+  first: {
+    name: '',
+    value: ''
+  },
+  second: {
+    name: '',
+    value: ''
+  }
+}
+
 const HomeList = (props) => {
   const nester = props.list;
   return (
@@ -11,8 +22,8 @@ const HomeList = (props) => {
       <HomeItem type="conditions" rating={nester.ConditionsRating} />
       <HomeItem type="temperature" rating={nester.TemperatureRating} paramOneName="MaxTemperature" paramOneValue={nester.weatherData.Max_Temperature} paramTwoName="MinTemperature" paramTwoValue={nester.weatherData.Min_Temperature} />
       <HomeItem type="uv" rating={nester.UVRating} />
-      <HomeItem type="visibility" rating={nester.VisibilityRating} />
-      <HomeItem type="wind" rating={nester.WindRating} paramOneName="WindDirection" paramOneValue={nester.WindDirection} paramTwoName="WindSpeed" paramTwoValue={nester.WindSpeed} />
+      <HomeItem type="visibility" rating={nester.VisibilityRating} params={/>
+      <HomeItem type="wind" rating={nester.WindRating} />
     </ScrollView>
 )};
 
