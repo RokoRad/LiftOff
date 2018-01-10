@@ -27,7 +27,9 @@ const holder = {
     latitude: 43.508133,
     longitude: 16.440193
   },
-  time: new Date().toISOString()
+  flightTime: {
+    flightStartTime: new Date().toISOString()
+  }
 };
 
 class Stopwatch extends Component {
