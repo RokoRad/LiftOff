@@ -34,6 +34,7 @@ namespace LiftOff.API
             GlobalHost.Configuration.KeepAlive = TimeSpan.FromSeconds(10);
         }
     }
+
     public class Startup
 	{
 		public void Configuration(IAppBuilder app)

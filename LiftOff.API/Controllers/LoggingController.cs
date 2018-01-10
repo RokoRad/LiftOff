@@ -2,6 +2,8 @@
 using LiftOff.API.Logic.Statistics;
 using LiftOff.API.Models;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -16,8 +18,10 @@ namespace LiftOff.API.Controllers
         [HttpPost]
         [Authorize]
         [Route("logFlight")]
-        public IHttpActionResult LogFlight(Flight flight)
+        public IHttpActionResult LogFlight([FromBody]JObject json)
         {
+            Flight flight = JsonConvert.DeserializeObject<Flight>(JsonConvert.SerializeObject(json));
+
             var userId = User.Identity.GetUserId();
             
             var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
