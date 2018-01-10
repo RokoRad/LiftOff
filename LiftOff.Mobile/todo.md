@@ -10,7 +10,6 @@ mapa nek ikone imaju svoj dock sa borderradiusu i shadowu ka na navbaru
 onPress mape dodat pin
 stopericu fiksat tak osta ce se pokrenit on mount
 tooltip se pokazuje na svaki onclick
-ako je neki score null prikazat nesto na /home!!
 splash screen dok se loadaju podatci
 TOAST CENTRIRAT
 
