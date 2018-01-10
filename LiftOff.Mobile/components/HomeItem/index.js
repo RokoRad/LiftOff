@@ -3,8 +3,8 @@ import { Image, View, Text } from 'react-native';
 import styles from './styles.js';
 import globals from '../../config/styles.js';
 import colorGenerator from '../../functions/colorGenerator';
-import round  from '../../functions/round';
 import capitalize from '../../functions/capitalize';
+import isValueText from '../../functions/isValueText';
 
 const icons = {
   atmosphere: require('../../images/weather/atmosphere.png'),
@@ -14,6 +14,7 @@ const icons = {
   visibility: require('../../images/weather/visibility.png'),
   wind: require('../../images/weather/wind.png')
 }
+
 
 const HomeItem = (props) => (
   <View style={styles.wrapper}>
@@ -27,17 +28,17 @@ const HomeItem = (props) => (
       <View>
         <View style={styles.row}>
           <Text style={styles.leftText}>{props.fName}</Text>
-          <Text style={styles.rightText}>{(isNaN(props.fVal)) ? props.fVal : round(props.fVal)}</Text>
+          <Text style={styles.rightText}>{isValueText(props.fVal)}</Text>
         </View>
         <View style={styles.row}>
           <Text style={styles.leftText}>{props.sName}</Text>
-          <Text style={styles.rightText}>{(isNaN(props.sVal)) ? props.sVal : round(props.fVal)}</Text>
+          <Text style={styles.rightText}>{isValueText(props.sVal)}</Text>
         </View>
       </View>
     </View>
     <View style={[styles.right, globals.bothAligned]}>
       <Text style={[styles.rating, (props.rating !== null ? styles[colorGenerator(props.rating)] : null)]}>
-        {(props.rating !== null ? round(props.rating) : '/')}
+        {isValueText(props.rating)}
       </Text>
     </View>
   </View>

@@ -13,7 +13,6 @@ tooltip se pokazuje na svaki onclick
 integer to dobule na frontendu
 splash screen dok se loadaju podatci
 TOAST CENTRIRAT
-dodat nule na scorove sa jednin brojem
 register vraća na login
 nevaljan token vraća 401, dodat provjeru na requestove
 search na mapi (zadnje)
