@@ -26,7 +26,9 @@ const InitalButton = (props) => {
       grant_type: 'password'
     };
 
-    if([values.username].length > 0 && [values.password].length > 8) {
+    if(true
+      //[values.username].length > 0 && [values.password].length > 8
+    ) {
       fetch('http://liftoffapi.azurewebsites.net/token', {  
         method: 'POST',
         headers: {
@@ -59,7 +61,9 @@ const InitalButton = (props) => {
       grant_type: 'password'
     };
 
-    if([values.email].length > 0 && [values.username].length > 0 && [values.password].length > 8) {
+    if(true
+      //[values.email].length > 0 && [values.username].length > 0 && [values.password].length > 8
+    ) {
       fetch('http://liftoffapi.azurewebsites.net/api/account/register', {  
         method: 'POST',
         headers: {

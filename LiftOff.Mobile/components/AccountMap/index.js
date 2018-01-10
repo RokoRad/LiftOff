@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, AsyncStorage } from 'react-native';
 import { MapView, PROVIDER_GOOGLE } from 'expo';
 import * as Animatable from 'react-native-animatable';
 import animationGenerator from '../../functions/animationGenerator';
@@ -8,30 +8,25 @@ import styles from './styles.js';
 // api/flights/getFlightsNearMe
 
 const grabMarkers = () => {
-  fetch('http://liftoffapi.azurewebsites.net/api/flights/getFlightsNearMe', {
+  const holder = {
+    location: {
+      latitude: 43.508133,
+      longitude: 16.440193
+    },
+    time: new Date()
+  };
+  AsyncStorage.getItem('@token').then((value) => {
+    console.log(value)
+    fetch('http://liftoffapi.azurewebsites.net/api/flights/getFlightsNearMe', {
       method: 'POST',
-    // body je timeLocation {
-      body: JSON.stringify({
-        TimeLocation: {
-          Location: {
-            Latitude: 43.508133,
-            Longitude: 16.440193
-          },
-          Time: new Date().toISOString()
-        }
-      })
-    }).then((response) => {
-    console.log(response)
+      headers: {
+        'Authorization': 'Bearer ' + value,
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(holder)
+    }).then((value) => console.log(value));
   })
 };
-
-// "TimeLocation": {
-//   "Location": {
-//       "Latitude": double,
-//       "Longitude": double
-//   },
-//   "Time": datetime
-// }
 
 var response = [
   {title:'1', coordinate: {latitude: 45.81, longitude: 15.9 }},

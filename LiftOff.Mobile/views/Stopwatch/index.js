@@ -27,34 +27,34 @@ class Stopwatch extends Component {
         minutes: 0
      };
   };
+
   bind = () => {
-    var temp;
-    if(this.state.active === false) {
-      temp = setInterval(() => {
-        this.setState({
-          seconds: this.state.seconds+=1
-        });
-        if(this.state.seconds == 61) {
+    if(this.state.active) {
+      clearInterval(this.raise);
+      this.setState({
+        minutes: 0,
+        seconds: 0
+      })
+    } else {
+      this.raise = setInterval(() => {
+        if(this.state.seconds === 61) {
           this.setState({
-            seconds: 0,
             minutes: this.state.minutes+=1,
+            seconds: 0
           });
+          console.log(this.state.seconds)
+        } else {
+          this.setState({
+            seconds: this.state.seconds+=1
+          });
+          console.log(this.state.seconds)
         }
       }, 1000);
-    } else {
-      this.setState({
-        seconds: 0,
-        minutes: 0
-      });
-      holder = null;
-      for(let i = 100; i<900; i++) {
-        clearInterval(i);
-      }
     }
     this.setState({
       active: !this.state.active
     });
-  };
+  }
 
   render() {
       return (

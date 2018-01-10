@@ -18,3 +18,5 @@ register vraća na login
 nevaljan token vraća 401, dodat provjeru na requestove
 search na mapi (zadnje)
 home kad je null
+register button puca
+https://github.com/stefalda/ReactNativeLocalization
