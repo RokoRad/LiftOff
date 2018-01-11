@@ -5,6 +5,8 @@
   border-bottom: 1px solid #fff;
   padding: 10px 5px;
   color: #fff;
+  font-weight: 500;
+  font-size: 1em;
 }
 
 .input::placeholder {
