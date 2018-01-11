@@ -6,16 +6,23 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     paddingLeft: 10,
     paddingRight: 10,
-    backgroundColor: 'red',
-    borderRadius: 5,
+    backgroundColor: '#fff',
+    borderRadius: 7,
     position: 'absolute',
-    right: 0,
-    bottom: 0,
-    width: 100,
-    height: 40
+    right: 60,
+    bottom: 120,
+    zIndex: 999,
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    shadowOffset: {
+        height: 5,
+        width: 5
+    },
+    elevation: 5,
   },
   text: {
-
+    fontSize: 10,
+    color: '#3498db'
   }
 });
 
