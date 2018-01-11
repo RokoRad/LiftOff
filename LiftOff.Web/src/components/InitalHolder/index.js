@@ -5,6 +5,7 @@ import './style.css';
 
 const InitalHolder = () => (
   <div className="inital__holder">
+    <InitalLogo />
     <Login />
   </div>
 );
