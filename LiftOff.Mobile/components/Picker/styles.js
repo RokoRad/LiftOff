@@ -11,12 +11,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'green'
+    right: -2.5
   },
   dateIcon: {
     width: 40, 
-    height: 40, 
-    backgroundColor: 'blue'
+    height: 40
   }
 });
 

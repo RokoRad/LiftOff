@@ -1,9 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Image } from 'react-native';
 import styles from './styles.js';
+
+const image = require('../../images/map/crosshair.png');
 
 const Calibration = ({}) => (
   <View style={styles.item}>
+    <Image source={image} style={styles.inner} />
   </View>
 );
 
