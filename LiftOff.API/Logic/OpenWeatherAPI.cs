@@ -173,6 +173,7 @@ namespace LiftOff.API.Logic
                 WeatherDescription = ParseToString((jWeatherData["weather"] as JArray).First() as JObject, new string[] { "description" }),
                 Visibility = null,
                 Cloudiness = ParseTo<double>(jWeatherData, new string[] { "clouds", "all" }),
+                City = ParseToString(forecast, new string[] { "city", "name" })
             };
         }
 
@@ -199,6 +200,7 @@ namespace LiftOff.API.Logic
                     WeatherDescription = ParseToString((JWeatherDataForecast["weather"] as JArray).First() as JObject, new string[] { "description" }),
                     Visibility = null,
                     Cloudiness = ParseTo<double>(JWeatherDataForecast, new string[] { "clouds", "all" }),
+                    City = ParseToString(forecast, new string[] { "city", "name" })
                 });
             }
 
