@@ -8,7 +8,7 @@ const Login = () => (
   <form className="login">
     <Input placeholder="Username" />
     <Input placeholder="Password" type="password" minLength="8" />
-    <InitalMessage />
+    <InitalMessage type="login" />
     <Button href="#">Login</Button>
   </form>
 );
