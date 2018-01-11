@@ -50,7 +50,7 @@ const AccountMap = (props) => {
       <MapView zoomEnabled={true} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} cacheEnabled={true}
         region={{ latitude: props.latitude, longitude: props.longitude, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>
         {response.map(marker => (
-        <MapView.Marker title={marker.title} coordinate={marker.coordinate} key={Math.random()} image={require('../../images/map/pin.png')}/>
+          <MapView.Marker title={marker.title} coordinate={marker.coordinate} key={Math.random()} image={require('../../images/map/pin.png')}/>
         ))}
       </MapView>
     </View>

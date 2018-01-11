@@ -46,13 +46,8 @@ class Home extends React.Component {
       Toast.show(language.serverError);
     });
   }
-
-  componentDidMount() {
-    
-  }
- 
+  
   render() {
-    //AsyncStorage.getItem('@realtime').then((value) => console.log(value))
     return(
       <Screen current={this.props.location}>
         <HomeRating string={this.state.list.AdvisoryRating} rating={this.state.list.TotalRating} />
