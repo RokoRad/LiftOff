@@ -1,13 +1,9 @@
 using LiftOff.API.Logic;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.AspNet.Identity;
 
 namespace LiftOff.API.Models
 {
-	public class WeatherData
+    public class WeatherData
 	{
 		public TimeLocation TimeLocation { get; set; }
 

@@ -328,10 +328,10 @@ ASALocalRun/
 *.user
 _ReSharper.*/
 *.sdf
-bin/
-obj/
-Debug/
-Release/
+LiftOff.Api/bin/
+LiftOff.Api/obj/
+LiftOff.Api/obj/Debug/
+LiftOff.Api/obj/Release/
 *.opensdf
 *.tlog
 *.log
