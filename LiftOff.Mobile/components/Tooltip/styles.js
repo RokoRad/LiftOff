@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     position: 'absolute',
     right: 60,
-    bottom: 110,
+    bottom: 113.5,
     zIndex: 997,
     shadowOpacity: 0.5,
     shadowRadius: 5,
