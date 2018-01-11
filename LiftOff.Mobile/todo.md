@@ -21,3 +21,5 @@ register button puca
 https://github.com/stefalda/ReactNativeLocalization
 swipe left right za nav
 list itemi na profilu malo padding left
+
+https://github.com/react-community/react-native-maps/blob/master/docs/mapview.md može se animirat

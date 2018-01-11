@@ -11,11 +11,15 @@ import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo
 //import { language } from '../../config/settings.js';
 //import { changeDateTime, changeLocation, updateServer, timeLocation } from '../../functions/realtime';
 
+const deltas = {
+  longitudeDelta: 0.1,
+  latitudeDelta: 0.1
+}
+
 const inital = {
-  latitude: 16,
-  latitudeDelta: 1,
-  longitude: 43,
-  longitudeDelta: 1
+  latitude: 43.5,
+  longitude: 16.5,
+  ...deltas
 }
 
 class Map extends Component {
@@ -42,7 +46,8 @@ class Map extends Component {
       this.setState({
         location: {
           longitude: response.coords.longitude,
-          latitude: response.coords.latitude
+          latitude: response.coords.latitude,
+          ...deltas
         }
       });
       console.log(response)
