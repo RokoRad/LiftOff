@@ -27,6 +27,11 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
+    AsyncStorage.getItem('@picker').then((value) => {
+      console.log(value)
+    });
+
+
     AsyncStorage.getItem('@realtime').then((value) => {
       this.setState({
         list: JSON.parse(value)
