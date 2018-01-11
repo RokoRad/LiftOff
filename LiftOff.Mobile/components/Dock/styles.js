@@ -14,10 +14,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 100,
     right: -10,
-    height: 100,
+    height: 110,
     width: 60,
     zIndex: 999,
-    paddingRight: 10
+    paddingRight: 10,
+    display: 'flex',
+    flexDirection: 'column'
   }
 });
 
