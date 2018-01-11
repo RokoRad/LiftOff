@@ -5,13 +5,12 @@ import styles from './styles.js';
 
 const icon = require('../../images/map/pin.png');
 // kreiranje viewa
-const Marker = (props) => (
-  <MapView.Marker image={icon} style={styles.marker} coordinate={props.location}>
-
-
-
-  </MapView.Marker>
-);
+const Marker = (props) => {
+  {props.display ?
+    <MapView.Marker image={icon} style={styles.marker} coordinate={props.location}> 
+    </MapView.Marker> 
+  : null}
+};
 
 export default Marker;
 
