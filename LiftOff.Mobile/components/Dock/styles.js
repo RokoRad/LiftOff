@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     right: -10,
     height: 110,
     width: 60,
-    zIndex: 999,
+    zIndex: 998,
     paddingRight: 10,
     display: 'flex',
     flexDirection: 'column'
