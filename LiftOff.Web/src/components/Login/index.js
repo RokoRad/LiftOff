@@ -7,7 +7,7 @@ import './style.css';
 const Login = () => (
   <div className="login">
     <Input placeholder="Username" />
-    <Input placeholder="Password" />
+    <Input placeholder="Password" type="password" />
     <InitalMessage />
     <Button href="#">Login</Button>
   </div>
