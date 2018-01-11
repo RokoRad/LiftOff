@@ -15,10 +15,12 @@ const deltas = {
 };
 
 const inital = {
-  latitude: 43.5,
-  longitude: 16.5,
+  latitude: 43.5432,
+  longitude: 16.49314,
   ...deltas
 };
+
+const rend = 1;
 
 class Map extends Component {
   constructor() {
@@ -34,31 +36,31 @@ class Map extends Component {
 
   componentWillMount() {
     if(!this.state.render) {
-      console.log("a")
-      this.getCurrentLoction();
-      this.setState({render: true})
+      this.getCurrentLocation();
     }
   }
 
-  getCurrentLoction = async () => {
+  getCurrentLocation = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
       // odbijen popup
     }
-    let location = await Location.getCurrentPositionAsync({}).then((response) => {
+    let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true, maximumAge: 900}).then((response) => {
       this.setState({
         location: {
           longitude: response.coords.longitude,
           latitude: response.coords.latitude,
           ...deltas
-        }
+        },
+        render: true
       });
     });
   }
 
   changeCenter = (value) => {
-    inital = value;
-    console.log(inital)
+    this.setState({
+      location: value
+    })
   }
 
   setMarker = (value) => {
@@ -72,7 +74,7 @@ class Map extends Component {
       return (
         <Screen current={this.props.location}>
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
-          <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={true} city="Split, Croatia" time="12:22" rating="3.2" />
+          <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={false} city="Split, Croatia" time="12:22" rating="3.2" />
           </MapView>
         </Screen>
       );
