@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     position: 'absolute',
     right: 60,
-    bottom: 120,
-    zIndex: 999,
+    bottom: 110,
+    zIndex: 997,
     shadowOpacity: 0.5,
     shadowRadius: 5,
     shadowOffset: {
