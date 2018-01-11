@@ -2,10 +2,10 @@ import React from 'react';
 import InitalHolder from '../../components/InitalHolder';
 import './style.css';
 
-const Inital = () => (
+const Register = () => (
   <div className="inital">
-    <InitalHolder />
+    <InitalHolder route="register" />
   </div>
 );
 
-export default Inital;
+export default Register;

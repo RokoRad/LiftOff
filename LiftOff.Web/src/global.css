@@ -8,5 +8,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Barlow';
-  font-size: 16px;
+  font-size: 18px;
+}
+
+.horizontal-align {
+  margin-left: auto;
+  margin-right: auto;
 }
