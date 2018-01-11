@@ -10,3 +10,8 @@
   font-family: 'Barlow';
   font-size: 16px;
 }
+
+.horizontal-align {
+  margin-left: auto;
+  margin-right: auto;
+}

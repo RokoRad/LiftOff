@@ -7,6 +7,10 @@
   color: #fff;
   font-weight: 500;
   font-size: 1em;
+  width: 80%;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .input::placeholder {
