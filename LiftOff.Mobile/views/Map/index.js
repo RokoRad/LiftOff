@@ -12,13 +12,13 @@ import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo
 const deltas = {
   longitudeDelta: 0.1,
   latitudeDelta: 0.1
-}
+};
 
 const inital = {
   latitude: 43.5,
   longitude: 16.5,
   ...deltas
-}
+};
 
 class Map extends Component {
   constructor() {
@@ -58,13 +58,14 @@ class Map extends Component {
 
   changeCenter = (value) => {
     inital = value;
+    console.log(inital)
   }
 
   setMarker = (value) => {
     this.setState({
-      markerPosition: value.nativeEvent.coordinate, 
+      markerPosition: value.nativeEvent.coordinate,
       pressed: true
-    })
+    });
   }
 
   render() {
