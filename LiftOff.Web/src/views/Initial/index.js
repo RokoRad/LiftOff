@@ -1,9 +1,10 @@
 import React from 'react';
+import InitalHolder from '../../components/InitalHolder';
 import './style.css';
 
 const Inital = () => (
-  <div>
-    inital
+  <div className="inital">
+    <InitalHolder />
   </div>
 );
 

@@ -5,7 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import Inital from './views/Initial';
 import Dashboard from './views/Dashboard';
 import './global.css';
-import './index.css';
+import './style.css';
 
 const App = () => (
   <BrowserRouter>

@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css';
 
-const Input = () => (
-  <div></div>
+const Input = (props) => (
+  <input className="input" {...props}/>
 );
 
 export default Input;
