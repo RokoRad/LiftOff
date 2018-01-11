@@ -1,5 +1,5 @@
 import React from 'react';
-import axois from 'axois';
+import axios from 'axios';
 import Input from '../Input';
 import Button from '../Button';
 import InitalMessage from '../InitalMessage';
@@ -12,8 +12,18 @@ let holder = {
 };
 
 const login = () => {
-
+  // axios({
+  //   method: 'POST',
+  //   url: 'http://liftoffapi.azurewebsites.net/api/account/register',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   data: holder
+  // }).then((response) => {
+  //   console.log(response)
+  // });
 };
+
 
 const Login = () => (
   <form className="login">
