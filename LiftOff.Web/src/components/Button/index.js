@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 const Button = (props) => (
-  <a className="button horizontal-align" {...props}>{props.children}</a>
+  <button className="button horizontal-align" {...props}>{props.children}</button>
 );
 
 export default Button;

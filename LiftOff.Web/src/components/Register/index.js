@@ -5,13 +5,13 @@ import InitalMessage from '../InitalMessage';
 import './style.css';
 
 const Login = () => (
-  <div className="login">
+  <form className="login">
     <Input placeholder="Username" />
     <Input placeholder="Email" type="email" />
-    <Input placeholder="Password" type="password" />
+    <Input placeholder="Password" type="password" minLength="8" />
     <InitalMessage />
     <Button href="#">Login</Button>
-  </div>
+  </form>
 );
 
 export default Login;
