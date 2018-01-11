@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  wrapper: {
+    width: 200
+  },
   title: {
     fontSize: 11,
     fontFamily: 'barlowSemiBold',
