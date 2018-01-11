@@ -3,13 +3,16 @@ import { View, Text } from 'react-native';
 import { MapView } from 'expo';
 import styles from './styles.js';
 
-const icon = require('../../images/map/pin.png');
-// kreiranje viewa
 const Marker = (props) => {
-  {props.display ?
-    <MapView.Marker image={icon} style={styles.marker} coordinate={props.location}> 
-    </MapView.Marker> 
-  : null}
+  if(props.display) {
+    return (
+      <MapView.Marker image={require('../../images/map/pin.png')} style={styles.marker} coordinate={props.location}> 
+
+      </MapView.Marker> 
+    )
+  } else {
+    return (null);
+  }
 };
 
 export default Marker;
