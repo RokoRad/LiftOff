@@ -24,6 +24,7 @@ namespace LiftOff.API.Models
 		public int?    WeatherID { get; set; }
 		public string  Weather { get; set; }
 		public string  WeatherDescription { get; set; }
+        public string  City { get; set; }
 
         public string Units { get; set; } = "metric";
 

@@ -57,6 +57,7 @@ namespace LiftOff.TestingForm
             TemperatureScoreLabel.Text  = string.Format("{0:N1}", (Math.Truncate(((weatherRating.TemperatureRating == null) ? -1 : (double)weatherRating.TemperatureRating  )* 10) / 10).ToString()); 
             TotalScoreLabel.Text        = string.Format("{0:N1}", (Math.Truncate(((weatherRating.TotalRating       == null) ? -1 : (double)weatherRating.TotalRating        )* 10) / 10).ToString());
             AdviceLabel.Text = weatherRating.AdvisoryRating.English;
+            CityLabel.Text = weatherRating.weatherData.City;
         }
 
         private void VisibilityScoreLabel_Click(object sender, EventArgs e)

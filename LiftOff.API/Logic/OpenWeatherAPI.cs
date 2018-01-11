@@ -121,6 +121,7 @@ namespace LiftOff.API.Logic
             var WeatherDescription = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "description" });
             var Visibility         = ParseTo<double>(visibilityJson, new string[] { "current", "visibility", "@value" });
             var Cloudiness         = ParseTo<double>(visibilityJson, new string[] { "current", "clouds", "@value" });
+            var Name               = ParseToString(weatherJson, new string[] { "name" });
 
             return new WeatherData()
 			{
@@ -139,6 +140,7 @@ namespace LiftOff.API.Logic
 				WeatherDescription  = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "description" }),
 				Visibility          = ParseTo<double>(visibilityJson, new string[] { "current", "visibility", "@value" }),
 			    Cloudiness          = ParseTo<double>(visibilityJson, new string[] { "current", "clouds", "@value" }),
+                City                = ParseToString(weatherJson, new string[] { "name" }),
         };
 		}
 
