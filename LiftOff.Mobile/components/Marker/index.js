@@ -17,8 +17,3 @@ const Marker = ({display, location, calibration, city, time, rating}) => {
 };
 
 export default Marker;
-
-
-          {/* <MapView.Marker image={require('../../images/map/pin.png')} style={{height: 30, width: 30}} ref={(ref) => { this.marker = ref; } } coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }}>
-            <MarkerCallout location="Primošten, HR" time="15.3.2018." rating="5.0" />
-          </MapView.Marker> */}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Screen from '../../components/Screen';
 import Marker from '../../components/Marker';
+import Dock from '../../components/Dock';
 import styles from './styles.js';
 import style from '../../functions/mapStyle';
 //import DatePicker from '../../external/react-native-datepicker';
@@ -73,8 +74,9 @@ class Map extends Component {
   render() {
       return (
         <Screen current={this.props.location}>
+          <Dock />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
-          <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={false} city="Split, Croatia" time="12:22" rating="3.2" />
+            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={false} city="Split, Croatia" time="12:22" rating="3.2" />
           </MapView>
         </Screen>
       );
