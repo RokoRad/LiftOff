@@ -1,112 +1,85 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
 import Screen from '../../components/Screen';
-import MapItem from '../../components/MapItem';
-import MarkerCallout from '../../components/MarkerCallout';
+import Marker from '../../components/Marker';
+import Dock from '../../components/Dock';
+import Tooltip from '../../components/Tooltip';
+import styles from './styles.js';
 import style from '../../functions/mapStyle';
-import DatePicker from '../../external/react-native-datepicker';
-import Toast from 'react-native-simple-toast';
+//import DatePicker from '../../external/react-native-datepicker';
+//import Toast from 'react-native-simple-toast';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
-import { language } from '../../config/settings.js';
-import { changeDateTime, changeLocation, updateServer, timeLocation } from '../../functions/realtime';
+//import { language } from '../../config/settings.js';
+//import { changeDateTime, changeLocation, updateServer, timeLocation } from '../../functions/realtime';
 
-const crosshairHolder = {
-  latitude: 43.508133,
-  latitudeDelta: 0.0922,
-  longitude: 16.440193,
-  longitudeDelta: 0.0421
+const deltas = {
+  longitudeDelta: 0.1,
+  latitudeDelta: 0.1
 };
+
+const inital = {
+  latitude: 43.5432,
+  longitude: 16.49314,
+  ...deltas
+};
+
+const rend = 1;
 
 class Map extends Component {
   constructor() {
      super();
-     this.state = crosshairHolder;
+     this.state = {
+       location: inital,
+       center: inital,
+       markerPosition: inital,
+       pressed: false,
+       render: false
+     };
   };
 
   componentWillMount() {
-    this._getLocation();
-  }
-
-  componentWillUnmount() {
-    updateServer();
-  }
-
-  _getLocation = async () => {
-    const { locationServicesEnabled } = await Location.getProviderStatusAsync();
-    if(!locationServicesEnabled) {
-      Toast.show(language.gpsFail);
-    } else {
-      const { status } = await Permissions.askAsync(Permissions.LOCATION);
-      if (status === 'granted') {
-        let value = await Location.getCurrentPositionAsync({enableHighAccuracy: false, timeout: 2000, maximumAge: 1000});
-        this.setState({ lat: value.coords.latitude, lon: value.coords.longitude });
-      } else {
-        console.log(response)
-      }
+    if(!this.state.render) {
+      this.getCurrentLocation();
     }
   }
 
-  onMarker = () => {
-    changeLocation(crosshairHolder);
-    this.marker.hideCallout();
-    this.setState({
-      latitude: crosshairHolder.latitude,
-      latitudeDelta: crosshairHolder.latitudeDelta,
-      longitude: crosshairHolder.longitude,
-      longitudeDelta: crosshairHolder.longitudeDelta
+  getCurrentLocation = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== 'granted') {
+      // odbijen popup
+    }
+    let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true, maximumAge: 900}).then((response) => {
+      this.setState({
+        location: {
+          longitude: response.coords.longitude,
+          latitude: response.coords.latitude,
+          ...deltas
+        },
+        render: true
+      });
     });
-  };
-
-  onDate = (date) => {
-    changeLocation(date);
-    console.log(date)
   }
 
-  onCrosshair = () => {
-    /// REQUEST
+  changeCenter = (value) => {
     this.setState({
-      latitude: 43.587,
-      latitudeDelta: 0.09,
-      longitude: 15.927,
-      longitudeDelta: 0.04
-    });
-    //
-    this.marker.showCallout();
-  };
+      location: value
+    })
+  }
 
-  onRegionChange = (region) => {
-    crosshairHolder = region;
-  };
+  setMarker = (value) => {
+    this.setState({
+      markerPosition: value.nativeEvent.coordinate,
+      pressed: true
+    });
+  }
 
   render() {
       return (
         <Screen current={this.props.location}>
-
-          <MapItem order="1" type="marker" onPress={this.onMarker} />
-
-
-
-          <DatePicker iconSource={require('../../images/map/date.png')} hideText={true}
-            style={{width: 40, height: 40, position: 'absolute', bottom: 125, right: 10, zIndex: 999}} customStyles={{ dateIcon:{width: 40, height: 40 }}} mode="datetime" 
-            format="YYYY-MM-DD-hh-mm" minDate={new Date().toISOString().slice(0, 10)} maxDate={new Date(Date.now() + 5*24*60*60*1000).toISOString().slice(0, 10)}
-            confirmBtnText="Confirm" cancelBtnText="Cancel" onDateChange={this.onDate} cacheEnabled={true} loadingEnabled={true} loadingIndicatorColor="#fff" loadingBackgroundColor="#3498db" />
-          
-          
-          
-          <MapItem order="3" type="crosshair" onPress={this.onCrosshair} />
-
-
-          <MapView showsTraffic={false} showsBuildings={false} onRegionChange={this.onRegionChange} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} 
-            region={{ latitude: this.state.latitude, longitude: this.state.longitude, latitudeDelta: this.state.latitudeDelta, longitudeDelta: this.state.longitudeDelta }}>
-
-
-          <MapView.Marker image={require('../../images/map/pin.png')} style={{height: 30, width: 30}} ref={(ref) => { this.marker = ref; } } coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }}>
-            <MarkerCallout location="Primošten, HR" time="15.3.2018." rating="5.0" />
-          </MapView.Marker>
-
-
-         </MapView>
-
+          <Dock />
+          <Tooltip />
+          <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
+            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={false} city="Split, Croatia" time="12:22" rating="3.2" />
+          </MapView>
         </Screen>
       );
   }

@@ -20,8 +20,6 @@ class Inital extends Component {
       this.props.history.push('/home');
     }
   }
-
-
   changeView = () => {
     this.setState({
        login: !this.state.login 
