@@ -107,7 +107,7 @@ const InitalButton = (props) => {
   return (
     <TouchableOpacity onPress={() => (props.action === 'login' ? login() : register())} opacity={0.8}>
       <View style={[globals.buttonWrapper, { backgroundColor: '#3f6ea7' }]}>
-        <Text style={globals.buttonInner}>{language[props.type]}</Text>
+        <Text style={[globals.buttonInner]}>{language[props.type]}</Text>
       </View>
     </TouchableOpacity>
   );
