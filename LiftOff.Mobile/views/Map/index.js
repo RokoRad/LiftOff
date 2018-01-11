@@ -20,7 +20,9 @@ class Map extends Component {
          latitudeDelta: 1,
          longitude: 43,
          longitudeDelta: 1
-       }
+       },
+       center: location,
+       markerPosition: location
      };
   };
 
@@ -40,6 +42,11 @@ class Map extends Component {
   //   19:10:55:   "mocked": false,
   //   19:10:55:   "timestamp": 1515694255980,
   //   19:10:55: }
+
+
+  componentDidUpdate() {
+    console.log(this.state.markerPosition)
+  }
     
 
   getCurrentLoction = async () => {
@@ -60,7 +67,9 @@ class Map extends Component {
   render() {
       return (
         <Screen current={this.props.location}>
-          <MapView style={{ flex:1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location}>
+          <MapView style={{ flex:1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChange={(value) => this.setState({center: value})}
+            onPress={(value) => this.setState({markerPosition: value.nativeEvent.coordinate})}>
+
           <Marker location={this.state.location} />
 
           {/* <MapView.Marker image={require('../../images/map/pin.png')} style={{height: 30, width: 30}} ref={(ref) => { this.marker = ref; } } coordinate={{latitude: this.state.latitude, latitudeDelta: this.state.latitudeDelta, longitude: this.state.longitude, longitudeDelta: this.state.longitudeDelta }}>
