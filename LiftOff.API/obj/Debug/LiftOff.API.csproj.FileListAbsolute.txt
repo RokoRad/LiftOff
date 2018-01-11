@@ -95,3 +95,4 @@ Y:\Desktop\LiftOff\LiftOff.API\bin\System.Web.Http.xml
 Y:\Desktop\LiftOff\LiftOff.API\bin\System.Web.Http.WebHost.xml
 Y:\Desktop\LiftOff\LiftOff.API\obj\Debug\LiftOff.API.dll
 Y:\Desktop\LiftOff\LiftOff.API\obj\Debug\LiftOff.API.pdb
+Y:\Desktop\LiftOff\LiftOff.API\obj\Debug\LiftOff.API.csprojResolveAssemblyReference.cache
