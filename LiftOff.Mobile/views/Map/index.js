@@ -53,20 +53,24 @@ class Map extends Component {
           ...deltas
         }
       });
-      console.log(response)
     });
+  }
+
+  changeCenter = (value) => {
+    inital = value;
+  }
+
+  setMarker = (value) => {
+    this.setState({
+      markerPosition: value.nativeEvent.coordinate, 
+      pressed: true
+    })
   }
 
   render() {
       return (
         <Screen current={this.props.location}>
-          <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChange={(value) => this.setState({center: value})}
-            onPress={(value) => this.setState({
-              markerPosition: value.nativeEvent.coordinate, 
-              pressed: true
-            })
-          }>
-
+          <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
           <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={true} city="Split, Croatia" time="12:22" rating="3.2" />
           </MapView>
         </Screen>
