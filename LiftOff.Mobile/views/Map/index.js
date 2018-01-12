@@ -94,6 +94,17 @@ class Map extends Component {
           })
       }).then((response) => {
         if(response.status === 200) {
+          this.setState({
+            calibration: true,
+            location: {
+              latitude: 43,
+              longitude: 16
+            },
+            markerPosition: {
+              latitude: 43,
+              longitude: 16
+            }
+          })
             console.log(response)
         } else if (response.status === 401) {
           console.log("token error")
