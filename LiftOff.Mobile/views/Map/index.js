@@ -94,9 +94,14 @@ class Map extends Component {
           })
       }).then((response) => {
         if(response.status === 200) {
-          console.log(JSON.parse(response._bodyInit));
+          let res = response._bodyInit;
           this.setState({
-            calibration: true
+            calibration: true,
+            location: {
+              longitude: res.weatherData.longitude,
+              latitude: red.weatherData.latitude,
+              ...deltas
+            }
           })
         } else if (response.status === 401) {
           console.log("token error")
