@@ -68,9 +68,16 @@ class Map extends Component {
   }
 
   showTooltip = () => {
+    if(this.state.selected === false) {
+      this.setState({
+        pressed: true,
+        selected: true
+      });
+    } else {
       this.setState({
         pressed: true
       });
+    }
   }
 
   setMarker = (value) => {
