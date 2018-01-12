@@ -69,11 +69,14 @@ class Map extends Component {
   }
 
   setMarker = (value) => {
+    if(this.state.calibration === true) {
+      this.setState({
+        calibration: false
+      })
+    }
     this.setState({
       markerPosition: value.nativeEvent.coordinate,
-      pressed: true,
-      selected: true,
-      calibration: false
+      pressed: true
     });
   }
 
@@ -96,6 +99,7 @@ class Map extends Component {
         if(response.status === 200) {
           this.setState({
             calibration: true,
+            pressed: true,
             location: {
               latitude: 43,
               longitude: 16,
