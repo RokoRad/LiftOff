@@ -5,10 +5,10 @@ import colorGenerator from '../../functions/colorGenerator';
 import styles from './styles.js';
 import { MapView } from 'expo';
 
-const MarkerCallout = ({location, time, rating, style, showShow}) => {
-  if(showShow) {
+const MarkerCallout = ({location, time, rating, shouldShow}) => {
+  if(shouldShow) {
     return (
-      <MapView.Callout style={styles.wrapper} style={style}>
+      <MapView.Callout style={styles.wrapper}>
         <View>
           <Text style={styles.title}>{language.markerTitle}</Text>
         </View>
@@ -27,7 +27,14 @@ const MarkerCallout = ({location, time, rating, style, showShow}) => {
       </MapView.Callout>
       );
   } else {
-    return (null);
+    console.log("return blank")
+    return (
+      <MapView.Callout style={styles.hidden} tooltip={false}>
+        <View>
+          <Text> </Text>
+        </View>
+      </MapView.Callout>
+    );
   }
 };
 

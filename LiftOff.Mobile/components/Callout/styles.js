@@ -4,6 +4,13 @@ const styles = StyleSheet.create({
   wrapper: {
     width: 200
   },
+  hidden: {
+    backgroundColor: 'red',
+    width: 10,
+    height: 10,
+    width: 1,
+    height: 1
+  },
   title: {
     fontSize: 11,
     fontFamily: 'barlowSemiBold',
