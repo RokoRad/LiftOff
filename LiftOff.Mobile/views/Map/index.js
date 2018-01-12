@@ -110,7 +110,8 @@ class Map extends Component {
             },
             pressed: true,
             calibration: true
-          })
+          });
+          this.marker.showCallout();
         } else if (response.status === 401) {
           console.log("token error")
         }
@@ -130,7 +131,7 @@ class Map extends Component {
           <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
-            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city="Split, Croatia" time="12:22" rating="3.2" />
+            <Marker ref={(ref) => (this.marker = ref)} display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city="Split, Croatia" time="12:22" rating="3.2" />
           </MapView>
         </Screen>
       );
