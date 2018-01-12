@@ -35,7 +35,12 @@ class Map extends Component {
        pressed: false,
        render: false,
        selected: false,
-       calibration: false
+       calibration: {
+        state: false,
+        city: 'Zagreb',
+        time: '12:22',
+        rating: 3.2
+       }
      };
   };
 
@@ -69,8 +74,6 @@ class Map extends Component {
   }
 
   setMarker = (value) => {
-
-    this.state.calibration = false;
     this.setState({
       markerPosition: value.nativeEvent.coordinate,
       pressed: true
@@ -127,7 +130,7 @@ class Map extends Component {
           <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
-            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city="Split, Croatia" time="12:22" rating="3.2" />
+            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city={this.state.calibration.city} time={this.state.calibration.time} rating={this.state.calibration.rating} />
           </MapView>
         </Screen>
       );
