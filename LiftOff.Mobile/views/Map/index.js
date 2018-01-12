@@ -94,14 +94,22 @@ class Map extends Component {
           })
       }).then((response) => {
         if(response.status === 200) {
-          let res = response._bodyInit;
+          console.log(response);
           this.setState({
             calibration: true,
             location: {
-              longitude: res.weatherData.longitude,
-              latitude: red.weatherData.latitude,
+              // ...response._bodyInit.weatherData.timeLocation.loction,
+              latitude: 42,
+              longitude: 15,
               ...deltas
-            }
+            },
+            markerPosition: {
+              latitude: 42,
+              longitude: 15,
+              ...deltas
+            },
+            pressed: true,
+            calibration: true
           })
         } else if (response.status === 401) {
           console.log("token error")
