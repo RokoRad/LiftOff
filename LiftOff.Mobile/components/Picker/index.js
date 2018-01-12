@@ -9,7 +9,7 @@ const image = require('../../images/map/date.png');
 
 
 const dateChange = (value) => {
-  AsyncStorage.setItem('@picker', value).then();
+  AsyncStorage.setItem('@picker', JSON.stringify(value)).then();
   console.log("date saved")
 }
 

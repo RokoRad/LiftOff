@@ -114,7 +114,7 @@ class Map extends Component {
 
   selected = () => {
     this.setState({
-      selected: true
+      selected: false
     });
   }
 
