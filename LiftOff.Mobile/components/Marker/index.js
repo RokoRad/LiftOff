@@ -4,16 +4,22 @@ import { MapView } from 'expo';
 import Callout from '../Callout';
 import styles from './styles.js';
 
-const Marker = ({display, location, calibration, city, time, rating}) => {
-  if(display) {
-    return (
-      <MapView.Marker image={require('../../images/map/pin.png')} style={styles.marker} coordinate={location}>
-        {(calibration) ? <Callout location={city} time={time} rating={rating} /> : null}
-      </MapView.Marker> 
-    )
-  } else {
-    return (null);
+class Marker extends React.Component {
+  construcor(props) {
+    props(props);
   }
-};
+
+  render() {
+    if(this.props.display) {
+      return (
+        <MapView.Marker image={require('../../images/map/pin.png')} style={styles.marker} coordinate={location} {...this.props}>
+          {(calibration) ? <Callout location={this.props.city} time={this.props.time} rating={this.props.rating} /> : null}
+        </MapView.Marker> 
+      )
+    } else {
+      return (null);
+    }
+  }
+}
 
 export default Marker;
