@@ -71,9 +71,9 @@ class Map extends Component {
   setMarker = (value) => {
     this.setState({
       markerPosition: value.nativeEvent.coordinate,
-      // pressed: true,
-      // selected: true,
-      // calibration: false
+      pressed: true,
+      selected: true,
+      calibration: false
     });
   }
 
@@ -94,27 +94,10 @@ class Map extends Component {
           })
       }).then((response) => {
         if(response.status === 200) {
-          console.log(response);
-          this.setState({
-            calibration: true,
-            location: {
-              // ...response._bodyInit.weatherData.timeLocation.loction,
-              latitude: 42,
-              longitude: 15,
-              ...deltas
-            },
-            markerPosition: {
-              latitude: 42,
-              longitude: 15,
-              ...deltas
-            },
-            pressed: true,
-            calibration: true
-          });
-          this.marker.showCallout();
+            console.log(response)
         } else if (response.status === 401) {
           console.log("token error")
-        }
+        })
       })
     });
   }
@@ -131,7 +114,7 @@ class Map extends Component {
           <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
-            <Marker ref={(ref) => (this.marker = ref)} display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city="Split, Croatia" time="12:22" rating="3.2" />
+            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city="Split, Croatia" time="12:22" rating="3.2" />
           </MapView>
         </Screen>
       );
