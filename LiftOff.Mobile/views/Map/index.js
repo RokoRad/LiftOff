@@ -88,14 +88,12 @@ class Map extends Component {
           'Content-type': 'application/json'
         },
         body: JSON.stringify({
-          timeLocation: {
             location: {
               latitude: 43.508133,
               longitude: 16.440193
             },
             time: "2018-01-13T14:12:10+00:00"
-          }
-        })
+          })
       }).then((response) => {
         console.log(response)
       })
