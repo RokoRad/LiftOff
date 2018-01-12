@@ -69,11 +69,8 @@ class Map extends Component {
   }
 
   setMarker = (value) => {
-    if(this.state.calibration === true) {
-      this.setState({
-        calibration: false
-      })
-    }
+
+    this.state.calibration = false;
     this.setState({
       markerPosition: value.nativeEvent.coordinate,
       pressed: true
