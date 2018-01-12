@@ -33,7 +33,8 @@ class Map extends Component {
        center: inital,
        markerPosition: inital,
        pressed: false,
-       render: false
+       render: false,
+       selected: false
      };
   };
 
@@ -67,9 +68,16 @@ class Map extends Component {
   }
 
   showTooltip = () => {
-    this.setState({
-      pressed: true
-    })
+    if(this.state.selected === false) {
+      this.setState({
+        pressed: true,
+        selected: true
+      });
+    } else {
+      this.setState({
+        pressed: true
+      })
+    }
   }
 
   setMarker = (value) => {
@@ -105,13 +113,15 @@ class Map extends Component {
   }
 
   selected = () => {
-    console.log("date closed");
+    this.setState({
+      selected: true
+    });
   }
 
   render() {
       return (
         <Screen current={this.props.location}>
-          <Tooltip displayed={this.state.pressed} />
+          <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
             <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={false} city="Split, Croatia" time="12:22" rating="3.2" />
