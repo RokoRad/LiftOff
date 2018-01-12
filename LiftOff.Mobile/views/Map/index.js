@@ -37,6 +37,8 @@ class Map extends Component {
        selected: false,
        calibration: false
      };
+     this.showCallout = this.showCallout.bind(this);
+     this.hideCalllout = this.hideCallout.bind(this);
   };
 
   componentWillMount() {
@@ -79,7 +81,7 @@ class Map extends Component {
       pressed: true,      
       calibration: false
     });
-    this.components["marker"].refs.node.hideCallout()
+    hideCallout();
   }
 
   calibration = () => {
@@ -114,7 +116,7 @@ class Map extends Component {
             }
           })
           console.log(response)
-          this.components["marker"].refs.node.showCallout();
+          showCallout();
         } else if (response.status === 401) {
           console.log("token error")
         }})
@@ -127,13 +129,21 @@ class Map extends Component {
     });
   }
 
+  showCallout = () => {
+    this.marker.showCallout();
+  }
+
+  hideCallout = () => {
+    this.marker.hideCallout();
+  }
+
   render() {
       return (
         <Screen current={this.props.location}>
           <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
-            <Marker ref="marker" display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city="Zagreb" time="22:22" rating="1.2" />
+            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city="Zagreb" time="22:22" rating="1.2" />
           </MapView>
         </Screen>
       );

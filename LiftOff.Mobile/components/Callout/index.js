@@ -5,40 +5,24 @@ import colorGenerator from '../../functions/colorGenerator';
 import styles from './styles.js';
 import { MapView } from 'expo';
 
-const MarkerCallout = ({location, time, rating, shouldShow}) => {
-  if(shouldShow) {
-    return (
-      <MapView.Callout style={styles.wrapper}>
-        <View>
-          <Text style={styles.title}>{language.markerTitle}</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.string}>{language.markerLocation}</Text>
-          <Text style={styles.string}>{location}</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.string}>{language.markerTime}</Text>
-          <Text style={styles.string}>{time}</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.string}>{language.markerRating}</Text>
-          <Text style={[styles.string, styles.rating, styles[colorGenerator(rating)]]}>{rating}</Text>
-        </View>
-      </MapView.Callout>
-      );
-  } else {
-    console.log("return blank")
-    return (
-      <View style={styles.hidden}>
-        <Text style={styles.hiddenInner}>haha</Text>
+const MarkerCallout = ({location, time, rating}) => (
+  <MapView.Callout style={styles.wrapper}>
+      <View>
+      <Text style={styles.title}>{language.markerTitle}</Text>
+    </View>
+    <View style={styles.row}>
+      <Text style={styles.string}>{language.markerLocation}</Text>
+      <Text style={styles.string}>{location}</Text>
       </View>
-      // <MapView.Callout style={styles.hidden} tooltip={false}>
-      //   <View>
-      //     <Text>aaaaa</Text>
-      //   </View>
-      // </MapView.Callout>
-    );
-  }
-};
+    <View style={styles.row}>
+      <Text style={styles.string}>{language.markerTime}</Text>
+      <Text style={styles.string}>{time}</Text>
+    </View>
+    <View style={styles.row}>
+      <Text style={styles.string}>{language.markerRating}</Text>
+      <Text style={[styles.string, styles.rating, styles[colorGenerator(rating)]]}>{rating}</Text>
+    </View>
+  </MapView.Callout>
+);
 
 export default MarkerCallout;
