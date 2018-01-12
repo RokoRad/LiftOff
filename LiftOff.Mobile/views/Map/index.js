@@ -80,7 +80,6 @@ class Map extends Component {
   }
 
   calibration = () => {
-    //timelocation
     AsyncStorage.getItem('@token').then((value) => {
       fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
         method: 'POST',
@@ -94,7 +93,7 @@ class Map extends Component {
               latitude: 43.508133,
               longitude: 16.440193
             },
-            time: new Date().toISOString()
+            time: "2018-01-13T14:12:10+00:00"
           }
         })
       }).then((response) => {
