@@ -43,7 +43,7 @@ class Map extends Component {
 
   componentWillMount() {
     if(!this.state.render) {
-      this.getCurrentLocation();
+      this.getCurrentLocation
     }
   }
 
@@ -81,7 +81,7 @@ class Map extends Component {
       pressed: true,      
       calibration: false
     });
-    hideCallout();
+    this.hideCallout;
   }
 
   calibration = () => {
@@ -116,7 +116,7 @@ class Map extends Component {
             }
           })
           console.log(response)
-          showCallout();
+          this.showCallout();
         } else if (response.status === 401) {
           console.log("token error")
         }})
