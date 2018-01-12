@@ -12,10 +12,10 @@ const dateChange = (value) => {
   AsyncStorage.setItem('@picker', value).then();
 }
 
-const Picker = () => (
+const Picker = ({selected}) => (
   <View style={styles.item}>
     <DatePicker iconSource={image} hideText={true} style={styles.inner} customStyle={styles.dateIcon} mode="datetime" format="YYYY-MM-DD-hh-mm"  minDate={today} maxDate={inFive}
-      confirmBtnText="Confirm" cancelBtnText="Cancel" onDateChange={(value) => dateChange(value)} />
+      confirmBtnText="Confirm" cancelBtnText="Cancel" onDateChange={selected} />
   </View>
 );
 

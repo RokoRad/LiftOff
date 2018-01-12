@@ -94,7 +94,7 @@ class Map extends Component {
               latitude: 43.508133,
               longitude: 16.440193
             },
-            time: new Date()
+            time: new Date().toISOString()
           }
         })
       }).then((response) => {
@@ -103,11 +103,16 @@ class Map extends Component {
     });
   }
 
+  selected = () => {
+    console.log("date selected");
+    //hide popup
+  }
+
   render() {
       return (
         <Screen current={this.props.location}>
-          <Tooltip displayed={this.state.pressed}/>
-          <Dock calibration={this.calibration} />
+          <Tooltip displayed={this.state.pressed} />
+          <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
             <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={false} city="Split, Croatia" time="12:22" rating="3.2" />
           </MapView>

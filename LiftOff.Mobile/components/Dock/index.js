@@ -4,10 +4,10 @@ import Calibration from '../../components/Calibration';
 import Picker from '../../components/Picker';
 import styles from './styles.js';
 
-const Dock = ({calibration}) => (
+const Dock = ({calibration, selected}) => (
    <View style={styles.dock}>
      <Calibration calibration={calibration} />
-     <Picker />
+     <Picker selected={selected} />
    </View>
 );
 
