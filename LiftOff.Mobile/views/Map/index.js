@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AsyncStorage } from 'react-native';
 import Screen from '../../components/Screen';
 import Marker from '../../components/Marker';
 import Dock from '../../components/Dock';
@@ -80,7 +81,7 @@ class Map extends Component {
 
   calibration = () => {
     //timelocation
-    AsyncStorage.getItem('@token').then((response) => {
+    AsyncStorage.getItem('@token').then((value) => {
       fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
         method: 'POST',
         headers: {
@@ -88,25 +89,18 @@ class Map extends Component {
           'Content-type': 'application/json'
         },
         body: JSON.stringify({
-          
+          timeLocation: {
+            location: {
+              latitude: 43.508133,
+              longitude: 16.440193
+            },
+            time: new Date()
+          }
         })
       }).then((response) => {
         console.log(response)
       })
     });
-    fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {  
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-      },
-      body: encode(details)
-    }).then((response) => {
-      if (response.status === 200) {
-        AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
-        props.router.push("/home");
-      }
-    })
-    console.log("a")
   }
 
   render() {
