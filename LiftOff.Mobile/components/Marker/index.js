@@ -6,15 +6,14 @@ import styles from './styles.js';
 
 const Marker = ({display, location, calibration, city, time, rating}) => {
   if(display) {
+    console.log("should show")
     return (
       <MapView.Marker image={require('../../images/map/pin.png')} style={styles.marker} coordinate={location}>
-        {(calibration) ?
-        <Callout location={city} time={time} rating={rating} /> 
-        : <Callout location="" time="" rating="" style={{width: 0}} /> 
-        }
+        <Callout location={city} time={time} rating={rating} shouldShow={calibration} /> 
       </MapView.Marker> 
     )
   } else {
+    console.log("should hide")
     return (null);
   }
 };
