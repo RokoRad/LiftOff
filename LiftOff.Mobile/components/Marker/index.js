@@ -10,10 +10,10 @@ class Marker extends React.Component {
   }
 
   render() {
-    if(this.props.display) {
+    if(this.props.display === 'true') {
       return (
         <MapView.Marker image={require('../../images/map/pin.png')} style={styles.marker} coordinate={location} {...this.props}>
-          {(calibration) ? <Callout location={this.props.city} time={this.props.time} rating={this.props.rating} /> : null}
+          {(this.props.alibration) ? <Callout location={this.props.city} time={this.props.time} rating={this.props.rating} /> : null}
         </MapView.Marker> 
       )
     } else {
