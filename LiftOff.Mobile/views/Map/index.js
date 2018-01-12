@@ -65,18 +65,28 @@ class Map extends Component {
     })
   }
 
+  showTooltip = () => {
+    this.setState({
+      pressed: true
+    })
+  }
+
   setMarker = (value) => {
     this.setState({
-      markerPosition: value.nativeEvent.coordinate,
-      pressed: true
+      markerPosition: value.nativeEvent.coordinate
     });
+    this.showTooltip();
+  }
+
+  calibration = () => {
+    console.log("CALIBRATED")
   }
 
   render() {
       return (
         <Screen current={this.props.location}>
           <Tooltip displayed={this.state.pressed}/>
-          <Dock />
+          <Dock calibration={() => this.calibration()} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
             <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={false} city="Split, Croatia" time="12:22" rating="3.2" />
           </MapView>
