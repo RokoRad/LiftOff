@@ -74,6 +74,11 @@ class Map extends Component {
   }
 
   setMarker = (value) => {
+    if(this.state.selected === false) {
+      this.setState({
+        selected: true
+      })
+    }
     this.setState({
       markerPosition: value.nativeEvent.coordinate,
       pressed: true,      
