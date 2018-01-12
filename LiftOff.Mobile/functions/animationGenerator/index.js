@@ -51,6 +51,16 @@ Animatable.initializeRegistryWithDefinitions({
       translateX: 15,
       translateY: -5
     }    
+  },
+  picker: {
+    0: {
+      opacity: 0,
+      right: -30
+    },
+    1: {
+      opacity: 1,
+      right: 60
+    }
   }
 });
 

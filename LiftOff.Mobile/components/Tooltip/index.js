@@ -1,13 +1,15 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import * as Animatable from 'react-native-animatable';
+import animationGenerator from '../../functions/animationGenerator';
 import styles from './styles.js';
 
 const Tooltip = ({displayed}) => {
-  if(props.displayed) {
+  if(displayed) {
     return (
-      <View style={styles.tooltip}>
+      <Animatable.View style={styles.tooltip} animation={animationGenerator('picker')} iterationCount={1} easing="ease-in-out" direction="alternate">
         <Text style={styles.text}>Choose when</Text>
-      </View>  
+      </Animatable.View>  
     );
   } else {
     return (null);
