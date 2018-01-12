@@ -34,7 +34,8 @@ class Map extends Component {
        markerPosition: inital,
        pressed: false,
        render: false,
-       selected: false
+       selected: false,
+       calibration: false
      };
   };
 
@@ -71,7 +72,8 @@ class Map extends Component {
     this.setState({
       markerPosition: value.nativeEvent.coordinate,
       pressed: true,
-      selected: true
+      selected: true,
+      calibration: false
     });
   }
 
@@ -92,7 +94,10 @@ class Map extends Component {
           })
       }).then((response) => {
         if(response.status === 200) {
-          console.log(JSON.parse(response._bodyInit))
+          console.log(JSON.parse(response._bodyInit));
+          this.setState({
+            calibration: true
+          })
         } else if (response.status === 401) {
           console.log("token error")
         }
@@ -112,7 +117,7 @@ class Map extends Component {
           <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
-            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={false} city="Split, Croatia" time="12:22" rating="3.2" />
+            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city="Split, Croatia" time="12:22" rating="3.2" />
           </MapView>
         </Screen>
       );

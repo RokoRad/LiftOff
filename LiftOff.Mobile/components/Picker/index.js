@@ -7,13 +7,10 @@ const today = new Date().toISOString().slice(0, 10);
 const inFive = new Date(Date.now() + 5*24*60*60*1000).toISOString().slice(0, 10);
 const image = require('../../images/map/date.png');
 
-
 const dateChange = (value) => {
   AsyncStorage.setItem('@picker', JSON.stringify(value)).then();
   console.log("date saved")
 }
-
-
 
 const Picker = ({selected}) => (
   <View style={styles.item}>
