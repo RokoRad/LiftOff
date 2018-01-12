@@ -10,7 +10,7 @@ const Marker = ({display, location, calibration, city, time, rating}) => {
       <MapView.Marker image={require('../../images/map/pin.png')} style={styles.marker} coordinate={location}>
         {(calibration) ?
         <Callout location={city} time={time} rating={rating} /> 
-        : <Callout location="" time="" rating="" hidden /> 
+        : <Callout location="" time="" rating="" style={{width: 0}} /> 
         }
       </MapView.Marker> 
     )
