@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AsyncStorage } from 'react-native';
 import Screen from '../../components/Screen';
 import Marker from '../../components/Marker';
 import Dock from '../../components/Dock';
@@ -32,7 +33,14 @@ class Map extends Component {
        center: inital,
        markerPosition: inital,
        pressed: false,
-       render: false
+       render: false,
+       selected: false,
+       calibration: {
+        state: false,
+        city: 'Zagreb',
+        time: '12:22',
+        rating: 3.2
+       }
      };
   };
 
@@ -68,17 +76,69 @@ class Map extends Component {
   setMarker = (value) => {
     this.setState({
       markerPosition: value.nativeEvent.coordinate,
-      pressed: true
+      pressed: true,      
+      calibration: {
+        state: false
+      }
+    });
+  }
+
+  calibration = () => {
+    AsyncStorage.getItem('@token').then((value) => {
+      fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + value,
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            location: {
+              latitude: 43.508133,
+              longitude: 16.440193
+            },
+            time: "2018-01-13T14:12:10+00:00"
+          })
+      }).then((response) => {
+        if(response.status === 200) {
+          this.setState({
+            calibration: {
+              state: true,
+              city: 'ahaha',
+              time: 'aaaa',
+              rating: 1.3
+            },
+            pressed: true,
+            location: {
+              latitude: 43,
+              longitude: 16,
+              ...deltas
+            },
+            markerPosition: {
+              latitude: 43,
+              longitude: 16,
+              ...deltas
+            }
+          })
+            console.log(response)
+        } else if (response.status === 401) {
+          console.log("token error")
+        }})
+    });
+  }
+
+  selected = () => {
+    this.setState({
+      selected: false
     });
   }
 
   render() {
       return (
         <Screen current={this.props.location}>
-          <Dock />
-          <Tooltip />
+          <Tooltip displayed={this.state.selected} />
+          <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
-            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={false} city="Split, Croatia" time="12:22" rating="3.2" />
+            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration.state} city={this.state.calibration.city} time={this.state.calibration.time} rating={this.state.calibration.rating} />
           </MapView>
         </Screen>
       );
