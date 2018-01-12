@@ -98,7 +98,12 @@ class Map extends Component {
       }).then((response) => {
         if(response.status === 200) {
           this.setState({
-            calibration: true,
+            calibration: {
+              state: true,
+              city: 'ahaha',
+              time: 'aaaa',
+              rating: 1.3
+            },
             pressed: true,
             location: {
               latitude: 43,
@@ -130,7 +135,7 @@ class Map extends Component {
           <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
-            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city={this.state.calibration.city} time={this.state.calibration.time} rating={this.state.calibration.rating} />
+            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration.state} city={this.state.calibration.city} time={this.state.calibration.time} rating={this.state.calibration.rating} />
           </MapView>
         </Screen>
       );
