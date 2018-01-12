@@ -5,10 +5,11 @@ import Callout from '../Callout';
 import styles from './styles.js';
 
 const Marker = ({display, location, calibration, city, time, rating}) => {
+  console.log(calibration)
   if(display) {
     return (
       <MapView.Marker image={require('../../images/map/pin.png')} style={styles.marker} coordinate={location}>
-        {(calibration) ? <Callout location={city} time={time} rating={rating} /> : null}
+        <Callout location={city} time={time} rating={rating} shouldShow={calibration} /> 
       </MapView.Marker> 
     )
   } else {

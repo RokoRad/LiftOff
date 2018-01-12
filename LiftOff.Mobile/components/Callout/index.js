@@ -7,13 +7,13 @@ import { MapView } from 'expo';
 
 const MarkerCallout = ({location, time, rating}) => (
   <MapView.Callout style={styles.wrapper}>
-    <View>
+      <View>
       <Text style={styles.title}>{language.markerTitle}</Text>
     </View>
     <View style={styles.row}>
       <Text style={styles.string}>{language.markerLocation}</Text>
       <Text style={styles.string}>{location}</Text>
-    </View>
+      </View>
     <View style={styles.row}>
       <Text style={styles.string}>{language.markerTime}</Text>
       <Text style={styles.string}>{time}</Text>
