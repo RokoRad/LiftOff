@@ -37,8 +37,6 @@ class Map extends Component {
        selected: false,
        calibration: false
      };
-     this.showCallout = this.showCallout.bind(this);
-     this.hideCalllout = this.hideCallout.bind(this);
   };
 
   componentWillMount() {
@@ -81,7 +79,6 @@ class Map extends Component {
       pressed: true,      
       calibration: false
     });
-    this.hideCallout;
   }
 
   calibration = () => {
@@ -116,7 +113,6 @@ class Map extends Component {
             }
           })
           console.log(response)
-          this.showCallout();
         } else if (response.status === 401) {
           console.log("token error")
         }})
@@ -129,13 +125,6 @@ class Map extends Component {
     });
   }
 
-  showCallout = () => {
-    this.marker.showCallout();
-  }
-
-  hideCallout = () => {
-    this.marker.hideCallout();
-  }
 
   render() {
       return (
