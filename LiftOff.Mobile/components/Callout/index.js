@@ -29,11 +29,14 @@ const MarkerCallout = ({location, time, rating, shouldShow}) => {
   } else {
     console.log("return blank")
     return (
-      <MapView.Callout style={styles.hidden} tooltip={false}>
-        <View>
-          <Text>aaaaa</Text>
-        </View>
-      </MapView.Callout>
+      <View style={styles.hidden}>
+        <Text style={styles.hiddenInner}>haha</Text>
+      </View>
+      // <MapView.Callout style={styles.hidden} tooltip={false}>
+      //   <View>
+      //     <Text>aaaaa</Text>
+      //   </View>
+      // </MapView.Callout>
     );
   }
 };

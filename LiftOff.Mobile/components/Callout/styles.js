@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
   },
   hidden: {
     backgroundColor: 'red',
-    width: 1,
-    height: 1
+    width: 5,
+    height: 5
   },
   title: {
     fontSize: 11,
