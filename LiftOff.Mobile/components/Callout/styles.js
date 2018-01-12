@@ -6,8 +6,6 @@ const styles = StyleSheet.create({
   },
   hidden: {
     backgroundColor: 'red',
-    width: 10,
-    height: 10,
     width: 1,
     height: 1
   },

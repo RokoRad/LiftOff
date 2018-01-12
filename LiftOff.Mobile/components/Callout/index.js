@@ -31,7 +31,7 @@ const MarkerCallout = ({location, time, rating, shouldShow}) => {
     return (
       <MapView.Callout style={styles.hidden} tooltip={false}>
         <View>
-          <Text> </Text>
+          <Text>aaaaa</Text>
         </View>
       </MapView.Callout>
     );
