@@ -18,15 +18,7 @@ const styles = StyleSheet.create({
         height: 5,
         width: 5
     },
-    elevation: 5,
-
-    backgroundColor: 'red',
-
-    width: 200,
-    height: 200,
-    backgroundColor: 'red',
-    left: 0,
-    top: 0
+    elevation: 5
   },
   text: {
     fontSize: 10,
