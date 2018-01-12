@@ -79,14 +79,41 @@ class Map extends Component {
   }
 
   calibration = () => {
-    console.log("CALIBRATED")
+    //timelocation
+    AsyncStorage.getItem('@token').then((response) => {
+      fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + value,
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          
+        })
+      }).then((response) => {
+        console.log(response)
+      })
+    });
+    fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {  
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: encode(details)
+    }).then((response) => {
+      if (response.status === 200) {
+        AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
+        props.router.push("/home");
+      }
+    })
+    console.log("a")
   }
 
   render() {
       return (
         <Screen current={this.props.location}>
           <Tooltip displayed={this.state.pressed}/>
-          <Dock calibration={() => this.calibration()} />
+          <Dock calibration={this.calibration} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
             <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={false} city="Split, Croatia" time="12:22" rating="3.2" />
           </MapView>

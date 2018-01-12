@@ -6,8 +6,7 @@ import styles from './styles.js';
 
 const Dock = ({calibration}) => (
    <View style={styles.dock}>
-   {console.log(calibration)}
-     <Calibration calibration={() => calibration} />
+     <Calibration calibration={calibration} />
      <Picker />
    </View>
 );

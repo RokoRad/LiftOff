@@ -5,7 +5,7 @@ import styles from './styles.js';
 const image = require('../../images/map/crosshair.png');
 
 const Calibration = ({calibration}) => (
-  <TouchableWithoutFeedback onPress={() => console.log("a")}>
+  <TouchableWithoutFeedback onPress={calibration}>
     <View style={styles.item}>
       <Image source={image} style={styles.inner} />
     </View>
