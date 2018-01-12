@@ -97,8 +97,7 @@ class Map extends Component {
             console.log(response)
         } else if (response.status === 401) {
           console.log("token error")
-        })
-      })
+        }})
     });
   }
 
