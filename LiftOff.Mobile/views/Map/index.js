@@ -98,11 +98,13 @@ class Map extends Component {
             calibration: true,
             location: {
               latitude: 43,
-              longitude: 16
+              longitude: 16,
+              ...deltas
             },
             markerPosition: {
               latitude: 43,
-              longitude: 16
+              longitude: 16,
+              ...deltas
             }
           })
             console.log(response)
