@@ -15,8 +15,8 @@ const grabMarkers = () => {
     },
     time: new Date()
   };
+
   AsyncStorage.getItem('@token').then((value) => {
-    console.log(value)
     fetch('http://liftoffapi.azurewebsites.net/api/flights/getFlightsNearMe', {
       method: 'POST',
       headers: {
@@ -24,7 +24,9 @@ const grabMarkers = () => {
         'Content-type': 'application/json'
       },
       body: JSON.stringify(holder)
-    }).then((value) => console.log(value));
+    }).then((response) => {
+      console.log(JSON.parse(response))
+    });
   })
 };
 
