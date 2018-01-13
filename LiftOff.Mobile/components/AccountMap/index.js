@@ -47,11 +47,11 @@ class AccountMap extends React.Component {
       }).then((response) => {
         this.setState({
           markers: response._bodyInit
-        });;
-        console.log(JSON.parse(response._bodyInit))
+        });
+        //console.log(JSON.parse(response._bodyInit))
       });
     })
-    console.log(this.state.markers)
+    //console.log(this.state.markers)
   };
 
   render() {
@@ -63,7 +63,8 @@ class AccountMap extends React.Component {
         <MapView zoomEnabled={true} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} cacheEnabled={true}
           region={{ latitude: this.props.latitude, longitude: this.props.longitude, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>
           {[this.state.markers].map(marker => (
-            <MapView.Marker coordinate={{...marker.flightLocation}} key={marker.id} image={require('../../images/map/pin.png')}/>
+            console.log(marker)
+            // <MapView.Marker coordinate={{...marker.flightLocation}} key={marker.id} image={require('../../images/map/pin.png')}/>
           ))}
         </MapView>
       </View>
