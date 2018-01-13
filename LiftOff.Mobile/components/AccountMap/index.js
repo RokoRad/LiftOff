@@ -11,13 +11,15 @@ class AccountMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      markers: {
-        flightLocation: {
-          latitude: 43,
-          longitude: 16
+      markers: [
+        {
+          flightLocation: {
+            latitude: 43,
+            longitude: 16
+          },
+          id: 0
         },
-        id: 0
-      }
+      ]
     }
   }
 
