@@ -65,10 +65,15 @@ class Account extends Component {
           'Authorization': 'Bearer ' + value
         }
       }).then((response) => {
-        this.setState({
-          userObject: JSON.parse(response._bodyInit)
-        });
-        AsyncStorage.setItem('@stats', JSON.parse(response._bodyInit));
+        if(response.status === 200) {
+          this.setState({
+            userObject: JSON.parse(response._bodyInit)
+          });
+          consolel.log(JSON.parse(response._bodyInit))
+          AsyncStorage.setItem('@stats', JSON.parse(response._bodyInit));
+        } else if (response.status === 401) {
+          this.props.history.push('/');
+        }
       })
     })
   }

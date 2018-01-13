@@ -7,8 +7,6 @@ import Tooltip from '../../components/Tooltip';
 import styles from './styles.js';
 import style from '../../functions/mapStyle';
 import round from '../../functions/round';
-//import DatePicker from '../../external/react-native-datepicker';
-//import Toast from 'react-native-simple-toast';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 //import { language } from '../../config/settings.js';
 //import { changeDateTime, changeLocation, updateServer, timeLocation } from '../../functions/realtime';
