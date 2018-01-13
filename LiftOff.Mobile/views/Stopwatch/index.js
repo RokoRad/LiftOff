@@ -7,6 +7,21 @@ import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchLogs from '../../components/StopwatchLogs';
 import { language } from '../../config/settings.js';
 
+import lang from 'react-native-i18n';
+// za enn-US i en-GB postavlja en kao default
+lang.fallbacks = true;
+// // instnciranje lokalizacije
+lang.translations = {
+  en: {
+    comment: '',
+    flightRating: 'Flight rating:'
+  },
+  hr: {
+    commment: '',
+    flightRating: 'Ocjena leta:'
+  }
+}
+
 const data = [
   {id: 1, active: true, location: 'Čavoglave, Croatia', time: '22:10'},
   {id: 2, active: false, location: 'Čavoglave, Croatia', time: '12:10'},
@@ -39,9 +54,35 @@ class Stopwatch extends Component {
         active: false,
         seconds: 0,
         minutes: 0,
-        startTime: 0
+        startTime: 0,
+        list: {
+          rating: 0,
+          comment: '/'
+        }
      };
   };
+
+  componentWillMount() {
+    AsyncStorage.getItem('@realtime').then((value) => {
+      // this.setState({
+      //   list: JSON.parse(value)
+      // })
+      this.setState({
+        rating: JSON.parse(value.TotalRating)
+      });
+      lang.setContent({
+        en: {
+          comment: JSON.parse(value.AdvisoryRating.English),
+          flightRating: 'Flight rating:'
+        },
+        hr: {
+          comment: JSON.parse(value.AdvisoryRating.Croatian),
+          flightRating: 'Ocjena leta:'
+        }
+      })
+    });
+  }
+
 
   bind = () => {
     if(this.state.active) {
