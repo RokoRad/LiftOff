@@ -144,8 +144,8 @@ class Map extends Component {
         },
         body: JSON.stringify({
             location: {
-              latitude: center.latitude,
-              longitude: center.longitude
+              latitude: this.state.center.latitude,
+              longitude: this.state.center.longitude
             },
             time: "2018-01-13T14:12:10+00:00"
           })
