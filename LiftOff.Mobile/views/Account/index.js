@@ -64,7 +64,7 @@ class Account extends Component {
           <AccountItem title="username" content={this.state.userObject.userName} />
           <AccountItem title="email" content={this.state.userObject.email} />
           <AccountItem title="favoriteFlyingSpot" content={this.state.userObject.favoriteFlightSpot} />
-          <AccountItem title="averageFlightSpot" content={this.state.userObject.favoriteFlightTime} />
+          <AccountItem title="averageFlightTime" content={this.state.userObject.favoriteFlightTime} />
           <AccountItem title="totalFlights" content={this.state.userObject.totalFlights} />
           <AccountItem title="averageFlySafeScore" content={this.state.userObject.totalFlySafeScore} />
           <AccountItem title="totalTimeFlown" content={this.state.userObject.totalTimeFlown} />

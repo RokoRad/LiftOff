@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { View, Text, Image, AsyncStorage } from 'react-native';
-import lang from 'react-native-i18n';
 import { MapView, PROVIDER_GOOGLE } from 'expo';
 import style from '../../functions/mapStyle';
 import styles from './styles.js';
 
+import lang from 'react-native-i18n';
+// za enn-US i en-GB postavlja en kao default
 lang.fallbacks = true;
-
 // instnciranje lokalizacije
 lang.translations = {
   en: {
     moreThan: "More than",
-    flewhere: "flew here"
+    flewHere: "flew here"
   },
   hr: {
     moreThan: "Više od",
-    flewhere: "je letjelo ovdije"
+    flewHere: "je letjelo ovdije"
   }
 }
 
