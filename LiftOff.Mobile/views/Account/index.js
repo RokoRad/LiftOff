@@ -3,7 +3,6 @@ import { View, Text, Picker, ScrollView, AsyncStorage } from 'react-native';
 import Screen from '../../components/Screen';
 import AccountItem from '../../components/AccountItem';
 import AccountMap from '../../components/AccountMap';
-import Dropdown from '../../components/Dropdown';
 import styles from './styles.js';
 
 class Account extends Component {
@@ -53,13 +52,13 @@ class Account extends Component {
       <Screen current={this.props.location}>
         <AccountMap />
         <View style={styles.container}>
-          <AccountItem title="Username" content={this.state.userObject.userName} />
-          <AccountItem title="Email" content={this.state.userObject.email} />
-          <AccountItem title="Favorite flying spot" content={this.state.userObject.favoriteFlightSpot} />
-          <AccountItem title="Average flight spot" content={this.state.userObject.favoriteFlightTime} />
-          <AccountItem title="Total flights" content={this.state.userObject.totalFlights} />
-          <AccountItem title="Average FlySafe score" content={this.state.userObject.totalFlySafeScore} />
-          <AccountItem title="Total time flown" content={this.state.userObject.totalTimeFlown} />
+          <AccountItem title="username" content={this.state.userObject.userName} />
+          <AccountItem title="email" content={this.state.userObject.email} />
+          <AccountItem title="favoriteFlyingSpot" content={this.state.userObject.favoriteFlightSpot} />
+          <AccountItem title="averageFlightSpot" content={this.state.userObject.favoriteFlightTime} />
+          <AccountItem title="totalFlights" content={this.state.userObject.totalFlights} />
+          <AccountItem title="averageFlySafeScore" content={this.state.userObject.totalFlySafeScore} />
+          <AccountItem title="totalTimeFlown" content={this.state.userObject.totalTimeFlown} />
         </View>
       </Screen>
     );

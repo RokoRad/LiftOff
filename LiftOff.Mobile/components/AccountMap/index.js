@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, Image, AsyncStorage } from 'react-native';
 import { MapView, PROVIDER_GOOGLE } from 'expo';
-import * as Animatable from 'react-native-animatable';
-import animationGenerator from '../../functions/animationGenerator';
 import style from '../../functions/mapStyle';
 import styles from './styles.js';
-// api/flights/getFlightsNearMe
 
 class AccountMap extends React.Component {
   constructor() {
@@ -79,41 +76,5 @@ class AccountMap extends React.Component {
     )
   }
 }
-
-// 11:07:34:   Object {
-//   11:07:34:     "drone": null,
-//   11:07:34:     "flightLocation": Object {
-//   11:07:34:       "flightLocationId": 1,
-//   11:07:34:       "flightSpot": "Split",
-//   11:07:34:       "latitude": 43.508133,
-//   11:07:34:       "longitude": 16.440193,
-//   11:07:34:     },
-//   11:07:34:     "flightTime": Object {
-//   11:07:34:       "flightStartTime": "2018-01-10T21:01:08.447",
-//   11:07:34:       "flightTimeId": 1,
-//   11:07:34:     },
-//   11:07:34:     "flySafeScore": 2.2,
-//   11:07:34:     "id": 1,
-//   11:07:34:     "timeFlown": 69,
-//   11:07:34:   },
-//   11:07:34:   Object {
-//   11:07:34:     "drone": null,
-//   11:07:34:     "flightLocation": Object {
-//   11:07:34:       "flightLocationId": 2,
-//   11:07:34:       "flightSpot": "Split",
-//   11:07:34:       "latitude": 43.508133,
-//   11:07:34:       "longitude": 16.440193,
-//   11:07:34:     },
-//   11:07:34:     "flightTime": Object {
-//   11:07:34:       "flightStartTime": "2018-01-11T22:14:25.637",
-//   11:07:34:       "flightTimeId": 2,
-//   11:07:34:     },
-//   11:07:34:     "flySafeScore": 2.2,
-//   11:07:34:     "id": 2,
-//   11:07:34:     "timeFlown": 69,
-//   11:07:34:   },
-//   11:07:34: ]
-  
-
 
 export default AccountMap;
