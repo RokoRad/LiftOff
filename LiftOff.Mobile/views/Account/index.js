@@ -25,7 +25,7 @@ class Account extends Component {
   componentWillMount() {
     AsyncStorage.getItem('@stats').then((value) => {
       this.state = {
-        userObject: value
+        userObject: JSON.parse(value)
       };
     });
 
@@ -40,7 +40,7 @@ class Account extends Component {
           this.setState({
             userObject: JSON.parse(response._bodyInit)
           });
-          AsyncStorage.setItem('@stats', JSON.parse(response._bodyInit));
+          AsyncStorage.setItem('@stats', (response._bodyInit));
         } else if (response.status === 401) {
           this.props.history.push('/');
         }
