@@ -7,59 +7,118 @@ import style from '../../functions/mapStyle';
 import styles from './styles.js';
 // api/flights/getFlightsNearMe
 
-const grabMarkers = () => {
-  const holder = {
-    location: {
-      latitude: 43.508133,
-      longitude: 16.440193
-    },
-    time: new Date()
+// const grabMarkers = () => {
+//   const holder = {
+//     location: {
+//       latitude: 43.508133,
+//       longitude: 16.440193
+//     },
+//     time: new Date()
+//   };
+
+//   AsyncStorage.getItem('@token').then((value) => {
+//     fetch('http://liftoffapi.azurewebsites.net/api/flights/getFlightsNearMe', {
+//       method: 'POST',
+//       headers: {
+//         'Authorization': 'Bearer ' + value,
+//         'Content-type': 'application/json'
+//       },
+//       body: JSON.stringify(holder)
+//     }).then((response) => {
+//       let markers = response._bodyInit;
+//       console.log(JSON.parse(response._bodyInit))
+//     });
+//   })
+//   console.log(markers)
+// };
+
+// var markers = [
+//   {title:'1', coordinate: {latitude: 45.81, longitude: 15.9 }},
+//   {title:'2', coordinate: {latitude: 45.82, longitude: 15.85 }},
+//   {title:'ž', coordinate: {latitude: 45.82, longitude: 16 }},
+//   {title:'e', coordinate: {latitude: 45.82, longitude: 15.8 }},
+//   {title:'3', coordinate: {latitude: 45.83, longitude: 15.9 }},
+//   {title:'4', coordinate: {latitude: 45.81, longitude: 15.77 }},
+//   {title:'5', coordinate: {latitude: 45.82, longitude: 15.85 }},
+//   {title:'6', coordinate: {latitude: 45.83, longitude: 15.9 }}
+// ];
+
+
+// const AccountMap = (props) => {
+//   console.log(markers)
+//   grabMarkers();
+//   return (
+//     <View style={styles.wrapper}>
+//       <Text style={styles.text}>
+//         More than {markers.length} flew here <Image source={require('../../images/map/fire.png')} style={styles.image} />
+//       </Text>
+//       <MapView zoomEnabled={true} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} cacheEnabled={true}
+//         region={{ latitude: props.latitude, longitude: props.longitude, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>
+//         {markers.map(marker => (
+//           <MapView.Marker coordinate={marker.coordinate.flightLocation} key={marker.id} image={require('../../images/map/pin.png')}/>
+//         ))}
+//       </MapView>
+//     </View>
+//   );
+// };
+
+
+class AccountMap extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      markers: null
+    }
+  }
+
+  componentWillMount() {
+    this.grabMarkers();
+  }
+
+  grabMarkers = () => {
+    const holder = {
+      location: {
+        latitude: 43.508133,
+        longitude: 16.440193
+      },
+      time: new Date()
+    };
+
+    AsyncStorage.getItem('@token').then((value) => {
+      fetch('http://liftoffapi.azurewebsites.net/api/flights/getFlightsNearMe', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + value,
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(holder)
+      }).then((response) => {
+        this.setState({
+          markers: response._bodyInit
+        });;
+        console.log(JSON.parse(response._bodyInit))
+      });
+    })
+    console.log(markers)
   };
 
-  AsyncStorage.getItem('@token').then((value) => {
-    fetch('http://liftoffapi.azurewebsites.net/api/flights/getFlightsNearMe', {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer ' + value,
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(holder)
-    }).then((response) => {
-      let markers = response._bodyInit;
-      console.log(JSON.parse(response._bodyInit))
-    });
-  })
-  console.log(markers)
-};
+  render() {
+    return (
+      <View style={styles.wrapper}>
+        <Text style={styles.text}>
+          More than {this.markers.length} flew here <Image source={require('../../images/map/fire.png')} style={styles.image} />
+        </Text>
+        <MapView zoomEnabled={true} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} cacheEnabled={true}
+          region={{ latitude: props.latitude, longitude: props.longitude, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>
+          {this.state.markers.map(marker => (
+            <MapView.Marker coordinate={marker.coordinate.flightLocation} key={marker.id} image={require('../../images/map/pin.png')}/>
+          ))}
+        </MapView>
+      </View>
+    )
+  }
 
-var markers = [
-  {title:'1', coordinate: {latitude: 45.81, longitude: 15.9 }},
-  {title:'2', coordinate: {latitude: 45.82, longitude: 15.85 }},
-  {title:'ž', coordinate: {latitude: 45.82, longitude: 16 }},
-  {title:'e', coordinate: {latitude: 45.82, longitude: 15.8 }},
-  {title:'3', coordinate: {latitude: 45.83, longitude: 15.9 }},
-  {title:'4', coordinate: {latitude: 45.81, longitude: 15.77 }},
-  {title:'5', coordinate: {latitude: 45.82, longitude: 15.85 }},
-  {title:'6', coordinate: {latitude: 45.83, longitude: 15.9 }}
-];
+}
 
-
-const AccountMap = (props) => {
-  console.log(markers)
-  grabMarkers();
-  return (
-    <View style={styles.wrapper}>
-      <Text style={styles.text}>
-        More than {markers.length} flew here <Image source={require('../../images/map/fire.png')} style={styles.image} />
-      </Text>
-      <MapView zoomEnabled={true} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} cacheEnabled={true}
-        region={{ latitude: props.latitude, longitude: props.longitude, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>
-        {markers.map(marker => (
-          <MapView.Marker coordinate={marker.coordinate.flightLocation} key={marker.id} image={require('../../images/map/pin.png')}/>
-        ))}
-      </MapView>
-    </View>
-  );
-};
 
 export default AccountMap;
