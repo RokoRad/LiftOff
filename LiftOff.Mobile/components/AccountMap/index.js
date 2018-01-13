@@ -8,24 +8,17 @@ import styles from './styles.js';
 // api/flights/getFlightsNearMe
 
 class AccountMap extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       markers: [
         {
           flightLocation: {
-            latitude: 43,
-            longitude: 16
+            latitude: 43.508133,
+            longitude: 16.440193
           },
           id: 0
-        },
-        {
-          flightLocation: {
-            latitude: 43,
-            longitude: 16
-          },
-          id: 1
-        },
+        }
       ]
     }
   }
@@ -43,6 +36,12 @@ class AccountMap extends React.Component {
       time: new Date()
     };
 
+    AsyncStorage.getItem('@hot').then((value) => {
+      this.setState({
+        markers: JSON.parse(value)
+      })
+    });
+
     AsyncStorage.getItem('@token').then((value) => {
       fetch('http://liftoffapi.azurewebsites.net/api/flights/getFlightsNearMe', {
         method: 'POST',
@@ -52,26 +51,26 @@ class AccountMap extends React.Component {
         },
         body: JSON.stringify(holder)
       }).then((response) => {
+        AsyncStorage.setItem('@hot', response._bodyInit);
         this.setState({
-          markers: response._bodyInit
+          markers: JSON.parse(response._bodyInit)
         });
-        //console.log(JSON.parse(response._bodyInit))
       });
     })
-    //console.log(this.state.markers)
   };
 
   render() {
     return (
       <View style={styles.wrapper}>
         <Text style={styles.text}>
-          More than 10 flew here <Image source={require('../../images/map/fire.png')} style={styles.image} />
+          More than {this.state.markers.length} flew here <Image source={require('../../images/map/fire.png')} style={styles.image} />
         </Text>
         <MapView zoomEnabled={true} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} cacheEnabled={true}
-          region={{ latitude: this.props.latitude, longitude: this.props.longitude, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>
-          {[this.state.markers].map(marker => (
-            // console.log(marker)
-            <MapView.Marker coordinate={{ latitude: marker.flightLocation.latitude, longitude: marker.flightLocation.longitude }} key={marker.id} image={require('../../images/map/pin.png')}/>
+          region={{ ...this.state.markers[0].flightLocation, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>
+          {[this.state.markers].map((marker, index) => (
+            //console.log(marker[index].flightLocation)
+            //console.log(marker[id])
+            <MapView.Marker coordinate={{ ...marker[index].flightLocation }} key={marker[index].id} image={require('../../images/map/pin.png')}/>
           ))}
         </MapView>
       </View>

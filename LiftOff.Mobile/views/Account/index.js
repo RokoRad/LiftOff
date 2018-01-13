@@ -51,7 +51,7 @@ class Account extends Component {
   render() {
     return (
       <Screen current={this.props.location}>
-        <AccountMap latitude={45.80} longitude={15.95} />
+        <AccountMap />
         <View style={styles.container}>
           <AccountItem title="Username" content={this.state.userObject.userName} />
           <AccountItem title="Email" content={this.state.userObject.email} />
