@@ -76,6 +76,47 @@ class Map extends Component {
   }
 
   setMarker = (value) => {
+    AsyncStorage.getItem('@token').then((value) => {
+      fetch('http://liftoffapi.azurewebsites.net/api/weather/getWeather', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + value,
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            location: {
+              latitude: 43.508133,
+              longitude: 16.440193
+            },
+            time: "2018-01-13T14:12:10+00:00"
+          })
+      }).then((response) => {
+        if(response.status === 200) {
+          this.setState({
+            calibration: true,
+            pressed: true,
+            location: {
+              latitude: 43,
+              longitude: 16,
+              ...deltas
+            },
+            markerPosition: {
+              latitude: 43,
+              longitude: 16,
+              ...deltas
+            }
+          })
+          const parsed = JSON.parse(response._bodyInit);
+          holder.city = parsed.weatherData.city;
+          holder.rating = round(parsed.totalRating);
+          let date = new Date();
+              mm = date.getMinutes();
+              hh = date.getHours();
+          holder.time = `${hh}:${mm}`;
+        } else if (response.status === 401) {
+          this.props.history.push('/');
+        }})
+    });
     if(this.state.selected === false) {
       this.setState({
         selected: true
@@ -103,8 +144,8 @@ class Map extends Component {
         },
         body: JSON.stringify({
             location: {
-              latitude: 43.508133,
-              longitude: 16.440193
+              latitude: center.latitude,
+              longitude: center.longitude
             },
             time: "2018-01-13T14:12:10+00:00"
           })
