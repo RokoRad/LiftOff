@@ -37,9 +37,11 @@ class AccountMap extends React.Component {
     };
 
     AsyncStorage.getItem('@hot').then((value) => {
-      this.setState({
-        markers: JSON.parse(value)
-      })
+      if(JSON.parse(value).length !== 0) {
+        this.setState({
+          markers: JSON.parse(value)
+        })
+      }
     });
 
     AsyncStorage.getItem('@token').then((value) => {
