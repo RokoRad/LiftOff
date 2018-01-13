@@ -77,7 +77,7 @@ class Map extends Component {
 
   setMarker = (value) => {
     AsyncStorage.getItem('@token').then((value) => {
-      fetch('http://liftoffapi.azurewebsites.net/api/weather/getWeather', {
+      fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + value,
@@ -91,19 +91,18 @@ class Map extends Component {
             time: "2018-01-13T14:12:10+00:00"
           })
       }).then((response) => {
-        console.log(response)
         if(response.status === 200) {
           this.setState({
             calibration: true,
             pressed: true,
             location: {
-              latitude: 43,
-              longitude: 16,
+              longitude: response.coords.longitude,
+              latitude: response.coords.latitude,
               ...deltas
             },
             markerPosition: {
-              latitude: 43,
-              longitude: 16,
+              longitude: response.coords.longitude,
+              latitude: response.coords.latitude,
               ...deltas
             }
           })
