@@ -79,11 +79,11 @@ class Account extends Component {
           <AccountItem title="Email" content={this.state.userObject.email} />
           {/* <Dropdown />
           <ScrollView style={styles.scrollview}> */}
-            <AccountItem title="Favorite flying spot" ccontent={this.state.userObject.favoriteFlightSpot} />
-            <AccountItem title="Average flight spot" ccontent={this.state.userObject.favoriteFlightTime} />
-            <AccountItem title="Total flights" ccontent={this.state.userObject.totalFlights} />
-            <AccountItem title="Average FlySafe score" ccontent={this.state.userObject.totalFlySafeScore} />
-            <AccountItem title="Total time flown" ccontent={this.state.userObject.totalTimeFlown} />
+            <AccountItem title="Favorite flying spot" content={this.state.userObject.favoriteFlightSpot} />
+            <AccountItem title="Average flight spot" content={this.state.userObject.favoriteFlightTime} />
+            <AccountItem title="Total flights" content={this.state.userObject.totalFlights} />
+            <AccountItem title="Average FlySafe score" content={this.state.userObject.totalFlySafeScore} />
+            <AccountItem title="Total time flown" content={this.state.userObject.totalTimeFlown} />
           {/* </ScrollView> */}
         </View>
       </Screen>
