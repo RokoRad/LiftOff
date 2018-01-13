@@ -6,6 +6,22 @@ import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
 import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchLogs from '../../components/StopwatchLogs';
 import { language } from '../../config/settings.js';
+import round from '../../functions/round';
+
+import lang from 'react-native-i18n';
+// za enn-US i en-GB postavlja en kao default
+lang.fallbacks = true;
+// // instnciranje lokalizacije
+lang.translations = {
+  en: {
+    comment: 'Fetching newest data',
+    flightRating: 'Flight rating:'
+  },
+  hr: {
+    commment: 'Učitavam najnovije podatke',
+    flightRating: 'Ocjena leta:'
+  }
+}
 
 const data = [
   {id: 1, active: true, location: 'Čavoglave, Croatia', time: '22:10'},
@@ -39,9 +55,28 @@ class Stopwatch extends Component {
         active: false,
         seconds: 0,
         minutes: 0,
-        startTime: 0
+        startTime: 0,
+        rating: '/',
+        comment: {
+          en: 'Fetching newest data..',
+          hr: 'Dohvaćanje najnovijih podataka..'
+        }
      };
   };
+
+  componentWillMount() {
+    AsyncStorage.getItem('@realtime').then((value) => {
+      let parse = JSON.parse(value);
+      this.setState({
+        rating: round(parse.TotalRating),
+        comment: {
+          en: parse.AdvisoryRating.English,
+          hr: parse.AdvisoryRating.Croatian
+        }
+      })
+    });
+  }
+
 
   bind = () => {
     if(this.state.active) {
@@ -96,7 +131,7 @@ class Stopwatch extends Component {
   render() {
       return (
         <Screen current={this.props.location}>
-          <SafetyscoreStopwatch rating="3.7"/>
+          <SafetyscoreStopwatch title={lang.t('flightRating')} comment={this.state.comment.en} rating={this.state.rating} />
           <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} />
           <TouchableOpacity activeOpacity={0.9} onPress={this.bind} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
             <Text style={globals.buttonInner}>

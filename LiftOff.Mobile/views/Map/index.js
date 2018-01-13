@@ -111,6 +111,7 @@ class Map extends Component {
               ...deltas
             }
           })
+          AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation))
         } else if (response.status === 401) {
           this.props.history.push('/');
         }}).catch((error) => console.log(error))
@@ -168,6 +169,7 @@ class Map extends Component {
               ...deltas
             }
           })
+          AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation))
         } else if (response.status === 401) {
           this.props.history.push('/');
         }})

@@ -7,22 +7,22 @@ import * as Animatable from 'react-native-animatable';
 import colorGenerator from '../../functions/colorGenerator';
 import animationGenerator from '../../functions/animationGenerator';
 
-const SafetyscoreStopwatch = (props) => (
-  <View style={[styles.wrapper, globals[colorGenerator(props.rating)]]}>
+const SafetyscoreStopwatch = ({title, comment, rating}) => (
+  <View style={[styles.wrapper, globals[colorGenerator(rating)]]}>
     <View style={[styles.droneWrapper, globals.bothAligned]}>
-      <Animatable.Image source={require('../../images/drone.png')} style={styles.drone} animation={animationGenerator(colorGenerator(props.rating))} iterationCount="infinite" easing="ease-in-out" direction="alternate" />
+      <Animatable.Image source={require('../../images/drone.png')} style={styles.drone} animation={animationGenerator(colorGenerator(rating))} iterationCount="infinite" easing="ease-in-out" direction="alternate" />
     </View>
     <View style={styles.information}>
       <View>
-        <Text style={styles.informationTitle}>Flight rating:</Text>
+        <Text style={styles.informationTitle}>{title}</Text>
       </View>
       <View>
-        <Text style={styles.informationText}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</Text>
+        <Text style={styles.informationText}>{comment}</Text>
       </View>
     </View>
     <View style={[styles.rating, globals.bothAligned]}>
       <Text style={styles.ratingInner}>
-        6.7
+        {rating}
       </Text>
     </View>
   </View>

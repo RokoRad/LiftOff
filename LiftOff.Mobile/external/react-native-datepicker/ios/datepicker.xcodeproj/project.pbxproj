@@ -43,6 +43,7 @@
 		26025313967C42828527B5C1 /* Barlow-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C023F4792B684A7FA0F9AC63 /* Barlow-Medium.ttf */; };
 		3A6A8989CFFA49EFA6648C25 /* Barlow-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A840F9ED908C422CAC900E2F /* Barlow-Regular.ttf */; };
 		C5D2B3B8FFCA4DE68075B4DD /* Barlow-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 046E9DC98C1C472EACC070E5 /* Barlow-SemiBold.ttf */; };
+		3163617D4E9743C79591B3DF /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A31235654A1C455EA9C05748 /* libRNI18n.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,6 +280,8 @@
 		C023F4792B684A7FA0F9AC63 /* Barlow-Medium.ttf */ = {isa = PBXFileReference; name = "Barlow-Medium.ttf"; path = "../../../fonts/Barlow-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		A840F9ED908C422CAC900E2F /* Barlow-Regular.ttf */ = {isa = PBXFileReference; name = "Barlow-Regular.ttf"; path = "../../../fonts/Barlow-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		046E9DC98C1C472EACC070E5 /* Barlow-SemiBold.ttf */ = {isa = PBXFileReference; name = "Barlow-SemiBold.ttf"; path = "../../../fonts/Barlow-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CA9311339EDA4553B782E88D /* RNI18n.xcodeproj */ = {isa = PBXFileReference; name = "RNI18n.xcodeproj"; path = "../../../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		A31235654A1C455EA9C05748 /* libRNI18n.a */ = {isa = PBXFileReference; name = "libRNI18n.a"; path = "libRNI18n.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +312,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				C236B52AB6464C42BBDCE36B /* libReactNativeLocalization.a in Frameworks */,
 				9BFA0150B9F94A40A465ECFD /* libLRDRCTSimpleToast.a in Frameworks */,
+				3163617D4E9743C79591B3DF /* libRNI18n.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +483,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				813932367E5A4CCC8103C9D1 /* ReactNativeLocalization.xcodeproj */,
 				C3024CEE4F0944EB9E7168FF /* LRDRCTSimpleToast.xcodeproj */,
+				CA9311339EDA4553B782E88D /* RNI18n.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1047,11 +1052,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
+					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Debug;
@@ -1074,11 +1081,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
+					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Release;
@@ -1102,6 +1111,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
+					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Debug;
@@ -1124,6 +1134,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
+					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Release;
@@ -1155,11 +1166,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
+					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Debug;
@@ -1191,11 +1204,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
+					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Release;
@@ -1222,6 +1237,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1246,6 +1262,7 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);

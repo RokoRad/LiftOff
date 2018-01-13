@@ -5,6 +5,39 @@ import AccountItem from '../../components/AccountItem';
 import AccountMap from '../../components/AccountMap';
 import styles from './styles.js';
 
+// import lang from 'react-native-i18n';
+// // za enn-US i en-GB postavlja en kao default
+// lang.fallbacks = true;
+// // // instnciranje lokalizacije
+// lang.translations = {
+//   en: {
+//     moreThan: "More than",
+//     flewHere: "flew here",
+//     userName: "Username",
+//     email: "Email",
+//     favoriteFlightSpot: "Favorite flying spot",
+//     favoriteFlightTime: "Average flight time",
+//     totalFlights: "Total flights",
+//     totalFlySafeScore: "Average FlySafe Score",
+//     totalTimeFlown: "Total time flown"
+//   },
+//   hr: {
+//     moreThan: "Više od",
+//     flewHere: "je letjelo ovdije",
+//     email: "Email",
+//     favoriteFlightSpot: "Najčešće mjesto letenja",
+//     favoriteFlightTime: "Prosječno trajanje leta",
+//     totalFlights: "Ukupno letova",
+//     totalFlySafeScore: "Prosječna FlySafe ocijena",
+//     totalTimeFlown: "Ukupno vrijeme letenja"
+//   }
+// }
+const lang = {
+  t: function(value) {
+    return value;
+  }
+}
+
 // instaciranje komponente
 class Account extends Component {
   // postavljanje defaultnih vrijednosti
@@ -59,15 +92,15 @@ class Account extends Component {
   render() {
     return (
       <Screen current={this.props.location}>
-        <AccountMap />
+        <AccountMap moreThan={lang.t('moreThan')} flewHere={lang.t('flewHere')} />
         <View style={styles.container}>
-          <AccountItem title="username" content={this.state.userObject.userName} />
-          <AccountItem title="email" content={this.state.userObject.email} />
-          <AccountItem title="favoriteFlyingSpot" content={this.state.userObject.favoriteFlightSpot} />
-          <AccountItem title="averageFlightSpot" content={this.state.userObject.favoriteFlightTime} />
-          <AccountItem title="totalFlights" content={this.state.userObject.totalFlights} />
-          <AccountItem title="averageFlySafeScore" content={this.state.userObject.totalFlySafeScore} />
-          <AccountItem title="totalTimeFlown" content={this.state.userObject.totalTimeFlown} />
+          <AccountItem title={lang.t('userName')} content={this.state.userObject.userName} />
+          <AccountItem title={lang.t('email')} content={this.state.userObject.email} />
+          <AccountItem title={lang.t('favoriteFlightSpot')} content={this.state.userObject.favoriteFlightSpot} />
+          <AccountItem title={lang.t('favoriteFlightTime')} content={this.state.userObject.favoriteFlightTime} />
+          <AccountItem title={lang.t('totalFlights')} content={this.state.userObject.totalFlights} />
+          <AccountItem title={lang.t('totalFlySafeScore')} content={this.state.userObject.totalFlySafeScore} />
+          <AccountItem title={lang.t('totalTimeFlown')} content={this.state.userObject.totalTimeFlown} />
         </View>
       </Screen>
     );

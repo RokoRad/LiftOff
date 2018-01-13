@@ -1,27 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text, Image, AsyncStorage } from 'react-native';
-import LocalizedStrings from 'react-native-localization';
 import { MapView, PROVIDER_GOOGLE } from 'expo';
 import style from '../../functions/mapStyle';
 import styles from './styles.js';
 
-// instnciranje lokalizacije
-let strings = new LocalizedStrings({
-  en: {
-    moreThan: "More than",
-    flewhere: "flew here"
-  },
-  hr: {
-    moreThan: "Više od",
-    flewhere: "je letjelo ovdije"
-  }
- });
-
 // instanciranje kompinente
 class AccountMap extends React.Component {
   // postavljanje defaultne vrijednosti, koja je u ovom slučaju Split
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       markers: [
         {
@@ -88,7 +75,7 @@ class AccountMap extends React.Component {
     return (
       <View style={styles.wrapper}>
         <Text style={styles.text}>
-          {strings.moreThan} {this.state.markers.length} {strings.flewHere} <Image source={require('../../images/map/fire.png')} style={styles.image} />
+          {this.props.moreThan} {this.state.markers.length} {this.props.flewHere} <Image source={require('../../images/map/fire.png')} style={styles.image} />
         </Text>
         <MapView zoomEnabled={true} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} cacheEnabled={true}
           region={{ ...this.state.markers[0].flightLocation, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>

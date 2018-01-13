@@ -43,6 +43,7 @@ class Home extends React.Component {
       this.setState({
         list: value
       })
+      console.log(value)
     });
 
     connection.start().done(() => {
