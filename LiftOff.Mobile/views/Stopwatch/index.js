@@ -13,11 +13,11 @@ lang.fallbacks = true;
 // // instnciranje lokalizacije
 lang.translations = {
   en: {
-    comment: 'Loading data',
+    comment: 'Fetching newest data',
     flightRating: 'Flight rating:'
   },
   hr: {
-    commment: 'Učitavam podatke',
+    commment: 'Učitavam najnovije podatke',
     flightRating: 'Ocjena leta:'
   }
 }
@@ -61,21 +61,22 @@ class Stopwatch extends Component {
 
   componentWillMount() {
     AsyncStorage.getItem('@realtime').then((value) => {
-      this.setState({
-        rating: JSON.parse(value.TotalRating)
-      });
-      console.log(JSON.parse(value.AdvisoryRating.English))
-      lang.setContent({
-        en: {
-          comment: JSON.parse(value.AdvisoryRating.English),
-          flightRating: 'Flight rating:'
-        },
-        hr: {
-          comment: JSON.parse(value.AdvisoryRating.Croatian),
-          flightRating: 'Ocjena leta:'
-        }
-      });
-      this.forceUpdate();
+      console.log(JSON.parse(value))
+      // this.setState({
+      //   rating: JSON.parse(value.TotalRating)
+      // });
+      // console.log(JSON.parse(value.AdvisoryRating.English))
+      // lang.setContent({
+      //   en: {
+      //     comment: JSON.parse(value.AdvisoryRating.English),
+      //     flightRating: 'Flight rating:'
+      //   },
+      //   hr: {
+      //     comment: JSON.parse(value.AdvisoryRating.Croatian),
+      //     flightRating: 'Ocjena leta:'
+      //   }
+      // });
+      // this.forceUpdate();
     });
   }
 
