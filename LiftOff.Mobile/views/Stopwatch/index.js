@@ -62,6 +62,9 @@ class Stopwatch extends Component {
   componentWillMount() {
     AsyncStorage.getItem('@realtime').then((value) => {
       console.log(JSON.parse(value))
+      this.setState({
+        rating: JSON.parse(value.TotalRating)
+      })
       lang.getLanguage().then((response) => console.log(response))
       //console.log(lang.getLanguage())
       // this.setState({
