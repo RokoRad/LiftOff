@@ -6,11 +6,16 @@ import Dock from '../../components/Dock';
 import Tooltip from '../../components/Tooltip';
 import styles from './styles.js';
 import style from '../../functions/mapStyle';
-//import DatePicker from '../../external/react-native-datepicker';
-//import Toast from 'react-native-simple-toast';
+import round from '../../functions/round';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 //import { language } from '../../config/settings.js';
 //import { changeDateTime, changeLocation, updateServer, timeLocation } from '../../functions/realtime';
+
+const holder = {
+  city: '/',
+  time: '/',
+  rating: '/'
+}
 
 const deltas = {
   longitudeDelta: 0.1,
@@ -69,21 +74,8 @@ class Map extends Component {
   }
 
   setMarker = (value) => {
-    if(this.state.selected === false) {
-      this.setState({
-        selected: true
-      })
-    }
-    this.setState({
-      markerPosition: value.nativeEvent.coordinate,
-      pressed: true,      
-      calibration: false
-    });
-  }
-
-  calibration = () => {
     AsyncStorage.getItem('@token').then((value) => {
-      fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
+      fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + value,
@@ -98,23 +90,86 @@ class Map extends Component {
           })
       }).then((response) => {
         if(response.status === 200) {
+          const parsed = JSON.parse(response._bodyInit);
+          holder.city = parsed.weatherData.city;
+          holder.rating = round(parsed.totalRating);
+          let date = new Date();
+              mm = date.getMinutes();
+              hh = date.getHours();
+          holder.time = `${hh}:${mm}`;
           this.setState({
             calibration: true,
             pressed: true,
             location: {
-              latitude: 43,
-              longitude: 16,
+              longitude: response.coords.longitude,
+              latitude: response.coords.latitude,
               ...deltas
             },
             markerPosition: {
-              latitude: 43,
-              longitude: 16,
+              longitude: response.coords.longitude,
+              latitude: response.coords.latitude,
               ...deltas
             }
           })
-          console.log(response)
         } else if (response.status === 401) {
-          console.log("token error")
+          this.props.history.push('/');
+        }}).catch((error) => console.log(error))
+    });
+    if(this.state.selected === false) {
+      this.setState({
+        selected: true
+      })
+    }
+    this.setState({
+      markerPosition: value.nativeEvent.coordinate,
+      pressed: true,      
+      calibration: false
+    });
+    holder = {
+      city: '/',
+      time: '/',
+      rating: '/'
+    }
+  }
+
+  calibration = () => {
+    AsyncStorage.getItem('@token').then((value) => {
+      fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + value,
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            location: {
+              latitude: this.state.center.latitude,
+              longitude: this.state.center.longitude
+            },
+            time: "2018-01-13T14:12:10+00:00"
+          })
+      }).then((response) => {
+        if(response.status === 200) {
+          const parsed = JSON.parse(response._bodyInit);
+          holder.city = parsed.weatherData.city;
+          holder.rating = round(parsed.totalRating);
+          let date = new Date();
+              mm = date.getMinutes();
+              hh = date.getHours();
+          holder.time = `${hh}:${mm}`;
+          this.setState({
+            calibration: true,
+            pressed: true,
+            location: {
+              ...parsed.weatherData.timeLocation.location,
+              ...deltas
+            },
+            markerPosition: {
+              ...parsed.weatherData.timeLocation.location,
+              ...deltas
+            }
+          })
+        } else if (response.status === 401) {
+          this.props.history.push('/');
         }})
     });
   }
@@ -132,7 +187,7 @@ class Map extends Component {
           <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
-            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city="Zagreb" time="22:22" rating="1.2" />
+            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city={holder.city} time={holder.time} rating={holder.rating} />
           </MapView>
         </Screen>
       );
