@@ -56,7 +56,11 @@ class Stopwatch extends Component {
         seconds: 0,
         minutes: 0,
         startTime: 0,
-        rating: '/'
+        rating: '/',
+        comment: {
+          en: 'Fetching newest data..',
+          hr: 'Dohvaćanje najnovijih podataka..'
+        }
      };
   };
 
@@ -64,28 +68,12 @@ class Stopwatch extends Component {
     AsyncStorage.getItem('@realtime').then((value) => {
       let parse = JSON.parse(value);
       this.setState({
-        rating: round(parse.TotalRating)
+        rating: round(parse.TotalRating),
+        comment: {
+          en: parse.AdvisoryRating.English,
+          hr: parse.AdvisoryRating.Croatian
+        }
       })
-      // this.setState({
-      //   rating: JSON.parse(value.TotalRating)
-      // })
-      console.log(lang.getLanguage())
-      //console.log(lang.getLanguage())
-      // this.setState({
-      //   rating: JSON.parse(value.TotalRating)
-      // });
-      // console.log(JSON.parse(value.AdvisoryRating.English))
-      // lang.setContent({
-      //   en: {
-      //     comment: JSON.parse(value.AdvisoryRating.English),
-      //     flightRating: 'Flight rating:'
-      //   },
-      //   hr: {
-      //     comment: JSON.parse(value.AdvisoryRating.Croatian),
-      //     flightRating: 'Ocjena leta:'
-      //   }
-      // });
-      // this.forceUpdate();
     });
   }
 
@@ -143,7 +131,7 @@ class Stopwatch extends Component {
   render() {
       return (
         <Screen current={this.props.location}>
-          <SafetyscoreStopwatch title={lang.t('flightRating')} comment={lang.t('comment')} rating={this.state.rating} />
+          <SafetyscoreStopwatch title={lang.t('flightRating')} comment={this.state.comment.en} rating={this.state.rating} />
           <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} />
           <TouchableOpacity activeOpacity={0.9} onPress={this.bind} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
             <Text style={globals.buttonInner}>

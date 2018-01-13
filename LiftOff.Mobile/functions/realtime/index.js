@@ -1,4 +1,5 @@
 import signalr from 'react-native-signalr';
+import { AsyncStorage } from 'react-native';
 
 const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
       proxy = connection.createHubProxy('weatherHub');
@@ -31,6 +32,10 @@ const changeDateTime = (value) => (dateTime = value),
         }
         proxy.invoke('updateLocation', timeLocation);
 };
+
+AsyncStorage.getItem('@location').then((value) => {
+  console.log(value)
+})
 
 export {
   connection,
