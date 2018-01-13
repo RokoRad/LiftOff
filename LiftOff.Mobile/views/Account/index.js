@@ -15,20 +15,20 @@ lang.translations = {
     flewHere: "flew here",
     userName: "Username",
     email: "Email",
-    favoriteFlyingSpot: "Favorite flying spot",
-    averageFlightTime: "Average flight time",
+    favoriteFlightSpot: "Favorite flying spot",
+    favoriteFlightTime: "Average flight time",
     totalFlights: "Total flights",
-    averageFlySafeScore: "Average FlySafe Score",
+    totalFlySafeScore: "Average FlySafe Score",
     totalTimeFlown: "Total time flown"
   },
   hr: {
     moreThan: "Više od",
     flewHere: "je letjelo ovdije",
     email: "Email",
-    favoriteFlyingSpot: "Najčešće mjesto letenja",
-    averageFlightTime: "Prosječno trajanje leta",
+    favoriteFlightSpot: "Najčešće mjesto letenja",
+    favoriteFlightTime: "Prosječno trajanje leta",
     totalFlights: "Ukupno letova",
-    averageFlySafeScore: "Prosječna FlySafe ocijena",
+    totalFlySafeScore: "Prosječna FlySafe ocijena",
     totalTimeFlown: "Ukupno vrijeme letenja"
   }
 }
@@ -90,12 +90,12 @@ class Account extends Component {
         <AccountMap moreThan={lang.t('moreThan')} flewHere={lang.t('flewHere')} />
         <View style={styles.container}>
           <AccountItem title={lang.t('userName')} content={this.state.userObject.userName} />
-          <AccountItem title="email" content={this.state.userObject.email} />
-          <AccountItem title="favoriteFlyingSpot" content={this.state.userObject.favoriteFlightSpot} />
-          <AccountItem title="averageFlightTime" content={this.state.userObject.favoriteFlightTime} />
-          <AccountItem title="totalFlights" content={this.state.userObject.totalFlights} />
-          <AccountItem title="averageFlySafeScore" content={this.state.userObject.totalFlySafeScore} />
-          <AccountItem title="totalTimeFlown" content={this.state.userObject.totalTimeFlown} />
+          <AccountItem title={lang.t('email')} content={this.state.userObject.email} />
+          <AccountItem title={lang.t('favoriteFlightSpot')} content={this.state.userObject.favoriteFlightSpot} />
+          <AccountItem title={lang.t('favoriteFlightTime')} content={this.state.userObject.favoriteFlightTime} />
+          <AccountItem title={lang.t('totalFlights')} content={this.state.userObject.totalFlights} />
+          <AccountItem title={lang.t('totalFlySafeScore')} content={this.state.userObject.totalFlySafeScore} />
+          <AccountItem title={lang.t('totalTimeFlown')} content={this.state.userObject.totalTimeFlown} />
         </View>
       </Screen>
     );

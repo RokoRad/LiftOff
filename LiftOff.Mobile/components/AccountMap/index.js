@@ -4,34 +4,6 @@ import { MapView, PROVIDER_GOOGLE } from 'expo';
 import style from '../../functions/mapStyle';
 import styles from './styles.js';
 
-import lang from 'react-native-i18n';
-// za enn-US i en-GB postavlja en kao default
-lang.fallbacks = true;
-// // instnciranje lokalizacije
-// lang.translations = {
-//   en: {
-//     moreThan: "More than",
-//     flewHere: "flew here",
-//     userName: "Username",
-//     email: "Email",
-//     favoriteFlyingSpot: "Favorite flying spot",
-//     averageFlightTime: "Average flight time",
-//     totalFlights: "Total flights",
-//     averageFlySafeScore: "Average FlySafe Score",
-//     totalTimeFlown: "Total time flown"
-//   },
-//   hr: {
-//     moreThan: "Više od",
-//     flewHere: "je letjelo ovdije",
-//     email: "Email",
-//     favoriteFlyingSpot: "Najčešće mjesto letenja",
-//     averageFlightTime: "Prosječno trajanje leta",
-//     totalFlights: "Ukupno letova",
-//     averageFlySafeScore: "Prosječna FlySafe ocijena",
-//     totalTimeFlown: "Ukupno vrijeme letenja"
-//   }
-// }
-
 // instanciranje kompinente
 class AccountMap extends React.Component {
   // postavljanje defaultne vrijednosti, koja je u ovom slučaju Split
