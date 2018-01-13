@@ -61,7 +61,7 @@ class Account extends Component {
       <Screen current={this.props.location}>
         <AccountMap />
         <View style={styles.container}>
-          <AccountItem title="username" content={this.state.userObject.userName} />
+          <AccountItem title="userName" content={this.state.userObject.userName} />
           <AccountItem title="email" content={this.state.userObject.email} />
           <AccountItem title="favoriteFlyingSpot" content={this.state.userObject.favoriteFlightSpot} />
           <AccountItem title="averageFlightTime" content={this.state.userObject.favoriteFlightTime} />
