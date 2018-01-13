@@ -151,20 +151,6 @@ class Map extends Component {
           })
       }).then((response) => {
         if(response.status === 200) {
-          this.setState({
-            calibration: true,
-            pressed: true,
-            location: {
-              latitude: 43,
-              longitude: 16,
-              ...deltas
-            },
-            markerPosition: {
-              latitude: 43,
-              longitude: 16,
-              ...deltas
-            }
-          })
           const parsed = JSON.parse(response._bodyInit);
           holder.city = parsed.weatherData.city;
           holder.rating = round(parsed.totalRating);
@@ -172,6 +158,18 @@ class Map extends Component {
               mm = date.getMinutes();
               hh = date.getHours();
           holder.time = `${hh}:${mm}`;
+          this.setState({
+            calibration: true,
+            pressed: true,
+            location: {
+              ...parsed.weatherData.timeLocation.location,
+              ...deltas
+            },
+            markerPosition: {
+              ...parsed.weatherData.timeLocation.location,
+              ...deltas
+            }
+          })
         } else if (response.status === 401) {
           this.props.history.push('/');
         }})
