@@ -6,6 +6,7 @@ import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
 import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchLogs from '../../components/StopwatchLogs';
 import { language } from '../../config/settings.js';
+import round from '../../functions/round';
 
 import lang from 'react-native-i18n';
 // za enn-US i en-GB postavlja en kao default
@@ -61,11 +62,14 @@ class Stopwatch extends Component {
 
   componentWillMount() {
     AsyncStorage.getItem('@realtime').then((value) => {
-      console.log(JSON.parse(value))
+      let parse = JSON.parse(value);
       this.setState({
-        rating: JSON.parse(value.TotalRating)
+        rating: round(parse.TotalRating)
       })
-      lang.getLanguage().then((response) => console.log(response))
+      // this.setState({
+      //   rating: JSON.parse(value.TotalRating)
+      // })
+      console.log(lang.getLanguage())
       //console.log(lang.getLanguage())
       // this.setState({
       //   rating: JSON.parse(value.TotalRating)
