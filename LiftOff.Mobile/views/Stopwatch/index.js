@@ -13,11 +13,11 @@ lang.fallbacks = true;
 // // instnciranje lokalizacije
 lang.translations = {
   en: {
-    comment: '',
+    comment: 'Loading data',
     flightRating: 'Flight rating:'
   },
   hr: {
-    commment: '',
+    commment: 'Učitavam podatke',
     flightRating: 'Ocjena leta:'
   }
 }
@@ -55,21 +55,16 @@ class Stopwatch extends Component {
         seconds: 0,
         minutes: 0,
         startTime: 0,
-        list: {
-          rating: 0,
-          comment: '/'
-        }
+        rating: '/'
      };
   };
 
   componentWillMount() {
     AsyncStorage.getItem('@realtime').then((value) => {
-      // this.setState({
-      //   list: JSON.parse(value)
-      // })
       this.setState({
         rating: JSON.parse(value.TotalRating)
       });
+      console.log(JSON.parse(value.AdvisoryRating.English))
       lang.setContent({
         en: {
           comment: JSON.parse(value.AdvisoryRating.English),
@@ -79,7 +74,8 @@ class Stopwatch extends Component {
           comment: JSON.parse(value.AdvisoryRating.Croatian),
           flightRating: 'Ocjena leta:'
         }
-      })
+      });
+      this.forceUpdate();
     });
   }
 
