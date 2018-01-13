@@ -91,6 +91,7 @@ class Map extends Component {
             time: "2018-01-13T14:12:10+00:00"
           })
       }).then((response) => {
+        console.log(response)
         if(response.status === 200) {
           this.setState({
             calibration: true,
@@ -115,7 +116,7 @@ class Map extends Component {
           holder.time = `${hh}:${mm}`;
         } else if (response.status === 401) {
           this.props.history.push('/');
-        }})
+        }}).catch((error) => console.log(error))
     });
     if(this.state.selected === false) {
       this.setState({
