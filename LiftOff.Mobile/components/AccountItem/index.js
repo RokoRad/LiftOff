@@ -4,18 +4,14 @@ import ModalDropdown from '../../external/react-native-modal-dropdown';
 import { language } from '../../config/settings.js';
 import styles from './styles.js';
 
-const Default = (props) => [
-  <Text style={styles.string} key={Math.random()}>{props.title}</Text>,
-  <Text style={[styles.string, styles.bold]} key={Math.random()}>{props.content}</Text>
-];
+// const Pick = () => (
+//   <ModalDropdown defaultValue="Choose drone" options={['aaaaaa', 'aaaaaa', 'aaaaaa', 'aaaaaa', 'aaaaaa']} style={styles.dropdownButton}/>
+// );
 
-const Pick = () => (
-  <ModalDropdown defaultValue="Choose drone" options={['aaaaaa', 'aaaaaa', 'aaaaaa', 'aaaaaa', 'aaaaaa']} style={styles.dropdownButton}/>
-);
-
-const AccountItem = (props) => (
+const AccountItem = ({title, content}) => (
   <View style={styles.wrapper}>
-    {props.dropdown ? <Pick /> : <Default {...props} />}
+    <Text style={styles.string}>{title}</Text>,
+    <Text style={[styles.string, styles.bold]}>{content}</Text>
   </View>
 );
 
