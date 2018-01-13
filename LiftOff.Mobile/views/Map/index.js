@@ -92,6 +92,13 @@ class Map extends Component {
           })
       }).then((response) => {
         if(response.status === 200) {
+          const parsed = JSON.parse(response._bodyInit);
+          holder.city = parsed.weatherData.city;
+          holder.rating = round(parsed.totalRating);
+          let date = new Date();
+              mm = date.getMinutes();
+              hh = date.getHours();
+          holder.time = `${hh}:${mm}`;
           this.setState({
             calibration: true,
             pressed: true,
@@ -106,13 +113,6 @@ class Map extends Component {
               ...deltas
             }
           })
-          const parsed = JSON.parse(response._bodyInit);
-          holder.city = parsed.weatherData.city;
-          holder.rating = round(parsed.totalRating);
-          let date = new Date();
-              mm = date.getMinutes();
-              hh = date.getHours();
-          holder.time = `${hh}:${mm}`;
         } else if (response.status === 401) {
           this.props.history.push('/');
         }}).catch((error) => console.log(error))
