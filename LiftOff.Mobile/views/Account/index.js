@@ -5,6 +5,34 @@ import AccountItem from '../../components/AccountItem';
 import AccountMap from '../../components/AccountMap';
 import styles from './styles.js';
 
+import lang from 'react-native-i18n';
+// za enn-US i en-GB postavlja en kao default
+lang.fallbacks = true;
+// // instnciranje lokalizacije
+lang.translations = {
+  en: {
+    moreThan: "More than",
+    flewHere: "flew here",
+    userName: "Username",
+    email: "Email",
+    favoriteFlyingSpot: "Favorite flying spot",
+    averageFlightTime: "Average flight time",
+    totalFlights: "Total flights",
+    averageFlySafeScore: "Average FlySafe Score",
+    totalTimeFlown: "Total time flown"
+  },
+  hr: {
+    moreThan: "Više od",
+    flewHere: "je letjelo ovdije",
+    email: "Email",
+    favoriteFlyingSpot: "Najčešće mjesto letenja",
+    averageFlightTime: "Prosječno trajanje leta",
+    totalFlights: "Ukupno letova",
+    averageFlySafeScore: "Prosječna FlySafe ocijena",
+    totalTimeFlown: "Ukupno vrijeme letenja"
+  }
+}
+
 // instaciranje komponente
 class Account extends Component {
   // postavljanje defaultnih vrijednosti
@@ -59,9 +87,9 @@ class Account extends Component {
   render() {
     return (
       <Screen current={this.props.location}>
-        <AccountMap />
+        <AccountMap moreThan={lang.t('moreThan')} flewHere={lang.t('flewHere')} />
         <View style={styles.container}>
-          <AccountItem title="userName" content={this.state.userObject.userName} />
+          <AccountItem title={lang.t('userName')} content={this.state.userObject.userName} />
           <AccountItem title="email" content={this.state.userObject.email} />
           <AccountItem title="favoriteFlyingSpot" content={this.state.userObject.favoriteFlightSpot} />
           <AccountItem title="averageFlightTime" content={this.state.userObject.favoriteFlightTime} />

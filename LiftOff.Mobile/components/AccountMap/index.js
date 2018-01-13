@@ -7,23 +7,36 @@ import styles from './styles.js';
 import lang from 'react-native-i18n';
 // za enn-US i en-GB postavlja en kao default
 lang.fallbacks = true;
-// instnciranje lokalizacije
-lang.translations = {
-  en: {
-    moreThan: "More than",
-    flewHere: "flew here"
-  },
-  hr: {
-    moreThan: "Više od",
-    flewHere: "je letjelo ovdije"
-  }
-}
+// // instnciranje lokalizacije
+// lang.translations = {
+//   en: {
+//     moreThan: "More than",
+//     flewHere: "flew here",
+//     userName: "Username",
+//     email: "Email",
+//     favoriteFlyingSpot: "Favorite flying spot",
+//     averageFlightTime: "Average flight time",
+//     totalFlights: "Total flights",
+//     averageFlySafeScore: "Average FlySafe Score",
+//     totalTimeFlown: "Total time flown"
+//   },
+//   hr: {
+//     moreThan: "Više od",
+//     flewHere: "je letjelo ovdije",
+//     email: "Email",
+//     favoriteFlyingSpot: "Najčešće mjesto letenja",
+//     averageFlightTime: "Prosječno trajanje leta",
+//     totalFlights: "Ukupno letova",
+//     averageFlySafeScore: "Prosječna FlySafe ocijena",
+//     totalTimeFlown: "Ukupno vrijeme letenja"
+//   }
+// }
 
 // instanciranje kompinente
 class AccountMap extends React.Component {
   // postavljanje defaultne vrijednosti, koja je u ovom slučaju Split
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       markers: [
         {
@@ -90,7 +103,7 @@ class AccountMap extends React.Component {
     return (
       <View style={styles.wrapper}>
         <Text style={styles.text}>
-          {lang.t('moreThan')} {this.state.markers.length} {lang.t('flewHere')} <Image source={require('../../images/map/fire.png')} style={styles.image} />
+          {this.props.moreThan} {this.state.markers.length} {this.props.flewHere} <Image source={require('../../images/map/fire.png')} style={styles.image} />
         </Text>
         <MapView zoomEnabled={true} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} cacheEnabled={true}
           region={{ ...this.state.markers[0].flightLocation, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>

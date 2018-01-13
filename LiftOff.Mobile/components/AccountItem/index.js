@@ -6,11 +6,12 @@ import styles from './styles.js';
 
 import lang from 'react-native-i18n';
 // za enn-US i en-GB postavlja en kao default
-lang.fallbacks = true;
-// instnciranje lokalizacije
+// lang.fallbacks = true;
+// // instnciranje lokalizacije
 // lang.translations = {
 //   en: {
-//     username: "Username",
+//     kurac: "aaa",
+//     userName: "Username",
 //     email: "Email",
 //     favoriteFlyingSpot: "Favorite flying spot",
 //     averageFlightTime: "Average flight time",
@@ -19,7 +20,7 @@ lang.fallbacks = true;
 //     totalTimeFlown: "Total time flown"
 //   },
 //   hr: {
-//     username: "Korisničko ime",
+//     userName: "Korisničko ime",
 //     email: "Email",
 //     favoriteFlyingSpot: "Najčešće mjesto letenja",
 //     averageFlightTime: "Prosječno trajanje leta",
@@ -28,37 +29,37 @@ lang.fallbacks = true;
 //     totalTimeFlown: "Ukupno vrijeme letenja"
 //   }
 // }
-lang.translations = {
-  en: {
-    moreThan: "More than",
-    flewHere: "flew here"
-  },
-  hr: {
-    moreThan: "Više od",
-    flewHere: "je letjelo ovdije"
-  }
-}
+// lang.translations = {
+//   en: {
+//     moreThan: "More than",
+//     flewHere: "flew here"
+//   },
+//   hr: {
+//     moreThan: "Više od",
+//     flewHere: "je letjelo ovdije"
+//   }
+// }
 
-class AccountItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-//lang.t(this.props.title)
-  render() {
-    return (
-      <View style={styles.wrapper}>
-        <Text style={styles.string}>{lang.t('moreThan')}</Text>
-        <Text style={[styles.string, styles.bold]}>{this.props.content}</Text>
-      </View>
-    )
-  }
-}
+// class AccountItem extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+// lang.t(this.props.title)
+//   render() {
+//     return (
+//       <View style={styles.wrapper}>
+//         <Text style={styles.string}>{this.p}</Text>
+//         <Text style={[styles.string, styles.bold]}>{this.props.content}</Text>
+//       </View>
+//     )
+//   }
+// }
 
-// const AccountItem = ({title, content}) => (
-//   <View style={styles.wrapper}>
-//     <Text style={styles.string}>{lang.t(title)}</Text>
-//     <Text style={[styles.string, styles.bold]}>{content}</Text>
-//   </View>
-// );
+const AccountItem = ({title, content}) => (
+  <View style={styles.wrapper}>
+    <Text style={styles.string}>{title}</Text>
+    <Text style={[styles.string, styles.bold]}>{content}</Text>
+  </View>
+);
 
 export default AccountItem;
