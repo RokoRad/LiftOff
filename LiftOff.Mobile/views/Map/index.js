@@ -6,6 +6,7 @@ import Dock from '../../components/Dock';
 import Tooltip from '../../components/Tooltip';
 import styles from './styles.js';
 import style from '../../functions/mapStyle';
+import round from '../../functions/round';
 //import DatePicker from '../../external/react-native-datepicker';
 //import Toast from 'react-native-simple-toast';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
@@ -85,6 +86,11 @@ class Map extends Component {
       pressed: true,      
       calibration: false
     });
+    holder = {
+      city: '/',
+      time: '/',
+      rating: '/'
+    }
   }
 
   calibration = () => {
@@ -118,7 +124,13 @@ class Map extends Component {
               ...deltas
             }
           })
-          console.log(response)
+          const parsed = JSON.parse(response._bodyInit);
+          holder.city = parsed.weatherData.city;
+          holder.rating = round(parsed.totalRating);
+          let date = new Date();
+              mm = date.getMinutes();
+              hh = date.getHours();
+          holder.time = `${hh}:${mm}`;
         } else if (response.status === 401) {
           this.props.history.push('/');
         }})
