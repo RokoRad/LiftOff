@@ -12,6 +12,12 @@ import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo
 //import { language } from '../../config/settings.js';
 //import { changeDateTime, changeLocation, updateServer, timeLocation } from '../../functions/realtime';
 
+const holder = {
+  city: '/',
+  time: '/',
+  rating: '/'
+}
+
 const deltas = {
   longitudeDelta: 0.1,
   latitudeDelta: 0.1
@@ -114,7 +120,7 @@ class Map extends Component {
           })
           console.log(response)
         } else if (response.status === 401) {
-          console.log("token error")
+          this.props.history.push('/');
         }})
     });
   }
@@ -132,7 +138,7 @@ class Map extends Component {
           <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
-            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city="Zagreb" time="22:22" rating="1.2" />
+            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city={holder.city} time={holder.time} rating={holder.rating} />
           </MapView>
         </Screen>
       );
