@@ -11,7 +11,7 @@ class AccountMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      markers: null
+      markers: {}
     }
   }
 
@@ -43,7 +43,7 @@ class AccountMap extends React.Component {
         console.log(JSON.parse(response._bodyInit))
       });
     })
-    console.log(markers)
+    console.log(this.state.markers)
   };
 
   render() {
@@ -54,15 +54,49 @@ class AccountMap extends React.Component {
         </Text>
         <MapView zoomEnabled={true} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} cacheEnabled={true}
           region={{ latitude: this.props.latitude, longitude: this.props.longitude, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>
-          {this.state.markers.map(marker => (
+          {[this.state.markers].map(marker => (
             <MapView.Marker coordinate={marker.coordinate.flightLocation} key={marker.id} image={require('../../images/map/pin.png')}/>
           ))}
         </MapView>
       </View>
     )
   }
-
 }
+
+// 11:07:34:   Object {
+//   11:07:34:     "drone": null,
+//   11:07:34:     "flightLocation": Object {
+//   11:07:34:       "flightLocationId": 1,
+//   11:07:34:       "flightSpot": "Split",
+//   11:07:34:       "latitude": 43.508133,
+//   11:07:34:       "longitude": 16.440193,
+//   11:07:34:     },
+//   11:07:34:     "flightTime": Object {
+//   11:07:34:       "flightStartTime": "2018-01-10T21:01:08.447",
+//   11:07:34:       "flightTimeId": 1,
+//   11:07:34:     },
+//   11:07:34:     "flySafeScore": 2.2,
+//   11:07:34:     "id": 1,
+//   11:07:34:     "timeFlown": 69,
+//   11:07:34:   },
+//   11:07:34:   Object {
+//   11:07:34:     "drone": null,
+//   11:07:34:     "flightLocation": Object {
+//   11:07:34:       "flightLocationId": 2,
+//   11:07:34:       "flightSpot": "Split",
+//   11:07:34:       "latitude": 43.508133,
+//   11:07:34:       "longitude": 16.440193,
+//   11:07:34:     },
+//   11:07:34:     "flightTime": Object {
+//   11:07:34:       "flightStartTime": "2018-01-11T22:14:25.637",
+//   11:07:34:       "flightTimeId": 2,
+//   11:07:34:     },
+//   11:07:34:     "flySafeScore": 2.2,
+//   11:07:34:     "id": 2,
+//   11:07:34:     "timeFlown": 69,
+//   11:07:34:   },
+//   11:07:34: ]
+  
 
 
 export default AccountMap;
