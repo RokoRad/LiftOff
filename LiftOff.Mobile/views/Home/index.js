@@ -55,12 +55,13 @@ class Home extends React.Component {
       }); 
       connection.start().done(() => {
         if(value !== null) {
+          let parsed = JSON.parse(value)
           proxy.invoke('initiateConnection', {
             location: {
-              latitude: JSON.parse(value.location.latitude),
-              longitude: JSON.parse(value.location.longitude)
+              latitude: parsed.location.latitude,
+              longitude: parsed.location.longitude
             },
-            time: JSON.parse(value.time)
+            time: new Date().toISOString()
           }, units);
         } else {
           proxy.invoke('initiateConnection', timeLocation, units);
