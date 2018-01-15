@@ -33,25 +33,25 @@ class Home extends React.Component {
       });
     });
 
-    proxy.on('broadcastWeather', (value) => {
-      //console.log(value)
-      AsyncStorage.setItem('@realtime', JSON.stringify(value)).then();
-      this.setState({
-        list: value
-      })
-      console.log(value)
-    });
-
-
-
     AsyncStorage.getItem('@timeLocation').then((value) => {
+      //console.log(value)
       connection.start().done(() => {
         if(value === null) {
-          console.log("nije null")
+          console.log("a")
           proxy.invoke('initiateConnection', timeLocation, units);
         } else {
+          console.log("b")
+          console.log(value)
+          //proxy.invoke('initiateConnection', value, units);
           proxy.invoke('initiateConnection', value, units);
         }
+        proxy.on('broadcastWeather', (value) => {
+          AsyncStorage.setItem('@realtime', JSON.stringify(value)).then();
+          this.setState({
+            list: value
+          })
+          console.log("bWea:" + value)
+        });
       }).fail(() => {
         Toast.show(language.serverError);
       });
