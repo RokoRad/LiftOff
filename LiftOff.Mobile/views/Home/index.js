@@ -12,10 +12,9 @@ const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/si
       connection.logging = false,
       units = 'metric'
 
-
 timeLocation = {
   location: {
-    latitude: 16.5,
+    latitude: 26.5,
     longitude: 26.4
   },
   time: new Date()
@@ -31,14 +30,35 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
-    proxy.on('broadcastWeather', (response) => {
-      console.log("AAAAAAAA")
-      AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
-      this.setState({
-        list: response
-      })
-      console.log("bWea:" + response)
+    AsyncStorage.getItem('@timeLocation').then((value) => {
+      proxy.on('broadcastWeather', (response) => {
+        AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
+        this.setState({
+          list: response
+        })
+      }); 
+      connection.start().done(() => {
+          proxy.invoke('initiateConnection', timeLocation, units);
+      }).fail(() => {
+        Toast.show("Server error");
+      });
     });
+
+
+
+    // proxy.on('broadcastWeather', (response) => {
+    //   AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
+    //   this.setState({
+    //     list: response
+    //   })
+    // });
+
+
+    // connection.start().done(() => {
+    //     proxy.invoke('initiateConnection', timeLocation, units);
+    // }).fail(() => {
+    //   Toast.show("Server error");
+    // });
 
     // AsyncStorage.getItem('@realtime').then((value) => {
     //   this.setState({
@@ -46,19 +66,20 @@ class Home extends React.Component {
     //   });
     // });
 
-    AsyncStorage.getItem('@timeLocation').then((value) => {
-      connection.start().done(() => {
-        if(value === null) {
-          console.log(timeLocation)
-          proxy.invoke('initiateConnection', timeLocation, units);
-        } else {
-          console.log(value)
-          proxy.invoke('initiateConnection', value, units);
-        }
-      }).fail(() => {
-        Toast.show("Server error");
-      });
-    })
+  //   AsyncStorage.getItem('@timeLocation').then((value) => {
+  //     connection.start().done(() => {
+  //       if(value === null) {
+  //         console.log(timeLocation)
+  //         proxy.invoke('initiateConnection', timeLocation, units);
+  //       } else {
+  //         console.log(JSON.parse(value))
+  //         const parsed = JSON.parse(value)
+  //         proxy.invoke('initiateConnection', parsed, units);
+  //       }
+  //     }).fail(() => {
+  //       Toast.show("Server error");
+  //     });
+  //   })
   }
   
   render() {
