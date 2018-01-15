@@ -22,14 +22,14 @@ let dateTime, // normalni date, nije ISO
 const changeDateTime = (value) => (dateTime = value),
       changeLocation = (value) => (location = value),
       changeMetrics = () => (proxy.invoke('changeUnits')),
-      updateServer = () => {
-        timeLocation = {
-          Location: {
-            Latitude: location.latitude,
-            Longitutde: location.longitude
-          },
-          Time: dateTime
-        }
+      updateServer = (timeLocation) => {
+        // timeLocation = {
+        //   Location: {
+        //     Latitude: location.latitude,
+        //     Longitutde: location.longitude
+        //   },
+        //   Time: dateTime
+        // }
         proxy.invoke('updateLocation', timeLocation);
 };
 

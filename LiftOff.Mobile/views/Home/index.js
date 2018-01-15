@@ -28,14 +28,18 @@ class Home extends React.Component {
 
   componentWillMount() {
     AsyncStorage.getItem('@picker').then((value) => {
-      console.log(value)
+      console.log("time" + value)
     });
 
+    AsyncStorage.getItem('@location').then((value) => {
+      console.log("loc:" + value)
+    });
 
     AsyncStorage.getItem('@realtime').then((value) => {
       this.setState({
         list: JSON.parse(value)
-      })
+      });
+      //console.log(value)
     });
     
     proxy.on('broadcastWeather', (value) => {
@@ -43,7 +47,7 @@ class Home extends React.Component {
       this.setState({
         list: value
       })
-      console.log(value)
+      //console.log(value)
     });
 
     connection.start().done(() => {

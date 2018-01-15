@@ -9,7 +9,6 @@ import style from '../../functions/mapStyle';
 import round from '../../functions/round';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 //import { language } from '../../config/settings.js';
-//import { changeDateTime, changeLocation, updateServer, timeLocation } from '../../functions/realtime';
 
 const holder = {
   city: '/',
@@ -75,6 +74,7 @@ class Map extends Component {
 
   setMarker = (value) => {
     AsyncStorage.getItem('@token').then((value) => {
+      AsyncStorage.setItem('@location', )
       fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
         method: 'POST',
         headers: {
