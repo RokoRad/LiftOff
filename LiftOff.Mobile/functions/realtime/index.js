@@ -19,9 +19,7 @@ let dateTime, // normalni date, nije ISO
     location; // objekt sa latitude i longitude
 
 // setupiranje poziva serveru
-const changeDateTime = (value) => (dateTime = value),
-      changeLocation = (value) => (location = value),
-      changeMetrics = () => (proxy.invoke('changeUnits')),
+const changeMetrics = () => (proxy.invoke('changeUnits')),
       updateServer = (timeLocation) => {
         // timeLocation = {
         //   Location: {
@@ -33,10 +31,6 @@ const changeDateTime = (value) => (dateTime = value),
         proxy.invoke('updateLocation', timeLocation);
 };
 
-AsyncStorage.getItem('@location').then((value) => {
-  console.log(value)
-})
-
 export {
   connection,
   proxy,
@@ -44,8 +38,6 @@ export {
   units,
   dateTime,
   location,
-  changeDateTime,
-  changeLocation,
   changeMetrics,
   updateServer
 }
