@@ -2,6 +2,7 @@ using LiftOff.API.Logic;
 using LiftOff.API.Models;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using Newtonsoft.Json;
 using System;
 using System.Threading;
 

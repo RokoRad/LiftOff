@@ -84,7 +84,7 @@ namespace LiftOff.API.Logic
                 {
                     parsingToken = parsingToken[key];
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     return null;
                 }
