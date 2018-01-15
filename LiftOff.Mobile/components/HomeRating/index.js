@@ -25,7 +25,6 @@ const HomeRating = (props) => (
         </View>
         <View style={styles.right}>
           <Text style={styles.rating}>
-          {console.log(round(props.rating))}
             {round(props.rating)}
           </Text>
         </View>
@@ -34,5 +33,3 @@ const HomeRating = (props) => (
 );
 
 export default HomeRating;
-
-// {(lng === 'hr') ? props.string.Croatian : props.string.English}

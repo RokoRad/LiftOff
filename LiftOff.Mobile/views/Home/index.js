@@ -12,51 +12,54 @@ const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/si
       connection.logging = false,
       units = 'metric'
 
-
-timeLocation = {
-  location: {
-    latitude: 16.5,
-    longitude: 26.4
-  },
-  time: new Date()
-};
-units = 'metric'
-
 class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      list: defaultList
+      list: defaultList,
+      loaded: false
     }
   };
 
   componentWillMount() {
-    proxy.on('broadcastWeather', (response) => {
-      console.log("AAAAAAAA")
-      AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
-      this.setState({
-        list: response
-      })
-      console.log("bWea:" + response)
-    });
-
-    // AsyncStorage.getItem('@realtime').then((value) => {
-    //   this.setState({
-    //     list: JSON.parse(value)
-    //   });
-    // });
-
     AsyncStorage.getItem('@timeLocation').then((value) => {
+      proxy.on('broadcastWeather', (response) => {
+        AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
+        this.setState({
+          list: response
+        })
+      }); 
       connection.start().done(() => {
-        if(value === null) {
-          proxy.invoke('initiateConnection', timeLocation, units);
+        if(value !== null) {
+          let parsed = JSON.parse(value);
+          let a = parsed.time;
+          let b = JSON.parse(a);
+          console.log(b);
+          proxy.invoke('initiateConnection', {
+            location: {
+              latitude: parsed.location.latitude,
+              longitude: parsed.location.longitude
+            },
+            time: new Date().toISOString()
+          }, units);
         } else {
-          proxy.invoke('initiateConnection', value, units);
+          proxy.invoke('initiateConnection', {
+            location: {
+              latitude: 43.55,
+              longitude: 16.5
+            },
+            time: new Date().toISOString()
+          }, units);
         }
       }).fail(() => {
+        AsyncStorage.getItem('@realtime').then((cache) => {
+          this.setState({
+            list: JSON.parse(cache)
+          });
+        });
         Toast.show("Server error");
       });
-    })
+    });
   }
   
   render() {
