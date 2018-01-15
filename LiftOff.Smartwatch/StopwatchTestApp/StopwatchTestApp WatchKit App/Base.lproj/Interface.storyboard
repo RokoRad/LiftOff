@@ -14,30 +14,23 @@
             <objects>
                 <controller id="sUi-lq-S6q" customClass="InterfaceController" customModule="StopwatchTestApp_WatchKit_Extension">
                     <items>
-                        <group width="1" alignment="center" id="yIV-vh-OO0">
-                            <items>
-                                <label width="84" alignment="center" verticalAlignment="center" text="FlySafe:" textAlignment="center" id="3hm-Qh-N7d">
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                </label>
-                                <group width="44" height="40" alignment="right" id="by6-4H-84u">
-                                    <items>
-                                        <label alignment="center" verticalAlignment="center" text="4.7" textAlignment="center" id="9lB-Vc-7qz">
-                                            <fontDescription key="font" type="system" pointSize="24"/>
-                                        </label>
-                                    </items>
-                                    <color key="backgroundColor" red="0.1665658653" green="0.49680191280000002" blue="0.74237316850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </group>
-                            </items>
-                            <color key="backgroundColor" red="0.21015387769999999" green="0.59005028010000005" blue="0.87863373759999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </group>
                         <button width="1" alignment="center" verticalAlignment="bottom" title="LiftOff" id="r0A-Ch-Fyh">
-                            <color key="backgroundColor" red="0.1665658653" green="0.49680191280000002" blue="0.74237316850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.21015387769999999" green="0.59005028010000005" blue="0.87863373759999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" type="system" pointSize="18"/>
                             <connections>
-                                <action selector="LiftOffAction" destination="sUi-lq-S6q" id="wQF-14-j3G"/>
+                                <action selector="LiftOffAction" destination="sUi-lq-S6q" id="oxl-Qx-t1F"/>
                             </connections>
                         </button>
+                        <group width="1" alignment="left" id="ZTg-2I-7q8">
+                            <items>
+                                <button width="133" alignment="left" title="FlySafe" enabled="NO" id="8Mg-8g-Ee9">
+                                    <color key="backgroundColor" red="0.21015387769999999" green="0.59005028010000005" blue="0.87863373759999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <segue destination="LpO-vZ-amL" kind="push" id="ojO-D7-wIx"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                         <timer width="85" height="63" alignment="center" verticalAlignment="center" textAlignment="center" previewedSeconds="0" id="H2F-Wq-Rf9">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="43"/>
@@ -46,9 +39,9 @@
                     </items>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="LiftOffButton" destination="r0A-Ch-Fyh" id="teP-IA-rck"/>
+                        <outlet property="FlySafeButton" destination="8Mg-8g-Ee9" id="fP1-Zf-4Df"/>
+                        <outlet property="LiftOffButton" destination="r0A-Ch-Fyh" id="Dkr-5H-zL0"/>
                         <outlet property="Stopwatch" destination="H2F-Wq-Rf9" id="Sao-xf-e2Z"/>
-                        <segue destination="LpO-vZ-amL" kind="relationship" relationship="nextPage" id="Abz-bF-dSf"/>
                     </connections>
                 </controller>
             </objects>

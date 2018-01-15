@@ -20,7 +20,6 @@
 		E262BA6A2008BF8300C8B8D8 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E262BA692008BF8300C8B8D8 /* InterfaceController.swift */; };
 		E262BA6C2008BF8300C8B8D8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E262BA6B2008BF8300C8B8D8 /* ExtensionDelegate.swift */; };
 		E262BA6E2008BF8300C8B8D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E262BA6D2008BF8300C8B8D8 /* Assets.xcassets */; };
-		E262BA842008BFE000C8B8D8 /* flash.png in Resources */ = {isa = PBXBuildFile; fileRef = E262BA832008BFE000C8B8D8 /* flash.png */; };
 		E262BA862008D96F00C8B8D8 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E262BA852008D96F00C8B8D8 /* TableRow.swift */; };
 		E262BA882008E63B00C8B8D8 /* TableInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E262BA872008E63B00C8B8D8 /* TableInterfaceController.swift */; };
 		E262BA8B20091E4500C8B8D8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E262BA8920091E4500C8B8D8 /* Interface.storyboard */; };
@@ -104,7 +103,6 @@
 		E262BA6B2008BF8300C8B8D8 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		E262BA6D2008BF8300C8B8D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E262BA6F2008BF8300C8B8D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E262BA832008BFE000C8B8D8 /* flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flash.png; path = ../../../Downloads/flash.png; sourceTree = "<group>"; };
 		E262BA852008D96F00C8B8D8 /* TableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
 		E262BA872008E63B00C8B8D8 /* TableInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableInterfaceController.swift; sourceTree = "<group>"; };
 		E262BA8A20091E4500C8B8D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 			children = (
 				E262BA8920091E4500C8B8D8 /* Interface.storyboard */,
 				E262BA5D2008BF8300C8B8D8 /* Assets.xcassets */,
-				E262BA832008BFE000C8B8D8 /* flash.png */,
 				E262BA5F2008BF8300C8B8D8 /* Info.plist */,
 			);
 			path = "StopwatchTestApp WatchKit App";
@@ -398,7 +395,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E262BA842008BFE000C8B8D8 /* flash.png in Resources */,
 				E262BA8B20091E4500C8B8D8 /* Interface.storyboard in Resources */,
 				E262BA5E2008BF8300C8B8D8 /* Assets.xcassets in Resources */,
 			);
@@ -762,6 +758,7 @@
 				E262BA742008BF8300C8B8D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E262BA762008BF8300C8B8D8 /* Build configuration list for PBXNativeTarget "StopwatchTestApp WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -770,6 +767,7 @@
 				E262BA782008BF8300C8B8D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E262BA7A2008BF8300C8B8D8 /* Build configuration list for PBXNativeTarget "StopwatchTestApp" */ = {
 			isa = XCConfigurationList;
@@ -778,6 +776,7 @@
 				E262BA7C2008BF8300C8B8D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E262BA7D2008BF8300C8B8D8 /* Build configuration list for PBXNativeTarget "StopwatchTestAppTests" */ = {
 			isa = XCConfigurationList;
@@ -786,6 +785,7 @@
 				E262BA7F2008BF8300C8B8D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E262BA802008BF8300C8B8D8 /* Build configuration list for PBXNativeTarget "StopwatchTestAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -794,6 +794,7 @@
 				E262BA822008BF8300C8B8D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
