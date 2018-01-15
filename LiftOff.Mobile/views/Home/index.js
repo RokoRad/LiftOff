@@ -38,48 +38,20 @@ class Home extends React.Component {
         })
       }); 
       connection.start().done(() => {
+        delete value.location.latitudeDelta;
+        delete value.location.longitudeDelta;
+        console.log(JSON.parse(value));
+        console.log(timeLocation);
           proxy.invoke('initiateConnection', timeLocation, units);
       }).fail(() => {
+        AsyncStorage.getItem('@realtime').then((cache) => {
+          this.setState({
+            list: JSON.parse(cache)
+          });
+        });
         Toast.show("Server error");
       });
     });
-
-
-
-    // proxy.on('broadcastWeather', (response) => {
-    //   AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
-    //   this.setState({
-    //     list: response
-    //   })
-    // });
-
-
-    // connection.start().done(() => {
-    //     proxy.invoke('initiateConnection', timeLocation, units);
-    // }).fail(() => {
-    //   Toast.show("Server error");
-    // });
-
-    // AsyncStorage.getItem('@realtime').then((value) => {
-    //   this.setState({
-    //     list: JSON.parse(value)
-    //   });
-    // });
-
-  //   AsyncStorage.getItem('@timeLocation').then((value) => {
-  //     connection.start().done(() => {
-  //       if(value === null) {
-  //         console.log(timeLocation)
-  //         proxy.invoke('initiateConnection', timeLocation, units);
-  //       } else {
-  //         console.log(JSON.parse(value))
-  //         const parsed = JSON.parse(value)
-  //         proxy.invoke('initiateConnection', parsed, units);
-  //       }
-  //     }).fail(() => {
-  //       Toast.show("Server error");
-  //     });
-  //   })
   }
   
   render() {
