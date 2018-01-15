@@ -28,7 +28,23 @@ class Home extends React.Component {
       list: defaultList
     }
   };
-
+  // 21:36:28: Object {
+  //   21:36:28:   "location": Object {
+  //   21:36:28:     "latitude": 43.555257836389536,
+  //   21:36:28:     "latitudeDelta": 0.1,
+  //   21:36:28:     "longitude": 16.51057731360197,
+  //   21:36:28:     "longitudeDelta": 0.1,
+  //   21:36:28:   },
+  //   21:36:28:   "time": "\"2018-01-18-01-09\"",
+  //   21:36:28: }
+  //   21:36:28: Object {
+  //   21:36:28:   "location": Object {
+  //   21:36:28:     "latitude": 26.5,
+  //   21:36:28:     "longitude": 26.4,
+  //   21:36:28:   },
+  //   21:36:28:   "time": 2018-01-15T20:36:25.608Z,
+  //   21:36:28: }
+    
   componentWillMount() {
     AsyncStorage.getItem('@timeLocation').then((value) => {
       proxy.on('broadcastWeather', (response) => {
@@ -38,10 +54,17 @@ class Home extends React.Component {
         })
       }); 
       connection.start().done(() => {
-        delete value.location.latitudeDelta;
-        delete value.location.longitudeDelta;
-        console.log(JSON.parse(value));
-        console.log(timeLocation);
+        if(value !== null) {
+          proxy.invoke('initiateConnection', {
+            location: {
+              latitude: JSON.parse(value.location.latitude),
+              longitude: JSON.parse(value.location.longitude)
+            },
+            time: JSON.parse(value.time)
+          }, units);
+        } else {
+          proxy.invoke('initiateConnection', timeLocation, units);
+        }
           proxy.invoke('initiateConnection', timeLocation, units);
       }).fail(() => {
         AsyncStorage.getItem('@realtime').then((cache) => {
