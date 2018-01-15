@@ -44,9 +44,27 @@ class Map extends Component {
   };
 
   componentWillMount() {
+    AsyncStorage.getItem('@location').then((response) =>
+      this.setState({
+        location: {
+          latitude: JSON.parse(response.latitude),
+          longitude: JSON.parse(response.longitude),
+          ...deltas
+        },
+        markerPosition: {
+          latitude: JSON.parse(response.latitude),
+          longitude: JSON.parse(response.longitude),
+          ...deltas
+        }
+      })
+    );
     if(!this.state.render) {
       this.getCurrentLocation
     }
+  }
+
+  componentWillUnmount() {
+    AsyncStorage.setItem('@location', JSON.stringify(this.state.markerPosition)).then();
   }
 
   getCurrentLocation = async () => {
@@ -74,7 +92,6 @@ class Map extends Component {
 
   setMarker = (value) => {
     AsyncStorage.getItem('@token').then((value) => {
-      AsyncStorage.setItem('@location', )
       fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
         method: 'POST',
         headers: {
@@ -111,7 +128,6 @@ class Map extends Component {
               ...deltas
             }
           })
-          AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation))
         } else if (response.status === 401) {
           this.props.history.push('/');
         }}).catch((error) => console.log(error))
