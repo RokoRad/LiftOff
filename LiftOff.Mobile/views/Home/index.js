@@ -4,14 +4,18 @@ import signalr from 'react-native-signalr';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
-import { connection, proxy } from '../../functions/realtime';
 import defaultList from '../../config/defaultList.js';
 import Toast from 'react-native-simple-toast';
-import language from '../../config/settings.js';
+
+const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
+      proxy = connection.createHubProxy('weatherHub');
+      connection.logging = false,
+      units = 'metric'
+
 
 timeLocation = {
   location: {
-    latitude: 13.5,
+    latitude: 16.5,
     longitude: 26.4
   },
   time: new Date()
@@ -27,30 +31,32 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
-    AsyncStorage.getItem('@picker').then((value) => {
-      console.log(value)
-    });
-
-
-    AsyncStorage.getItem('@realtime').then((value) => {
+    proxy.on('broadcastWeather', (response) => {
+      console.log("AAAAAAAA")
+      AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
       this.setState({
-        list: JSON.parse(value)
+        list: response
       })
-    });
-    
-    proxy.on('broadcastWeather', (value) => {
-      AsyncStorage.setItem('@realtime', JSON.stringify(value)).then();
-      this.setState({
-        list: value
-      })
-      console.log(value)
+      console.log("bWea:" + response)
     });
 
-    connection.start().done(() => {
-      proxy.invoke('initiateConnection', timeLocation, units);
-    }).fail(() => {
-      Toast.show(language.serverError);
-    });
+    // AsyncStorage.getItem('@realtime').then((value) => {
+    //   this.setState({
+    //     list: JSON.parse(value)
+    //   });
+    // });
+
+    AsyncStorage.getItem('@timeLocation').then((value) => {
+      connection.start().done(() => {
+        if(value === null) {
+          proxy.invoke('initiateConnection', timeLocation, units);
+        } else {
+          proxy.invoke('initiateConnection', value, units);
+        }
+      }).fail(() => {
+        Toast.show("Server error");
+      });
+    })
   }
   
   render() {
