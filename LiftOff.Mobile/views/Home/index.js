@@ -16,7 +16,8 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      list: defaultList
+      list: defaultList,
+      loaded: false
     }
   };
 
@@ -30,7 +31,10 @@ class Home extends React.Component {
       }); 
       connection.start().done(() => {
         if(value !== null) {
-          let parsed = JSON.parse(value)
+          let parsed = JSON.parse(value);
+          let a = parsed.time;
+          let b = JSON.parse(a);
+          console.log(b);
           proxy.invoke('initiateConnection', {
             location: {
               latitude: parsed.location.latitude,

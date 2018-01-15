@@ -8,8 +8,8 @@ const inFive = new Date(Date.now() + 5*24*60*60*1000).toISOString().slice(0, 10)
 const image = require('../../images/map/date.png');
 
 const dateChange = (value) => {
-  AsyncStorage.setItem('@picker', JSON.stringify(value)).then();
-  console.log("date saved")
+  const iso = value.toISOString();
+  AsyncStorage.setItem('@picker', JSON.stringify(iso).then());
 }
 
 const Picker = ({selected}) => (
