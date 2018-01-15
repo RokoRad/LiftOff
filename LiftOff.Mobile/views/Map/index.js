@@ -9,7 +9,6 @@ import style from '../../functions/mapStyle';
 import round from '../../functions/round';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 //import { language } from '../../config/settings.js';
-//import { changeDateTime, changeLocation, updateServer, timeLocation } from '../../functions/realtime';
 
 const holder = {
   city: '/',
@@ -45,9 +44,36 @@ class Map extends Component {
   };
 
   componentWillMount() {
+    AsyncStorage.getItem('@location').then((response) => {
+      if(response !== null) {
+        const parsed = JSON.parse(response);
+        this.setState({
+          location: {
+            latitude: parsed.latitude,
+            longitude: parsed.longitude,
+            ...deltas
+          },
+          markerPosition: {
+            latitude: parsed.latitude,
+            longitude: parsed.longitude,
+            ...deltas
+          }
+        })
+      }
+    });
     if(!this.state.render) {
       this.getCurrentLocation
     }
+  }
+
+  componentWillUnmount() {
+    //AsyncStorage.setItem('@location', JSON.stringify(this.state.markerPosition)).then();
+    AsyncStorage.getItem('@picker').then((timeValue) => {
+      AsyncStorage.setItem('@timeLocation', JSON.stringify({
+        location: this.state.markerPosition,
+        time: timeValue
+      }));
+    });
   }
 
   getCurrentLocation = async () => {
@@ -111,7 +137,6 @@ class Map extends Component {
               ...deltas
             }
           })
-          AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation))
         } else if (response.status === 401) {
           this.props.history.push('/');
         }}).catch((error) => console.log(error))
