@@ -44,27 +44,36 @@ class Map extends Component {
   };
 
   componentWillMount() {
-    AsyncStorage.getItem('@location').then((response) =>
-      this.setState({
-        location: {
-          latitude: JSON.parse(response.latitude),
-          longitude: JSON.parse(response.longitude),
-          ...deltas
-        },
-        markerPosition: {
-          latitude: JSON.parse(response.latitude),
-          longitude: JSON.parse(response.longitude),
-          ...deltas
-        }
-      })
-    );
+    AsyncStorage.getItem('@location').then((response) => {
+      if(response !== null) {
+        const parsed = JSON.parse(response);
+        this.setState({
+          location: {
+            latitude: parsed.latitude,
+            longitude: parsed.longitude,
+            ...deltas
+          },
+          markerPosition: {
+            latitude: parsed.latitude,
+            longitude: parsed.longitude,
+            ...deltas
+          }
+        })
+      }
+    });
     if(!this.state.render) {
       this.getCurrentLocation
     }
   }
 
   componentWillUnmount() {
-    AsyncStorage.setItem('@location', JSON.stringify(this.state.markerPosition)).then();
+    //AsyncStorage.setItem('@location', JSON.stringify(this.state.markerPosition)).then();
+    AsyncStorage.getItem('@picker').then((timeValue) => {
+      AsyncStorage.setItem('@timeLocation', JSON.stringify({
+        location: this.state.markerPosition,
+        time: timeValue
+      }));
+    });
   }
 
   getCurrentLocation = async () => {

@@ -27,32 +27,45 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
-    AsyncStorage.getItem('@picker').then((value) => {
-      timeLocation.time = value;
-    });
-
-    AsyncStorage.getItem('@location').then((value) => {
-      timeLocation.location = {
-        latitude: value.latitude,
-        longitude: value.longitude
-      }
-    });
-
     AsyncStorage.getItem('@realtime').then((value) => {
       this.setState({
         list: JSON.parse(value)
       });
-      //console.log(value)
     });
-    
+
     proxy.on('broadcastWeather', (value) => {
-      console.log(value)
+      //console.log(value)
       AsyncStorage.setItem('@realtime', JSON.stringify(value)).then();
       this.setState({
         list: value
       })
-      //console.log(value)
+      console.log(value)
     });
+
+
+
+    AsyncStorage.getItem('@timeLocation').then((value) => {
+      connection.start().done(() => {
+        if(value === null) {
+          console.log("nije null")
+          proxy.invoke('initiateConnection', timeLocation, units);
+        } else {
+          proxy.invoke('initiateConnection', value, units);
+        }
+      }).fail(() => {
+        Toast.show(language.serverError);
+      });
+    })
+
+    
+    // proxy.on('broadcastWeather', (value) => {
+    //   //console.log(value)
+    //   AsyncStorage.setItem('@realtime', JSON.stringify(value)).then();
+    //   this.setState({
+    //     list: value
+    //   })
+    //   //console.log(value)
+    // });
 
     connection.start().done(() => {
       proxy.invoke('initiateConnection', timeLocation, units);
