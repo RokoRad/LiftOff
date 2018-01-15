@@ -49,8 +49,10 @@ class Home extends React.Component {
     AsyncStorage.getItem('@timeLocation').then((value) => {
       connection.start().done(() => {
         if(value === null) {
+          console.log(timeLocation)
           proxy.invoke('initiateConnection', timeLocation, units);
         } else {
+          console.log(value)
           proxy.invoke('initiateConnection', value, units);
         }
       }).fail(() => {
