@@ -6,7 +6,7 @@ import globals from '../../config/styles.js';
 const InitialButton = ({onPress, type}) => (
   <TouchableOpacity onPress={onPress} opacity={0.8}>
     <View style={[globals.buttonWrapper, { backgroundColor: '#3f6ea7' }]}>
-      <Text style={globals.buttonInner}>{language[type]}</Text>
+      <Text style={globals.buttonInner}>qqq</Text>
     </View>
   </TouchableOpacity>
 );

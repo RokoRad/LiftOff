@@ -1,52 +1,45 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableWithoutFeedback, AsyncStorage } from 'react-native';
-import { Redirect } from 'react-router';
-import styles from './styles.js';
-import LoginForm from '../../components/LoginForm';
-import RegisterForm from '../../components/RegisterForm';
-import InitalButton from '../../components/InitalButton';
-import { language } from '../../config/settings.js';
+import { View, AsyncStorage } from 'react-native';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
+import inital from './styles.js';
+import login from './login.js';
+import Input from '../../components/Input';
+import InitialLogo from '../../components/InitialLogo';
+import InitialLink from '../../components/InitialLink';
+import InitialButton from '../../components/InitialButton';
 
-class Inital extends Component {
-  constructor() {
-     super();
-     this.state = {
-        login: true
-     };
-  };
+const holder = {
+  username: null,
+  email: null,
+  password: null
+}
 
-  componentWillMount = () => {
-    if (AsyncStorage.getItem('@token').then()) {
-      this.props.history.push('/home');
-    }
+class Login extends React.Component {
+  componentWillMount() {
+    AsyncStorage.getItem('@token').then((response) => {
+      if(response !== null) {
+        this.props.history.push('/home');
+      }
+    })
   }
-  changeView = () => {
-    this.setState({
-       login: !this.state.login 
-    });
-  };
 
   render() {
-      return (
-          <View style={styles.screen}>
-            <View style={styles.container}>
-              <Image source={require('../../images/splash.png')} style={styles.image}/>
-              {this.state.login === true
-              ? <LoginForm />
-              : <RegisterForm />
-              }
-              <TouchableWithoutFeedback onPress={this.changeView}>
-                <View style={styles.messageWrapper}>
-                  <Text style={styles.message}>
-                    {(this.state.login === true) ? language.registerAccount : language.haveAccount} <Text style={styles.messageBold}>{(this.state.login === true) ? language.register : language.login}</Text>
-                  </Text>
-                </View>
-              </TouchableWithoutFeedback>
-              <InitalButton type={(this.state.login === true) ? 'login' : 'register'} action={(this.state.login === true) ? 'login' : 'register'} router={this.props.history}/>
-            </View>
-          </View>    
-      );
+    return (
+      <View style={inital.screen}>  
+        <View style={inital.container}>
+          <InitialLogo />
+          <View style={inital.wrapper}>
+            <Input type="username" onChangeText={(value) => holder.username = value} />
+            <Input type="email" onChangeText={(value) => holder.email = value} />
+            <Input type="password" onChangeText={(value) => holder.password = value} />
+            <KeyboardSpacer />
+          </View>
+          <InitialLink type="login"  />
+          <InitialButton type="login" onPress={() => registration(holder)} />
+        </View>
+      </View>
+    );
   }
 }
 
-export default Inital;
+export default Register;

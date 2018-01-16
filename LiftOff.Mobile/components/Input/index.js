@@ -6,7 +6,7 @@ import capitalize from '../../functions/capitalize';
 
 const Input = ({type, onChangeText}) => (
   <View style={styles.wrapper}>
-    <TextInput underlineColorAndroid={'transparent'} placeholder={capitalize(props.type)} style={styles.input} placeholderTextColor="#fff" secureTextEntry={props.type === 'password' ? true : false} onChangeText={onChangeText} />
+    <TextInput underlineColorAndroid={'transparent'} placeholder={capitalize(type)} style={styles.input} placeholderTextColor="#fff" secureTextEntry={type === 'password' ? true : false} onChangeText={onChangeText} />
   </View>
 );
 

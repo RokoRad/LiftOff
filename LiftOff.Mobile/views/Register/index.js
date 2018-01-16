@@ -19,13 +19,13 @@ const Register = () => (
     <View style={inital.container}>
       <InitialLogo />
       <View style={inital.wrapper}>
-        <Input type="username" onChangeText={holder.username} />
-        <Input type="email" onChangeText={holder.email} />
-        <Input type="password" onChangeText={holder.password} />
+        <Input type="username" onChangeText={(value) => holder.username = value} />
+        <Input type="email" onChangeText={(value) => holder.email = value} />
+        <Input type="password" onChangeText={(value) => holder.password = value} />
         <KeyboardSpacer />
       </View>
-      <InitialLink type="login"  />
-      <InitialButton type="login" onPress={() => registration(holder)} />
+      <InitialLink type="registration"  />
+      <InitialButton type="registration" onPress={() => registration(holder)} />
     </View>
   </View>
 );
