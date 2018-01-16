@@ -24,7 +24,7 @@ const Register = () => (
         <Input type="password" onChangeText={(value) => holder.password = value} />
         <KeyboardSpacer />
       </View>
-      <InitialLink type="registration"  />
+      <InitialLink type="login" to="/" />
       <InitialButton type="registration" onPress={() => registration(holder)} />
     </View>
   </View>

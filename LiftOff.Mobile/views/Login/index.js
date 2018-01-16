@@ -14,13 +14,13 @@ const holder = {
 }
 
 class Login extends React.Component {
-  componentWillMount() {
-    AsyncStorage.getItem('@token').then((response) => {
-      if(response !== null) {
-        this.props.history.push('/home');
-      }
-    })
-  }
+  // componentWillMount() {
+  //   AsyncStorage.getItem('@token').then((response) => {
+  //     if(response !== null) {
+  //       this.props.history.push('/home');
+  //     }
+  //   })
+  // }
 
   render() {
     return (
@@ -32,7 +32,7 @@ class Login extends React.Component {
             <Input type="password" onChangeText={(value) => holder.password = value} />
             <KeyboardSpacer />
           </View>
-          <InitialLink type="login"  />
+          <InitialLink type="registration" to="/registration" />
           <InitialButton type="login" onPress={() => login(holder)} />
         </View>
       </View>
