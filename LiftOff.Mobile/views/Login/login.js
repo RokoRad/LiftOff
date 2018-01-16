@@ -1,4 +1,5 @@
 import Toast from 'react-native-simple-toast';
+import { AsyncStorage } from 'react-native';
 
 const encode = (value) => {
   let object = [];
@@ -11,18 +12,25 @@ const encode = (value) => {
   return object;
 }
 
-const login = (data) => {
+const login = (data, history) => {
   if(data.username.length != 0 && data.password.length > 8) {
+    const object = {
+      ...data,
+      grant_type: 'password'
+    };
     fetch('http://liftoffapi.azurewebsites.net/token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       },
-      body: encode(data)
+      body: encode(object)
     }).then((response) => {
+      console.log(response)
       if(response.status === 200) {
-        AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
-        props.router.push("/home");
+        AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
+          console.log("aaaaa")
+          history.push('/home');
+        });
       } else {
         // puka server
       }

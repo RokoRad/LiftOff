@@ -36,7 +36,7 @@ class Login extends React.Component {
             <KeyboardSpacer />
           </View>
           <InitialLink type="registration" to="/register" />
-          <InitialButton type="login" onPress={() => login(holder)} />
+          <InitialButton type="login" onPress={() => login(holder, this.props.history)} />
         </View>
       </View>
     );
