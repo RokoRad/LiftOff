@@ -1,6 +1,6 @@
 import Toast from 'react-native-simple-toast';
 
-const registration = (data) => {
+const registration = (data, history) => {
   if(data.username.length != 0 && data.email.length != 0 && data.password.length > 8) {
     fetch('http://liftoffapi.azurewebsites.net/api/account/register', {
       method: 'POST',
@@ -11,8 +11,7 @@ const registration = (data) => {
     }).then((response) => {
       console.log(response)
       if(response.status === 200) {
-        AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
-        props.router.push("/");
+        history.push("/");
         // toast registracija obavljena
       } else {
         // puka server

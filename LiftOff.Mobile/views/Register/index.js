@@ -14,7 +14,7 @@ const holder = {
   password: null
 }
 
-const Register = () => (
+const Register = ({history}) => (
   <View style={inital.screen}>  
     <View style={inital.container}>
       <InitialLogo />
@@ -25,7 +25,7 @@ const Register = () => (
         <KeyboardSpacer />
       </View>
       <InitialLink type="login" to="/" />
-      <InitialButton type="registration" onPress={() => registration(holder)} />
+      <InitialButton type="registration" onPress={() => registration(holder, history)} />
     </View>
   </View>
 );

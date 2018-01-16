@@ -14,6 +14,9 @@ const holder = {
 }
 
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   // componentWillMount() {
   //   AsyncStorage.getItem('@token').then((response) => {
   //     if(response !== null) {
