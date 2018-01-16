@@ -4,8 +4,8 @@ import { Image } from 'react-native';
 import styles from './styles.js';
 
 // kreiranje komponente sa pripadajucima parametrima
-const InitalLogo = () => (
+const InitialLogo = () => (
   <Image source={require('../../images/splash.png')} style={styles.image} />
 )
 
-export default InitalLogo;
+export default InitialLogo;

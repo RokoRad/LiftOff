@@ -2,9 +2,9 @@ import React from 'react';
 import { View } from 'react-native';
 import styles from './styles.js';
 import RegisterForm from '../../components/RegisterForm';
-import InitalLogo from '../../components/InitalLogo';
-import InitalLink from '../../components/InitalLink';
-import InitalButton from '../../components/InitalButton';
+import InitialLogo from '../../components/InitialLogo';
+import InitialLink from '../../components/InitialLink';
+import InitialButton from '../../components/InitialButton';
 
 const registration = (data) => {
   console.log(data)
@@ -13,10 +13,10 @@ const registration = (data) => {
 const Register = () => {
   <View style={inital.screen}>  
     <View style={inital.container}>
-      <InitalLogo />
+      <InitialLogo />
       {/* register form */}
-      <InitalLink type="login"  />
-      <InitalButton type="login" onPress={() => registration("a")} />
+      <InitialLink type="login"  />
+      <InitialButton type="login" onPress={() => registration("a")} />
     </View>
   </View>
 }

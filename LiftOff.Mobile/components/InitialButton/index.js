@@ -18,7 +18,7 @@ const encode = (value) => {
   return object;
 }
 
-const InitalButton = (props) => {
+const InitialButton = (props) => {
   const login = () => {
     const details = {
       username: values.username,
@@ -113,4 +113,4 @@ const InitalButton = (props) => {
   );
 };
 
-export default InitalButton;
+export default InitialButton;
