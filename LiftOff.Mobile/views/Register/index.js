@@ -9,9 +9,9 @@ import InitialLink from '../../components/InitialLink';
 import InitialButton from '../../components/InitialButton';
 
 const holder = {
-  username = '',
-  email: '',
-  password = ''
+  username: null,
+  email: null,
+  password: null
 }
 
 const Register = () => (
