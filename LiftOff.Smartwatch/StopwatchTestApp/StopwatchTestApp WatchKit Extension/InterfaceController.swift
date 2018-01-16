@@ -48,7 +48,7 @@ import WatchKit
 import Foundation
 import WatchConnectivity
 
-struct Drone {
+struct Drone : Codable {
     var name: String = ""
     
     init() {
@@ -56,17 +56,17 @@ struct Drone {
     }
 }
 
-struct FlightLocation {
+struct FlightLocation : Codable {
     var flightSpot: String = ""
     var ongitude: Double = 0
     var latitude: Double = 0
 }
 
-struct FlightTime {
+struct FlightTime : Codable {
     var flightStartTime: Date = Date.init()
 }
 
-struct Flight {
+struct Flight : Codable {
     var timeFlown: Int = 0
     var flySafeScore: Double = 0
     var drone: Drone
@@ -82,12 +82,17 @@ struct Flight {
     }
 }
 
-func LogFlight(Flight: Flight, token: String) -> Void {
+func LogFlight(flight: Flight, token: String) -> Void {
     var request: URLRequest = URLRequest(url: URL(string: "http://liftoffapi.azurewebsites.net/api/logging/logFlights")!)
     request.httpMethod = "POST"
     request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     //request.httpBody = try? JSONSerialization.data(withJSONObject: Flight, options: .init(rawValue: flight))
-    request.httpBody = JSONEncoder().encode(flight)
+    do {
+        let body = try JSONEncoder().encode(flight)
+        request.httpBody = body
+    } catch {
+        print("error")
+    }
     
     print (request.httpBody ?? "fail")
 //    URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
@@ -105,7 +110,7 @@ class InterfaceController: WKInterfaceController {
         super.willActivate()
         
         if WCSession.isSupported() {
-            let session = WCSession.default()
+            let session = WCSession.default
             session.delegate = self as? WCSessionDelegate
             session.activate()
         }
@@ -158,14 +163,14 @@ class InterfaceController: WKInterfaceController {
     }
     
     var ok = WKAlertAction.init(title: "Yes", style: WKAlertActionStyle.default, handler: {
-        LogFlight(Flight: flight, token: token)
+        LogFlight(flight: flight, token: token)
     })
     
     var cancel = WKAlertAction.init(title: "No", style: WKAlertActionStyle.default, handler: {})
     
     var seconds = 0
     
-    func counter() {
+    @objc func counter() {
         seconds = seconds + 1
     }
     
