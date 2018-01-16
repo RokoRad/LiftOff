@@ -17,13 +17,14 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
   }
-  // componentWillMount() {
-  //   AsyncStorage.getItem('@token').then((response) => {
-  //     if(response !== null) {
-  //       this.props.history.push('/home');
-  //     }
-  //   })
-  // }
+  
+  componentWillMount() {
+    AsyncStorage.getItem('@token').then((response) => {
+      if(response !== null) {
+        this.props.history.push('/home');
+      }
+    })
+  }
 
   render() {
     return (
