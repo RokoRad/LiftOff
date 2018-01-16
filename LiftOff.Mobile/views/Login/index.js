@@ -32,7 +32,7 @@ class Login extends React.Component {
             <Input type="password" onChangeText={(value) => holder.password = value} />
             <KeyboardSpacer />
           </View>
-          <InitialLink type="registration" to="/registration" />
+          <InitialLink type="registration" to="/register" />
           <InitialButton type="login" onPress={() => login(holder)} />
         </View>
       </View>
