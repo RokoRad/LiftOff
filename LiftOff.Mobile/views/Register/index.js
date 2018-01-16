@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import styles from './styles.js';
+import inital from './styles.js';
 import RegisterForm from '../../components/RegisterForm';
 import InitialLogo from '../../components/InitialLogo';
 import InitialLink from '../../components/InitialLink';
@@ -10,7 +10,7 @@ const registration = (data) => {
   console.log(data)
 }
 
-const Register = () => {
+const Register = () => (
   <View style={inital.screen}>  
     <View style={inital.container}>
       <InitialLogo />
@@ -19,6 +19,6 @@ const Register = () => {
       <InitialButton type="login" onPress={() => registration("a")} />
     </View>
   </View>
-}
+);
 
 export default Register;
