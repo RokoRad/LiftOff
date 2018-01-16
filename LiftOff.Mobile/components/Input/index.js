@@ -4,9 +4,9 @@ import styles from './styles.js';
 import values from '../../functions/values';
 import capitalize from '../../functions/capitalize';
 
-const Input = (props) => (
+const Input = ({type, onChangeText}) => (
   <View style={styles.wrapper}>
-    <TextInput underlineColorAndroid={'transparent'} placeholder={capitalize(props.type)} style={styles.input} placeholderTextColor="#fff" secureTextEntry={props.type === 'password' ? true : false} onChangeText={(value) => (values[props.type] = value)} />
+    <TextInput underlineColorAndroid={'transparent'} placeholder={capitalize(type)} style={styles.input} placeholderTextColor="#fff" secureTextEntry={type === 'password' ? true : false} onChangeText={onChangeText} />
   </View>
 );
 
