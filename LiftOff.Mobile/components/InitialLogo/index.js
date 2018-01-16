@@ -1,7 +1,6 @@
 // ukljucivanje elemenata potrebnih za kreiranje InitalLogoa
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
-// import styles from './styles.js';
 
 const styles = StyleSheet.create({
   image: {
