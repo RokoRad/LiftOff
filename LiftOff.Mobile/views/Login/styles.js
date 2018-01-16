@@ -14,27 +14,11 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto'
   },
-  image: {
-    width: '100%',
-    resizeMode: 'contain',
-    height: 250,
-    maxWidth: 230,
+  wrapper: {
+    width: '80%',
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginBottom: 10
-  },
-  message: {
-    color: '#fff',
-    fontFamily: 'barlowMedium',
-    textAlign: 'center',
-    fontSize: 12
-  },
-  messageBold: {
-    fontFamily: 'barlowBold'
-  },
-  messageWrapper: {
-    width: '100%',
-    paddingBottom: 30
+    marginTop: -15
   }
 });
 

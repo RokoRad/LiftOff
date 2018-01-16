@@ -10,7 +10,6 @@ import InitialButton from '../../components/InitialButton';
 
 const holder = {
   username: null,
-  email: null,
   password: null
 }
 
@@ -30,16 +29,15 @@ class Login extends React.Component {
           <InitialLogo />
           <View style={inital.wrapper}>
             <Input type="username" onChangeText={(value) => holder.username = value} />
-            <Input type="email" onChangeText={(value) => holder.email = value} />
             <Input type="password" onChangeText={(value) => holder.password = value} />
             <KeyboardSpacer />
           </View>
           <InitialLink type="login"  />
-          <InitialButton type="login" onPress={() => registration(holder)} />
+          <InitialButton type="login" onPress={() => login(holder)} />
         </View>
       </View>
     );
   }
 }
 
-export default Register;
+export default Login;
