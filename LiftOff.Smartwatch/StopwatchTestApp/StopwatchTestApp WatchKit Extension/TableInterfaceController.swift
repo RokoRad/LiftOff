@@ -10,14 +10,6 @@ import WatchKit
 import Foundation
 import UIKit
 
-
-struct Drone {
-    let id: Int
-    let name: String
-    let topSpeed: Int!
-    let users: Array<Any>
-}
-
 class TableInterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
@@ -36,8 +28,6 @@ class TableInterfaceController: WKInterfaceController {
             }
         }
     }
-    
-    func reloadRootControllers(withNames string: [String], contexts: [Any]?) {}
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
