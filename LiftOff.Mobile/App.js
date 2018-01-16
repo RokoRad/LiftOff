@@ -4,6 +4,7 @@ import styles from './styles.js';
 import { NativeRouter, Route } from 'react-router-native';
 import Expo from "expo";
 import Inital from './views/Inital';
+import Register from './views/Register';
 import Home from './views/Home';
 import Account from './views/Account';
 import Map from './views/Map';
@@ -39,6 +40,7 @@ class App extends React.Component {
           <View style={styles.fullScreen}>
             <StatusBar hidden={true} />
             <Route exact strict path="/" component={Inital} />
+            <Route exact strict path="/register" component={Register} />
             <Route exact strict path="/home" component={Home} />
             <Route exact strict path="/account" component={Account} />
             <Route exact strict path="/map" component={Map} />
