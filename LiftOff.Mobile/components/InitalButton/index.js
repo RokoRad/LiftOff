@@ -39,7 +39,7 @@ const InitalButton = (props) => {
         if (response.status === 200) {
           AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
           AsyncStorage.setItem('@username', '');
-          props.router.push("/home");
+          //props.router.push("/home");
         } else {
           Toast.show(language.loginError);
         }
@@ -83,7 +83,7 @@ const InitalButton = (props) => {
           }).then((response) => {
             if (response.status === 200) {
               AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token);
-              props.router.push("/home");
+              //props.router.push("/home");
             }
           }).catch((error) => {
             Toast.show(language.serverError);
