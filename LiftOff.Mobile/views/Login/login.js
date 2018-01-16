@@ -12,7 +12,7 @@ const encode = (value) => {
 }
 
 const login = (data) => {
-  if([data.username].length != 0 && [data.password].length > 8) {
+  if(data.username.length != 0 && data.password.length > 8) {
     fetch('http://liftoffapi.azurewebsites.net/token', {
       method: 'POST',
       headers: {
@@ -30,7 +30,7 @@ const login = (data) => {
       // puka server
     });
   } else {
-    if([data.password].length < 9) {
+    if(data.password.length < 9) {
       // password manji od 8
     } else {
       // Toast.show("") KRIVI PODATCI
