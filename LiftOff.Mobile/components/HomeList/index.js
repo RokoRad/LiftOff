@@ -13,7 +13,7 @@ const HomeList = (props) => {
       <HomeItem type="temperature" rating={list.TemperatureRating} fName="Min_Temperature" fVal={nester.Max_Temperature} sName="Max_Temperature" sVal={nester.Max_Temperature} fAddon="c" sAddon="c"/>
       <HomeItem type="uv" rating={list.UVRating} fName="UV" fVal={nester.UVIndex} sName="Cloudiness" sVal={nester.Cloudiness} sAddon="%" />
       <HomeItem type="visibility" rating={list.VisibilityRating} fName="Visibility" fVal={nester.Visibility} sName="Cloudiness" sVal={nester.Cloudiness} fAddon="m" sAddon="%" />
-      <HomeItem type="wind" rating={list.WindRating} fName="Wind direction" fVal={nester.WindDirection} sName="Wind speed" sVal={nester.WindSpeed} sAddon="m" />
+      <HomeItem type="wind" rating={list.WindRating} fName="Wind direction" fVal={nester.WindDirection} sName="Wind speed" sVal={nester.WindSpeed} sAddon="km/h" />
     </ScrollView>
 )};
 

@@ -24,6 +24,7 @@ class Home extends React.Component {
   componentWillMount() {
     AsyncStorage.getItem('@timeLocation').then((value) => {
       proxy.on('broadcastWeather', (response) => {
+        console.log(response);
         AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
         this.setState({
           list: response

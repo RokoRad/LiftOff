@@ -15,6 +15,7 @@ const icons = {
   wind: require('../../images/weather/wind.png')
 }
 
+// metric i imperial
 
 const HomeItem = (props) => (
   <View style={styles.wrapper}>
