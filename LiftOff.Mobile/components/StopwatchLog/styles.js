@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     marginBottom: 3
   },
   left: {
-    width: '20%'
+    width: '10%'
   },
   active: {
   },
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   middle: {
-    width: '60%',
+    width: '50%',
     paddingTop: 12,
     paddingBottom: 12
   },
@@ -25,8 +25,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'barlowRegular'
   },
-  right: {
+  middleRight: {
     width: '20%',
+  },
+  right: {
+    width: '10%',
     paddingTop: 12,
     paddingBottom: 12
   },

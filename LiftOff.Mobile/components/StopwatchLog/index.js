@@ -31,7 +31,7 @@ class StopwatchLog extends Component {
           <TouchableWithoutFeedback onPress={this.active}>
             <View style={[styles.left, (this.state.active ? styles.active : null), globals.bothAligned]}>
               <Text style={styles.inner}>
-                {this.state.active ? '✓' : '+'}
+                {this.state.active ? '+' : '-'}
               </Text>
             </View>
           </TouchableWithoutFeedback>

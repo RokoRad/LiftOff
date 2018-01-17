@@ -23,9 +23,7 @@ class Home extends React.Component {
 
   componentWillMount() {
     AsyncStorage.getItem('@timeLocation').then((value) => {
-      console.log(value)
       proxy.on('broadcastWeather', (response) => {
-        console.log(response);
         AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
         this.setState({
           list: response
@@ -34,10 +32,14 @@ class Home extends React.Component {
       connection.start().done(() => {
         if(value !== null) {
           let parsed = JSON.parse(value);
-          let a = parsed.time;
-          let b = JSON.parse(a);
-          console.log(b);
           proxy.invoke('initiateConnection', {
+            location: {
+              latitude: parsed.location.latitude,
+              longitude: parsed.location.longitude
+            },
+            time: new Date().toISOString()
+          }, units);
+          proxy.invoke('updateLocation', {
             location: {
               latitude: parsed.location.latitude,
               longitude: parsed.location.longitude
@@ -47,8 +49,8 @@ class Home extends React.Component {
         } else {
           proxy.invoke('initiateConnection', {
             location: {
-              latitude: value.location.latitude,
-              longitude: value.location.longitude
+              latitude: 43.55,
+              longitude: 16.5
             },
             time: new Date().toISOString()
           }, units);
