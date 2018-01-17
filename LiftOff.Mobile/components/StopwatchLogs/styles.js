@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   wrapper: {
-    width: '80%',
+    width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',   
     marginTop: 40,
@@ -31,16 +31,18 @@ const styles = StyleSheet.create({
     backgroundColor: 'red'
   },
   middleRight: {
-    width: '20%',
+    width: '25%',
     textAlign: 'center',
     fontFamily: 'barlowMedium',
-    fontSize: 12
+    fontSize: 12,
+    backgroundColor: 'orange'
   },
   right: {
     width: '15%',
     textAlign: 'center',
     fontFamily: 'barlowMedium',
-    fontSize: 12
+    fontSize: 12,
+    backgroundColor: 'blue'
   },
   scroll: {
     height: '40%'
