@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, AsyncStorage } from 'react-native';
-import { connection, proxy } from '../../functions/realtime';
+import { connection, proxy, update } from '../../functions/realtime';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
 import defaultList from '../../config/defaultList.js';
 import Toast from 'react-native-simple-toast';
-
-const units = 'metric'
 
 class Home extends React.Component {
   constructor() {
@@ -29,21 +27,12 @@ class Home extends React.Component {
       connection.start().done(() => {
         if(value !== null) {
           let parsed = JSON.parse(value);
-          proxy.invoke('initiateConnection', {
+          update({
             location: {
               latitude: parsed.location.latitude,
               longitude: parsed.location.longitude
-            },
-            time: new Date().toISOString()
-          }, units);
-        } else {
-          proxy.invoke('initiateConnection', {
-            location: {
-              latitude: 43.55,
-              longitude: 16.5
-            },
-            time: new Date().toISOString()
-          }, units);
+            }            
+          })
         }
       }).fail(() => {
         AsyncStorage.getItem('@realtime').then((cache) => {
