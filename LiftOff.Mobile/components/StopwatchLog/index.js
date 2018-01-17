@@ -41,10 +41,10 @@ class StopwatchLog extends Component {
             <Text style={styles.middleInner} numberOfLines={1} ellipsizeMode="tail">{this.props.location}</Text>
           </View>
           <View style={styles.middleRight}>
-            <Text style={styles.middleRightInner}>{this.props.time}</Text>
+            <Text style={[styles.middleRightInner, styles[colorGenerator(this.props.rating)]]}>{round(this.props.rating)}</Text>
           </View>
           <View style={styles.right}>
-            <Text style={[styles.rightInner, styles[colorGenerator(this.props.rating)]]}>{round(this.props.rating)}</Text>
+            <Text style={styles.rightInner}>{this.props.time}</Text>
           </View>
         </View>
       );
