@@ -38,8 +38,11 @@ class StopwatchLog extends Component {
           <View style={styles.middle}>
             <Text style={styles.middleInner} numberOfLines={1} ellipsizeMode="tail">{this.props.location}</Text>
           </View>
-          <View style={styles.right}>
-            <Text style={styles.rightInner}>{this.props.time}</Text>
+          <View style={styles.middleRight}>
+            <Text style={styles.middleInner}>{this.props.time}</Text>
+          </View>
+          <View style={styles.middleRight}>
+            <Text style={styles.rightInner}>3.2</Text>
           </View>
         </View>
       );

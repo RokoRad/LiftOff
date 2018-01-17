@@ -20,29 +20,25 @@ const styles = StyleSheet.create({
     width: '10%',
     textAlign: 'center',
     fontFamily: 'barlowMedium',
-    fontSize: 12,
-    backgroundColor: 'blue'
+    fontSize: 12
   },
   middleLeft: {
     width: '50%',
     textAlign: 'center',
     fontFamily: 'barlowMedium',
-    fontSize: 12,
-    backgroundColor: 'red'
+    fontSize: 12
   },
   middleRight: {
     width: '25%',
     textAlign: 'center',
     fontFamily: 'barlowMedium',
-    fontSize: 12,
-    backgroundColor: 'orange'
+    fontSize: 12
   },
   right: {
     width: '15%',
     textAlign: 'center',
     fontFamily: 'barlowMedium',
-    fontSize: 12,
-    backgroundColor: 'blue'
+    fontSize: 12
   },
   scroll: {
     height: '40%'

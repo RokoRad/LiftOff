@@ -18,23 +18,21 @@ const styles = StyleSheet.create({
   middle: {
     width: '50%',
     paddingTop: 12,
-    paddingBottom: 12,
-    backgroundColor: 'green'
+    paddingBottom: 12
   },
   middleInner: {
-    textAlign: 'center',
+    textAlign: 'right',
     fontSize: 14,
     fontFamily: 'barlowRegular'
   },
   middleRight: {
-    width: '25%',
-    backgroundColor: 'pink'
+    width: '20%',
+    backgroundColor: 'green'
   },
   right: {
     width: '15%',
     paddingTop: 12,
-    paddingBottom: 12,
-    backgroundColor: 'purple'
+    paddingBottom: 12
   },
   rightInner: {
     textAlign: 'center',
