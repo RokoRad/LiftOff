@@ -19,9 +19,9 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   input: {
-    fontSize: 14,
-    fontFamily: 'barlowBold',
-    color: '#000'
+    fontSize: 12,
+    fontFamily: 'barlowSemiBold',
+    color: '#3498db'
   }
 });
 

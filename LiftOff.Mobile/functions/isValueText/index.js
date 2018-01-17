@@ -6,7 +6,6 @@ const isValueText = (value) => {
   } else {
     if(isNaN(value)) {
       return value;
-      console.log(value)
     } else {
       return round(value);
     }

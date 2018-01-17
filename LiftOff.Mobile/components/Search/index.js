@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { View, TextInput } from 'react-native';
 import styles from './styles.js';
-import onEnter from './onEnter.js'
+import onEnter from './onEnter.js';
 
 const Search = () => (
   <View style={styles.wrapper}>
-    <TextInput underlineColorAndroid={'transparent'} placeholder="hueheu" style={styles.input} placeholderTextColor="#ccc" onSubmitEditing={(value) => onEnter(value)} />
+    <TextInput underlineColorAndroid={'transparent'} placeholder="hueheu" style={styles.input} placeholderTextColor="#3498db" caretHidden={true} onSubmitEditing={(value) => onEnter(value)} />
   </View>
 );
 

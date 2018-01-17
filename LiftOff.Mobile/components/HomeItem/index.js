@@ -28,11 +28,11 @@ const HomeItem = (props) => (
       <View>
         <View style={styles.row}>
           <Text style={styles.leftText}>{props.fName}</Text>
-          <Text style={styles.rightText}>{isValueText(props.fVal)}</Text>
+          <Text style={styles.rightText}>{isValueText(props.fVal)}{props.fAddon}</Text>
         </View>
         <View style={styles.row}>
           <Text style={styles.leftText}>{props.sName}</Text>
-          <Text style={styles.rightText}>{isValueText(props.sVal)}</Text>
+          <Text style={styles.rightText}>{isValueText(props.sVal)}{props.sAddon}</Text>
         </View>
       </View>
     </View>
