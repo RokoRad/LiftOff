@@ -12,4 +12,4 @@ const isValueText = (value) => {
   }
 };
 
-export default round;
+export default isValueText;
