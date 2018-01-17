@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, AsyncStorage } from 'react-native';
-import signalr from 'react-native-signalr';
+import { connection, proxy } from '../../functions/realtime';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
 import defaultList from '../../config/defaultList.js';
 import Toast from 'react-native-simple-toast';
 
-const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
-      proxy = connection.createHubProxy('weatherHub');
-      connection.logging = false,
-      units = 'metric'
+const units = 'metric'
 
 class Home extends React.Component {
   constructor() {
@@ -33,13 +30,6 @@ class Home extends React.Component {
         if(value !== null) {
           let parsed = JSON.parse(value);
           proxy.invoke('initiateConnection', {
-            location: {
-              latitude: parsed.location.latitude,
-              longitude: parsed.location.longitude
-            },
-            time: new Date().toISOString()
-          }, units);
-          proxy.invoke('updateLocation', {
             location: {
               latitude: parsed.location.latitude,
               longitude: parsed.location.longitude
