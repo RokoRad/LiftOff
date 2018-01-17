@@ -18,33 +18,25 @@ class Home extends React.Component {
 
   componentWillMount() {
     AsyncStorage.getItem('@timeLocation').then((value) => {
+      let parsed = JSON.parse(value);
+      
       proxy.on('broadcastWeather', (response) => {
         AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
+        console.log(response)
         this.setState({
           list: response
         })
       }); 
-      connection.start().done(() => {
-        if(value !== null) {
-          let parsed = JSON.parse(value);
-          update({
-            location: {
-              latitude: parsed.location.latitude,
-              longitude: parsed.location.longitude
-            }            
-          })
-        }
-      }).fail(() => {
-        AsyncStorage.getItem('@realtime').then((cache) => {
-          this.setState({
-            list: JSON.parse(cache)
-          });
-        });
-        Toast.show("Server error");
-      });
+
+      update({
+        location: {
+          latitude: parsed.location.latitude,
+          longitude: parsed.location.longitude
+        },            
+      })
     });
   }
-  
+
   render() {
     return(
       <Screen current={this.props.location}>
