@@ -15,17 +15,21 @@ const update = (location) => {
   proxy.invoke('updateLocation', location);
 };
 
-connection.start().done(() => {
-  initial({
-    location: {
-      latitude: 43.508133,
-      longitude: 16.440193
-    },
-    time: new Date().toISOString()
-  }, units);
-}).fail(() => {
-  // server error
-});
+const setup = () => {
+  connection.start().done(() => {
+    initial({
+      location: {
+        latitude: 43.508133,
+        longitude: 16.440193
+      },
+      time: new Date().toISOString()
+    }, units);
+    console.log("aaa")
+  }).fail(() => {
+    console.log("server error")
+    // server error
+  });
+};
 
 // AsyncStorage.getItem('@timeLocation').then((value) => {
 //   connection.start().done(() => {
@@ -55,5 +59,6 @@ export {
   connection,
   proxy,
   initial,
-  update
+  update,
+  setup
 }

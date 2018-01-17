@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, AsyncStorage } from 'react-native';
-import { connection, proxy, update } from '../../functions/realtime';
+import { update, proxy, setup } from '../../functions/realtime';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
@@ -17,24 +17,33 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
-    AsyncStorage.getItem('@timeLocation').then((value) => {
-      let parsed = JSON.parse(value);
-      
-      proxy.on('broadcastWeather', (response) => {
-        AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
-        console.log(response)
-        this.setState({
-          list: response
-        })
-      }); 
+    setup();
+    proxy.on('broadcastWeather', (response) => {
+      AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
+      console.log(response)
+      // this.setState({
+      //   list: response
+      // })
+    }); 
+    // AsyncStorage.getItem('@timeLocation').then((value) => {
+    //   let parsed = JSON.parse(value);
+    //   setup();
 
-      update({
-        location: {
-          latitude: parsed.location.latitude,
-          longitude: parsed.location.longitude
-        },            
-      })
-    });
+    //   proxy.on('broadcastWeather', (response) => {
+    //     AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
+    //     console.log(response)
+    //     // this.setState({
+    //     //   list: response
+    //     // })
+    //   }); 
+
+    //   // update({
+    //   //   location: {
+    //   //     latitude: parsed.location.latitude,
+    //   //     longitude: parsed.location.longitude
+    //   //   },            
+    //   // })
+    // });
   }
 
   render() {
