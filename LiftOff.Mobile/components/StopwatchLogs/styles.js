@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   wrapper: {
-    width: '80%',
+    width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',   
     marginTop: 40,
@@ -17,19 +17,25 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   left: {
-    width: '20%',
+    width: '10%',
     textAlign: 'center',
     fontFamily: 'barlowMedium',
     fontSize: 12
   },
-  middle: {
-    width: '60%',
+  middleLeft: {
+    width: '50%',
+    textAlign: 'center',
+    fontFamily: 'barlowMedium',
+    fontSize: 12
+  },
+  middleRight: {
+    width: '25%',
     textAlign: 'center',
     fontFamily: 'barlowMedium',
     fontSize: 12
   },
   right: {
-    width: '20%',
+    width: '15%',
     textAlign: 'center',
     fontFamily: 'barlowMedium',
     fontSize: 12

@@ -1,6 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  green: {
+    color: '#47e389'
+  },
+  orange: {
+    color: '#FF9052'
+  },
+  red: {
+    color: '#F95F62'
+  },
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
@@ -8,7 +17,7 @@ const styles = StyleSheet.create({
     marginBottom: 3
   },
   left: {
-    width: '20%'
+    width: '10%'
   },
   active: {
   },
@@ -16,7 +25,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   middle: {
-    width: '60%',
+    width: '50%',
     paddingTop: 12,
     paddingBottom: 12
   },
@@ -25,8 +34,17 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'barlowRegular'
   },
+  middleRightInner: {
+    textAlign: 'center',
+    fontSize: 14,
+    fontFamily: 'barlowMedium' 
+  },
+  middleRight: {
+    width: '25%',
+    paddingTop: 12.5
+  },
   right: {
-    width: '20%',
+    width: '15%',
     paddingTop: 12,
     paddingBottom: 12
   },
@@ -38,7 +56,7 @@ const styles = StyleSheet.create({
   inner: {
     fontSize: 20,
     fontFamily: 'barlowBold',
-    color: 'red'  
+    color: '#3498db'  
   }
 });
 

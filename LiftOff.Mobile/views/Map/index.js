@@ -4,6 +4,7 @@ import Screen from '../../components/Screen';
 import Marker from '../../components/Marker';
 import Dock from '../../components/Dock';
 import Tooltip from '../../components/Tooltip';
+// import Search from '../../components/Search';
 import styles from './styles.js';
 import style from '../../functions/mapStyle';
 import round from '../../functions/round';
@@ -67,8 +68,9 @@ class Map extends Component {
   }
 
   componentWillUnmount() {
-    //AsyncStorage.setItem('@location', JSON.stringify(this.state.markerPosition)).then();
+    AsyncStorage.setItem('@location', JSON.stringify(this.state.markerPosition)).then();
     AsyncStorage.getItem('@picker').then((timeValue) => {
+      console.log(timeValue)
       AsyncStorage.setItem('@timeLocation', JSON.stringify({
         location: this.state.markerPosition,
         time: timeValue
@@ -211,6 +213,7 @@ class Map extends Component {
   render() {
       return (
         <Screen current={this.props.location}>
+          {/* <Search /> */}
           <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
