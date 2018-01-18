@@ -101,7 +101,7 @@ class Map extends Component {
               latitude: 43.508133,
               longitude: 16.440193
             },
-            time: "2018-01-13T14:12:10+00:00"
+            time: new Date().toISOString()
           })
       }).then((response) => {
         if(response.status === 200) {
@@ -151,13 +151,16 @@ class Map extends Component {
         if(response.status === 200) {
           const parsed = JSON.parse(response._bodyInit);
           holder = holderEditor(parsed.weatherData.city, parsed.totalRating);
+          this.map.animateToCoordinate({
+            ...parsed.weatherData.timeLocation.location
+          }, 500);
           this.setState({
             calibration: true,
             pressed: true,
-            location: {
-              ...parsed.weatherData.timeLocation.location,
-              ...deltas
-            },
+            // location: {
+            //   ...parsed.weatherData.timeLocation.location,
+            //   ...deltas
+            // },
             markerPosition: {
               ...parsed.weatherData.timeLocation.location,
               ...deltas
@@ -182,7 +185,7 @@ class Map extends Component {
           {/* <Search /> */}
           <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
-          <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
+          <MapView ref={(map) => this.map = map} style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} onPress={(value) => this.setMarker(value)}>
             <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city={holder.city} time={holder.time} rating={holder.rating} />
           </MapView>
         </Screen>
