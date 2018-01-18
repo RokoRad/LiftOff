@@ -70,44 +70,63 @@ class Home extends React.Component {
 
   componentWillMount() {
     connection.stop();
-    AsyncStorage.getItem('@timeLocation').then((value) => {
-      proxy.on('broadcastWeather', (response) => {
-        console.log(response);
-        AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
-        this.setState({
-          list: response
-        })
-      }); 
-      connection.start().done(() => {
-        if(value !== null) {
-          console.log("value exists")
-          let parsed = JSON.parse(value);
-          proxy.invoke('initiateConnection', {
-            location: {
-              latitude: parsed.location.latitude,
-              longitude: parsed.location.longitude
-            },
-            time: new Date().toISOString()
-          }, units);
-        } else {
-          console.log("value doesnt exist")
-          proxy.invoke('initiateConnection', {
-            location: {
-              latitude: 43.55,
-              longitude: 16.5
-            },
-            time: new Date().toISOString()
-          }, units);
-        }
-      }).fail(() => {
-        AsyncStorage.getItem('@realtime').then((cache) => {
-          this.setState({
-            list: JSON.parse(cache)
-          });
-        });
-        Toast.show("Server error");
-      });
+
+    proxy.on('broadcastWeather', (response) => {
+      console.log(response)
     });
+
+    connection.start().done(() => {
+      const timeLocation = {
+        location: {
+          latitude: 46,
+          longitude: 5
+        },
+        time: new Date().toISOString()
+      }
+      proxy.invoke('initiateConnection', timeLocation, units);
+    }).fail(() => {
+      console.log("error")
+      // puka server
+    });
+
+    // AsyncStorage.getItem('@timeLocation').then((value) => {
+    //   proxy.on('broadcastWeather', (response) => {
+    //     console.log(response);
+    //     AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
+    //     this.setState({
+    //       list: response
+    //     })
+    //   }); 
+    //   connection.start().done(() => {
+    //     if(value !== null) {
+    //       let parsed = JSON.parse(value);
+    //       console.log(parsed)
+    //       proxy.invoke('initiateConnection', {
+    //         location: {
+    //           latitude: parsed.location.latitude,
+    //           longitude: parsed.location.longitude
+    //         },
+    //         time: new Date().toISOString()
+    //       }, units);
+    //     } else {
+    //       console.log("value doesnt exist")
+    //       proxy.invoke('initiateConnection', {
+    //         location: {
+    //           latitude: 43.55,
+    //           longitude: 16.5
+    //         },
+    //         time: new Date().toISOString()
+    //       }, units);
+    //     }
+    //   }).fail(() => {
+    //     AsyncStorage.getItem('@realtime').then((cache) => {
+    //       this.setState({
+    //         list: JSON.parse(cache)
+    //       });
+    //     });
+    //     Toast.show("Server error");
+    //   });
+    // });
   }
 
   render() {
