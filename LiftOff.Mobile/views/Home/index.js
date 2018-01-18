@@ -11,32 +11,6 @@ const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/si
       proxy = connection.createHubProxy('weatherHub'),
       units = 'metric';
 
-// const initial = (object, units) => {
-// proxy.invoke('initiateConnection', object, units);
-// };
-
-// const update = (location) => {
-// proxy.invoke('updateLocation', location);
-// };
-
-// const setup = () => {
-// //setInterval(function(){ console.log("kurac") }, 500);
-// connection.start().done(() => {
-// console.log("usa")
-// proxy.invoke('initiateConnection', {
-// location: {
-//   latitude: 43.508133,
-//   longitude: 16.440193
-// },
-// time: new Date().toISOString()
-// }, units);
-// console.log("prosa")
-// }).fail(() => {
-// console.log("server error")
-// // server error
-// });
-// };
-
 class Home extends React.Component {
   constructor() {
     super();
@@ -46,28 +20,6 @@ class Home extends React.Component {
     }
   };
 
-  // componentWillMount() {
-  //   proxy.on('broadcastWeather', (response) => {
-  //       //radi sta triba sa weatherRatingon
-  //       console.log(response);
-  //   });
-  //   connection.stop();
-  //   connection.start().done(() => {
-  //   console.log("usa")
-  //   proxy.invoke('initiateConnection', {
-  //     location: {
-  //       latitude: 43.508133,
-  //       longitude: 16.440193
-  //     },
-  //     time: new Date().toISOString()
-  //   }, units);
-  //     console.log("prosa")
-  //   }).fail(() => {
-  //     console.log("server error")
-  //   // server error
-  //   });
-  // }
-
   async _stopConnection() {
     connection.stop(() => {
       console.log("stopped")
@@ -75,36 +27,50 @@ class Home extends React.Component {
     console.log("aaaaa")
   }
 
-  async _fetch() {
+  async _invoke(object, units) {
+    proxy.invoke('initiateConnection', object, units);
+    console.log("invoked")
+    console.log(object)
+  }
+
+  componentDidMount() {
     proxy.on('broadcastWeather', (response) => {
       this.setState({list: response})
-      // this.setState({
-      //   list: response
-      // })
       console.log(response)
-    });
-
-    connection.start().done(() => {
-      // setInterval(function() {
-      //   console.log("a")
-      // }, 500)
-      const timeLocation = {
-        location: {
-          latitude: 46,
-          longitude: 5
-        },
-        time: new Date().toISOString()
-      }
-      proxy.invoke('initiateConnection', timeLocation, units);
-    }).fail(() => {
-      console.log("error")
-      // puka server
     });
   }
 
-
-  componentDidMount() {
-    this._fetch();
+  componentWillMount() {
+    AsyncStorage.getItem('@timeLocation').then((storage) => {
+      connection.start().done(() => {
+        if(storage) {
+          const value = JSON.parse(storage);
+          const data = {
+            location: {
+              longitude: value.location.longitude,
+              latitude: value.location.latitude
+            },
+            //time: value.time
+            time: new Date().toISOString()
+          }
+          this._invoke(data, units);
+          console.log("has")
+        } else {
+          const data = {
+            location: {
+              longitude: 3,
+              latitude: 3
+            },
+            time: new Date().toISOString()
+          }
+          this._invoke(data, units);
+          console.log("empty")
+        }
+      }).fail(() => {
+        console.log("error")
+        // puka server
+      });
+    });
   }
 
   componentWillUnmount() {
