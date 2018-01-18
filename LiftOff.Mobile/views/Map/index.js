@@ -75,11 +75,11 @@ class Map extends Component {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true, maximumAge: 900}).then((response) => {
       this.setState({
-        location: {
-          longitude: response.coords.longitude,
-          latitude: response.coords.latitude,
-          ...deltas
-        },
+        // location: {
+        //   longitude: response.coords.longitude,
+        //   latitude: response.coords.latitude,
+        //   ...deltas
+        // },
         render: true
       });
     });
@@ -92,15 +92,13 @@ class Map extends Component {
   }
 
   setMarker = (value) => {
-    AsyncStorage.getItem('@token').then((value) => {
+    value.persist();
+    AsyncStorage.getItem('@token').then((data) => {
       fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
         method: 'POST',
-        headers: headers(value),
+        headers: headers(data),
         body: JSON.stringify({
-            location: {
-              latitude: 43.508133,
-              longitude: 16.440193
-            },
+            location: value.nativeEvent.coordinate,
             time: new Date().toISOString()
           })
       }).then((response) => {
@@ -111,7 +109,6 @@ class Map extends Component {
           this.props.history.push('/');
         }}).catch((error) => console.log(error))
     });
-
     if(this.state.selected === false) {
       this.setState({
         selected: true
@@ -157,10 +154,6 @@ class Map extends Component {
           this.setState({
             calibration: true,
             pressed: true,
-            // location: {
-            //   ...parsed.weatherData.timeLocation.location,
-            //   ...deltas
-            // },
             markerPosition: {
               ...parsed.weatherData.timeLocation.location,
               ...deltas
