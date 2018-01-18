@@ -7,22 +7,18 @@ import Tooltip from '../../components/Tooltip';
 // import Search from '../../components/Search';
 import styles from './styles.js';
 import style from '../../functions/mapStyle';
+import headers from '../../functions/headers';
 import holderEditor from './holderEditor';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
-//import { language } from '../../config/settings.js';
 
 const holder = {
   city: '/',
   time: '/',
   rating: '/'
-}
-
-const deltas = {
+}, deltas = {
   longitudeDelta: 0.1,
   latitudeDelta: 0.1
-};
-
-const inital = {
+}, inital = {
   latitude: 43.5432,
   longitude: 16.49314,
   ...deltas
@@ -44,29 +40,28 @@ class Map extends Component {
 
   componentWillMount() {
     AsyncStorage.getItem('@location').then((response) => {
-      if(response !== null) {
+      if(response) {
         const parsed = JSON.parse(response);
+
+        const object = {
+          latitude: parsed.latitude,
+          longitude: parsed.longitude,
+          ...deltas
+        }
+
         this.setState({
-          location: {
-            latitude: parsed.latitude,
-            longitude: parsed.longitude,
-            ...deltas
-          },
-          markerPosition: {
-            latitude: parsed.latitude,
-            longitude: parsed.longitude,
-            ...deltas
-          }
+          location: object,
+          markerPosition: object
         })
       }
     });
+
     if(!this.state.render) {
-      this.getCurrentLocation
+      this.getCurrentLocation()
     }
   }
 
   componentWillUnmount() {
-    AsyncStorage.setItem('@location', JSON.stringify(this.state.markerPosition)).then();
     AsyncStorage.getItem('@picker').then((timeValue) => {
       console.log(timeValue)
       AsyncStorage.setItem('@timeLocation', JSON.stringify({
@@ -78,9 +73,6 @@ class Map extends Component {
 
   getCurrentLocation = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== 'granted') {
-      // odbijen popup
-    }
     let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true, maximumAge: 900}).then((response) => {
       this.setState({
         location: {
@@ -103,10 +95,7 @@ class Map extends Component {
     AsyncStorage.getItem('@token').then((value) => {
       fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
         method: 'POST',
-        headers: {
-          'Authorization': 'Bearer ' + value,
-          'Content-type': 'application/json'
-        },
+        headers: headers(value),
         body: JSON.stringify({
             location: {
               latitude: 43.508133,
@@ -118,9 +107,6 @@ class Map extends Component {
         if(response.status === 200) {
           const parsed = JSON.parse(response._bodyInit);
           holder = holderEditor(parsed.weatherData.city, parsed.totalRating);
-          // this.setState({
-          //   pressed: true
-          // })
         } else if (response.status === 401) {
           this.props.history.push('/');
         }}).catch((error) => console.log(error))
@@ -145,26 +131,23 @@ class Map extends Component {
     }
 
     AsyncStorage.setItem('@location', JSON.stringify(value.nativeEvent.coordinate)).then();
-    console.log(value.nativeEvent.coordinate);
-    console.log("marker set")
   }
 
   calibration = () => {
+    console.log("usa u kal")
     AsyncStorage.getItem('@token').then((value) => {
       fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
         method: 'POST',
-        headers: {
-          'Authorization': 'Bearer ' + value,
-          'Content-type': 'application/json'
-        },
+        headers: headers(value),
         body: JSON.stringify({
             location: {
               latitude: this.state.center.latitude,
               longitude: this.state.center.longitude
             },
-            time: "2018-01-13T14:12:10+00:00"
+            time: new Date().toISOString()
           })
       }).then((response) => {
+        console.log(response)
         if(response.status === 200) {
           const parsed = JSON.parse(response._bodyInit);
           holder = holderEditor(parsed.weatherData.city, parsed.totalRating);
@@ -183,9 +166,7 @@ class Map extends Component {
         } else if (response.status === 401) {
           this.props.history.push('/');
         }});
-        AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation)).then(() => {
-
-        });
+        AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation)).then();
     });
   }
 
@@ -194,7 +175,6 @@ class Map extends Component {
       selected: false
     });
   }
-
 
   render() {
       return (
