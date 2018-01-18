@@ -7,7 +7,7 @@ import Tooltip from '../../components/Tooltip';
 // import Search from '../../components/Search';
 import styles from './styles.js';
 import style from '../../functions/mapStyle';
-import round from '../../functions/round';
+import holderEditor from './holderEditor';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 //import { language } from '../../config/settings.js';
 
@@ -27,8 +27,6 @@ const inital = {
   longitude: 16.49314,
   ...deltas
 };
-
-const rend = 1;
 
 class Map extends Component {
   constructor() {
@@ -119,26 +117,10 @@ class Map extends Component {
       }).then((response) => {
         if(response.status === 200) {
           const parsed = JSON.parse(response._bodyInit);
-          holder.city = parsed.weatherData.city;
-          holder.rating = round(parsed.totalRating);
-          let date = new Date();
-              mm = date.getMinutes();
-              hh = date.getHours();
-          holder.time = `${hh}:${mm}`;
-          this.setState({
-            calibration: true,
-            pressed: true,
-            location: {
-              longitude: response.coords.longitude,
-              latitude: response.coords.latitude,
-              ...deltas
-            },
-            markerPosition: {
-              longitude: response.coords.longitude,
-              latitude: response.coords.latitude,
-              ...deltas
-            }
-          })
+          holder = holderEditor(parsed.weatherData.city, parsed.totalRating);
+          // this.setState({
+          //   pressed: true
+          // })
         } else if (response.status === 401) {
           this.props.history.push('/');
         }}).catch((error) => console.log(error))
@@ -162,8 +144,8 @@ class Map extends Component {
       rating: '/'
     }
 
-    AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation)).then();
-    console.log(this.state.markerPosition);
+    AsyncStorage.setItem('@location', JSON.stringify(value.nativeEvent.coordinate)).then();
+    console.log(value.nativeEvent.coordinate);
     console.log("marker set")
   }
 
@@ -185,12 +167,7 @@ class Map extends Component {
       }).then((response) => {
         if(response.status === 200) {
           const parsed = JSON.parse(response._bodyInit);
-          holder.city = parsed.weatherData.city;
-          holder.rating = round(parsed.totalRating);
-          let date = new Date();
-              mm = date.getMinutes();
-              hh = date.getHours();
-          holder.time = `${hh}:${mm}`;
+          holder = holderEditor(parsed.weatherData.city, parsed.totalRating);
           this.setState({
             calibration: true,
             pressed: true,
@@ -206,8 +183,9 @@ class Map extends Component {
         } else if (response.status === 401) {
           this.props.history.push('/');
         }});
-        AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation)).then();
-        console.log("bbbbb")
+        AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation)).then(() => {
+
+        });
     });
   }
 
