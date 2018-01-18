@@ -12,6 +12,12 @@ const encode = (value) => {
   return object;
 }
 
+/*
+const encode = (value) => Object.keys(value)
+    .map(prop => `${encodeURIComponent(property)}=${encodeURIComponent(value[property])}`)
+    .join('&');
+    */
+
 const login = (data, history) => {
   if(data.username.length != 0 && data.password.length > 8) {
     const object = {
