@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, AsyncStorage } from 'react-native';
 import signalr from 'react-native-signalr';
-import { broadcast } from '../../functions/realtime';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
@@ -10,33 +9,7 @@ import Toast from 'react-native-simple-toast';
 
 const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
       proxy = connection.createHubProxy('weatherHub'),
-      units = 'metric'
-
-// const initial = (object, units) => {
-// proxy.invoke('initiateConnection', object, units);
-// };
-
-// const update = (location) => {
-// proxy.invoke('updateLocation', location);
-// };
-
-// const setup = () => {
-// //setInterval(function(){ console.log("kurac") }, 500);
-// connection.start().done(() => {
-// console.log("usa")
-// proxy.invoke('initiateConnection', {
-// location: {
-//   latitude: 43.508133,
-//   longitude: 16.440193
-// },
-// time: new Date().toISOString()
-// }, units);
-// console.log("prosa")
-// }).fail(() => {
-// console.log("server error")
-// // server error
-// });
-// };
+      units = 'metric';
 
 class Home extends React.Component {
   constructor() {
@@ -47,12 +20,61 @@ class Home extends React.Component {
     }
   };
 
-  componentWillMount() {
-    connection.start().done(() => {
-
-    }).fail(() => {
-      // server error
+  async _stopConnection() {
+    connection.stop(() => {
+      console.log("stopped")
     });
+    console.log("aaaaa")
+  }
+
+  async _invoke(object, units) {
+    proxy.invoke('initiateConnection', object, units);
+    console.log("invoked")
+    console.log(object)
+  }
+
+  componentDidMount() {
+    proxy.on('broadcastWeather', (response) => {
+      this.setState({list: response})
+      console.log(response)
+    });
+  }
+
+  componentWillMount() {
+    AsyncStorage.getItem('@timeLocation').then((storage) => {
+      connection.start().done(() => {
+        if(storage) {
+          const value = JSON.parse(storage);
+          const data = {
+            location: {
+              longitude: value.location.longitude,
+              latitude: value.location.latitude
+            },
+            //time: value.time
+            time: new Date().toISOString()
+          }
+          this._invoke(data, units);
+          console.log("has")
+        } else {
+          const data = {
+            location: {
+              longitude: 3,
+              latitude: 3
+            },
+            time: new Date().toISOString()
+          }
+          this._invoke(data, units);
+          console.log("empty")
+        }
+      }).fail(() => {
+        console.log("error")
+        // puka server
+      });
+    });
+  }
+
+  componentWillUnmount() {
+    this._stopConnection();
   }
 
   render() {

@@ -34,7 +34,6 @@ const login = (data, history) => {
       console.log(response)
       if(response.status === 200) {
         AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
-          console.log("aaaaa")
           history.push('/home');
         });
       } else {
