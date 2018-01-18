@@ -139,27 +139,32 @@ class Map extends Component {
               ...deltas
             }
           })
-          AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation)).then();
-          console.log(this.state.markerPosition)
         } else if (response.status === 401) {
           this.props.history.push('/');
         }}).catch((error) => console.log(error))
     });
+
     if(this.state.selected === false) {
       this.setState({
         selected: true
       })
     }
+
     this.setState({
       markerPosition: value.nativeEvent.coordinate,
       pressed: true,      
       calibration: false
     });
+
     holder = {
       city: '/',
       time: '/',
       rating: '/'
     }
+
+    AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation)).then();
+    console.log(this.state.markerPosition);
+    console.log("marker set")
   }
 
   calibration = () => {
@@ -198,10 +203,11 @@ class Map extends Component {
               ...deltas
             }
           })
-          AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation)).then();
         } else if (response.status === 401) {
           this.props.history.push('/');
-        }})
+        }});
+        AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation)).then();
+        console.log("bbbbb")
     });
   }
 
