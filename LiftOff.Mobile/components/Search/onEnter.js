@@ -8,7 +8,6 @@ const onEnter = (value, ref) => {
       latitude: data.results[0].geometry.location.lat,
       longitude: data.results[0].geometry.location.lng
     }
-    console.log(location);
     ref.animateToCoordinate({
       ...location
     }, 500);

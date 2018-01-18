@@ -21,22 +21,16 @@ class Home extends React.Component {
   };
 
   async _stopConnection() {
-    connection.stop(() => {
-      console.log("stopped")
-    });
-    console.log("aaaaa")
+    connection.stop();
   }
 
   async _invoke(object, units) {
     proxy.invoke('initiateConnection', object, units);
-    console.log("invoked")
-    console.log(object)
   }
 
   componentDidMount() {
     proxy.on('broadcastWeather', (response) => {
       this.setState({list: response})
-      console.log(response)
     });
   }
 
@@ -54,7 +48,6 @@ class Home extends React.Component {
             time: new Date().toISOString()
           }
           this._invoke(data, units);
-          console.log("has")
         } else {
           const data = {
             location: {
@@ -64,10 +57,8 @@ class Home extends React.Component {
             time: new Date().toISOString()
           }
           this._invoke(data, units);
-          console.log("empty")
         }
       }).fail(() => {
-        console.log("error")
         // puka server
       });
     });

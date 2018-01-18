@@ -75,11 +75,6 @@ class Map extends Component {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true, maximumAge: 900}).then((response) => {
       this.setState({
-        // location: {
-        //   longitude: response.coords.longitude,
-        //   latitude: response.coords.latitude,
-        //   ...deltas
-        // },
         render: true
       });
     });
