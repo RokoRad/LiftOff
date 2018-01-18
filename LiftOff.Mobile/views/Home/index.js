@@ -70,8 +70,13 @@ class Home extends React.Component {
 
   componentWillMount() {
     connection.stop();
+  }
 
+  componentDidMount() {
     proxy.on('broadcastWeather', (response) => {
+      this.setState({
+        list: response
+      })
       console.log(response)
     });
 
