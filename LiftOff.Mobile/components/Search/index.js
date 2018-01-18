@@ -5,9 +5,9 @@ import onEnter from './onEnter.js';
 
 let input;
 
-const Search = () => (
+const Search = ({pass}) => (
   <View style={styles.wrapper}>
-    <TextInput underlineColorAndroid={'transparent'} placeholder="Search location" style={styles.input} placeholderTextColor="#3498db" caretHidden={true} onSubmitEditing={(value) => onEnter(input)} onChangeText={(value) => input = value}/>
+    <TextInput underlineColorAndroid={'transparent'} placeholder="Search location" style={styles.input} placeholderTextColor="#3498db" caretHidden={true} onSubmitEditing={(value) => onEnter(input, pass)} onChangeText={(value) => input = value}/>
   </View>
 );
 
