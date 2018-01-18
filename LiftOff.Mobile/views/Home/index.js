@@ -68,19 +68,26 @@ class Home extends React.Component {
   //   });
   // }
 
-  componentWillMount() {
-    connection.stop();
+  async _stopConnection() {
+    connection.stop(() => {
+      console.log("stopped")
+    });
+    console.log("aaaaa")
   }
 
-  componentDidMount() {
+  async _fetch() {
     proxy.on('broadcastWeather', (response) => {
-      this.setState({
-        list: response
-      })
+      this.setState({list: response})
+      // this.setState({
+      //   list: response
+      // })
       console.log(response)
     });
 
     connection.start().done(() => {
+      // setInterval(function() {
+      //   console.log("a")
+      // }, 500)
       const timeLocation = {
         location: {
           latitude: 46,
@@ -93,45 +100,15 @@ class Home extends React.Component {
       console.log("error")
       // puka server
     });
+  }
 
-    // AsyncStorage.getItem('@timeLocation').then((value) => {
-    //   proxy.on('broadcastWeather', (response) => {
-    //     console.log(response);
-    //     AsyncStorage.setItem('@realtime', JSON.stringify(response)).then();
-    //     this.setState({
-    //       list: response
-    //     })
-    //   }); 
-    //   connection.start().done(() => {
-    //     if(value !== null) {
-    //       let parsed = JSON.parse(value);
-    //       console.log(parsed)
-    //       proxy.invoke('initiateConnection', {
-    //         location: {
-    //           latitude: parsed.location.latitude,
-    //           longitude: parsed.location.longitude
-    //         },
-    //         time: new Date().toISOString()
-    //       }, units);
-    //     } else {
-    //       console.log("value doesnt exist")
-    //       proxy.invoke('initiateConnection', {
-    //         location: {
-    //           latitude: 43.55,
-    //           longitude: 16.5
-    //         },
-    //         time: new Date().toISOString()
-    //       }, units);
-    //     }
-    //   }).fail(() => {
-    //     AsyncStorage.getItem('@realtime').then((cache) => {
-    //       this.setState({
-    //         list: JSON.parse(cache)
-    //       });
-    //     });
-    //     Toast.show("Server error");
-    //   });
-    // });
+
+  componentDidMount() {
+    this._fetch();
+  }
+
+  componentWillUnmount() {
+    this._stopConnection();
   }
 
   render() {
