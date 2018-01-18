@@ -48,10 +48,24 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
+    proxy.on('broadcastWeather', (response) => {
+        //radi sta triba sa weatherRatingon
+        console.log(response);
+    });
+    connection.stop();
     connection.start().done(() => {
-
+    console.log("usa")
+    proxy.invoke('initiateConnection', {
+      location: {
+        latitude: 43.508133,
+        longitude: 16.440193
+      },
+      time: new Date().toISOString()
+    }, units);
+      console.log("prosa")
     }).fail(() => {
-      // server error
+      console.log("server error")
+    // server error
     });
   }
 
