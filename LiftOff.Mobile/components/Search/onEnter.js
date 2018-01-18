@@ -2,8 +2,7 @@ import key from '../../config/googleKey.js';
 
 const onEnter = (value) => {
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${key}`).then((response) => {
-    // const parsed = JSON.parse(response);
-    console.log(response._bodyInit.results.geometry.location)
+    console.log(response._bodyInit)
   })
 }
 
