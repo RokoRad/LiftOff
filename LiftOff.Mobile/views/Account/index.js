@@ -60,7 +60,7 @@ class Account extends Component {
   render() {
     return (
       <Screen current={this.props.location}>
-        {/* <AccountMap moreThan={language.moreThan} flewHere={language.flewHere} />
+        <AccountMap moreThan={language.moreThan} flewHere={language.flewHere} />
         <View style={styles.container}>
           <AccountItem title={language.userName} content={this.state.userObject.userName} />
           <AccountItem title={language.email} content={this.state.userObject.email} />
@@ -69,7 +69,7 @@ class Account extends Component {
           <AccountItem title={language.totalFlights} content={this.state.userObject.totalFlights} />
           <AccountItem title={language.totalFlySafeScore} content={this.state.userObject.totalFlySafeScore} />
           <AccountItem title={language.totalTimeFlown} content={this.state.userObject.totalTimeFlown} />
-        </View> */}
+        </View>
         {console.log(language)}
       </Screen>
     );

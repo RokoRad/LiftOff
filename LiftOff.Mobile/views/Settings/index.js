@@ -3,7 +3,7 @@ import Expo from 'expo';
 import { View, Text, Picker, AsyncStorage, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles.js';
 import globals from '../../config/styles.js';
-import { language } from '../../config/styles.js';
+import language from '../../languages';
 import Screen from '../../components/Screen';
 
 const Settings = ({location}) => (

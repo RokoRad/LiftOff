@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, Image, View, TouchableOpacity } from 'react-native';
 import { Link } from 'react-router-native';
 import styles from './styles.js';
-import { language } from '../../config/settings.js';
+// import { language } from '../../config/settings.js';
 
 // objekt sa ppisom ruta do ikona
 const nav = {
@@ -28,7 +28,7 @@ const NavigationItem = (props) => {
     <Link to={props.route} style={styles.navigationItemWrapper} component={TouchableOpacity} activeOpacity={1}>
       <View style={styles.navigationItem}>
         <Image source={isActive ? navActive[props.type] : nav[props.type]} style={styles.navigationImage}/>
-        <Text style={[styles.navigationText, (isActive ? styles.navigationTextActive : null)]}>{language[props.type]}</Text>
+        <Text style={[styles.navigationText, (isActive ? styles.navigationTextActive : null)]}>{[props.type]}</Text>
       </View>
     </Link> 
   )
