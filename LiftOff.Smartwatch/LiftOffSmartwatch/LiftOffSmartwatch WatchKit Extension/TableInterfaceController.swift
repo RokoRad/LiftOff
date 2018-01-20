@@ -25,7 +25,7 @@ class TableInterfaceController: WKInterfaceController {
     @IBOutlet var Table: WKInterfaceTable!
     
     //Pomoćna funkcija koja određuje boju reda tablice ovisno o ocjeni
-    func GetColor (score: Double) -> String {
+    static func GetColor (score: Double) -> String {
         if(score < 2.0) {
             return "0xF95F62"
         }
