@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sUi-lq-S6q">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="3tj-jz-wPR">
+            <objects>
+                <controller id="sUi-lq-S6q" customClass="InterfaceController" customModule="LiftOffSmartwatch_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="LiftOff" id="r0A-Ch-Fyh">
+                            <color key="backgroundColor" red="0.21015387769999999" green="0.59005028010000005" blue="0.87863373759999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="18"/>
+                            <connections>
+                                <action selector="LiftOffAction" destination="sUi-lq-S6q" id="oxl-Qx-t1F"/>
+                            </connections>
+                        </button>
+                        <group width="1" alignment="left" id="ZTg-2I-7q8">
+                            <items>
+                                <button width="133" alignment="left" title="FlySafe" enabled="NO" id="8Mg-8g-Ee9">
+                                    <color key="backgroundColor" red="0.21015387769999999" green="0.59005028010000005" blue="0.87863373759999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <segue destination="LpO-vZ-amL" kind="push" id="ojO-D7-wIx"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <timer width="85" height="63" alignment="center" verticalAlignment="center" textAlignment="center" previewedSeconds="0" id="H2F-Wq-Rf9">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="43"/>
+                            <calendarUnit key="units" minute="YES" second="YES"/>
+                        </timer>
+                    </items>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="FlySafeButton" destination="8Mg-8g-Ee9" id="fP1-Zf-4Df"/>
+                        <outlet property="LiftOffButton" destination="r0A-Ch-Fyh" id="Dkr-5H-zL0"/>
+                        <outlet property="Stopwatch" destination="H2F-Wq-Rf9" id="Sao-xf-e2Z"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="301" y="321"/>
+        </scene>
+        <!--Table Interface Controller-->
+        <scene sceneID="Fr1-kd-AEK">
+            <objects>
+                <controller id="LpO-vZ-amL" customClass="TableInterfaceController" customModule="LiftOffSmartwatch_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="Wl6-Zg-gqS">
+                            <items>
+                                <tableRow identifier="ScoreRow" id="MER-HJ-ecE" customClass="TableRow" customModule="StopwatchTestApp_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="9bZ-70-xoI">
+                                        <items>
+                                            <label width="84" alignment="center" verticalAlignment="center" text="FlySafe:" id="cbS-4y-88l">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                            <label alignment="right" verticalAlignment="center" text="5.0" id="E71-qI-Dq5">
+                                                <fontDescription key="font" type="system" pointSize="19"/>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" red="0.20349600910000001" green="0.66892594100000002" blue="0.32889950280000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="CategoryLabel" destination="cbS-4y-88l" id="mtX-xA-fds"/>
+                                        <outlet property="RowGroup" destination="9bZ-70-xoI" id="EFo-TP-1nE"/>
+                                        <outlet property="ScoreLabel" destination="E71-qI-Dq5" id="6UX-OE-8Yh"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="Table" destination="Wl6-Zg-gqS" id="0y6-dT-8dr"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="626" y="321"/>
+        </scene>
+    </scenes>
+</document>
