@@ -6,7 +6,7 @@ import styles from './styles.js';
 const AccountItem = ({title, content}) => (
   <View style={styles.wrapper}>
     <Text style={styles.string}>{title}</Text>
-    <Text style={[styles.string, styles.bold]}>{content}</Text>
+    <Text style={[styles.string, styles.bold]}>{(content === '') ? '/' : content}</Text>
   </View>
 );
 
