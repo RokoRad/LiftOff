@@ -2,22 +2,17 @@ import { AsyncStorage } from 'react-native';
 import croatian from './hr';
 import english from './en';
 
-const language = AsyncStorage.getItem('@language').then((response) => {
-  if(response === 'hr') {
-    return croatian;
-} else {
-    AsyncStorage.setItem('@language', 'en');
-    return english;
-  }   
+let language;
+
+// provjera jezika
+AsyncStorage.getItem('@language').then((response) => {
+    if(response === 'hr') {
+      module.exports.default = croatian;
+    } else {
+      module.exports.default = english;
+      // ako je prvi render
+      AsyncStorage.setItem('@language', 'en');
+    }
 });
 
-// const language = AsyncStorage.getItem('@language').then((response) => {
-//   if(response === 'hr') {
-//       return 'croatian';
-//   } else {
-//       AsyncStorage.setItem('@language', 'en');
-//       return 'engliish'.then();
-//   }
-// });
-
-export default language;
+export { language };
