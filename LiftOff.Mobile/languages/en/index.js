@@ -7,6 +7,7 @@ import Settings from './Settings';
 import Stopwatch from './Stopwatch';
 
 const strings = {
+  type: 'en',
   ...Home,
   ...Initial,
   ...Map,

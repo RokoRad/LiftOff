@@ -5,7 +5,6 @@ import { Link } from 'react-router-native';
 import ToRegister from './ToRegister.js';
 import ToLogin from './ToLogin.js';
 import styles from './styles.js';
-import language from '../../languages';
 
 // kreiranje komponente sa pripadajucima parametrima
 const InitalLink = ({onPress, type, to}) => (

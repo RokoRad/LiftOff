@@ -170,7 +170,7 @@ class Map extends Component {
   render() {
       return (
         <Screen current={this.props.location}>
-          <Search pass={this.map}/>
+          <Search pass={this.map} />
           <Tooltip displayed={this.state.selected} />
           <Dock calibration={this.calibration} selected={this.selected} />
           <MapView ref={(map) => this.map = map} style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} 
