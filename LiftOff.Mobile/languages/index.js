@@ -4,9 +4,13 @@ let language;
 
 AsyncStorage.getItem('@language').then((response) => {
   if(response === 'hr') {
-      import('./hr').then((response) => language = response.strings);
+      //import('./hr').then((response) => language = response);
+      import('./hr').then((value) => {
+        console.log(value);
+        language = value;
+      })
   } else {
-      import('./en').then((response) => language = response.strings);
+      import('./en').then((value) => language = value);
       AsyncStorage.setItem('@language', 'en');
   }
   console.log(response)
