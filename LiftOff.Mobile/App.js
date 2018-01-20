@@ -6,7 +6,7 @@ import Expo from "expo";
 import Login from './views/Login';
 import Register from './views/Register';
 import Home from './views/Home';
-import Account from './views/Account';
+import Profile from './views/Profile';
 import Map from './views/Map';
 import Stopwatch from './views/Stopwatch';
 import Settings from './views/Settings';
@@ -42,7 +42,7 @@ class App extends React.Component {
             <Route exact strict path="/" component={Login} />
             <Route exact strict path="/register" component={Register} />
             <Route exact strict path="/home" component={Home} />
-            <Route exact strict path="/account" component={Account} />
+            <Route exact strict path="/profile" component={Profile} />
             <Route exact strict path="/map" component={Map} />
             <Route exact strict path="/liftoff" component={Stopwatch} />
             <Route exact strict path="/settings" component={Settings} />
