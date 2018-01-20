@@ -1,4 +1,6 @@
 const strings = {
+  moreThan: 'More than ',
+  flewHere: ' flew here',
   userName: 'Username',
   email: 'Email',
   favoriteFlightSpot: 'Favorite flight spot',

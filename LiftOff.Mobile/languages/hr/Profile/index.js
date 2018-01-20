@@ -1,4 +1,6 @@
 const strings = {
+  moreThan: 'Više od ',
+  flewHere: ' je letjelo ovdje',
   userName: 'Korisničko ime',
   email: 'Email',
   favoriteFlightSpot: 'Najčešće mjesto leta',

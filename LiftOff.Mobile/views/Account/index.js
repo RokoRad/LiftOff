@@ -60,15 +60,15 @@ class Account extends Component {
   render() {
     return (
       <Screen current={this.props.location}>
-        <AccountMap moreThan={lang.t('moreThan')} flewHere={lang.t('flewHere')} />
+        <AccountMap moreThan={language.moreThan} flewHere={language.flewHere} />
         <View style={styles.container}>
-          <AccountItem title={lang.t('userName')} content={this.state.userObject.userName} />
-          <AccountItem title={lang.t('email')} content={this.state.userObject.email} />
-          <AccountItem title={lang.t('favoriteFlightSpot')} content={this.state.userObject.favoriteFlightSpot} />
-          <AccountItem title={lang.t('favoriteFlightTime')} content={this.state.userObject.favoriteFlightTime} />
-          <AccountItem title={lang.t('totalFlights')} content={this.state.userObject.totalFlights} />
-          <AccountItem title={lang.t('totalFlySafeScore')} content={this.state.userObject.totalFlySafeScore} />
-          <AccountItem title={lang.t('totalTimeFlown')} content={this.state.userObject.totalTimeFlown} />
+          <AccountItem title={language.userName} content={this.state.userObject.userName} />
+          <AccountItem title={language.email} content={this.state.userObject.email} />
+          <AccountItem title={language.favoriteFlightSpot} content={this.state.userObject.favoriteFlightSpot} />
+          <AccountItem title={language.favoriteFlightTime} content={this.state.userObject.favoriteFlightTime} />
+          <AccountItem title={language.totalFlights} content={this.state.userObject.totalFlights} />
+          <AccountItem title={language.totalFlySafeScore} content={this.state.userObject.totalFlySafeScore} />
+          <AccountItem title={language.totalTimeFlown} content={this.state.userObject.totalTimeFlown} />
         </View>
       </Screen>
     );
