@@ -70,7 +70,6 @@ class Account extends Component {
           <AccountItem title={language.totalFlySafeScore} content={this.state.userObject.totalFlySafeScore} />
           <AccountItem title={language.totalTimeFlown} content={this.state.userObject.totalTimeFlown} />
         </View>
-        {console.log(language)}
       </Screen>
     );
   }
