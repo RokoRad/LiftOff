@@ -15,8 +15,7 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      list: defaultList,
-      loaded: false
+      list: defaultList
     }
   };
 
@@ -50,6 +49,7 @@ class Home extends React.Component {
           this._invoke(data, units);
         } else {
           const data = {
+            // default lokacija
             location: {
               longitude: 3,
               latitude: 3

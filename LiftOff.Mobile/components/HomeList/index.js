@@ -3,8 +3,7 @@ import { ScrollView } from 'react-native';
 import styles from './styles.js';
 import HomeItem from '../HomeItem';
 
-const HomeList = (props) => {
-  const list = props.list;
+const HomeList = ({list, loaded}) => {
   const nester = list.weatherData;
   return (
     <ScrollView style={styles.container}>

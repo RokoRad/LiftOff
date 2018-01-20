@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  full: {
+    height: '100%',
+    backgroundColor: 'blue'
+  },
   drone: {
     width: 120,
     height: 120

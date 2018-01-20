@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     marginBottom: 10,
     height: '60%'
+  },
+  full: {
+    marginTop: '100%'
   }
 });
 
