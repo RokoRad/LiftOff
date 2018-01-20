@@ -5,7 +5,6 @@ import Screen from '../../components/Screen';
 import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
 import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchLogs from '../../components/StopwatchLogs';
-import { language } from '../../config/settings.js';
 import round from '../../functions/round';
 
 import lang from 'react-native-i18n';

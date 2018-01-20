@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontFamily: 'barlowSemiBold',
     textAlign: 'center',
+    color: '#2980b9',
     marginBottom: 5
   },
   row: {

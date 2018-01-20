@@ -25,7 +25,7 @@ const Register = ({history}) => (
         <KeyboardSpacer />
       </View>
       <InitialLink type="login" to="/" />
-      <InitialButton type="registration" onPress={() => registration(holder, history)} />
+      <InitialButton type="register" onPress={() => registration(holder, history)} />
     </View>
   </View>
 );

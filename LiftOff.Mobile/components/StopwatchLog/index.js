@@ -5,7 +5,6 @@ import colorGenerator from '../../functions/colorGenerator';
 import round from '../../functions/round';
 import Toast from 'react-native-simple-toast';
 import styles from './styles.js';
-import { language } from '../../config/settings.js';
 
 class StopwatchLog extends Component {
   constructor(props) {

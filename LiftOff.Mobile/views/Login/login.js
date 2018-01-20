@@ -1,16 +1,6 @@
 import Toast from 'react-native-simple-toast';
 import { AsyncStorage } from 'react-native';
-
-const encode = (value) => {
-  let object = [];
-  for (let property in value) {
-    var encodedKey = encodeURIComponent(property);
-    var encodedValue = encodeURIComponent(value[property]);
-    object.push(encodedKey + "=" + encodedValue);
-  }
-  object = object.join("&");
-  return object;
-}
+import encode from './encode.js';
 
 /*
 const encode = (value) => Object.keys(value)
@@ -31,7 +21,6 @@ const login = (data, history) => {
       },
       body: encode(object)
     }).then((response) => {
-      console.log(response)
       if(response.status === 200) {
         AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
           history.push('/home');

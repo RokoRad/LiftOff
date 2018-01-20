@@ -1,25 +1,10 @@
 vidi šta se da napravit sa kompresanjem stilova <br>
 dodat komentare <br>
-optimizirat klase <br>
 - ikone nove uacit
 - settings ubacit chekcbox za "don't show ither users where I flown"
 - nav ikone full res
 animirat vatricu
-mapa nek ikone imaju svoj dock sa borderradiusu i shadowu ka na navbaru
--score na logovima
-onPress mape dodat pin
-stopericu fiksat tak osta ce se pokrenit on mount
-tooltip se pokazuje na svaki onclick
-integer to dobule na frontendu
-splash screen dok se loadaju podatci
 TOAST CENTRIRAT
-register vraća na login
-nevaljan token vraća 401, dodat provjeru na requestove
-search na mapi (zadnje)
-home kad je null
-register button puca
-https://github.com/stefalda/ReactNativeLocalization
-swipe left right za nav
-list itemi na profilu malo padding left
-
-https://github.com/react-community/react-native-maps/blob/master/docs/mapview.md može se animirat
+nevaljan token vraća 401, dodat provjeru na requestove - UBIT TOKEN
+register button puca (za string Registracija)
+imperial jedinice

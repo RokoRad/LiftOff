@@ -15,28 +15,24 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      list: defaultList,
-      loaded: false
+      list: defaultList
     }
   };
 
   async _stopConnection() {
-    connection.stop(() => {
-      console.log("stopped")
-    });
-    console.log("aaaaa")
+    connection.stop();
   }
 
   async _invoke(object, units) {
     proxy.invoke('initiateConnection', object, units);
-    console.log("invoked")
-    console.log(object)
   }
 
   componentDidMount() {
     proxy.on('broadcastWeather', (response) => {
-      this.setState({list: response})
-      console.log(response)
+      this.setState({
+        list: response
+      });
+      AsyncStorage.setItem('@realtime', JSON.stringify(response));
     });
   }
 
@@ -54,9 +50,9 @@ class Home extends React.Component {
             time: new Date().toISOString()
           }
           this._invoke(data, units);
-          console.log("has")
         } else {
           const data = {
+            // default lokacija
             location: {
               longitude: 3,
               latitude: 3
@@ -64,10 +60,8 @@ class Home extends React.Component {
             time: new Date().toISOString()
           }
           this._invoke(data, units);
-          console.log("empty")
         }
       }).fail(() => {
-        console.log("error")
         // puka server
       });
     });

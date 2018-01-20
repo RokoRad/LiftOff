@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import styles from './styles.js';
 import globals from '../../config/styles.js';
-import { language } from '../../config/settings.js';
 import * as Animatable from 'react-native-animatable';
 import colorGenerator from '../../functions/colorGenerator';
 import animationGenerator from '../../functions/animationGenerator';
