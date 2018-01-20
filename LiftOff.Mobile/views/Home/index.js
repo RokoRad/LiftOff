@@ -29,7 +29,10 @@ class Home extends React.Component {
 
   componentDidMount() {
     proxy.on('broadcastWeather', (response) => {
-      this.setState({list: response})
+      this.setState({
+        list: response
+      });
+      AsyncStorage.setItem('@realtime', JSON.stringify(response));
     });
   }
 

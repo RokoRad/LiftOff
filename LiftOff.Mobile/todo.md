@@ -7,3 +7,4 @@ animirat vatricu
 TOAST CENTRIRAT
 nevaljan token vraća 401, dodat provjeru na requestove - UBIT TOKEN
 register button puca (za string Registracija)
+imperial jedinice
