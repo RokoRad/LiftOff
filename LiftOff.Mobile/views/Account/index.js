@@ -4,39 +4,7 @@ import Screen from '../../components/Screen';
 import AccountItem from '../../components/AccountItem';
 import AccountMap from '../../components/AccountMap';
 import styles from './styles.js';
-
-// import lang from 'react-native-i18n';
-// // za enn-US i en-GB postavlja en kao default
-// lang.fallbacks = true;
-// // // instnciranje lokalizacije
-// lang.translations = {
-//   en: {
-//     moreThan: "More than",
-//     flewHere: "flew here",
-//     userName: "Username",
-//     email: "Email",
-//     favoriteFlightSpot: "Favorite flying spot",
-//     favoriteFlightTime: "Average flight time",
-//     totalFlights: "Total flights",
-//     totalFlySafeScore: "Average FlySafe Score",
-//     totalTimeFlown: "Total time flown"
-//   },
-//   hr: {
-//     moreThan: "Više od",
-//     flewHere: "je letjelo ovdije",
-//     email: "Email",
-//     favoriteFlightSpot: "Najčešće mjesto letenja",
-//     favoriteFlightTime: "Prosječno trajanje leta",
-//     totalFlights: "Ukupno letova",
-//     totalFlySafeScore: "Prosječna FlySafe ocijena",
-//     totalTimeFlown: "Ukupno vrijeme letenja"
-//   }
-// }
-const lang = {
-  t: function(value) {
-    return value;
-  }
-}
+import language from '../../languages';
 
 // instaciranje komponente
 class Account extends Component {
