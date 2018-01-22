@@ -133,7 +133,7 @@ class Stopwatch extends Component {
         <Screen current={this.props.location}>
           <SafetyscoreStopwatch title={lang.t('flightRating')} comment={this.state.comment.en} rating={this.state.rating} />
           <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} />
-          <TouchableOpacity activeOpacity={0.9} onPress={_stopwatch()} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
+          <TouchableOpacity activeOpacity={0.9} onPress={() => _stopwatch()} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
             <Text style={globals.buttonInner}>
               {
                 this.state.active === true 

@@ -15,15 +15,36 @@ const _stopwatch = () => {
     // dohvati token, slaji request
     clearInterval(this.stopwatch);
     store.dispatch(updateStopwatch({
+      active: false,
       startTime: 0,
       minutes: 0,
       seconds: 0
     }));
   } else {
+    const new = {
+      active: true,
+      startTime: state.startTime,
+      minutes: state.minutes,
+      seconds: state.seconds
+    };
+
     this.stopwatch = setInterval(() => {
-      store.dispatch(updateStopwatch({
-        seconds: state.seconds+=1
-      }));
+      if(state.seconds === 59) {
+        store.dispatch(updateStopwatch({
+          active: true,
+          startTime: state.startTime,
+          minutes: state.minutes+=1,
+          seconds: 0  
+        }));
+      } else {
+        store.dispatch(updateStopwatch({
+          active: true,
+          startTime: state.startTime,
+          minutes: state.minutes,
+          seconds: state.seconds+=1
+        }));
+      }
+
       console.log(store.getState())
       // if(state.seconds === 61) {
       //   // dispatch minutu ++, sekunde na 0
@@ -33,9 +54,6 @@ const _stopwatch = () => {
     }, 1000);
     // startTime, zapocmi interval
   }
-  store.dispatch({
-    active: !store.active
-  })
 }
 
 export default _stopwatch;
