@@ -2,7 +2,10 @@ import { AsyncStorage } from 'react-native';
 import { updateStopwatch } from '../../actions';
 import store from '../../store';
 
-const _stopwatch = (state) => {
+const _stopwatch = () => {
+  let state = store.getState();
+      state = state.stopwatchReducer.stopwatch;
+      
   if(state.active) {
     console.log(store.getState())
     // AsyncStorage.getItem('@token').then((token) => {
@@ -20,14 +23,21 @@ const _stopwatch = (state) => {
       seconds: 0
     }));
   } else {
-    this.stopwatch = setInterval(() => {
+      // store.dispatch(updateStopwatch({
+      //   seconds: state.seconds+=1
+      // }));
       console.log(store.getState())
-      // if(state.seconds === 61) {
-      //   // dispatch minutu ++, sekunde na 0
-      // } else {
-      //   // dispatch sekund za jednu
-      // }
-    }, 1000);
+    // this.stopwatch = setInterval(() => {
+    //   store.dispatch(updateStopwatch({
+    //     seconds: state.seconds+=1
+    //   }));
+    //   console.log(store.getState())
+    //   // if(state.seconds === 61) {
+    //   //   // dispatch minutu ++, sekunde na 0
+    //   // } else {
+    //   //   // dispatch sekund za jednu
+    //   // }
+    // }, 1000);
     // startTime, zapocmi interval
     // active => false
   }

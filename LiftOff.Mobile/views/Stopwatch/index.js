@@ -8,7 +8,6 @@ import StopwatchLogs from '../../components/StopwatchLogs';
 import round from '../../functions/round';
 import _stopwatch from './_stopwatch.js';
 
-_stopwatch(true)
 
 import lang from 'react-native-i18n';
 // za enn-US i en-GB postavlja en kao default
@@ -80,60 +79,61 @@ class Stopwatch extends Component {
   }
 
 
-  bind = () => {
-    if(this.state.active) {
-      AsyncStorage.getItem('@token').then((value) => {
-        fetch('http://liftoffapi.azurewebsites.net/api/logging/logFlight', {
-          method: 'POST',
-          headers: {
-            'Authorization': 'Bearer ' + value,
-            'Content-type': 'application/json'
-          },
-          body: JSON.stringify(holder)
-        }).then((response) => {
-          if(response.status === 200) {
-            AsyncStorage.removeItem('@stats');
-            AsyncStorage.setItem('@stats', JSON.stringify(response));
-          } else if (response.status === 401) {
+  // bind = () => {
+  //   _stopwatch();
+  //   // if(this.state.active) {
+  //   //   AsyncStorage.getItem('@token').then((value) => {
+  //   //     fetch('http://liftoffapi.azurewebsites.net/api/logging/logFlight', {
+  //   //       method: 'POST',
+  //   //       headers: {
+  //   //         'Authorization': 'Bearer ' + value,
+  //   //         'Content-type': 'application/json'
+  //   //       },
+  //   //       body: JSON.stringify(holder)
+  //   //     }).then((response) => {
+  //   //       if(response.status === 200) {
+  //   //         AsyncStorage.removeItem('@stats');
+  //   //         AsyncStorage.setItem('@stats', JSON.stringify(response));
+  //   //       } else if (response.status === 401) {
 
-          } else {
+  //   //       } else {
 
-          }});
-      });
-      clearInterval(this.raise);
-      this.setState({
-        minutes: 0,
-        seconds: 0,
-        startTime: 0
-      })
-    } else {
-      this.setState({
-        startTime: new Date().toISOString()
-      });
-      this.raise = setInterval(() => {
-        if(this.state.seconds === 61) {
-          this.setState({
-            minutes: this.state.minutes+=1,
-            seconds: 0
-          });
-        } else {
-          this.setState({
-            seconds: this.state.seconds+=1
-          });
-        }
-      }, 1000);
-    }
-    this.setState({
-      active: !this.state.active
-    });
-  }
+  //   //       }});
+  //   //   });
+  //   //   clearInterval(this.raise);
+  //   //   this.setState({
+  //   //     minutes: 0,
+  //   //     seconds: 0,
+  //   //     startTime: 0
+  //   //   })
+  //   // } else {
+  //   //   this.setState({
+  //   //     startTime: new Date().toISOString()
+  //   //   });
+  //   //   this.raise = setInterval(() => {
+  //   //     if(this.state.seconds === 61) {
+  //   //       this.setState({
+  //   //         minutes: this.state.minutes+=1,
+  //   //         seconds: 0
+  //   //       });
+  //   //     } else {
+  //   //       this.setState({
+  //   //         seconds: this.state.seconds+=1
+  //   //       });
+  //   //     }
+  //   //   }, 1000);
+  //   // }
+  //   // this.setState({
+  //   //   active: !this.state.active
+  //   // });
+  // }
 
   render() {
       return (
         <Screen current={this.props.location}>
           <SafetyscoreStopwatch title={lang.t('flightRating')} comment={this.state.comment.en} rating={this.state.rating} />
           <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} />
-          <TouchableOpacity activeOpacity={0.9} onPress={this.bind} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
+          <TouchableOpacity activeOpacity={0.9} onPress={_stopwatch()} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
             <Text style={globals.buttonInner}>
               {
                 this.state.active === true 
@@ -142,7 +142,7 @@ class Stopwatch extends Component {
               }
             </Text>
           </TouchableOpacity>
-          <StopwatchLogs />
+          <StopwatchLogs data={data} />
         </Screen>  
       );
   }
