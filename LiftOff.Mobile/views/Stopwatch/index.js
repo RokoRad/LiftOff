@@ -6,6 +6,9 @@ import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
 import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchLogs from '../../components/StopwatchLogs';
 import round from '../../functions/round';
+import _stopwatch from './_stopwatch.js';
+
+_stopwatch(true)
 
 import lang from 'react-native-i18n';
 // za enn-US i en-GB postavlja en kao default

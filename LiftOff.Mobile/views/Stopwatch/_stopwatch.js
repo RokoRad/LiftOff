@@ -1,24 +1,36 @@
+import { AsyncStorage } from 'react-native';
 import { updateStopwatch } from '../../actions;
+import store from '../../store';
 
 const _stopwatch = (state) => {
   if(state.active) {
+    console.log(store.getState())
+    // AsyncStorage.getItem('@token').then((token) => {
+    //   // fetch sa tokenom
+    // });
+
     // dohvati token, slaji request
     // zaustavi interval
     // reset values u storeu
     clearInterval(this.stopwatch);
-    // dispatch za clear
+    store.dispatch(updateStopwatch({
+      active: false,
+      startTime: 0,
+      minutes: 0,
+      seconds: 0
+    }));
   } else {
+    this.stopwatch = setInterval(() => {
+      console.log(store.getState())
+      // if(state.seconds === 61) {
+      //   // dispatch minutu ++, sekunde na 0
+      // } else {
+      //   // dispatch sekund za jednu
+      // }
+    }, 1000);
     // startTime, zapocmi interval
     // active => false
   }
-
-  this.stopwatch = setInterval(() => {
-    if(state.seconds === 61) {
-      // dispatch minutu ++, sekunde na 0
-    } else {
-      // dispatch sekund za jednu
-    }
-  }, 1000);
 }
 
 export default _stopwatch;
