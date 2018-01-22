@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import { updateStopwatch } from '../../actions';
+import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes } from '../../actions';
 import store from '../../store';
 
 const _stopwatch = () => {
@@ -7,7 +7,6 @@ const _stopwatch = () => {
       state = state.stopwatchReducer.stopwatch;
       
   if(state.active) {
-    console.log(store.getState())
     // AsyncStorage.getItem('@token').then((token) => {
     //   // fetch sa tokenom
     // });
@@ -16,34 +15,30 @@ const _stopwatch = () => {
     clearInterval(this.stopwatch);
     store.dispatch(updateStopwatch({
       active: false,
-      startTime: 0,
+      startTime: '',
       minutes: 0,
       seconds: 0
     }));
   } else {
+    store.dispatch(updateStopwatch({
+      startTime: new Date().toISOString(),
+      active: true
+    }));
+
     this.stopwatch = setInterval(() => {
       if(state.seconds === 59) {
         store.dispatch(updateStopwatch({
-          active: true,
-          startTime: state.startTime,
-          minutes: state.minutes+=1,
-          seconds: 0  
+          minutes: state.minutes += 1,
+          seconds: state.seconds = 0
         }));
       } else {
         store.dispatch(updateStopwatch({
-          active: true,
-          startTime: state.startTime,
-          minutes: state.minutes,
-          seconds: state.seconds+=1
+          seconds: state.seconds += 1
         }));
       }
+
+      console.log(store.getState())
     }, 1000);
-    store.dispatch(updateStopwatch({
-      active: state.active,
-      startTime: new Date().toISOString(),
-      minutes: state.minutes,
-      seconds: state.seconds+=1
-    }));
   }
 }
 
@@ -76,21 +71,7 @@ export default _stopwatch;
 //       startTime: 0
 //     })
 //   } else {
-//     this.setState({
-//       startTime: new Date().toISOString()
-//     });
-//     this.raise = setInterval(() => {
-//       if(this.state.seconds === 61) {
-//         this.setState({
-//           minutes: this.state.minutes+=1,
-//           seconds: 0
-//         });
-//       } else {
-//         this.setState({
-//           seconds: this.state.seconds+=1
-//         });
-//       }
-//     }, 1000);
+
 //   }
 //   this.setState({
 //     active: !this.state.active
