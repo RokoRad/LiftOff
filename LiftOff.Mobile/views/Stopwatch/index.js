@@ -113,12 +113,10 @@ class Stopwatch extends Component {
             minutes: this.state.minutes+=1,
             seconds: 0
           });
-          console.log(this.state.seconds)
         } else {
           this.setState({
             seconds: this.state.seconds+=1
           });
-          console.log(this.state.seconds)
         }
       }, 1000);
     }
@@ -141,7 +139,7 @@ class Stopwatch extends Component {
               }
             </Text>
           </TouchableOpacity>
-          <StopwatchLogs data={data} />
+          <StopwatchLogs />
         </Screen>  
       );
   }
