@@ -16,9 +16,20 @@ class TableInterfaceController: WKInterfaceController {
                 for i in 0...newContext.count - 1 {
                     print(newContext[i])
                     let row = Table.rowController(at: i) as! TableRow
-                    row.CategoryLabel.setText(newContext[i].value(forKey: "category") as? String ?? "no category")
+                    let category = newContext[i].value(forKey: "category") as? String ?? "no category"
+                    if (category == "Total" || category == "no category") {
+                        row.CategoryLabel.setText(category)
+                        row.CategoryIcon.setHidden(true)
+                    }
+                    else {
+                        row.CategoryLabel.setHidden(true)
+                        row.CategoryIcon.setImageNamed(category)
+                    }
+                    
                     row.ScoreLabel.setText(newContext[i].value(forKey: "score") as? String ?? "/")
-                    row.RowGroup.setBackgroundColor(UIColor.color(fromHexString: TableInterfaceController.GetColor(score: newContext[i].value(forKey: "score") as? Double ?? 5.0)))
+                    
+                    let score = newContext[i].value(forKey: "score") as? Double ?? 5.0
+                    row.RowGroup.setBackgroundColor(UIColor.color(fromHexString: TableInterfaceController.GetColor(score: score)))
                 }
             }
         }

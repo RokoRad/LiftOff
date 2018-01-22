@@ -57,17 +57,17 @@
                                 <tableRow identifier="ScoreRow" id="MER-HJ-ecE" customClass="TableRow" customModule="LiftOffSmartwatch_WatchKit_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="9bZ-70-xoI">
                                         <items>
-                                            <label width="84" alignment="center" verticalAlignment="center" text="FlySafe:" id="cbS-4y-88l">
-                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                            </label>
                                             <label alignment="right" verticalAlignment="center" text="5.0" id="E71-qI-Dq5">
                                                 <fontDescription key="font" type="system" pointSize="19"/>
                                             </label>
+                                            <imageView width="36" height="1" alignment="left" id="0G1-bx-93v"/>
+                                            <label alignment="left" verticalAlignment="center" text="Label" id="kjc-Ny-EK5"/>
                                         </items>
                                         <color key="backgroundColor" red="0.20349600910000001" green="0.66892594100000002" blue="0.32889950280000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </group>
                                     <connections>
-                                        <outlet property="CategoryLabel" destination="cbS-4y-88l" id="mtX-xA-fds"/>
+                                        <outlet property="CategoryIcon" destination="0G1-bx-93v" id="sZF-yH-Ya1"/>
+                                        <outlet property="CategoryLabel" destination="kjc-Ny-EK5" id="vbv-jb-fsT"/>
                                         <outlet property="RowGroup" destination="9bZ-70-xoI" id="EFo-TP-1nE"/>
                                         <outlet property="ScoreLabel" destination="E71-qI-Dq5" id="6UX-OE-8Yh"/>
                                     </connections>
