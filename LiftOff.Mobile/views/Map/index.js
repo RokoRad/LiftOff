@@ -7,6 +7,7 @@ import Tooltip from '../../components/Tooltip';
 import Search from '../../components/Search';
 import styles from './styles.js';
 import style from '../../functions/mapStyle';
+import removeToken from '../../functions/removeToken';
 import headers from '../../functions/headers';
 import holderEditor from './holderEditor';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
@@ -101,6 +102,7 @@ class Map extends Component {
           const parsed = JSON.parse(response._bodyInit);
           holder = holderEditor(parsed.weatherData.city, parsed.totalRating);
         } else if (response.status === 401) {
+          removeToken();
           this.props.history.push('/');
         }}).catch((error) => console.log(error))
     });

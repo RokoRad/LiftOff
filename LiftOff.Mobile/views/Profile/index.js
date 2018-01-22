@@ -4,6 +4,7 @@ import Screen from '../../components/Screen';
 import AccountItem from '../../components/AccountItem';
 import AccountMap from '../../components/AccountMap';
 import styles from './styles.js';
+import removeToken from '../../functions/removeToken';
 import language from '../../languages';
 
 // instaciranje komponente
@@ -50,6 +51,7 @@ class Account extends Component {
           AsyncStorage.setItem('@stats', (response._bodyInit));
         } else if (response.status === 401) {
           // za invalidan token, povratak na login
+          removeToken();
           this.props.history.push('/');
         }
       })
