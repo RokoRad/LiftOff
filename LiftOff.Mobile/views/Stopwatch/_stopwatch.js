@@ -11,10 +11,12 @@ const _stopwatch = () => {
     //   // fetch sa tokenom
     // });
     clearInterval(this.stopwatch);
+    store.dispatch(toggleStopwatch(false));
     store.dispatch(setStarttime(''));
     store.dispatch(updateSeconds(0));
     store.dispatch(updateMinutes(0));
   } else {
+    store.dispatch(toggleStopwatch(true));
     store.dispatch(setStarttime(new Date().toISOString()));
 
     this.stopwatch = setInterval(() => {
@@ -26,7 +28,6 @@ const _stopwatch = () => {
       }
     }, 1000);
   }
-  store.dispatch(toggleStopwatch());
 }
 
 export default _stopwatch;

@@ -8,14 +8,14 @@ import StopwatchLogs from '../../components/StopwatchLogs';
 import round from '../../functions/round';
 import _stopwatch from './_stopwatch.js';
 import { connect } from 'react-redux';
+import store from '../../store';
 
 const data = [
-  {id: 1, active: true, location: 'Čavoglave, Croatia', time: '22:10', rating: 2},
-  {id: 2, active: false, location: 'Čavoglave, Croatia', time: '12:10', rating: 3},
-  {id: 3, active: false, location: 'Čavoglave, Croatia', time: '07:10', rating: 2},
-  {id: 4, active: true, location: 'Čavoglave, Croatia', time: '22:10', rating: 0},
-  {id: 5, active: false, location: 'Čavoglave, Croatia', time: '12:10', rating: 5},
-  {id: 6, active: false, location: 'Čavoglave, Croatia', time: '07:10', rating: 4}
+  {id: 1, active: true, location: 'Split, Croatia', time: '22:10', rating: 2},
+  {id: 2, active: false, location: 'Split, Croatia', time: '12:10', rating: 3},
+  {id: 3, active: false, location: 'Split, Croatia', time: '07:10', rating: 2},
+  {id: 4, active: true, location: 'Split, Croatia', time: '22:10', rating: 0},
+  {id: 5, active: false, location: 'Split, Croatia', time: '12:10', rating: 5}
 ];
 
 const holder = {
@@ -37,18 +37,17 @@ const holder = {
 class Stopwatch extends Component {
   constructor(props) {
      super(props);
-     const stopwatch = this.props.stopwatch;
   };
 
   render() {
       return (
         <Screen current={this.props.location}>
-          <SafetyscoreStopwatch title="localization" comment="aaaa" rating="2.2" />
-          <StopwatchElement minutes={stopwatch.minutes} seconds={stopwatch.seconds} />
+          <SafetyscoreStopwatch title="lang.en.title" comment="lang.en.message" rating="2.2" />
+          <StopwatchElement minutes={this.props.stopwatch.minutes} seconds={this.props.stopwatch.seconds} />
           <TouchableOpacity activeOpacity={0.9} onPress={() => _stopwatch()} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
             <Text style={globals.buttonInner}>
               {
-                this.state.active === true 
+                this.props.stopwatch.active === true 
                 ? 'Land'
                 : 'LiftOff'
               }
@@ -62,7 +61,7 @@ class Stopwatch extends Component {
 
 
 const mapStateToProps = state => ({
-  stopwatch: state.stopwatch,
+  ...state.stopwatchReducer
 });
 
 export default connect(mapStateToProps)(Stopwatch);

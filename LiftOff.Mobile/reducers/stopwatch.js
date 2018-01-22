@@ -21,7 +21,7 @@ const stopwatchReducer = (state = initialState, action) => {
       return {
         stopwatch: {
           ...state.stopwatch,
-          active: !state.active
+          active: action.payload
         }
       }
       
