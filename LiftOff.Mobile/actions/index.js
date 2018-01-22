@@ -17,3 +17,13 @@ export const updateMinutes = (payload) => ({
   type: 'UPDATE_MINUTES',
   payload,
 });
+
+export const addLog = (payload) => ({
+  type: 'ADD_LOG',
+  payload
+});
+
+export const selectLog = (payload) => ({
+  type: 'ADD_LOG',
+  payload
+});

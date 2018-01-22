@@ -22,6 +22,13 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: 'barlowSemiBold',
     color: '#3498db'
+  },
+  out: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    padding: 10,
+    zIndex: 999
   }
 });
 

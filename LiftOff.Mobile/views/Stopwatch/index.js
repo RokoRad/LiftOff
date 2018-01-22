@@ -7,8 +7,8 @@ import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchLogs from '../../components/StopwatchLogs';
 import round from '../../functions/round';
 import _stopwatch from './_stopwatch.js';
+import _buttonText from './_buttonText.js';
 import { connect } from 'react-redux';
-import store from '../../store';
 
 const data = [
   {id: 1, active: true, location: 'Split, Croatia', time: '22:10', rating: 2},
@@ -45,13 +45,7 @@ class Stopwatch extends Component {
           <SafetyscoreStopwatch title="lang.en.title" comment="lang.en.message" rating="2.2" />
           <StopwatchElement minutes={this.props.stopwatch.minutes} seconds={this.props.stopwatch.seconds} />
           <TouchableOpacity activeOpacity={0.9} onPress={() => _stopwatch()} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
-            <Text style={globals.buttonInner}>
-              {
-                this.props.stopwatch.active === true 
-                ? 'Land'
-                : 'LiftOff'
-              }
-            </Text>
+            <Text style={globals.buttonInner}>{_buttonText(this.props.stopwatch.active)}</Text>
           </TouchableOpacity>
           <StopwatchLogs data={data} />
         </Screen>  
