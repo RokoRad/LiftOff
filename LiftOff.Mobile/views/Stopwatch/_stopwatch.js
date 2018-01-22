@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import { updateStopwatch } from '../../actions;
+import { updateStopwatch } from '../../actions';
 import store from '../../store';
 
 const _stopwatch = (state) => {
