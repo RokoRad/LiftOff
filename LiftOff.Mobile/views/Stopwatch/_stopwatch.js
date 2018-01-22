@@ -1,4 +1,4 @@
-import { clearStopwatch, raiseSeconds, raiseMinutes, clearSeconds } from '../../actions/stopwatch.js';
+import { updateStopwatch } from '../../actions;
 
 const _stopwatch = (state) => {
   if(state.active) {
