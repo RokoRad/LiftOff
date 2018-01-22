@@ -21,13 +21,6 @@ const _stopwatch = () => {
       seconds: 0
     }));
   } else {
-    const new = {
-      active: true,
-      startTime: state.startTime,
-      minutes: state.minutes,
-      seconds: state.seconds
-    };
-
     this.stopwatch = setInterval(() => {
       if(state.seconds === 59) {
         store.dispatch(updateStopwatch({
@@ -44,15 +37,13 @@ const _stopwatch = () => {
           seconds: state.seconds+=1
         }));
       }
-
-      console.log(store.getState())
-      // if(state.seconds === 61) {
-      //   // dispatch minutu ++, sekunde na 0
-      // } else {
-      //   // dispatch sekund za jednu
-      // }
     }, 1000);
-    // startTime, zapocmi interval
+    store.dispatch(updateStopwatch({
+      active: state.active,
+      startTime: new Date().toISOString(),
+      minutes: state.minutes,
+      seconds: state.seconds+=1
+    }));
   }
 }
 

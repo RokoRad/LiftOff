@@ -12,10 +12,7 @@ const stopwatchReducer = (state = initialState, action) => {
     case 'UPDATE_STOPWATCH':
       return {
         ...state.stopwatch,
-        active: action.payload.active,
-        startTime: action.payload.startTime,
-        minutes: action.payload.minutes,
-        seconds: action.payload.seconds
+        ...action.payload
       }
     default:
         return state;
