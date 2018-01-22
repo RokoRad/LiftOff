@@ -8,7 +8,6 @@ import StopwatchLogs from '../../components/StopwatchLogs';
 import round from '../../functions/round';
 import _stopwatch from './_stopwatch.js';
 import { connect } from 'react-redux';
-import store from '../../store';
 
 const data = [
   {id: 1, active: true, location: 'Split, Croatia', time: '22:10', rating: 2},
