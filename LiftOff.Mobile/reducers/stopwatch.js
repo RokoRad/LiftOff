@@ -9,29 +9,38 @@ const initialState = {
 
 const stopwatchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_STARTTIME': {
+    case 'SET_STARTTIME': 
       return {
-        ...state.stopwatch,
-        startTime: action.payload
+        stopwatch = {
+          ...state.stopwatch,
+          startTime: action.payload
+        }
       }
-    }
-    case 'TOGGLE_STOPWATCH':
+
+    case 'TOGGLE_STOPWATCH': 
       return {
-        ...state.stopwatch,
-        active: action.payload
+        stopwatch = {
+          ...state.stopwatch,
+          active: !state.active
+        }
       }
-    case 'UPDATE_SECONDS': {
+      
+    case 'UPDATE_SECONDS': 
       return {
-        ...state.stopwatch,
-        seconds: action.payload
+        stopwatch = {
+          ...state.stopwatch,
+          seconds: action.payload
+        }
       }
-    }
-    case 'UPDATE_MINUTES': {
+
+    case 'UPDATE_MINUTES': 
       return {
-        ...state.stopwatch,
-        minutes: action.payload
+        stopwatch = {
+          ...state.stopwatch,
+          minutes: action.payload
+        }
       }
-    }
+
     default:
         return state;
   }

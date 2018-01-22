@@ -7,39 +7,30 @@ const _stopwatch = () => {
       state = state.stopwatchReducer.stopwatch;
       
   if(state.active) {
+    console.log(store.getState())
     // AsyncStorage.getItem('@token').then((token) => {
     //   // fetch sa tokenom
     // });
 
     // dohvati token, slaji request
     clearInterval(this.stopwatch);
-    store.dispatch(updateStopwatch({
-      active: false,
-      startTime: '',
-      minutes: 0,
-      seconds: 0
-    }));
+    store.dispatch(setStarttime(''));
+    store.dispatch(updateSeconds(0));
+    store.dispatch(updateMinutes(0));
+    console.log(store.getState())
   } else {
-    store.dispatch(updateStopwatch({
-      startTime: new Date().toISOString(),
-      active: true
-    }));
+    store.dispatch(setStarttime(new Date().toISOString()));
 
     this.stopwatch = setInterval(() => {
       if(state.seconds === 59) {
-        store.dispatch(updateStopwatch({
-          minutes: state.minutes += 1,
-          seconds: state.seconds = 0
-        }));
+        store.dispatch(updateSeconds(0));
+        store.dispatch(updateMinutes(state.minutes += 1));
       } else {
-        store.dispatch(updateStopwatch({
-          seconds: state.seconds += 1
-        }));
+        store.dispatch(updateSeconds(state.seconds += 1));
       }
-
-      console.log(store.getState())
     }, 1000);
   }
+  store.dispatch(toggleStopwatch());
 }
 
 export default _stopwatch;
