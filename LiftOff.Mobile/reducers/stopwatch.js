@@ -11,7 +11,7 @@ const stopwatchReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_STARTTIME': 
       return {
-        stopwatch = {
+        stopwatch: {
           ...state.stopwatch,
           startTime: action.payload
         }
@@ -19,7 +19,7 @@ const stopwatchReducer = (state = initialState, action) => {
 
     case 'TOGGLE_STOPWATCH': 
       return {
-        stopwatch = {
+        stopwatch: {
           ...state.stopwatch,
           active: !state.active
         }
@@ -27,7 +27,7 @@ const stopwatchReducer = (state = initialState, action) => {
       
     case 'UPDATE_SECONDS': 
       return {
-        stopwatch = {
+        stopwatch: {
           ...state.stopwatch,
           seconds: action.payload
         }
@@ -35,7 +35,7 @@ const stopwatchReducer = (state = initialState, action) => {
 
     case 'UPDATE_MINUTES': 
       return {
-        stopwatch = {
+        stopwatch: {
           ...state.stopwatch,
           minutes: action.payload
         }

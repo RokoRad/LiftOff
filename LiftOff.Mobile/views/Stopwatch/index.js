@@ -7,22 +7,7 @@ import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchLogs from '../../components/StopwatchLogs';
 import round from '../../functions/round';
 import _stopwatch from './_stopwatch.js';
-
-
-import lang from 'react-native-i18n';
-// za enn-US i en-GB postavlja en kao default
-lang.fallbacks = true;
-// // instnciranje lokalizacije
-lang.translations = {
-  en: {
-    comment: 'Fetching newest data',
-    flightRating: 'Flight rating:'
-  },
-  hr: {
-    commment: 'Učitavam najnovije podatke',
-    flightRating: 'Ocjena leta:'
-  }
-}
+import { connect } from 'react-redux';
 
 const data = [
   {id: 1, active: true, location: 'Čavoglave, Croatia', time: '22:10', rating: 2},
@@ -50,89 +35,16 @@ const holder = {
 };
 
 class Stopwatch extends Component {
-  constructor() {
-     super();
-     this.state = {
-        active: false,
-        seconds: 0,
-        minutes: 0,
-        startTime: 0,
-        rating: '/',
-        comment: {
-          en: 'Fetching newest data..',
-          hr: 'Dohvaćanje najnovijih podataka..'
-        }
-     };
+  constructor(props) {
+     super(props);
+     const stopwatch = this.props.stopwatch;
   };
-
-  componentWillMount() {
-    AsyncStorage.getItem('@realtime').then((value) => {
-      let parse = JSON.parse(value);
-      this.setState({
-        rating: round(parse.TotalRating),
-        comment: {
-          en: parse.AdvisoryRating.English,
-          hr: parse.AdvisoryRating.Croatian
-        }
-      })
-    });
-  }
-
-
-  // bind = () => {
-  //   _stopwatch();
-  //   // if(this.state.active) {
-  //   //   AsyncStorage.getItem('@token').then((value) => {
-  //   //     fetch('http://liftoffapi.azurewebsites.net/api/logging/logFlight', {
-  //   //       method: 'POST',
-  //   //       headers: {
-  //   //         'Authorization': 'Bearer ' + value,
-  //   //         'Content-type': 'application/json'
-  //   //       },
-  //   //       body: JSON.stringify(holder)
-  //   //     }).then((response) => {
-  //   //       if(response.status === 200) {
-  //   //         AsyncStorage.removeItem('@stats');
-  //   //         AsyncStorage.setItem('@stats', JSON.stringify(response));
-  //   //       } else if (response.status === 401) {
-
-  //   //       } else {
-
-  //   //       }});
-  //   //   });
-  //   //   clearInterval(this.raise);
-  //   //   this.setState({
-  //   //     minutes: 0,
-  //   //     seconds: 0,
-  //   //     startTime: 0
-  //   //   })
-  //   // } else {
-  //   //   this.setState({
-  //   //     startTime: new Date().toISOString()
-  //   //   });
-  //   //   this.raise = setInterval(() => {
-  //   //     if(this.state.seconds === 61) {
-  //   //       this.setState({
-  //   //         minutes: this.state.minutes+=1,
-  //   //         seconds: 0
-  //   //       });
-  //   //     } else {
-  //   //       this.setState({
-  //   //         seconds: this.state.seconds+=1
-  //   //       });
-  //   //     }
-  //   //   }, 1000);
-  //   // }
-  //   // this.setState({
-  //   //   active: !this.state.active
-  //   // });
-  // }
 
   render() {
       return (
         <Screen current={this.props.location}>
-          <SafetyscoreStopwatch title={lang.t('flightRating')} comment={this.state.comment.en} rating={this.state.rating} />
-          <StopwatchElement minutes={this.state.minutes} seconds={this.state.seconds} />
+          <SafetyscoreStopwatch title="localization" comment="aaaa" rating="2.2" />
+          <StopwatchElement minutes={stopwatch.minutes} seconds={stopwatch.seconds} />
           <TouchableOpacity activeOpacity={0.9} onPress={() => _stopwatch()} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
             <Text style={globals.buttonInner}>
               {
@@ -149,4 +61,8 @@ class Stopwatch extends Component {
 }
 
 
-export default Stopwatch;
+const mapStateToProps = state => ({
+  stopwatch: state.stopwatch,
+});
+
+export default connect(mapStateToProps)(Stopwatch);

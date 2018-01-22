@@ -7,17 +7,13 @@ const _stopwatch = () => {
       state = state.stopwatchReducer.stopwatch;
       
   if(state.active) {
-    console.log(store.getState())
     // AsyncStorage.getItem('@token').then((token) => {
     //   // fetch sa tokenom
     // });
-
-    // dohvati token, slaji request
     clearInterval(this.stopwatch);
     store.dispatch(setStarttime(''));
     store.dispatch(updateSeconds(0));
     store.dispatch(updateMinutes(0));
-    console.log(store.getState())
   } else {
     store.dispatch(setStarttime(new Date().toISOString()));
 
@@ -55,16 +51,4 @@ export default _stopwatch;
 
 //         }});
 //     });
-//     clearInterval(this.raise);
-//     this.setState({
-//       minutes: 0,
-//       seconds: 0,
-//       startTime: 0
-//     })
-//   } else {
-
-//   }
-//   this.setState({
-//     active: !this.state.active
-//   });
 // }
