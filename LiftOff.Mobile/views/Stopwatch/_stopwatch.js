@@ -13,34 +13,29 @@ const _stopwatch = () => {
     // });
 
     // dohvati token, slaji request
-    // zaustavi interval
-    // reset values u storeu
-    //clearInterval(this.stopwatch);
-    // store.dispatch(updateStopwatch({
-    //   active: false,
-    //   startTime: 0,
-    //   minutes: 0,
-    //   seconds: 0
-    // }));
+    clearInterval(this.stopwatch);
+    store.dispatch(updateStopwatch({
+      startTime: 0,
+      minutes: 0,
+      seconds: 0
+    }));
   } else {
+    this.stopwatch = setInterval(() => {
       store.dispatch(updateStopwatch({
         seconds: state.seconds+=1
       }));
       console.log(store.getState())
-    // this.stopwatch = setInterval(() => {
-    //   store.dispatch(updateStopwatch({
-    //     seconds: state.seconds+=1
-    //   }));
-    //   console.log(store.getState())
-    //   // if(state.seconds === 61) {
-    //   //   // dispatch minutu ++, sekunde na 0
-    //   // } else {
-    //   //   // dispatch sekund za jednu
-    //   // }
-    // }, 1000);
+      // if(state.seconds === 61) {
+      //   // dispatch minutu ++, sekunde na 0
+      // } else {
+      //   // dispatch sekund za jednu
+      // }
+    }, 1000);
     // startTime, zapocmi interval
-    // active => false
   }
+  store.dispatch({
+    active: !store.active
+  })
 }
 
 export default _stopwatch;

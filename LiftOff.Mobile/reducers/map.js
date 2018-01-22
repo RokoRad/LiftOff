@@ -4,7 +4,7 @@ const initialState = {
 
 const mapReducer = (state = initialState, action) => {
   switch (action.type) {
-      case 'UPDATE_LOCAION':
+      case 'UPDATE_LOCATION':
       return  {
         map: [
           // ubacit novi
