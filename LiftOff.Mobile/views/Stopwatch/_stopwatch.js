@@ -15,17 +15,17 @@ const _stopwatch = () => {
     // dohvati token, slaji request
     // zaustavi interval
     // reset values u storeu
-    clearInterval(this.stopwatch);
-    store.dispatch(updateStopwatch({
-      active: false,
-      startTime: 0,
-      minutes: 0,
-      seconds: 0
-    }));
+    //clearInterval(this.stopwatch);
+    // store.dispatch(updateStopwatch({
+    //   active: false,
+    //   startTime: 0,
+    //   minutes: 0,
+    //   seconds: 0
+    // }));
   } else {
-      // store.dispatch(updateStopwatch({
-      //   seconds: state.seconds+=1
-      // }));
+      store.dispatch(updateStopwatch({
+        seconds: state.seconds+=1
+      }));
       console.log(store.getState())
     // this.stopwatch = setInterval(() => {
     //   store.dispatch(updateStopwatch({
