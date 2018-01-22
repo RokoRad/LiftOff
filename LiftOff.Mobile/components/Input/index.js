@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, Image, ScrollView  } from 'react-native';
+import { TextInput, Image, ScrollView  } from 'react-native';
 import styles from './styles.js';
 import values from '../../functions/values';
 import capitalize from '../../functions/capitalize';
