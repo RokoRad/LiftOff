@@ -31,9 +31,5 @@ Prominit boju u tamno sivu.
 
 
 
-6. Napravit istu stvar sa sjenom ka na 5. stavci, smanjit malo ikone.
 7. Stavit rounded border (tipa 6px), dodat paddinga (i horizontalnog i vertikalnog). Prominit boju naslova u ovu base color plavu. Mozda stavit neke light gray (al bas light) dividere izmedu stavki ispod.
 8. Uskladit botun da izgleda ka stavka 2.
-9.
-
-

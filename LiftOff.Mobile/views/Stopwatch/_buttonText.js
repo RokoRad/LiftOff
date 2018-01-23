@@ -1,8 +1,8 @@
 const _buttonText = (state) => {
   if(state === true) {
-    return 'Land'
+    return 'LAND'
   } else {
-    return 'LiftOff'
+    return 'LIFTOFF'
   }
 }
 
