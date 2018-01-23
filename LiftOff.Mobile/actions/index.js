@@ -27,3 +27,8 @@ export const selectLog = (payload) => ({
   type: 'ADD_LOG',
   payload
 });
+
+export const updateStats = (payload) => ({
+  type: 'UPDATE_STATS',
+  payload
+});
