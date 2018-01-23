@@ -13,10 +13,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     shadowOffset: {
-        height: 5,
-        width: 5
+        height: 10,
+        width: 10
     },
-    elevation: 5
+    elevation: 10
   },
   input: {
     fontSize: 12,
