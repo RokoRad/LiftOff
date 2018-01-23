@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: 12,
-    fontFamily: 'barlowSemiBold',
+    fontFamily: 'barlowMedium',
     color: '#939393'
   },
   out: {

@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'barlowMedium',
     fontSize: 12,
-    marginBottom: 5
+    marginBottom: 5,
+    color: '#8b959f'
   },
   row: {
     display: 'flex',
@@ -45,13 +46,15 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     width: 'auto',
     fontFamily: 'barlowRegular',
-    fontSize: 10
+    fontSize: 10,
+    color: '#8b959f'
   },
   rightText: {
     position: 'absolute',
     right: 5,
     fontFamily: 'barlowRegular',
-    fontSize: 10
+    fontSize: 10,
+    color: '#8b959f'
   },
   right: {
     width: '25%'

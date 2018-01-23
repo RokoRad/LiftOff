@@ -19,7 +19,7 @@ const globals = StyleSheet.create({
     marginTop: 7.5,
     paddingTop: 10,
     paddingBottom: 10,
-    padding: 10,
+    width: 120,
     marginLeft: 'auto',
     marginRight: 'auto',
     borderRadius: 7,    

@@ -21,12 +21,4 @@ povvćat padding stopwatch numbera
 
 
 
-5. Povecat blur na shadow, pogledaj kako izgleda na uberu. 
-Povecat malo horizontalni padding 
-i prominit tekst u 'Where do you want to fly?' ili u 'Search locations' ako to prvo ne stane bas. 
-Smanjit weight teksta u searchu tako da bude lighter. 
-Prominit boju u tamno sivu.
-
-
-
 7. Stavit rounded border (tipa 6px), dodat paddinga (i horizontalnog i vertikalnog). Prominit boju naslova u ovu base color plavu. Mozda stavit neke light gray (al bas light) dividere izmedu stavki ispod.
