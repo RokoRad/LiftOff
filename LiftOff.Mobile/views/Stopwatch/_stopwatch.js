@@ -42,18 +42,18 @@ const _stopwatch = () => {
     });
 
     clearInterval(this.stopwatch);
-    store.dispatch(toggleStopwatch(false));
+    store.dispatch(toggleStopwatch(!state.active));
     store.dispatch(setStarttime(''));
     store.dispatch(updateSeconds(0));
     store.dispatch(updateMinutes(0));
   } else {
     store.dispatch(toggleStopwatch(true));
     store.dispatch(setStarttime(new Date().toISOString()));
-    
+
     this.stopwatch = setInterval(() => {
       console.log(state)
       if(state.seconds === 59) {
-        store.dispatch(updateSeconds(0));
+        store.dispatch(updateSeconds(state.seconds = 0));
         store.dispatch(updateMinutes(state.minutes += 1));
       } else {
         store.dispatch(updateSeconds(state.seconds += 1));
