@@ -10,12 +10,19 @@ const initialState = {
 
 const timeLocationReducer = (state = initialState, action) => {
   switch (action.type) {
-      case 'SET_TIMELOCATION':
-      return  {
-        timeLocation: {
-          ...action.payload
-        }
-      };
+      case 'UPDATE_DATETIME':
+        return  {
+          timeLocation: {
+            ...state.timeLocation,
+            time: action.payload
+          }
+        };
+      // case 'UPDATE_LOCATION':
+      //   return  {
+      //     timeLocation: {
+      //       ...action.payload
+      //     }
+      //   };
       default:
           return state;
   }

@@ -37,3 +37,8 @@ export const updateHome = (payload) => ({
   type: 'UPDATE_HOME',
   payload
 });
+
+export const updateDateTime = (payload) => ({
+  type: 'UPDATE_DATETIME',
+  payload
+});

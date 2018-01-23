@@ -14,6 +14,8 @@ import { MapView, PROVIDER_GOOGLE } from 'expo';
 import _getCurrentLocation from './_getCurrentLocation.js';
 import _changeCenter from './_changeCenter.js';
 
+import headers from '../../functions/headers';
+
 const holder = {
   city: '/',
   time: '/',

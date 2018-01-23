@@ -9,14 +9,8 @@ const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/si
       //units = 'metric';
 
 proxy.on('broadcastWeather', (response) => {
-  console.log(response);
   store.dispatch(updateHome(response));
-  AsyncStorage.setItem('@realime', JSON.stringify(response));
-  // this.setState({
-  //   list: response
-  // });
-  //AsyncStorage.setItem('@realtime', JSON.stringify(response));
-  //console.log(response)
+  AsyncStorage.setItem('@realtime', JSON.stringify(response));
 });
 
 const _start = async (object, units) => {
