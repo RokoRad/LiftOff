@@ -15,9 +15,6 @@ const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/si
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      list: defaultList
-    }
   };
 
   async _stopConnection() {
@@ -30,18 +27,19 @@ class Home extends React.Component {
 
   componentDidMount() {
     proxy.on('broadcastWeather', (response) => {
-      this.setState({
-        list: response
-      });
-      AsyncStorage.setItem('@realtime', JSON.stringify(response));
+      // this.setState({
+      //   list: response
+      // });
+      //AsyncStorage.setItem('@realtime', JSON.stringify(response));
+      console.log(response)
     });
   }
 
   componentWillMount() {
     connection.start().done(() => {
-
+      this._invoke(this.props.timeLocation, units);
     }).fail(() => {
-
+      // puka server
     });
 
     // AsyncStorage.getItem('@timeLocation').then((storage) => {
@@ -79,7 +77,7 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props.timeLocation)
     return(
       <Screen current={this.props.location}>
         {/* <HomeRating string={this.state.list.AdvisoryRating} rating={this.state.list.TotalRating} />
