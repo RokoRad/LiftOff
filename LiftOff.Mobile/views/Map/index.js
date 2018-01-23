@@ -16,31 +16,31 @@ import _changeCenter from './_changeCenter.js';
 
 import headers from '../../functions/headers';
 
-const holder = {
-  city: '/',
-  time: '/',
-  rating: '/'
-}, deltas = {
-  longitudeDelta: 0.1,
-  latitudeDelta: 0.1
-}, inital = {
-  latitude: 43.5432,
-  longitude: 16.49314,
-  ...deltas
-};
+// const holder = {
+//   city: '/',
+//   time: '/',
+//   rating: '/'
+// }, deltas = {
+//   longitudeDelta: 0.1,
+//   latitudeDelta: 0.1
+// }, inital = {
+//   latitude: 43.5432,
+//   longitude: 16.49314,
+//   ...deltas
+// };
 
 class Map extends Component {
   constructor(props) {
      super(props);
-     this.state = {
-       location: inital,
-       center: inital,
-       markerPosition: inital,
-       pressed: false,
-       render: false,
-       selected: false,
-       calibration: false
-     };
+    //  this.state = {
+    //    location: inital,
+    //    center: inital,
+    //    markerPosition: inital,
+    //    pressed: false,
+    //    render: false,
+    //    selected: false,
+    //    calibration: false
+    //  };
   };
 
   componentWillMount() {
@@ -66,60 +66,61 @@ class Map extends Component {
     //}
   }
 
-  setMarker = (value) => {
-    value.persist();
-    AsyncStorage.getItem('@token').then((data) => {
-      fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
-        method: 'POST',
-        headers: headers(data),
-        body: JSON.stringify({
-            location: value.nativeEvent.coordinate,
-            time: new Date().toISOString()
-          })
-      }).then((response) => {
-        if(response.status === 200) {
-          const parsed = JSON.parse(response._bodyInit);
-          holder = holderEditor(parsed.weatherData.city, parsed.totalRating);
-        } else if (response.status === 401) {
-          removeToken();
-          this.props.history.push('/');
-        }}).catch((error) => console.log(error))
-    });
-    if(this.state.selected === false) {
-      this.setState({
-        selected: true
-      })
-    }
+  // setMarker = (value) => {
+  //   value.persist();
+  //   AsyncStorage.getItem('@token').then((data) => {
+  //     fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
+  //       method: 'POST',
+  //       headers: headers(data),
+  //       body: JSON.stringify({
+  //           location: value.nativeEvent.coordinate,
+  //           time: new Date().toISOString()
+  //         })
+  //     }).then((response) => {
+  //       if(response.status === 200) {
+  //         const parsed = JSON.parse(response._bodyInit);
+  //         holder = holderEditor(parsed.weatherData.city, parsed.totalRating);
+  //       } else if (response.status === 401) {
+  //         removeToken();
+  //         this.props.history.push('/');
+  //       }}).catch((error) => console.log(error))
+  //   });
+  //   if(this.state.selected === false) {
+  //     this.setState({
+  //       selected: true
+  //     })
+  //   }
 
-    this.setState({
-      markerPosition: value.nativeEvent.coordinate,
-      pressed: true,      
-      calibration: false
-    });
+  //   this.setState({
+  //     markerPosition: value.nativeEvent.coordinate,
+  //     pressed: true,      
+  //     calibration: false
+  //   });
 
-    holder = {
-      city: '/',
-      time: '/',
-      rating: '/'
-    }
-  }
+  //   holder = {
+  //     city: '/',
+  //     time: '/',
+  //     rating: '/'
+  //   }
+  // }
 
-  selected = () => {
-    this.setState({
-      selected: false
-    });
-  }
+  // selected = () => {
+  //   this.setState({
+  //     selected: false
+  //   });
+  // }
 
   render() {
+    console.log(this.props.map)
       return (
         <Screen current={this.props.location}>
           <Search pass={this.map} />
-          <Tooltip displayed={this.state.selected} />
+          <Tooltip displayed="true" />
           <Dock history={this.props.history} selected={this.selected} />
           <MapView ref={(map) => this.map = map} style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} 
-                   showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => _changeCenter(value)} 
+                   showsUserLocation={true} region={this.props.map} onRegionChangeComplete={(value) => _changeCenter(value)} 
                    onPress={(value) => this.setMarker(value)} cacheEnabled={true} showsCompass={false} showsScale={false}>
-            <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city={holder.city} time={holder.time} rating={holder.rating} />
+            <Marker display={true} location={this.props.markerPosition} calibration={false} city="aa" time="aaaa" rating={2.2} />
           </MapView>
         </Screen>
       );
