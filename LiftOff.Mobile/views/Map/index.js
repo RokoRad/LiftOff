@@ -120,7 +120,7 @@ class Map extends Component {
           <Dock history={this.props.history} selected={this.selected} />
           <MapView ref={(map) => this.map = map} style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} 
                    showsUserLocation={true} region={this.props.map} onRegionChangeComplete={(value) => _changeCenter(value)} 
-                   onPress={(value) => _setMarker(value, this.props.history)} cacheEnabled={true} showsCompass={false} showsScale={false}>
+                   onPress={(value) => _setMarker(value, this.props.history, this.map)} cacheEnabled={true} showsCompass={false} showsScale={false}>
             <Marker display={true} location={this.props.markerPosition} calibration={false} city="aa" time="aaaa" rating={2.2} />
           </MapView>
         </Screen>

@@ -1,10 +1,16 @@
 import { AsyncStorage } from 'react-native';
 
+const deltas = {
+  longitudeDelta: 0.1,
+  latitudeDelta: 0.1
+}
+
 const initialState = {
   timeLocation: {
     location: {
       latitude: 43.508133,
       longitude: 16.440193,
+      ...deltas
     },
     time: new Date().toISOString()
   }

@@ -4,7 +4,7 @@ import removeToken from '../../functions/removeToken';
 import store from '../../store';
 import { setMarker, updateLocation } from '../../actions';
 
-export default (value, history, timeLocation) => {
+export default (value, history, ref) => {
   value.persist();
 
   AsyncStorage.getItem('@token').then((token) => {
@@ -20,7 +20,7 @@ export default (value, history, timeLocation) => {
       })
     }).then((response) => {
       if(response.status === 200) {
-        console.log(JSON.parse(response._bodyInit))
+        //console.log(JSON.parse(response._bodyInit))
       } else if (response.status === 401) {
         removeToken();
         history.push('/');
@@ -28,7 +28,11 @@ export default (value, history, timeLocation) => {
   });
 
   store.dispatch(setMarker(value.nativeEvent.coordinate));
-  store.dispatch(updateLocation(value.nativeEvent.coordinate));
+  ref.animateToCoordinate({
+    latitude: value.nativeEvent.coordinate.latitude,
+    longitude: value.nativeEvent.coordinate.longitude
+  }, 200);
+  //store.dispatch(updateLocation(value.nativeEvent.coordinate));
 
   // this.setState({
   //   markerPosition: value.nativeEvent.coordinate,
@@ -37,31 +41,6 @@ export default (value, history, timeLocation) => {
   // });
 
 }
-
-// setMarker = (value) => {
-//   value.persist();
-//   AsyncStorage.getItem('@token').then((data) => {
-//     fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
-//       method: 'POST',
-//       headers: headers(data),
-//       body: JSON.stringify({
-//           location: value.nativeEvent.coordinate,
-//           time: new Date().toISOString()
-//         })
-//     }).then((response) => {
-//       if(response.status === 200) {
-//         const parsed = JSON.parse(response._bodyInit);
-//         holder = holderEditor(parsed.weatherData.city, parsed.totalRating);
-//       } else if (response.status === 401) {
-//         removeToken();
-//         this.props.history.push('/');
-//       }}).catch((error) => console.log(error))
-//   });
-//   if(this.state.selected === false) {
-//     this.setState({
-//       selected: true
-//     })
-//   }
 
 //   this.setState({
 //     markerPosition: value.nativeEvent.coordinate,

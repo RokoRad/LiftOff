@@ -23,15 +23,19 @@ const mapReducer = (state = initialState, action) => {
   switch (action.type) {
       case 'UPDATE_LOCATION':
         return  {
+          ...state,
           map: {
-            ...state,
-            map: action.payload
+            ...action.payload,
+            ...deltas
           }
         };
       case 'SET_MARKER':
         return  {
           ...state,
-          markerPosition: action.payload
+          markerPosition: {
+            ...action.payload,
+            ...deltas
+          }
         };
       default:
         return state;
