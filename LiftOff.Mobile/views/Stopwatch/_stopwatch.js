@@ -2,6 +2,7 @@ import { AsyncStorage } from 'react-native';
 import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes } from '../../actions';
 import store from '../../store';
 import removeToken from '../../functions/removeToken';
+import _timeFlown from './_timeFlown.js';
 
 const _stopwatch = () => {
   let state = store.getState();
@@ -16,7 +17,7 @@ const _stopwatch = () => {
           'Content-type': 'application/json'
         },
         body: JSON.stringify({
-          timeFlown: 1,
+          timeFlown: _timeFlown(state.minutes, state.seconds),
           flySafeScore: 2.2,
           drone: {
             name: 'Dron 1'
@@ -27,7 +28,7 @@ const _stopwatch = () => {
             longitude: 22
           },
           flightTime: {
-            flightStartTime: new Date().toISOString()
+            flightStartTime: state.startTime
           }
         })
       }).then((response) => {
