@@ -9,13 +9,8 @@ export default (object) => {
       value = Object.values(object);
 
   for(let i = 1; i < key.length; i++) {
-    if(key[i] === 'totalTimeFlown') {
-      const totalTimeFlown = round(object['totalTimeFlown'] / object['totalFlights']);
-      result.push(<AccountItem title={language[key[i]]} content={totalTimeFlown} />);
-    } 
-    
-    else if (key[i] === 'totalFlySafeScore') {
-      const flyScore = round(object['totalTimeFlown'] / object['totalFlySafeScore']);
+    if (key[i] === 'totalFlySafeScore') {
+      const flyScore = round(object['totalFlySafeScore'] / object['totalFlights']);
       result.push(<AccountItem title={language[key[i]]} content={flyScore} />);
     } 
     
