@@ -25,16 +25,16 @@ const mapReducer = (state = initialState, action) => {
         return  {
           ...state,
           map: {
-            ...action.payload,
-            ...deltas
+            ...deltas,
+            ...action.payload
           }
         };
       case 'SET_MARKER':
         return  {
           ...state,
           markerPosition: {
-            ...action.payload,
-            ...deltas
+            ...deltas,
+            ...action.payload
           }
         };
       default:
