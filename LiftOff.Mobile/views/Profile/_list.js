@@ -10,15 +10,13 @@ export default (object) => {
 
   for(let i = 1; i < key.length; i++) {
     if(key[i] === 'totalTimeFlown') {
-      const totalTimeFlown = (value['totalTimeFlown'] / value['totalFlights']);
-      console.log(totalTimeFlown)
-      console.log(round(totalTimeFlown))
+      const totalTimeFlown = round(object['totalTimeFlown'] / object['totalFlights']);
       result.push(<AccountItem title={language[key[i]]} content={totalTimeFlown} />);
     } 
     
     else if (key[i] === 'totalFlySafeScore') {
-
-      result.push(<AccountItem title={language[key[i]]} content={round(value[i])} />);
+      const flyScore = round(object['totalTimeFlown'] / object['totalFlySafeScore']);
+      result.push(<AccountItem title={language[key[i]]} content={flyScore} />);
     } 
     
     else {
