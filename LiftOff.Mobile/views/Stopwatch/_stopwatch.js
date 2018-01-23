@@ -49,7 +49,7 @@ const _stopwatch = () => {
   } else {
     store.dispatch(toggleStopwatch(true));
     store.dispatch(setStarttime(new Date().toISOString()));
-
+    
     this.stopwatch = setInterval(() => {
       console.log(state)
       if(state.seconds === 59) {
