@@ -33,6 +33,7 @@ const _stopwatch = () => {
         })
       }).then((response) => {
         if(response.status === 200) {
+          // response._bodyInit ubacit u cache ili reducer
           console.log(JSON.parse(response._bodyInit))
         } else if (response.status === 401) {
           this.props.history.push('/');
@@ -42,13 +43,11 @@ const _stopwatch = () => {
     });
 
     clearInterval(this.stopwatch);
-    store.dispatch(toggleStopwatch(!state.active));
     store.dispatch(setStarttime(''));
-    store.dispatch(updateSeconds(0));
-    store.dispatch(updateMinutes(0));
+    store.dispatch(updateSeconds(state.seconds = 0));
+    store.dispatch(updateMinutes(state.minutes = 0));
   } else {
-    store.dispatch(toggleStopwatch(true));
-    store.dispatch(setStarttime(new Date().toISOString()));
+    store.dispatch(setStarttime(state.startTime = new Date().toISOString()));
 
     this.stopwatch = setInterval(() => {
       console.log(state)
@@ -60,6 +59,7 @@ const _stopwatch = () => {
       }
     }, 1000);
   }
+  store.dispatch(toggleStopwatch(state.active = !state.active));
 }
 
 export default _stopwatch;
