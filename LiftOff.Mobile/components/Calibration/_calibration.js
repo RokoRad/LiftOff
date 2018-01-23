@@ -1,5 +1,6 @@
 import { AsyncStorage } from 'react-native';
 import headers from '../../functions/headers';
+import removeToken from '../../functions/removeToken';
 import store from '../../store';
 
 export default (history) => {
@@ -26,8 +27,8 @@ export default (history) => {
 //         }, 500);
         // data u redux
       } else if (response.status === 401) {
-        // removeToken();
-        // history.push('/');
+        removeToken();
+        history.push('/');
       }
     })
   });
