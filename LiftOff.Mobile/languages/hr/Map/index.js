@@ -1,5 +1,5 @@
 const strings = {
-  Search: 'Pretraži lokaciju',
+  Search: 'Gdje želiš letjeti?',
   ChooseWhen: 'Odaberi vrijeme',
   TooltipTitle: 'Pronašli smo super mjesto!',
   Location: 'Lokacija',

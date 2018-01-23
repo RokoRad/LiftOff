@@ -7,6 +7,8 @@ const styles = StyleSheet.create({
     left: 30,
     right: 30,
     padding: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
     backgroundColor: '#fff',
     zIndex: 999,
     borderRadius: 5,    
@@ -20,7 +22,7 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: 12,
-    fontFamily: 'barlowBold',
+    fontFamily: 'barlowSemiBold',
     color: '#939393'
   },
   out: {
