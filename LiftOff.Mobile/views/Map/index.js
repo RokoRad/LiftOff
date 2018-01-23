@@ -12,6 +12,7 @@ import holderEditor from './holderEditor';
 import { connect } from 'react-redux';
 import { MapView, PROVIDER_GOOGLE } from 'expo';
 import _getCurrentLocation from './_getCurrentLocation.js';
+import _changeCenter from './_changeCenter.js';
 
 const holder = {
   city: '/',
@@ -73,12 +74,6 @@ class Map extends Component {
     });
   }
 
-  changeCenter = (value) => {
-    this.setState({
-      location: value
-    })
-  }
-
   setMarker = (value) => {
     value.persist();
     AsyncStorage.getItem('@token').then((data) => {
@@ -134,7 +129,7 @@ class Map extends Component {
           <Tooltip displayed={this.state.selected} />
           <Dock history={this.props.history} selected={this.selected} />
           <MapView ref={(map) => this.map = map} style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} 
-                   showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} 
+                   showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => _changeCenter(value)} 
                    onPress={(value) => this.setMarker(value)} cacheEnabled={true} showsCompass={false} showsScale={false}>
             <Marker display={this.state.pressed} location={this.state.markerPosition} calibration={this.state.calibration} city={holder.city} time={holder.time} rating={holder.rating} />
           </MapView>
