@@ -9,13 +9,58 @@ const _stopwatch = () => {
       
   if(state.active) {
     AsyncStorage.getItem('@token').then((token) => {
-      fetch('', {
+      fetch('http://liftoffapi.azurewebsites.net/api/logging/logFlight', {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer ' + value,
+          'Authorization': 'Bearer ' + token,
           'Content-type': 'application/json'
         },
-        body: state
+
+      //   body: JSON.stringify({
+      //     location: {
+      //       latitude: this.state.center.latitude,
+      //       longitude: this.state.center.longitude
+      //     },
+      //     time: new Date().toISOString()
+      //   })
+
+      //   "TimeLocation": {
+      //     "Location": {
+      //         "Latitude": double,
+      //         "Longitude": double
+      //     },
+      //     "Time": datetime
+      // }
+
+        // "Flight": {
+        //   "TimeFlown": int (broj sekundi koji si letia),
+        //   "FlySafeScore": double,
+        //   "Drone": {
+        //       "Name": string
+        //   },
+        //   "FlightLocation": {
+        //       "FlightSpot": string (misto),
+        //       "Latitude": double,
+        //       "Longitude": double
+        //   },
+        //   "FlightTime": {
+        //       "FlightStartTime": datetime
+        //   }
+
+        body: JSON.stringify({
+          timeFlown: 1,
+          flySafeScore: 2.2,
+          drone: {
+            name: 'Drone 1'
+          },
+          flightLocation: {
+            latitude: 22,
+            longitude: 222
+          },
+          flightTime: {
+            flightStartTime: new Date().toISOString()
+          }
+        })
       }).then((response) => {
         if(response.status === 200) {
           console.log("usa" + response)
@@ -23,6 +68,7 @@ const _stopwatch = () => {
           this.props.history.push('/');
           removeToken();
         }
+        console.log(response)
       })
     });
 
