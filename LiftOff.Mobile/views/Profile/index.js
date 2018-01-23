@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage } from 'react-native';
+import { View } from 'react-native';
 import Screen from '../../components/Screen';
 import AccountMap from '../../components/AccountMap';
 import styles from './styles.js';
-import removeToken from '../../functions/removeToken';
 import language from '../../languages';
 import { connect } from 'react-redux';
 import _list from './_list.js';
