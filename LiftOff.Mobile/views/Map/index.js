@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import { MapView, PROVIDER_GOOGLE } from 'expo';
 import _getCurrentLocation from './_getCurrentLocation.js';
 import _changeCenter from './_changeCenter.js';
+import _setMarker from './_setMarker.js';
 
 import headers from '../../functions/headers';
 
@@ -119,7 +120,7 @@ class Map extends Component {
           <Dock history={this.props.history} selected={this.selected} />
           <MapView ref={(map) => this.map = map} style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} 
                    showsUserLocation={true} region={this.props.map} onRegionChangeComplete={(value) => _changeCenter(value)} 
-                   onPress={(value) => this.setMarker(value)} cacheEnabled={true} showsCompass={false} showsScale={false}>
+                   onPress={(value) => _setMarker(value, this.props.history)} cacheEnabled={true} showsCompass={false} showsScale={false}>
             <Marker display={true} location={this.props.markerPosition} calibration={false} city="aa" time="aaaa" rating={2.2} />
           </MapView>
         </Screen>

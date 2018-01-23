@@ -4,16 +4,20 @@ import removeToken from '../../functions/removeToken';
 import store from '../../store';
 import { setMarker, updateLocation } from '../../actions';
 
-export default (value, history) => {
+export default (value, history, timeLocation) => {
   value.persist();
 
   AsyncStorage.getItem('@token').then((token) => {
     fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
       method: 'POST',
       headers: headers(token),
-      body: {
-        // timeLocation
-      }
+      body: JSON.stringify({
+        location: {
+          latitude: value.nativeEvent.coordinate.latitude,
+          longitude: value.nativeEvent.coordinate.longitude
+        },
+        time: new Date().toISOString()
+      })
     }).then((response) => {
       if(response.status === 200) {
         console.log(JSON.parse(response._bodyInit))
