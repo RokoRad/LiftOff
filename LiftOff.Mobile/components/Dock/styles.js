@@ -6,10 +6,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     shadowOffset: {
-        height: 5,
-        width: 5
+        height: 12,
+        width: 12
     },
-    elevation: 5,
+    elevation: 12,
     backgroundColor: '#fff',
     position: 'absolute',
     bottom: 100,
