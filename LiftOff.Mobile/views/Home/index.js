@@ -6,14 +6,15 @@ import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
 import defaultList from '../../config/defaultList.js';
 import Toast from 'react-native-simple-toast';
+import { connect } from 'react-redux';
 
 const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
       proxy = connection.createHubProxy('weatherHub'),
       units = 'metric';
 
 class Home extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       list: defaultList
     }
@@ -37,34 +38,40 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
-    AsyncStorage.getItem('@timeLocation').then((storage) => {
-      connection.start().done(() => {
-        if(storage) {
-          const value = JSON.parse(storage);
-          const data = {
-            location: {
-              longitude: value.location.longitude,
-              latitude: value.location.latitude
-            },
-            //time: value.time
-            time: new Date().toISOString()
-          }
-          this._invoke(data, units);
-        } else {
-          const data = {
-            // default lokacija
-            location: {
-              longitude: 3,
-              latitude: 3
-            },
-            time: new Date().toISOString()
-          }
-          this._invoke(data, units);
-        }
-      }).fail(() => {
-        // puka server
-      });
+    connection.start().done(() => {
+
+    }).fail(() => {
+
     });
+
+    // AsyncStorage.getItem('@timeLocation').then((storage) => {
+    //   connection.start().done(() => {
+    //     if(storage) {
+    //       const value = JSON.parse(storage);
+    //       const data = {
+    //         location: {
+    //           longitude: value.location.longitude,
+    //           latitude: value.location.latitude
+    //         },
+    //         //time: value.time
+    //         time: new Date().toISOString()
+    //       }
+    //       this._invoke(data, units);
+    //     } else {
+    //       const data = {
+    //         // default lokacija
+    //         location: {
+    //           longitude: 3,
+    //           latitude: 3
+    //         },
+    //         time: new Date().toISOString()
+    //       }
+    //       this._invoke(data, units);
+    //     }
+    //   }).fail(() => {
+    //     // puka server
+    //   });
+    // });
   }
 
   componentWillUnmount() {
@@ -72,13 +79,18 @@ class Home extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return(
       <Screen current={this.props.location}>
-        <HomeRating string={this.state.list.AdvisoryRating} rating={this.state.list.TotalRating} />
-        <HomeList list={this.state.list} />
+        {/* <HomeRating string={this.state.list.AdvisoryRating} rating={this.state.list.TotalRating} />
+        <HomeList list={this.state.list} /> */}
       </Screen>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  ...state.timeLocationReducer
+});
+
+export default connect(mapStateToProps)(Home);

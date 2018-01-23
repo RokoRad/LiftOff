@@ -1,5 +1,7 @@
 const initialState = {
-  map: []
+  map: {
+    
+  }
 };
 
 const mapReducer = (state = initialState, action) => {
