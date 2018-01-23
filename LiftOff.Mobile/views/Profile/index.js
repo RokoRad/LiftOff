@@ -21,6 +21,7 @@ class Account extends Component {
         <AccountMap moreThan={language.moreThan} flewHere={language.flewHere} />
         <View style={styles.container}>
           {_list(this.props.stats)}
+          {console.log(this.props.stats)}
         </View>
       </Screen>
     );

@@ -11,11 +11,11 @@ export default (object) => {
   for(let i = 1; i < key.length; i++) {
     if (key[i] === 'totalFlySafeScore') {
       const flyScore = round(object['totalFlySafeScore'] / object['totalFlights']);
-      result.push(<AccountItem title={language[key[i]]} content={flyScore} />);
+      result.push(<AccountItem title={language[key[i]]} content={flyScore} key={i}/>);
     } 
     
     else {
-      result.push(<AccountItem title={language[key[i]]} content={value[i]} />);
+      result.push(<AccountItem title={language[key[i]]} content={value[i]} key={i} />);
     }
   }
 

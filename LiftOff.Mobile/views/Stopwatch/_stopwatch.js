@@ -34,8 +34,8 @@ const _stopwatch = () => {
       }).then((response) => {
         if(response.status === 200) {
           // response._bodyInit ubacit u cache ili reducer
-          store.dispatch(updateStats(response._bodyInit));
-          //console.log(JSON.parse(response._bodyInit))
+          store.dispatch(updateStats(JSON.parse(response._bodyInit)));
+          AsyncStorage.setItem('@stats', response._bodyInit);
         } else if (response.status === 401) {
           this.props.history.push('/');
           removeToken();
