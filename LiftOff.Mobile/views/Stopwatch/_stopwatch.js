@@ -1,15 +1,31 @@
 import { AsyncStorage } from 'react-native';
 import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes } from '../../actions';
 import store from '../../store';
+import removeToken from '../../functions/removeToken';
 
 const _stopwatch = () => {
   let state = store.getState();
       state = state.stopwatchReducer.stopwatch;
       
   if(state.active) {
-    // AsyncStorage.getItem('@token').then((token) => {
-    //   // fetch sa tokenom
-    // });
+    AsyncStorage.getItem('@token').then((token) => {
+      fetch('', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + value,
+          'Content-type': 'application/json'
+        },
+        body: state
+      }).then((response) => {
+        if(response.status === 200) {
+          console.log("usa" + response)
+        } else if (response.status === 401) {
+          this.props.history.push('/');
+          removeToken();
+        }
+      })
+    });
+
     clearInterval(this.stopwatch);
     store.dispatch(toggleStopwatch(false));
     store.dispatch(setStarttime(''));
@@ -31,25 +47,3 @@ const _stopwatch = () => {
 }
 
 export default _stopwatch;
-
-// bind = () => {
-//   if(this.state.active) {
-//     AsyncStorage.getItem('@token').then((value) => {
-//       fetch('http://liftoffapi.azurewebsites.net/api/logging/logFlight', {
-//         method: 'POST',
-//         headers: {
-//           'Authorization': 'Bearer ' + value,
-//           'Content-type': 'application/json'
-//         },
-//         body: JSON.stringify(holder)
-//       }).then((response) => {
-//         if(response.status === 200) {
-//           AsyncStorage.removeItem('@stats');
-//           AsyncStorage.setItem('@stats', JSON.stringify(response));
-//         } else if (response.status === 401) {
-
-//         } else {
-
-//         }});
-//     });
-// }

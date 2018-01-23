@@ -10,6 +10,7 @@ const image = require('../../images/map/date.png');
 const dateChange = (value) => {
   const iso = value.toISOString();
   AsyncStorage.setItem('@picker', JSON.stringify(iso).then());
+  console.log(value)
 }
 
 const Picker = ({selected}) => (
