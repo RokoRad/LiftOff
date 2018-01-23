@@ -3,17 +3,24 @@ import headers from '../../functions/headers';
 import store from '../../store';
 
 export default (history) => {
-  console.log(store.getState().mapReducer.markerPosition)
+  const stored = store.getState().mapReducer.markerPosition;
+
+  const location = {
+    latitude: stored.latitude,
+    longitude: stored.longitude
+  }
+
   AsyncStorage.getItem('@token').then((token) => {
     fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
       method: 'POST',
       headers: headers(token),
       body: JSON.stringify({
-        //timeLocation sa currentTime i currentLoc
+        location,
+        time: new Date().toISOString()
       })
     }).then((response) => {
       if(response.status === 200) {
-        console.log(JSON.parse(response));
+        console.log(JSON.parse(response._bodyInit));
 //         this.map.animateToCoordinate({
 //           ...parsed.weatherData.timeLocation.location
 //         }, 500);
