@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
     right: -2.5
   },
   dateIcon: {
-    width: 40, 
-    height: 40
+    width: 35, 
+    height: 35
   }
 });
 

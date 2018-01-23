@@ -36,7 +36,7 @@ const globals = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 20,
-    fontFamily: 'barlowBold'
+    fontFamily: 'barlowSemiBold'
   }
 });
 

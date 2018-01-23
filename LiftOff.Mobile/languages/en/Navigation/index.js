@@ -1,5 +1,5 @@
 const strings = {
-  FlySafe: 'FlyeSafe',
+  FlySafe: 'FlySafe',
   Planning: 'Planning',
   LiftOff: 'LiftOff',
   Profile: 'Profile',

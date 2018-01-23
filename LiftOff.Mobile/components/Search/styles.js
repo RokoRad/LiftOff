@@ -7,21 +7,23 @@ const styles = StyleSheet.create({
     left: 30,
     right: 30,
     padding: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
     backgroundColor: '#fff',
     zIndex: 999,
     borderRadius: 5,    
     shadowOpacity: 0.5,
     shadowRadius: 5,
     shadowOffset: {
-        height: 5,
-        width: 5
+        height: 12,
+        width: 12
     },
-    elevation: 5
+    elevation: 12
   },
   input: {
     fontSize: 12,
-    fontFamily: 'barlowSemiBold',
-    color: '#3498db'
+    fontFamily: 'barlowMedium',
+    color: '#939393'
   },
   out: {
     position: 'absolute',
