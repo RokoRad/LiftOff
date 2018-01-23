@@ -1,84 +1,36 @@
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage } from 'react-native';
-import signalr from 'react-native-signalr';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
-import defaultList from '../../config/defaultList.js';
-import Toast from 'react-native-simple-toast';
-
-const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
-      proxy = connection.createHubProxy('weatherHub'),
-      units = 'metric';
+import { connect } from 'react-redux';
+import { _start, _stop } from './_realtime.js';
 
 class Home extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      list: defaultList
-    }
+  constructor(props) {
+    super(props);
   };
 
-  async _stopConnection() {
-    connection.stop();
-  }
-
-  async _invoke(object, units) {
-    proxy.invoke('initiateConnection', object, units);
-  }
-
-  componentDidMount() {
-    proxy.on('broadcastWeather', (response) => {
-      this.setState({
-        list: response
-      });
-      AsyncStorage.setItem('@realtime', JSON.stringify(response));
-    });
-  }
-
   componentWillMount() {
-    AsyncStorage.getItem('@timeLocation').then((storage) => {
-      connection.start().done(() => {
-        if(storage) {
-          const value = JSON.parse(storage);
-          const data = {
-            location: {
-              longitude: value.location.longitude,
-              latitude: value.location.latitude
-            },
-            //time: value.time
-            time: new Date().toISOString()
-          }
-          this._invoke(data, units);
-        } else {
-          const data = {
-            // default lokacija
-            location: {
-              longitude: 3,
-              latitude: 3
-            },
-            time: new Date().toISOString()
-          }
-          this._invoke(data, units);
-        }
-      }).fail(() => {
-        // puka server
-      });
-    });
+    _start(this.props.timeLocation, 'metric')
   }
 
   componentWillUnmount() {
-    this._stopConnection();
+    _stop();
   }
 
   render() {
-    return(
+    return (
       <Screen current={this.props.location}>
-        <HomeRating string={this.state.list.AdvisoryRating} rating={this.state.list.TotalRating} />
-        <HomeList list={this.state.list} />
+        <HomeRating string={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
+        <HomeList list={this.props.home} />
       </Screen>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  ...state.timeLocationReducer,
+  ...state.homeReducer
+});
+
+export default connect(mapStateToProps)(Home);

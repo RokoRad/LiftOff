@@ -9,3 +9,8 @@ nevaljan token vraća 401, dodat provjeru na requestove - UBIT TOKEN
 register button puca (za string Registracija)
 imperial jedinice
 git bookmarked dumb komponente
+drone povuc iz settings i ubacit  u log
+lokaciju isto
+flightSpot priko APIa
+totalFlyScroe podilit sa number of flights
+povvćat padding stopwatch numbera

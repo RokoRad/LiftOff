@@ -1,7 +1,8 @@
 import { AsyncStorage } from 'react-native';
-import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes } from '../../actions';
+import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes, updateStats } from '../../actions';
 import store from '../../store';
 import removeToken from '../../functions/removeToken';
+import _timeFlown from './_timeFlown.js';
 
 const _stopwatch = () => {
   let state = store.getState();
@@ -16,7 +17,7 @@ const _stopwatch = () => {
           'Content-type': 'application/json'
         },
         body: JSON.stringify({
-          timeFlown: 1,
+          timeFlown: _timeFlown(state.minutes, state.seconds),
           flySafeScore: 2.2,
           drone: {
             name: 'Dron 1'
@@ -27,12 +28,14 @@ const _stopwatch = () => {
             longitude: 22
           },
           flightTime: {
-            flightStartTime: new Date().toISOString()
+            flightStartTime: state.startTime
           }
         })
       }).then((response) => {
         if(response.status === 200) {
-          console.log(JSON.parse(response._bodyInit))
+          // response._bodyInit ubacit u cache ili reducer
+          store.dispatch(updateStats(JSON.parse(response._bodyInit)));
+          AsyncStorage.setItem('@stats', response._bodyInit);
         } else if (response.status === 401) {
           this.props.history.push('/');
           removeToken();
@@ -41,23 +44,23 @@ const _stopwatch = () => {
     });
 
     clearInterval(this.stopwatch);
-    store.dispatch(toggleStopwatch(false));
     store.dispatch(setStarttime(''));
-    store.dispatch(updateSeconds(0));
-    store.dispatch(updateMinutes(0));
+    store.dispatch(updateSeconds(state.seconds = 0));
+    store.dispatch(updateMinutes(state.minutes = 0));
   } else {
-    store.dispatch(toggleStopwatch(true));
-    store.dispatch(setStarttime(new Date().toISOString()));
+    store.dispatch(setStarttime(state.startTime = new Date().toISOString()));
 
     this.stopwatch = setInterval(() => {
+      console.log(state)
       if(state.seconds === 59) {
-        store.dispatch(updateSeconds(0));
+        store.dispatch(updateSeconds(state.seconds = 0));
         store.dispatch(updateMinutes(state.minutes += 1));
       } else {
         store.dispatch(updateSeconds(state.seconds += 1));
       }
     }, 1000);
   }
+  store.dispatch(toggleStopwatch(state.active = !state.active));
 }
 
 export default _stopwatch;

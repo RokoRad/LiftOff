@@ -27,3 +27,29 @@ export const selectLog = (payload) => ({
   type: 'ADD_LOG',
   payload
 });
+
+export const updateStats = (payload) => ({
+  type: 'UPDATE_STATS',
+  payload
+});
+
+export const updateHome = (payload) => ({
+  type: 'UPDATE_HOME',
+  payload
+});
+
+export const updateDateTime = (payload) => ({
+  type: 'UPDATE_DATETIME',
+  payload
+});
+
+export const setMarker = (payload) => ({
+  type: 'SET_MARKER',
+  payload
+});
+
+
+export const updateLocation = (payload) => ({
+  type: 'UPDATE_LOCATION',
+  payload
+});

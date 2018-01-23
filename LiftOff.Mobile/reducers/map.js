@@ -1,26 +1,45 @@
+const initialLocation = {
+  latitude: 43.5432,
+  longitude: 16.49314
+}
+
+const deltas = {
+  longitudeDelta: 0.1,
+  latitudeDelta: 0.1
+}
+
 const initialState = {
-  map: []
+  map: {
+    ...initialLocation,
+    ...deltas
+  },
+  markerPosition: {
+    ...initialLocation,
+    ...deltas
+  }
 };
 
 const mapReducer = (state = initialState, action) => {
   switch (action.type) {
       case 'UPDATE_LOCATION':
-      return  {
-        map: [
-          // ubacit novi
-          ...state.map
-        ]
-      };
-      case 'SET_LOCATION':
-      return {
-        map: [
-          ...state.map
-        ]
-      };
+        return  {
+          ...state,
+          map: {
+            ...deltas,
+            ...action.payload
+          }
+        };
+      case 'SET_MARKER':
+        return  {
+          ...state,
+          markerPosition: {
+            ...deltas,
+            ...action.payload
+          }
+        };
       default:
-          return state;
+        return state;
   }
 };
-
 
 export default mapReducer;
