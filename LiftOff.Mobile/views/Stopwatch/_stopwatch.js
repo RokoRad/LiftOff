@@ -51,6 +51,7 @@ const _stopwatch = () => {
     store.dispatch(setStarttime(new Date().toISOString()));
 
     this.stopwatch = setInterval(() => {
+      console.log(state)
       if(state.seconds === 59) {
         store.dispatch(updateSeconds(0));
         store.dispatch(updateMinutes(state.minutes += 1));

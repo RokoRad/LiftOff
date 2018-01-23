@@ -12,3 +12,4 @@ git bookmarked dumb komponente
 drone povuc iz settings i ubacit  u log
 lokaciju isto
 flightSpot priko APIa
+totalFlyScroe podilit sa number of flights
