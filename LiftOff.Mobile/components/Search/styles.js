@@ -13,15 +13,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     shadowOffset: {
-        height: 10,
-        width: 10
+        height: 12,
+        width: 12
     },
-    elevation: 10
+    elevation: 12
   },
   input: {
     fontSize: 12,
-    fontFamily: 'barlowSemiBold',
-    color: '#3498db'
+    fontFamily: 'barlowBold',
+    color: '#939393'
   },
   out: {
     position: 'absolute',
