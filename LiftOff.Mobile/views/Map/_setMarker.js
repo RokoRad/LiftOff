@@ -28,10 +28,6 @@ export default (value, history, ref) => {
   });
 
   store.dispatch(setMarker(value.nativeEvent.coordinate));
-  ref.animateToCoordinate({
-    latitude: value.nativeEvent.coordinate.latitude,
-    longitude: value.nativeEvent.coordinate.longitude
-  }, 200);
   //store.dispatch(updateLocation(value.nativeEvent.coordinate));
 
   // this.setState({
