@@ -15,47 +15,16 @@ const _stopwatch = () => {
           'Authorization': 'Bearer ' + token,
           'Content-type': 'application/json'
         },
-
-      //   body: JSON.stringify({
-      //     location: {
-      //       latitude: this.state.center.latitude,
-      //       longitude: this.state.center.longitude
-      //     },
-      //     time: new Date().toISOString()
-      //   })
-
-      //   "TimeLocation": {
-      //     "Location": {
-      //         "Latitude": double,
-      //         "Longitude": double
-      //     },
-      //     "Time": datetime
-      // }
-
-        // "Flight": {
-        //   "TimeFlown": int (broj sekundi koji si letia),
-        //   "FlySafeScore": double,
-        //   "Drone": {
-        //       "Name": string
-        //   },
-        //   "FlightLocation": {
-        //       "FlightSpot": string (misto),
-        //       "Latitude": double,
-        //       "Longitude": double
-        //   },
-        //   "FlightTime": {
-        //       "FlightStartTime": datetime
-        //   }
-
         body: JSON.stringify({
           timeFlown: 1,
           flySafeScore: 2.2,
           drone: {
-            name: 'Drone 1'
+            name: 'Dron 1'
           },
           flightLocation: {
+            flightSpot: 'Split',
             latitude: 22,
-            longitude: 222
+            longitude: 22
           },
           flightTime: {
             flightStartTime: new Date().toISOString()
@@ -63,12 +32,11 @@ const _stopwatch = () => {
         })
       }).then((response) => {
         if(response.status === 200) {
-          console.log("usa" + response)
+          console.log(JSON.parse(response._bodyInit))
         } else if (response.status === 401) {
           this.props.history.push('/');
           removeToken();
         }
-        console.log(response)
       })
     });
 
