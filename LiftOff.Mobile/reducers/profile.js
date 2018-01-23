@@ -23,7 +23,7 @@ export default (state = initialState, action) => {
       case 'UPDATE_STATS':
       return  {
         stats: [
-          ...action.payload
+          action.payload
         ]
       };
       default:

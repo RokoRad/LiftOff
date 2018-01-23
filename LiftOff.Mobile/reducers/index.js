@@ -7,5 +7,6 @@ import profileReducer from './profile.js';
 export default combineReducers({
   stopwatchReducer,
   logsReducer,
-  mapReducer
+  mapReducer,
+  profileReducer
 })
