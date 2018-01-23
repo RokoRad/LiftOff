@@ -11,5 +11,6 @@ export default combineReducers({
   logsReducer,
   mapReducer,
   profileReducer,
-  timeLocationReducer
+  timeLocationReducer,
+  homeReducer
 })

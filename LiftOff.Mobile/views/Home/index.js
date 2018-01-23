@@ -4,9 +4,9 @@ import signalr from 'react-native-signalr';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
-import defaultList from '../../config/defaultList.js';
 import Toast from 'react-native-simple-toast';
 import { connect } from 'react-redux';
+import store from '../../store';
 
 const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
       proxy = connection.createHubProxy('weatherHub'),
@@ -31,7 +31,7 @@ class Home extends React.Component {
       //   list: response
       // });
       //AsyncStorage.setItem('@realtime', JSON.stringify(response));
-      console.log(response)
+      //console.log(response)
     });
   }
 
@@ -78,17 +78,19 @@ class Home extends React.Component {
 
   render() {
     console.log(this.props.timeLocation)
+    console.log(this.props.home)
     return(
       <Screen current={this.props.location}>
-        {/* <HomeRating string={this.state.list.AdvisoryRating} rating={this.state.list.TotalRating} />
-        <HomeList list={this.state.list} /> */}
+        <HomeRating string={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
+        <HomeList list={this.props.home} />
       </Screen>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  ...state.timeLocationReducer
+  ...state.timeLocationReducer,
+  ...state.homeReducer
 });
 
 export default connect(mapStateToProps)(Home);
