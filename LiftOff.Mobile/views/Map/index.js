@@ -11,7 +11,8 @@ import removeToken from '../../functions/removeToken';
 import headers from '../../functions/headers';
 import holderEditor from './holderEditor';
 import { connect } from 'react-redux';
-import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
+import { MapView, PROVIDER_GOOGLE } from 'expo';
+import _getCurrentLocation from './_getCurrentLocation.js'
 
 const holder = {
   city: '/',
@@ -59,7 +60,7 @@ class Map extends Component {
     });
 
     if(!this.state.render) {
-      this.getCurrentLocation()
+      _getCurrentLocation();
     }
   }
 
@@ -70,15 +71,6 @@ class Map extends Component {
         location: this.state.markerPosition,
         time: timeValue
       }));
-    });
-  }
-
-  getCurrentLocation = async () => {
-    let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true, maximumAge: 900}).then((response) => {
-      this.setState({
-        render: true
-      });
     });
   }
 
@@ -171,7 +163,8 @@ class Map extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props.map)
+    console.log(this.props.markerPosition)
       return (
         <Screen current={this.props.location}>
           <Search pass={this.map} />
