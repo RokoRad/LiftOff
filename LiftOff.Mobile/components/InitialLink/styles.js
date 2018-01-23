@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontFamily: 'barlowMedium',
     textAlign: 'center',
-    fontSize: 12
+    fontSize: 11
   },
   messageBold: {
     fontFamily: 'barlowBold'

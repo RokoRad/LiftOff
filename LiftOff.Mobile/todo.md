@@ -15,9 +15,7 @@ flightSpot priko APIa
 totalFlyScroe podilit sa number of flights
 povvćat padding stopwatch numbera
 
-
-1. Još smanjit tekst
-2. Tekst botuna u All Caps, smanjit horizontalni padding tako da bude slican ko vertikalni, malo povecat letter spacing (npr. 0.5px)
+2. i 8. Tekst botuna u All Caps, smanjit horizontalni padding tako da bude slican ko vertikalni, malo povecat letter spacing (npr. 0.5px)
 3. Smanjit tekst i mozda malo manji weight
 4. Prominit boju tako da bude jednaka ka ove ikonice. Takodjer, tekstu sa detaljnim info koji se nalazi ispod malo prominit opacity
 
@@ -32,4 +30,3 @@ Prominit boju u tamno sivu.
 
 
 7. Stavit rounded border (tipa 6px), dodat paddinga (i horizontalnog i vertikalnog). Prominit boju naslova u ovu base color plavu. Mozda stavit neke light gray (al bas light) dividere izmedu stavki ispod.
-8. Uskladit botun da izgleda ka stavka 2.

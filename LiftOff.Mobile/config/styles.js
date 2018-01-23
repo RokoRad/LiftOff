@@ -19,7 +19,7 @@ const globals = StyleSheet.create({
     marginTop: 7.5,
     paddingTop: 10,
     paddingBottom: 10,
-    width: 120,
+    padding: 10,
     marginLeft: 'auto',
     marginRight: 'auto',
     borderRadius: 7,    
@@ -36,7 +36,7 @@ const globals = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 20,
-    fontFamily: 'barlowBold'
+    fontFamily: 'barlowSemiBold'
   }
 });
 
