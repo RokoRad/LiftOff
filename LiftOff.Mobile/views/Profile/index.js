@@ -17,15 +17,16 @@ class Account extends Component {
 
   // funckija renderiranja te sadržaj komponente
   render() {
-    console.log(this.props)
+    console.log(this.props.stats)
+    const nest = [...this.props.stats]
     return (
       <Screen current={this.props.location}>
         <AccountMap moreThan={language.moreThan} flewHere={language.flewHere} />
         <View style={styles.container}>
-          {this.props.stats.map((value) => (
-            console.log(value)
+          {nest.map((value) => {
+            console.log("a")
             //<AccountItem title={language[value]} content={value}/>
-          ))}
+          })}
           {/* <AccountItem title={language.userName} content={this.props.stats.userName} />
           <AccountItem title={language.email} content={this.props.stats.email} />
           <AccountItem title={language.favoriteFlightSpot} content={this.props.stats.favoriteFlightSpot} />
