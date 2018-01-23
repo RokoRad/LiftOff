@@ -10,6 +10,7 @@ import style from '../../functions/mapStyle';
 import removeToken from '../../functions/removeToken';
 import headers from '../../functions/headers';
 import holderEditor from './holderEditor';
+import { connect } from 'react-redux';
 import { MapView, PROVIDER_GOOGLE, Constants, Location, Permissions } from 'expo';
 
 const holder = {
@@ -26,8 +27,8 @@ const holder = {
 };
 
 class Map extends Component {
-  constructor() {
-     super();
+  constructor(props) {
+     super(props);
      this.state = {
        location: inital,
        center: inital,
@@ -170,6 +171,7 @@ class Map extends Component {
   }
 
   render() {
+    console.log(this.props)
       return (
         <Screen current={this.props.location}>
           <Search pass={this.map} />
@@ -185,4 +187,8 @@ class Map extends Component {
   }
 }
 
-export default Map;
+const mapStateToProps = state => ({
+  ...state.mapReducer,
+});
+
+export default connect(mapStateToProps)(Map);

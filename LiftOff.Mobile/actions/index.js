@@ -32,3 +32,8 @@ export const updateStats = (payload) => ({
   type: 'UPDATE_STATS',
   payload
 });
+
+export const updateHome = (payload) => ({
+  type: 'UPDATE_HOME',
+  payload
+});

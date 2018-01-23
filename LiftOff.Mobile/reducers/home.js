@@ -1,3 +1,5 @@
+import { AsyncStorage } from 'react-native';
+
 const initialState = {
   home: {
     AdvisoryRating: {
@@ -37,9 +39,13 @@ const initialState = {
   }
 };
 
+AsyncStorage.getItem('@realtime').then((realtime) => {
+  initialState.home = JSON.parse(realtime);
+})
+
 const homeReducer = (state = initialState, action) => {
   switch (action.type) {
-      case 'SET_DATA':
+      case 'UPDATE_HOME':
       return  {
         home: {
           ...action.payload
