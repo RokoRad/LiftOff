@@ -8,11 +8,10 @@ import Search from '../../components/Search';
 import styles from './styles.js';
 import style from '../../functions/mapStyle';
 import removeToken from '../../functions/removeToken';
-import headers from '../../functions/headers';
 import holderEditor from './holderEditor';
 import { connect } from 'react-redux';
 import { MapView, PROVIDER_GOOGLE } from 'expo';
-import _getCurrentLocation from './_getCurrentLocation.js'
+import _getCurrentLocation from './_getCurrentLocation.js';
 
 const holder = {
   city: '/',
@@ -120,42 +119,6 @@ class Map extends Component {
     AsyncStorage.setItem('@location', JSON.stringify(value.nativeEvent.coordinate)).then();
   }
 
-  calibration = () => {
-    console.log("usa u kal")
-    AsyncStorage.getItem('@token').then((value) => {
-      fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
-        method: 'POST',
-        headers: headers(value),
-        body: JSON.stringify({
-            location: {
-              latitude: this.state.center.latitude,
-              longitude: this.state.center.longitude
-            },
-            time: new Date().toISOString()
-          })
-      }).then((response) => {
-        console.log(response)
-        if(response.status === 200) {
-          const parsed = JSON.parse(response._bodyInit);
-          holder = holderEditor(parsed.weatherData.city, parsed.totalRating);
-          this.map.animateToCoordinate({
-            ...parsed.weatherData.timeLocation.location
-          }, 500);
-          this.setState({
-            calibration: true,
-            pressed: true,
-            markerPosition: {
-              ...parsed.weatherData.timeLocation.location,
-              ...deltas
-            }
-          })
-        } else if (response.status === 401) {
-          this.props.history.push('/');
-        }});
-        AsyncStorage.setItem('@location', JSON.stringify(this.state.markerLocation)).then();
-    });
-  }
-
   selected = () => {
     this.setState({
       selected: false
@@ -169,7 +132,7 @@ class Map extends Component {
         <Screen current={this.props.location}>
           <Search pass={this.map} />
           <Tooltip displayed={this.state.selected} />
-          <Dock calibration={this.calibration} selected={this.selected} />
+          <Dock history={this.props.history} selected={this.selected} />
           <MapView ref={(map) => this.map = map} style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} 
                    showsUserLocation={true} region={this.state.location} onRegionChangeComplete={(value) => this.changeCenter(value)} 
                    onPress={(value) => this.setMarker(value)} cacheEnabled={true} showsCompass={false} showsScale={false}>
