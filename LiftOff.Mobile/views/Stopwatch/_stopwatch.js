@@ -1,15 +1,45 @@
 import { AsyncStorage } from 'react-native';
 import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes } from '../../actions';
 import store from '../../store';
+import removeToken from '../../functions/removeToken';
 
 const _stopwatch = () => {
   let state = store.getState();
       state = state.stopwatchReducer.stopwatch;
       
   if(state.active) {
-    // AsyncStorage.getItem('@token').then((token) => {
-    //   // fetch sa tokenom
-    // });
+    AsyncStorage.getItem('@token').then((token) => {
+      fetch('http://liftoffapi.azurewebsites.net/api/logging/logFlight', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + token,
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          timeFlown: 1,
+          flySafeScore: 2.2,
+          drone: {
+            name: 'Dron 1'
+          },
+          flightLocation: {
+            flightSpot: 'Split',
+            latitude: 22,
+            longitude: 22
+          },
+          flightTime: {
+            flightStartTime: new Date().toISOString()
+          }
+        })
+      }).then((response) => {
+        if(response.status === 200) {
+          console.log(JSON.parse(response._bodyInit))
+        } else if (response.status === 401) {
+          this.props.history.push('/');
+          removeToken();
+        }
+      })
+    });
+
     clearInterval(this.stopwatch);
     store.dispatch(toggleStopwatch(false));
     store.dispatch(setStarttime(''));
@@ -31,25 +61,3 @@ const _stopwatch = () => {
 }
 
 export default _stopwatch;
-
-// bind = () => {
-//   if(this.state.active) {
-//     AsyncStorage.getItem('@token').then((value) => {
-//       fetch('http://liftoffapi.azurewebsites.net/api/logging/logFlight', {
-//         method: 'POST',
-//         headers: {
-//           'Authorization': 'Bearer ' + value,
-//           'Content-type': 'application/json'
-//         },
-//         body: JSON.stringify(holder)
-//       }).then((response) => {
-//         if(response.status === 200) {
-//           AsyncStorage.removeItem('@stats');
-//           AsyncStorage.setItem('@stats', JSON.stringify(response));
-//         } else if (response.status === 401) {
-
-//         } else {
-
-//         }});
-//     });
-// }
