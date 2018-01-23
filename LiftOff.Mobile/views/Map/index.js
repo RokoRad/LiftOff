@@ -67,13 +67,13 @@ class Map extends Component {
   }
 
   componentWillUnmount() {
-    AsyncStorage.getItem('@picker').then((timeValue) => {
-      console.log(timeValue)
-      AsyncStorage.setItem('@timeLocation', JSON.stringify({
-        location: this.state.markerPosition,
-        time: timeValue
-      }));
-    });
+    // AsyncStorage.getItem('@picker').then((timeValue) => {
+    //   console.log("timeValue", timeValue)
+    //   AsyncStorage.setItem('@timeLocation', JSON.stringify({
+    //     location: this.state.markerPosition,
+    //     time: timeValue
+    //   }));
+    // });
   }
 
   setMarker = (value) => {
@@ -125,6 +125,7 @@ class Map extends Component {
   render() {
     // console.log(this.props.map)
     // console.log(this.props.markerPosition)
+    console.log(this.props.timeLocationReducer)
       return (
         <Screen current={this.props.location}>
           <Search pass={this.map} />
@@ -142,6 +143,7 @@ class Map extends Component {
 
 const mapStateToProps = state => ({
   ...state.mapReducer,
+  ...state.timeLocationReducer
 });
 
 export default connect(mapStateToProps)(Map);
