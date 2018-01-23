@@ -19,7 +19,6 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.props.timeLocationReducer)
     return (
       <Screen current={this.props.location}>
         <HomeRating string={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />

@@ -24,14 +24,14 @@ const mapReducer = (state = initialState, action) => {
       case 'UPDATE_LOCATION':
         return  {
           map: {
-
+            ...state,
+            map: action.payload
           }
         };
       case 'SET_MARKER':
         return  {
-          map: {
-            
-          }
+          ...state,
+          markerPosition: action.payload
         };
       default:
         return state;

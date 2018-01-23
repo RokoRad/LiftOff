@@ -44,36 +44,26 @@ class Map extends Component {
   };
 
   componentWillMount() {
-    AsyncStorage.getItem('@location').then((response) => {
-      if(response) {
-        const parsed = JSON.parse(response);
+    // AsyncStorage.getItem('@location').then((response) => {
+    //   if(response) {
+    //     const parsed = JSON.parse(response);
 
-        const object = {
-          latitude: parsed.latitude,
-          longitude: parsed.longitude,
-          ...deltas
-        }
+    //     const object = {
+    //       latitude: parsed.latitude,
+    //       longitude: parsed.longitude,
+    //       ...deltas
+    //     }
 
-        this.setState({
-          location: object,
-          markerPosition: object
-        })
-      }
-    });
-
-    if(!this.state.render) {
-      _getCurrentLocation();
-    }
-  }
-
-  componentWillUnmount() {
-    // AsyncStorage.getItem('@picker').then((timeValue) => {
-    //   console.log("timeValue", timeValue)
-    //   AsyncStorage.setItem('@timeLocation', JSON.stringify({
-    //     location: this.state.markerPosition,
-    //     time: timeValue
-    //   }));
+    //     this.setState({
+    //       location: object,
+    //       markerPosition: object
+    //     })
+    //   }
     // });
+
+    // if(!this.state.render) {
+      _getCurrentLocation();
+    //}
   }
 
   setMarker = (value) => {
@@ -112,8 +102,6 @@ class Map extends Component {
       time: '/',
       rating: '/'
     }
-
-    AsyncStorage.setItem('@location', JSON.stringify(value.nativeEvent.coordinate)).then();
   }
 
   selected = () => {
@@ -123,9 +111,6 @@ class Map extends Component {
   }
 
   render() {
-    // console.log(this.props.map)
-    // console.log(this.props.markerPosition)
-    console.log(this.props.timeLocationReducer)
       return (
         <Screen current={this.props.location}>
           <Search pass={this.map} />

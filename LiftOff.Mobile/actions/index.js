@@ -42,3 +42,14 @@ export const updateDateTime = (payload) => ({
   type: 'UPDATE_DATETIME',
   payload
 });
+
+export const setMarker = (payload) => ({
+  type: 'SET_MARKER',
+  payload
+});
+
+
+export const updateLocation = (payload) => ({
+  type: 'UPDATE_LOCATION',
+  payload
+});
