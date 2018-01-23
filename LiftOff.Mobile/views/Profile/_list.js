@@ -3,8 +3,8 @@ import AccountItem from '../../components/AccountItem';
 import language from '../../languages';
 
 export default (object) => {
-  console.log(object)
-  Object.entries(object).forEach(([key, value]) => (
+  Object.entries(object).forEach(([key, value]) => {
+    console.log(key, value)
     <AccountItem title={language[key]} content={value} />
-  ));
+  });
 };
