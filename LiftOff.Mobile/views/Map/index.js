@@ -163,8 +163,8 @@ class Map extends Component {
   }
 
   render() {
-    console.log(this.props.map)
-    console.log(this.props.markerPosition)
+    // console.log(this.props.map)
+    // console.log(this.props.markerPosition)
       return (
         <Screen current={this.props.location}>
           <Search pass={this.map} />
