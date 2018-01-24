@@ -23,8 +23,9 @@ namespace LiftOff.API.Controllers
             Flight flight = JsonConvert.DeserializeObject<Flight>(JsonConvert.SerializeObject(json));
 
             var userId = User.Identity.GetUserId();
-            
             var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
+
+            var drone = _liftOffContext.Drones.FirstOrDefault(dr => dr.Name == flight.Drone.Name);
 
             user.TotalFlights++;
             user.TotalTimeFlown += flight.TimeFlown;
@@ -33,11 +34,11 @@ namespace LiftOff.API.Controllers
             user.FavoriteFlightSpot = StatisticsCalculator.CalculateFavoriteFlightLocation(user.FlightLocations.ToList());
             user.FlightTimes.Add(flight.FlightTime);
             user.FavoriteFlightTime = StatisticsCalculator.CalculateFavoriteFlightTime(user.FlightTimes.ToList()).ToString();
-            user.Drones.Add(flight.Drone);
+            user.Drones.Add(drone);
             user.FavoriteDrone = StatisticsCalculator.CalculateFavoriteDrone(user.Drones.ToList());
 
             flight.User = user;
-            flight.Drone = _liftOffContext.Drones.FirstOrDefault(dr => dr.Name == flight.Drone.Name);
+            flight.Drone = drone;
 
             _liftOffContext.FlightLocations.Add(flight.FlightLocation);
             _liftOffContext.FlightTimes.Add(flight.FlightTime);

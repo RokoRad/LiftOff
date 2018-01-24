@@ -16,18 +16,48 @@ namespace LiftOff.API.Initialization
             {
                 new Drone()
                 {
-                    Name = "Dron 1",
-                    TopSpeed = 10
+                    Name = "DJI Phantom 4 Pro",
+                    TopSpeed = 72
                 },
                 new Drone()
                 {
-                    Name = "Dron 2",
-                    TopSpeed = 12
+                    Name = "DJI Phantom 4 Advanced",
+                    TopSpeed = 72
                 },
                 new Drone()
                 {
-                    Name = "Dron 3",
-                    TopSpeed = 14
+                    Name = "DJI Phantom 3 SE",
+                    TopSpeed = 57.6
+                },
+                new Drone()
+                {
+                    Name = "DJI Mavic Air",
+                    TopSpeed = 68.4
+                },
+                new Drone()
+                {
+                    Name = "DJI Spark",
+                    TopSpeed = 50
+                },
+                new Drone()
+                {
+                    Name = "DJI Mavic Pro",
+                    TopSpeed = 65
+                },
+                new Drone()
+                {
+                    Name = "DJI Inspire 2",
+                    TopSpeed = 94
+                },
+                new Drone()
+                {
+                    Name = "Yuneec Typhoon H Pro",
+                    TopSpeed = 48.2
+                },
+                new Drone()
+                {
+                    Name = "Parrot Disco FPV",
+                    TopSpeed = 80.5
                 }
             };
 
