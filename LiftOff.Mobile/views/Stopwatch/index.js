@@ -10,30 +10,6 @@ import _stopwatch from './_stopwatch.js';
 import _buttonText from './_buttonText.js';
 import { connect } from 'react-redux';
 
-const data = [
-  {id: 1, active: true, location: 'Split, Croatia', time: '22:10', rating: 2},
-  {id: 2, active: false, location: 'Split, Croatia', time: '12:10', rating: 3},
-  {id: 3, active: false, location: 'Split, Croatia', time: '07:10', rating: 2},
-  {id: 4, active: true, location: 'Split, Croatia', time: '22:10', rating: 0},
-  {id: 5, active: false, location: 'Split, Croatia', time: '12:10', rating: 5}
-];
-
-const holder = {
-  timeFlown: 69,
-  flySafeScore: 2.2,
-  drone: {
-    name: 'Dron 1'
-  },
-  flightLocation: {
-    flightSpot: 'Split',
-    latitude: 43.508133,
-    longitude: 16.440193
-  },
-  flightTime: {
-    flightStartTime: new Date().toISOString()
-  }
-};
-
 class Stopwatch extends Component {
   constructor(props) {
      super(props);
@@ -49,7 +25,7 @@ class Stopwatch extends Component {
           <TouchableOpacity activeOpacity={0.9} onPress={() => _stopwatch()} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
             <Text style={globals.buttonInner}>{_buttonText(this.props.stopwatch.active)}</Text>
           </TouchableOpacity>
-          <StopwatchLogs data={data} />
+          <StopwatchLogs data={this.props.logs} />
         </Screen>  
       );
   }

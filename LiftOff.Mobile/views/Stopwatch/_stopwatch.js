@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes, updateStats } from '../../actions';
+import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes, updateStats, addLog } from '../../actions';
 import store from '../../store';
 import removeToken from '../../functions/removeToken';
 import _timeFlown from './_timeFlown.js';
@@ -36,8 +36,9 @@ const _stopwatch = () => {
           // response._bodyInit ubacit u cache ili reducer
           store.dispatch(updateStats(JSON.parse(response._bodyInit)));
           AsyncStorage.setItem('@stats', response._bodyInit);
+          console.log(JSON.parse(response))
         } else if (response.status === 401) {
-          this.props.history.push('/');
+          //this.props.history.push('/');
           removeToken();
         }
       })
@@ -47,6 +48,10 @@ const _stopwatch = () => {
     store.dispatch(setStarttime(''));
     store.dispatch(updateSeconds(state.seconds = 0));
     store.dispatch(updateMinutes(state.minutes = 0));
+    store.dispatch(addLog({
+      location: 'Split',
+      rating: 2.99
+    }));
   } else {
     store.dispatch(setStarttime(state.startTime = new Date().toISOString()));
 

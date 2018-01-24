@@ -10,12 +10,12 @@ AsyncStorage.getItem('@language').then((response) => {
     if(response === 'hr') {
       module.exports.default = {
         ...croatian,
-        language: 'hr'
+        language: 'Croatian'
       }
     } else {
       module.exports.default = {
         ...english,
-        language: 'en'
+        language: 'English'
       };
       // ako je prvi render
       AsyncStorage.setItem('@language', 'en');
