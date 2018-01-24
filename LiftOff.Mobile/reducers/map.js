@@ -17,8 +17,7 @@ const initialState = {
     ...initialLocation,
     ...deltas
   },
-  tooltipStatus: false,
-  setRef: null
+  tooltipStatus: false
 };
 
 const mapReducer = (state = initialState, action) => {
@@ -43,11 +42,6 @@ const mapReducer = (state = initialState, action) => {
             ...deltas,
             ...action.payload
           }
-        };
-      case 'SET_REF':
-        return  {
-          ...state,
-          setRef: action.payload
         };
       default:
         return state;

@@ -9,7 +9,6 @@ import styles from './styles.js';
 import style from '../../functions/mapStyle';
 import { connect } from 'react-redux';
 import { MapView, PROVIDER_GOOGLE } from 'expo';
-import _setRef from './_setRef.js';
 import _getCurrentLocation from './_getCurrentLocation.js';
 import _changeCenter from './_changeCenter.js';
 import _setMarker from './_setMarker.js';
@@ -20,7 +19,6 @@ class Map extends Component {
   };
 
   componentWillMount() {
-      _setRef(this.map);
       _getCurrentLocation();
   }
 

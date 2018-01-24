@@ -8,7 +8,7 @@ let input;
 
 const Search = ({}) => (
   <ScrollView contentContainerStyle={styles.wrapper} style={styles.out} scrollEnabled={false}>
-    <TextInput underlineColorAndroid={'transparent'} placeholder={language.Search} style={styles.input} placeholderTextColor="#939393" caretHidden={true} onSubmitEditing={(value) => onEnter(input)} onChangeText={(value) => input = value}/>
+    <TextInput underlineColorAndroid={'transparent'} placeholder={language.Search} style={styles.input} placeholderTextColor="#939393" caretHidden={true} onSubmitEditing={() => onEnter(input)} onChangeText={(value) => input = value}/>
   </ScrollView>
 );
 

@@ -58,8 +58,3 @@ export const tooltipStatus = (payload) => ({
   type: 'TOOLTIP_STATUS',
   payload
 });
-
-export const setRef = (payload) => ({
-  type: 'SET_REF',
-  payload
-});
