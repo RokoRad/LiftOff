@@ -10,13 +10,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#3498db',
     display: 'flex',
     flexDirection: 'row',
-    shadowOpacity: 0.5,
-    shadowRadius: 10,
+    shadowOpacity: 0.7,
+    shadowRadius: 12,
     shadowOffset: {
-        height: 10,
+        height: 25,
         width: 10
     },
-    elevation: 10,
+    elevation: 55,
   }
 });
 

@@ -11,10 +11,10 @@ const styles = StyleSheet.create({
     color: '#F95F62'
   },
   wrapper: {
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: 15,
+    paddingBottom: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#ced7e0',
+    borderBottomColor: '#F0F3F5',
     display: 'flex',
     flexDirection: 'row'
   },
@@ -23,15 +23,15 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start'
   },
   icon: {
-    width: 50,
-    height: 50
+    width: 40,
+    height: 40
   },
   middle: {
     width: '50%',
     height: '100%'
   },
   title: {
-    fontFamily: 'barlowMedium',
+    fontFamily: 'robotoMedium',
     fontSize: 12,
     marginBottom: 5,
     color: '#8b959f'
@@ -45,14 +45,14 @@ const styles = StyleSheet.create({
   leftText: {
     textAlign: 'left',
     width: 'auto',
-    fontFamily: 'barlowRegular',
+    fontFamily: 'robotoRegular',
     fontSize: 10,
     color: '#8b959f'
   },
   rightText: {
     position: 'absolute',
     right: 5,
-    fontFamily: 'barlowRegular',
+    fontFamily: 'robotoRegular',
     fontSize: 10,
     color: '#8b959f'
   },
@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
     width: '25%'
   },
   rating: {
-    fontFamily: 'barlowRegular',
-    fontSize: 40,
+    fontFamily: 'robotoRegular',
+    fontSize: 30,
     color: '#2980b9'
   }
 });
