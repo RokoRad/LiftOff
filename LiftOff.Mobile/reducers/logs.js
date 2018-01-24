@@ -17,6 +17,19 @@ const initialState = {
   ]
 };
 
+const _time = () => {
+  let minutes = new Date().getMinutes();
+  let hours = new Date().getHours();
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  } else if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  return `${hours}:${minutes}`
+}
+
 const logsReducer = (state = initialState, action) => {
   switch (action.type) {
       case 'ADD_LOG':
@@ -28,7 +41,7 @@ const logsReducer = (state = initialState, action) => {
             saved: false,
             location: action.payload.location,
             rating: action.payload.rating,
-            time: `${new Date().getHours()}:${new Date().getMinutes()}`
+            time: _time()
           }
         ]
       };
