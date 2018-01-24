@@ -6,13 +6,20 @@ let language;
 
 // provjera jezika
 AsyncStorage.getItem('@language').then((response) => {
+  console.log(response);
     if(response === 'hr') {
-      module.exports.default = croatian;
+      module.exports.default = {
+        ...croatian,
+        language: 'hr'
+      }
     } else {
-      module.exports.default = english;
+      module.exports.default = {
+        ...english,
+        language: 'en'
+      };
       // ako je prvi render
       AsyncStorage.setItem('@language', 'en');
     }
 });
 
-export { language };
+export default language;

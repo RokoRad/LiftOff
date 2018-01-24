@@ -2,6 +2,7 @@ import { AsyncStorage } from 'react-native';
 import headers from '../../functions/headers';
 import removeToken from '../../functions/removeToken';
 import store from '../../store';
+import { updateLocation, setMarker } from '../../actions';
 
 export default (history) => {
   const stored = store.getState().mapReducer.markerPosition;
@@ -21,11 +22,14 @@ export default (history) => {
       })
     }).then((response) => {
       if(response.status === 200) {
-        console.log(JSON.parse(response._bodyInit));
-//         this.map.animateToCoordinate({
-//           ...parsed.weatherData.timeLocation.location
-//         }, 500);
-        // data u redux
+        const parsed = JSON.parse(response._bodyInit).weatherData.timeLocation;
+        console.log(parsed.location);
+        store.dispatch(updateLocation({
+          ...parsed.location,
+        }));
+        store.dispatch(setMarker({
+          ...parsed.location,
+        }));
       } else if (response.status === 401) {
         removeToken();
         history.push('/');
