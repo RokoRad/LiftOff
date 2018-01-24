@@ -1,5 +1,3 @@
-import { MapView } from 'expo';
-import { findNodeHandle } from 'react-native';
 import store from '../../store';
 import { updateLocation } from '../../actions';
 import key from '../../config/googleKey.js';

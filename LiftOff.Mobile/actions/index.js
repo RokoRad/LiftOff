@@ -24,7 +24,7 @@ export const addLog = (payload) => ({
 });
 
 export const selectLog = (payload) => ({
-  type: 'ADD_LOG',
+  type: 'SELECT_LOG',
   payload
 });
 

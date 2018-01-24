@@ -5,18 +5,19 @@ import globals from '../../config/styles.js';
 import * as Animatable from 'react-native-animatable';
 import colorGenerator from '../../functions/colorGenerator';
 import animationGenerator from '../../functions/animationGenerator';
+import language from '../../languages';
 
-const SafetyscoreStopwatch = ({title, comment, rating}) => (
+const SafetyscoreStopwatch = ({comment, rating}) => (
   <View style={[styles.wrapper, globals[colorGenerator(rating)]]}>
     <View style={[styles.droneWrapper, globals.bothAligned]}>
       <Animatable.Image source={require('../../images/drone.png')} style={styles.drone} animation={animationGenerator(colorGenerator(rating))} iterationCount="infinite" easing="ease-in-out" direction="alternate" />
     </View>
     <View style={styles.information}>
       <View>
-        <Text style={styles.informationTitle}>{title}</Text>
+        <Text style={styles.informationTitle}>ssss</Text>
       </View>
       <View>
-        <Text style={styles.informationText}>{comment}</Text>
+        <Text style={styles.informationText}>{comment.en}</Text>
       </View>
     </View>
     <View style={[styles.rating, globals.bothAligned]}>

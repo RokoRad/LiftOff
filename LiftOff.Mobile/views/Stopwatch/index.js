@@ -40,9 +40,11 @@ class Stopwatch extends Component {
   };
 
   render() {
+    console.log(this.props.logs)
+    //console.log(this.props.home)
       return (
         <Screen current={this.props.location}>
-          <SafetyscoreStopwatch title="lang.en.title" comment="lang.en.message" rating="2.2" />
+          <SafetyscoreStopwatch comment={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
           <StopwatchElement minutes={this.props.stopwatch.minutes} seconds={this.props.stopwatch.seconds} />
           <TouchableOpacity activeOpacity={0.9} onPress={() => _stopwatch()} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
             <Text style={globals.buttonInner}>{_buttonText(this.props.stopwatch.active)}</Text>
@@ -55,7 +57,9 @@ class Stopwatch extends Component {
 
 
 const mapStateToProps = state => ({
-  ...state.stopwatchReducer
+  ...state.stopwatchReducer,
+  ...state.logsReducer,
+  ...state.homeReducer
 });
 
 export default connect(mapStateToProps)(Stopwatch);

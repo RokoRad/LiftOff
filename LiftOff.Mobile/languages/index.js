@@ -1,9 +1,6 @@
 import { AsyncStorage } from 'react-native';
 import croatian from './hr';
 import english from './en';
-
-let language;
-
 // provjera jezika
 AsyncStorage.getItem('@language').then((response) => {
     if(response === 'hr') {
@@ -14,5 +11,3 @@ AsyncStorage.getItem('@language').then((response) => {
       AsyncStorage.setItem('@language', 'en');
     }
 });
-
-export { language };
