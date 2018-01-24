@@ -23,15 +23,16 @@ class Map extends Component {
   }
 
   render() {
+    console.log(this.props.tooltipStatus)
       return (
         <Screen current={this.props.location}>
-          <Search pass={this.map} />
-          <Tooltip displayed="true" />
-          <Dock history={this.props.history} selected={this.selected} />
+          <Search />
+          <Tooltip displayed={this.props.tooltipStatus} />
+          <Dock history={this.props.history} />
           <MapView ref={(map) => this.map = map} style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} 
                    showsUserLocation={true} region={this.props.map} onRegionChangeComplete={(value) => _changeCenter(value)} 
                    onPress={(value) => _setMarker(value, this.props.history)} cacheEnabled={true} showsCompass={false} showsScale={false}>
-            <Marker display={true} location={this.props.markerPosition} calibration={false} city="aa" time="aaaa" rating={2.2} />
+            <Marker location={this.props.markerPosition} city="aa" time="aaaa" rating={2.2} />
           </MapView>
         </Screen>
       );
