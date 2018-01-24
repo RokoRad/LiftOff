@@ -6,6 +6,7 @@ import * as Animatable from 'react-native-animatable';
 import colorGenerator from '../../functions/colorGenerator';
 import animationGenerator from '../../functions/animationGenerator';
 import language from '../../languages';
+import round from '../../functions/round';
 
 const SafetyscoreStopwatch = ({comment, rating}) => (
   <View style={[styles.wrapper, globals[colorGenerator(rating)]]}>
@@ -22,7 +23,7 @@ const SafetyscoreStopwatch = ({comment, rating}) => (
     </View>
     <View style={[styles.rating, globals.bothAligned]}>
       <Text style={styles.ratingInner}>
-        {rating}
+        {round(rating)}
       </Text>
     </View>
   </View>
