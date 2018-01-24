@@ -2,7 +2,7 @@ import { AsyncStorage } from 'react-native';
 import headers from '../../functions/headers';
 import removeToken from '../../functions/removeToken';
 import store from '../../store';
-import { updateLocation } from '../../actions';
+import { updateLocation, setMarker } from '../../actions';
 
 export default (history) => {
   const stored = store.getState().mapReducer.markerPosition;
