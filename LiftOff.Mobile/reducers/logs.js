@@ -4,14 +4,14 @@ const initialState = {
       id: 0,
       saved: true,
       location: 'test',
-      score: 2.2,
+      rating: 3,
       time: '22:10'
     },
     {
       id: 1,
       saved: false,
       location: 'test',
-      score: 4.2,
+      rating: 4.2222,
       time: '22:10'
     }
   ]
@@ -19,13 +19,17 @@ const initialState = {
 
 const logsReducer = (state = initialState, action) => {
   switch (action.type) {
-      // case 'ADD_LOG':
-      // return  {
-      //   logs: [
-      //     // ubacit novi
-      //     ...state.logs
-      //   ]
-      // };
+      case 'ADD_LOG':
+      return  [
+        ...state,
+        {
+          id: 1,
+          saved: false,
+          location: 'test',
+          rating: 4.2222,
+          time: '22:10'
+        }
+      ];
       // case 'UPDATE_LOG':
       // return  {
 

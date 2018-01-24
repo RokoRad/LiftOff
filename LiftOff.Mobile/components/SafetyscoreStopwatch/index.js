@@ -18,7 +18,7 @@ const SafetyscoreStopwatch = ({comment, rating}) => (
         <Text style={styles.informationTitle}>ssss</Text>
       </View>
       <View>
-        <Text style={styles.informationText}>{comment.en}</Text>
+        <Text style={styles.informationText}>{comment.Croatian}</Text>
       </View>
     </View>
     <View style={[styles.rating, globals.bothAligned]}>

@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes, updateStats } from '../../actions';
+import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes, updateStats, addLog } from '../../actions';
 import store from '../../store';
 import removeToken from '../../functions/removeToken';
 import _timeFlown from './_timeFlown.js';
@@ -47,6 +47,7 @@ const _stopwatch = () => {
     store.dispatch(setStarttime(''));
     store.dispatch(updateSeconds(state.seconds = 0));
     store.dispatch(updateMinutes(state.minutes = 0));
+    store.dispatch(addLog());
   } else {
     store.dispatch(setStarttime(state.startTime = new Date().toISOString()));
 
