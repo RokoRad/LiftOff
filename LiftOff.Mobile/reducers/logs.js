@@ -20,16 +20,18 @@ const initialState = {
 const logsReducer = (state = initialState, action) => {
   switch (action.type) {
       case 'ADD_LOG':
-      return  [
-        ...state,
-        {
-          id: 1,
-          saved: false,
-          location: 'test',
-          rating: 4.2222,
-          time: '22:10'
-        }
-      ];
+      return {
+        logs: [
+          ...state.logs,
+          {
+            id: state.logs.length++,
+            saved: false,
+            location: action.payload.location,
+            rating: action.payload.rating,
+            time: '00:00'
+          }
+        ]
+      };
       // case 'UPDATE_LOG':
       // return  {
 

@@ -47,7 +47,10 @@ const _stopwatch = () => {
     store.dispatch(setStarttime(''));
     store.dispatch(updateSeconds(state.seconds = 0));
     store.dispatch(updateMinutes(state.minutes = 0));
-    store.dispatch(addLog());
+    store.dispatch(addLog({
+      location: 'Split',
+      rating: 2.99
+    }));
   } else {
     store.dispatch(setStarttime(state.startTime = new Date().toISOString()));
 
