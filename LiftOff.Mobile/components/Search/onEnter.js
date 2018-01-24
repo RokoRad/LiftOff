@@ -5,8 +5,6 @@ import { updateLocation } from '../../actions';
 import key from '../../config/googleKey.js';
 
 export default (value) => {
-  console.log(value)
-  console.log(findNodeHandle(this.refs['this.map']));
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${key}`).then((response) => {
     const data = JSON.parse(response._bodyInit),
           parsed = data.results[0].geometry.location;
@@ -14,9 +12,9 @@ export default (value) => {
       latitude: parsed.lat,
       longitude: parsed.lng
     }));
-    // pointer.animateToCoordinate({
+    // findNodeHandle(this.map).animateToCoordinate({
     //   latitude: 22,
     //   longitude: 22
-    // }, 500);
+    // }, 5000);
   })
 }
