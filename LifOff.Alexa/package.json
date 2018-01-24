@@ -1,0 +1,11 @@
+{
+  "name": "lifoff.alexa",
+  "version": "1.0.0",
+  "description": "LifOff Amazon Alexa skill",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Toma Puljak",
+  "license": "ISC"
+}
