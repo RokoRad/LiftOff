@@ -12,8 +12,9 @@ export default (value) => {
       latitude: parsed.lat,
       longitude: parsed.lng
     }));
-    // ref.animateToCoordinate({
-    //   ...location
-    // }, 500);
+    this.map.animateToCoordinate({
+      latitude: 22,
+      longitude: 22
+    }, 500);
   })
 }
