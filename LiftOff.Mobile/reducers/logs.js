@@ -1,3 +1,5 @@
+import { AsyncStorage } from 'react-native';
+
 const initialState = {
   logs: [
     {
@@ -29,6 +31,10 @@ const _time = () => {
 
   return `${hours}:${minutes}`
 }
+
+AsyncStorage.getItem('@logs').then((logs) => {
+  console.log(logs)
+})
 
 const logsReducer = (state = initialState, action) => {
   switch (action.type) {
