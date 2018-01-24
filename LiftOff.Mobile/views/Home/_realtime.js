@@ -2,7 +2,7 @@ import signalr from 'react-native-signalr';
 import { AsyncStorage } from 'react-native';
 import store from '../../store';
 import { updateHome } from '../../actions';
-import Toast from 'react-native-simple-toast';
+//import Toast from 'react-native-simple-toast';
 
 const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
       proxy = connection.createHubProxy('weatherHub');

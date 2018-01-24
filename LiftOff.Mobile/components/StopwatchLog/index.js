@@ -3,7 +3,7 @@ import globals from '../../config/styles.js';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import colorGenerator from '../../functions/colorGenerator';
 import round from '../../functions/round';
-import Toast from 'react-native-simple-toast';
+//import Toast from 'react-native-simple-toast';
 import styles from './styles.js';
 
 class StopwatchLog extends Component {

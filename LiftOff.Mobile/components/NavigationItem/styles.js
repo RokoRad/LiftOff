@@ -21,9 +21,10 @@ const styles = StyleSheet.create({
     marginTop: 2.5,
     marginBottom: 7.5,
     textAlign: 'center',
-    fontSize: 12,
+    fontSize: 8,
     color: '#8b959f',
-    fontFamily: 'barlowSemiBold'
+    //fontFamily: 'barlowSemiBold',
+    fontFamily: 'robotoRegular'
   },
   navigationTextActive: {
     color: '#2980b9'

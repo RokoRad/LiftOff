@@ -14,6 +14,9 @@ lokaciju isto
 flightSpot priko APIa
 totalFlyScroe podilit sa number of flights
 povvćat padding stopwatch numbera
+zaminit toLogin i toRegister
+kad odaberes vrime na /home
+smanjit ikone mrvciu, budu izjednacene i retina rezolucija
 
 2. i 8. Tekst botuna u All Caps, smanjit horizontalni padding tako da bude slican ko vertikalni, malo povecat letter spacing (npr. 0.5px)
 3. Smanjit tekst i mozda malo manji weight

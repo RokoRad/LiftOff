@@ -1,4 +1,4 @@
-import Toast from 'react-native-simple-toast';
+//import Toast from 'react-native-simple-toast';
 
 const registration = (data, history) => {
   if(data.username.length != 0 && data.email.length != 0 && data.password.length > 8) {

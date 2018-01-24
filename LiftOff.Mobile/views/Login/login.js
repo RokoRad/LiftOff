@@ -1,4 +1,4 @@
-import Toast from 'react-native-simple-toast';
+//import Toast from 'react-native-simple-toast';
 import { AsyncStorage } from 'react-native';
 import encode from './encode.js';
 
@@ -15,6 +15,7 @@ const login = (data, history) => {
       },
       body: encode(object)
     }).then((response) => {
+      console.log(response)
       if(response.status === 200) {
         AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
           history.push('/home');
@@ -23,6 +24,7 @@ const login = (data, history) => {
         // puka server
       }
     }).catch((error) => {
+      console.log(error)
       // puka server
     });
   } else {
