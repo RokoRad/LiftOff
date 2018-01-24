@@ -4,8 +4,7 @@ import Calibration from '../../components/Calibration';
 import Picker from '../../components/Picker';
 import styles from './styles.js';
 
-const Dock = ({history, selected, ref}) => {
-  console.log("ref", ref) 
+const Dock = ({history, selected}) => {
   return (
    <View style={styles.dock}>
      <Calibration history={history} />
