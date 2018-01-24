@@ -14,11 +14,11 @@ const styles = StyleSheet.create({
       paddingTop: 10,
       paddingBottom: 10,
       paddingLeft: 5,
-      fontSize: 16,
-      fontFamily: 'barlowMedium',
-      color: '#fff',
+      fontSize: 15,
+      fontFamily: 'robotoLight',
+      color: '#f5f7fa',
       borderBottomWidth: 1,
-      borderBottomColor: '#fff'
+      borderBottomColor: '#f5f7fa'
     }
 });
 

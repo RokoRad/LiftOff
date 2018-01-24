@@ -3,12 +3,12 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   message: {
     color: '#fff',
-    fontFamily: 'barlowMedium',
+    fontFamily: 'robotoMedium',
     textAlign: 'center',
     fontSize: 12
   },
   messageBold: {
-    fontFamily: 'barlowBold'
+    fontFamily: 'robotoBold'
   },
   wrapper: {
     width: '100%',

@@ -12,12 +12,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     zIndex: 999,    
     shadowOpacity: 0.1,
-    shadowRadius: 5,
+    shadowRadius: 3,
     shadowOffset: {
-        height: 10,
-        width: 10
+        height: 8,
+        width: 8
     },
-    elevation: 15
+    elevation: 10
   },
   input: {
     fontSize: 14,

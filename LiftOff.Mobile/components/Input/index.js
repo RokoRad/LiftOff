@@ -7,7 +7,7 @@ import capitalize from '../../functions/capitalize';
 const Input = ({type, onChangeText}) => (
   <ScrollView contentContainerStyle={styles.wrapper} scrollEnabled={false}>
     <TextInput underlineColorAndroid={'transparent'} placeholder={capitalize(type)} style={styles.input} 
-               placeholderTextColor="#fff" secureTextEntry={type === 'password' ? true : false} 
+               placeholderTextColor="#f5f7fa" secureTextEntry={type === 'password' ? true : false} 
                onChangeText={onChangeText} keyboardType={(type === 'email') ? 'email-address' : 'default'} />
   </ScrollView>
 );

@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
   middleInner: {
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: 'barlowRegular'
+    fontFamily: 'robotoRegular'
   },
   middleRightInner: {
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: 'barlowMedium' 
+    fontFamily: 'robotoMedium' 
   },
   middleRight: {
     width: '25%',
@@ -51,11 +51,11 @@ const styles = StyleSheet.create({
   rightInner: {
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: 'barlowRegular'
+    fontFamily: 'robotoRegular'
   },
   inner: {
     fontSize: 20,
-    fontFamily: 'barlowBold',
+    fontFamily: 'robotoBold',
     color: '#3498db'  
   }
 });

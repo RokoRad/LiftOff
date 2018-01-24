@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   screen: {
     height: '100%',
     position: 'relative',
-    backgroundColor: '#3498db',
+    backgroundColor: '#3073f2',
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row'

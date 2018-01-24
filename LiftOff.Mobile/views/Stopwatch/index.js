@@ -22,7 +22,7 @@ class Stopwatch extends Component {
         <Screen current={this.props.location}>
           <SafetyscoreStopwatch comment={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
           <StopwatchElement minutes={this.props.stopwatch.minutes} seconds={this.props.stopwatch.seconds} />
-          <TouchableOpacity activeOpacity={0.9} onPress={() => _stopwatch()} style={[globals.buttonWrapper, {backgroundColor: '#2980b9'}]}>
+          <TouchableOpacity activeOpacity={0.9} onPress={() => _stopwatch()} style={[globals.buttonWrapper, {backgroundColor: '#d41287'}]}>
             <Text style={globals.buttonInner}>{_buttonText(this.props.stopwatch.active)}</Text>
           </TouchableOpacity>
           <StopwatchLogs data={this.props.logs} />
