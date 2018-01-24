@@ -28,7 +28,7 @@ const logsReducer = (state = initialState, action) => {
             saved: false,
             location: action.payload.location,
             rating: action.payload.rating,
-            time: '00:00'
+            time: `${new Date().getHours()}:${new Date().getMinutes()}`
           }
         ]
       };
