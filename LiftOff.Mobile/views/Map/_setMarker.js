@@ -29,24 +29,4 @@ export default (value, history) => {
 
   store.dispatch(setMarker(value.nativeEvent.coordinate));
   store.dispatch(tooltipStatus(store.getState().mapReducer.tooltipStatus = true));
-
-  // this.setState({
-  //   markerPosition: value.nativeEvent.coordinate,
-  //   pressed: true,      
-  //   calibration: false
-  // });
-
 }
-
-//   this.setState({
-//     markerPosition: value.nativeEvent.coordinate,
-//     pressed: true,      
-//     calibration: false
-//   });
-
-//   holder = {
-//     city: '/',
-//     time: '/',
-//     rating: '/'
-//   }
-// }
