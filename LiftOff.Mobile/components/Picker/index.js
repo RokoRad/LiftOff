@@ -3,7 +3,7 @@ import { View, Text, AsyncStorage } from 'react-native';
 import DatePicker from '../../external/react-native-datepicker';
 import styles from './styles.js';
 import store from '../../store';
-import { updateDateTime } from '../../actions';
+import { updateDateTime, tooltipStatus } from '../../actions';
 
 const today = new Date().toISOString().slice(0, 10);
 const inFive = new Date(Date.now() + 5*24*60*60*1000).toISOString().slice(0, 10);
@@ -12,6 +12,7 @@ const image = require('../../images/map/date.png');
 const dateChange = (value) => {
   const dateTime = store.getState().timeLocationReducer.timeLocation;
   store.dispatch(updateDateTime(dateTime.time = value));
+  store.dispatch(tooltipStatus(store.getState().mapReducer.tooltipStatus = false));
 }
 
 const Picker = ({selected}) => (

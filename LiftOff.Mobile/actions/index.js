@@ -53,3 +53,8 @@ export const updateLocation = (payload) => ({
   type: 'UPDATE_LOCATION',
   payload
 });
+
+export const tooltipStatus = (payload) => ({
+  type: 'TOOLTIP_STATUS',
+  payload
+});

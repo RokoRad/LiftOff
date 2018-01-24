@@ -2,9 +2,9 @@ import { AsyncStorage } from 'react-native';
 import headers from '../../functions/headers';
 import removeToken from '../../functions/removeToken';
 import store from '../../store';
-import { setMarker, updateLocation } from '../../actions';
+import { setMarker, updateLocation, tooltipStatus } from '../../actions';
 
-export default (value, history, ref) => {
+export default (value, history) => {
   value.persist();
 
   AsyncStorage.getItem('@token').then((token) => {
@@ -28,6 +28,7 @@ export default (value, history, ref) => {
   });
 
   store.dispatch(setMarker(value.nativeEvent.coordinate));
+  store.dispatch(tooltipStatus(store.getState().mapReducer.tooltipStatus = true));
 
   // this.setState({
   //   markerPosition: value.nativeEvent.coordinate,
