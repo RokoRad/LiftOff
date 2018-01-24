@@ -24,7 +24,7 @@ export const addLog = (payload) => ({
 });
 
 export const selectLog = (payload) => ({
-  type: 'ADD_LOG',
+  type: 'SELECT_LOG',
   payload
 });
 
@@ -51,5 +51,10 @@ export const setMarker = (payload) => ({
 
 export const updateLocation = (payload) => ({
   type: 'UPDATE_LOCATION',
+  payload
+});
+
+export const tooltipStatus = (payload) => ({
+  type: 'TOOLTIP_STATUS',
   payload
 });

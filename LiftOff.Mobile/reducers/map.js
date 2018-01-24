@@ -16,7 +16,8 @@ const initialState = {
   markerPosition: {
     ...initialLocation,
     ...deltas
-  }
+  },
+  tooltipStatus: false
 };
 
 const mapReducer = (state = initialState, action) => {
@@ -28,6 +29,11 @@ const mapReducer = (state = initialState, action) => {
             ...deltas,
             ...action.payload
           }
+        };
+      case 'TOOLTIP_STATUS':
+        return  {
+          ...state,
+          tooltipStatus: action.payload
         };
       case 'SET_MARKER':
         return  {

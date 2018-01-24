@@ -1,5 +1,20 @@
 const initialState = {
-  logs: []
+  logs: [
+    {
+      id: 0,
+      saved: true,
+      location: 'test',
+      score: 2.2,
+      time: '22:10'
+    },
+    {
+      id: 1,
+      saved: false,
+      location: 'test',
+      score: 4.2,
+      time: '22:10'
+    }
+  ]
 };
 
 const logsReducer = (state = initialState, action) => {
