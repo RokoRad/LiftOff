@@ -3,7 +3,7 @@ import headers from '../../functions/headers';
 import removeToken from '../../functions/removeToken';
 import store from '../../store';
 
-export default (history) => {
+export default (history, ref) => {
   const stored = store.getState().mapReducer.markerPosition;
 
   const location = {
@@ -22,9 +22,9 @@ export default (history) => {
     }).then((response) => {
       if(response.status === 200) {
         console.log(JSON.parse(response._bodyInit));
-//         this.map.animateToCoordinate({
-//           ...parsed.weatherData.timeLocation.location
-//         }, 500);
+        this.map.animateToCoordinate({
+          ...parsed.weatherData.timeLocation.location
+        }, 500);
         // data u redux
       } else if (response.status === 401) {
         removeToken();

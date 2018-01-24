@@ -5,8 +5,8 @@ import _calibration from './_calibration.js'
 
 const image = require('../../images/map/crosshair.png');
 
-const Calibration = ({history}) => (
-  <TouchableWithoutFeedback onPress={() => _calibration(history)}>
+const Calibration = ({history, pass}) => (
+  <TouchableWithoutFeedback onPress={() => _calibration(history, pass)}>
     <View style={styles.item}>
       <Image source={image} style={styles.inner} />
     </View>
