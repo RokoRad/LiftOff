@@ -2,8 +2,9 @@ import { AsyncStorage } from 'react-native';
 import headers from '../../functions/headers';
 import removeToken from '../../functions/removeToken';
 import store from '../../store';
+import { MapView } from 'expo';
 
-export default (history, ref) => {
+export default (history) => {
   const stored = store.getState().mapReducer.markerPosition;
 
   const location = {
@@ -22,7 +23,7 @@ export default (history, ref) => {
     }).then((response) => {
       if(response.status === 200) {
         console.log(JSON.parse(response._bodyInit));
-        this.map.animateToCoordinate({
+        animateToCoordinate({
           ...parsed.weatherData.timeLocation.location
         }, 500);
         // data u redux
