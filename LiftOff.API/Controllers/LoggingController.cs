@@ -33,6 +33,8 @@ namespace LiftOff.API.Controllers
             user.FavoriteFlightSpot = StatisticsCalculator.CalculateFavoriteFlightLocation(user.FlightLocations.ToList());
             user.FlightTimes.Add(flight.FlightTime);
             user.FavoriteFlightTime = StatisticsCalculator.CalculateFavoriteFlightTime(user.FlightTimes.ToList()).ToString();
+            user.Drones.Add(flight.Drone);
+            user.FavoriteDrone = StatisticsCalculator.CalculateFavoriteDrone(user.Drones.ToList());
 
             flight.User = user;
             flight.Drone = _liftOffContext.Drones.FirstOrDefault(dr => dr.Name == flight.Drone.Name);
