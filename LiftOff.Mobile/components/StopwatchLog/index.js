@@ -15,15 +15,15 @@ class StopwatchLog extends Component {
   };
 
   active = () => {
-    if(this.state.active) {
-      return;
-    } else {
-      this.setState({
-        active: !this.state.active
-      });
-      Toast.show(language.logToast);
-      // šalje request
-    }
+    // if(this.state.active) {
+    //   return;
+    // } else {
+    //   this.setState({
+    //     active: !this.state.active
+    //   });
+    //   Toast.show(language.logToast);
+    //   // šalje request
+    // }
   };
 
   render() {

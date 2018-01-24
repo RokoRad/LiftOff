@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import styles from './styles.js';
 import StopwatchLog from '../StopwatchLog';
+import round from '../../functions/round';
 
 const StopwatchLogs = (props) => (
   <View style={styles.wrapper}>
