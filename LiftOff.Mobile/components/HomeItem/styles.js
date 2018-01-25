@@ -3,10 +3,10 @@ import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   green: {
-    color: vars.good
+    color: vars.green
   },
   orange: {
-    color: vars.medium
+    color: vars.orange
   },
   red: {
     color: vars.bad
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
     borderBottomWidth: 1,
-    borderBottomColor: vars.white,
+    borderBottomColor: '#D8DADC',
     display: 'flex',
     flexDirection: 'row'
   },
@@ -35,13 +35,15 @@ const styles = StyleSheet.create({
     fontFamily: vars.medium,
     fontSize: 12,
     marginBottom: 5,
-    color: vars.black
+    color: vars.black,
+    opacity: 0.7
   },
   row: {
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
-    position: 'relative'
+    position: 'relative',
+    opacity: 0.7
   },
   leftText: {
     textAlign: 'left',
