@@ -1,15 +1,15 @@
 import { StyleSheet } from 'react-native';
-import vars rom '../../config/vars.js';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   green: {
-    color: '#47e389'
+    color: vars.good
   },
   orange: {
-    color: '#FF9052'
+    color: vars.medium
   },
   red: {
-    color: '#F95F62'
+    color: vars.bad
   },
   wrapper: {
     paddingTop: 15,
