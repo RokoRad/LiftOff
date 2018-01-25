@@ -15,7 +15,8 @@
                 <controller id="sUi-lq-S6q" customClass="InterfaceController" customModule="LiftOffSmartwatch_WatchKit_Extension">
                     <items>
                         <button width="1" alignment="center" verticalAlignment="bottom" title="LiftOff" id="r0A-Ch-Fyh">
-                            <color key="backgroundColor" red="0.21015387769999999" green="0.59005028010000005" blue="0.87863373759999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="titleColor" red="0.94113165140151978" green="0.94888252019882202" blue="0.96176761388778687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.16492903232574463" green="0.44095277786254883" blue="0.97912448644638062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" type="system" pointSize="18"/>
                             <connections>
                                 <action selector="LiftOffAction" destination="sUi-lq-S6q" id="oxl-Qx-t1F"/>
@@ -24,7 +25,8 @@
                         <group width="1" alignment="left" id="ZTg-2I-7q8">
                             <items>
                                 <button width="133" alignment="left" title="FlySafe" enabled="NO" id="8Mg-8g-Ee9">
-                                    <color key="backgroundColor" red="0.21015387769999999" green="0.59005028010000005" blue="0.87863373759999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.94113165139999999" green="0.94888252019999997" blue="0.96176761389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.1649290323" green="0.44095277789999998" blue="0.97912448640000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <segue destination="LpO-vZ-amL" kind="push" id="ojO-D7-wIx"/>
                                     </connections>
