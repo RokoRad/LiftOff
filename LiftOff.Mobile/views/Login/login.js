@@ -1,8 +1,9 @@
-//import Toast from 'react-native-simple-toast';
+import Toast from 'react-native-simple-toast';
 import { AsyncStorage } from 'react-native';
 import encode from './encode.js';
+import language from '../../languages';
 
-const login = (data, history) => {
+export default (data, history) => {
   if(data.username.length != 0 && data.password.length > 8) {
     const object = {
       ...data,
@@ -15,26 +16,21 @@ const login = (data, history) => {
       },
       body: encode(object)
     }).then((response) => {
-      console.log(response)
       if(response.status === 200) {
         AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
           history.push('/home');
         });
       } else {
-        // puka server
+        Toast.show(`${language.serverError}`)
       }
     }).catch((error) => {
-      console.log(error)
-      // puka server
+      Toast.show(`${language.serverError}`)
     });
   } else {
-    if(data.password.length < 9) {
-      // password manji od 8
+    if(data.password.length < 7) {
+      Toast.show(`${language.passwordError}`)
     } else {
-      // Toast.show("") KRIVI PODATCI
+      Toast.show(`${language.invalidInput}`)
     }
   }
 }
-
-export default login;
-
