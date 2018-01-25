@@ -3,6 +3,7 @@ import { AsyncStorage } from 'react-native';
 import store from '../../store';
 import { updateHome } from '../../actions';
 import Toast from 'react-native-simple-toast';
+import language from '../../languages';
 
 const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
       proxy = connection.createHubProxy('weatherHub');
@@ -11,13 +12,14 @@ const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/si
 proxy.on('broadcastWeather', (response) => {
   store.dispatch(updateHome(response));
   AsyncStorage.setItem('@realtime', JSON.stringify(response));
+  console.log(response.weatherData.Units)
 });
 
 const _start = async (object, units) => {
   connection.start().done(() => {
     proxy.invoke('initiateConnection', object, units);
   }).fail(() => {
-    // puka server / toast
+    Toast.show(`${language.serverError}`);
   });
 }
 

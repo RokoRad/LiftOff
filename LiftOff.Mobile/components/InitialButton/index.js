@@ -5,11 +5,13 @@ import uppercase from '../../functions/uppercase';
 import language from '../../languages';
 
 const InitialButton = ({onPress, type}) => (
-  <TouchableOpacity onPress={onPress} opacity={0.8}>
-    <View style={[globals.buttonWrapper, { backgroundColor: '#3f6ea7' }]}>
-      <Text style={globals.buttonInner}>{language[uppercase(type)]}</Text>
+  <TouchableOpacity onPress={onPress} opacity={0.8} style={globals.outer}>
+    <View style={[globals.buttonWrapper, { backgroundColor: '#d41287' }]}>
+      <Text style={globals.buttonInner}>login</Text>
     </View>
   </TouchableOpacity>
 );
 
 export default InitialButton;
+
+//{language[uppercase(type)]}

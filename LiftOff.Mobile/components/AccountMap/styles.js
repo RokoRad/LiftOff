@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 7,
     right: 7,
-    fontFamily: 'barlowSemiBold',
+    fontFamily: 'barlowMedium',
     fontSize: 14,
     zIndex: 999
   },

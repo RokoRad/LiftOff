@@ -6,11 +6,12 @@ import login from './login.js';
 import Input from '../../components/Input';
 import InitialLogo from '../../components/InitialLogo';
 import InitialLink from '../../components/InitialLink';
-import InitialButton from '../../components/InitialButton';
+// import InitialButton from '../../components/InitialButton';
+import Button from '../../components/Button';
 
 const holder = {
-  username: null,
-  password: null
+  username: '',
+  password: ''
 }
 
 class Login extends React.Component {
@@ -20,7 +21,6 @@ class Login extends React.Component {
   
   componentWillMount() {
     AsyncStorage.getItem('@token').then((response) => {
-      console.log(response);
       if(response !== null) {
         this.props.history.push('/home');
       }
@@ -37,8 +37,8 @@ class Login extends React.Component {
             <Input type="password" onChangeText={(value) => holder.password = value} />
             <KeyboardSpacer />
           </View>
-          <InitialLink type="registration" to="/register" />
-          <InitialButton type="login" onPress={() => login(holder, this.props.history)} />
+          <InitialLink type="login" to="/register" />
+          <Button type="Login" onPress={() => login(holder, this.props.history)} />
         </View>
       </View>
     );

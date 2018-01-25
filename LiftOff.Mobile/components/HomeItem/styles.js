@@ -1,20 +1,21 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   green: {
-    color: '#47e389'
+    color: vars.green
   },
   orange: {
-    color: '#FF9052'
+    color: vars.orange
   },
   red: {
-    color: '#F95F62'
+    color: vars.bad
   },
   wrapper: {
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: 15,
+    paddingBottom: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#ced7e0',
+    borderBottomColor: '#D8DADC',
     display: 'flex',
     flexDirection: 'row'
   },
@@ -23,46 +24,48 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start'
   },
   icon: {
-    width: 50,
-    height: 50
+    width: 40,
+    height: 40
   },
   middle: {
     width: '50%',
     height: '100%'
   },
   title: {
-    fontFamily: 'barlowMedium',
+    fontFamily: vars.medium,
     fontSize: 12,
     marginBottom: 5,
-    color: '#8b959f'
+    color: vars.black,
+    opacity: 0.7
   },
   row: {
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
-    position: 'relative'
+    position: 'relative',
+    opacity: 0.7
   },
   leftText: {
     textAlign: 'left',
     width: 'auto',
-    fontFamily: 'barlowRegular',
+    fontFamily: vars.regular,
     fontSize: 10,
-    color: '#8b959f'
+    color: vars.grey
   },
   rightText: {
     position: 'absolute',
     right: 5,
-    fontFamily: 'barlowRegular',
+    fontFamily: vars.regular,
     fontSize: 10,
-    color: '#8b959f'
+    color: vars.grey
   },
   right: {
     width: '25%'
   },
   rating: {
-    fontFamily: 'barlowRegular',
-    fontSize: 40,
-    color: '#2980b9'
+    fontFamily: vars.regular,
+    fontSize: 30,
+    color: vars.blue
   }
 });
 

@@ -5,16 +5,17 @@ import Navigation from './Navigation';
 import Profile from './Profile';
 import Settings from './Settings';
 import Stopwatch from './Stopwatch';
+import Toast from './Toast';
 
 const strings = {
-  type: 'hr',
   ...Home,
   ...Initial,
   ...Map,
   ...Navigation,
   ...Profile,
   ...Settings,
-  ...Stopwatch
+  ...Stopwatch,
+  ...Toast
 };
 
 export default strings;

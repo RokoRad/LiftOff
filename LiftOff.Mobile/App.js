@@ -28,7 +28,13 @@ class App extends React.Component {
       'barlowExtraBold': require('./fonts/Barlow-ExtraBold.ttf'),
       'barlowMedium': require('./fonts/Barlow-Medium.ttf'),
       'barlowRegular': require('./fonts/Barlow-Regular.ttf'),
-      'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf')
+      'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf'),
+      'robotoThin': require('./fonts/Roboto-Thin.ttf'),
+      'robotoRegular': require('./fonts/Roboto-Regular.ttf'),
+      'robotoMedium': require('./fonts/Roboto-Medium.ttf'),
+      'robotoLight': require('./fonts/Roboto-Light.ttf'),
+      'robotoBold': require('./fonts/Roboto-Bold.ttf'),
+      'robotoBlack': require('./fonts/Roboto-Black.ttf')
     });
     this.setState({loaded: true});
   };

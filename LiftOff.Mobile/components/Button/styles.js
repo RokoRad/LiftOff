@@ -1,20 +1,7 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const globals = StyleSheet.create({
-  green: {
-    backgroundColor: '#47E389'
-  },
-  orange: {
-    backgroundColor: '#FF9052'
-  },
-  red: {
-    backgroundColor: '#F95F62'
-  },
-  bothAligned: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   outer: {
     display: 'flex',
     justifyContent: 'center',
@@ -24,11 +11,8 @@ const globals = StyleSheet.create({
     marginTop: 7.5,
     paddingTop: 10,
     paddingBottom: 10,
-    //width: 120,
-    paddingLeft: 20,
-    paddingRight: 20,
-    // marginLeft: 'auto',
-    // marginRight: 'auto',
+    paddingLeft: 15,
+    paddingRight: 15,
     borderRadius: 4,    
     shadowOpacity: 0.5,
     shadowRadius: 5,
@@ -37,12 +21,13 @@ const globals = StyleSheet.create({
         width: 5
     },
     elevation: 5,
-    marginBottom: 15
+    marginBottom: 15,
+    backgroundColor: vars.red
   },
   buttonInner: {
-    color: '#fff',
+    color: vars.white,
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: 'robotoMedium'
   }
 });

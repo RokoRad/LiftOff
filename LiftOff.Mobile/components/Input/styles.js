@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
       marginRight: 'auto',
       width: '90%',
       paddingTop: 10,
-      paddingBottom: 10,
+      paddingBottom: 5,
       paddingLeft: 5,
-      fontSize: 16,
-      fontFamily: 'barlowMedium',
-      color: '#fff',
+      fontSize: 15,
+      fontFamily: 'robotoLight',
+      color: '#f5f7fa',
       borderBottomWidth: 1,
-      borderBottomColor: '#fff'
+      borderBottomColor: '#f5f7fa'
     }
 });
 

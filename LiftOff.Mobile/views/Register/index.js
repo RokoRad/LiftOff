@@ -6,12 +6,12 @@ import registration from './registration.js';
 import Input from '../../components/Input';
 import InitialLogo from '../../components/InitialLogo';
 import InitialLink from '../../components/InitialLink';
-import InitialButton from '../../components/InitialButton';
+import Button from '../../components/Button';
 
 const holder = {
-  username: null,
-  email: null,
-  password: null
+  username: '',
+  email: '',
+  password: ''
 }
 
 const Register = ({history}) => (
@@ -24,8 +24,8 @@ const Register = ({history}) => (
         <Input type="password" onChangeText={(value) => holder.password = value} />
         <KeyboardSpacer />
       </View>
-      <InitialLink type="login" to="/" />
-      <InitialButton type="register" onPress={() => registration(holder, history)} />
+      <InitialLink type="register" to="/" />
+      <Button type="Register" onPress={() => registration(holder, history)} />
     </View>
   </View>
 );

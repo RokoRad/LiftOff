@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 11,
-    fontFamily: 'barlowSemiBold',
+    fontFamily: 'robotoMedium',
     textAlign: 'center',
     color: '#2980b9',
     marginBottom: 5
@@ -19,10 +19,10 @@ const styles = StyleSheet.create({
   },
   string: {
     fontSize: 10,
-    fontFamily: 'barlowRegular',
+    fontFamily: 'robotoRegular',
   },
   rating: {
-    fontFamily: 'barlowSemiBold'
+    fontFamily: 'robotoMedium'
   },
   green: {
     color: '#47E389'

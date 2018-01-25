@@ -10,19 +10,18 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     backgroundColor: '#fff',
-    zIndex: 999,
-    borderRadius: 5,    
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
+    zIndex: 999,    
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
     shadowOffset: {
-        height: 12,
-        width: 12
+        height: 8,
+        width: 8
     },
-    elevation: 12
+    elevation: 10
   },
   input: {
-    fontSize: 12,
-    fontFamily: 'barlowMedium',
+    fontSize: 14,
+    fontFamily: 'robotoLight',
     color: '#939393'
   },
   out: {
