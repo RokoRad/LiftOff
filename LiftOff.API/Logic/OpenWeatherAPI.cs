@@ -84,7 +84,7 @@ namespace LiftOff.API.Logic
                 {
                     parsingToken = parsingToken[key];
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     return null;
                 }
@@ -121,6 +121,7 @@ namespace LiftOff.API.Logic
             var WeatherDescription = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "description" });
             var Visibility         = ParseTo<double>(visibilityJson, new string[] { "current", "visibility", "@value" });
             var Cloudiness         = ParseTo<double>(visibilityJson, new string[] { "current", "clouds", "@value" });
+            var Name               = ParseToString(weatherJson, new string[] { "name" });
 
             return new WeatherData()
 			{
@@ -139,6 +140,7 @@ namespace LiftOff.API.Logic
 				WeatherDescription  = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "description" }),
 				Visibility          = ParseTo<double>(visibilityJson, new string[] { "current", "visibility", "@value" }),
 			    Cloudiness          = ParseTo<double>(visibilityJson, new string[] { "current", "clouds", "@value" }),
+                City                = ParseToString(weatherJson, new string[] { "name" }),
         };
 		}
 
@@ -171,6 +173,7 @@ namespace LiftOff.API.Logic
                 WeatherDescription = ParseToString((jWeatherData["weather"] as JArray).First() as JObject, new string[] { "description" }),
                 Visibility = null,
                 Cloudiness = ParseTo<double>(jWeatherData, new string[] { "clouds", "all" }),
+                City = ParseToString(forecast, new string[] { "city", "name" })
             };
         }
 
@@ -197,6 +200,7 @@ namespace LiftOff.API.Logic
                     WeatherDescription = ParseToString((JWeatherDataForecast["weather"] as JArray).First() as JObject, new string[] { "description" }),
                     Visibility = null,
                     Cloudiness = ParseTo<double>(JWeatherDataForecast, new string[] { "clouds", "all" }),
+                    City = ParseToString(forecast, new string[] { "city", "name" })
                 });
             }
 

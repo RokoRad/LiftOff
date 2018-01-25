@@ -124,6 +124,7 @@ namespace LiftOff.API.Logic
         public static TimeSpan TimeTolerance = TimeSpan.FromHours(1.5);
         public static Coordinates MapParseDensity = new Coordinates() { Latitude = 0.009009009, Longitude = 0.01440776866 };
         public static int MapParseSize = 3;
+        public static int MaxAdvisoryStringLenght = 105;
     }
 
     public class TLEntity

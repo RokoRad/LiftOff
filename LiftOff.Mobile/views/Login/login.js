@@ -4,6 +4,11 @@ import encode from './encode.js';
 import language from '../../languages';
 
 export default (data, history) => {
+/*
+const encode = (value) => Object.keys(value)
+    .map(prop => `${encodeURIComponent(property)}=${encodeURIComponent(value[property])}`)
+    .join('&');
+    */
   if(data.username.length != 0 && data.password.length > 8) {
     const object = {
       ...data,

@@ -10,16 +10,7 @@ namespace LiftOff.API.Logic
     {
         public static WeatherRating RateWeather(WeatherData weatherData)
         {
-            double? windRating = _rateWind(weatherData.WindSpeed, weatherData.WindDirection);
-            double? conditionsRating = _rateConditions(weatherData.WeatherID, weatherData.Weather, weatherData.WeatherDescription);
-            double? visibilityRating = _rateVisibility(weatherData.Visibility, weatherData.Cloudiness);
-            double? temperatureRating = _rateTemperature(weatherData.Temperature, weatherData.Max_Temperature, weatherData.Min_Temperature);
-            double? atmosphereRating = _rateAtmosphere(weatherData.Humidity, weatherData.Presssure);
-            double? uvRating = _rateUV(weatherData.UVIndex);
-
-            double? totalRating = _rateTotal(windRating, conditionsRating, visibilityRating, temperatureRating, atmosphereRating, uvRating);
-
-            return new WeatherRating()
+            var weatherRating = new WeatherRating()
             {
                 weatherData = weatherData,
                 WindRating = _rateWind(weatherData.WindSpeed, weatherData.WindDirection),
@@ -27,10 +18,13 @@ namespace LiftOff.API.Logic
                 VisibilityRating = _rateVisibility(weatherData.Visibility, weatherData.Cloudiness),
                 TemperatureRating = _rateTemperature(weatherData.Temperature, weatherData.Max_Temperature, weatherData.Min_Temperature),
                 AtmosphereRating = _rateAtmosphere(weatherData.Humidity, weatherData.Presssure),
-                UVRating = _rateUV(weatherData.UVIndex),
-
-                TotalRating = (double)totalRating
+                UVRating = _rateUV(weatherData.UVIndex)
             };
+
+            weatherRating.TotalRating = _rateTotal(weatherRating);
+            weatherRating.AdvisoryRating = _getAdvisoryRating(weatherRating);
+
+            return weatherRating;
         }
 
         private static double? _rateWind(double? windSpeed, double? windDirection)
@@ -43,7 +37,6 @@ namespace LiftOff.API.Logic
 
         }
 
-        //TODO
         private static double? _rateConditions(int? weatherID, string weather, string weatherDescription)
         {
             if (weatherID == null) return null;
@@ -87,7 +80,7 @@ namespace LiftOff.API.Logic
         {
             if (humidity == null) return null;
 
-            var score = 5 + 0.005833333 * (double)humidity - 0.000475 * Math.Pow((double)humidity , 2) - 8.333333e-7 * Math.Pow((double)humidity, 3);
+            var score = 5 + 0.005833333 * (double)humidity - 0.000475 * Math.Pow((double)humidity, 2) - 8.333333e-7 * Math.Pow((double)humidity, 3);
 
             return Clamp(score, 0, 5); ;
         }
@@ -101,23 +94,30 @@ namespace LiftOff.API.Logic
             return score;
         }
 
-        private static double? _rateTotal(double? windRating, double? conditionsRating, double? visibilityRating, double? temperatureRating, double? atmosphereRating, double? uvRating)
+        private static double? _rateTotal(WeatherRating weatherRating)
         {
-            double? windCoefficient       = (windRating != null)        ? 50 - 36.75    * (double)windRating        + 11.375    * Math.Pow((double)windRating, 2)        - 1.75     * Math.Pow((double)windRating, 3)        + 0.125      * Math.Pow((double)windRating, 4)        : (double?) null;
-            double? conditionsCoefficient = (conditionsRating != null)  ? 50 - 28.35    * (double)conditionsRating  + 5.275     * Math.Pow((double)conditionsRating, 2)  - 0.35     * Math.Pow((double)conditionsRating, 3)  + 0.025      * Math.Pow((double)conditionsRating, 4)  : (double?) null;
-            double? visibilityCoefficient = (visibilityRating != null)  ? 51 - 42.23333 * (double)visibilityRating  + 15.01667  * Math.Pow((double)visibilityRating, 2)  - 2.566667 * Math.Pow((double)visibilityRating, 3)  + 0.1833333  * Math.Pow((double)visibilityRating, 4)  : (double?) null;
-            double? temperatureCoefficient= (temperatureRating != null) ? 20 - 0.5      * (double)temperatureRating - 6.333333  * Math.Pow((double)temperatureRating, 2) + 2        * Math.Pow((double)temperatureRating, 3) - 0.1666667  * Math.Pow((double)temperatureRating, 4) : (double?) null;
-            double? atmosphereCoefficient = (atmosphereRating != null)  ? 10 - 5.733333 * (double)atmosphereRating  + 0.5333333 * Math.Pow((double)atmosphereRating, 2)  + 0.2333333* Math.Pow((double)atmosphereRating, 3)  - 0.03333333 * Math.Pow((double)atmosphereRating, 4)  : (double?) null;
-            double? uvCoefficient         = (uvRating != null)          ? 15 - 2.483333 * (double)uvRating          - 3.191667  * Math.Pow((double)uvRating, 2)          + 1.183333 * Math.Pow((double)uvRating, 3)          - 0.1083333  * Math.Pow((double)uvRating, 4)          : (double?) null;
+            double? windRating = weatherRating.WindRating;
+            double? conditionsRating = weatherRating.ConditionsRating;
+            double? visibilityRating = weatherRating.VisibilityRating;
+            double? temperatureRating = weatherRating.TemperatureRating;
+            double? atmosphereRating = weatherRating.AtmosphereRating;
+            double? uvRating = weatherRating.UVRating;
+
+            double? windCoefficient = (windRating != null) ? 50 - 36.75 * (double)windRating + 11.375 * Math.Pow((double)windRating, 2) - 1.75 * Math.Pow((double)windRating, 3) + 0.125 * Math.Pow((double)windRating, 4) : (double?)null;
+            double? conditionsCoefficient = (conditionsRating != null) ? 50 - 28.35 * (double)conditionsRating + 5.275 * Math.Pow((double)conditionsRating, 2) - 0.35 * Math.Pow((double)conditionsRating, 3) + 0.025 * Math.Pow((double)conditionsRating, 4) : (double?)null;
+            double? visibilityCoefficient = (visibilityRating != null) ? 51 - 42.23333 * (double)visibilityRating + 15.01667 * Math.Pow((double)visibilityRating, 2) - 2.566667 * Math.Pow((double)visibilityRating, 3) + 0.1833333 * Math.Pow((double)visibilityRating, 4) : (double?)null;
+            double? temperatureCoefficient = (temperatureRating != null) ? 20 - 0.5 * (double)temperatureRating - 6.333333 * Math.Pow((double)temperatureRating, 2) + 2 * Math.Pow((double)temperatureRating, 3) - 0.1666667 * Math.Pow((double)temperatureRating, 4) : (double?)null;
+            double? atmosphereCoefficient = (atmosphereRating != null) ? 10 - 5.733333 * (double)atmosphereRating + 0.5333333 * Math.Pow((double)atmosphereRating, 2) + 0.2333333 * Math.Pow((double)atmosphereRating, 3) - 0.03333333 * Math.Pow((double)atmosphereRating, 4) : (double?)null;
+            double? uvCoefficient = (uvRating != null) ? 15 - 2.483333 * (double)uvRating - 3.191667 * Math.Pow((double)uvRating, 2) + 1.183333 * Math.Pow((double)uvRating, 3) - 0.1083333 * Math.Pow((double)uvRating, 4) : (double?)null;
 
             double totalRating = (
-                  (windCoefficient         ?? 0) * ((windRating        .HasValue) ?(double)windRating        : 0)
-                + (conditionsCoefficient   ?? 0) * ((conditionsRating  .HasValue) ?(double)conditionsRating  : 0)
-                + (visibilityCoefficient   ?? 0) * ((visibilityRating  .HasValue) ?(double)visibilityRating  : 0)
-                + (temperatureCoefficient  ?? 0) * ((temperatureRating .HasValue) ?(double)temperatureRating : 0)
-                + (atmosphereCoefficient   ?? 0) * ((atmosphereRating  .HasValue) ?(double)atmosphereRating  : 0)
-                + (uvCoefficient           ?? 0) * ((uvRating          .HasValue) ?(double)uvRating : 0         )
-                ) 
+                  (windCoefficient ?? 0) * ((windRating.HasValue) ? (double)windRating : 0)
+                + (conditionsCoefficient ?? 0) * ((conditionsRating.HasValue) ? (double)conditionsRating : 0)
+                + (visibilityCoefficient ?? 0) * ((visibilityRating.HasValue) ? (double)visibilityRating : 0)
+                + (temperatureCoefficient ?? 0) * ((temperatureRating.HasValue) ? (double)temperatureRating : 0)
+                + (atmosphereCoefficient ?? 0) * ((atmosphereRating.HasValue) ? (double)atmosphereRating : 0)
+                + (uvCoefficient ?? 0) * ((uvRating.HasValue) ? (double)uvRating : 0)
+                )
                     / ((windCoefficient ?? 0) + (conditionsCoefficient ?? 0) + (visibilityCoefficient ?? 0) + (temperatureCoefficient ?? 0) + (atmosphereCoefficient ?? 0) + (uvCoefficient ?? 0));
 
             return totalRating;
@@ -125,5 +125,95 @@ namespace LiftOff.API.Logic
 
         private static double? Clamp(double val, double min, double max) => (val < min) ? min : ((val > max) ? max : val);
 
+        private enum RatingCategories { total, wind, conditions, visibility, temperatureLow, temperatureHigh, atmosphere, uv }
+        private enum RatingStates { red, yellow, green, NA }
+        private struct RatingCategoryState : IEquatable<RatingCategoryState>
+        {
+            public RatingCategories Category { get; set; }
+            public RatingStates State { get; set; }
+
+            public bool Equals(RatingCategoryState obj)
+            {
+                return Category == obj.Category && State == obj.State;
+            }
+        }
+
+        private static AdvisoryRating _getAdvisoryRating(WeatherRating weatherRating)
+        {
+            AdvisoryRating advisoryRating = new AdvisoryRating();
+            List<RatingCategoryState> RatingCategoryStates = RatingCategoryStatesFromWeatherRating(weatherRating);
+
+            foreach (KeyValuePair<RatingCategoryState, AdvisoryRating> KeyValue in RatingCategoryStateToAdvisoryRating)
+                if (RatingCategoryStates.Any(RGS => RGS.Equals(KeyValue.Key)) && advisoryRating.Lenght() < LogicConstants.MaxAdvisoryStringLenght)
+                    advisoryRating.Append(KeyValue.Value);
+
+            return advisoryRating;
+        }
+
+        private static List<RatingCategoryState> RatingCategoryStatesFromWeatherRating(WeatherRating weatherRating)
+        {
+            List<RatingCategoryState> RatingCategoryStates = new List<RatingCategoryState>();
+
+            foreach(RatingCategories ratingCategory in Enum.GetValues(typeof(RatingCategories)))
+                RatingCategoryStates.Add(new RatingCategoryState() {
+                    Category = ratingCategory,
+                    State = ScoreToRatingState(GetPropertyFromWeatherRating(weatherRating, ratingCategory))
+                });
+
+            return RatingCategoryStates;
+        }
+
+        private static Dictionary<RatingCategoryState, AdvisoryRating> RatingCategoryStateToAdvisoryRating = new Dictionary<RatingCategoryState, AdvisoryRating>()
+        {
+            {new RatingCategoryState(){ Category = RatingCategories.total,           State = RatingStates.green },  new AdvisoryRating(){ English = "Ideal for flight",            Croatian = "Idealno za let"} },
+            {new RatingCategoryState(){ Category = RatingCategories.total,           State = RatingStates.yellow }, new AdvisoryRating(){ English = "Situation not ideal",         Croatian = "Situacija nije idealna"} },
+            {new RatingCategoryState(){ Category = RatingCategories.total,           State = RatingStates.red }, new AdvisoryRating(){ English = "Flight not advised",          Croatian = "Let se ne preporučuje"} },
+            {new RatingCategoryState(){ Category = RatingCategories.wind,            State = RatingStates.red },    new AdvisoryRating(){ English = "Wind's too strong",           Croatian = "Vjetar je prejak"} },
+            {new RatingCategoryState(){ Category = RatingCategories.conditions,      State = RatingStates.red },    new AdvisoryRating(){ English = "Weather prevents flight",     Croatian = "Vrijeme sprječava let"} },
+            {new RatingCategoryState(){ Category = RatingCategories.visibility,      State = RatingStates.red },    new AdvisoryRating(){ English = "Visibility too poor",         Croatian = "Vidljivost je preslaba"} },
+            {new RatingCategoryState(){ Category = RatingCategories.temperatureHigh, State = RatingStates.red },    new AdvisoryRating(){ English = "Hight temp hinders motors",   Croatian = "Visoka temperatura škodi motorima"} },
+            {new RatingCategoryState(){ Category = RatingCategories.temperatureLow,  State = RatingStates.red },    new AdvisoryRating(){ English = "Low temp hinders battery",    Croatian = "Niska temperatura škodi bateriji"} },
+            {new RatingCategoryState(){ Category = RatingCategories.atmosphere,      State = RatingStates.red },    new AdvisoryRating(){ English = "High humidity damages drone", Croatian = "Vlaga šteti dronu"} },
+            {new RatingCategoryState(){ Category = RatingCategories.uv,              State = RatingStates.red },    new AdvisoryRating(){ English = "Possible UV interference",    Croatian = "Moguća UV interferencija"} },
+            {new RatingCategoryState(){ Category = RatingCategories.wind,            State = RatingStates.yellow }, new AdvisoryRating(){ English = "Watch out for gusts of wind", Croatian = "Pazite na nalete vjetra"} },
+            {new RatingCategoryState(){ Category = RatingCategories.conditions,      State = RatingStates.yellow }, new AdvisoryRating(){ English = "Weather's bad",               Croatian = "Vrijeme je loše"} },
+            {new RatingCategoryState(){ Category = RatingCategories.visibility,      State = RatingStates.yellow }, new AdvisoryRating(){ English = "Impaired visibility",         Croatian = "Smanjena vidljivost"} },
+            {new RatingCategoryState(){ Category = RatingCategories.wind,            State = RatingStates.green },  new AdvisoryRating(){ English = "Wind's calm",                 Croatian = "Vjetar je miran"} },
+            {new RatingCategoryState(){ Category = RatingCategories.conditions,      State = RatingStates.green },  new AdvisoryRating(){ English = "Weather's great",             Croatian = "Vrijeme je super"} },
+            {new RatingCategoryState(){ Category = RatingCategories.visibility,      State = RatingStates.green },  new AdvisoryRating(){ English = "Great visiblity",             Croatian = "Odlična vidljivost"} },
+        };
+
+        private static RatingStates ScoreToRatingState(double? score)
+        {
+            if (!score.HasValue) return RatingStates.NA;
+
+            var s = (double)score;
+            return (s < 2) ? RatingStates.red : (s < 4) ? RatingStates.yellow : RatingStates.green;
+        }
+
+        private static double? GetPropertyFromWeatherRating(WeatherRating weatherRating, RatingCategories ratingCategory) 
+        {
+            switch (ratingCategory)
+            {
+                case RatingCategories.atmosphere:
+                    return weatherRating.AtmosphereRating;
+                case RatingCategories.conditions:
+                    return weatherRating.ConditionsRating;
+                case RatingCategories.temperatureHigh:
+                    return (weatherRating.weatherData.Temperature > 20) ? weatherRating.TemperatureRating : null;
+                case RatingCategories.temperatureLow:
+                    return (weatherRating.weatherData.Temperature < 20) ? weatherRating.TemperatureRating : null;
+                case RatingCategories.total:
+                    return weatherRating.TotalRating;
+                case RatingCategories.uv:
+                    return weatherRating.UVRating;
+                case RatingCategories.visibility:
+                    return weatherRating.VisibilityRating;
+                case RatingCategories.wind:
+                    return weatherRating.WindRating;
+                default:
+                    return null;
+            }
+        }
     }
 }

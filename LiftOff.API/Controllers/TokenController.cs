@@ -10,6 +10,6 @@ namespace LiftOff.API.Controllers
 		public IHttpActionResult Get()
 		{
 			return Ok();
-		}
+        }
 	}
 }

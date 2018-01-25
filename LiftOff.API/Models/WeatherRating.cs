@@ -1,8 +1,13 @@
-﻿namespace LiftOff.API.Models
+﻿using MoreLinq;
+using System.Collections.Generic;
+
+namespace LiftOff.API.Models
 {
 	public class WeatherRating
 	{
         public double? TotalRating { get; set; }
+
+        public AdvisoryRating AdvisoryRating { get; set; }
 
 		public double? ConditionsRating { get; set; }
 		public double? WindRating { get; set; }
@@ -23,6 +28,23 @@
                 && VisibilityRating == weatherRating.VisibilityRating
                 && UVRating == weatherRating.UVRating
                 && weatherData.Equals(weatherRating.weatherData);
+        }
+    }
+
+    public class AdvisoryRating
+    {
+        public string Croatian { get; set; } = "";
+        public string English { get; set; } = "";
+
+        public int Lenght()
+        {
+            return (new List<string>() { Croatian, English }).MaxBy(str => str.Length).Length; 
+        }
+
+        public void Append(AdvisoryRating advisoryRating)
+        {
+            Croatian += ((Croatian != "") ? ". " : "") + advisoryRating.Croatian;
+            English += ((English != "") ? ". " : "") + advisoryRating.English;
         }
     }
 }
