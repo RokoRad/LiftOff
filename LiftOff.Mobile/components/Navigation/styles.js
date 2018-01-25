@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   navigation: {
@@ -7,16 +8,16 @@ const styles = StyleSheet.create({
     left: 0,
     height: 'auto',
     width: '100%',
-    backgroundColor: '#3498db',
+    backgroundColor: vars.black,
     display: 'flex',
     flexDirection: 'row',
-    shadowOpacity: 0.7,
-    shadowRadius: 12,
+    shadowOpacity: 1,
+    shadowRadius: 100,
     shadowOffset: {
-        height: 25,
-        width: 10
+        height: 100,
+        width: 100
     },
-    elevation: 55,
+    elevation: 24
   }
 });
 

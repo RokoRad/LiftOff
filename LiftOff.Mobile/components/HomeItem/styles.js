@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars rom '../../config/vars.js';
 
 const styles = StyleSheet.create({
   green: {
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#F0F3F5',
+    borderBottomColor: vars.white,
     display: 'flex',
     flexDirection: 'row'
   },
@@ -31,10 +32,10 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   title: {
-    fontFamily: 'robotoMedium',
+    fontFamily: vars.medium,
     fontSize: 12,
     marginBottom: 5,
-    color: '#8b959f'
+    color: vars.black
   },
   row: {
     display: 'flex',
@@ -45,24 +46,24 @@ const styles = StyleSheet.create({
   leftText: {
     textAlign: 'left',
     width: 'auto',
-    fontFamily: 'robotoRegular',
+    fontFamily: vars.regular,
     fontSize: 10,
-    color: '#8b959f'
+    color: vars.grey
   },
   rightText: {
     position: 'absolute',
     right: 5,
-    fontFamily: 'robotoRegular',
+    fontFamily: vars.regular,
     fontSize: 10,
-    color: '#8b959f'
+    color: vars.grey
   },
   right: {
     width: '25%'
   },
   rating: {
-    fontFamily: 'robotoRegular',
+    fontFamily: vars.regular,
     fontSize: 30,
-    color: '#2980b9'
+    color: vars.blue
   }
 });
 
