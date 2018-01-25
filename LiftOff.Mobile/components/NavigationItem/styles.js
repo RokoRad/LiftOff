@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   navigationItemWrapper: {
     flex: 1,
     width: '20%',
     height: '100%',
-    backgroundColor: '#fffeff'
+    backgroundColor: vars.white
   },
   navigationItem: {
     width: '100%',
@@ -22,12 +23,11 @@ const styles = StyleSheet.create({
     marginBottom: 7.5,
     textAlign: 'center',
     fontSize: 8,
-    color: '#8b959f',
-    //fontFamily: 'barlowSemiBold',
-    fontFamily: 'robotoRegular'
+    color: vars.grey,
+    fontFamily: vars.regular
   },
   navigationTextActive: {
-    color: '#2980b9'
+    color: vars.blue
   }
 });
 

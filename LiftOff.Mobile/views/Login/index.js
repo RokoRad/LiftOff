@@ -10,8 +10,8 @@ import InitialLink from '../../components/InitialLink';
 import Button from '../../components/Button';
 
 const holder = {
-  username: null,
-  password: null
+  username: '',
+  password: ''
 }
 
 class Login extends React.Component {
@@ -23,7 +23,7 @@ class Login extends React.Component {
     AsyncStorage.getItem('@token').then((response) => {
       console.log(response);
       if(response !== null) {
-        //this.props.history.push('/home');
+        this.props.history.push('/home');
       }
     })
   }
