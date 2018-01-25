@@ -5,7 +5,7 @@ import uppercase from '../../functions/uppercase';
 import language from '../../languages';
 
 const InitialButton = ({onPress, type}) => (
-  <TouchableOpacity onPress={onPress} opacity={0.8}>
+  <TouchableOpacity onPress={onPress} opacity={0.8} style={globals.outer}>
     <View style={[globals.buttonWrapper, { backgroundColor: '#d41287' }]}>
       <Text style={globals.buttonInner}>login</Text>
     </View>

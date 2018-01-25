@@ -4,12 +4,9 @@ export default {
   regular: 'robotoRegular',
   medium: 'robotoMedium',
   bold: 'robotoBold',
-  blue: '',
-  red: '',
-  white: '',
-  black: '',
-  grey: '',
-  critical: '',
-  warning: '',
-  good: ''
+  blue: '#3073f2',
+  red: '#d41287',
+  white: '#f5f7fa',
+  black: '#34373d',
+  grey: '#4a4357'
 }

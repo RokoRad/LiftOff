@@ -15,13 +15,20 @@ const globals = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  outer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center' 
+  },
   buttonWrapper: {
     marginTop: 7.5,
     paddingTop: 10,
     paddingBottom: 10,
-    width: 120,
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    //width: 120,
+    paddingLeft: 10,
+    paddingRight: 10,
+    // marginLeft: 'auto',
+    // marginRight: 'auto',
     borderRadius: 4,    
     shadowOpacity: 0.5,
     shadowRadius: 5,
