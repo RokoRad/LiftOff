@@ -22,7 +22,7 @@ const globals = StyleSheet.create({
     width: 120,
     marginLeft: 'auto',
     marginRight: 'auto',
-    borderRadius: 7,    
+    borderRadius: 4,    
     shadowOpacity: 0.5,
     shadowRadius: 5,
     shadowOffset: {
