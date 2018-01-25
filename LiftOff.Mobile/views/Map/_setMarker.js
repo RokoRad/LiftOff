@@ -19,6 +19,7 @@ export default (value, history) => {
         time: new Date().toISOString()
       })
     }).then((response) => {
+      console.log('markerResp', response)
       if(response.status === 200) {
         console.log(JSON.parse(response._bodyInit))
       } else if (response.status === 401) {
