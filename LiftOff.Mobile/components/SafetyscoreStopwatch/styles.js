@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
   information: {
     width: '50%',
     height: '100%',
-    padding: 8
+    padding: 8,
+    paddingTop: 6
   },
   rating: {
     backgroundColor: 'rgba(0,0,0,0.1)',
