@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -9,9 +10,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40
   },
   head: {
-    borderBottomColor: '#9fb7d3',
-    borderBottomWidth: 1,
-    paddingBottom: 3,
+    paddingBottom: 5,
     display: 'flex',
     flexDirection: 'row',
     marginBottom: 5
@@ -19,26 +18,26 @@ const styles = StyleSheet.create({
   left: {
     width: '10%',
     textAlign: 'center',
-    fontFamily: 'robotoMedium',
-    fontSize: 12
+    fontFamily: vars.medium,
+    fontSize: 10
   },
   middleLeft: {
     width: '50%',
     textAlign: 'center',
-    fontFamily: 'robotoMedium',
-    fontSize: 12
+    fontFamily: vars.medium,
+    fontSize: 10
   },
   middleRight: {
     width: '25%',
     textAlign: 'center',
-    fontFamily: 'robotoMedium',
-    fontSize: 12
+    fontFamily: vars.medium,
+    fontSize: 10
   },
   right: {
     width: '15%',
     textAlign: 'center',
-    fontFamily: 'robotoMedium',
-    fontSize: 12
+    fontFamily: vars.medium,
+    fontSize: 10
   },
   scroll: {
     height: '40%'

@@ -3,6 +3,7 @@ asap:
 - drone povuc iz settings i ubacit  u log
 
 poliranje: 
+- očistit fontove
 - vidi šta se da napravit sa kompresanjem stilova
 - komentari
 - kompresiranje stilova i dumb komponenti

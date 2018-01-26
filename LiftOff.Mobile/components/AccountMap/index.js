@@ -14,11 +14,8 @@ export default ({markers, location, moreThan, flewHere}) => {
       </Text>
       <MapView zoomEnabled={true} style={{ flex: 1 }} provider={PROVIDER_GOOGLE} customMapStyle={style} cacheEnabled={true}
         region={{ ...location, latitudeDelta: 0.1, longitudeDelta: 0.05 }}>
-        {markers.map((marker) => <MapView.Marker coordinate={marker.flightLocation} key={index} image={require('../../images/map/pin.png')}/> )}
+        {markers.map((marker, index) => <MapView.Marker coordinate={marker.flightLocation} key={index} image={require('../../images/map/pin.png')}/> )}
       </MapView>
     </View>
   )
 }
-
-//{markers.map((marker, index) => (<MapView.Marker coordinate={{ ...marker[index] }} key={index} image={require('../../images/map/pin.png')}/>))}
-//{markers.map((marker, index) => <MapView.Marker coordinate={marker[index].flightLocation} key={index} image={require('../../images/map/pin.png')}/> )}
