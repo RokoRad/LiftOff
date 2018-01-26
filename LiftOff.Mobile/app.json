@@ -4,10 +4,10 @@
     "slug": "liftoff-tba",
     "sdkVersion": "23.0.0",
     "orientation": "portrait",
-    "icon": "./images/1024x1024.png",
-    "primaryColor": "#3498db",
+    "icon": "./images/logotip.png",
+    "primaryColor": "#3073f2",
     "splash": {
-      "backgroundColor": "#3498db",
+      "backgroundColor": "#3073f2",
       "image": "./images/splash.png"
     }
   }

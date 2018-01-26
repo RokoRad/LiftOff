@@ -22,7 +22,7 @@ class Login extends React.Component {
   componentWillMount() {
     AsyncStorage.getItem('@token').then((response) => {
       if(response !== null) {
-        this.props.history.push('/home');
+        // this.props.history.push('/home');
       }
     })
   }
