@@ -6,7 +6,6 @@ import { setMarker, updateLocation, tooltipStatus } from '../../actions';
 
 export default (value, history) => {
   value.persist();
-  console.log('newMarker', value.nativeEvent.coordinate)
   AsyncStorage.getItem('@token').then((token) => {
     fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
       method: 'POST',
@@ -19,7 +18,6 @@ export default (value, history) => {
         time: new Date().toISOString()
       })
     }).then((response) => {
-      console.log('markerResp', JSON.parse(response._bodyInit))
       if(response.status === 200) {
         //console.log(JSON.parse(response._bodyInit))
       } else if (response.status === 401) {

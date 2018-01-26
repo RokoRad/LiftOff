@@ -29,13 +29,10 @@ const Settings = ({location}) => (
 
 const changeLanguage = () => {
   AsyncStorage.getItem('@language').then((response) => {
-    console.log(response)
     if(response === 'hr') {
       AsyncStorage.setItem('@language', 'en');
-      console.log("to en")
     } else {
         AsyncStorage.setItem('@language', 'hr');
-        console.log("to hr")
     }
     Expo.Util.reload()    
   });
