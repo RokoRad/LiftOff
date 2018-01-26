@@ -5,6 +5,7 @@ const strings = {
   ToRegisterBold: ' Registriraj se!',
   ToLogin: 'Imaš račun',
   ToLoginBold: ' Prijavi se!',
+  Token: 'Neispravan token'
 };
 
 export default strings;

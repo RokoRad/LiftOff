@@ -1,6 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import removeToken from '../../functions/removeToken';
 import store from '../../store';
+import { updateMarkers } from '../../actions';
 
 export default (location, history) => {
   AsyncStorage.getItem('@token').then((token) => {
@@ -27,8 +28,7 @@ export default (location, history) => {
           // set state
         }
       } else if (response.status === 401) {
-        history.push('/');
-        removeToken();
+        removeToken(history);
       }
     });
   });

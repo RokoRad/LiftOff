@@ -30,8 +30,7 @@ export default (value, history) => {
           rating: parsed.totalRating
         })
       } else if (response.status === 401) {
-        removeToken();
-        history.push('/');
+        removeToken(history);
       }});
   });
 

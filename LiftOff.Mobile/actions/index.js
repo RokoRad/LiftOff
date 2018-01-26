@@ -63,3 +63,8 @@ export const updateTooltip = (payload) => ({
   type: 'UPDATE_TOOLTIP',
   payload
 });
+
+export const updateMarkers = (payload) => ({
+  type: 'UPDATE_MARKERS',
+  payload
+});

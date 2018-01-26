@@ -5,6 +5,7 @@ const strings = {
   ToRegisterBold: ' Register!',
   ToLogin: 'Have an account?',
   ToLoginBold: ' Login!',
+  Token: 'Invalid Token'
 };
 
 export default strings;

@@ -30,8 +30,7 @@ export default (history) => {
           ...parsed.location,
         }));
       } else if (response.status === 401) {
-        removeToken();
-        history.push('/');
+        removeToken(history);
       }
     })
   });
