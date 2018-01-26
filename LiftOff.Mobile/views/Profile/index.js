@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import Screen from '../../components/Screen';
 import AccountMap from '../../components/AccountMap';
 import styles from './styles.js';
@@ -16,12 +16,13 @@ class Account extends Component {
 
   // funckija renderiranja te sadržaj komponente
   render() {
+    console.log(this.props.stats)
     return (
       <Screen current={this.props.location}>
-        <AccountMap moreThan={language.moreThan} flewHere={language.flewHere} />
-        <View style={styles.container}>
+        {/* <AccountMap moreThan={language.moreThan} flewHere={language.flewHere} /> */}
+        <ScrollView style={styles.container}>
           {_list(this.props.stats)}
-        </View>
+        </ScrollView>
       </Screen>
     );
   }
