@@ -27,8 +27,7 @@ export default (location, history) => {
           // set state
         }
       } else if (response.status === 401) {
-        history.push('/');
-        removeToken();
+        removeToken(history);
       }
     });
   });

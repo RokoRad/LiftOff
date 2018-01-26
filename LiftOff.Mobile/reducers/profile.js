@@ -12,12 +12,18 @@ const initialState = {
   },
   markers: [
     {
-      latitude: 43.508133,
-      longitude: 16.440193
+      flightLocation: {
+        latitude: 43.508133,
+        longitude: 16.440193
+      },
+      id: 0
     },
     {
-      latitude: 43.508133,
-      longitude: 16.440193
+      flightLocation: {
+        latitude: 43.608133,
+        longitude: 16.440193
+      },
+      id: 1
     }
   ]
 };

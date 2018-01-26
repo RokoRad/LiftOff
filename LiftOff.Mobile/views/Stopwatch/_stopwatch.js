@@ -42,8 +42,7 @@ const _stopwatch = (history) => {
           store.dispatch(updateStats(JSON.parse(response._bodyInit)));
           AsyncStorage.setItem('@stats', response._bodyInit);
         } else if (response.status === 401) {
-          history.push('/');
-          removeToken();
+          removeToken(history);
         }
       })
     });
