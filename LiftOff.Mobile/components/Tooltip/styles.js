@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   tooltip: {
@@ -6,7 +7,7 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     paddingLeft: 10,
     paddingRight: 10,
-    backgroundColor: '#fff',
+    backgroundColor: vars.white,
     borderRadius: 7,
     position: 'absolute',
     right: 60,
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 10,
-    color: '#3498db'
+    color: vars.blue
   }
 });
 

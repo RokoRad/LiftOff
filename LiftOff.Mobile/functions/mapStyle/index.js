@@ -1,10 +1,12 @@
+import vars from '../../config/vars.js';
+
 const style = [
   {
       "featureType": "administrative",
       "elementType": "labels.text.fill",
       "stylers": [
           {
-              "color": "#444444"
+              "color": `${vars.grey}`
           }
       ]
   },
@@ -13,7 +15,7 @@ const style = [
       "elementType": "all",
       "stylers": [
           {
-              "color": "#f2f2f2"
+              "color": `${vars.white}`
           }
       ]
   },
@@ -91,7 +93,7 @@ const style = [
       "elementType": "all",
       "stylers": [
           {
-              "color": "#3498db"
+              "color": `${vars.blue}`
           },
           {
               "visibility": "on"
