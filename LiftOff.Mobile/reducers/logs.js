@@ -1,4 +1,5 @@
 import { AsyncStorage } from 'react-native';
+import round from '../functions/round';
 
 const initialState = {
   logs: [
@@ -25,23 +26,23 @@ const _time = () => {
   return `${hours}:${minutes}`
 }
 
-AsyncStorage.getItem('@logs').then((logs) => {
-  console.log(logs)
-})
+// AsyncStorage.getItem('@logs').then((logs) => {
+//   console.log(logs)
+// })
 
 const logsReducer = (state = initialState, action) => {
   switch (action.type) {
       case 'ADD_LOG':
       return {
         logs: [
-          ...state.logs,
           {
             id: state.logs.length++,
             saved: false,
             location: action.payload.location,
-            rating: action.payload.rating,
+            rating: round(action.payload.rating),
             time: _time()
-          }
+          },
+          ...state.logs.slice(0, -1)
         ]
       };
       // case 'UPDATE_LOG':

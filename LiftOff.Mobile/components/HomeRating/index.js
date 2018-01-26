@@ -20,7 +20,7 @@ const HomeRating = ({string, rating}) => (
             {language.WeatherRating}
           </Text>
           <Text style={styles.text}>
-            {(language.type === 'hr') ? string.Croatian : string.English}
+            {(language.type === 'hr') ? string.English : string.Croatian}
           </Text>
         </View>
         <View style={styles.right}>
