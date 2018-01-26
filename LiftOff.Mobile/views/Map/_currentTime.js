@@ -6,7 +6,7 @@ export default () => {
   if(hours < 10) {
     hours = `0${hours}`
   } else if (minutes < 10) {
-    minutes = `0${hours}`
+    minutes = `0${minutes}`
   }
 
   return `${hours}:${minutes}`

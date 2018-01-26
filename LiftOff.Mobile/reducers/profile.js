@@ -10,9 +10,7 @@ const initialState = {
     totalTimeFlown: '/',
     userName: '/'
   },
-  markers: [
-
-  ]
+  markers: {}
 };
 
 AsyncStorage.getItem('@stats').then((stats) => {
