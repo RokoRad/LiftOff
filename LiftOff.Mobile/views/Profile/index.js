@@ -16,7 +16,6 @@ class Account extends Component {
 
   // funckija renderiranja te sadržaj komponente
   render() {
-    console.log(this.props.stats)
     return (
       <Screen current={this.props.location}>
         <AccountMap markers={this.props.markers} location={this.props.timeLocation.location} moreThan={language.moreThan} flewHere={language.flewHere} />
@@ -30,7 +29,7 @@ class Account extends Component {
 
 const mapStateToProps = state => ({
   ...state.profileReducer,
-  ...state.timeLocation
+  ...state.timeLocationReducer
 });
 
 export default connect(mapStateToProps)(Account);

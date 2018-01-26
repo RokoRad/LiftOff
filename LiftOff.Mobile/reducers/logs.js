@@ -3,13 +3,7 @@ import round from '../functions/round';
 
 const initialState = {
   logs: [
-    {
-      id: 0,
-      saved: false,
-      location: 'Solin',
-      rating: 4.7,
-      time: '12:10'
-    }
+
   ]
 };
 
@@ -26,9 +20,9 @@ const _time = () => {
   return `${hours}:${minutes}`
 }
 
-// AsyncStorage.getItem('@logs').then((logs) => {
-//   console.log(logs)
-// })
+AsyncStorage.getItem('@logs').then((logs) => {
+  console.log(logs)
+})
 
 const logsReducer = (state = initialState, action) => {
   switch (action.type) {
