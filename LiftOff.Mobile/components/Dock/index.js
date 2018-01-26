@@ -8,7 +8,7 @@ const Dock = ({history, selected}) => {
   return (
    <View style={styles.dock}>
      <Calibration history={history} />
-     <Picker selected={selected} />
+     <Picker selected={selected} histroy={history} />
    </View>
   )
 };

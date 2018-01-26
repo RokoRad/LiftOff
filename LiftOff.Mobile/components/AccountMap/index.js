@@ -3,6 +3,7 @@ import { View, Text, Image, AsyncStorage } from 'react-native';
 import { MapView, PROVIDER_GOOGLE } from 'expo';
 import style from '../../functions/mapStyle';
 import styles from './styles.js';
+import removeToken from '../../functions/removeToken';
 
 // instanciranje kompinente
 class AccountMap extends React.Component {
@@ -65,6 +66,7 @@ class AccountMap extends React.Component {
           });
         } else if (response.status === 401) {
           this.props.history.push('/');
+          removeToken();
         }
       });
     })
