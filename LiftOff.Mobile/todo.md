@@ -8,5 +8,4 @@ drone povuc iz settings i ubacit  u log
 active underline u opacity, on acive u full
 stopwatch table
 settings
-mapa tooltip
 invalid token toast

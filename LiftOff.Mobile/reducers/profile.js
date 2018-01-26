@@ -10,7 +10,16 @@ const initialState = {
     totalTimeFlown: '/',
     userName: '/'
   },
-  markers: {}
+  markers: [
+    {
+      latitude: 43.508133,
+      longitude: 16.440193
+    },
+    {
+      latitude: 43.508133,
+      longitude: 16.440193
+    }
+  ]
 };
 
 AsyncStorage.getItem('@stats').then((stats) => {
