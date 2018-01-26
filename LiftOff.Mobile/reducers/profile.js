@@ -9,7 +9,10 @@ const initialState = {
     totalFlySafeScore: '/',
     totalTimeFlown: '/',
     userName: '/'
-  }
+  },
+  markers: [
+
+  ]
 };
 
 AsyncStorage.getItem('@stats').then((stats) => {
@@ -18,13 +21,13 @@ AsyncStorage.getItem('@stats').then((stats) => {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-      case 'UPDATE_STATS':
+    case 'UPDATE_STATS':
       return  {
         stats: {
           ...action.payload
         }
       };
-      default:
-        return state;
+    default:
+      return state;
   }
 };

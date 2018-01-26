@@ -19,7 +19,7 @@ class Account extends Component {
     console.log(this.props.stats)
     return (
       <Screen current={this.props.location}>
-        {/* <AccountMap moreThan={language.moreThan} flewHere={language.flewHere} /> */}
+        <AccountMap markers={this.props.markers} location={this.props.timeLocation.location} moreThan={language.moreThan} flewHere={language.flewHere} />
         <ScrollView style={styles.container}>
           {_list(this.props.stats)}
         </ScrollView>
@@ -29,7 +29,8 @@ class Account extends Component {
 }
 
 const mapStateToProps = state => ({
-  ...state.profileReducer
+  ...state.profileReducer,
+  ...state.timeLocation
 });
 
 export default connect(mapStateToProps)(Account);
