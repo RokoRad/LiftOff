@@ -60,6 +60,6 @@ export const tooltipStatus = (payload) => ({
 });
 
 export const updateTooltip = (payload) => ({
-  type: 'UPDATE_TOOLIP',
+  type: 'UPDATE_TOOLTIP',
   payload
 });

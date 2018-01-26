@@ -4,6 +4,7 @@ import language from '../../languages';
 import colorGenerator from '../../functions/colorGenerator';
 import styles from './styles.js';
 import { MapView } from 'expo';
+import round from '../../functions/round'
 
 const MarkerCallout = ({location, time, rating}) => (
   <MapView.Callout style={styles.wrapper}>
@@ -20,7 +21,7 @@ const MarkerCallout = ({location, time, rating}) => (
     </View>
     <View style={styles.row}>
       <Text style={styles.string}>{language.ExpectedScore}</Text>
-      <Text style={[styles.string, styles.rating, styles[colorGenerator(rating)]]}>{rating}</Text>
+      <Text style={[styles.string, styles.rating, styles[colorGenerator(rating)]]}>{round(rating)}</Text>
     </View>
   </MapView.Callout>
 );
