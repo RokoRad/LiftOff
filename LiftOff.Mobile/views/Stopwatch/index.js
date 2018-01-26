@@ -16,13 +16,11 @@ class Stopwatch extends Component {
   };
 
   render() {
-    console.log(this.props.logs)
-    //console.log(this.props.home)
       return (
         <Screen current={this.props.location}>
           <SafetyscoreStopwatch comment={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
           <StopwatchElement minutes={this.props.stopwatch.minutes} seconds={this.props.stopwatch.seconds} />
-          <Button onPress={() => _stopwatch()} type={(this.props.stopwatch.active ? 'Land' : 'Liftoff')}></Button>
+          <Button onPress={() => _stopwatch(this.props.history)} type={(this.props.stopwatch.active ? 'Land' : 'Liftoff')}></Button>
           <StopwatchLogs data={this.props.logs} />
         </Screen>  
       );
