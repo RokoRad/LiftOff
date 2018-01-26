@@ -16,13 +16,13 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   left: {
-    width: '10%',
+    width: '25%',
     textAlign: 'center',
     fontFamily: vars.medium,
     fontSize: 10
   },
   middleLeft: {
-    width: '50%',
+    width: '25%',
     textAlign: 'center',
     fontFamily: vars.medium,
     fontSize: 10
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     fontSize: 10
   },
   right: {
-    width: '15%',
+    width: '25%',
     textAlign: 'center',
     fontFamily: vars.medium,
     fontSize: 10
