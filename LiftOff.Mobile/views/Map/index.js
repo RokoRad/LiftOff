@@ -12,6 +12,7 @@ import { MapView, PROVIDER_GOOGLE } from 'expo';
 import _getCurrentLocation from './_getCurrentLocation.js';
 import _changeCenter from './_changeCenter.js';
 import _setMarker from './_setMarker.js';
+import _currentTime from './_currentTime.js';
 
 class Map extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Map extends Component {
           <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} customMapStyle={style} 
                    showsUserLocation={true} region={this.props.map} onRegionChangeComplete={(value) => _changeCenter(value)} 
                    onPress={(value) => _setMarker(value, this.props.history)} cacheEnabled={true} showsCompass={false} showsScale={false}>
-            <Marker location={this.props.markerPosition} city="aa" time="aaaa" rating={2.2} />
+            <Marker location={this.props.markerPosition} city={this.props.tooltip.city} time={_currentTime()} rating={this.props.tooltip.rating} />
           </MapView>
         </Screen>
       );

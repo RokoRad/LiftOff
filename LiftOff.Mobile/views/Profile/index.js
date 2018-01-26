@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import Screen from '../../components/Screen';
 import AccountMap from '../../components/AccountMap';
 import styles from './styles.js';
@@ -18,18 +18,18 @@ class Account extends Component {
   render() {
     return (
       <Screen current={this.props.location}>
-        <AccountMap moreThan={language.moreThan} flewHere={language.flewHere} />
-        <View style={styles.container}>
+        <AccountMap markers={this.props.markers} location={this.props.timeLocation.location} moreThan={language.moreThan} flewHere={language.flewHere} />
+        <ScrollView style={styles.container}>
           {_list(this.props.stats)}
-          {console.log(this.props.stats)}
-        </View>
+        </ScrollView>
       </Screen>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  ...state.profileReducer
+  ...state.profileReducer,
+  ...state.timeLocationReducer
 });
 
 export default connect(mapStateToProps)(Account);

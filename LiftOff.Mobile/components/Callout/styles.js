@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -6,9 +7,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 11,
-    fontFamily: 'robotoMedium',
+    fontFamily: vars.medium,
     textAlign: 'center',
-    color: '#2980b9',
+    color: vars.blue,
     marginBottom: 5
   },
   row: {
@@ -19,10 +20,10 @@ const styles = StyleSheet.create({
   },
   string: {
     fontSize: 10,
-    fontFamily: 'robotoRegular',
+    fontFamily: vars.regular,
   },
   rating: {
-    fontFamily: 'robotoMedium'
+    fontFamily: vars.medium
   },
   green: {
     color: '#47E389'

@@ -23,7 +23,6 @@ export default (history) => {
     }).then((response) => {
       if(response.status === 200) {
         const parsed = JSON.parse(response._bodyInit).weatherData.timeLocation;
-        console.log(parsed.location);
         store.dispatch(updateLocation({
           ...parsed.location,
         }));

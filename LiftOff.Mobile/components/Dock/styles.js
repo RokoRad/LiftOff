@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   dock: {
@@ -10,7 +11,7 @@ const styles = StyleSheet.create({
         width: 12
     },
     elevation: 12,
-    backgroundColor: '#fff',
+    backgroundColor: vars.white,
     position: 'absolute',
     bottom: 100,
     right: -10,

@@ -6,7 +6,6 @@ export default async () => {
     enableHighAccuracy: true, 
     maximumAge: 900
   }).then((response) => {
-    console.log(response)
-    // to je to
+
   })
 }

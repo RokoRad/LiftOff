@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -10,21 +11,12 @@ const styles = StyleSheet.create({
     paddingRight: 7
   },
   string: {
-    fontFamily: 'robotoRegular',
+    fontFamily: vars.regular,
     fontSize: 14
   },
   bold: {
-    fontFamily: 'robotoMedium',
-    color: '#2980b9'
-  },
-  dropdownButton: {
-    borderTopWidth: 1,
-    borderTopColor: '#ccc',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    paddingTop: 10,
-    paddingBottom: 10,
-    width: '100%'
+    fontFamily: vars.medium,
+    color: vars.blue
   }
 });
 

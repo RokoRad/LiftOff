@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
 // kreiranje komponente sa pripadajucima parametrima
 const InitialLogo = () => (
-  <Image source={require('../../images/splash.png')} style={styles.image} />
+  <Image source={require('../../images/logotip.png')} style={styles.image} />
 )
 
 export default InitialLogo;

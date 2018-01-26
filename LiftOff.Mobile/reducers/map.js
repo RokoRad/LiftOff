@@ -17,7 +17,12 @@ const initialState = {
     ...initialLocation,
     ...deltas
   },
-  tooltipStatus: false
+  tooltipStatus: false,
+  tooltip: {
+    city: '/',
+    time: '/',
+    rating: '/'
+  }
 };
 
 const mapReducer = (state = initialState, action) => {
@@ -40,6 +45,13 @@ const mapReducer = (state = initialState, action) => {
           ...state,
           markerPosition: {
             ...deltas,
+            ...action.payload
+          }
+        };
+      case 'UPDATE_TOOLTIP':
+        return  {
+          ...state,
+          tooltip: {
             ...action.payload
           }
         };

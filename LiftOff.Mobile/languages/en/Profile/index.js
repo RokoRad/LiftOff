@@ -7,7 +7,8 @@ const strings = {
   favoriteFlightTime: 'Favorite flight time',
   totalFlights: 'Total flights',
   totalFlySafeScore: 'Average FlySafe score',
-  totalTimeFlown: 'Total time flown'
+  totalTimeFlown: 'Total time flown',
+  favoriteDrone: 'Favorite drone'
 };
 
 export default strings;

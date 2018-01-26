@@ -28,7 +28,7 @@ const initialState = {
         Time: null
       },
       UVIndex: null,
-      Units: null,
+      Units: 'metric',
       Visibility: null,
       Weather: null,
       WeatherDescription: null,

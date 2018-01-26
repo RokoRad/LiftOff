@@ -4,10 +4,13 @@ import store from '../../store';
 import removeToken from '../../functions/removeToken';
 import _timeFlown from './_timeFlown.js';
 
-const _stopwatch = () => {
-  let state = store.getState();
-      state = state.stopwatchReducer.stopwatch;
-      
+const _stopwatch = (history) => {
+  let state = store.getState().stopwatchReducer.stopwatch,
+      home = store.getState().homeReducer.home,
+      location = home.weatherData.TimeLocation.Location,
+      flightSpot = home.weatherData.City,
+      flySafeScore = home.TotalRating;
+
   if(state.active) {
     AsyncStorage.getItem('@token').then((token) => {
       fetch('http://liftoffapi.azurewebsites.net/api/logging/logFlight', {
@@ -18,45 +21,40 @@ const _stopwatch = () => {
         },
         body: JSON.stringify({
           timeFlown: _timeFlown(state.minutes, state.seconds),
-          flySafeScore: 2.2,
+          flySafeScore,
           drone: {
-            name: 'Dron 1'
+            name: 'DJI Spark'
           },
           flightLocation: {
-            flightSpot: 'Split',
-            latitude: 22,
-            longitude: 22
+            flightSpot,
+            latitude: location.Latitude,
+            longitude: location.Longitude
           },
           flightTime: {
             flightStartTime: state.startTime
           }
         })
       }).then((response) => {
+        store.dispatch(setStarttime(''));
+        store.dispatch(updateSeconds(state.seconds = 0));
+        store.dispatch(updateMinutes(state.minutes = 0));
         if(response.status === 200) {
-          // response._bodyInit ubacit u cache ili reducer
           store.dispatch(updateStats(JSON.parse(response._bodyInit)));
           AsyncStorage.setItem('@stats', response._bodyInit);
-          console.log(JSON.parse(response))
         } else if (response.status === 401) {
-          //this.props.history.push('/');
+          history.push('/');
           removeToken();
         }
       })
     });
-
     clearInterval(this.stopwatch);
-    store.dispatch(setStarttime(''));
-    store.dispatch(updateSeconds(state.seconds = 0));
-    store.dispatch(updateMinutes(state.minutes = 0));
     store.dispatch(addLog({
-      location: 'Split',
-      rating: 2.99
+      location: flightSpot,
+      rating: flySafeScore
     }));
   } else {
     store.dispatch(setStarttime(state.startTime = new Date().toISOString()));
-
     this.stopwatch = setInterval(() => {
-      console.log(state)
       if(state.seconds === 59) {
         store.dispatch(updateSeconds(state.seconds = 0));
         store.dispatch(updateMinutes(state.minutes += 1));
