@@ -4,6 +4,7 @@ asap:
 
 poliranje: 
 - očistit fontove
+- u nativni toast https://facebook.github.io/react-native/docs/toastandroid.html
 - vidi šta se da napravit sa kompresanjem stilova
 - komentari
 - kompresiranje stilova i dumb komponenti
