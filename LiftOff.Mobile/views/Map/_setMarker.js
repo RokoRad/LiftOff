@@ -2,7 +2,7 @@ import { AsyncStorage } from 'react-native';
 import headers from '../../functions/headers';
 import removeToken from '../../functions/removeToken';
 import store from '../../store';
-import { setMarker, updateLocation, tooltipStatus } from '../../actions';
+import { setMarker, updateLocation, tooltipStatus, updateTooltip } from '../../actions';
 
 export default (value, history) => {
   value.persist();
@@ -19,7 +19,11 @@ export default (value, history) => {
       })
     }).then((response) => {
       if(response.status === 200) {
-        //console.log(JSON.parse(response._bodyInit))
+        const parsed = JSON.parse(response._bodyInit);
+        store.dispatch(updateTooltip({
+          city: parsed.weatherData.city,
+          rating: parsed.totalRating
+        }));
       } else if (response.status === 401) {
         removeToken();
         history.push('/');

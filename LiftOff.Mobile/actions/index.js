@@ -58,3 +58,8 @@ export const tooltipStatus = (payload) => ({
   type: 'TOOLTIP_STATUS',
   payload
 });
+
+export const updateTooltip = (payload) => ({
+  type: 'UPDATE_TOOLIP',
+  payload
+});

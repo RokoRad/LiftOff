@@ -20,10 +20,6 @@ const _time = () => {
   return `${hours}:${minutes}`
 }
 
-AsyncStorage.getItem('@logs').then((logs) => {
-  console.log(logs)
-})
-
 const logsReducer = (state = initialState, action) => {
   switch (action.type) {
       case 'ADD_LOG':
