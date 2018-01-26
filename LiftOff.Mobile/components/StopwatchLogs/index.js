@@ -19,5 +19,3 @@ const StopwatchLogs = (props) => (
 );
 
 export default StopwatchLogs;
-
-// {props.data.map((value) => <StopwatchLog location={value.location} time={value.time} active={value.active} key={value.id} rating={value.rating} />)}

@@ -35,6 +35,9 @@ const _stopwatch = (history) => {
           }
         })
       }).then((response) => {
+        store.dispatch(setStarttime(''));
+        store.dispatch(updateSeconds(state.seconds = 0));
+        store.dispatch(updateMinutes(state.minutes = 0));
         if(response.status === 200) {
           store.dispatch(updateStats(JSON.parse(response._bodyInit)));
           AsyncStorage.setItem('@stats', response._bodyInit);
@@ -44,11 +47,7 @@ const _stopwatch = (history) => {
         }
       })
     });
-
     clearInterval(this.stopwatch);
-    store.dispatch(setStarttime(''));
-    store.dispatch(updateSeconds(state.seconds = 0));
-    store.dispatch(updateMinutes(state.minutes = 0));
     store.dispatch(addLog({
       location: flightSpot,
       rating: flySafeScore
