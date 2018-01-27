@@ -24,14 +24,5 @@ export default StyleSheet.create({
   },
   rating: {
     fontFamily: vars.medium
-  },
-  green: {
-    color: vars.green
-  },
-  orange: {
-    color: vars.orange
-  },
-  red: {
-    color: vars.bad
   }
 });

@@ -1,14 +1,14 @@
 {
   "expo": {
     "name": "LiftOff",
-    "slug": "liftoff-tba",
+    "slug": "liftoff",
     "sdkVersion": "23.0.0",
     "orientation": "portrait",
     "icon": "./images/logotip.png",
     "primaryColor": "#3073f2",
     "splash": {
       "backgroundColor": "#3073f2",
-      "image": "./images/splash.png"
+      "image": "./images/logotip.png"
     }
   }
 }

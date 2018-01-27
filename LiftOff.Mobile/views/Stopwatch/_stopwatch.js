@@ -3,7 +3,7 @@ import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes, updateStat
 import store from '../../store';
 import removeToken from '../../functions/removeToken';
 import _timeFlown from './_timeFlown.js';
-import headers from '../../functions/token';
+import headers from '../../functions/headers';
 
 export default (history) => {
   let state = store.getState().stopwatchReducer.stopwatch,

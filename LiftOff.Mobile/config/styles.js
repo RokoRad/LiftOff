@@ -10,15 +10,5 @@ export default StyleSheet.create({
   },
   red: {
     backgroundColor: vars.bad
-  },
-  bothAligned: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  outer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center' 
   }
 });

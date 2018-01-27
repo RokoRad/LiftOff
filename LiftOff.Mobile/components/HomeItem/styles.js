@@ -2,15 +2,6 @@ import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
 export default StyleSheet.create({
-  green: {
-    color: vars.green
-  },
-  orange: {
-    color: vars.orange
-  },
-  red: {
-    color: vars.bad
-  },
   wrapper: {
     paddingTop: 15,
     paddingBottom: 15,
@@ -67,5 +58,10 @@ export default StyleSheet.create({
     fontFamily: vars.regular,
     fontSize: 30,
     color: vars.blue
+  },
+  bothAligned: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });

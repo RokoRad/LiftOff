@@ -21,7 +21,7 @@ export default StyleSheet.create({
   buttonInner: {
     color: vars.white,
     textAlign: 'center',
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: vars.medium
   }
 });

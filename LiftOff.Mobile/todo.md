@@ -11,6 +11,7 @@ asap:
 poliranje: 
 - u nativni toast https://facebook.github.io/react-native/docs/toastandroid.html
 - komentari
+- package-info compress
 
 settings: 
 - ubacit chekcbox za "don't show ither users where I flown"

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import globals from '../../config/styles.js';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import colorGenerator from '../../functions/colorGenerator';
 import round from '../../functions/round';
-//import Toast from 'react-native-simple-toast';
+import globals from '../../config/styles.js';
 import styles from './styles.js';
 
 export default class StopwatchLog extends Component {
@@ -30,7 +29,7 @@ export default class StopwatchLog extends Component {
       return (
         <View style={styles.wrapper}>
           <TouchableWithoutFeedback onPress={this.active}>
-            <View style={[styles.left, (this.state.active ? styles.active : null), globals.bothAligned]}>
+            <View style={[styles.left, (this.state.active ? styles.active : null), styles.bothAligned]}>
               <Text style={styles.inner}>
                 {this.state.active ? '+' : '-'}
               </Text>
@@ -40,7 +39,7 @@ export default class StopwatchLog extends Component {
             <Text style={styles.middleInner} numberOfLines={1} ellipsizeMode="tail">{this.props.location}</Text>
           </View>
           <View style={styles.middleRight}>
-            <Text style={[styles.middleRightInner, styles[colorGenerator(this.props.rating)]]}>{round(this.props.rating)}</Text>
+            <Text style={[styles.middleRightInner, globals[colorGenerator(this.props.rating)]]}>{round(this.props.rating)}</Text>
           </View>
           <View style={styles.right}>
             <Text style={styles.rightInner}>{this.props.time}</Text>
