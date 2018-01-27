@@ -40,7 +40,9 @@ const initialState = {
 };
 
 AsyncStorage.getItem('@realtime').then((realtime) => {
-  initialState.home = JSON.parse(realtime);
+  if(realtime) {
+    initialState.home = JSON.parse(realtime);
+  }
 })
 
 export default (state = initialState, action) => {
