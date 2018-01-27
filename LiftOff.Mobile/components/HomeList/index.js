@@ -9,7 +9,7 @@ import _distance from './_distance.js';
 const HomeList = ({list, loaded}) => {
   const nester = list.weatherData;
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={{paddingBottom: 7}}>
       <HomeItem type="conditions" rating={list.ConditionsRating} fName="Weather" fVal={nester.Weather} sName="Description" sVal={nester.WeatherDescription} />
       <HomeItem type="wind" rating={list.WindRating} fName="WindDirection" fVal={nester.WindDirection} sName="WindSpeed" sVal={nester.WindSpeed} sAddon={_speed(nester.Units)} />
       <HomeItem type="visibility" rating={list.VisibilityRating} fName="Visibility" fVal={nester.Visibility} sName="Cloudiness" sVal={nester.Cloudiness} fAddon={_distance(nester.Units)} sAddon="%" />

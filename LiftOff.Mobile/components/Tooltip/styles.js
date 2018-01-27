@@ -13,12 +13,6 @@ const styles = StyleSheet.create({
     right: 60,
     bottom: 113.5,
     zIndex: 997,
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
-    shadowOffset: {
-        height: 5,
-        width: 5
-    },
     elevation: 5
   },
   text: {

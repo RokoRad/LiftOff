@@ -9,26 +9,20 @@ const globals = StyleSheet.create({
   },
   buttonWrapper: {
     marginTop: 7.5,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 15,
-    paddingRight: 15,
+    paddingTop: 7,
+    paddingBottom: 7,
+    paddingLeft: 17,
+    paddingRight: 17,
     borderRadius: 4,    
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
-    shadowOffset: {
-        height: 5,
-        width: 5
-    },
-    elevation: 5,
+    elevation: 2,
     marginBottom: 15,
     backgroundColor: vars.red
   },
   buttonInner: {
     color: vars.white,
     textAlign: 'center',
-    fontSize: 18,
-    fontFamily: 'robotoMedium'
+    fontSize: 14,
+    fontFamily: vars.medium
   }
 });
 

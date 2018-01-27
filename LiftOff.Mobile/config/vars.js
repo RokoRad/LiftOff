@@ -1,5 +1,4 @@
 export default {
-  // thin: 'robotoThin',
   light: 'robotoLight',
   regular: 'robotoRegular',
   medium: 'robotoMedium',

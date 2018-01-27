@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   full: {
     height: '100%',
-    backgroundColor: 'blue'
+    backgroundColor: vars.blue
   },
   drone: {
     width: 120,
@@ -29,17 +30,17 @@ const styles = StyleSheet.create({
     width: '70%',
   },
   title: {
-    color: '#fff',
-    fontFamily: 'robotoBold',
+    color: vars.white,
+    fontFamily: vars.bold,
     fontSize: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#fff',
+    borderBottomColor: vars.white,
     paddingBottom: 5,
     marginBottom: 5
   },
   text: {
-    color: '#fff',
-    fontFamily: 'robotoMedium',
+    color: vars.white,
+    fontFamily: vars.medium,
     fontSize: 10
   },
   right: {
@@ -48,8 +49,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   rating: {
-    color: '#fff',
-    fontFamily: 'robotoMedium',
+    color: vars.white,
+    fontFamily: vars.medium,
     textAlign: 'right',
     width: '100%',
     fontSize: 45

@@ -15,12 +15,13 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#D8DADC',
+    borderBottomColor: 'rgba(216, 218, 220, 0.25)',
     display: 'flex',
     flexDirection: 'row'
   },
   left: {
-    width: '25%',
+    width: '20%',
+    display: 'flex',
     justifyContent: 'flex-start'
   },
   icon: {
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     height: 40
   },
   middle: {
-    width: '50%',
+    width: '55%',
     height: '100%'
   },
   title: {

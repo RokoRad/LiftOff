@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -9,15 +10,15 @@ const styles = StyleSheet.create({
   text: {
     color: '#f3705a',
     position: 'absolute',
-    bottom: 7,
-    right: 7,
+    bottom: 10,
+    right: 10,
     fontFamily: 'barlowMedium',
     fontSize: 14,
     zIndex: 999
   },
   image: {
-    height: 50,
-    width: 50
+    height: 40,
+    width: 40
   }
 });
 

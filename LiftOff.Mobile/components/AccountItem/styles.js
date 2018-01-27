@@ -12,11 +12,13 @@ const styles = StyleSheet.create({
   },
   string: {
     fontFamily: vars.regular,
-    fontSize: 14
+    fontSize: 14,
+
   },
   bold: {
-    fontFamily: vars.medium,
-    color: vars.blue
+    fontFamily: vars.regular,
+    color: vars.grey,
+    opacity: 0.7
   }
 });
 

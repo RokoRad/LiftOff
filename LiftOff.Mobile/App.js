@@ -24,17 +24,10 @@ class App extends React.Component {
 
   async loadFonts() {
     await Expo.Font.loadAsync({
-      'barlowBold': require('./fonts/Barlow-Bold.ttf'),
-      'barlowExtraBold': require('./fonts/Barlow-ExtraBold.ttf'),
-      'barlowMedium': require('./fonts/Barlow-Medium.ttf'),
-      'barlowRegular': require('./fonts/Barlow-Regular.ttf'),
-      'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf'),
-      'robotoThin': require('./fonts/Roboto-Thin.ttf'),
+      'robotoLight': require('./fonts/Roboto-Light.ttf'),
       'robotoRegular': require('./fonts/Roboto-Regular.ttf'),
       'robotoMedium': require('./fonts/Roboto-Medium.ttf'),
-      'robotoLight': require('./fonts/Roboto-Light.ttf'),
       'robotoBold': require('./fonts/Roboto-Bold.ttf'),
-      'robotoBlack': require('./fonts/Roboto-Black.ttf')
     });
     this.setState({loaded: true});
   };

@@ -19,25 +19,33 @@ const styles = StyleSheet.create({
     width: '25%',
     textAlign: 'center',
     fontFamily: vars.medium,
-    fontSize: 10
+    color: vars.grey,
+    fontSize: 10,
+    opacity: 0.7
   },
   middleLeft: {
     width: '25%',
     textAlign: 'center',
     fontFamily: vars.medium,
-    fontSize: 10
+    color: vars.grey,
+    fontSize: 10,
+    opacity: 0.7
   },
   middleRight: {
     width: '25%',
     textAlign: 'center',
+    color: vars.grey,
     fontFamily: vars.medium,
-    fontSize: 10
+    fontSize: 10,
+    opacity: 0.7
   },
   right: {
     width: '25%',
     textAlign: 'center',
     fontFamily: vars.medium,
-    fontSize: 10
+    color: vars.grey,
+    fontSize: 10,
+    opacity: 0.7
   },
   scroll: {
     height: '40%'

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   	wrapper: {
@@ -15,10 +16,10 @@ const styles = StyleSheet.create({
       paddingBottom: 5,
       paddingLeft: 5,
       fontSize: 15,
-      fontFamily: 'robotoLight',
-      color: '#f5f7fa',
+      fontFamily: vars.light,
+      color: vars.white,
       borderBottomWidth: 1,
-      borderBottomColor: '#f5f7fa'
+      borderBottomColor: vars.white
     }
 });
 
