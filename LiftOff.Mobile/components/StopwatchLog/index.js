@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, CheckBox } from 'react-native';
 import colorGenerator from '../../functions/colorGenerator';
 import round from '../../functions/round';
 import globals from '../../config/styles.js';
@@ -30,9 +30,7 @@ export default class StopwatchLog extends Component {
         <View style={styles.wrapper}>
           <TouchableWithoutFeedback onPress={this.active}>
             <View style={[styles.left, (this.state.active ? styles.active : null), styles.bothAligned]}>
-              <Text style={styles.inner}>
-                {this.state.active ? '+' : '-'}
-              </Text>
+              <CheckBox onValueChange={(e) => console.log(e)} style={styles.checkbox}/>
             </View>
           </TouchableWithoutFeedback>
           <View style={styles.middle}>
@@ -48,3 +46,5 @@ export default class StopwatchLog extends Component {
       );
   }
 }
+
+//                 {this.state.active ? '+' : '-'}

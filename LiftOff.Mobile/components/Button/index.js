@@ -11,7 +11,6 @@ class Button extends React.Component {
   };
 
   render() {
-    console.log(this.props.loading)
     return (
         <TouchableOpacity onPress={this.props.onPress} opacity={0.8} style={styles.outer} disabled={this.props.loading}>
           <View style={styles.buttonWrapper}>

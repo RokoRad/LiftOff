@@ -9,7 +9,7 @@ import language from '../../languages';
 import round from '../../functions/round';
 
 export default ({comment, rating}) => (
-  <View style={[styles.wrapper, globals[colorGenerator(rating)]]}>
+  <View style={[styles.wrapper, styles[colorGenerator(rating)]]}>
     <View style={[styles.droneWrapper, styles.bothAligned]}>
       <Animatable.Image source={require('../../images/drone.png')} style={styles.drone} animation={animationGenerator(colorGenerator(rating))} iterationCount="infinite" easing="ease-in-out" direction="alternate" />
     </View>

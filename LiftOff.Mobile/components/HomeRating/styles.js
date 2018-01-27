@@ -59,5 +59,14 @@ export default StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  green: {
+    backgroundColor: vars.green
+  },
+  orange: {
+    backgroundColor: vars.orange
+  },
+  red: {
+    backgroundColor: vars.bad
   }
 });
