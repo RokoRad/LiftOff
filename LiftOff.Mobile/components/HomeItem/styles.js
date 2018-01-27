@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   green: {
     color: vars.green
   },
@@ -69,5 +69,3 @@ const styles = StyleSheet.create({
     color: vars.blue
   }
 });
-
-export default styles;

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
@@ -23,5 +23,3 @@ const styles = StyleSheet.create({
     marginRight: 5
   }
 });
-
-export default styles;

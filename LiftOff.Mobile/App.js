@@ -13,7 +13,7 @@ import Settings from './views/Settings';
 import { Provider } from 'react-redux';
 import store from './store';
 
-class App extends React.Component {
+export default class App extends React.Component {
   state = {
     loaded: false
   }
@@ -55,5 +55,3 @@ class App extends React.Component {
     }
   }
 }
-
-export default App;

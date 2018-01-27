@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   wrapper: {
     height: '42.5%',
     width: '100%',
@@ -21,5 +21,3 @@ const styles = StyleSheet.create({
     width: 40
   }
 });
-
-export default styles;

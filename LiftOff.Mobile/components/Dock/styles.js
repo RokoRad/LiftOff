@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   dock: {
     borderRadius: 7,    
     elevation: 12,
@@ -17,5 +17,3 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   }
 });
-
-export default styles;

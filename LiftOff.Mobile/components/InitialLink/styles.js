@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   message: {
     color: vars.white,
     fontFamily: vars.light,
@@ -17,5 +17,3 @@ const styles = StyleSheet.create({
     paddingBottom: 30
   }
 });
-
-export default styles;

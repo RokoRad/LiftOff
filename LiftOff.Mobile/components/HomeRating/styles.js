@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   full: {
     height: '100%',
     backgroundColor: vars.blue
@@ -56,5 +56,3 @@ const styles = StyleSheet.create({
     fontSize: 45
   }
 });
-
-export default styles;

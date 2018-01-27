@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
@@ -21,5 +21,3 @@ const styles = StyleSheet.create({
     opacity: 0.7
   }
 });
-
-export default styles;
