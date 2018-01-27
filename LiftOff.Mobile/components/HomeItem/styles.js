@@ -20,17 +20,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   left: {
-    width: '25%',
-    justifyContent: 'flex-start',
-    backgroundColor: 'pink'
+    width: '20%',
+    display: 'flex',
+    justifyContent: 'flex-start'
   },
   icon: {
-    backgroundColor: 'purple',
     width: 40,
     height: 40
   },
   middle: {
-    width: '50%',
+    width: '55%',
     height: '100%'
   },
   title: {
@@ -62,8 +61,7 @@ const styles = StyleSheet.create({
     color: vars.grey
   },
   right: {
-    width: '25%',
-    backgroundColor: 'orange'
+    width: '25%'
   },
   rating: {
     fontFamily: vars.regular,
