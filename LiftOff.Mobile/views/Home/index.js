@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
 import { connect } from 'react-redux';
 import { _start, _stop } from './_realtime.js';
+import styles from './styles.js';
 
 class Home extends React.Component {
   constructor(props) {
@@ -22,6 +24,10 @@ class Home extends React.Component {
     return (
       <Screen current={this.props.location}>
         <HomeRating string={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
+        <View style={styles.wrapper}>
+          <Text style={styles.left}>Viewing for</Text>
+          <Text style={styles.right}>22.10.</Text>
+        </View>
         <HomeList list={this.props.home} />
       </Screen>
     );
