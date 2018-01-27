@@ -5,8 +5,8 @@ import StopwatchLog from '../StopwatchLog';
 import uppercase from '../../functions/uppercase';
 import language from '../../languages';
 
-export default ({data}) => (
-  <View style={styles.wrapper}>
+export default ({data, hidden}) => (
+  <View style={[styles.wrapper, (hidden === 0) ? styles.hidden : null]}>
     <View style={styles.head}>
       <Text style={styles.left}>{uppercase(language.Log)}</Text>
       <Text style={styles.middleLeft}>{uppercase(language.Location)}</Text>

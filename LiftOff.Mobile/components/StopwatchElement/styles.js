@@ -9,6 +9,9 @@ export default StyleSheet.create({
     marginTop: '35%',
     alignItems: 'center'
   },
+  extended: {
+    marginTop: '70%',
+  },
   inner: {
     color: '#47525e',
     fontSize: 70,

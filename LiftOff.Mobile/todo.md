@@ -5,7 +5,6 @@ asap:
 - logs kad nema contenta, sopwatch u full height
 - viewing for . restore ikonica - indikator vrimena
 - brunu izvuc reset head na gitu
-- ikonice na mapi?
 
 poliranje: 
 - komentari
