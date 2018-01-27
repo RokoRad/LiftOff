@@ -1,6 +1,6 @@
 export default (type) => {
   if(type === 'metric') {
-    return 'kmh';
+    return 'km/h';
   } else {
     return 'mph';
   }

@@ -20,15 +20,10 @@ export default (value, history) => {
     }).then((response) => {
       if(response.status === 200) {
         const parsed = JSON.parse(response._bodyInit);
-        console.log(parsed)
         store.dispatch(updateTooltip({
           city: parsed.weatherData.city,
           rating: parsed.totalRating
         }));
-        console.log({
-          city: parsed.weatherData.city,
-          rating: parsed.totalRating
-        })
       } else if (response.status === 401) {
         removeToken(history);
       }});

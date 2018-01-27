@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import language from '../../languages';
 import colorGenerator from '../../functions/colorGenerator';
 import styles from './styles.js';
+import globals from '../../config/styles.js';
 import { MapView } from 'expo';
 import round from '../../functions/round'
 
@@ -21,7 +22,7 @@ export default ({location, time, rating}) => (
     </View>
     <View style={styles.row}>
       <Text style={styles.string}>{language.ExpectedScore}</Text>
-      <Text style={[styles.string, styles.rating, styles[colorGenerator(rating)]]}>{round(rating)}</Text>
+      <Text style={[styles.string, styles.rating, globals[colorGenerator(rating)]]}>{round(rating)}</Text>
     </View>
   </MapView.Callout>
 );

@@ -1,6 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import removeToken from '../../functions/removeToken';
 import store from '../../store';
+import headers from '../../functions/headers';
 import { updateMarkers } from '../../actions';
 
 export default (location, history) => {
@@ -8,10 +9,7 @@ export default (location, history) => {
     console.log(location)
     fetch('http://liftoffapi.azurewebsites.net/api/flights/getFlightsNearMe', {
       method: 'POST',
-      headers: {
-        'Authorization': 'Bearer ' + token,
-        'Content-type': 'application/json'
-      },
+      headers: headers(token),
       body: JSON.stringify({
         location: {
           latitude: location.latitude,
@@ -22,9 +20,8 @@ export default (location, history) => {
     }).then((response) => {
       if(response.status === 200) {
         if(JSON.parse(response._bodyInit) === 'no flights') {
-          console.log("NOOO")
+          // no flights
         } else {
-          console.log(JSON.parse(response))
           // set state
         }
       } else if (response.status === 401) {

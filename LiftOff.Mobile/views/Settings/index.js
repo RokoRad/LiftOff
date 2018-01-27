@@ -2,12 +2,11 @@ import React from 'react';
 import Expo from 'expo';
 import { View, Text, Picker, AsyncStorage, TouchableWithoutFeedback, Switch, CheckBox } from 'react-native';
 import styles from './styles.js';
-import globals from '../../config/styles.js';
 import language from '../../languages';
 import Screen from '../../components/Screen';
 
 export default ({location}) => (
-  <Screen current={location} style={globals.bothAligned}>
+  <Screen current={location} style={styles.bothAligned}>
     <View>
     <Picker
       selectedValue="js"

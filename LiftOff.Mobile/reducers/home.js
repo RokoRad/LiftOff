@@ -6,41 +6,43 @@ const initialState = {
       Croatian: "Učitavanje podatka..",
       English: "Fetching data.."
     },  
-    AtmosphereRating: null,
-    ConditionsRating: null,
-    TemperatureRating: null,
-    TotalRating: null,
-    UVRating: null,
-    VisibilityRating: null,
-    WindRating: null,
+    AtmosphereRating: 'N/A',
+    ConditionsRating: 'N/A',
+    TemperatureRating: 'N/A',
+    TotalRating: 'N/A',
+    UVRating: 'N/A',
+    VisibilityRating: 'N/A',
+    WindRating: 'N/A',
     weatherData: {
-      Cloudiness: null,
-      Humidity: null,
-      Max_Temperature: null,
-      Min_Temperature: null,
-      Presssure: null,
-      Temperature: null,
+      Cloudiness: 'N/A',
+      Humidity: 'N/A',
+      Max_Temperature: 'N/A',
+      Min_Temperature: 'N/A',
+      Presssure: 'N/A',
+      Temperature: 'N/A',
       TimeLocation: {
         Location: {
-          Latitude: null,
-          Longitude: null,
+          Latitude: 43.508133,
+          Longitude: 16.440193,
         },
-        Time: null
+        Time: new Date().toISOString()
       },
-      UVIndex: null,
+      UVIndex: 'N/A',
       Units: 'metric',
-      Visibility: null,
-      Weather: null,
-      WeatherDescription: null,
-      WeatherID: null,
-      WindDirection: null,
-      WindSpeed: null
+      Visibility: 'N/A',
+      Weather: 'N/A',
+      WeatherDescription: 'N/A',
+      WeatherID: 'N/A',
+      WindDirection: 'N/A',
+      WindSpeed: 'N/A'
     }
   }
 };
 
 AsyncStorage.getItem('@realtime').then((realtime) => {
-  initialState.home = JSON.parse(realtime);
+  if(realtime) {
+    initialState.home = JSON.parse(realtime);
+  }
 })
 
 export default (state = initialState, action) => {

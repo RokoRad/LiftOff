@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { TextInput, Image, ScrollView  } from 'react-native';
 import styles from './styles.js';
-import values from '../../functions/values';
 import capitalize from '../../functions/capitalize';
 
 export default ({type, onChangeText}) => (

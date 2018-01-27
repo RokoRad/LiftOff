@@ -2463,10 +2463,6 @@ https-proxy-agent@1, https-proxy-agent@^1.0.0:
     debug "2"
     extend "3"
 
-i18n-js@^3.0.2:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/i18n-js/-/i18n-js-3.0.3.tgz#f537b2bd1e2801eee4f4728a17189ef0991c0270"
-
 iconv-lite@0.4.11:
   version "0.4.11"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.11.tgz#2ecb42fd294744922209a2e7c404dac8793d8ade"
@@ -4031,23 +4027,9 @@ react-native-gesture-handler@1.0.0-alpha.30:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-i18n@^2.0.10:
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/react-native-i18n/-/react-native-i18n-2.0.10.tgz#d22a6136abca1dee07c527f73cd805f9296bddc1"
-  dependencies:
-    i18n-js "^3.0.2"
-
 react-native-keyboard-spacer@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/react-native-keyboard-spacer/-/react-native-keyboard-spacer-0.4.1.tgz#46f18a320432098a25ea9fa89f5143dd254d332d"
-
-react-native-letter-spacing@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/react-native-letter-spacing/-/react-native-letter-spacing-0.0.6.tgz#7253ee1477c76c5e493fcf1c0d57bc834620de17"
-
-react-native-localization@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/react-native-localization/-/react-native-localization-0.2.1.tgz#c7c15694098a8f7ff53ef87c7e806138a2c3a96c"
 
 react-native-maps@0.17.1:
   version "0.17.1"
@@ -4089,10 +4071,6 @@ react-native-signalr@^1.0.6:
   dependencies:
     jquery-deferred "^0.3.1"
     ms-signalr-client "^2.2.7"
-
-react-native-simple-toast@0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/react-native-simple-toast/-/react-native-simple-toast-0.0.7.tgz#2ef51bdafd3e98df718f74fdd0bc0ce08608dff8"
 
 "react-native-svg@https://github.com/expo/react-native-svg/archive/5.5.1-exp.1.tar.gz":
   version "5.5.1"

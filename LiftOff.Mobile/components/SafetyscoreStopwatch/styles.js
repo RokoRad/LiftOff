@@ -48,5 +48,19 @@ export default StyleSheet.create({
     color: vars.white,
     fontFamily: vars.regular,
     fontSize: 10
+  },
+  bothAligned: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  green: {
+    backgroundColor: vars.green
+  },
+  orange: {
+    backgroundColor: vars.orange
+  },
+  red: {
+    backgroundColor: vars.bad
   }
 });

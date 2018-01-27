@@ -54,5 +54,19 @@ export default StyleSheet.create({
     textAlign: 'right',
     width: '100%',
     fontSize: 45
+  },
+  bothAligned: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  green: {
+    backgroundColor: vars.green
+  },
+  orange: {
+    backgroundColor: vars.orange
+  },
+  red: {
+    backgroundColor: vars.bad
   }
 });

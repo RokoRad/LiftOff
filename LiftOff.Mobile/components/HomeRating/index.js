@@ -10,8 +10,8 @@ import language from '../../languages';
 
 
 export default ({string, rating}) => (
-    <View style={[styles.wrapper, globals[colorGenerator(rating)]]}>
-      <View style={[styles.top, globals.bothAligned]}>
+    <View style={[styles.wrapper, styles[colorGenerator(rating)]]}>
+      <View style={[styles.top, styles.bothAligned]}>
         <Animatable.Image source={require('../../images/drone.png')} style={styles.drone} animation={animationGenerator(colorGenerator(rating))} iterationCount="infinite" easing="ease-in-out" direction="alternate" />
       </View>
       <View style={styles.bottom}>

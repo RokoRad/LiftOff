@@ -49,5 +49,8 @@ export default StyleSheet.create({
   },
   scroll: {
     height: '40%'
+  },
+  hidden: {
+    height: 0
   }
 });

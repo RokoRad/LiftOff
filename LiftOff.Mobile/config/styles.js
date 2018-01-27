@@ -3,22 +3,12 @@ import vars from './vars.js';
 
 export default StyleSheet.create({
   green: {
-    backgroundColor: vars.green
+    color: vars.green
   },
   orange: {
-    backgroundColor: vars.orange
+    color: vars.orange
   },
   red: {
-    backgroundColor: vars.bad
-  },
-  bothAligned: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  outer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center' 
+    color: vars.bad
   }
 });
