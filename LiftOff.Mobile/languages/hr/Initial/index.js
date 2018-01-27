@@ -1,4 +1,4 @@
-const strings = {
+export default = {
   Login: 'Prijava',
   Register: 'Registracija',
   ToRegister: `Nemaš račun?`,
@@ -7,5 +7,3 @@ const strings = {
   ToLoginBold: ' Prijavi se!',
   Token: 'Neispravan Token'
 };
-
-export default strings;

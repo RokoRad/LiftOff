@@ -4,10 +4,9 @@ import Calibration from '../../components/Calibration';
 import Picker from '../../components/Picker';
 import styles from './styles.js';
 
-const Dock = ({history}) => (
+export default ({history}) => (
   <View style={styles.dock}>
     <Calibration history={history} />
     <Picker history={history} />
   </View>
 );
-export default Dock;

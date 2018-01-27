@@ -1,6 +1,4 @@
-import vars from '../../config/vars.js';
-
-const style = [
+export default [
     {
         "featureType": "administrative",
         "elementType": "all",
@@ -230,5 +228,3 @@ const style = [
         ]
     }
 ];
-
-export default style;

@@ -1,4 +1,4 @@
-const strings = {
+export default = {
   WeatherRating: 'Ocjena vremena',
   Atmosphere: 'Stanje atmosfere',
   Humidity: 'Vlažnost',
@@ -16,5 +16,3 @@ const strings = {
   WindDirection: 'Smjer vjetra',
   WindSpeed: 'Brzina vjetra'
 };
-
-export default strings;

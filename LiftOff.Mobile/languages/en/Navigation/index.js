@@ -1,9 +1,7 @@
-const strings = {
+export default = {
   FlySafe: 'FlySafe',
   Planning: 'Planning',
   LiftOff: 'LiftOff',
   Profile: 'Profile',
   Settings: 'Settings'
 };
-
-export default strings;

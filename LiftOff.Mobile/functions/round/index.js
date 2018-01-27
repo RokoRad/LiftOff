@@ -1,2 +1,1 @@
-const round = (value) => (Math.round(value * 10) / 10).toFixed(1);
-export default round;
+export default (value) => (Math.round(value * 10) / 10).toFixed(1);

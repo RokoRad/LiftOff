@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import NavigationItem from '../NavigationItem';
 import styles from './styles.js';
 
-const Navigation = (props) => (
+export default = (props) => (
     <View style={styles.navigation}>
       <NavigationItem route="/home" type="FlySafe" current={props.current} />
       <NavigationItem route="/map" type="Planning" current={props.current} />
@@ -12,5 +12,3 @@ const Navigation = (props) => (
       <NavigationItem route="/settings" type="Settings" current={props.current} />
     </View>
 );
-
-export default Navigation;

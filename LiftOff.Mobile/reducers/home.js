@@ -43,7 +43,7 @@ AsyncStorage.getItem('@realtime').then((realtime) => {
   initialState.home = JSON.parse(realtime);
 })
 
-const homeReducer = (state = initialState, action) => {
+export default = (state = initialState, action) => {
   switch (action.type) {
       case 'UPDATE_HOME':
       return  {
@@ -55,6 +55,3 @@ const homeReducer = (state = initialState, action) => {
           return state;
   }
 };
-
-
-export default homeReducer;

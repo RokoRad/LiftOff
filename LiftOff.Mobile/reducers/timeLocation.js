@@ -16,7 +16,7 @@ const initialState = {
   }
 };
 
-const timeLocationReducer = (state = initialState, action) => {
+export default = (state = initialState, action) => {
   switch (action.type) {
       case 'UPDATE_DATETIME':
         return  {
@@ -35,6 +35,3 @@ const timeLocationReducer = (state = initialState, action) => {
           return state;
   }
 };
-
-
-export default timeLocationReducer;

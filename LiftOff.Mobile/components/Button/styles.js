@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const globals = StyleSheet.create({
+export default StyleSheet.create({
   outer: {
     display: 'flex',
     justifyContent: 'center',
@@ -25,5 +25,3 @@ const globals = StyleSheet.create({
     fontFamily: vars.medium
   }
 });
-
-export default globals;

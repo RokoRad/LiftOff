@@ -6,7 +6,7 @@ import globals from '../../config/styles.js';
 import language from '../../languages';
 import Screen from '../../components/Screen';
 
-const Settings = ({location}) => (
+export default ({location}) => (
   <Screen current={location} style={globals.bothAligned}>
     <View>
     <Picker
@@ -39,5 +39,3 @@ const changeLanguage = () => {
     Expo.Util.reload()    
   });
 }
-
-export default Settings;

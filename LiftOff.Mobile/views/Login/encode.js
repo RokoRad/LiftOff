@@ -1,4 +1,4 @@
-const encode = (value) => {
+export default (value) => {
   let object = [];
   for (let property in value) {
     var encodedKey = encodeURIComponent(property);
@@ -8,5 +8,3 @@ const encode = (value) => {
   object = object.join("&");
   return object;
 }
-
-export default encode;

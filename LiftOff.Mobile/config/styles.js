@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from './vars.js';
 
-const globals = StyleSheet.create({
+export default StyleSheet.create({
   green: {
     backgroundColor: vars.green
   },
@@ -22,5 +22,3 @@ const globals = StyleSheet.create({
     alignItems: 'center' 
   }
 });
-
-export default globals;

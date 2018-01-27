@@ -20,7 +20,7 @@ const _time = () => {
   return `${hours}:${minutes}`
 }
 
-const logsReducer = (state = initialState, action) => {
+export default = (state = initialState, action) => {
   switch (action.type) {
       case 'ADD_LOG':
       return {
@@ -43,6 +43,3 @@ const logsReducer = (state = initialState, action) => {
           return state;
   }
 };
-
-
-export default logsReducer;

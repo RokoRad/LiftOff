@@ -9,11 +9,14 @@ asap:
 - kad nema podataka N/A
 - viewing for . restore ikonica - indikator vrimena
 - ikonu na search
+- jel globals potreban
+- token function (headers)-
+functions values isto
 
 poliranje: 
 - u nativni toast https://facebook.github.io/react-native/docs/toastandroid.html
 - komentari
-- kompresiranje stilova i dumb komponenti
+- dumb komponenti
 
 settings: 
 - ubacit chekcbox za "don't show ither users where I flown"

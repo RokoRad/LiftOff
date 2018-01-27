@@ -25,7 +25,7 @@ const initialState = {
   }
 };
 
-const mapReducer = (state = initialState, action) => {
+export default = (state = initialState, action) => {
   switch (action.type) {
       case 'UPDATE_LOCATION':
         return  {
@@ -59,5 +59,3 @@ const mapReducer = (state = initialState, action) => {
         return state;
   }
 };
-
-export default mapReducer;

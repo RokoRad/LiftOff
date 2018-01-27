@@ -5,7 +5,7 @@ import StopwatchLog from '../StopwatchLog';
 import uppercase from '../../functions/uppercase';
 import language from '../../languages';
 
-const StopwatchLogs = (props) => (
+export default ({data}) => (
   <View style={styles.wrapper}>
     <View style={styles.head}>
       <Text style={styles.left}>{uppercase(language.Log)}</Text>
@@ -14,9 +14,7 @@ const StopwatchLogs = (props) => (
       <Text style={styles.right}>{uppercase(language.Time)}</Text>
     </View>
     <ScrollView style={styles.scroll}>
-      {props.data.map((value) => <StopwatchLog location={value.location} time={value.time} active={value.active} key={value.id} rating={value.rating} />)}
+      {data.map((value) => <StopwatchLog location={value.location} time={value.time} active={value.active} key={value.id} rating={value.rating} />)}
     </ScrollView>
   </View>
 );
-
-export default StopwatchLogs;

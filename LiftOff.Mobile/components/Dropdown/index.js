@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Picker } from 'react-native';
 
-class Dropdown extends Component {
+export default class Dropdown extends Component {
   constructor() {
     super();
     this.state = {
@@ -23,5 +23,3 @@ class Dropdown extends Component {
    );
  }
 }
-
-export default Dropdown;

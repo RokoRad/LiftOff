@@ -4,7 +4,7 @@ import store from '../../store';
 import removeToken from '../../functions/removeToken';
 import _timeFlown from './_timeFlown.js';
 
-const _stopwatch = (history) => {
+export default (history) => {
   let state = store.getState().stopwatchReducer.stopwatch,
       home = store.getState().homeReducer.home,
       location = home.weatherData.TimeLocation.Location,
@@ -64,5 +64,3 @@ const _stopwatch = (history) => {
   }
   store.dispatch(toggleStopwatch(state.active = !state.active));
 }
-
-export default _stopwatch;

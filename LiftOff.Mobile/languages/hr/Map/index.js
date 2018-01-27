@@ -1,4 +1,4 @@
-const strings = {
+export default = {
   Search: 'Gdje želiš letjeti?',
   ChooseWhen: 'Odaberi vrijeme',
   TooltipTitle: 'Pronašli smo super mjesto!',
@@ -6,5 +6,3 @@ const strings = {
   Time: 'Vrijeme',
   ExpectedScore: 'Predviđena FlySafe ocjena'
 };
-
-export default strings;

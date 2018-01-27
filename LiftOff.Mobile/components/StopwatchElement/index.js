@@ -2,12 +2,10 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles.js';
 
-const StopwatchElement = (props) => (
+export default ({minutes, seconds}) => (
   <View style={styles.wrapper}>
-    <Text style={styles.inner}>{props.minutes < 10 ? `0${props.minutes}` : props.minutes}</Text>
+    <Text style={styles.inner}>{minutes < 10 ? `0${minutes}` : minutes}</Text>
     <Text style={styles.double}>:</Text>
-    <Text style={styles.inner}>{props.seconds < 10 ? `0${props.seconds}` : props.seconds}</Text>
+    <Text style={styles.inner}>{seconds < 10 ? `0${seconds}` : seconds}</Text>
   </View>
 );
-
-export default StopwatchElement;
