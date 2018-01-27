@@ -4,11 +4,11 @@ const initialState = {
   loading: false
 };
 
-export default (state = initialState) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_LOADING':
       return {
-        loading: !this.state.loading
+        loading: !state.loading
       };
     default:
       return state;

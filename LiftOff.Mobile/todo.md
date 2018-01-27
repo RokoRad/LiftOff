@@ -1,6 +1,5 @@
 asap:
 - drone povuc iz settings i ubacit  u log
-- disbaled button na login, i udrit loading indicator
 - za log minus u save ikonicu koja dobro izgeda nakon save u checkmark
 - fade za navitem,
 - logs kad nema contenta, sopwatch u full height
@@ -9,10 +8,8 @@ asap:
 - ikonice na mapi?
 
 poliranje: 
-- u nativni toast https://facebook.github.io/react-native/docs/toastandroid.html
-- u nativni spacer https://facebook.github.io/react-native/docs/keyboardavoidingview.html
 - komentari
-- package-info compress
+- prettier i linter
 
 settings: 
 - ubacit chekcbox za "don't show ither users where I flown"

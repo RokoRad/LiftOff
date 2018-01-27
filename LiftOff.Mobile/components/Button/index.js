@@ -11,9 +11,9 @@ class Button extends React.Component {
   };
 
   render() {
-    console.log(props)
+    console.log(this.props.loading)
     return (
-        <TouchableOpacity onPress={this.props.onPress} opacity={0.8} style={styles.outer}>
+        <TouchableOpacity onPress={this.props.onPress} opacity={0.8} style={styles.outer} disabled={this.props.loading}>
           <View style={styles.buttonWrapper}>
           {(this.props.loading)
           ? _loading()
@@ -29,4 +29,4 @@ const mapStateToProps = state => ({
   ...state.initialReducer
 });
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Button);
