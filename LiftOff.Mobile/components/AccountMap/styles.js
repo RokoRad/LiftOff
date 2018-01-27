@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -7,7 +8,7 @@ const styles = StyleSheet.create({
     position: 'relative'
   },
   text: {
-    color: '#f3705a',
+    color: vars.red,
     position: 'absolute',
     bottom: 7,
     right: 7,

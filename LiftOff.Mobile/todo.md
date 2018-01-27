@@ -3,6 +3,7 @@ asap:
 - drone povuc iz settings i ubacit  u log
 - kmh => kmh
 - disbaled button na login, i udrit loading indicator
+- za log minus u save ikonicu koja dobro izgeda nakon save u checkmark
 
 poliranje: 
 - očistit fontove

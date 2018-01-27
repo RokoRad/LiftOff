@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   middleInner: {
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: vars.regular
+    fontFamily: vars.regular,
   },
   middleRightInner: {
     textAlign: 'center',
