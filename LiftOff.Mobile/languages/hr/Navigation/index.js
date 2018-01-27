@@ -1,4 +1,4 @@
-export default = {
+export default {
   FlySafe: 'FlySafe',
   Planning: 'Planiranje',
   LiftOff: 'LiftOff',

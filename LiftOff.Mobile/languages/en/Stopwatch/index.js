@@ -1,4 +1,4 @@
-export default = {
+export default {
   Liftoff: 'Liftoff',
   Land: 'Land',
   Log: 'Log',

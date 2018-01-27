@@ -22,7 +22,7 @@ const navActive = {
   Settings: require('../../images/nav-active/settings-nav.png')
 }
 
-export default = (props) => {
+export default (props) => {
   const isActive = props.current.pathname === props.route;
 
   return (

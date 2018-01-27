@@ -1,4 +1,4 @@
-export default = {
+export default {
   Search: 'Gdje želiš letjeti?',
   ChooseWhen: 'Odaberi vrijeme',
   TooltipTitle: 'Pronašli smo super mjesto!',

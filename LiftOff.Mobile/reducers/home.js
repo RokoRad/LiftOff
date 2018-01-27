@@ -43,7 +43,7 @@ AsyncStorage.getItem('@realtime').then((realtime) => {
   initialState.home = JSON.parse(realtime);
 })
 
-export default = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
       case 'UPDATE_HOME':
       return  {

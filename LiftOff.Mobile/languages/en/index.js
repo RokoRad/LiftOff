@@ -7,7 +7,7 @@ import Settings from './Settings';
 import Stopwatch from './Stopwatch';
 import Toast from './Toast';
 
-export default = {
+export default ({
   ...Home,
   ...Initial,
   ...Map,
@@ -16,4 +16,4 @@ export default = {
   ...Settings,
   ...Stopwatch,
   ...Toast
-};
+});

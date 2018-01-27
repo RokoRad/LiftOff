@@ -1,4 +1,4 @@
-export default = {
+export default {
   WeatherRating: 'Ocjena vremena',
   Atmosphere: 'Stanje atmosfere',
   Humidity: 'Vlažnost',

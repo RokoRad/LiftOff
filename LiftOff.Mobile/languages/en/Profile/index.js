@@ -1,4 +1,4 @@
-export default = {
+export default {
   moreThan: 'More than ',
   flewHere: ' flew here',
   userName: 'Username',

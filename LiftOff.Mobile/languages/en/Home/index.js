@@ -1,4 +1,4 @@
-export default = {
+export default {
   WeatherRating: 'Weather rating',
   Atmosphere: 'Atmosphere',
   Humidity: 'Humidity',

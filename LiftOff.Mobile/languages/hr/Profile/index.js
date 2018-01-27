@@ -1,4 +1,4 @@
-export default = {
+export default {
   moreThan: 'Više od ',
   flewHere: ' je letjelo ovdje',
   userName: 'Korisničko ime',

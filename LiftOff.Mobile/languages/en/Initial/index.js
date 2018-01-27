@@ -1,4 +1,4 @@
-export default = {
+export default {
   Login: 'Login',
   Register: 'Register',
   ToRegister: `Don't have an account?`,
