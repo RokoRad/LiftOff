@@ -2,6 +2,7 @@
 using LiftOff.API.Data.Repos;
 using LiftOff.API.Models;
 using Microsoft.AspNet.Identity;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -43,6 +44,18 @@ namespace LiftOff.API.Controllers
 			if (!result.Succeeded) return BadRequest();
 			else return Ok();
 		}
+
+        [Authorize]
+        [HttpGet]
+        [Route("GetUserData")]
+        public IHttpActionResult GetUserData()
+        {
+            var userId = User.Identity.GetUserId();
+
+            var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
+
+            return Ok(user);
+        }
 
         //[Authorize]
         //[Route("GetMyId")]

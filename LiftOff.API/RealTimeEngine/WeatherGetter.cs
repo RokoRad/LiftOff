@@ -2,6 +2,7 @@ using LiftOff.API.Logic;
 using LiftOff.API.Models;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using Newtonsoft.Json;
 using System;
 using System.Threading;
 
@@ -145,7 +146,7 @@ namespace LiftOff.API.RealTimeEngine
                 if (weatherRating.weatherData.Units != Client.Units)
                     weatherRating = ChangeUnits(weatherRating);
 
-                Clients.Client(Client.ConnectionId).broadcastWeather(FormatRating(weatherRating));
+                Clients.Client(Client.ConnectionId).broadcastWeather(weatherRating);
             }
         }
 

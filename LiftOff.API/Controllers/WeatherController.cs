@@ -7,25 +7,25 @@ using LiftOff.API.Logic;
 namespace LiftOff.API.Controllers
 {
     [RoutePrefix("api/weather")]
-	public class WeatherController : ApiController
-	{
-		[AllowAnonymous]
-		[HttpPost]
-		[Route("getScore")]
-		public IHttpActionResult GetScore([FromBody]JObject json)
-		{
+    public class WeatherController : ApiController
+    {
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("getScore")]
+        public IHttpActionResult GetScore([FromBody]JObject json)
+        {
             TimeLocation timeLocation = JsonConvert.DeserializeObject<TimeLocation>(JsonConvert.SerializeObject(json));
 
-            if (!timeLocation.TimeIsValid())     return BadRequest("time requested is not valid");
+            if (!timeLocation.TimeIsValid()) return BadRequest("time requested is not valid");
             if (!timeLocation.LocationIsValid()) return BadRequest("location requested is not valid");
 
-			WeatherFetcher.Instance.AddTimeLocationToTrack(timeLocation);
+            WeatherFetcher.Instance.AddTimeLocationToTrack(timeLocation);
             var wd = WeatherFetcher.Instance.GetStoredWeatherData(timeLocation);
             var wr = WeatherFetcher.Instance.getConditionsRating(wd);
             WeatherFetcher.Instance.RemoveTimeLocationFromTracking(timeLocation);
 
             return Ok(wr);
-		}
+        }
 
         [AllowAnonymous]
         [HttpPost]
