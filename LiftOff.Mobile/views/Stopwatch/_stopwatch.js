@@ -3,6 +3,7 @@ import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes, updateStat
 import store from '../../store';
 import removeToken from '../../functions/removeToken';
 import _timeFlown from './_timeFlown.js';
+import headers from '../../functions/token';
 
 export default (history) => {
   let state = store.getState().stopwatchReducer.stopwatch,
@@ -15,10 +16,7 @@ export default (history) => {
     AsyncStorage.getItem('@token').then((token) => {
       fetch('http://liftoffapi.azurewebsites.net/api/logging/logFlight', {
         method: 'POST',
-        headers: {
-          'Authorization': 'Bearer ' + token,
-          'Content-type': 'application/json'
-        },
+        headers: headers(token),
         body: JSON.stringify({
           timeFlown: _timeFlown(state.minutes, state.seconds),
           flySafeScore,
