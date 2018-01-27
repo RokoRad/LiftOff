@@ -7,6 +7,7 @@ asap:
 - viewing for . restore ikonica - indikator vrimena
 - ikonu na search
 - brunu izvuc reset head na gitu
+- ikonice na mapi?
 
 poliranje: 
 - u nativni toast https://facebook.github.io/react-native/docs/toastandroid.html
