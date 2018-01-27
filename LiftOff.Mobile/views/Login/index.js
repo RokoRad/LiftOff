@@ -6,7 +6,6 @@ import login from './login.js';
 import Input from '../../components/Input';
 import InitialLogo from '../../components/InitialLogo';
 import InitialLink from '../../components/InitialLink';
-// import InitialButton from '../../components/InitialButton';
 import Button from '../../components/Button';
 
 const holder = {

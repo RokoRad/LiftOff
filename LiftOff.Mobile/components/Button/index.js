@@ -1,13 +1,16 @@
 import React from 'react';
-import { TouchableOpacity, Text, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import styles from './styles.js';
-import uppercase from '../../functions/uppercase';
-import language from '../../languages';
+import _loading from './_loading.js';
+import _default from './_default.js';
 
-export default ({onPress, type}) => (
+export default ({onPress, type, loading}) => (
   <TouchableOpacity onPress={onPress} opacity={0.8} style={styles.outer}>
     <View style={styles.buttonWrapper}>
-      <Text style={styles.buttonInner}>{uppercase(language[type])}</Text>
+    {(loading)
+    ? _loading()
+    : _default(type)
+    };
     </View>
   </TouchableOpacity>
 );
