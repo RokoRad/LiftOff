@@ -68,3 +68,7 @@ export const updateMarkers = (payload) => ({
   type: 'UPDATE_MARKERS',
   payload
 });
+
+export const changeLoading = () => ({
+  type: 'CHANGE_LOADING'
+});
