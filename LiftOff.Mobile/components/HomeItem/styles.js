@@ -15,15 +15,17 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#D8DADC',
+    borderBottomColor: 'rgba(216, 218, 220, 0.25)',
     display: 'flex',
     flexDirection: 'row'
   },
   left: {
     width: '25%',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    backgroundColor: 'pink'
   },
   icon: {
+    backgroundColor: 'purple',
     width: 40,
     height: 40
   },
@@ -60,7 +62,8 @@ const styles = StyleSheet.create({
     color: vars.grey
   },
   right: {
-    width: '25%'
+    width: '25%',
+    backgroundColor: 'orange'
   },
   rating: {
     fontFamily: vars.regular,

@@ -4,6 +4,8 @@ asap:
 - kmh => kmh
 - disbaled button na login, i udrit loading indicator
 - za log minus u save ikonicu koja dobro izgeda nakon save u checkmark
+- fade za navitem,
+- logs kad nema contenta, sopwatch u full height
 
 poliranje: 
 - očistit fontove
