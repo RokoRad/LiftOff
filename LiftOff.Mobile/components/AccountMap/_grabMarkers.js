@@ -20,9 +20,8 @@ export default (location, history) => {
     }).then((response) => {
       if(response.status === 200) {
         if(JSON.parse(response._bodyInit) === 'no flights') {
-          console.log("NOOO")
+          // no flights
         } else {
-          console.log(JSON.parse(response))
           // set state
         }
       } else if (response.status === 401) {
