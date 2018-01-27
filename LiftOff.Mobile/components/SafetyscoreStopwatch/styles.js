@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   drone: {
     width: 50,
     height: 50
@@ -50,5 +50,3 @@ const styles = StyleSheet.create({
     fontSize: 10
   }
 });
-
-export default styles; 

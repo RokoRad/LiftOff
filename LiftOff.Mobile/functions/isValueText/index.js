@@ -1,7 +1,7 @@
 import round from '../round';
 import capitalize from '../capitalize';
 
-const isValueText = (value) => {
+export default (value) => {
   if(value === null) {
     return '/';
   } else {
@@ -12,5 +12,3 @@ const isValueText = (value) => {
     }
   }
 };
-
-export default isValueText;

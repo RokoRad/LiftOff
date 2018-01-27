@@ -1,4 +1,4 @@
-const strings = {
+export default {
   Liftoff: 'Liftoff',
   Land: 'Land',
   Log: 'Log',
@@ -6,5 +6,3 @@ const strings = {
   Score: 'Score',
   Time: 'Time'
 };
-
-export default strings;

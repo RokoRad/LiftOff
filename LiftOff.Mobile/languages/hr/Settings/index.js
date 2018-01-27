@@ -1,5 +1,3 @@
-const strings = {
+export default {
 
 };
-
-export default strings;

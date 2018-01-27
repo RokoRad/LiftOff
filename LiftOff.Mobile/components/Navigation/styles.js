@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   navigation: {
     position: 'absolute',
     bottom: 0,
@@ -14,5 +14,3 @@ const styles = StyleSheet.create({
     elevation: 24
   }
 });
-
-export default styles;

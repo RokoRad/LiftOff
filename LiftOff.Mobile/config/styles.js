@@ -1,14 +1,15 @@
 import { StyleSheet } from 'react-native';
+import vars from './vars.js';
 
-const globals = StyleSheet.create({
+export default StyleSheet.create({
   green: {
-    backgroundColor: '#47E389'
+    backgroundColor: vars.green
   },
   orange: {
-    backgroundColor: '#FF9052'
+    backgroundColor: vars.orange
   },
   red: {
-    backgroundColor: '#F95F62'
+    backgroundColor: vars.bad
   },
   bothAligned: {
     display: 'flex',
@@ -21,5 +22,3 @@ const globals = StyleSheet.create({
     alignItems: 'center' 
   }
 });
-
-export default globals;

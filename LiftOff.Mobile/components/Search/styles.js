@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   wrapper: {
     position: 'absolute',
     top: 30,
@@ -27,5 +27,3 @@ const styles = StyleSheet.create({
     zIndex: 999
   }
 });
-
-export default styles;

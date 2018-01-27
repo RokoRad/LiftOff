@@ -1,4 +1,4 @@
-const colorGenerator = (rating) => {
+export default (rating) => {
   if(rating < 4) {
     if(rating < 2) {
       return 'red';
@@ -9,5 +9,3 @@ const colorGenerator = (rating) => {
     return 'green';
   }
 };
-
-export default colorGenerator;

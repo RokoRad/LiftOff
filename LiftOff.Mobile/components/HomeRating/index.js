@@ -9,7 +9,7 @@ import round from '../../functions/round';
 import language from '../../languages';
 
 
-const HomeRating = ({string, rating}) => (
+export default ({string, rating}) => (
     <View style={[styles.wrapper, globals[colorGenerator(rating)]]}>
       <View style={[styles.top, globals.bothAligned]}>
         <Animatable.Image source={require('../../images/drone.png')} style={styles.drone} animation={animationGenerator(colorGenerator(rating))} iterationCount="infinite" easing="ease-in-out" direction="alternate" />
@@ -31,5 +31,3 @@ const HomeRating = ({string, rating}) => (
     </View>
   </View>
 );
-
-export default HomeRating;

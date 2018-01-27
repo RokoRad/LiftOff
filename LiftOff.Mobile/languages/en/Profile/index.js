@@ -1,4 +1,4 @@
-const strings = {
+export default {
   moreThan: 'More than ',
   flewHere: ' flew here',
   userName: 'Username',
@@ -10,5 +10,3 @@ const strings = {
   totalTimeFlown: 'Total time flown',
   favoriteDrone: 'Favorite drone'
 };
-
-export default strings;

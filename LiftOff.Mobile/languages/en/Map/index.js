@@ -1,4 +1,4 @@
-const strings = {
+export default {
   Search: 'Where do you want to fly?',
   ChooseWhen: 'Choose date',
   TooltipTitle: 'We found a perfect spot!',
@@ -6,5 +6,3 @@ const strings = {
   Time: 'Time',
   ExpectedScore: 'Expected FlySafe Score'
 };
-
-export default strings;

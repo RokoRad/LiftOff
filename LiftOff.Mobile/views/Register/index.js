@@ -14,7 +14,7 @@ const holder = {
   password: ''
 }
 
-const Register = ({history}) => (
+export default ({history}) => (
   <View style={inital.screen}>  
     <View style={inital.container}>
       <InitialLogo />
@@ -29,5 +29,3 @@ const Register = ({history}) => (
     </View>
   </View>
 );
-
-export default Register;

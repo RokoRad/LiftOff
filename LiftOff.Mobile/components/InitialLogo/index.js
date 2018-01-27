@@ -1,22 +1,9 @@
 // ukljucivanje elemenata potrebnih za kreiranje InitalLogoa
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
-
-const styles = StyleSheet.create({
-  image: {
-    width: '100%',
-    resizeMode: 'contain',
-    height: 250,
-    maxWidth: 230,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginBottom: 10
-  },
-});
+import { Image } from 'react-native';
+import styles from './styles.js';
 
 // kreiranje komponente sa pripadajucima parametrima
-const InitialLogo = () => (
+export default () => (
   <Image source={require('../../images/logotip.png')} style={styles.image} />
 )
-
-export default InitialLogo;

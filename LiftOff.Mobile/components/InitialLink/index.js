@@ -7,7 +7,7 @@ import ToLogin from './ToLogin.js';
 import styles from './styles.js';
 
 // kreiranje komponente sa pripadajucima parametrima
-const InitalLink = ({onPress, type, to}) => (
+export default ({onPress, type, to}) => (
   <Link component={TouchableOpacity} activeOpacity={1} to={to}>
     <View style={styles.wrapper}>
       <Text style={styles.message}>
@@ -18,6 +18,4 @@ const InitalLink = ({onPress, type, to}) => (
       </Text>
     </View>
   </Link>
-)
-
-export default InitalLink;
+);

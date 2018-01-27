@@ -7,7 +7,7 @@ const initialState = {
   }
 };
 
-const stopwatchReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case 'SET_STARTTIME': 
       return {
@@ -45,5 +45,3 @@ const stopwatchReducer = (state = initialState, action) => {
         return state;
   }
 };
-
-export default stopwatchReducer;

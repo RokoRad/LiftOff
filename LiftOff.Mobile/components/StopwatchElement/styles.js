@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
@@ -11,11 +12,11 @@ const styles = StyleSheet.create({
   inner: {
     color: '#47525e',
     fontSize: 70,
-    fontFamily: 'barlowMedium',
+    fontFamily: vars.medium,
     textAlign: 'center'
   },
   double: {
-    fontFamily: 'barlowMedium',
+    fontFamily: vars.medium,
     color: '#47525e',
     fontSize: 70,
     lineHeight: 40,
@@ -23,5 +24,3 @@ const styles = StyleSheet.create({
     marginRight: 5
   }
 });
-
-export default styles;

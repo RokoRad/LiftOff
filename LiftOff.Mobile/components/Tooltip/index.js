@@ -5,7 +5,7 @@ import animationGenerator from '../../functions/animationGenerator';
 import language from '../../languages';
 import styles from './styles.js';
 
-const Tooltip = ({displayed}) => {
+export default ({displayed}) => {
   if(displayed) {
     return (
       <Animatable.View style={styles.tooltip} animation={animationGenerator('picker')} iterationCount={1} easing="ease-in-out" direction="alternate">
@@ -16,5 +16,3 @@ const Tooltip = ({displayed}) => {
     return (null);
   }
 };
-
-export default Tooltip;

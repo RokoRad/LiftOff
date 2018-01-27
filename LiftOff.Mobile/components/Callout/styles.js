@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   wrapper: {
     width: 200
   },
@@ -26,14 +26,12 @@ const styles = StyleSheet.create({
     fontFamily: vars.medium
   },
   green: {
-    color: '#47E389'
+    color: vars.green
   },
   orange: {
-    color: '#FF9052'
+    color: vars.orange
   },
   red: {
-    color: '#F95F62'
+    color: vars.bad
   }
 });
-
-export default styles;

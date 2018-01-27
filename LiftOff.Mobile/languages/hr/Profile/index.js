@@ -1,4 +1,4 @@
-const strings = {
+export default {
   moreThan: 'Više od ',
   flewHere: ' je letjelo ovdje',
   userName: 'Korisničko ime',
@@ -10,5 +10,3 @@ const strings = {
   totalTimeFlown: 'Ukupno vrijeme letenja',
   favoriteDrone: 'Najdraža letjelica'
 };
-
-export default strings;

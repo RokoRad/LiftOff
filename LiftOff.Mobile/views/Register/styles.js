@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   screen: {
     height: '100%',
     position: 'relative',
-    backgroundColor: '#3073f2',
+    backgroundColor: vars.blue,
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row'
@@ -21,5 +22,3 @@ const styles = StyleSheet.create({
     marginTop: -15
   }
 });
-
-export default styles;

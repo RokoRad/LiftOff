@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   container: {
     padding: 15,
     paddingTop: 5,
@@ -11,5 +11,3 @@ const styles = StyleSheet.create({
     marginTop: '100%'
   }
 });
-
-export default styles;

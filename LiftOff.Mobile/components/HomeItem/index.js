@@ -18,32 +18,30 @@ const icons = {
 
 // metric i imperial
 
-const HomeItem = (props) => (
+export default ({type, fVal, sVal, fName, sName, fAddon, sAddon, rating}) => (
   <View style={styles.wrapper}>
     <View style={[styles.left, globals.bothAligned]}>
-      <Image source={icons[props.type]} style={styles.icon}/>
+      <Image source={icons[type]} style={styles.icon}/>
     </View>
     <View style={styles.middle}>
       <View>
-        <Text style={styles.title}>{language[capitalize(props.type)]}</Text>
+        <Text style={styles.title}>{language[capitalize(type)]}</Text>
       </View>
       <View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>{language[props.fName]}</Text>
-          <Text style={styles.rightText}>{isValueText(props.fVal)}{props.fAddon}</Text>
+          <Text style={styles.leftText}>{language[fName]}</Text>
+          <Text style={styles.rightText}>{isValueText(fVal)}{fAddon}</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>{language[props.sName]}</Text>
-          <Text style={styles.rightText}>{isValueText(props.sVal)}{props.sAddon}</Text>
+          <Text style={styles.leftText}>{language[sName]}</Text>
+          <Text style={styles.rightText}>{isValueText(sVal)}{sAddon}</Text>
         </View>
       </View>
     </View>
     <View style={[styles.right, globals.bothAligned]}>
-      <Text style={[styles.rating, (props.rating !== null ? styles[colorGenerator(props.rating)] : null)]}>
-        {isValueText(props.rating)}
+      <Text style={[styles.rating, (rating !== null ? styles[colorGenerator(rating)] : null)]}>
+        {isValueText(rating)}
       </Text>
     </View>
   </View>
 );
-
-export default HomeItem;

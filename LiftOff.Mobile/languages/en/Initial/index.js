@@ -1,4 +1,4 @@
-const strings = {
+export default {
   Login: 'Login',
   Register: 'Register',
   ToRegister: `Don't have an account?`,
@@ -7,5 +7,3 @@ const strings = {
   ToLoginBold: ' Login!',
   Token: 'Invalid token'
 };
-
-export default strings;

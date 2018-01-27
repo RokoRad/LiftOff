@@ -7,7 +7,7 @@ import Settings from './Settings';
 import Stopwatch from './Stopwatch';
 import Toast from './Toast';
 
-const strings = {
+export default ({
   ...Home,
   ...Initial,
   ...Map,
@@ -16,6 +16,4 @@ const strings = {
   ...Settings,
   ...Stopwatch,
   ...Toast
-};
-
-export default strings;
+});

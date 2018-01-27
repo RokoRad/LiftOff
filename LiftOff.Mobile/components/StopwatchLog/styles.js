@@ -1,15 +1,15 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   green: {
-    color: '#47e389'
+    color: vars.green
   },
   orange: {
-    color: '#FF9052'
+    color: vars.orange
   },
   red: {
-    color: '#F95F62'
+    color: vars.bad
   },
   wrapper: {
     display: 'flex',
@@ -60,5 +60,3 @@ const styles = StyleSheet.create({
     color: '#3498db'  
   }
 });
-
-export default styles;

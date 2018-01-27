@@ -6,7 +6,7 @@ import styles from './styles.js';
 import { MapView } from 'expo';
 import round from '../../functions/round'
 
-const MarkerCallout = ({location, time, rating}) => (
+export default ({location, time, rating}) => (
   <MapView.Callout style={styles.wrapper}>
       <View>
       <Text style={styles.title}>{language.TooltipTitle}</Text>
@@ -25,5 +25,3 @@ const MarkerCallout = ({location, time, rating}) => (
     </View>
   </MapView.Callout>
 );
-
-export default MarkerCallout;

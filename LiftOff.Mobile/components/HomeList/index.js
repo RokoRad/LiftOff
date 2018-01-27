@@ -6,7 +6,7 @@ import _speed from './_speed.js';
 import _temperature from './_temperature.js'
 import _distance from './_distance.js';
 
-const HomeList = ({list, loaded}) => {
+export default ({list, loaded}) => {
   const nester = list.weatherData;
   return (
     <ScrollView style={styles.container} contentContainerStyle={{paddingBottom: 7}}>
@@ -18,5 +18,3 @@ const HomeList = ({list, loaded}) => {
       <HomeItem type="uv" rating={list.UVRating} fName="Uv" fVal={nester.UVIndex} sName="Cloudiness" sVal={nester.Cloudiness} sAddon="%" />
     </ScrollView>
 )};
-
-export default HomeList;
