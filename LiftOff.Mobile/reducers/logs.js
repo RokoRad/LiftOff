@@ -22,7 +22,7 @@ const _time = () => {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-      case 'ADD_LOG':
+    case 'ADD_LOG':
       return {
         logs: [
           {
@@ -35,11 +35,21 @@ export default (state = initialState, action) => {
           ...state.logs.slice(0, -1)
         ]
       };
-      // case 'UPDATE_LOG':
-      // return  {
-
-      // };
-      default:
-          return state;
+    case 'SAVE_LOG':
+      return {
+        logs: [
+          ...state.logs.slice(0, action.payload),
+          {
+            id: action.payload,
+            saved: true,
+            location: state.logs[action.payload].location,
+            rating: state.logs[action.payload].rating,
+            time: state.logs[action.payload].time
+          },
+          ...state.logs.slice(action.payload + 1)
+        ]
+      }
+    default:
+        return state;
   }
 };

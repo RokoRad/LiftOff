@@ -14,8 +14,6 @@ export default StyleSheet.create({
   left: {
     width: '25%'
   },
-  active: {
-  },
   leftInner: {
     textAlign: 'center'
   },

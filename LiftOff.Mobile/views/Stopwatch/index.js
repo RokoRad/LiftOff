@@ -27,7 +27,6 @@ class Stopwatch extends Component {
   }
 }
 
-
 const mapStateToProps = state => ({
   ...state.stopwatchReducer,
   ...state.logsReducer,

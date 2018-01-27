@@ -1,6 +1,7 @@
 import React from 'react';
 import Expo from 'expo';
 import { View, Text, Picker, AsyncStorage, TouchableWithoutFeedback, Switch, CheckBox } from 'react-native';
+import Button from '../../components/Button';
 import styles from './styles.js';
 import language from '../../languages';
 import Screen from '../../components/Screen';
@@ -23,6 +24,7 @@ export default ({location}) => (
       </TouchableWithoutFeedback>
       <Switch onValueChange={(value) => console.log(value)} activeText="hr" inActiveText="en" />
       <CheckBox onValueChange={(value) => console.log(value)} onChange={(value) => console.log(value)}/>
+      <Button type="Logout" />
     </View>
   </Screen>
 );
