@@ -8,6 +8,7 @@ asap:
 - logs kad nema contenta, sopwatch u full height
 - kad nema podaaka N/A
 - viewing for . resiore ikonica - indikator vrimena
+- ikonu na search
 
 poliranje: 
 - u nativni toast https://facebook.github.io/react-native/docs/toastandroid.html

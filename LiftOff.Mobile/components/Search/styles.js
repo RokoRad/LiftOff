@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -9,7 +10,7 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 15,
     paddingRight: 15,
-    backgroundColor: '#fff',
+    backgroundColor: vars.white,
     zIndex: 999,    
     shadowOpacity: 0.1,
     shadowRadius: 3,
@@ -21,8 +22,8 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: 14,
-    fontFamily: 'robotoLight',
-    color: '#939393'
+    fontFamily: vars.light,
+    color: vars.grey
   },
   out: {
     position: 'absolute',
