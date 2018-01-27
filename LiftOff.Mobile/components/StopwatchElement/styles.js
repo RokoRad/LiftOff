@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 export default StyleSheet.create({
   wrapper: {
@@ -11,11 +12,11 @@ export default StyleSheet.create({
   inner: {
     color: '#47525e',
     fontSize: 70,
-    fontFamily: 'barlowMedium',
+    fontFamily: vars.medium,
     textAlign: 'center'
   },
   double: {
-    fontFamily: 'barlowMedium',
+    fontFamily: vars.medium,
     color: '#47525e',
     fontSize: 70,
     lineHeight: 40,

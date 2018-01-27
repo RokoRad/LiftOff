@@ -12,7 +12,7 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: 10,
     right: 10,
-    fontFamily: 'barlowMedium',
+    fontFamily: vars.medium,
     fontSize: 14,
     zIndex: 999
   },
