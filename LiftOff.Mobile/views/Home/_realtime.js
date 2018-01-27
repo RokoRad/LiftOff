@@ -2,7 +2,7 @@ import signalr from 'react-native-signalr';
 import { AsyncStorage } from 'react-native';
 import store from '../../store';
 import { updateHome } from '../../actions';
-import Toast from 'react-native-simple-toast';
+import Toast from '../../functions/toast';
 import language from '../../languages';
 
 const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
@@ -18,7 +18,7 @@ const _start = async (object, units) => {
   connection.start().done(() => {
     proxy.invoke('initiateConnection', object, units);
   }).fail(() => {
-    Toast.show(`${language.serverError}`);
+    Toast(`${language.serverError}`);
   });
 }
 

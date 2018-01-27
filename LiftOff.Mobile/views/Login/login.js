@@ -1,4 +1,4 @@
-import Toast from 'react-native-simple-toast';
+import Toast from '../../functions/toast';
 import { AsyncStorage } from 'react-native';
 import encode from './encode.js';
 import language from '../../languages';
@@ -21,16 +21,16 @@ export default (data, history) => {
           history.push('/home');
         });
       } else {
-        Toast.show(`${language.serverError}`)
+        Toast(`${language.serverError}`)
       }
     }).catch((error) => {
-      Toast.show(`${language.serverError}`)
+      Toast(`${language.serverError}`)
     });
   } else {
     if(data.password.length < 7) {
-      Toast.show(`${language.passwordError}`)
+      Toast(`${language.passwordError}`)
     } else {
-      Toast.show(`${language.invalidInput}`)
+      Toast(`${language.invalidInput}`)
     }
   }
 }

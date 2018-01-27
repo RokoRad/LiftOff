@@ -35,7 +35,6 @@ export default class Login extends React.Component {
           <View style={inital.wrapper}>
             <Input type="username" onChangeText={(value) => holder.username = value} />
             <Input type="password" onChangeText={(value) => holder.password = value} />
-            <KeyboardSpacer />
           </View>
           <InitialLink type="login" to="/register" />
           <Button type="Login" onPress={() => login(holder, this.props.history)} />
