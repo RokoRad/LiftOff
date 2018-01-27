@@ -1,6 +1,8 @@
 asap:
 - stopwatch table
 - drone povuc iz settings i ubacit  u log
+- kmh => kmh
+- disbaled button na login, i udrit loading indicator
 
 poliranje: 
 - očistit fontove

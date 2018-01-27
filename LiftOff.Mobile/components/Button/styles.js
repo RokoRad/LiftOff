@@ -14,20 +14,14 @@ const globals = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 4,    
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
-    shadowOffset: {
-        height: 5,
-        width: 5
-    },
-    elevation: 5,
+    elevation: 2,
     marginBottom: 15,
     backgroundColor: vars.red
   },
   buttonInner: {
     color: vars.white,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 14,
     fontFamily: 'robotoMedium'
   }
 });
