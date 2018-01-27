@@ -19,31 +19,6 @@ const globals = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center' 
-  },
-  buttonWrapper: {
-    marginTop: 7.5,
-    paddingTop: 10,
-    paddingBottom: 10,
-    //width: 120,
-    paddingLeft: 20,
-    paddingRight: 20,
-    // marginLeft: 'auto',
-    // marginRight: 'auto',
-    borderRadius: 4,    
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
-    shadowOffset: {
-        height: 5,
-        width: 5
-    },
-    elevation: 5,
-    marginBottom: 15
-  },
-  buttonInner: {
-    color: '#fff',
-    textAlign: 'center',
-    fontSize: 20,
-    fontFamily: 'robotoMedium'
   }
 });
 
