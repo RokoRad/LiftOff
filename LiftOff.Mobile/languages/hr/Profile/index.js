@@ -8,7 +8,7 @@ const strings = {
   totalFlights: 'Ukupno letova',
   totalFlySafeScore: 'Prosječna FlySafe ocjena',
   totalTimeFlown: 'Ukupno vrijeme letenja',
-  favoriteDrone: 'Najdraži dron'
+  favoriteDrone: 'Najdraža letjelica'
 };
 
 export default strings;

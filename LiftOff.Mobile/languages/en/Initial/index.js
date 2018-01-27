@@ -1,11 +1,11 @@
 const strings = {
-  Login: 'Prijava',
-  Register: 'Registracija',
-  ToRegister: `Nemaš račun?`,
-  ToRegisterBold: ' Registriraj se!',
-  ToLogin: 'Imaš račun',
-  ToLoginBold: ' Prijavi se!',
-  Token: 'Neispravan token'
+  Login: 'Login',
+  Register: 'Register',
+  ToRegister: `Don't have an account?`,
+  ToRegisterBold: ' Register!',
+  ToLogin: 'Have an account?',
+  ToLoginBold: ' Login!',
+  Token: 'Invalid token'
 };
 
 export default strings;

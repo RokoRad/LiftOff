@@ -6,6 +6,8 @@ asap:
 - za log minus u save ikonicu koja dobro izgeda nakon save u checkmark
 - fade za navitem,
 - logs kad nema contenta, sopwatch u full height
+- kad nema podaaka N/A
+- viewing for . resiore ikonica - indikator vrimena
 
 poliranje: 
 - očistit fontove

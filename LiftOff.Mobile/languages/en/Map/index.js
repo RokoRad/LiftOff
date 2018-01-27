@@ -1,6 +1,6 @@
 const strings = {
   Search: 'Where do you want to fly?',
-  ChooseWhen: 'Choose when',
+  ChooseWhen: 'Choose date',
   TooltipTitle: 'We found a perfect spot!',
   Location: 'Location',
   Time: 'Time',
