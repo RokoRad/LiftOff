@@ -16,6 +16,7 @@ class Stopwatch extends Component {
   };
 
   render() {
+    console.log(this.props.logs)
       return (
         <Screen current={this.props.location}>
           <SafetyscoreStopwatch comment={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />

@@ -23,8 +23,8 @@ export const addLog = (payload) => ({
   payload
 });
 
-export const selectLog = (payload) => ({
-  type: 'SELECT_LOG',
+export const saveLog = (payload) => ({
+  type: 'SAVE_LOG',
   payload
 });
 

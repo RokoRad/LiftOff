@@ -1,3 +1,6 @@
+import store from '../../store';
+import { saveLog } from '../../actions';
+
 export default (id) => {
-  console.log(id)
+  store.dispatch(saveLog(id));
 }

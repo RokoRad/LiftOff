@@ -14,7 +14,7 @@ export default ({data, hidden}) => (
       <Text style={styles.right}>{uppercase(language.Time)}</Text>
     </View>
     <ScrollView style={styles.scroll}>
-      {data.map((value) => <StopwatchLog location={value.location} time={value.time} active={value.active} key={value.id} rating={value.rating} />)}
+      {data.map((value) => <StopwatchLog saved={value.saved} location={value.location} time={value.time} active={value.active} key={value.id} rating={value.rating} id={value.id} />)}
     </ScrollView>
   </View>
 );
