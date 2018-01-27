@@ -3,7 +3,7 @@ import vars from '../../config/vars.js';
 
 const styles = StyleSheet.create({
   message: {
-    color: '#fff',
+    color: vars.white,
     fontFamily: vars.light,
     textAlign: 'center',
     fontSize: 12,

@@ -12,12 +12,6 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     backgroundColor: vars.white,
     zIndex: 999,    
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    shadowOffset: {
-        height: 8,
-        width: 8
-    },
     elevation: 10
   },
   input: {
