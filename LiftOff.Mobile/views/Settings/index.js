@@ -13,17 +13,12 @@ import Button from '../../components/Button';
 import styles from './styles.js';
 import language from '../../languages';
 import Screen from '../../components/Screen';
+import Dropdown from '../../components/Dropdown';
 
 export default ({ location }) => (
   <Screen current={location}>
     <View style={styles.wrapper}>
-      <Picker
-      style={styles.picker}
-      selectedValue="java"
-      onValueChange={() => console.log("aa")}>
-      <Picker.Item label="Java" value="java" />
-      <Picker.Item label="JavaScript" value="js" />
-    </Picker>
+    <Dropdown />
       {/*     
       <Text>
         Settings

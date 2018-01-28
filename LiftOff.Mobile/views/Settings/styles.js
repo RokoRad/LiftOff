@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
 export default StyleSheet.create({
   wrapper: {
@@ -8,13 +9,6 @@ export default StyleSheet.create({
     flexDirection: 'column',
     width: '80%',
     marginLeft: 'auto',
-    marginRight: 'auto',
-    backgroundColor: 'pink'
-  },
-  picker: {
-    backgroundColor: 'red',
-    height: 100,
-    width: '100%',
-    color: 'blue'
+    marginRight: 'auto'
   }
 });
