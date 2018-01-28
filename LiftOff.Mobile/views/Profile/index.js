@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { View } from 'react-native';
 import Screen from '../../components/Screen';
 import AccountMap from '../../components/AccountMap';
 import styles from './styles.js';
@@ -24,7 +24,7 @@ class Account extends Component {
           moreThan={language.moreThan}
           flewHere={language.flewHere}
         />
-        <ScrollView style={styles.container}>{_list(this.props.stats)}</ScrollView>
+        <View style={styles.container}>{_list(this.props.stats)}</View>
       </Screen>
     );
   }

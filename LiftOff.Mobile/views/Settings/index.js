@@ -17,12 +17,12 @@ import Screen from '../../components/Screen';
 export default ({ location }) => (
   <Screen current={location}>
     <View style={styles.wrapper}>
-      {/* <Picker
+      <Picker
       selectedValue="js"
       onValueChange={(lang) => console.log(lang)}>
       <Picker.Item label="Java" value="java" />
       <Picker.Item label="JavaScript" value="js" />
-    </Picker> */}
+    </Picker>
       {/*     
       <Text>
         Settings
