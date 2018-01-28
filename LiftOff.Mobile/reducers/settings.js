@@ -6,10 +6,10 @@ const initialState = {
 };
 
 AsyncStorage.getItem('@drone').then(drone => {
-  if(drone) {
-    initialState.drone = drone
+  if (drone) {
+    initialState.drone = drone;
   }
-})
+});
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -23,7 +23,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         units: action.payload
-      }
+      };
 
     default:
       return state;

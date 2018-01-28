@@ -1,13 +1,6 @@
 import React from 'react';
 import Expo from 'expo';
-import {
-  View,
-  Text,
-  Picker,
-  AsyncStorage,
-  TouchableWithoutFeedback,
-  CheckBox
-} from 'react-native';
+import { View, Text, Picker, AsyncStorage, TouchableWithoutFeedback, CheckBox } from 'react-native';
 import vars from '../../config/vars.js';
 import Button from '../../components/Button';
 import styles from './styles.js';

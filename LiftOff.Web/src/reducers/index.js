@@ -13,4 +13,4 @@ export default combineReducers({
   homeReducer,
   initialReducer,
   dashboardReducer
-})
+});

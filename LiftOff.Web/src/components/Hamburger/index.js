@@ -12,10 +12,10 @@ class Hamburger extends React.Component {
   render() {
     return (
       <div>
-        <div className="hamburger" onClick={() => _toggleMenu()}></div>
+        <div className="hamburger" onClick={() => _toggleMenu()} />
         {this.props.menu ? <Menu /> : null}
       </div>
-    )
+    );
   }
 }
 

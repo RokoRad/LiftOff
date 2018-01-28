@@ -1,10 +1,4 @@
-import {
-  toggleStopwatch,
-  setStarttime,
-  updateSeconds,
-  updateMinutes,
-  addLog
-} from '../../actions';
+import { toggleStopwatch, setStarttime, updateSeconds, updateMinutes, addLog } from '../../actions';
 import store from '../../store';
 import removeToken from '../../functions/removeToken';
 import _timeFlown from './_timeFlown.js';
@@ -29,7 +23,6 @@ export default (history, drone) => {
     store.dispatch(updateSeconds((state.seconds = 0)));
     store.dispatch(updateMinutes((state.minutes = 0)));
     clearInterval(this.stopwatch);
-
   } else {
     store.dispatch(setStarttime((state.startTime = new Date().toISOString())));
     this.stopwatch = setInterval(() => {

@@ -10,8 +10,12 @@ class Dropdown extends Component {
   }
 
   render() {
-    return ( 
-      <Picker selectedValue={this.props.drone} onValueChange={(drone) => _changeDrone(drone)} style={styles.picker}>
+    return (
+      <Picker
+        selectedValue={this.props.drone}
+        onValueChange={drone => _changeDrone(drone)}
+        style={styles.picker}
+      >
         <Picker.Item label="DJI Phantom 4 Pro" value="DJI Phantom 4 Pro" />
         <Picker.Item label="DJI Phantom 4 Advanced" value="DJI Phantom 4 Advanced" />
         <Picker.Item label="DJI Phantom 3 SE" value="DJI Phantom 3 SE" />
@@ -20,7 +24,7 @@ class Dropdown extends Component {
         <Picker.Item label="DJI Spark" value="DJI Spark" />
         <Picker.Item label="Yuneec Typhoon H Pro" value="Yuneec Typhoon H pro" />
       </Picker>
-    )
+    );
   }
 }
 

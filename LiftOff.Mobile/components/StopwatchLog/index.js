@@ -9,7 +9,12 @@ import _saveLog from './_saveLog.js';
 export default ({ history, rating, location, time, id, saved }) => (
   <View style={styles.wrapper}>
     <View style={[styles.left, styles.bothAligned]}>
-      <CheckBox disabled={saved} onValueChange={() => _saveLog(id)} style={styles.checkbox} value={saved} />
+      <CheckBox
+        disabled={saved}
+        onValueChange={() => _saveLog(id)}
+        style={styles.checkbox}
+        value={saved}
+      />
     </View>
     <View style={styles.middle}>
       <Text style={styles.middleInner} numberOfLines={1} ellipsizeMode="tail">

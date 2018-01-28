@@ -10,6 +10,6 @@ export default StyleSheet.create({
   },
   text: {
     color: vars.grey,
-    textAlign: 'left',
+    textAlign: 'left'
   }
 });

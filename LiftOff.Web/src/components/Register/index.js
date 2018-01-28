@@ -25,9 +25,14 @@ const register = () => {
 
 const Login = () => (
   <form className="register">
-    <Input placeholder="Username" onChange={(e) => console.log(e)} />
-    <Input placeholder="Email" type="email" onChange={(e) => holder.email = e} />
-    <Input placeholder="Password" type="password" minLength="8" onChange={(e) => holder.password = e} />
+    <Input placeholder="Username" onChange={e => console.log(e)} />
+    <Input placeholder="Email" type="email" onChange={e => (holder.email = e)} />
+    <Input
+      placeholder="Password"
+      type="password"
+      minLength="8"
+      onChange={e => (holder.password = e)}
+    />
     <InitalMessage type="register" />
     <Button onClick={() => register()}>Register</Button>
   </form>

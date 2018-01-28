@@ -23,7 +23,6 @@ const login = () => {
   // });
 };
 
-
 const Login = () => (
   <form className="login">
     <Input placeholder="Username" onChange={() => holder.username} />

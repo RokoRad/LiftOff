@@ -1,10 +1,6 @@
 import React from 'react';
 import Expo from 'expo';
-import {
-  View,
-  Text,
-  CheckBox
-} from 'react-native';
+import { View, Text, CheckBox } from 'react-native';
 import Button from '../../components/Button';
 import styles from './styles.js';
 import language from '../../languages';
