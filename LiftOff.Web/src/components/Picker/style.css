@@ -6,3 +6,11 @@
   margin-right: -5px;
   background-image: url('../../images/map/date.png')
 }
+
+.date-picker {
+  width: 200%;
+  position: absolute;
+  display: block;
+  z-index: 995;
+  margin-left: -10px;
+}

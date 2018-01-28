@@ -8,6 +8,8 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
     "google-maps-react": "^1.1.2",
+    "material-ui": "^0.20.0",
+    "material-ui-datetimepicker": "^1.0.6",
     "prettier": "^1.10.2",
     "react": "^16.2.0",
     "react-chartjs2": "^1.2.1",
