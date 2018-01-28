@@ -8,9 +8,9 @@ class Dashboard extends React.Component {
   // }
 
   componentWillMount() {
-    if(!token.get()) {
-      window.location.href = "/";
-    }
+    // if(!token.get()) {
+    //   window.location.href = "/";
+    // }
   }
 
   render() {
