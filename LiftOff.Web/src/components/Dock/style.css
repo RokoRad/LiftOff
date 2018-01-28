@@ -9,5 +9,6 @@
   box-shadow: -3px 0px 10px 0px rgba(0,0,0,0.5);
   right: 0;
   display: flex;
+  cursor: pointer;
   flex-direction: column;
 }

@@ -1,4 +1,7 @@
 .calibration {
   flex: 1;
-  background-color: red
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../../images/map/crosshair.png')
 }

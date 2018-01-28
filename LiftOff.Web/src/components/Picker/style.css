@@ -1,4 +1,8 @@
 .picker {
   flex: 1;
-  background-color: blue;
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: -5px;
+  background-image: url('../../images/map/date.png')
 }
