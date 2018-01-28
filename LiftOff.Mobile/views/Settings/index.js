@@ -15,6 +15,8 @@ import language from '../../languages';
 import Screen from '../../components/Screen';
 import Dropdown from '../../components/Dropdown';
 import Switch from '../../components/Switch';
+import UnitsSwitch from '../../components/UnitsSwitch';
+import LanguageSwitch from '../../components/LanguageSwitch';
 import LogPermission from '../../components/LogPermission';
 
 export default ({ location }) => (
@@ -31,9 +33,9 @@ change units
         onValueChange={value => console.log(value)}
         onChange={value => console.log(value)}
       /> */}
-      {/* <LogPermission /> */}
-      <Switch
-      style={{paddingTop: 30}}
+      <LogPermission />
+      <UnitsSwitch />
+      {/* <Switch
     value={true}
     onValueChange={(val) => console.log(val)}
     disabled={false}
@@ -46,7 +48,7 @@ change units
     backgroundInactive={vars.blue}
     circleActiveColor={vars.blue}
     circleInActiveColor={vars.red}
-  />
+  /> */}
       <Button type="Logout" onPress={() => _logout(location)} />
     </View>
   </Screen>
