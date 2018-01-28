@@ -10,7 +10,6 @@ class Dropdown extends Component {
   }
 
   render() {
-    console.log(this.props.drone)
     return ( 
       <Picker selectedValue={this.props.drone} onValueChange={(drone) => _changeDrone(drone)} style={styles.picker}>
         <Picker.Item label="DJI Phantom 4 Pro" value="DJI Phantom 4 Pro" />
@@ -26,8 +25,7 @@ class Dropdown extends Component {
 }
 
 const mapStateToProps = state => ({
-  ...state.timeLocationReducer,
-  ...state.homeReducer
+  ...state.settingsReducer
 });
 
 export default connect(mapStateToProps)(Dropdown);

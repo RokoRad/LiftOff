@@ -1,7 +1,8 @@
 import store from '../../store';
+import { AsyncStorage } from 'react-native';
 import { changeDrone } from '../../actions'
 
 export default (drone) => {
-  console.log("store", store.getState().settingsReducer.drone)
   store.dispatch(changeDrone(store.getState().settingsReducer.drone = drone));
+  AsyncStorage.setItem('@drone', drone);
 }
