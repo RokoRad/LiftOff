@@ -8,6 +8,8 @@ import language from '../../languages';
 const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
       proxy = connection.createHubProxy('weatherHub');
       //units = 'metric';
+      connection.logging = true;
+      
 
 proxy.on('broadcastWeather', (response) => {
   store.dispatch(updateHome(response));

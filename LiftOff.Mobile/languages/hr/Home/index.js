@@ -14,5 +14,6 @@ export default {
   Visibility: 'Vidljivost',
   Wind: 'Vjetar',
   WindDirection: 'Smjer vjetra',
-  WindSpeed: 'Brzina vjetra'
+  WindSpeed: 'Brzina vjetra',
+  Indicator: 'Pregled za'
 };

@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  bothAligned: {
+  wrapper: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '80%',
-    flexDirection: 'row'
+    flexDirection: 'column'
   }
 });

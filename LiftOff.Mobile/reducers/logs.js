@@ -13,7 +13,9 @@ const _time = () => {
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
-  } else if (hours < 10) {
+  } 
+  
+  if (hours < 10) {
     hours = `0${hours}`;
   }
 

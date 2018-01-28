@@ -1,7 +1,8 @@
 .inital__image {
-  background-image: url('../../images/logo.png');
-  background-size: contain;
-  width: 200px;
-  height: 200px;
+  background-image: url('../../images/logotip.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 180px;
   background-position: center;
 }

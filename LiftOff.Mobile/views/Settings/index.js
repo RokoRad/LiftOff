@@ -7,24 +7,34 @@ import language from '../../languages';
 import Screen from '../../components/Screen';
 
 export default ({location}) => (
-  <Screen current={location} style={styles.bothAligned}>
-    <View>
-    <Picker
+  <Screen current={location}>
+    <View style={styles.wrapper}>
+    {/* <Picker
       selectedValue="js"
       onValueChange={(lang) => console.log(lang)}>
       <Picker.Item label="Java" value="java" />
       <Picker.Item label="JavaScript" value="js" />
-    </Picker>
-    
+    </Picker> */}
+{/*     
       <Text>
         Settings
       </Text>
       <TouchableWithoutFeedback onPress={() => changeLanguage()}>
         <View><Text>change lang</Text></View>
       </TouchableWithoutFeedback>
-      <Switch onValueChange={(value) => console.log(value)} activeText="hr" inActiveText="en" />
+      <Switch onValueChange={(value) => console.log(value)} activeText="hr" inActiveText="en" /> */}
+{/* 
+change language
+change units
+show others where i fly
+choose drone
+logout
+lawbook za hr
+
+*/}
+
       <CheckBox onValueChange={(value) => console.log(value)} onChange={(value) => console.log(value)}/>
-      <Button type="Logout" />
+      <Button type="Logout" onPress={() => _logout(location)}/>
     </View>
   </Screen>
 );
