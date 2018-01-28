@@ -8,7 +8,19 @@ export default ({}) => (
     <div className="grid__left">left</div>
     <div className="grid__right">
       <Map />
-      <Graph />
+      <Graph days={[
+        'Monday',
+        'Monday',
+        'Monday',
+        'Monday',
+        'Monday'
+      ]} scores={[
+        1.7, 
+        2.3,
+        4.6, 
+        4.2, 
+        1.5
+      ]}/>
     </div>
   </div>
 );

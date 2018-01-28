@@ -2,29 +2,31 @@ import React from 'react';
 import Chart from 'react-chartjs2';
 import './style.css';
 
-var data = {
-  labels: ['Ponedjeljak', 'Utorak', 'Srijeda', 'Četvrtak', 'Petak'],
-  datasets: [{ 
-      data: [1.7, 2.3, 4.6, 4.2, 1.5],
-      borderColor: '#3073f2',
-      fill: false
-    }
-  ]
+export default ({days, scores}) => {
+  const options = {
+    legend: { 
+      display: false 
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+    tooltips: {
+      enabled: false
+    },
+  }
+
+  const data = {
+    labels: days,
+    datasets: [{ 
+        data: scores,
+        borderColor: '#3073f2',
+        fill: false
+      }
+    ]
+  }
+
+  return (
+    <div className="graph">
+      <Chart data={data} options={options} type='line' />
+    </div>
+  )
 };
-
-var options = {
-  legend: { 
-    display: false 
-  },
-  responsive: true,
-  maintainAspectRatio: false,
-  tooltips: {
-    enabled: false
-  },
-}
-
-export default () => (
-  <div className="graph">
-    <Chart data={data} options={options} type='line' />
-  </div>
-);
