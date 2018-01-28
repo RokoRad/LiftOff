@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Picker } from 'react-native';
 import _changeDrone from './_changeDrone.js';
+import { connect } from 'react-redux';
 import styles from './styles.js';
 
 class Dropdown extends Component {
@@ -9,8 +10,9 @@ class Dropdown extends Component {
   }
 
   render() {
+    console.log(this.props.drone)
     return ( 
-      <Picker selectedValue="DJI Spark" onValueVhange={(value) => console.log(value)} style={styles.picker}>
+      <Picker selectedValue={this.props.drone} onValueChange={(drone) => _changeDrone(drone)} style={styles.picker}>
         <Picker.Item label="DJI Phantom 4 Pro" value="DJI Phantom 4 Pro" />
         <Picker.Item label="DJI Phantom 4 Advanced" value="DJI Phantom 4 Advanced" />
         <Picker.Item label="DJI Phantom 3 SE" value="DJI Phantom 3 SE" />
@@ -23,4 +25,9 @@ class Dropdown extends Component {
   }
 }
 
-export default Dropdown;
+const mapStateToProps = state => ({
+  ...state.timeLocationReducer,
+  ...state.homeReducer
+});
+
+export default connect(mapStateToProps)(Dropdown);

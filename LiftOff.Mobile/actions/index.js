@@ -71,3 +71,8 @@ export const updateMarkers = payload => ({
 export const changeLoading = () => ({
   type: 'CHANGE_LOADING'
 });
+
+export const changeDrone = payload => ({
+  type: 'CHANGE_DRONE',
+  payload
+});

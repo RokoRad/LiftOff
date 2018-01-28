@@ -6,6 +6,7 @@ import profileReducer from './profile.js';
 import homeReducer from './home.js';
 import timeLocationReducer from './timeLocation.js';
 import initialReducer from './initial.js';
+import settingsReducer from './settings.js';
 
 export default combineReducers({
   stopwatchReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   profileReducer,
   timeLocationReducer,
   homeReducer,
-  initialReducer
+  initialReducer,
+  settingsReducer
 });
