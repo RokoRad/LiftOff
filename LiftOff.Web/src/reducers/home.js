@@ -3,9 +3,9 @@ import { AsyncStorage } from 'react-native';
 const initialState = {
   home: {
     AdvisoryRating: {
-      Croatian: "Učitavanje podatka..",
-      English: "Fetching data.."
-    },  
+      Croatian: 'Učitavanje podatka..',
+      English: 'Fetching data..'
+    },
     AtmosphereRating: 'N/A',
     ConditionsRating: 'N/A',
     TemperatureRating: 'N/A',
@@ -23,7 +23,7 @@ const initialState = {
       TimeLocation: {
         Location: {
           Latitude: 43.508133,
-          Longitude: 16.440193,
+          Longitude: 16.440193
         },
         Time: new Date().toISOString()
       },
@@ -39,21 +39,21 @@ const initialState = {
   }
 };
 
-AsyncStorage.getItem('@realtime').then((realtime) => {
-  if(realtime) {
+AsyncStorage.getItem('@realtime').then(realtime => {
+  if (realtime) {
     initialState.home = JSON.parse(realtime);
   }
-})
+});
 
 export default (state = initialState, action) => {
   switch (action.type) {
-      case 'UPDATE_HOME':
-      return  {
+    case 'UPDATE_HOME':
+      return {
         home: {
           ...action.payload
         }
       };
-      default:
-          return state;
+    default:
+      return state;
   }
 };

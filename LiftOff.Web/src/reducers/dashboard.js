@@ -7,7 +7,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_MENU':
-      return  {
+      return {
         menu: !state.menu
       };
     default:

@@ -4,10 +4,10 @@ import Login from '../../components/Login';
 import Register from '../../components/Register';
 import './style.css';
 
-const InitalHolder = ({route}) => (
+const InitalHolder = ({ route }) => (
   <div className="inital__holder">
     <InitalLogo />
-    {route === 'login' ? <Login /> : <Register/> }
+    {route === 'login' ? <Login /> : <Register />}
   </div>
 );
 

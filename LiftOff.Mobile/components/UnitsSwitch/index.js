@@ -6,9 +6,9 @@ import store from '../../store';
 
 export default () => {
   const value = store.getState().settingsReducer.units;
-  
+
   let state;
-  if(value === 'imperial') {
+  if (value === 'imperial') {
     state = false;
   } else {
     state = true;
@@ -17,9 +17,9 @@ export default () => {
   return (
     <Switch
       value={state}
-      onValueChange={(val) => _onChange(val)}
+      onValueChange={val => _onChange(val)}
       activeText={'km'}
       inActiveText={'mil'}
     />
-  )
-}
+  );
+};

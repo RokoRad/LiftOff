@@ -10,4 +10,4 @@ export default () => {
     }
     Expo.Util.reload();
   });
-}
+};

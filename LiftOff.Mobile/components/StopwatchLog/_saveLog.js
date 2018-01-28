@@ -31,14 +31,14 @@ export default (id, history) => {
           flightStartTime: state[id].time
         }
       })
-    }).then((response) => {
-      if(response.status === 200) {
+    }).then(response => {
+      if (response.status === 200) {
         store.dispatch(updateStats(JSON.parse(response._bodyInit)));
         AsyncStorage.setItem('@stats', response._bodyInit);
         store.dispatch(saveLog(id));
       } else if (response.status === 401) {
         removeToken(history);
       }
-    })
+    });
   });
 };

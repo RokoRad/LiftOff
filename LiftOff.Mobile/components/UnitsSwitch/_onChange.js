@@ -1,11 +1,11 @@
 import { changeUnits } from '../../actions';
 import store from '../../store';
 
-export default (bool) => {
-  if(bool) {
+export default bool => {
+  if (bool) {
     store.dispatch(changeUnits('imperial'));
   } else {
-    store.dispatch(changeUnits('metric'))
+    store.dispatch(changeUnits('metric'));
   }
-  console.log(bool)
-}
+  console.log(bool);
+};
