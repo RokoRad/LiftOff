@@ -3,18 +3,24 @@ import Chart from 'react-chartjs2';
 import './style.css';
 
 var data = {
-  labels: [1, 2, 3, 4, 5],
+  labels: ['Ponedjeljak', 'Utorak', 'Srijeda', 'Četvrtak', 'Petak'],
   datasets: [{ 
-      data: [0.1, 2.3, 4.6, 4.2, 1.5],
-      borderColor: "#3e95cd",
+      data: [1.7, 2.3, 4.6, 4.2, 1.5],
+      borderColor: '#3073f2',
       fill: false
     }
   ]
 };
 
 var options = {
-  legend: { display: false },
-  responsive: true
+  legend: { 
+    display: false 
+  },
+  responsive: true,
+  maintainAspectRatio: false,
+  tooltips: {
+    enabled: false
+  },
 }
 
 export default () => (

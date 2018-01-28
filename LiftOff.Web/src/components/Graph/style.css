@@ -1,3 +1,4 @@
 .graph {
-  flex: 1
+  flex: 1;
+  max-height: 300px
 }
