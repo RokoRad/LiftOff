@@ -1,0 +1,26 @@
+.hamburger {
+  background-color: #f5f7fa;
+  width: 25px;
+  height: 3px;
+  border-radius: 5px;
+  position: relative;
+  margin-top: 9px;
+}
+
+.hamburger:before,
+.hamburger:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: inherit;
+}
+
+.hamburger:before {
+  top: -8px;
+}
+
+.hamburger:after {
+  bottom: -8px;
+}
