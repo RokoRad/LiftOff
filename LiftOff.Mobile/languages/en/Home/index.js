@@ -14,5 +14,6 @@ export default {
   Visibility: 'Visibility',
   Wind: 'Wind',
   WindDirection: 'Wind direction',
-  WindSpeed: 'Wind speed'
+  WindSpeed: 'Wind speed',
+  Indicator: 'Viewing for'
 };

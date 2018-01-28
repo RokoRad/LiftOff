@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
+import HomeIndicator from '../../components/HomeIndicator';
 import { connect } from 'react-redux';
 import { _start, _stop } from './_realtime.js';
 import styles from './styles.js';
@@ -14,7 +15,8 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
-    _start(this.props.timeLocation, 'metric')
+    _start(this.props.timeLocation, 'metric');
+    console.log("prop", this.props.timeLocation)
   }
 
   componentWillUnmount() {
@@ -25,10 +27,7 @@ class Home extends React.Component {
     return (
       <Screen current={this.props.location}>
         <HomeRating string={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
-        <View style={styles.wrapper}>
-          <Text style={styles.left}>Viewing for</Text>
-          <Text style={styles.right}>{_getTime(this.props.timeLocation.time)}</Text>
-        </View>
+        <HomeIndicator time={this.props.timeLocation.time}/>
         <HomeList list={this.props.home} />
       </Screen>
     );
