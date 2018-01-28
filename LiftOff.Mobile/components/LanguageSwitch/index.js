@@ -5,7 +5,7 @@ import vars from '../../config/vars.js';
 export default () => (
   <Switch
     value={true}
-    onValueChange={(val) => console.log(val)}
+    onValueChange={(val) => _onChange(val)}
     disabled={false}
     activeText={'HR'}
     inActiveText={'EN'}

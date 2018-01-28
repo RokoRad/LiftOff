@@ -2,7 +2,7 @@ import store from '../../store';
 import { AsyncStorage } from 'react-native';
 import headers from '../../functions/headers';
 import removeToken from '../../functions/removeToken';
-import { updateStats } from '../../actions';
+import { updateStats, saveLog } from '../../actions';
 
 export default (id, history) => {
   let state = store.getState().logsReducer.logs,
