@@ -1,6 +1,5 @@
 asap:
 - drone povuc iz settings i ubacit  u log
-- viewing for . restore ikonica - indikator vrimena
 - brunu izvuc reset head na gitu
 - KAKO SPREMAM LOG??
 
