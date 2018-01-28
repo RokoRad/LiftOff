@@ -18,8 +18,9 @@ export default ({ location }) => (
   <Screen current={location}>
     <View style={styles.wrapper}>
       <Picker
-      selectedValue="js"
-      onValueChange={(lang) => console.log(lang)}>
+      style={styles.picker}
+      selectedValue="java"
+      onValueChange={() => console.log("aa")}>
       <Picker.Item label="Java" value="java" />
       <Picker.Item label="JavaScript" value="js" />
     </Picker>
