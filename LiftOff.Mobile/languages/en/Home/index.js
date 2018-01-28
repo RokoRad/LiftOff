@@ -15,5 +15,6 @@ export default {
   Wind: 'Wind',
   WindDirection: 'Wind direction',
   WindSpeed: 'Wind speed',
-  Indicator: 'Viewing for'
+  Indicator: 'Viewing for',
+  Now: 'current time'
 };

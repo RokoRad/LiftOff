@@ -4,7 +4,8 @@ import vars from '../../config/vars.js';
 export default StyleSheet.create({
   image: {
     width: 17.5,
-    marginTop: 5,
+    marginTop: 5.5,
+    marginLeft: 3,
     height: 15
   },
   wrapper: {
@@ -30,5 +31,9 @@ export default StyleSheet.create({
   rightText: {
     fontFamily: vars.medium,
     fontSize: 14
+  },
+  inner: {
+    display: 'flex',
+    flexDirection: 'row'
   }
 })
