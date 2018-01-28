@@ -19,15 +19,8 @@ export default ({ location }) => (
   <Screen current={location}>
     <View style={styles.wrapper}>
     <Dropdown />
+    
       {/*     
-      <Text>
-        Settings
-      </Text>
-      <TouchableWithoutFeedback onPress={() => changeLanguage()}>
-        <View><Text>change lang</Text></View>
-      </TouchableWithoutFeedback>
-      <Switch onValueChange={(value) => console.log(value)} activeText="hr" inActiveText="en" /> */}
-      {/* 
 change language
 change units
 show others where i fly
