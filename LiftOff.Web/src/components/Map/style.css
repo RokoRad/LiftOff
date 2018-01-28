@@ -2,4 +2,11 @@
   flex: 3;
   background-color: pink;
   position: relative;
+  min-height: 500px;
+}
+
+@media screen and (max-width: 768px) {
+  .map {
+    min-height: 300px
+  }
 }
