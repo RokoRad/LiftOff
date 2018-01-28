@@ -10,9 +10,9 @@ class Hamburger extends React.Component {
   }
 
   render() {
-    console.log(this.props.menu)
     return (
-      <div className="hamburger" onClick={() => _toggleMenu()}>
+      <div>
+        <div className="hamburger" onClick={() => _toggleMenu()}></div>
         {this.props.menu ? <Menu /> : null}
       </div>
     )
