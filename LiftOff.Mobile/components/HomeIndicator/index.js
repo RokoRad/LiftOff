@@ -10,7 +10,7 @@ export default ({time}) => (
     <Text style={styles.left}>{language.Indicator}</Text>
     <View style={styles.right}>
       <TouchableOpacity onPress={() => _restore()}>
-        {(_getTime(time) !== _getTime(new Date().toISOString())) 
+        {(_getTime(time) === _getTime(new Date().toISOString())) 
         ? <Text style={styles.rightText}>{language.Now}</Text>
         : (<View style={styles.inner}>
             <Text style={styles.rightText}>{_getTime(time)}</Text>
