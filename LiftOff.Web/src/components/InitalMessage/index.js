@@ -1,20 +1,11 @@
 import React from 'react';
-import storage from '../../functions/storage';
+import _toLogin from './_toLogin.js';
+import _toRegister from './_toRegister.js';
 import './style.css';
-
-const changeRoute = (type) => {
-  if(type === 'login') {
-    window.location.href = "/register";
-  } else {
-    window.location.href = "/";
-  }
-}
 
 const InitalMessage = ({type}) => (
   <div className="inital-message">
-    <a href="#" className="inital-message__text" onClick={() => changeRoute(type)}>
-      Have an account? <span className="inital-message__text--bold">Login</span>
-    </a>
+    {(type) === 'login' ? _toLogin(type) : _toRegister(type)}
   </div>
 );
 
