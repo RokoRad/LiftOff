@@ -15,7 +15,6 @@ class Home extends React.Component {
 
   componentWillMount() {
     _start(this.props.timeLocation, 'metric');
-    console.log("prop", this.props.timeLocation)
   }
 
   componentWillUnmount() {
