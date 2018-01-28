@@ -8,10 +8,11 @@ import {
 import Button from '../../components/Button';
 import styles from './styles.js';
 import language from '../../languages';
+import _onChange from './_onChange.js';
 
-export default ({  }) => (
+export default () => (
   <View style={styles.wrapper}>
     <Text style={styles.text}>{language.Permission}</Text>
-    <CheckBox />
+    <CheckBox onChange={() => _onChange()} />
   </View>
-};
+);
