@@ -6,15 +6,15 @@ import {
   Picker,
   AsyncStorage,
   TouchableWithoutFeedback,
-  Switch,
   CheckBox
 } from 'react-native';
-import { Switch } from 'react-native-switch';
+import vars from '../../config/vars.js';
 import Button from '../../components/Button';
 import styles from './styles.js';
 import language from '../../languages';
 import Screen from '../../components/Screen';
 import Dropdown from '../../components/Dropdown';
+import Switch from '../../components/Switch';
 import LogPermission from '../../components/LogPermission';
 
 export default ({ location }) => (
@@ -31,20 +31,21 @@ change units
         onValueChange={value => console.log(value)}
         onChange={value => console.log(value)}
       /> */}
-      <LogPermission />
+      {/* <LogPermission /> */}
       <Switch
+      style={{paddingTop: 30}}
     value={true}
     onValueChange={(val) => console.log(val)}
     disabled={false}
-    activeText={'On'}
-    inActiveText={'Off'}
-    circleSize={30}
-    barHeight={1}
+    activeText={'HR'}
+    inActiveText={'EN'}
+    circleSize={50}
+    barHeight={50}
     circleBorderWidth={3}
-    backgroundActive={'green'}
-    backgroundInactive={'gray'}
-    circleActiveColor={'#30a566'}
-    circleInActiveColor={'#000000'}
+    backgroundActive={vars.red}
+    backgroundInactive={vars.blue}
+    circleActiveColor={vars.blue}
+    circleInActiveColor={vars.red}
   />
       <Button type="Logout" onPress={() => _logout(location)} />
     </View>
