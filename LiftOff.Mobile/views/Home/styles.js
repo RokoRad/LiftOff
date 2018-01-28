@@ -10,14 +10,16 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     opacity: 0.7,
-    marginVertical: 10
+    marginTop: 10,
   },
   left: {
     fontFamily: vars.regular,
-    fontSize: 14
+    fontSize: 14,
+    opacity: 0.7
   },
   right: {
-    fontFamily: vars.regular,
-    fontSize: 14
+    fontFamily: vars.medium,
+    fontSize: 14,
+    opacity: 0.7
   }
 })

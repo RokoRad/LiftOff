@@ -22,14 +22,13 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(_getTime(this.props.home.weatherData.TimeLocation.Time))
     return (
       <Screen current={this.props.location}>
         <HomeRating string={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
-        {/* <View style={styles.wrapper}>
+        <View style={styles.wrapper}>
           <Text style={styles.left}>Viewing for</Text>
-          <Text style={styles.right}>{_getTime(this.props.home.weatherData.TimeLocation.Time)}</Text>
-        </View> */}
+          <Text style={styles.right}>{_getTime(this.props.timeLocation.time)}</Text>
+        </View>
         <HomeList list={this.props.home} />
       </Screen>
     );
