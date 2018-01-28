@@ -1,4 +1,6 @@
 import React from 'react';
+import Graph from '../Graph';
+import Map from '../Map';
 import './style.css';
 
 export default ({}) => (
