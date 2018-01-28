@@ -5,6 +5,7 @@ import headers from '../../functions/headers';
 
 export default (id) => {
   store.dispatch(saveLog(id));
+  console.log(id)
   AsyncStorage.getItem('@token').then((token) => {
     // fetch('', {
     //   method: 'POST',

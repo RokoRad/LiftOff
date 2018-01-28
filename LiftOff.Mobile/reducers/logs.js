@@ -26,15 +26,25 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_LOG':
       return {
+        // logs: [
+        //   {
+        //     id: state.logs.length++,
+        //     saved: false,
+        //     location: action.payload.location,
+        //     rating: round(action.payload.rating),
+        //     time: _time()
+        //   },
+        //   ...state.logs.slice(0, -1)
+        // ]
         logs: [
+          ...state.logs,
           {
             id: state.logs.length++,
             saved: false,
             location: action.payload.location,
             rating: round(action.payload.rating),
             time: _time()
-          },
-          ...state.logs.slice(0, -1)
+          }
         ]
       };
     case 'SAVE_LOG':
