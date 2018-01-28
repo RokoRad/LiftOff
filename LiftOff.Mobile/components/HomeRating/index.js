@@ -20,7 +20,7 @@ export default ({string, rating}) => (
             {language.WeatherRating}
           </Text>
           <Text style={styles.text}>
-            {(language.type === 'hr') ? string.English : string.Croatian}
+            {(language.type === 'hr') ? string.Croatian : string.English}
           </Text>
         </View>
         <View style={styles.right}>

@@ -22,6 +22,7 @@ class Home extends React.Component {
   }
 
   render() {
+    console.log(_getTime(this.props.home.weatherData.TimeLocation.Time))
     return (
       <Screen current={this.props.location}>
         <HomeRating string={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />

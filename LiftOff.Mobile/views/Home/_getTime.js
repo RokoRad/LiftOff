@@ -1,6 +1,4 @@
 export default (time) => {
-  let temp = time;
-      temp = new Date(time).toString();
-
-  console.log(temp.getUTCHours())
+  const parsed = new Date(time);
+  return `${parsed.getHours()}:${parsed.getMinutes()}`;
 }
