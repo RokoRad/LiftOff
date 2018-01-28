@@ -76,3 +76,8 @@ export const changeDrone = payload => ({
   type: 'CHANGE_DRONE',
   payload
 });
+
+export const changeUnits = payload => ({
+  type: 'CHANGE_UNITS',
+  payload
+});

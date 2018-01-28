@@ -14,7 +14,7 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
-    _start(this.props.timeLocation, 'metric');
+    _start(this.props.timeLocation, this.props.units);
   }
 
   componentWillUnmount() {
@@ -34,7 +34,8 @@ class Home extends React.Component {
 
 const mapStateToProps = state => ({
   ...state.timeLocationReducer,
-  ...state.homeReducer
+  ...state.homeReducer,
+  ...state.settingsReducer
 });
 
 export default connect(mapStateToProps)(Home);

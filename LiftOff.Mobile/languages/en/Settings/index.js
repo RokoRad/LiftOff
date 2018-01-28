@@ -1,3 +1,4 @@
 export default {
-  Logout: 'Logout'
+  Logout: 'Logout',
+  Permission: 'Allow others to see where I fly'
 };

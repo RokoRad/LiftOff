@@ -6,7 +6,7 @@ export default StyleSheet.create({
     width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginTop: 40,
+    marginTop: 80,
     paddingBottom: 40
   },
   head: {

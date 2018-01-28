@@ -8,6 +8,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'column',
     width: '80%',
+    paddingTop: '45%',
     marginLeft: 'auto',
     marginRight: 'auto'
   }

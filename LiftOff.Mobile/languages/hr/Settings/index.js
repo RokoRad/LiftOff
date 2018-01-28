@@ -1,3 +1,4 @@
 export default {
-  Logout: 'Odjava'
+  Logout: 'Odjava',
+  Permission: 'Dozvoli pohranu lokacije'
 };

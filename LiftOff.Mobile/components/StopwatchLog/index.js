@@ -6,7 +6,7 @@ import globals from '../../config/styles.js';
 import styles from './styles.js';
 import _saveLog from './_saveLog.js';
 
-export default ({ rating, location, time, id, saved }) => (
+export default ({ history, rating, location, time, id, saved }) => (
   <View style={styles.wrapper}>
     <View style={[styles.left, styles.bothAligned]}>
       <CheckBox disabled={saved} onValueChange={() => _saveLog(id)} style={styles.checkbox} value={saved} />

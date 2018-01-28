@@ -6,41 +6,31 @@ import {
   Picker,
   AsyncStorage,
   TouchableWithoutFeedback,
-  Switch,
   CheckBox
 } from 'react-native';
+import vars from '../../config/vars.js';
 import Button from '../../components/Button';
 import styles from './styles.js';
 import language from '../../languages';
 import Screen from '../../components/Screen';
 import Dropdown from '../../components/Dropdown';
+import Switch from '../../components/Switch';
+import UnitsSwitch from '../../components/UnitsSwitch';
+import LanguageSwitch from '../../components/LanguageSwitch';
+import LogPermission from '../../components/LogPermission';
+import Break from '../../components/Break';
 
 export default ({ location }) => (
-  <Screen current={location}>
+  <Screen current={location} style={styles.settings}>
     <View style={styles.wrapper}>
-    <Dropdown />
-      {/*     
-      <Text>
-        Settings
-      </Text>
-      <TouchableWithoutFeedback onPress={() => changeLanguage()}>
-        <View><Text>change lang</Text></View>
-      </TouchableWithoutFeedback>
-      <Switch onValueChange={(value) => console.log(value)} activeText="hr" inActiveText="en" /> */}
-      {/* 
-change language
-change units
-show others where i fly
-choose drone
-logout
-lawbook za hr
-
-*/}
-
-      <CheckBox
-        onValueChange={value => console.log(value)}
-        onChange={value => console.log(value)}
-      />
+      <Dropdown />
+      <Break />
+      <LogPermission />
+      <Break />
+      <UnitsSwitch />
+      <Break />
+      <LanguageSwitch />
+      <Break />
       <Button type="Logout" onPress={() => _logout(location)} />
     </View>
   </Screen>
