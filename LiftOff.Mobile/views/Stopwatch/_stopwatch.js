@@ -12,7 +12,7 @@ import removeToken from '../../functions/removeToken';
 import _timeFlown from './_timeFlown.js';
 import headers from '../../functions/headers';
 
-export default history => {
+export default (history, drone) => {
   let state = store.getState().stopwatchReducer.stopwatch,
     home = store.getState().homeReducer.home,
     location = home.weatherData.TimeLocation.Location,
@@ -28,7 +28,7 @@ export default history => {
           timeFlown: _timeFlown(state.minutes, state.seconds),
           flySafeScore,
           drone: {
-            name: 'DJI Spark'
+            name: drone
           },
           flightLocation: {
             flightSpot,

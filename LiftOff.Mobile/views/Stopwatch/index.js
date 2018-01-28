@@ -28,7 +28,7 @@ class Stopwatch extends Component {
           extended={this.props.logs.length}
         />
         <Button
-          onPress={() => _stopwatch(this.props.history)}
+          onPress={() => _stopwatch(this.props.history, this.props.drone)}
           type={this.props.stopwatch.active ? 'Land' : 'Liftoff'}
         />
         <StopwatchLogs data={this.props.logs} hidden={this.props.logs.length} />
@@ -40,7 +40,8 @@ class Stopwatch extends Component {
 const mapStateToProps = state => ({
   ...state.stopwatchReducer,
   ...state.logsReducer,
-  ...state.homeReducer
+  ...state.homeReducer,
+  ...state.settingsReducer
 });
 
 export default connect(mapStateToProps)(Stopwatch);
