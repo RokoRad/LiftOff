@@ -15,6 +15,10 @@ class Stopwatch extends Component {
     super(props);
   }
 
+  componentWillUnMount() {
+    console.log(this.props)
+  }
+
   render() {
     return (
       <Screen current={this.props.location}>

@@ -25,7 +25,7 @@ export default ({ comment, rating }) => (
         <Text style={styles.informationTitle}>{language.WeatherRating}</Text>
       </View>
       <View>
-        <Text style={styles.informationText}>{comment.Croatian}</Text>
+        <Text style={styles.informationText}>{language.type === 'hr' ? comment.Croatian : comment.English}</Text>
       </View>
     </View>
     <View style={[styles.rating, styles.bothAligned]}>
