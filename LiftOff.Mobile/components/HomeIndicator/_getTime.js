@@ -4,9 +4,9 @@ export default (time) => {
       minutes = parsed.getMinutes();
 
   if (hours < 10) {
-    hours = `0${}`;
+    hours = `0${hours}`;
   } else if(minutes < 10) {
-    minutes = `0${}`;
+    minutes = `0${minutes}`;
   }
 
   return `${hours}:${minutes}`;

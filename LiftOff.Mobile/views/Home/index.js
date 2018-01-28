@@ -7,7 +7,6 @@ import HomeIndicator from '../../components/HomeIndicator';
 import { connect } from 'react-redux';
 import { _start, _stop } from './_realtime.js';
 import styles from './styles.js';
-import _getTime from './_getTime.js';
 
 class Home extends React.Component {
   constructor(props) {
