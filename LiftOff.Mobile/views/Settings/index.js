@@ -18,38 +18,17 @@ import Switch from '../../components/Switch';
 import UnitsSwitch from '../../components/UnitsSwitch';
 import LanguageSwitch from '../../components/LanguageSwitch';
 import LogPermission from '../../components/LogPermission';
+import Break from '../../components/Break';
 
 export default ({ location }) => (
   <Screen current={location}>
     <View style={styles.wrapper}>
-    <Dropdown />
-
-      {/*     
-change language
-change units
-*/}
-
-      {/* <CheckBox
-        onValueChange={value => console.log(value)}
-        onChange={value => console.log(value)}
-      /> */}
+      <Dropdown />
       <LogPermission />
+      <Break />
       <UnitsSwitch />
+      <Break />
       <LanguageSwitch />
-      {/* <Switch
-    value={true}
-    onValueChange={(val) => console.log(val)}
-    disabled={false}
-    activeText={'HR'}
-    inActiveText={'EN'}
-    circleSize={50}
-    barHeight={50}
-    circleBorderWidth={3}
-    backgroundActive={vars.red}
-    backgroundInactive={vars.blue}
-    circleActiveColor={vars.blue}
-    circleInActiveColor={vars.red}
-  /> */}
       <Button type="Logout" onPress={() => _logout(location)} />
     </View>
   </Screen>

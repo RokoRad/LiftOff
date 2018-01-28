@@ -7,8 +7,8 @@ export default () => (
     value={true}
     onValueChange={(val) => console.log(val)}
     disabled={false}
-    activeText={'°'}
-    inActiveText={'F'}
+    activeText={'km'}
+    inActiveText={'mil'}
     circleSize={50}
     barHeight={50}
     circleBorderWidth={3}
