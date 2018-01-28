@@ -5,8 +5,8 @@ import headers from '../../functions/headers';
 import { updateMarkers } from '../../actions';
 
 export default (location, history) => {
-  AsyncStorage.getItem('@token').then((token) => {
-    console.log(location)
+  AsyncStorage.getItem('@token').then(token => {
+    console.log(location);
     fetch('http://liftoffapi.azurewebsites.net/api/flights/getFlightsNearMe', {
       method: 'POST',
       headers: headers(token),
@@ -17,9 +17,9 @@ export default (location, history) => {
         },
         time: new Date()
       })
-    }).then((response) => {
-      if(response.status === 200) {
-        if(JSON.parse(response._bodyInit) === 'no flights') {
+    }).then(response => {
+      if (response.status === 200) {
+        if (JSON.parse(response._bodyInit) === 'no flights') {
           // no flights
         } else {
           // set state

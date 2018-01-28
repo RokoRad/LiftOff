@@ -10,7 +10,7 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   extended: {
-    marginTop: '70%',
+    marginTop: '70%'
   },
   inner: {
     color: '#47525e',

@@ -2,9 +2,7 @@ import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
 export default StyleSheet.create({
-  checkbox: {
-
-  },
+  checkbox: {},
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
@@ -25,12 +23,12 @@ export default StyleSheet.create({
   middleInner: {
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: vars.regular,
+    fontFamily: vars.regular
   },
   middleRightInner: {
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: vars.medium 
+    fontFamily: vars.medium
   },
   middleRight: {
     width: '25%',
@@ -49,7 +47,7 @@ export default StyleSheet.create({
   inner: {
     fontSize: 20,
     fontFamily: vars.bold,
-    color: '#3498db'  
+    color: '#3498db'
   },
   bothAligned: {
     display: 'flex',

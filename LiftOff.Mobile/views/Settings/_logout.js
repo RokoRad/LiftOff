@@ -1,6 +1,6 @@
 import removeToken from '../../functions/removeToken';
 
-export default (history) => {
+export default history => {
   // removeToken();
   // history.push('/');
-}
+};

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
 import styles from './styles.js';
 import { NativeRouter, Route } from 'react-router-native';
-import Expo from "expo";
+import Expo from 'expo';
 import Login from './views/Login';
 import Register from './views/Register';
 import Home from './views/Home';
@@ -16,7 +16,7 @@ import store from './store';
 export default class App extends React.Component {
   state = {
     loaded: false
-  }
+  };
 
   componentWillMount() {
     this.loadFonts();
@@ -24,17 +24,17 @@ export default class App extends React.Component {
 
   async loadFonts() {
     await Expo.Font.loadAsync({
-      'robotoLight': require('./fonts/Roboto-Light.ttf'),
-      'robotoRegular': require('./fonts/Roboto-Regular.ttf'),
-      'robotoMedium': require('./fonts/Roboto-Medium.ttf'),
-      'robotoBold': require('./fonts/Roboto-Bold.ttf'),
+      robotoLight: require('./fonts/Roboto-Light.ttf'),
+      robotoRegular: require('./fonts/Roboto-Regular.ttf'),
+      robotoMedium: require('./fonts/Roboto-Medium.ttf'),
+      robotoBold: require('./fonts/Roboto-Bold.ttf')
     });
-    this.setState({loaded: true});
-  };
+    this.setState({ loaded: true });
+  }
 
   render() {
-    if(!this.state.loaded) {
-      return  <Expo.AppLoading />;
+    if (!this.state.loaded) {
+      return <Expo.AppLoading />;
     } else {
       return (
         <NativeRouter>

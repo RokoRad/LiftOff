@@ -5,7 +5,7 @@ export default StyleSheet.create({
   outer: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center' 
+    alignItems: 'center'
   },
   buttonWrapper: {
     marginTop: 7.5,
@@ -13,7 +13,7 @@ export default StyleSheet.create({
     paddingBottom: 7,
     paddingLeft: 17,
     paddingRight: 17,
-    borderRadius: 4,    
+    borderRadius: 4,
     elevation: 2,
     marginBottom: 15,
     backgroundColor: vars.red

@@ -11,7 +11,7 @@ import styles from './styles.js';
 class Home extends React.Component {
   constructor(props) {
     super(props);
-  };
+  }
 
   componentWillMount() {
     _start(this.props.timeLocation, 'metric');
@@ -25,7 +25,7 @@ class Home extends React.Component {
     return (
       <Screen current={this.props.location}>
         <HomeRating string={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
-        <HomeIndicator time={this.props.timeLocation.time}/>
+        <HomeIndicator time={this.props.timeLocation.time} />
         <HomeList list={this.props.home} />
       </Screen>
     );

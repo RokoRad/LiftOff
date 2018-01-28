@@ -12,8 +12,7 @@ export default StyleSheet.create({
   },
   string: {
     fontFamily: vars.regular,
-    fontSize: 14,
-
+    fontSize: 14
   },
   bold: {
     fontFamily: vars.regular,

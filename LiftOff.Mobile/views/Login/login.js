@@ -7,7 +7,7 @@ import store from '../../store';
 
 export default (data, history) => {
   store.dispatch(changeLoading());
-  if(data.username.length != 0 && data.password.length > 8) {
+  if (data.username.length != 0 && data.password.length > 8) {
     const object = {
       ...data,
       grant_type: 'password'
@@ -18,25 +18,27 @@ export default (data, history) => {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       },
       body: encode(object)
-    }).then((response) => {
-      if(response.status === 200) {
-        AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
-          history.push('/home');
-        });
-      } else {
+    })
+      .then(response => {
+        if (response.status === 200) {
+          AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
+            history.push('/home');
+          });
+        } else {
+          Toast(`${language.serverError}`);
+        }
+        store.dispatch(changeLoading());
+      })
+      .catch(error => {
         Toast(`${language.serverError}`);
-      }
-      store.dispatch(changeLoading());
-    }).catch((error) => {
-      Toast(`${language.serverError}`);
-      store.dispatch(changeLoading());
-    });
+        store.dispatch(changeLoading());
+      });
   } else {
-    if(data.password.length < 7) {
+    if (data.password.length < 7) {
       Toast(`${language.passwordError}`);
     } else {
       Toast(`${language.invalidInput}`);
     }
     store.dispatch(changeLoading());
   }
-}
+};

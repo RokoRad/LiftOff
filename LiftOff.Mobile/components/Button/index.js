@@ -8,18 +8,20 @@ import _default from './_default.js';
 class Button extends React.Component {
   constructor(props) {
     super(props);
-  };
+  }
 
   render() {
     return (
-        <TouchableOpacity onPress={this.props.onPress} opacity={0.8} style={styles.outer} disabled={this.props.loading}>
-          <View style={styles.buttonWrapper}>
-          {(this.props.loading)
-          ? _loading()
-          : _default(this.props.type)
-          }
-          </View>
-        </TouchableOpacity>
+      <TouchableOpacity
+        onPress={this.props.onPress}
+        opacity={0.8}
+        style={styles.outer}
+        disabled={this.props.loading}
+      >
+        <View style={styles.buttonWrapper}>
+          {this.props.loading ? _loading() : _default(this.props.type)}
+        </View>
+      </TouchableOpacity>
     );
   }
 }

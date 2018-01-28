@@ -12,18 +12,28 @@ import { connect } from 'react-redux';
 
 class Stopwatch extends Component {
   constructor(props) {
-     super(props);
-  };
+    super(props);
+  }
 
   render() {
-      return (
-        <Screen current={this.props.location}>
-          <SafetyscoreStopwatch comment={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
-          <StopwatchElement minutes={this.props.stopwatch.minutes} seconds={this.props.stopwatch.seconds} extended={this.props.logs.length} />
-          <Button onPress={() => _stopwatch(this.props.history)} type={(this.props.stopwatch.active ? 'Land' : 'Liftoff')}></Button>
-          <StopwatchLogs data={this.props.logs} hidden={this.props.logs.length} />
-        </Screen>  
-      );
+    return (
+      <Screen current={this.props.location}>
+        <SafetyscoreStopwatch
+          comment={this.props.home.AdvisoryRating}
+          rating={this.props.home.TotalRating}
+        />
+        <StopwatchElement
+          minutes={this.props.stopwatch.minutes}
+          seconds={this.props.stopwatch.seconds}
+          extended={this.props.logs.length}
+        />
+        <Button
+          onPress={() => _stopwatch(this.props.history)}
+          type={this.props.stopwatch.active ? 'Land' : 'Liftoff'}
+        />
+        <StopwatchLogs data={this.props.logs} hidden={this.props.logs.length} />
+      </Screen>
+    );
   }
 }
 
