@@ -1,20 +1,22 @@
 import React from 'react';
 import Switch from '../Switch';
 import vars from '../../config/vars.js';
+import language from '../../languages';
+import _onChange from './_onChange.js'
 
-export default () => (
-  <Switch
-    value={true}
-    onValueChange={(val) => _onChange(val)}
-    disabled={false}
+export default () => {
+  let active;
+  if(language.language === 'Croatian') {
+    active = true;
+  } else {
+    active = false;
+  }
+  return (
+    <Switch
+    value={active}
+    onValueChange={() => _onChange()}
     activeText={'HR'}
     inActiveText={'EN'}
-    circleSize={50}
-    barHeight={50}
-    circleBorderWidth={3}
-    backgroundActive={vars.red}
-    backgroundInactive={vars.blue}
-    circleActiveColor={vars.blue}
-    circleInActiveColor={vars.red}
   />
-)
+  )
+}
