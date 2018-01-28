@@ -1,20 +1,26 @@
 import React from 'react';
 import Menu from '../Menu';
+import { connect } from 'react-redux';
+import _toggleMenu from './_toggleMenu.js';
 import './style.css';
 
-export default class hamburger extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      menu: true
-    };
+class Hamburger extends React.Component {
+  constructor(props) {
+    super(props);
   }
 
   render() {
+    console.log(this.props.menu)
     return (
-      <div className="hamburger">
-        {this.state.menu ? <Menu /> : null}
+      <div className="hamburger" onClick={() => _toggleMenu()}>
+        {this.props.menu ? <Menu /> : null}
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  ...state.dashboardReducer
+});
+
+export default connect(mapStateToProps)(Hamburger);

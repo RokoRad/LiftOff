@@ -72,3 +72,7 @@ export const updateMarkers = (payload) => ({
 export const changeLoading = () => ({
   type: 'CHANGE_LOADING'
 });
+
+export const changeMenu = () => ({
+  type: 'CHANGE_MENU'
+})

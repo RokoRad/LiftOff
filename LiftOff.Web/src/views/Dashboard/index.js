@@ -16,9 +16,11 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="dashboard">
         <Navigation />
-        dashboard
+        <div className="dashboard__content">
+          dashboard
+        </div>
       </div>
     );
   }

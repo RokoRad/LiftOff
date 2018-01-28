@@ -5,3 +5,4 @@
 - black - #34373d
 - grey - #4a4e57
 - počistit languages
+- počistit actione
