@@ -5,7 +5,11 @@ export default StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    width: '80%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    backgroundColor: 'pink'
   },
   picker: {
     backgroundColor: 'red',
