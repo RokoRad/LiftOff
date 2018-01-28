@@ -5,7 +5,7 @@ import StopwatchLog from '../StopwatchLog';
 import uppercase from '../../functions/uppercase';
 import language from '../../languages';
 
-export default ({ data, hidden }) => (
+export default ({ data, hidden, history }) => (
   <View style={[styles.wrapper, hidden === 0 ? styles.hidden : null]}>
     <View style={styles.head}>
       <Text style={styles.left}>{uppercase(language.Log)}</Text>
@@ -16,6 +16,7 @@ export default ({ data, hidden }) => (
     <ScrollView style={styles.scroll}>
       {data.map(value => (
         <StopwatchLog
+          history={history}
           saved={value.saved}
           location={value.location}
           time={value.time}

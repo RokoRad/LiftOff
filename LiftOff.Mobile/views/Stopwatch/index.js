@@ -15,12 +15,7 @@ class Stopwatch extends Component {
     super(props);
   }
 
-  componentWillUnMount() {
-    console.log(this.props)
-  }
-
   render() {
-    console.log(this.props.logs)
     return (
       <Screen current={this.props.location}>
         <SafetyscoreStopwatch
@@ -36,7 +31,7 @@ class Stopwatch extends Component {
           onPress={() => _stopwatch(this.props.history, this.props.drone)}
           type={this.props.stopwatch.active ? 'Land' : 'Liftoff'}
         />
-        <StopwatchLogs data={this.props.logs} hidden={this.props.logs.length} />
+        <StopwatchLogs history={this.props.location} data={this.props.logs} hidden={this.props.logs.length} />
       </Screen>
     );
   }
