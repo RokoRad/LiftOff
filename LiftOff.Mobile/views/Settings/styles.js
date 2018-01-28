@@ -9,6 +9,11 @@ export default StyleSheet.create({
     flexDirection: 'column',
     width: '80%',
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    backgroundColor: 'red'
+  },
+  settings: {
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 });

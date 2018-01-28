@@ -21,7 +21,7 @@ import LogPermission from '../../components/LogPermission';
 import Break from '../../components/Break';
 
 export default ({ location }) => (
-  <Screen current={location}>
+  <Screen current={location} style={styles.settings}>
     <View style={styles.wrapper}>
       <Dropdown />
       <Break />
