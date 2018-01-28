@@ -5,5 +5,6 @@
 4. Pokrenuti projekt sa `yarn start` ili `npm start`.
 5. Skenirati QR kod iz konzole nakon pokretanja servera preko Expoa.
 
-# Debug
-Error (yellow box) koji se može prikazati prilikom pokretanja instalacije je vezan uz timer. Njega se može ukloniti ulaskom u `/node_modules/react-native/Libraries/Core/Timers/JSTimers.js` te promjenom `MAX_TIMER_DURATION_MS` sa defaultnih 60, na 300 sekundi.
+# Najčešće greške
+### `Setting a timer for a long period of time`
+Upozorenje (yellow box) vezano uz pokretanje realtime intervala na Android uređajima. Može se ukloniti ulaskom u `/node_modules/react-native/Libraries/Core/Timers/JSTimers.js` te promjenom `MAX_TIMER_DURATION_MS` sa defaultnih 60, na 300 sekundi.
