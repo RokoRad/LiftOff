@@ -1,3 +1,3 @@
-export default (object) => {
-  console.log(object)
-}
+export default object => {
+  console.log(object);
+};

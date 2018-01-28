@@ -13,7 +13,7 @@ let holder = {
 
 const Login = () => (
   <form className="register">
-    <Input placeholder="Username" onChange={e => holder.username = e.target.value} />
+    <Input placeholder="Username" onChange={e => (holder.username = e.target.value)} />
     <Input placeholder="Email" type="email" onChange={e => (holder.email = e.target.value)} />
     <Input
       placeholder="Password"
