@@ -1,3 +1,3 @@
 export default () => {
-  console.log("KALI KLAI")
-}
+  console.log('KALI KLAI');
+};
