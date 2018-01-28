@@ -8,8 +8,8 @@ import _restore from './_restore.js';
 export default ({time}) => (
   <View style={styles.wrapper}>
     <Text style={styles.left}>{language.Indicator}</Text>
-    <View>
-      <Text style={styles.right}>{_getTime(time)}</Text>
+    <View style={styles.right}>
+      <Text style={styles.rightText}>{_getTime(time)}</Text>
       <TouchableOpacity onPress={() => _restore()}>
         {(_getTime(time) === _getTime(new Date().toISOString())) 
         ? null

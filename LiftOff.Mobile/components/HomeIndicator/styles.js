@@ -3,9 +3,9 @@ import vars from '../../config/vars.js';
 
 export default StyleSheet.create({
   image: {
-    width: 40,
-    height: 35,
-    opacity: 0.7
+    width: 17.5,
+    marginTop: 5,
+    height: 15
   },
   wrapper: {
     display: 'flex',
@@ -23,8 +23,12 @@ export default StyleSheet.create({
     opacity: 0.7
   },
   right: {
+    opacity: 0.7,
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  rightText: {
     fontFamily: vars.medium,
-    fontSize: 14,
-    opacity: 0.7
+    fontSize: 14
   }
 })
