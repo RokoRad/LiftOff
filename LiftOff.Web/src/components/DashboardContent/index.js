@@ -3,6 +3,10 @@ import './style.css';
 
 export default ({}) => (
   <div className="grid">
-    contentsvhsaviiadvsdbidbids
+    <div className="grid__left">left</div>
+    <div className="grid__right">
+      <Map />
+      <Graph />
+    </div>
   </div>
 );
