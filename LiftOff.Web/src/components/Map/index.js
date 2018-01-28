@@ -10,8 +10,7 @@ class MapContainer extends React.Component {
       <div className="map">
           <Map google={this.props.google} zoom={14} disableDefaultUI={true} styles={mapStyle}>
 
-            <Marker onClick={this.onMarkerClick}
-                    name={'Current location'} />
+            <Marker onClick={this.onMarkerClick} />
 
             <InfoWindow onClose={this.onInfoWindowClose}>
                 <div>
