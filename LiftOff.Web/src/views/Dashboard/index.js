@@ -1,5 +1,6 @@
 import React from 'react';
 import token from '../../functions/token';
+import Navigation from '../../components/Navigation';
 import './style.css';
 
 class Dashboard extends React.Component {
@@ -16,6 +17,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
+        <Navigation />
         dashboard
       </div>
     );

@@ -1,8 +1,12 @@
 import React from 'react';
+import NavLogo from './NavLogo';
+import Hamburger from './Hamburger';
 import './style.css';
 
 const Navigation = () => (
-  <div></div>
+  <div className="navigation">
+    bevezeze
+  </div>
 );
 
 export default Navigation;
