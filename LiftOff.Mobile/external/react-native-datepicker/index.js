@@ -1,15 +1,8 @@
-import React, {Component} from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  PanResponder
-} from 'react-native';
+import React, { Component } from 'react';
+import { AppRegistry, StyleSheet, Text, View, PanResponder } from 'react-native';
 import DatePicker from './datepicker.js';
 
 class datepicker extends Component {
-
   constructor(props) {
     super(props);
 
@@ -23,23 +16,27 @@ class datepicker extends Component {
 
   componentWillMount() {
     this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: (e) => {console.log('onStartShouldSetPanResponder'); return true;},
-      onMoveShouldSetPanResponder: (e) => {console.log('onMoveShouldSetPanResponder'); return true;},
-      onPanResponderGrant: (e) => console.log('onPanResponderGrant'),
-      onPanResponderMove: (e) => console.log('onPanResponderMove'),
-      onPanResponderRelease: (e) => console.log('onPanResponderRelease'),
-      onPanResponderTerminate: (e) => console.log('onPanResponderTerminate')
+      onStartShouldSetPanResponder: e => {
+        console.log('onStartShouldSetPanResponder');
+        return true;
+      },
+      onMoveShouldSetPanResponder: e => {
+        console.log('onMoveShouldSetPanResponder');
+        return true;
+      },
+      onPanResponderGrant: e => console.log('onPanResponderGrant'),
+      onPanResponderMove: e => console.log('onPanResponderMove'),
+      onPanResponderRelease: e => console.log('onPanResponderRelease'),
+      onPanResponderTerminate: e => console.log('onPanResponderTerminate')
     });
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to react-native-datepicker example!
-        </Text>
+        <Text style={styles.welcome}>Welcome to react-native-datepicker example!</Text>
         <DatePicker
-          style={{width: 200}}
+          style={{ width: 200 }}
           date={this.state.date}
           mode="date"
           placeholder="placeholder"
@@ -49,33 +46,39 @@ class datepicker extends Component {
           confirmBtnText="Confirm"
           cancelBtnText="Cancel"
           iconSource={require('./google_calendar.png')}
-          onDateChange={(date) => {this.setState({date: date});}}
+          onDateChange={date => {
+            this.setState({ date: date });
+          }}
         />
         <Text style={styles.instructions}>date: {this.state.date}</Text>
         <DatePicker
-          style={{width: 200}}
+          style={{ width: 200 }}
           date={this.state.time}
           mode="time"
           format="HH:mm"
           confirmBtnText="Confirm"
           cancelBtnText="Cancel"
           minuteInterval={10}
-          onDateChange={(time) => {this.setState({time: time});}}
+          onDateChange={time => {
+            this.setState({ time: time });
+          }}
         />
         <Text style={styles.instructions}>time: {this.state.time}</Text>
         <DatePicker
-          style={{width: 200}}
+          style={{ width: 200 }}
           date={this.state.datetime}
           mode="datetime"
           format="YYYY-MM-DD HH:mm"
           confirmBtnText="Confirm"
           cancelBtnText="Cancel"
           showIcon={false}
-          onDateChange={(datetime) => {this.setState({datetime: datetime});}}
+          onDateChange={datetime => {
+            this.setState({ datetime: datetime });
+          }}
         />
         <Text style={styles.instructions}>datetime: {this.state.datetime}</Text>
         <DatePicker
-          style={{width: 200}}
+          style={{ width: 200 }}
           date={this.state.datetime1}
           mode="datetime"
           format="YYYY-MM-DD HH:mm"
@@ -93,7 +96,9 @@ class datepicker extends Component {
             }
           }}
           minuteInterval={10}
-          onDateChange={(datetime) => {this.setState({datetime1: datetime});}}
+          onDateChange={datetime => {
+            this.setState({ datetime1: datetime });
+          }}
         />
         <Text style={styles.instructions}>datetime: {this.state.datetime1}</Text>
       </View>

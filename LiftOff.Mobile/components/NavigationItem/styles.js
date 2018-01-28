@@ -9,7 +9,7 @@ export default StyleSheet.create({
     backgroundColor: vars.white
   },
   navigationItem: {
-    width: '100%',
+    width: '100%'
   },
   navigationImage: {
     marginTop: 7.5,

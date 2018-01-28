@@ -4,7 +4,7 @@ import Calibration from '../../components/Calibration';
 import Picker from '../../components/Picker';
 import styles from './styles.js';
 
-export default ({history}) => (
+export default ({ history }) => (
   <View style={styles.dock}>
     <Calibration history={history} />
     <Picker history={history} />

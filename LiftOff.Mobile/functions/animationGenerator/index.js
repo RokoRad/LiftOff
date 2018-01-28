@@ -16,7 +16,7 @@ Animatable.initializeRegistryWithDefinitions({
       rotate: '1deg',
       translateX: -2,
       translateY: -1
-    }    
+    }
   },
   orange: {
     0: {
@@ -33,7 +33,7 @@ Animatable.initializeRegistryWithDefinitions({
       rotate: '2deg',
       translateX: -5,
       translateY: -3
-    }    
+    }
   },
   red: {
     0: {
@@ -50,7 +50,7 @@ Animatable.initializeRegistryWithDefinitions({
       rotate: '3deg',
       translateX: 15,
       translateY: -5
-    }    
+    }
   },
   picker: {
     0: {
@@ -64,6 +64,6 @@ Animatable.initializeRegistryWithDefinitions({
   }
 });
 
-const animationGenerator = (value) => (value);
+const animationGenerator = value => value;
 
 export default animationGenerator;

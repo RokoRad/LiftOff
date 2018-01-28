@@ -1,6 +1,6 @@
 import store from '../../store';
 import { updateLocation } from '../../actions';
 
-export default (value) => {
+export default value => {
   store.dispatch(updateLocation(value));
-}
+};

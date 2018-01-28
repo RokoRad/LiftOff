@@ -11,7 +11,7 @@ export default StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     backgroundColor: vars.white,
-    zIndex: 999,    
+    zIndex: 999,
     elevation: 10
   },
   input: {

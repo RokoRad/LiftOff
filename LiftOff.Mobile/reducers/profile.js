@@ -28,14 +28,14 @@ const initialState = {
   ]
 };
 
-AsyncStorage.getItem('@stats').then((stats) => {
+AsyncStorage.getItem('@stats').then(stats => {
   initialState.stats = JSON.parse(stats);
-})
+});
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'UPDATE_STATS':
-      return  {
+      return {
         ...state,
         stats: {
           ...action.payload
@@ -44,10 +44,8 @@ export default (state = initialState, action) => {
     case 'UPDATE_MARKERS':
       return {
         ...state,
-        markers: [
-          action.payload
-        ]
-      }
+        markers: [action.payload]
+      };
     default:
       return state;
   }

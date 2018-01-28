@@ -16,27 +16,40 @@ import _currentTime from './_currentTime.js';
 
 class Map extends Component {
   constructor(props) {
-     super(props);
-  };
+    super(props);
+  }
 
   componentWillMount() {
-      _getCurrentLocation();
+    _getCurrentLocation();
   }
 
   render() {
-      return (
-        <Screen current={this.props.location}>
-          <Search />
-          <Tooltip displayed={this.props.tooltipStatus} />
-          <Dock history={this.props.history} />
-          <MapView style={styles.wrapper} provider={PROVIDER_GOOGLE} 
-                  customMapStyle={style} 
-                   showsUserLocation={true} region={this.props.map} onRegionChangeComplete={(value) => _changeCenter(value)} 
-                   onPress={(value) => _setMarker(value, this.props.history)} cacheEnabled={true} showsCompass={false} showsScale={false}>
-            <Marker location={this.props.markerPosition} city={this.props.tooltip.city} time={_currentTime()} rating={this.props.tooltip.rating} />
-          </MapView>
-        </Screen>
-      );
+    return (
+      <Screen current={this.props.location}>
+        <Search />
+        <Tooltip displayed={this.props.tooltipStatus} />
+        <Dock history={this.props.history} />
+        <MapView
+          style={styles.wrapper}
+          provider={PROVIDER_GOOGLE}
+          customMapStyle={style}
+          showsUserLocation={true}
+          region={this.props.map}
+          onRegionChangeComplete={value => _changeCenter(value)}
+          onPress={value => _setMarker(value, this.props.history)}
+          cacheEnabled={true}
+          showsCompass={false}
+          showsScale={false}
+        >
+          <Marker
+            location={this.props.markerPosition}
+            city={this.props.tooltip.city}
+            time={_currentTime()}
+            rating={this.props.tooltip.rating}
+          />
+        </MapView>
+      </Screen>
+    );
   }
 }
 

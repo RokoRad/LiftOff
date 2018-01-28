@@ -11,4 +11,4 @@ export default {
   green: '#47e389',
   orange: '#FF9052',
   bad: '#F95F62'
-}
+};

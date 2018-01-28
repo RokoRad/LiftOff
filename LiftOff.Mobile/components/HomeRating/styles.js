@@ -27,7 +27,7 @@ export default StyleSheet.create({
     padding: 15
   },
   left: {
-    width: '70%',
+    width: '70%'
   },
   title: {
     color: vars.white,

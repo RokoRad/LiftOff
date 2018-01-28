@@ -8,10 +8,17 @@ import animationGenerator from '../../functions/animationGenerator';
 import language from '../../languages';
 import round from '../../functions/round';
 
-export default ({comment, rating}) => (
+export default ({ comment, rating }) => (
   <View style={[styles.wrapper, styles[colorGenerator(rating)]]}>
     <View style={[styles.droneWrapper, styles.bothAligned]}>
-      <Animatable.Image source={require('../../images/drone.png')} style={styles.drone} animation={animationGenerator(colorGenerator(rating))} iterationCount="infinite" easing="ease-in-out" direction="alternate" />
+      <Animatable.Image
+        source={require('../../images/drone.png')}
+        style={styles.drone}
+        animation={animationGenerator(colorGenerator(rating))}
+        iterationCount="infinite"
+        easing="ease-in-out"
+        direction="alternate"
+      />
     </View>
     <View style={styles.information}>
       <View>
@@ -22,9 +29,7 @@ export default ({comment, rating}) => (
       </View>
     </View>
     <View style={[styles.rating, styles.bothAligned]}>
-      <Text style={styles.ratingInner}>
-        {round(rating)}
-      </Text>
+      <Text style={styles.ratingInner}>{round(rating)}</Text>
     </View>
   </View>
 );

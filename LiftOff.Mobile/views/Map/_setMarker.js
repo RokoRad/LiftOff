@@ -6,7 +6,7 @@ import { setMarker, updateLocation, tooltipStatus, updateTooltip } from '../../a
 
 export default (value, history) => {
   value.persist();
-  AsyncStorage.getItem('@token').then((token) => {
+  AsyncStorage.getItem('@token').then(token => {
     fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
       method: 'POST',
       headers: headers(token),
@@ -17,18 +17,21 @@ export default (value, history) => {
         },
         time: new Date().toISOString()
       })
-    }).then((response) => {
-      if(response.status === 200) {
+    }).then(response => {
+      if (response.status === 200) {
         const parsed = JSON.parse(response._bodyInit);
-        store.dispatch(updateTooltip({
-          city: parsed.weatherData.city,
-          rating: parsed.totalRating
-        }));
+        store.dispatch(
+          updateTooltip({
+            city: parsed.weatherData.city,
+            rating: parsed.totalRating
+          })
+        );
       } else if (response.status === 401) {
         removeToken(history);
-      }});
+      }
+    });
   });
 
   store.dispatch(setMarker(value.nativeEvent.coordinate));
-  store.dispatch(tooltipStatus(store.getState().mapReducer.tooltipStatus = true));
-}
+  store.dispatch(tooltipStatus((store.getState().mapReducer.tooltipStatus = true)));
+};

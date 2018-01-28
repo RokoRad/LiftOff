@@ -20,7 +20,7 @@ export default StyleSheet.create({
   },
   string: {
     fontSize: 10,
-    fontFamily: vars.regular,
+    fontFamily: vars.regular
   },
   rating: {
     fontFamily: vars.medium

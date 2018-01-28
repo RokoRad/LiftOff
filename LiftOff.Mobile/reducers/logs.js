@@ -2,9 +2,7 @@ import { AsyncStorage } from 'react-native';
 import round from '../functions/round';
 
 const initialState = {
-  logs: [
-
-  ]
+  logs: []
 };
 
 const _time = () => {
@@ -13,28 +11,38 @@ const _time = () => {
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
-  } 
-  
+  }
+
   if (hours < 10) {
     hours = `0${hours}`;
   }
 
-  return `${hours}:${minutes}`
-}
+  return `${hours}:${minutes}`;
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_LOG':
       return {
+        // logs: [
+        //   {
+        //     id: state.logs.length++,
+        //     saved: false,
+        //     location: action.payload.location,
+        //     rating: round(action.payload.rating),
+        //     time: _time()
+        //   },
+        //   ...state.logs.slice(0, -1)
+        // ]
         logs: [
+          ...state.logs,
           {
             id: state.logs.length++,
             saved: false,
             location: action.payload.location,
             rating: round(action.payload.rating),
             time: _time()
-          },
-          ...state.logs.slice(0, -1)
+          }
         ]
       };
     case 'SAVE_LOG':
@@ -50,8 +58,8 @@ export default (state = initialState, action) => {
           },
           ...state.logs.slice(action.payload + 1)
         ]
-      }
+      };
     default:
-        return state;
+      return state;
   }
 };

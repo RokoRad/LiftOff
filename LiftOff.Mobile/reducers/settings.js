@@ -1,15 +1,22 @@
 import { AsyncStorage } from 'react-native';
 
 const initialState = {
-  loading: false
+  drone: 'DJI Spark'
 };
+
+AsyncStorage.getItem('@drone').then(drone => {
+  if(drone) {
+    initialState.drone = drone
+  }
+})
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'CHANGE_LOADING':
+    case 'CHANGE_DRONE':
       return {
-        loading: !state.loading
+        drone: action.payload
       };
+
     default:
       return state;
   }

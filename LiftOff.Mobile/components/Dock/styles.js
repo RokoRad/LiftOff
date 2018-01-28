@@ -3,7 +3,7 @@ import vars from '../../config/vars.js';
 
 export default StyleSheet.create({
   dock: {
-    borderRadius: 7,    
+    borderRadius: 7,
     elevation: 12,
     backgroundColor: vars.white,
     position: 'absolute',

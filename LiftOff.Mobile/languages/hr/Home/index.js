@@ -15,5 +15,6 @@ export default {
   Wind: 'Vjetar',
   WindDirection: 'Smjer vjetra',
   WindSpeed: 'Brzina vjetra',
-  Indicator: 'Pregled za'
+  Indicator: 'Pregled za',
+  Now: 'trenutno vrijeme'
 };

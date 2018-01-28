@@ -5,7 +5,7 @@ export default StyleSheet.create({
   wrapper: {
     width: '90%',
     marginLeft: 'auto',
-    marginRight: 'auto',   
+    marginRight: 'auto',
     marginTop: 40,
     paddingBottom: 40
   },

@@ -10,10 +10,15 @@
   "scripts": {
     "start": "react-native-scripts start --reset-cache",
     "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios"
+    "ios": "react-native-scripts ios",
+    "format": "prettier --write **/*.js && eslint --fix **/*.js"
   },
   "dependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
     "expo": "^23.0.4",
+    "prettier": "^1.10.2",
     "react": "16.0.0",
     "react-native": "0.50.3",
     "react-native-animatable": "^1.2.4",
