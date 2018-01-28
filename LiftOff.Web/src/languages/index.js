@@ -1,24 +1,21 @@
-import { AsyncStorage } from 'react-native';
+import storage from '../functions/storage';
 import croatian from './hr';
 import english from './en';
 
-let language;
+let holder;
+const lang = storage.get('@language');
 
-// provjera jezika
-AsyncStorage.getItem('@language').then((response) => {
-    if(response === 'hr') {
-      module.exports.default = {
-        ...croatian,
-        language: 'Croatian'
-      }
-    } else {
-      module.exports.default = {
-        ...english,
-        language: 'English'
-      };
-      // ako je prvi render
-      AsyncStorage.setItem('@language', 'en');
-    }
-});
+if (lang === 'hr') {
+  holder = {
+    ...croatian,
+    language: 'Croatian'
+  }
+} else {
+  holder = {
+    ...english,
+    language: 'English'
+  };
+  storage.set('@language', 'en')
+}
 
-export default language;
+export default holder;

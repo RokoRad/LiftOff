@@ -2,14 +2,15 @@
   margin-top: -5px;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 1em;
 }
 
 .inital-message__text {
   color: #fff;
   text-decoration: none;
+  font-size: 1em;
 }
 
 .inital-message__text--bold {
   font-weight: 600;
+  font-size: 1em;
 }
