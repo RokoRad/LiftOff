@@ -35,6 +35,7 @@ change units
       /> */}
       <LogPermission />
       <UnitsSwitch />
+      <LanguageSwitch />
       {/* <Switch
     value={true}
     onValueChange={(val) => console.log(val)}
