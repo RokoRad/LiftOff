@@ -13,10 +13,10 @@ let holder = {
 
 const Login = () => (
   <form className="login">
-    <Input placeholder="Username" onChange={() => holder.username} />
-    <Input placeholder="Password" type="password" minLength="8" onChange={() => holder.password} />
+    <Input placeholder="Username" onChange={(e) => holder.username = e.target.value} />
+    <Input placeholder="Password" type="password" minLength="8" onChange={(e) => holder.password = e.target.value} />
     <InitalMessage type="login" />
-    <Button onClick={() => _login()}>Login</Button>
+    <Button onClick={() => _login(holder)}>Login</Button>
   </form>
 );
 
