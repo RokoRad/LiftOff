@@ -4,7 +4,7 @@ import {
   setStarttime,
   updateSeconds,
   updateMinutes,
-  updateStats,
+  //updateStats,
   addLog
 } from '../../actions';
 import store from '../../store';
@@ -52,16 +52,18 @@ export default (history, drone) => {
     //   });
     // });
 
+    store.dispatch(
+      addLog({
+        location: flightSpot,
+        rating: flySafeScore,
+        timeFlown: _timeFlown(state.minutes, state.seconds)
+      })
+    );
+
     store.dispatch(setStarttime(''));
     store.dispatch(updateSeconds((state.seconds = 0)));
     store.dispatch(updateMinutes((state.minutes = 0)));
     clearInterval(this.stopwatch);
-    store.dispatch(
-      addLog({
-        location: flightSpot,
-        rating: flySafeScore
-      })
-    );
 
   } else {
     store.dispatch(setStarttime((state.startTime = new Date().toISOString())));
