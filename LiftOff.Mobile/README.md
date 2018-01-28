@@ -15,8 +15,8 @@ Upozorenje (yellow box) vezano uz pokretanje realtime intervala na Android uređ
 ### Top notch start
 Greška koja se javlja ako se zaslon uređaja dira dok se aplikacija bundla ili učitava. Potrebno je samo refreshati aplikaciju.
 
-###_language.ToRegsiter.default2
+### _language.ToRegsiter.default2
 Greška koju aplikacija javlja kada uređaj ima problem sa povezivanjem sa lokalnom pohranom. Događa se samo u development modu i na prvom pokretanju. Potrebno je samo refreshati aplikaciju.
 
-###Trying to add a root view with an explicit id already set.
+### Trying to add a root view with an explicit id already set.
 Greška koju aplikacija javlja kada uređaj na prvom pokretanju. Najčešće se događa prilikom promjene UIa aplikacije te njenim nasilnim restartiranjme. Potrebno je sačekati par sekundi i tek onda refreshati aplikaciju kako bi se greška uklonila.
