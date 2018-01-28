@@ -7,6 +7,7 @@ asap:
 poliranje: 
 - komentari
 - prettier i linter
+- double support toast i checkbox
 
 settings: 
 - ubacit chekcbox za "don't show ither users where I flown"
