@@ -24,11 +24,13 @@ export default ({ location }) => (
   <Screen current={location}>
     <View style={styles.wrapper}>
       <Dropdown />
+      <Break />
       <LogPermission />
       <Break />
       <UnitsSwitch />
       <Break />
       <LanguageSwitch />
+      <Break />
       <Button type="Logout" onPress={() => _logout(location)} />
     </View>
   </Screen>

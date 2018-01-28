@@ -6,7 +6,8 @@ export default StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'pink'
+    backgroundColor: 'pink',
+    width: '100%'
   },
   text: {
     color: vars.grey,
