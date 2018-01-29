@@ -15,10 +15,10 @@ export default data => {
   fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
     method: 'POST',
     headers: headers(),
-    body: {
+    body: JSON.stringify({
       location,
       time: new Date().toISOString()
-    }
+    })
   }).then((response) => {
     if(response.status === 200) {
       response.json().then((value) => {
@@ -41,12 +41,6 @@ export default data => {
     } else {
       alert(language.serverError)
     }
-    console.log(response)
-    console.log(headers())
-    console.log({
-      location,
-      time: new Date().toISOString()
-    })
   }).catch((error) => {
     alert(language.serverError)
   });

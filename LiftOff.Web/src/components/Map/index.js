@@ -15,8 +15,7 @@ class MapContainer extends React.Component {
       <div className="map">
         <Map google={this.props.google} zoom={14} disableDefaultUI={true} styles={mapStyle} initialCenter={this.props.location} onClick={(a, b, event) => _setMarker(event)}>
           <Marker onClick={this.onMarkerClick} position={this.props.marker} 
-          icon={{ url: '../../images/map/pin.png',       anchor: 32,
-      scaledSize: 64}} 
+          //icon={{ url: '../../images/map/pin.png' }} 
           />
 
           <InfoWindow onClose={this.onInfoWindowClose}>
