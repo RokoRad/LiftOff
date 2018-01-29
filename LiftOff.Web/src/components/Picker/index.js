@@ -5,7 +5,7 @@ import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog';
 import TimePickerDialog from 'material-ui/TimePicker/TimePickerDialog';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import _onOpen from './_onOpen.js';
-import _onChoose from './_onChoose.js';
+import _onSelect from './_onSelect.js';
 import './style.css';
 
 export default ({ }) => (
@@ -18,7 +18,7 @@ export default ({ }) => (
         DatePicker={DatePickerDialog}
         TimePicker={TimePickerDialog}
         onDatePickerShow={() => _onOpen()}
-        onTimeSelected={(e) => _onChoose(e)}
+        onTimeSelected={(e) => _onSelect(e)}
       />
     </MuiThemeProvider>
   </div>
