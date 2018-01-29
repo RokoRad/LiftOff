@@ -5,14 +5,15 @@ import DashboardContent from '../../components/DashboardContent';
 import './style.css';
 
 class Dashboard extends React.Component {
-  // constructor() {
-  //   super();
-  // }
+  constructor() {
+    super();
+  }
 
   componentWillMount() {
-    // if(!token.get()) {
-    //   window.location.href = "/";
-    // }
+    if (!token.get()) {
+      window.location.href = "/";
+      token.remove();
+    }
   }
 
   render() {

@@ -17,16 +17,13 @@ export default data => {
       body: _encode(object)
     }).then((response) => {
       if (response.status === 200) {
-        token.set('');
-        console.log(response)
-        console.log(response.body)
-        //console.log(JSON.parse(response))
+        response.json().then(value => {
+          token.set(value.access_token);
+        })
       } else {
         alert(language.Input);
       }
-      console.log(response)
     }).catch((error) => {
-      console.log(error)
       alert(language.serverError)
     })
   } else {
