@@ -16,13 +16,13 @@ marginBottom: 5 */
   border-bottom: 1px solid #f5f7fa;
   margin-bottom: 5px;
   padding-bottom: 5px;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .home-text__message {
   font-weight: 500;
   color: #f5f7fa;
-  font-size: 1em;
+  font-size: 0.85em;
 }
 /* color: vars.white,
 fontFamily: vars.medium,

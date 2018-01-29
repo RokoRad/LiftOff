@@ -4,7 +4,7 @@ import HomeText from '../HomeText';
 import './style.css';
 
 export default ({ }) => (
-  <div className="home__rating">
+  <div className="home__rating background background--green">
     <Drone />
     <HomeText />
   </div>
