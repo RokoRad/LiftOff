@@ -1,0 +1,15 @@
+.inital-message {
+  margin-top: -7.5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.inital-message__text {
+  color: #fff;
+  text-decoration: none;
+}
+
+.inital-message__text--bold {
+  font-weight: 600;
+}

@@ -1,0 +1,7 @@
+.inital__image {
+  background-image: url('../../images/logo.png');
+  background-size: contain;
+  width: 200px;
+  height: 200px;
+  background-position: center;
+}

@@ -2,6 +2,9 @@
 using LiftOff.API.Logic.Statistics;
 using LiftOff.API.Models;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
@@ -13,17 +16,16 @@ namespace LiftOff.API.Controllers
         private readonly LiftOffContext _liftOffContext = new LiftOffContext();
         
         [HttpPost]
-        //production
-        //[Authorize]
+        [Authorize]
         [Route("logFlight")]
-        public IHttpActionResult LogFlight(Flight flight)
+        public IHttpActionResult LogFlight([FromBody]JObject json)
         {
-            var userId = User.Identity.GetUserId();
-            //production
-            //var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
+            Flight flight = JsonConvert.DeserializeObject<Flight>(JsonConvert.SerializeObject(json));
 
-            //testing
-            var user = _liftOffContext.StatisticsUsers.First(usr => usr.UserName == "aaa");
+            var userId = User.Identity.GetUserId();
+            var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
+
+            var drone = _liftOffContext.Drones.FirstOrDefault(dr => dr.Name == flight.Drone.Name);
 
             user.TotalFlights++;
             user.TotalTimeFlown += flight.TimeFlown;
@@ -32,9 +34,11 @@ namespace LiftOff.API.Controllers
             user.FavoriteFlightSpot = StatisticsCalculator.CalculateFavoriteFlightLocation(user.FlightLocations.ToList());
             user.FlightTimes.Add(flight.FlightTime);
             user.FavoriteFlightTime = StatisticsCalculator.CalculateFavoriteFlightTime(user.FlightTimes.ToList()).ToString();
+            user.Drones.Add(drone);
+            user.FavoriteDrone = StatisticsCalculator.CalculateFavoriteDrone(user.Drones.ToList());
 
             flight.User = user;
-            flight.Drone = _liftOffContext.Drones.FirstOrDefault(dr => dr.Name == flight.Drone.Name);
+            flight.Drone = drone;
 
             _liftOffContext.FlightLocations.Add(flight.FlightLocation);
             _liftOffContext.FlightTimes.Add(flight.FlightTime);
@@ -44,5 +48,30 @@ namespace LiftOff.API.Controllers
 
             return Ok(user);
         }
+
+        [HttpGet]
+        [Authorize]
+        [Route("getLogs")]
+        public IHttpActionResult GetLogs()
+        {
+            var userId = User.Identity.GetUserId();
+            var statsUserId = _liftOffContext.StatisticsUsers.FirstOrDefault(usr => usr.IdentityUserId == userId).Id;
+
+            var flights = _liftOffContext.Flights.Where(fl => fl.UserId == statsUserId).ToList();
+
+            return Ok(flights);
+        }
+
+        //[HttpGet]
+        //[Authorize]
+        //[Route("getStats")]
+        //public IHttpActionResult GetStats()
+        //{
+        //    var userId = User.Identity.GetUserId();
+
+        //    var user = _liftOffContext.StatisticsUsers.FirstOrDefault(usr => usr.IdentityUserId == userId);
+
+        //    return Ok(user);
+        //}
     }
 }

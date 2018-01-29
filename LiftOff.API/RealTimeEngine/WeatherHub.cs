@@ -14,7 +14,7 @@ namespace LiftOff.API.RealTimeEngine
 		public void InitiateConnection(TimeLocation timeLocation, string units)
 		{
             //debug
-            timeLocation.Time = System.DateTime.Now;
+            //timeLocation.Time = System.DateTime.Now;
 
             if (timeLocation.LocationIsValid() && timeLocation.TimeIsValid())
                 _realTimeConnections.Add(new WeatherGetter(timeLocation, units, Context.ConnectionId));
@@ -37,13 +37,17 @@ namespace LiftOff.API.RealTimeEngine
 
 		public override Task OnDisconnected(bool stopCalled)
 		{
-            var clientTimeLocation = _realTimeConnections.First(wg => wg.GetClient().ConnectionId == Context.ConnectionId).GetClient().TimeLocation;
+            var clientConnection = _realTimeConnections.Where(wg => wg.GetClient().ConnectionId == Context.ConnectionId).DefaultIfEmpty(null).First();
 
-            LogicIO.UnregisterTrackedTimeLocation(clientTimeLocation, _realTimeConnections);
+            if (clientConnection != null) {
+                var clientTimeLocation = clientConnection.GetClient().TimeLocation;
 
-            _realTimeConnections.RemoveAll(wg => wg.GetClient().ConnectionId == Context.ConnectionId);
+                LogicIO.UnregisterTrackedTimeLocation(clientTimeLocation, _realTimeConnections);
 
-			return base.OnDisconnected(stopCalled);
-		}
-	}
+                _realTimeConnections.RemoveAll(wg => wg.GetClient().ConnectionId == Context.ConnectionId);
+            }
+
+            return base.OnDisconnected(stopCalled);
+        }
+    }
 }

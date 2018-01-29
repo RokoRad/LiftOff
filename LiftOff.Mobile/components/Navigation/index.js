@@ -8,7 +8,7 @@ const Navigation = (props) => (
       <NavigationItem route="/home" type="FlySafe" current={props.current} />
       <NavigationItem route="/map" type="Planning" current={props.current} />
       <NavigationItem route="/liftoff" type="LiftOff" current={props.current} />
-      <NavigationItem route="/account" type="Account" current={props.current} />
+      <NavigationItem route="/profile" type="Profile" current={props.current} />
       <NavigationItem route="/settings" type="Settings" current={props.current} />
     </View>
 );

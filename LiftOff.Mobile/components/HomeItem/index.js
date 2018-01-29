@@ -3,15 +3,20 @@ import { Image, View, Text } from 'react-native';
 import styles from './styles.js';
 import globals from '../../config/styles.js';
 import colorGenerator from '../../functions/colorGenerator';
+import capitalize from '../../functions/capitalize';
+import isValueText from '../../functions/isValueText';
+import language from '../../languages';
 
 const icons = {
-  humidity: require('../../images/weather/humidity.png'),
-  rain: require('../../images/weather/rain.png'),
+  atmosphere: require('../../images/weather/atmosphere.png'),
+  conditions: require('../../images/weather/conditions.png'),
   temperature: require('../../images/weather/temperature.png'),
   uv: require('../../images/weather/uv.png'),
   visibility: require('../../images/weather/visibility.png'),
   wind: require('../../images/weather/wind.png')
 }
+
+// metric i imperial
 
 const HomeItem = (props) => (
   <View style={styles.wrapper}>
@@ -20,21 +25,23 @@ const HomeItem = (props) => (
     </View>
     <View style={styles.middle}>
       <View>
-        <Text style={styles.title}>Wind</Text>
+        <Text style={styles.title}>{language[capitalize(props.type)]}</Text>
       </View>
       <View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>Speed</Text>
-          <Text style={styles.rightText}>10 km/h</Text>
+          <Text style={styles.leftText}>{language[props.fName]}</Text>
+          <Text style={styles.rightText}>{isValueText(props.fVal)}{props.fAddon}</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.leftText}>Direction</Text>
-          <Text style={styles.rightText}>East</Text>
+          <Text style={styles.leftText}>{language[props.sName]}</Text>
+          <Text style={styles.rightText}>{isValueText(props.sVal)}{props.sAddon}</Text>
         </View>
       </View>
     </View>
     <View style={[styles.right, globals.bothAligned]}>
-      <Text style={[styles.rating, styles[colorGenerator(props.rating)]]}>{props.rating}</Text>
+      <Text style={[styles.rating, (props.rating !== null ? styles[colorGenerator(props.rating)] : null)]}>
+        {isValueText(props.rating)}
+      </Text>
     </View>
   </View>
 );

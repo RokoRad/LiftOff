@@ -4,8 +4,11 @@ const styles = StyleSheet.create({
   container: {
     padding: 15,
     paddingTop: 5,
-    paddingBottom: 50,
+    marginBottom: 0,
     height: '60%'
+  },
+  full: {
+    marginTop: '100%'
   }
 });
 

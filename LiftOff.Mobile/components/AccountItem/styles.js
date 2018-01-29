@@ -6,14 +6,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    paddingRight: 7
   },
   string: {
-    fontFamily: 'barlowRegular',
+    fontFamily: 'robotoRegular',
     fontSize: 14
   },
   bold: {
-    fontFamily: 'barlowSemiBold',
+    fontFamily: 'robotoMedium',
     color: '#2980b9'
   },
   dropdownButton: {

@@ -3,18 +3,19 @@ import { View, StatusBar } from 'react-native';
 import styles from './styles.js';
 import { NativeRouter, Route } from 'react-router-native';
 import Expo from "expo";
-import Inital from './views/Inital';
+import Login from './views/Login';
+import Register from './views/Register';
 import Home from './views/Home';
-import Account from './views/Account';
+import Profile from './views/Profile';
 import Map from './views/Map';
 import Stopwatch from './views/Stopwatch';
 import Settings from './views/Settings';
-import storage from './functions/storage';
+import { Provider } from 'react-redux';
+import store from './store';
 
 class App extends React.Component {
   state = {
     loaded: false
-    //,logged: storage.get('logged')
   }
 
   componentWillMount() {
@@ -23,11 +24,17 @@ class App extends React.Component {
 
   async loadFonts() {
     await Expo.Font.loadAsync({
-      /* 700 */ 'barlowBold': require('./fonts/Barlow-Bold.ttf'),
-      /* 800 */ 'barlowExtraBold': require('./fonts/Barlow-ExtraBold.ttf'),
-      /* 500 */ 'barlowMedium': require('./fonts/Barlow-Medium.ttf'),
-      /* 400 */ 'barlowRegular': require('./fonts/Barlow-Regular.ttf'),
-      /* 600 */ 'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf')
+      'barlowBold': require('./fonts/Barlow-Bold.ttf'),
+      'barlowExtraBold': require('./fonts/Barlow-ExtraBold.ttf'),
+      'barlowMedium': require('./fonts/Barlow-Medium.ttf'),
+      'barlowRegular': require('./fonts/Barlow-Regular.ttf'),
+      'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf'),
+      'robotoThin': require('./fonts/Roboto-Thin.ttf'),
+      'robotoRegular': require('./fonts/Roboto-Regular.ttf'),
+      'robotoMedium': require('./fonts/Roboto-Medium.ttf'),
+      'robotoLight': require('./fonts/Roboto-Light.ttf'),
+      'robotoBold': require('./fonts/Roboto-Bold.ttf'),
+      'robotoBlack': require('./fonts/Roboto-Black.ttf')
     });
     this.setState({loaded: true});
   };
@@ -38,15 +45,18 @@ class App extends React.Component {
     } else {
       return (
         <NativeRouter>
-          <View style={styles.fullScreen}>
-            <StatusBar hidden={true} />
-            <Route exact strict path="/" component={Inital} />
-            <Route exact strict path="/home" component={Home} />
-            <Route exact strict path="/account" component={Account} />
-            <Route exact strict path="/map" component={Map} />
-            <Route exact strict path="/liftoff" component={Stopwatch} />
-            <Route exact strict path="/settings" component={Settings} />
-          </View>
+          <Provider store={store}>
+            <View style={styles.fullScreen}>
+              <StatusBar hidden={true} />
+              <Route exact strict path="/" component={Login} />
+              <Route exact strict path="/register" component={Register} />
+              <Route exact strict path="/home" component={Home} />
+              <Route exact strict path="/profile" component={Profile} />
+              <Route exact strict path="/map" component={Map} />
+              <Route exact strict path="/liftoff" component={Stopwatch} />
+              <Route exact strict path="/settings" component={Settings} />
+            </View>
+          </Provider>
         </NativeRouter>
       );
     }

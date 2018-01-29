@@ -1,14 +1,36 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
 import HomeRating from '../../components/HomeRating';
 import HomeList from '../../components/HomeList';
 import Screen from '../../components/Screen';
+import { connect } from 'react-redux';
+import { _start, _stop } from './_realtime.js';
 
-const Home = ({location}) => (
-  <Screen current={location}>
-    <HomeRating string="Flight is safe, but watch out for sporadic gusts of wind. Although cloudy, precipitation is not expected." rating="2.7"/>
-    <HomeList />
-  </Screen>
-);
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+  };
 
-export default Home;
+  componentWillMount() {
+    _start(this.props.timeLocation, 'metric')
+  }
+
+  componentWillUnmount() {
+    _stop();
+  }
+
+  render() {
+    return (
+      <Screen current={this.props.location}>
+        <HomeRating string={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
+        <HomeList list={this.props.home} />
+      </Screen>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  ...state.timeLocationReducer,
+  ...state.homeReducer
+});
+
+export default connect(mapStateToProps)(Home);

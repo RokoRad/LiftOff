@@ -2,16 +2,21 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import styles from './styles.js';
 import HomeItem from '../HomeItem';
+import _speed from './_speed.js';
+import _temperature from './_temperature.js'
+import _distance from './_distance.js';
 
-const HomeList = (props) => (
-  <ScrollView style={styles.container}>
-    <HomeItem type="humidity" rating="1.7"/>
-    <HomeItem type="rain" rating="3.0"/>
-    <HomeItem type="temperature" rating="4.1"/>
-    <HomeItem type="uv" rating="3.3"/>
-    <HomeItem type="visibility" rating="2.0"/>
-    <HomeItem type="wind" rating="2.4"/>
-  </ScrollView>
-);
+const HomeList = ({list, loaded}) => {
+  const nester = list.weatherData;
+  return (
+    <ScrollView style={styles.container}>
+      <HomeItem type="conditions" rating={list.ConditionsRating} fName="Weather" fVal={nester.Weather} sName="Description" sVal={nester.WeatherDescription} />
+      <HomeItem type="wind" rating={list.WindRating} fName="WindDirection" fVal={nester.WindDirection} sName="WindSpeed" sVal={nester.WindSpeed} sAddon={_speed(nester.units)} />
+      <HomeItem type="visibility" rating={list.VisibilityRating} fName="Visibility" fVal={nester.Visibility} sName="Cloudiness" sVal={nester.Cloudiness} fAddon={_distance(nester.units)} sAddon="%" />
+      <HomeItem type="temperature" rating={list.TemperatureRating} fName="Min_Temperature" fVal={nester.Max_Temperature} sName="Max_Temperature" sVal={nester.Max_Temperature} fAddon={_temperature(nester.units)} sAddon={_temperature(nester.units)} />
+      <HomeItem type="atmosphere" rating={list.AtmosphereRating} fName="Humidity" fVal={nester.Humidity} sName="Pressure" sVal={`${nester.Presssure}kPa`} fAddon="%" />
+      <HomeItem type="uv" rating={list.UVRating} fName="Uv" fVal={nester.UVIndex} sName="Cloudiness" sVal={nester.Cloudiness} sAddon="%" />
+    </ScrollView>
+)};
 
 export default HomeList;

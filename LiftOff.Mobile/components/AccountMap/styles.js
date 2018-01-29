@@ -2,16 +2,16 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   wrapper: {
-    height: '35%',
+    height: '42.5%',
     width: '100%',
     position: 'relative'
   },
   text: {
     color: '#f3705a',
     position: 'absolute',
-    bottom: 10,
-    right: 10,
-    fontFamily: 'barlowSemiBold',
+    bottom: 7,
+    right: 7,
+    fontFamily: 'barlowMedium',
     fontSize: 14,
     zIndex: 999
   },
