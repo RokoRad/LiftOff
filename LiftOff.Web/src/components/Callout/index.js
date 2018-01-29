@@ -1,6 +1,8 @@
 import React from 'react';
 import './style.css';
 
-export default ({}) => (
-
+export default ({ location, rating }) => (
+  <div>
+    {rating} {location}
+  </div>
 );

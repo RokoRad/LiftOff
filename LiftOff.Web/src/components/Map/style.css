@@ -1,6 +1,5 @@
 .map {
   flex: 3;
-  background-color: pink;
   position: relative;
   min-height: 500px;
 }
