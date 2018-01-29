@@ -22,6 +22,18 @@ export default data => {
   }).then((response) => {
     if(response.status === 200) {
       response.json().then((value) => {
+
+        // const parsed = JSON.parse(response._bodyInit).weatherData.timeLocation;
+        // store.dispatch(
+        //   updateLocation({
+        //     ...parsed.location
+        //   })
+        // );
+        // store.dispatch(
+        //   setMarker({
+        //     ...parsed.location
+        //   })
+
         console.log(value)
       })
     } else if (response.status === 401){
