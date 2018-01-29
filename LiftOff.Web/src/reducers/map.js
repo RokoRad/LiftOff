@@ -1,21 +1,14 @@
 const initialLocation = {
-  latitude: 43.5432,
-  longitude: 16.49314
-};
-
-const deltas = {
-  longitudeDelta: 0.1,
-  latitudeDelta: 0.1
+  lat: 43.5432,
+  lng: 16.49314
 };
 
 const initialState = {
   map: {
-    ...initialLocation,
-    ...deltas
+    ...initialLocation
   },
   markerPosition: {
-    ...initialLocation,
-    ...deltas
+    ...initialLocation
   },
   tooltipStatus: false,
   tooltip: {
@@ -31,7 +24,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         map: {
-          ...deltas,
           ...action.payload
         }
       };
@@ -44,7 +36,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         markerPosition: {
-          ...deltas,
           ...action.payload
         }
       };
