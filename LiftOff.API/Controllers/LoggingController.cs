@@ -4,17 +4,18 @@ using LiftOff.API.Models;
 using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
+	//Controller zadužen za spremanje letova i funkcionalnosti koje idu uz to
     [RoutePrefix("api/logging")]
     public class LoggingController : ApiController
     {
         private readonly LiftOffContext _liftOffContext = new LiftOffContext();
         
+		//Glavna funkcija koja sprema korisnikov let i kao rezultat vraća statistike koje su u skladu s novim letom
         [HttpPost]
         [Authorize]
         [Route("logFlight")]
@@ -49,6 +50,7 @@ namespace LiftOff.API.Controllers
             return Ok(user);
         }
 
+		//Funkcija koja korisniku vraća sve njegove zapisane letove
         [HttpGet]
         [Authorize]
         [Route("getLogs")]
@@ -62,16 +64,19 @@ namespace LiftOff.API.Controllers
             return Ok(flights);
         }
 
-        //[HttpGet]
-        //[Authorize]
-        //[Route("getStats")]
-        //public IHttpActionResult GetStats()
-        //{
-        //    var userId = User.Identity.GetUserId();
+		//Funkcija koja u bazi mijenja korisnikovu odluku o pokazivanju letova drugim korinicima
+		[HttpGet]
+		[Authorize]
+		[Route("showFlightsSwitch")]
+		public IHttpActionResult ShowFlightsSwitch()
+		{
+			var userId = User.Identity.GetUserId();
 
-        //    var user = _liftOffContext.StatisticsUsers.FirstOrDefault(usr => usr.IdentityUserId == userId);
+			var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
 
-        //    return Ok(user);
-        //}
+			user.ShowWhereIFly = !user.ShowWhereIFly;
+
+			return Ok();
+		}
     }
 }
