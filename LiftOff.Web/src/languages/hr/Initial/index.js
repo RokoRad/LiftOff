@@ -5,5 +5,6 @@ export default {
   ToRegisterBold: ' Registriraj se!',
   ToLogin: 'Već imaš račun?',
   ToLoginBold: ' Prijavi se!',
-  Token: 'Neispravan Token'
+  Token: 'Neispravan token',
+  Input: 'Provjeri unos'
 };

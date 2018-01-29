@@ -6,9 +6,9 @@ import _register from './_register.js';
 import './style.css';
 
 let holder = {
-  username: null,
-  email: null,
-  password: null
+  username: '',
+  email: '',
+  password: ''
 };
 
 const Login = () => (

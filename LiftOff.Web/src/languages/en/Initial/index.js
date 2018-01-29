@@ -5,5 +5,6 @@ export default {
   ToRegisterBold: ' Register!',
   ToLogin: 'Have an account?',
   ToLoginBold: ' Login!',
-  Token: 'Invalid token'
+  Token: 'Invalid token',
+  Input: 'Check your data'
 };

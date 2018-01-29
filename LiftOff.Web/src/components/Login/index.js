@@ -7,8 +7,8 @@ import _login from './_login.js';
 import './style.css';
 
 let holder = {
-  username: null,
-  password: null
+  username: '',
+  password: ''
 };
 
 const Login = () => (

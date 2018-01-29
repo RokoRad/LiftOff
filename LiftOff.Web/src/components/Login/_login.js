@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
 import _encode from './_encode.js';
+import language from '../../languages';
 
 export default data => {
   if (data.username.length > 0 && data.password.length > 7) {
@@ -17,13 +18,13 @@ export default data => {
       if (response.status === 200) {
 
       } else {
-        // error
+        alert(language.Input);
       }
       console.log(response)
     }).catch((error) => {
-      console.log(error)
+      alert(language.serverError)
     })
   } else {
-    // nije full
+    alert(language.Input)
   }
 };

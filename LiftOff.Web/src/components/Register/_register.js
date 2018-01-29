@@ -1,5 +1,8 @@
+import 'whatwg-fetch';
+import language from '../../languages';
+
 export default object => {
-  if (object.username > 0 && object.email > 0) {
+  if (object.username.length > 0 && object.email.length > 0) {
     fetch('http://liftoffapi.azurewebsites.net/api/account/register', {
       method: 'POST',
       headers: {
@@ -11,19 +14,13 @@ export default object => {
         if (response.status === 200) {
           console.log(response);
         } else {
-          console.warn('server ili podatci');
-          // server ili podatci
+          alert(language.Input)
         }
       })
-      .then(response => {
-        console.log(response);
-      })
       .catch(error => {
-        console.error(error);
-        // error
+        alert(language.serverError);
       });
   } else {
-    // nije full
+    alert(language.Input)
   }
-  console.log(object);
 };
