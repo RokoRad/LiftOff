@@ -2,7 +2,9 @@ import React from 'react';
 import Dock from '../Dock';
 import './style.css';
 import mapStyle from './style.js';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import _setMarker from './_setMarker.js';
+import Marker from '../Marker';
+import { Map, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
 
 class MapContainer extends React.Component {
   constructor(props) {
@@ -12,8 +14,8 @@ class MapContainer extends React.Component {
   render() {
     return (
       <div className="map">
-        <Map google={this.props.google} zoom={14} disableDefaultUI={true} styles={mapStyle} initialCenter={this.props.map}>
-          <Marker onClick={this.onMarkerClick} />
+        <Map google={this.props.google} zoom={14} disableDefaultUI={true} styles={mapStyle} initialCenter={this.props.location} onClick={(a, b, event) => _setMarker(event)}>
+          <Marker onClick={this.onMarkerClick} position={this.props.marker} />
 
           <InfoWindow onClose={this.onInfoWindowClose}>
             <div>
