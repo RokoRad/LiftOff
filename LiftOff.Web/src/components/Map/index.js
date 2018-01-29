@@ -3,6 +3,7 @@ import Dock from '../Dock';
 import './style.css';
 import mapStyle from './style.js';
 import _setMarker from './_setMarker.js';
+import Callout from '../Callout';
 import { Map, InfoWindow, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 class MapContainer extends React.Component {
@@ -14,14 +15,12 @@ class MapContainer extends React.Component {
     return (
       <div className="map">
         <Map google={this.props.google} zoom={14} disableDefaultUI={true} styles={mapStyle} initialCenter={this.props.location} onClick={(a, b, event) => _setMarker(event)}>
-          <Marker onClick={this.onMarkerClick} position={this.props.marker} 
+          <Marker onClick={() => console.log("a")} position={this.props.marker} 
           //icon={{ url: '../../images/map/pin.png' }} 
           />
 
-          <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>aa</h1>
-            </div>
+          <InfoWindow visible={true} position={this.props.marker}>
+            <Callout location="split" rating="3.3" />
           </InfoWindow>
         </Map>
         <Dock />
