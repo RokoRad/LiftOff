@@ -1,4 +1,8 @@
 .home__rating {
   flex: 2;
+  display: flex;
+  justify-content: center;
+  align-content: center;
   background-color: blue;
+  flex-direction: column
 }

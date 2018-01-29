@@ -1,0 +1,11 @@
+.drone {
+  background-image: url('../../images/drone.png');
+  background-position: center;
+  background-size: 100px;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  margin-left: auto;
+  margin-top: -65px;
+  margin-right: auto;
+}

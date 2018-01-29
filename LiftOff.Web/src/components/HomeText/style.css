@@ -1,0 +1,17 @@
+.home__text {
+  position: absolute;
+  background-color: rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: row;
+  padding: 15;
+  bottom: 0;
+  left: 0;
+}
+
+.home-text__title {
+
+}
+
+.home-text__message {
+
+}
