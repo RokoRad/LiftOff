@@ -2,7 +2,8 @@
 
 namespace LiftOff.API.Models
 {
-    public class User
+	//Klasa koja definira User objekt za bazu podataka
+	public class User
 	{
 		[Required]
 		public string UserName { get; set; }

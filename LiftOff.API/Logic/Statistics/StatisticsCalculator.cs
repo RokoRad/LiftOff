@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace LiftOff.API.Logic.Statistics
 {
+	//Emumeracija doba dana
     public enum TimeOfDay
     {
         Morning,
@@ -11,8 +12,10 @@ namespace LiftOff.API.Logic.Statistics
         Night
     }
 
+	//Klasa koja je zadužena za računanje pojedinih korisnikovih statistika
     public class StatisticsCalculator
     {
+		//Funkcija koja vraća korisnikovu najdražu lokaciju za let
         public static string CalculateFavoriteFlightLocation(List<FlightLocation> flightLocations)
         {
             return flightLocations
@@ -21,6 +24,7 @@ namespace LiftOff.API.Logic.Statistics
                 .First().Key;
         }
 
+		//Funkcija koja vraća korisnikovo najdraže vrijeme (doba dana iz enumeracije TimeOfDay) leta
         public static TimeOfDay CalculateFavoriteFlightTime(List<FlightTime> flightTimes)
         {
             var sortedTimes = 
@@ -55,6 +59,7 @@ namespace LiftOff.API.Logic.Statistics
                 return TimeOfDay.Night;
         }
 
+		//Funkcija koja vraća korisnikov najdraži dron za let
         public static string CalculateFavoriteDrone(List<Drone> drones) {
             return drones
                 .GroupBy(drone => drone.Name)

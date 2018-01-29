@@ -2,12 +2,12 @@ using LiftOff.API.Logic;
 using LiftOff.API.Models;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
-using Newtonsoft.Json;
 using System;
 using System.Threading;
 
 namespace LiftOff.API.RealTimeEngine
 {
+	//Klasa klijenta èiji objekt predstavlja vezu korisnika sa LiftOff real-timeom
 	public class Client
 	{
         public TimeLocation TimeLocation { get; set; }
@@ -23,6 +23,7 @@ namespace LiftOff.API.RealTimeEngine
 		}
 	}
 
+	//Klasa koja sadrži sve pretvorbe jedinica za "metric" i "imperial" sustave
     public class Conversions
     {
         public static double? ConvertToFahrenheit(double? celsius)
@@ -56,6 +57,7 @@ namespace LiftOff.API.RealTimeEngine
         }
     }
 
+	//Klasa koja se je zadužena za serviranje podataka klijentu kad je to potrebno
 	public class WeatherGetter
 	{
 
@@ -82,11 +84,13 @@ namespace LiftOff.API.RealTimeEngine
 			set;
 		}
 
+		//Funkcija koja mijenja klijentovu lokaciju
 		public void UpdateClientLocation(TimeLocation newTimeLocation)
 		{
             Client.TimeLocation = newTimeLocation;
 		}
 
+		//Funkcija koja mijenja klijentov sustav mjernih jedinica
 		public void ChangeUnits()
 		{
 			if (Client.Units == "metric")
@@ -95,6 +99,7 @@ namespace LiftOff.API.RealTimeEngine
 				Client.Units = "metric";
 		}
 
+		//Funkcija koja obavlja pretvorbu jedinica
         private WeatherRating ChangeUnits(WeatherRating weatherRating)
         {
             var newWeatherRating = weatherRating;
@@ -130,6 +135,7 @@ namespace LiftOff.API.RealTimeEngine
 			return Client;
 		}
 
+		//Funkcija koja klijentu šalje svjež rejting
         public void UpdateCurrentWeather(object state)
         {
             BroadcastCurrentWeatherToClient();
@@ -148,15 +154,6 @@ namespace LiftOff.API.RealTimeEngine
 
                 Clients.Client(Client.ConnectionId).broadcastWeather(weatherRating);
             }
-        }
-
-        //just for testing
-        private string FormatRating(WeatherRating weatherRating)
-        {
-            //var stringed = $"Temperature rating: {weatherRating.TemperatureRating}, Wind rating: {weatherRating.WindRating}, Condition rating: {weatherRating.ConditionsRating}, Atmosphere rating: {weatherRating.AtmosphereRating}, Visibility rating: {weatherRating.VisibilityRating}, UV rating: {weatherRating.UVRating}, TOTAL RATING: {weatherRating.TotalRating}";
-            var stringed = $"Max temp: {weatherRating.weatherData.Max_Temperature}, Min temp: {weatherRating.weatherData.Min_Temperature}";
-
-            return stringed;
         }
 	}
 }

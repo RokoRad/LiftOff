@@ -7,11 +7,13 @@ using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
+	//Controller zadužen za funkcionalnosti vezane uz letove koji su zapisani u bazi
     [RoutePrefix("api/flights")]
     public class FlightsController : ApiController
     {
         private readonly LiftOffContext _liftOffContext = new LiftOffContext();
 
+		//Funkcija koja korisniku vraća letove u blizini
         [Authorize]
         [HttpPost]
         [Route("getFlightsNearMe")]

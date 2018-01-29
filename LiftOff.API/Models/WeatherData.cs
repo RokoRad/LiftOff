@@ -3,7 +3,7 @@ using System;
 
 namespace LiftOff.API.Models
 {
-    public class WeatherData
+	public class WeatherData
 	{
 		public TimeLocation TimeLocation { get; set; }
 

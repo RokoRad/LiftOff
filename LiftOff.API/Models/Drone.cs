@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace LiftOff.API.Models
 {
-    public class Drone
+	//Klasa koja definira Drone objekt za bazu podataka
+	public class Drone
     {
         public int Id { get; set; }
         public string Name { get; set; }

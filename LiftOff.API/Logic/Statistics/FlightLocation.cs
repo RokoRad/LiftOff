@@ -1,12 +1,11 @@
 ﻿using LiftOff.API.Models;
 using Newtonsoft.Json;
-using System;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LiftOff.API.Logic.Statistics
 {
-    public class FlightLocation
+	//Klasa koja definira FlightLocation objekt za bazu podataka
+	public class FlightLocation
     {
         [ForeignKey("Flight")]
         public int FlightLocationId { get; set; }
