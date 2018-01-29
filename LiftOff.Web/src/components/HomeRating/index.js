@@ -6,6 +6,9 @@ import './style.css';
 export default ({ color }) => (
   <div className={`home__rating background background--${color}`}>
     <Drone color={color} />
-    <HomeText />
+    <HomeText content={{
+      Croatian: 'hrv',
+      English: 'eng'
+    }} />
   </div>
 );
