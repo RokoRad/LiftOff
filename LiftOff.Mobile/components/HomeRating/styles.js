@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  full: {
+    height: '100%',
+    backgroundColor: 'blue'
+  },
   drone: {
     width: 120,
     height: 120
@@ -26,16 +30,16 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontFamily: 'barlowSemiBold',
+    fontFamily: 'robotoBold',
     fontSize: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#fff',
-    paddingBottom: 3,
-    marginBottom: 3
+    paddingBottom: 5,
+    marginBottom: 5
   },
   text: {
     color: '#fff',
-    fontFamily: 'barlowMedium',
+    fontFamily: 'robotoMedium',
     fontSize: 10
   },
   right: {
@@ -45,7 +49,7 @@ const styles = StyleSheet.create({
   },
   rating: {
     color: '#fff',
-    fontFamily: 'barlowMedium',
+    fontFamily: 'robotoMedium',
     textAlign: 'right',
     width: '100%',
     fontSize: 45

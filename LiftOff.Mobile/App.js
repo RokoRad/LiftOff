@@ -3,12 +3,15 @@ import { View, StatusBar } from 'react-native';
 import styles from './styles.js';
 import { NativeRouter, Route } from 'react-router-native';
 import Expo from "expo";
-import Inital from './views/Inital';
+import Login from './views/Login';
+import Register from './views/Register';
 import Home from './views/Home';
-import Account from './views/Account';
+import Profile from './views/Profile';
 import Map from './views/Map';
 import Stopwatch from './views/Stopwatch';
 import Settings from './views/Settings';
+import { Provider } from 'react-redux';
+import store from './store';
 
 class App extends React.Component {
   state = {
@@ -25,7 +28,13 @@ class App extends React.Component {
       'barlowExtraBold': require('./fonts/Barlow-ExtraBold.ttf'),
       'barlowMedium': require('./fonts/Barlow-Medium.ttf'),
       'barlowRegular': require('./fonts/Barlow-Regular.ttf'),
-      'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf')
+      'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf'),
+      'robotoThin': require('./fonts/Roboto-Thin.ttf'),
+      'robotoRegular': require('./fonts/Roboto-Regular.ttf'),
+      'robotoMedium': require('./fonts/Roboto-Medium.ttf'),
+      'robotoLight': require('./fonts/Roboto-Light.ttf'),
+      'robotoBold': require('./fonts/Roboto-Bold.ttf'),
+      'robotoBlack': require('./fonts/Roboto-Black.ttf')
     });
     this.setState({loaded: true});
   };
@@ -36,15 +45,18 @@ class App extends React.Component {
     } else {
       return (
         <NativeRouter>
-          <View style={styles.fullScreen}>
-            <StatusBar hidden={true} />
-            <Route exact strict path="/" component={Inital} />
-            <Route exact strict path="/home" component={Home} />
-            <Route exact strict path="/account" component={Account} />
-            <Route exact strict path="/map" component={Map} />
-            <Route exact strict path="/liftoff" component={Stopwatch} />
-            <Route exact strict path="/settings" component={Settings} />
-          </View>
+          <Provider store={store}>
+            <View style={styles.fullScreen}>
+              <StatusBar hidden={true} />
+              <Route exact strict path="/" component={Login} />
+              <Route exact strict path="/register" component={Register} />
+              <Route exact strict path="/home" component={Home} />
+              <Route exact strict path="/profile" component={Profile} />
+              <Route exact strict path="/map" component={Map} />
+              <Route exact strict path="/liftoff" component={Stopwatch} />
+              <Route exact strict path="/settings" component={Settings} />
+            </View>
+          </Provider>
         </NativeRouter>
       );
     }

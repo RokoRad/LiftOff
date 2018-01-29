@@ -1,16 +1,16 @@
 import round from '../round';
+import capitalize from '../capitalize';
 
 const isValueText = (value) => {
   if(value === null) {
     return '/';
   } else {
     if(isNaN(value)) {
-      return value;
-      console.log(value)
+      return capitalize(value);
     } else {
       return round(value);
     }
   }
 };
 
-export default round;
+export default isValueText;

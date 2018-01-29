@@ -15,14 +15,21 @@ const globals = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  outer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center' 
+  },
   buttonWrapper: {
     marginTop: 7.5,
     paddingTop: 10,
     paddingBottom: 10,
-    width: 130,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    borderRadius: 7,    
+    //width: 120,
+    paddingLeft: 20,
+    paddingRight: 20,
+    // marginLeft: 'auto',
+    // marginRight: 'auto',
+    borderRadius: 4,    
     shadowOpacity: 0.5,
     shadowRadius: 5,
     shadowOffset: {
@@ -36,7 +43,7 @@ const globals = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 20,
-    fontFamily: 'barlowBold'
+    fontFamily: 'robotoMedium'
   }
 });
 

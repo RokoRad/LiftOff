@@ -26,22 +26,25 @@ const styles = StyleSheet.create({
   rating: {
     backgroundColor: 'rgba(0,0,0,0.1)',
     width: '25%',
-    height: '100%'
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   ratingInner: {
     color: '#fff',
-    fontSize: 50,
-    fontFamily: 'barlowRegular'
+    fontSize: 40,
+    fontFamily: 'robotoRegular'
   },
   informationTitle: {
     color: '#fff',
-    fontFamily: 'barlowMedium',
+    fontFamily: 'robotoMedium',
     marginBottom: 2,
     fontSize: 12
   },
   informationText: {
     color: '#fff',
-    fontFamily: 'barlowRegular',
+    fontFamily: 'robotoRegular',
     fontSize: 10
   }
 });

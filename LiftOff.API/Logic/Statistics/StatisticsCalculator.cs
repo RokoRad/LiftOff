@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using LiftOff.API.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LiftOff.API.Logic.Statistics
@@ -52,6 +53,14 @@ namespace LiftOff.API.Logic.Statistics
                 return TimeOfDay.Afternoon;
             else
                 return TimeOfDay.Night;
+        }
+
+        public static string CalculateFavoriteDrone(List<Drone> drones) {
+            return drones
+                .GroupBy(drone => drone.Name)
+                .OrderByDescending(drone => drone.Count())
+                .First()
+                .Key;
         }
     }
 }

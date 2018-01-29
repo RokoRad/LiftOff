@@ -10,11 +10,11 @@ const styles = StyleSheet.create({
     paddingRight: 7
   },
   string: {
-    fontFamily: 'barlowRegular',
+    fontFamily: 'robotoRegular',
     fontSize: 14
   },
   bold: {
-    fontFamily: 'barlowSemiBold',
+    fontFamily: 'robotoMedium',
     color: '#2980b9'
   },
   dropdownButton: {
