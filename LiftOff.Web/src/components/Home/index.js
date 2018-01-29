@@ -5,7 +5,7 @@ import './style.css';
 
 export default ({ }) => (
   <div className="home">
-    <HomeRating />
+    <HomeRating color="red" />
     <HomeList />
   </div>
 );

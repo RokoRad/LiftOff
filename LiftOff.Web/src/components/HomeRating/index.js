@@ -3,9 +3,9 @@ import Drone from '../Drone';
 import HomeText from '../HomeText';
 import './style.css';
 
-export default ({ }) => (
-  <div className="home__rating background background--green">
-    <Drone />
+export default ({ color }) => (
+  <div className={`home__rating background background--${color}`}>
+    <Drone color={color} />
     <HomeText />
   </div>
 );

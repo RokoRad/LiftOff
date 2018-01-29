@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css';
 
-export default ({ }) => (
-  <div className="drone">
+export default ({ color }) => (
+  <div className={`drone animated animated--${color}`}>
 
   </div>
 );
