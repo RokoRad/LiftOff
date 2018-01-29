@@ -1,6 +1,5 @@
 import 'whatwg-fetch';
 import _encode from './_encode.js';
-import { notify } from 'react-notify-toast';
 
 export default data => {
   if (data.username.length > 0 && data.password.length > 7) {
@@ -27,5 +26,4 @@ export default data => {
   } else {
     // nije full
   }
-  notify.show('test')
 };
