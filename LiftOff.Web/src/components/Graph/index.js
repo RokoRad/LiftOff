@@ -20,7 +20,8 @@ export default ({ days, scores }) => {
       {
         data: scores,
         borderColor: '#3073f2',
-        fill: false
+        fill: true,
+        //fillColor: 'rgba(48, 115, 242, 1)'
       }
     ]
   };
