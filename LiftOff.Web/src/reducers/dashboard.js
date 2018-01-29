@@ -1,5 +1,3 @@
-import { AsyncStorage } from 'react-native';
-
 const initialState = {
   menu: false
 };
