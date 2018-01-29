@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
 import _encode from './_encode.js';
+import token from '../../functions/token';
 import language from '../../languages';
 
 export default data => {
@@ -16,12 +17,16 @@ export default data => {
       body: _encode(object)
     }).then((response) => {
       if (response.status === 200) {
-
+        token.set('');
+        console.log(response)
+        console.log(response.body)
+        //console.log(JSON.parse(response))
       } else {
         alert(language.Input);
       }
       console.log(response)
     }).catch((error) => {
+      console.log(error)
       alert(language.serverError)
     })
   } else {
