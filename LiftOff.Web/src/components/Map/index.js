@@ -3,8 +3,7 @@ import Dock from '../Dock';
 import './style.css';
 import mapStyle from './style.js';
 import _setMarker from './_setMarker.js';
-import Marker from '../Marker';
-import { Map, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
+import { Map, InfoWindow, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 class MapContainer extends React.Component {
   constructor(props) {
@@ -15,7 +14,10 @@ class MapContainer extends React.Component {
     return (
       <div className="map">
         <Map google={this.props.google} zoom={14} disableDefaultUI={true} styles={mapStyle} initialCenter={this.props.location} onClick={(a, b, event) => _setMarker(event)}>
-          <Marker onClick={this.onMarkerClick} position={this.props.marker} />
+          <Marker onClick={this.onMarkerClick} position={this.props.marker} 
+          icon={{ url: '../../images/map/pin.png',       anchor: 32,
+      scaledSize: 64}} 
+          />
 
           <InfoWindow onClose={this.onInfoWindowClose}>
             <div>
