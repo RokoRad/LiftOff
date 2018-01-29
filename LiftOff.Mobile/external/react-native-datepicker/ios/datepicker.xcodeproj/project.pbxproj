@@ -44,6 +44,22 @@
 		3A6A8989CFFA49EFA6648C25 /* Barlow-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A840F9ED908C422CAC900E2F /* Barlow-Regular.ttf */; };
 		C5D2B3B8FFCA4DE68075B4DD /* Barlow-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 046E9DC98C1C472EACC070E5 /* Barlow-SemiBold.ttf */; };
 		3163617D4E9743C79591B3DF /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A31235654A1C455EA9C05748 /* libRNI18n.a */; };
+		4C9E7C8B4037489EBE806048 /* libRNWatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3617F9129C04516ADEE1A50 /* libRNWatch.a */; };
+		4D6AE81CC06A45F5AFEF4217 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C1BDCE18E034661B1199705 /* Roboto-Black.ttf */; };
+		24C5B47995964520B9003A0F /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BF3E64B9D794DC083D11F0D /* Roboto-BlackItalic.ttf */; };
+		A7DBE23AE56F40EAB8F18FF1 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2BBA4CB6BBE4066908C91F1 /* Roboto-Bold.ttf */; };
+		2F8898604D704FA98741C85F /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E194AECEDA84B71999F41E0 /* Roboto-BoldItalic.ttf */; };
+		0BC598BF51AB4F318594A160 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3078DE6EA764BE7871AB56F /* Roboto-Italic.ttf */; };
+		8FDBA2C679A743B4969679A3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9715CC8164F440DDB68C79B5 /* Roboto-Light.ttf */; };
+		C1E2650DA709404693DE30DA /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C19D881B334641959B0D2317 /* Roboto-LightItalic.ttf */; };
+		0EDF6DAAE0774931B8F5CEDA /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B9A40945A284980A6E0B32E /* Roboto-Medium.ttf */; };
+		C0E52A01A3A84AC493DF110E /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E182DA8E00C443A18EFD9FF7 /* Roboto-MediumItalic.ttf */; };
+		59E5B1B714964DA8914E374D /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3EED21AC7654937B0FBB253 /* Roboto-Regular.ttf */; };
+		FBD1A7D9C8DE4E0A91C01507 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AD8EAF40B1B4424A3E52B20 /* Roboto-Thin.ttf */; };
+		7A64E338980940F19EE670C1 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42CBF4C81273486C8B2F205D /* Roboto-ThinItalic.ttf */; };
+		E5BE8EC1A9C74E5D81E9CA87 /* LiftOffSmartwatch.app in Resources */ = {isa = PBXBuildFile; fileRef = F86E7A31112F432EB26B7516 /* LiftOffSmartwatch.app */; };
+		B959C7B0DA444D4894B157EC /* LiftOffSmartwatch WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = BD15A02F71A945AE993AE5D3 /* LiftOffSmartwatch WatchKit App.app */; };
+		D6EF4E901F174AB0B3AB2F27 /* LiftOffSmartwatch WatchKit Extension.appex in Resources */ = {isa = PBXBuildFile; fileRef = 1A8F639C291C4938B3721FB8 /* LiftOffSmartwatch WatchKit Extension.appex */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,6 +298,24 @@
 		046E9DC98C1C472EACC070E5 /* Barlow-SemiBold.ttf */ = {isa = PBXFileReference; name = "Barlow-SemiBold.ttf"; path = "../../../fonts/Barlow-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		CA9311339EDA4553B782E88D /* RNI18n.xcodeproj */ = {isa = PBXFileReference; name = "RNI18n.xcodeproj"; path = "../../../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		A31235654A1C455EA9C05748 /* libRNI18n.a */ = {isa = PBXFileReference; name = "libRNI18n.a"; path = "libRNI18n.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5A338BE51F994AED994AE396 /* RNWatch.xcodeproj */ = {isa = PBXFileReference; name = "RNWatch.xcodeproj"; path = "../../../node_modules/react-native-watch-connectivity/RNWatch.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		C3617F9129C04516ADEE1A50 /* libRNWatch.a */ = {isa = PBXFileReference; name = "libRNWatch.a"; path = "libRNWatch.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		0C1BDCE18E034661B1199705 /* Roboto-Black.ttf */ = {isa = PBXFileReference; name = "Roboto-Black.ttf"; path = "../../../fonts/Roboto-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7BF3E64B9D794DC083D11F0D /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-BlackItalic.ttf"; path = "../../../fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C2BBA4CB6BBE4066908C91F1 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; name = "Roboto-Bold.ttf"; path = "../../../fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5E194AECEDA84B71999F41E0 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-BoldItalic.ttf"; path = "../../../fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C3078DE6EA764BE7871AB56F /* Roboto-Italic.ttf */ = {isa = PBXFileReference; name = "Roboto-Italic.ttf"; path = "../../../fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9715CC8164F440DDB68C79B5 /* Roboto-Light.ttf */ = {isa = PBXFileReference; name = "Roboto-Light.ttf"; path = "../../../fonts/Roboto-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C19D881B334641959B0D2317 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-LightItalic.ttf"; path = "../../../fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2B9A40945A284980A6E0B32E /* Roboto-Medium.ttf */ = {isa = PBXFileReference; name = "Roboto-Medium.ttf"; path = "../../../fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E182DA8E00C443A18EFD9FF7 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-MediumItalic.ttf"; path = "../../../fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E3EED21AC7654937B0FBB253 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../../../fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5AD8EAF40B1B4424A3E52B20 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; name = "Roboto-Thin.ttf"; path = "../../../fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		42CBF4C81273486C8B2F205D /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-ThinItalic.ttf"; path = "../../../fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		501DDD0D21DA4A82A3BB36D4 /* LiftOffSmartwatch.xcodeproj */ = {isa = PBXFileReference; name = "LiftOffSmartwatch.xcodeproj"; path = "../../../node_modules/react-native-watch-connectivity/LiftOffSmartwatch.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		F86E7A31112F432EB26B7516 /* LiftOffSmartwatch.app */ = {isa = PBXFileReference; name = "LiftOffSmartwatch.app"; path = "LiftOffSmartwatch.app"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.application; explicitFileType = undefined; includeInIndex = 0; };
+		BD15A02F71A945AE993AE5D3 /* LiftOffSmartwatch WatchKit App.app */ = {isa = PBXFileReference; name = "LiftOffSmartwatch WatchKit App.app"; path = "LiftOffSmartwatch WatchKit App.app"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.application; explicitFileType = undefined; includeInIndex = 0; };
+		1A8F639C291C4938B3721FB8 /* LiftOffSmartwatch WatchKit Extension.appex */ = {isa = PBXFileReference; name = "LiftOffSmartwatch WatchKit Extension.appex"; path = "LiftOffSmartwatch WatchKit Extension.appex"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.app-extension; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +347,10 @@
 				C236B52AB6464C42BBDCE36B /* libReactNativeLocalization.a in Frameworks */,
 				9BFA0150B9F94A40A465ECFD /* libLRDRCTSimpleToast.a in Frameworks */,
 				3163617D4E9743C79591B3DF /* libRNI18n.a in Frameworks */,
+				4C9E7C8B4037489EBE806048 /* libRNWatch.a in Frameworks */,
+				E5BE8EC1A9C74E5D81E9CA87 /* LiftOffSmartwatch.app in Resources */,
+				B959C7B0DA444D4894B157EC /* LiftOffSmartwatch WatchKit App.app in Resources */,
+				D6EF4E901F174AB0B3AB2F27 /* LiftOffSmartwatch WatchKit Extension.appex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +522,8 @@
 				813932367E5A4CCC8103C9D1 /* ReactNativeLocalization.xcodeproj */,
 				C3024CEE4F0944EB9E7168FF /* LRDRCTSimpleToast.xcodeproj */,
 				CA9311339EDA4553B782E88D /* RNI18n.xcodeproj */,
+				5A338BE51F994AED994AE396 /* RNWatch.xcodeproj */,
+				501DDD0D21DA4A82A3BB36D4 /* LiftOffSmartwatch.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -538,6 +578,18 @@
 				C023F4792B684A7FA0F9AC63 /* Barlow-Medium.ttf */,
 				A840F9ED908C422CAC900E2F /* Barlow-Regular.ttf */,
 				046E9DC98C1C472EACC070E5 /* Barlow-SemiBold.ttf */,
+				0C1BDCE18E034661B1199705 /* Roboto-Black.ttf */,
+				7BF3E64B9D794DC083D11F0D /* Roboto-BlackItalic.ttf */,
+				C2BBA4CB6BBE4066908C91F1 /* Roboto-Bold.ttf */,
+				5E194AECEDA84B71999F41E0 /* Roboto-BoldItalic.ttf */,
+				C3078DE6EA764BE7871AB56F /* Roboto-Italic.ttf */,
+				9715CC8164F440DDB68C79B5 /* Roboto-Light.ttf */,
+				C19D881B334641959B0D2317 /* Roboto-LightItalic.ttf */,
+				2B9A40945A284980A6E0B32E /* Roboto-Medium.ttf */,
+				E182DA8E00C443A18EFD9FF7 /* Roboto-MediumItalic.ttf */,
+				E3EED21AC7654937B0FBB253 /* Roboto-Regular.ttf */,
+				5AD8EAF40B1B4424A3E52B20 /* Roboto-Thin.ttf */,
+				42CBF4C81273486C8B2F205D /* Roboto-ThinItalic.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -917,6 +969,18 @@
 				26025313967C42828527B5C1 /* Barlow-Medium.ttf in Resources */,
 				3A6A8989CFFA49EFA6648C25 /* Barlow-Regular.ttf in Resources */,
 				C5D2B3B8FFCA4DE68075B4DD /* Barlow-SemiBold.ttf in Resources */,
+				4D6AE81CC06A45F5AFEF4217 /* Roboto-Black.ttf in Resources */,
+				24C5B47995964520B9003A0F /* Roboto-BlackItalic.ttf in Resources */,
+				A7DBE23AE56F40EAB8F18FF1 /* Roboto-Bold.ttf in Resources */,
+				2F8898604D704FA98741C85F /* Roboto-BoldItalic.ttf in Resources */,
+				0BC598BF51AB4F318594A160 /* Roboto-Italic.ttf in Resources */,
+				8FDBA2C679A743B4969679A3 /* Roboto-Light.ttf in Resources */,
+				C1E2650DA709404693DE30DA /* Roboto-LightItalic.ttf in Resources */,
+				0EDF6DAAE0774931B8F5CEDA /* Roboto-Medium.ttf in Resources */,
+				C0E52A01A3A84AC493DF110E /* Roboto-MediumItalic.ttf in Resources */,
+				59E5B1B714964DA8914E374D /* Roboto-Regular.ttf in Resources */,
+				FBD1A7D9C8DE4E0A91C01507 /* Roboto-Thin.ttf in Resources */,
+				7A64E338980940F19EE670C1 /* Roboto-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1053,12 +1117,17 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
+					"$(SRCROOT)/../../../node_modules/react-native-watch-connectivity",
 				);
 			};
 			name = Debug;
@@ -1082,12 +1151,17 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
+					"$(SRCROOT)/../../../node_modules/react-native-watch-connectivity",
 				);
 			};
 			name = Release;
@@ -1112,6 +1186,7 @@
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
+					"$(SRCROOT)/../../../node_modules/react-native-watch-connectivity",
 				);
 			};
 			name = Debug;
@@ -1135,6 +1210,7 @@
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
+					"$(SRCROOT)/../../../node_modules/react-native-watch-connectivity",
 				);
 			};
 			name = Release;
@@ -1167,12 +1243,17 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
+					"$(SRCROOT)/../../../node_modules/react-native-watch-connectivity",
 				);
 			};
 			name = Debug;
@@ -1205,12 +1286,17 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\..\..\node_modules\react-native-i18n\ios",
+					"$(SRCROOT)/../../../node_modules/react-native-watch-connectivity",
 				);
 			};
 			name = Release;
@@ -1238,6 +1324,10 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1262,6 +1352,10 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

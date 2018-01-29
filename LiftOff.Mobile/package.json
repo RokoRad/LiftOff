@@ -22,6 +22,7 @@
     "react-native-localization": "^0.2.1",
     "react-native-signalr": "^1.0.6",
     "react-native-simple-toast": "0.0.7",
+    "react-native-watch-connectivity": "^0.1.7",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-native": "^4.2.0",
