@@ -1,11 +1,14 @@
 import React from 'react';
 import Graph from '../Graph';
 import Map from '../Map';
+import Home from '../Home';
 import './style.css';
 
-export default ({}) => (
+export default ({ }) => (
   <div className="grid">
-    <div className="grid__left">home</div>
+    <div className="grid__left">
+      <Home />
+    </div>
     <div className="grid__right">
       <Map />
       <Graph
