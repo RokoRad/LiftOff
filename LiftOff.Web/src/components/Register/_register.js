@@ -12,7 +12,7 @@ export default object => {
     })
       .then(response => {
         if (response.status === 200) {
-          console.log(response);
+          window.location.href = "/";
         } else {
           alert(language.Input)
         }

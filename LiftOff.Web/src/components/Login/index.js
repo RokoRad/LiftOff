@@ -4,6 +4,7 @@ import Button from '../Button';
 import InitalMessage from '../InitalMessage';
 import storage from '../../functions/storage';
 import _login from './_login.js';
+import language from '../../languages';
 import token from '../../functions/token';
 import './style.css';
 
@@ -12,7 +13,7 @@ let holder = {
   password: ''
 };
 
-class Login extends React.Component {
+export default class Login extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -34,10 +35,8 @@ class Login extends React.Component {
           onChange={e => (holder.password = e.target.value)}
         />
         <InitalMessage type="login" />
-        <Button onClick={() => _login(holder)}>Login</Button>
+        <Button onClick={() => _login(holder)}>{language.Login}</Button>
       </form>
     )
   }
 }
-
-export default Login;
