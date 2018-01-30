@@ -1,7 +1,8 @@
 import React from 'react';
 import './style.css';
-import language from '../../language';
+import language from '../../languages';
 import capitalize from '../../functions/capitalize';
+import colorGenerator from '../../functions/colorGenerator';
 import isValueText from '../../functions/isValueText';
 
 const icons = {
@@ -39,10 +40,10 @@ export default ({ type, fVal, sVal, fName, sName, fAddon, sAddon, rating }) => (
         </div>
       </div>
     </div>
-    <div className={[classNames.right, classNames.bothAligned]}>
-      <span className={[styles.rating, rating !== null ? globals[colorGenerator(rating)] : null]}>
+    <div className="home-item__right home-item__aligned">
+      {/* <span className={[styles.rating, rating !== null ? globals[colorGenerator(rating)] : null]}>
         {isValueText(rating)}
-      </span>
+      </span> */}
     </div>
   </div>
 );

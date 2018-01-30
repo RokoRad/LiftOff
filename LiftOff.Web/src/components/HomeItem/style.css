@@ -7,11 +7,14 @@
 }
 
 .home-item__image {
-
+  width: 40px;
+  height: 40px
 }
 
 .home-item__left {
-
+  width: 20%;
+  display: flex;
+  justify-content: flex-start
 }
 
 .home-item__aligned {
@@ -19,7 +22,8 @@
 }
 
 .home-item__middle {
-
+  width: 55%;
+  height: 100%;
 }
 
 .home-item__title {
