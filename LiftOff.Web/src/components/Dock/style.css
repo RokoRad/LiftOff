@@ -2,6 +2,7 @@
   width: 65px;
   background-color: #f5f7fa;
   height: 125px;
+  z-index: 999;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   position: absolute;
