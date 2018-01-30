@@ -22,7 +22,8 @@ export default event => {
       latitude: event.latLng.lat(),
       longitude: event.latLng.lng()
     },
-    time: store.getState().timeLocationReducer.timeLocation.time
+    //time: store.getState().timeLocationReducer.timeLocation.time
+    time: new Date().toISOString()
   });
 
   store.dispatch(tooltipStatus((store.getState().mapReducer.tooltipStatus = true)));
