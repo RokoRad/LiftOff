@@ -1,5 +1,5 @@
 import store from '../../store';
-import storage from './storage';
+import storage from '../storage';
 import { updateHome } from '../../actions';
 import { hubConnection } from 'signalr-no-jquery';
 import language from '../../languages';

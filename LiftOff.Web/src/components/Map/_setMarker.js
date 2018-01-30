@@ -9,5 +9,12 @@ export default event => {
     })
   );
 
+  store.dispatch(
+    updateLocation({
+      latitude: event.latLng.lat(),
+      longitude: event.latLng.lng()
+    })
+  );
+
   store.dispatch(tooltipStatus((store.getState().mapReducer.tooltipStatus = true)));
 };

@@ -3,7 +3,7 @@ import Graph from '../Graph';
 import Map from '../Map';
 import Home from '../Home';
 import { connect } from 'react-redux';
-import { _start, _stop } from '../../functions/realtime';
+import { _start, _stop, _updateTimeLocation } from '../../functions/realtime';
 import './style.css';
 
 class DashboardContent extends React.Component {
@@ -22,10 +22,12 @@ class DashboardContent extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.props.timeLocation)
+    //_updateTimeLocation(this.props.timeLocation);
+    //console.log(this.props.timeLocation.location)
   }
 
   render() {
+    console.log("timeloc", this.props.timeLocation.location)
     return (
       <div className="grid">
         <div className="grid__left">
