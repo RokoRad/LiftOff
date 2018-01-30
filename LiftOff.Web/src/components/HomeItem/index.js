@@ -7,12 +7,12 @@ import isValueText from '../../functions/isValueText';
 import round from '../../functions/round';
 
 const icons = {
-  atmosphere: '../../images/weather/atmosphere.png',
+  atmosphere: require('../../images/weather/atmosphere.png'),
   conditions: require('../../images/weather/conditions.png'),
-  temperature: '../../images/weather/temperature.png',
-  uv: '../../images/weather/uv.png',
-  visibility: '../../images/weather/visibility.png',
-  wind: '../../images/weather/wind.png'
+  temperature: require('../../images/weather/temperature.png'),
+  uv: require('../../images/weather/uv.png'),
+  visibility: require('../../images/weather/visibility.png'),
+  wind: require('../../images/weather/wind.png')
 };
 
 export default ({ type, fVal, sVal, fName, sName, fAddon, sAddon, rating }) => (
