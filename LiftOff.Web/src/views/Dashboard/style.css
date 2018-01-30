@@ -16,8 +16,8 @@
   margin-right: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .dashboard__content {
-    flex-direction: row
+    flex-direction: row;
   }
 }
