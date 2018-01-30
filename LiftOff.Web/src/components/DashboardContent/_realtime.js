@@ -2,9 +2,10 @@ import signalr from 'react-native-signalr';
 import store from '../../store';
 import storage from '../../functions/storage';
 import { updateHome } from '../../actions';
+import { hubConnection } from 'signalr-no-jquery';
 import language from '../../languages';
 
-const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
+const connection = hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
   proxy = connection.createHubProxy('weatherHub');
 
 proxy.on('broadcastWeather', response => {
