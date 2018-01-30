@@ -42,8 +42,8 @@ export default data => {
             })
           );
 
-          console.log("old", value)
-          console.log("new", _recall(value))
+          store.dispatch(updateHome(_recall(value)));
+          storage.set('@realtime', JSON.stringify(_recall(value)));
         });
       } else if (response.status === 401) {
         removeToken();
