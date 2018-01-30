@@ -2,6 +2,7 @@ import 'whatwg-fetch';
 import headers from '../../functions/headers';
 import language from '../../languages';
 import store from '../../store';
+import removeToken from '../../functions/removeToken';
 import { updateLocation, setMarker } from '../../actions';
 
 export default data => {
@@ -22,22 +23,30 @@ export default data => {
   }).then((response) => {
     if(response.status === 200) {
       response.json().then((value) => {
+        console.log(value);
 
-        // const parsed = JSON.parse(response._bodyInit).weatherData.timeLocation;
-        // store.dispatch(
-        //   updateLocation({
-        //     ...parsed.location
-        //   })
-        // );
-        // store.dispatch(
-        //   setMarker({
-        //     ...parsed.location
-        //   })
+        const data = value,
+              parsed = data.weatherData,
+              location = parsed.timeLocation.location;
 
-        console.log(value)
+        store.dispatch(
+          updateLocation({
+            lat: location.latitude,
+            lng: location.longitude
+          })
+        );
+        store.dispatch(
+          setMarker({
+            lat: location.latitude,
+            lng: location.longitude
+          })
+        );
+        //console.log(value)
+        console.log("city", parsed.city)
+        console.log("rating", data.totalRating)
       })
     } else if (response.status === 401){
-      alert(language.Token)
+      removeToken();
     } else {
       alert(language.serverError)
     }
