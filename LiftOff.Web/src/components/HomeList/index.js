@@ -48,11 +48,11 @@ export default ({list, loaded }) => {
   />
   <HomeItem
   type="atmosphere"
-  rating={list.AtmosphereRating}
+  rating={list.atmosphereRating}
   fName="Humidity"
-  fVal={nester.Humidity}
+  fVal={nester.humidity}
   sName="Pressure"
-  sVal={`${nester.Presssure}kPa`}
+  sVal={`${nester.presssure}kPa`}
   fAddon="%"
   />
   <HomeItem
@@ -61,7 +61,7 @@ export default ({list, loaded }) => {
   fName="Uv"
   fVal={nester.UVIndex}
   sName="Cloudiness"
-  sVal={nester.Cloudiness}
+  sVal={nester.cloudiness}
   sAddon="%"
   />
   </div>
