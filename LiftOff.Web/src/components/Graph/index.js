@@ -12,7 +12,20 @@ export default ({ days, scores }) => {
     tooltips: {
       enabled: false
     },
-    animation: false
+    animation: false,
+    omitYLabels: true,
+    scales: {
+      xAxes: [{
+        gridLines: {
+          drawOnChartArea: false
+        }
+      }],
+      yAxes: [{
+        gridLines: {
+          drawOnChartArea: false
+        }
+      }],
+    }
   };
 
   const data = {
@@ -25,16 +38,6 @@ export default ({ days, scores }) => {
         backgroundColor: 'rgba(48, 115, 242, 0.5)'
       }
     ],
-    gridLines: {
-      display: false
-    },
-    scales: {
-      xAxes: [{
-        gridLines: {
-          drawOnChartArea: false
-        }
-      }]
-    }
   };
 
   return (
