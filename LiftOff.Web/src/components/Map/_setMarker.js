@@ -17,12 +17,20 @@ export default event => {
     })
   );
 
+  // _updateTimeLocation({
+  //   location: {
+  //     latitude: event.latLng.lat(),
+  //     longitude: event.latLng.lng()
+  //   },
+  //   //time: store.getState().timeLocationReducer.timeLocation.time
+  //   time: new Date().toISOString()
+  // });
+
   _updateTimeLocation({
     location: {
-      latitude: event.latLng.lat(),
-      longitude: event.latLng.lng()
+      latitude: 22,
+      longitude: 33
     },
-    //time: store.getState().timeLocationReducer.timeLocation.time
     time: new Date().toISOString()
   });
 

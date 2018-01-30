@@ -8,7 +8,7 @@ const connection = hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
   proxy = connection.createHubProxy('weatherHub');
 
 proxy.on('broadcastWeather', response => {
-  console.log("b", response)
+  console.log("BROADCASTED")
   store.dispatch(updateHome(response));
   storage.set('@realtime', JSON.stringify(response));
 });
@@ -26,7 +26,20 @@ const _start = async (object, units) => {
 
 const _updateTimeLocation = async (object) => {
   console.log(object)
-  proxy.invoke('updateLocation', object); 
+  console.log({
+    location: {
+      latitude: 22,
+      longitude: 33
+    },
+    time: new Date().toISOString()
+  })
+  proxy.invoke('updateLocation', {
+    location: {
+      latitude: 22,
+      longitude: 33
+    },
+    time: new Date().toISOString()
+  }); 
 }
 
 const _changeUnits = async () => {
