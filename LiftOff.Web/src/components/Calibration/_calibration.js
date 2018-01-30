@@ -25,7 +25,8 @@ export default data => {
       response.json().then((value) => {
         console.log(value);
 
-        const parsed = value.weatherData,
+        const data = value,
+              parsed = data.weatherData,
               location = parsed.timeLocation.location;
 
         store.dispatch(
@@ -42,7 +43,7 @@ export default data => {
         );
         //console.log(value)
         console.log("city", parsed.city)
-        console.log("rating", parsed.totalRating)
+        console.log("rating", data.totalRating)
       })
     } else if (response.status === 401){
       removeToken();
