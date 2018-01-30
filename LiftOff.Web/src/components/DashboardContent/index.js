@@ -3,7 +3,7 @@ import Graph from '../Graph';
 import Map from '../Map';
 import Home from '../Home';
 import { connect } from 'react-redux';
-//import { _start, _stop } from './_realtime.js';
+import { _start, _stop } from './_realtime.js';
 import './style.css';
 
 class DashboardContent extends React.Component {
@@ -12,13 +12,14 @@ class DashboardContent extends React.Component {
   }
 
 
-  // componentWillMount() {
-  //   _start(this.props.timeLocation, this.props.units);
-  // }
+  componentWillMount() {
+    //_start(this.props.timeLocation, this.props.units);
+    _start(this.props.timeLocation, 'metric');
+  }
 
-  // componentWillUnmount() {
-  //   _stop();
-  // }
+  componentWillUnmount() {
+    _stop();
+  }
 
   render() {
     return (
