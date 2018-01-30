@@ -11,7 +11,8 @@ export default ({ days, scores }) => {
     maintainAspectRatio: false,
     tooltips: {
       enabled: false
-    }
+    },
+    animation: false
   };
 
   const data = {
