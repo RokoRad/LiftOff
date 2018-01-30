@@ -3,7 +3,7 @@ import Graph from '../Graph';
 import Map from '../Map';
 import Home from '../Home';
 import { connect } from 'react-redux';
-import { _start, _stop } from './_realtime.js';
+import { _start, _stop } from '../../functions/realtime';
 import './style.css';
 
 class DashboardContent extends React.Component {
@@ -19,6 +19,10 @@ class DashboardContent extends React.Component {
 
   componentWillUnmount() {
     _stop();
+  }
+
+  componentDidUpdate() {
+    console.log(this.props.timeLocation)
   }
 
   render() {

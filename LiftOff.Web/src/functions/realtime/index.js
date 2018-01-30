@@ -1,5 +1,5 @@
 import store from '../../store';
-import storage from '../../functions/storage';
+import storage from './storage';
 import { updateHome } from '../../actions';
 import { hubConnection } from 'signalr-no-jquery';
 import language from '../../languages';
@@ -23,8 +23,16 @@ const _start = async (object, units) => {
     });
 };
 
+const _updateTimeLocation = async (object) => {
+  proxy.invoke('updateLocation', object); 
+}
+
+const _changeUnits = async () => {
+  proxy.invoke('changeUnits'); 
+}
+
 const _stop = async () => {
   connection.stop();
 };
 
-export { _start, _stop };
+export { _start, _stop, _updateTimeLocation, _changeUnits };
