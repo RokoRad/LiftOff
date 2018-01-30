@@ -14,7 +14,7 @@ import LogPermission from '../../components/LogPermission';
 import Break from '../../components/Break';
 import _logout from './_logout.js';
 
-export default ({ location }) => (
+export default ({ location, history }) => (
   <Screen current={location} style={styles.settings}>
     <View style={styles.wrapper}>
       <Dropdown />
@@ -25,7 +25,7 @@ export default ({ location }) => (
       <Break />
       <LanguageSwitch />
       <Break />
-      <Button type="Logout" onPress={() => _logout(location)} />
+      <Button type="Logout" onPress={() => _logout(history)} />
     </View>
   </Screen>
 );
