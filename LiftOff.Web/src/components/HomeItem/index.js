@@ -4,6 +4,7 @@ import language from '../../languages';
 import capitalize from '../../functions/capitalize';
 import colorGenerator from '../../functions/colorGenerator';
 import isValueText from '../../functions/isValueText';
+import round from '../../functions/round';
 
 const icons = {
   atmosphere: '../../images/weather/atmosphere.png',
@@ -42,7 +43,7 @@ export default ({ type, fVal, sVal, fName, sName, fAddon, sAddon, rating }) => (
     </div>
     <div className="home-item__right home-item__aligned">
       <span className={`home-item__rating color color--${colorGenerator(rating)}`}>
-        {isValueText(rating)}
+        {round(rating)}
       </span>
     </div>
   </div>

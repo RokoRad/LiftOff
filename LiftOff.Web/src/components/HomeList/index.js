@@ -7,7 +7,7 @@ export default ({ }) => (
       <HomeItem
         type="conditions"
         //rating={list.ConditionsRating}
-        raiting={3.444444}
+        rating={3.444555}
         fName="Weather"
         //fVal={nester.Weather}
         fVal="Split"
@@ -19,7 +19,7 @@ export default ({ }) => (
       <HomeItem
         type="conditions"
         //rating={list.ConditionsRating}
-        raiting={3.444444}
+        rating={3.444444}
         fName="Weather"
         //fVal={nester.Weather}
         fVal="Split"
