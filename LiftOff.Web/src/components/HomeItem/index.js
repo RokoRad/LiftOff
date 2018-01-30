@@ -41,13 +41,9 @@ export default ({ type, fVal, sVal, fName, sName, fAddon, sAddon, rating }) => (
       </div>
     </div>
     <div className="home-item__right home-item__aligned">
-      <span className={`home-item__rating`}>
-      3.3
-        {/* {isValueText(rating)} */}
-      </span>
-      {/* <span className={[styles.rating, rating !== null ? globals[colorGenerator(rating)] : null]}>
+      <span className={`home-item__rating color color--${colorGenerator(rating)}`}>
         {isValueText(rating)}
-      </span> */}
+      </span>
     </div>
   </div>
 );
