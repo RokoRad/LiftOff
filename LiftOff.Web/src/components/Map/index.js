@@ -25,10 +25,7 @@ class MapContainer extends React.Component {
           center={this.props.location}
           onClick={(a, b, event) => _setMarker(event)}
         >
-          <Marker
-            position={this.props.marker}
-            icon={require('../../images/map/pin.png')}
-          />
+          <Marker position={this.props.marker} icon={require('../../images/map/pin.png')} />
         </Map>
         <Dock display={this.props.tooltipStatus} />
       </div>
