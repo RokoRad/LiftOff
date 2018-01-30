@@ -3,8 +3,7 @@ import Dock from '../Dock';
 import './style.css';
 import mapStyle from './style.js';
 import _setMarker from './_setMarker.js';
-import Callout from '../Callout';
-import { Map, InfoWindow, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import Search from '../Search'
 
 class MapContainer extends React.Component {
@@ -30,10 +29,6 @@ class MapContainer extends React.Component {
             position={this.props.marker}
             //icon={{ url: '../../images/map/pin.png' }}
           />
-
-          <InfoWindow visible={true} position={this.props.marker}>
-            <Callout location="split" rating="3.3" />
-          </InfoWindow>
         </Map>
         <Dock display={this.props.tooltipStatus} />
       </div>

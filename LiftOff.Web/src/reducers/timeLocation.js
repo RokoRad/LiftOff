@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
           time: action.payload
         }
       };
-    case 'UPDATE_LOCATION':
+    case 'UPDATE_TIMELOCATION':
       return  {
         timeLocation: {
           ...state.timeLocation,

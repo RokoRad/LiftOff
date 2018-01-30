@@ -1,5 +1,5 @@
 import store from '../../store';
-import { setMarker, tooltipStatus, updateLocation } from '../../actions';
+import { setMarker, tooltipStatus, updateTimeLocation } from '../../actions';
 import { _updateTimeLocation } from '../../functions/realtime';
 
 export default event => {
@@ -11,16 +11,16 @@ export default event => {
   );
 
   store.dispatch(
-    updateLocation({
+    updateTimeLocation({
       latitude: event.latLng.lat(),
       longitude: event.latLng.lng()
     })
   );
 
-  // _updateTimeLocation({
-  //   latitude: event.latLng.lat(),
-  //   longitude: event.latLng.lng()
-  // });
+  _updateTimeLocation({
+    latitude: event.latLng.lat(),
+    longitude: event.latLng.lng()
+  });
 
   store.dispatch(tooltipStatus((store.getState().mapReducer.tooltipStatus = true)));
 };

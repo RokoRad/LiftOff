@@ -22,7 +22,7 @@ class DashboardContent extends React.Component {
   }
 
   render() {
-    console.log(this.props.home)
+    console.log("map props", this.props.map)
     return (
       <div className="grid">
         <div className="grid__left">

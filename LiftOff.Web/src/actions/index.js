@@ -75,3 +75,9 @@ export const changeLoading = () => ({
 export const changeMenu = () => ({
   type: 'CHANGE_MENU'
 });
+
+
+export const updateTimeLocation = payload => ({
+  type: 'UPDATE_TIMELOCATION',
+  payload
+});
