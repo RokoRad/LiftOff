@@ -22,8 +22,6 @@ class DashboardContent extends React.Component {
   }
 
   render() {
-    //console.log("timeloc", this.props.timeLocation.location)
-    console.log(this.props.home)
     return (
       <div className="grid">
         <div className="grid__left">
