@@ -13,9 +13,10 @@ class MapContainer extends React.Component {
 
   render() {
     return (
-      <div className="map">
+      <div className="map__container">
         <Search />
         <Map
+          className="map"
           google={this.props.google}
           zoom={14}
           disableDefaultUI={true}

@@ -1,6 +1,9 @@
 .graph {
   flex: 1;
   max-height: 300px;
-  margin: 10px;
+  margin-top: 10px;
   margin-top: 20px;
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 10px;
 }

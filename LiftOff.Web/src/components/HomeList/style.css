@@ -3,4 +3,6 @@
   background-color: #fff;
   overflow-y: auto;
   max-height: 500px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
 }

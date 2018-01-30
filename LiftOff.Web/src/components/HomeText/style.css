@@ -3,27 +3,17 @@
   padding: 15px;
 }
 
-/* color: vars.white,
-fontFamily: vars.bold,
-fontSize: 12,
-borderBottomWidth: 1,
-borderBottomColor: vars.white,
-paddingBottom: 5,
-marginBottom: 5 */
 .home-text__title {
-  font-weight: 600;
+  font-weight: 500;
   color: #f5f7fa;
   border-bottom: 1px solid #f5f7fa;
   margin-bottom: 5px;
   padding-bottom: 5px;
-  font-size: 1.1em;
+  font-size: 20px
 }
 
 .home-text__message {
-  font-weight: 500;
+  font-weight: 400;
   color: #f5f7fa;
-  font-size: 0.85em;
+  font-size: 18px;
 }
-/* color: vars.white,
-fontFamily: vars.medium,
-fontSize: 10 */

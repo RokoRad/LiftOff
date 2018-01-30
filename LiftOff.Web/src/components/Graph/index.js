@@ -21,10 +21,20 @@ export default ({ days, scores }) => {
       {
         data: scores,
         borderColor: '#3073f2',
-        fill: false
-        // fillColor: 'rgba(48, 115, 242, 0.1)'
+        fillOpacity: 0.8, 
+        backgroundColor: 'rgba(48, 115, 242, 0.5)'
       }
-    ]
+    ],
+    gridLines: {
+      display: false
+    },
+    scales: {
+      xAxes: [{
+        gridLines: {
+          drawOnChartArea: false
+        }
+      }]
+    }
   };
 
   return (

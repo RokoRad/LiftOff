@@ -1,11 +1,23 @@
-.map {
+.map__container {
   flex: 3;
   position: relative;
   min-height: 500px;
+  background-color: #fff;
+}
+
+.map {
+  position: relative;
+  z-index: 0;
+  background-color: transparent
+}
+
+.map > div {
+  border-radius: 10px;
+  background-color: transparent
 }
 
 @media screen and (max-width: 768px) {
-  .map {
+  .map__container {
     min-height: 300px
   }
 }
