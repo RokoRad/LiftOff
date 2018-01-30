@@ -12,7 +12,6 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    console.log('MAPPROP', this.props.location);
     return (
       <div className="map">
         <Search />
@@ -22,11 +21,12 @@ class MapContainer extends React.Component {
           disableDefaultUI={true}
           styles={mapStyle}
           initialCenter={this.props.location}
+          center={this.props.location}
           onClick={(a, b, event) => _setMarker(event)}
         >
           <Marker
             position={this.props.marker}
-            //icon={{ url: '../../images/map/pin.png' }}
+            icon={require('../../images/map/pin.png')}
           />
         </Map>
         <Dock display={this.props.tooltipStatus} />
