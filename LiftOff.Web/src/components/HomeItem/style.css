@@ -37,7 +37,7 @@
 }
 
 .home-item__title {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1em;
   margin-bottom: 5px;
   color: #34373d;
@@ -47,10 +47,12 @@
 .home-item__left-span {
   text-align: left;
   width: auto;
+  font-weight: lighter
 }
 
 .home-item__right-span {
   position: absolute;
+  font-weight: 400;
   right: 5px;
 }
 
@@ -62,7 +64,7 @@
   opacity: 0.7;
   margin-top: 5px;
   margin-bottom: 5px;
-  font-size: 0.85em;
+  font-size: 0.80em;
   color: #4a4357
 }
 

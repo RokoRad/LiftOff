@@ -11,6 +11,25 @@ export default ({ days, scores }) => {
     maintainAspectRatio: false,
     tooltips: {
       enabled: false
+    },
+    animation: false,
+    scales: {
+      xAxes: [
+        {
+          gridLines: {
+            display: false,
+            drawBorder: false
+          }
+        }
+      ],
+      yAxes: [
+        {
+          gridLines: {
+            display: false,
+            drawBorder: false
+          }
+        }
+      ]
     }
   };
 
@@ -20,8 +39,8 @@ export default ({ days, scores }) => {
       {
         data: scores,
         borderColor: '#3073f2',
-        fill: false
-        // fillColor: 'rgba(48, 115, 242, 0.1)'
+        fillOpacity: 0.8,
+        backgroundColor: 'rgba(48, 115, 242, 0.5)'
       }
     ]
   };

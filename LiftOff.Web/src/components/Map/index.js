@@ -12,22 +12,20 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    console.log('MAPPROP', this.props.location);
     return (
-      <div className="map">
+      <div className="map__container">
         <Search />
         <Map
+          className="map"
           google={this.props.google}
           zoom={14}
           disableDefaultUI={true}
           styles={mapStyle}
           initialCenter={this.props.location}
+          center={this.props.location}
           onClick={(a, b, event) => _setMarker(event)}
         >
-          <Marker
-            position={this.props.marker}
-            //icon={{ url: '../../images/map/pin.png' }}
-          />
+          <Marker position={this.props.marker} icon={require('../../images/map/pin.png')} />
         </Map>
         <Dock display={this.props.tooltipStatus} />
       </div>
