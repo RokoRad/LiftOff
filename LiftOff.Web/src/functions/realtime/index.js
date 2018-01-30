@@ -8,9 +8,9 @@ const connection = hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
   proxy = connection.createHubProxy('weatherHub');
 
 proxy.on('broadcastWeather', response => {
-  console.log("BROADCASTED")
   store.dispatch(updateHome(response));
   storage.set('@realtime', JSON.stringify(response));
+  console.log("B", response)
 });
 
 const _start = async (object, units) => {

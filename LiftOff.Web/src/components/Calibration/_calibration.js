@@ -5,7 +5,6 @@ import store from '../../store';
 import removeToken from '../../functions/removeToken';
 import storage from '../../functions/storage';
 import { updateLocation, setMarker, updateHome } from '../../actions';
-import pascalcaseKeys from 'pascalcase-keys';
 
 export default data => {
   const stored = store.getState().mapReducer.markerPosition;
@@ -42,10 +41,8 @@ export default data => {
             })
           );
 
-          store.dispatch(updateHome(value));
-          storage.set('@realtime', JSON.stringify(pascalcaseKeys(value)));
-  
-          console.log("calibration", pascalcaseKeys(value))
+          console.log("old", value)
+          console.log("new", _recall(value))
         });
       } else if (response.status === 401) {
         removeToken();
