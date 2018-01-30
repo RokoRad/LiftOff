@@ -11,12 +11,12 @@ borderBottomColor: vars.white,
 paddingBottom: 5,
 marginBottom: 5 */
 .home-text__title {
-  font-weight: bold;
+  font-weight: 600;
   color: #f5f7fa;
   border-bottom: 1px solid #f5f7fa;
   margin-bottom: 5px;
   padding-bottom: 5px;
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 .home-text__message {
