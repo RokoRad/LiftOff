@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import storage from '../functions/storage';
 
 const initialState = {
   home: {
@@ -13,7 +13,7 @@ const initialState = {
     UVRating: 'N/A',
     VisibilityRating: 'N/A',
     WindRating: 'N/A',
-    WeatherData: {
+    weatherData: {
       Cloudiness: 'N/A',
       Humidity: 'N/A',
       Max_Temperature: 'N/A',
@@ -39,11 +39,11 @@ const initialState = {
   }
 };
 
-AsyncStorage.getItem('@realtime').then(realtime => {
-  if (realtime) {
-    initialState.home = JSON.parse(realtime);
-  }
-});
+const cached = storage.get('@realtime');
+
+if (cached) {
+  initialState.home = JSON.parse(cached)
+}
 
 export default (state = initialState, action) => {
   switch (action.type) {

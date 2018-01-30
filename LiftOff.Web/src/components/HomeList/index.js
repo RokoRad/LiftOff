@@ -6,7 +6,7 @@ import _temperature from './_temperature.js';
 import _distance from './_distance.js';
 
 export default ({ list, loaded }) => {
-  const nester = list.WeatherData;
+  const nester = list.weatherData;
   return (
     <div className="home__list">
       <HomeItem

@@ -28,7 +28,6 @@ class DashboardContent extends React.Component {
           <Home
             list={this.props.home}
             time={this.props.timeLocation.Time}
-            string={this.props.home.AdvisoryRating}
             rating={this.props.home.TotalRating}
           />
         </div>
