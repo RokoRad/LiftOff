@@ -7,3 +7,4 @@ min_temp max_temp SU ISTI NA MOBU
 tooltip na mobu
 boje u paletu
 slike prebrisat
+listu zalinkove

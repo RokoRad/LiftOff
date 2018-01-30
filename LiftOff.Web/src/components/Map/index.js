@@ -12,6 +12,7 @@ class MapContainer extends React.Component {
   }
 
   render() {
+    console.log(this.props.tooltipStatus)
     return (
       <div className="map">
         <Map
@@ -32,7 +33,7 @@ class MapContainer extends React.Component {
             <Callout location="split" rating="3.3" />
           </InfoWindow>
         </Map>
-        <Dock />
+        <Dock display={this.props.tooltipStatus} />
       </div>
     );
   }

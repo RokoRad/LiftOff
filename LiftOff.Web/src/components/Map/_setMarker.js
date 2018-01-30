@@ -1,5 +1,5 @@
 import store from '../../store';
-import { setMarker } from '../../actions';
+import { setMarker, tooltipStatus } from '../../actions';
 
 export default event => {
   store.dispatch(
@@ -8,4 +8,6 @@ export default event => {
       lng: event.latLng.lng()
     })
   );
+
+  store.dispatch(tooltipStatus((store.getState().mapReducer.tooltipStatus = true)));
 };
