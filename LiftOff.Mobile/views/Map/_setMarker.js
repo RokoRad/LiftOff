@@ -20,6 +20,7 @@ export default (value, history) => {
     }).then(response => {
       if (response.status === 200) {
         const parsed = JSON.parse(response._bodyInit);
+        console.log(parsed.weatherData.city);
         store.dispatch(
           updateTooltip({
             city: parsed.weatherData.city,

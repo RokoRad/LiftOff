@@ -4,9 +4,10 @@ import HomeList from '../HomeList';
 import colorGenerator from '../../functions/colorGenerator';
 import './style.css';
 
-export default ({ }) => (
+export default ({ list, time, rating }) => (
   <div className="home">
-    <HomeRating color={colorGenerator(2.3)} />
-    <HomeList />
+    <HomeRating color={colorGenerator(rating)} string={list.AdvisoryRating} />
+    {/* <HomeIndicator time={time} /> */}
+    <HomeList list={list} />
   </div>
 );

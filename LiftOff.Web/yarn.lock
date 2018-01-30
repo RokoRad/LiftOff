@@ -3851,6 +3851,18 @@ jest@20.0.4:
   dependencies:
     jest-cli "^20.0.4"
 
+jquery-deferred@0.3.1, jquery-deferred@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/jquery-deferred/-/jquery-deferred-0.3.1.tgz#596eca1caaff54f61b110962b23cafea74c35355"
+
+jquery-param@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/jquery-param/-/jquery-param-0.2.0.tgz#55da8130428c50980eb516491c1b77cc78f0dcb1"
+
+jquery@^2.2.0:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
+
 js-base64@^2.1.9:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.0.tgz#9e566fee624751a1d720c966cd6226d29d4025aa"
@@ -4393,6 +4405,12 @@ moment@^2.0.0:
 moment@~2.18.0:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+
+ms-signalr-client@^2.2.7:
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/ms-signalr-client/-/ms-signalr-client-2.2.7.tgz#837c93cbb5c99f6312748c97c81f980fdffe07c8"
+  dependencies:
+    jquery "^2.2.0"
 
 ms@2.0.0:
   version "2.0.0"
@@ -5406,6 +5424,13 @@ react-event-listener@^0.5.1:
     prop-types "^15.6.0"
     warning "^3.0.0"
 
+react-native-signalr@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-signalr/-/react-native-signalr-1.0.6.tgz#b1af795f5974f05fbf767870e1ce85f6d6b546f7"
+  dependencies:
+    jquery-deferred "^0.3.1"
+    ms-signalr-client "^2.2.7"
+
 react-redux@^5.0.6:
   version "5.0.6"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.6.tgz#23ed3a4f986359d68b5212eaaa681e60d6574946"
@@ -6003,6 +6028,13 @@ shellwords@^0.1.0:
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+
+signalr-no-jquery@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/signalr-no-jquery/-/signalr-no-jquery-0.1.8.tgz#3b1c0ff7cc1c59badd9c97898f3bb2e654e077da"
+  dependencies:
+    jquery-deferred "0.3.1"
+    jquery-param "0.2.0"
 
 simple-assign@^0.1.0:
   version "0.1.0"

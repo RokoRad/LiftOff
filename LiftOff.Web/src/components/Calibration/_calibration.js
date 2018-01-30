@@ -3,7 +3,9 @@ import headers from '../../functions/headers';
 import language from '../../languages';
 import store from '../../store';
 import removeToken from '../../functions/removeToken';
-import { updateLocation, setMarker } from '../../actions';
+import storage from '../../functions/storage';
+import { updateLocation, setMarker, updateHome } from '../../actions';
+import _recall from './_recall.js';
 
 export default data => {
   const stored = store.getState().mapReducer.markerPosition;
@@ -11,7 +13,7 @@ export default data => {
   const location = {
     latitude: stored.lat,
     longitude: stored.lng
-  }
+  };
 
   fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
     method: 'POST',
@@ -20,37 +22,36 @@ export default data => {
       location,
       time: new Date().toISOString()
     })
-  }).then((response) => {
-    if(response.status === 200) {
-      response.json().then((value) => {
-        console.log(value);
+  })
+    .then(response => {
+      if (response.status === 200) {
+        response.json().then(value => {
+          const location = value.weatherData.timeLocation.location;
 
-        const data = value,
-              parsed = data.weatherData,
-              location = parsed.timeLocation.location;
+          store.dispatch(
+            updateLocation({
+              lat: location.latitude,
+              lng: location.longitude
+            })
+          );
 
-        store.dispatch(
-          updateLocation({
-            lat: location.latitude,
-            lng: location.longitude
-          })
-        );
-        store.dispatch(
-          setMarker({
-            lat: location.latitude,
-            lng: location.longitude
-          })
-        );
-        //console.log(value)
-        console.log("city", parsed.city)
-        console.log("rating", data.totalRating)
-      })
-    } else if (response.status === 401){
-      removeToken();
-    } else {
-      alert(language.serverError)
-    }
-  }).catch((error) => {
-    alert(language.serverError)
-  });
+          store.dispatch(
+            setMarker({
+              lat: location.latitude,
+              lng: location.longitude
+            })
+          );
+
+          store.dispatch(updateHome(_recall(value)));
+          storage.set('@realtime', JSON.stringify(_recall(value)));
+        });
+      } else if (response.status === 401) {
+        removeToken();
+      } else {
+        alert(language.serverError);
+      }
+    })
+    .catch(error => {
+      alert(language.serverError);
+    });
 };

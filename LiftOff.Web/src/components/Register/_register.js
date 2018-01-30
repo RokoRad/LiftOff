@@ -12,15 +12,15 @@ export default object => {
     })
       .then(response => {
         if (response.status === 200) {
-          window.location.href = "/";
+          window.location.href = '/';
         } else {
-          alert(language.Input)
+          alert(language.Input);
         }
       })
       .catch(error => {
         alert(language.serverError);
       });
   } else {
-    alert(language.Input)
+    alert(language.Input);
   }
 };

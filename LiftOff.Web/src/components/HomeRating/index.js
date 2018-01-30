@@ -3,12 +3,9 @@ import Drone from '../Drone';
 import HomeText from '../HomeText';
 import './style.css';
 
-export default ({ color }) => (
+export default ({ color, string }) => (
   <div className={`home__rating background background--${color}`}>
     <Drone color={color} />
-    <HomeText content={{
-      Croatian: 'hrv',
-      English: 'eng'
-    }} />
+    <HomeText content={string} />
   </div>
 );

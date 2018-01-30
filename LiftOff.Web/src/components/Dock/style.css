@@ -1,15 +1,15 @@
 .dock {
-  width: 50px;
+  width: 65px;
   background-color: #f5f7fa;
-  height: 100px;
+  height: 125px;
+  z-index: 999;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   position: absolute;
   bottom: 40px;
-  box-shadow: -4px 0px 10px 0px rgba(0,0,0,0.5);
+  box-shadow: -5px 0px 10px 0px rgba(0,0,0,0.5);
   right: 0;
   display: flex;
   cursor: pointer;
   flex-direction: column;
-  overflow: hidden;
 }

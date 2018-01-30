@@ -1,16 +1,8 @@
-import { AsyncStorage } from 'react-native';
-
-const deltas = {
-  longitudeDelta: 0.1,
-  latitudeDelta: 0.1
-};
-
 const initialState = {
   timeLocation: {
     location: {
       latitude: 43.508133,
-      longitude: 16.440193,
-      ...deltas
+      longitude: 16.440193
     },
     time: new Date().toISOString()
   }
@@ -25,12 +17,13 @@ export default (state = initialState, action) => {
           time: action.payload
         }
       };
-    // case 'UPDATE_LOCATION':
-    //   return  {
-    //     timeLocation: {
-    //       ...action.payload
-    //     }
-    //   };
+    case 'UPDATE_TIMELOCATION':
+      return {
+        timeLocation: {
+          time: state.timeLocation.time,
+          location: action.payload
+        }
+      };
     default:
       return state;
   }

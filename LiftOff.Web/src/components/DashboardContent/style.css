@@ -10,7 +10,6 @@
   flex: 1;
   height: 100%;
   margin: 10px;
-  background-color: red
 }
 
 .grid__right {
@@ -22,15 +21,40 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .grid {
     flex-direction: column;
     height: auto;
   }
   .grid__left {
     flex: auto;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
   }
   .grid__right {
     flex: auto;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .grid__left {
+    flex: auto;
+    max-width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: auto
+  }
+  .grid__right {
+    flex: auto;
+    width: auto;
+    max-width: auto;
+    margin-left: 10px;
+    margin-right: 10px
   }
 }
