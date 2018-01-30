@@ -5,6 +5,7 @@ import mapStyle from './style.js';
 import _setMarker from './_setMarker.js';
 import Callout from '../Callout';
 import { Map, InfoWindow, GoogleApiWrapper, Marker } from 'google-maps-react';
+import Search from '../Search'
 
 class MapContainer extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class MapContainer extends React.Component {
     console.log(this.props.tooltipStatus)
     return (
       <div className="map">
+        <Search />
         <Map
           google={this.props.google}
           zoom={14}

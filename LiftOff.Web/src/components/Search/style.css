@@ -1,0 +1,10 @@
+.search {
+  position: absolute;
+  top: 30px;
+  width: 200px;
+  left: calc(50% - 100px);
+  z-index: 999;
+  display: block;
+  height: 40px;
+  background-color: red;
+}
