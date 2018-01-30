@@ -2,39 +2,39 @@ import { AsyncStorage } from 'react-native';
 
 const initialState = {
   home: {
-    advisoryRating: {
-      croatian: 'Učitavanje podatka..',
-      english: 'Fetching data..'
+    AdvisoryRating: {
+      Croatian: 'Učitavanje podatka..',
+      English: 'Fetching data..'
     },
-    atmosphereRating: 'N/A',
-    conditionsRating: 'N/A',
-    temperatureRating: 'N/A',
-    totalRating: 'N/A',
+    AtmosphereRating: 'N/A',
+    ConditionsRating: 'N/A',
+    TemperatureRating: 'N/A',
+    TotalRating: 'N/A',
     UVRating: 'N/A',
-    visibilityRating: 'N/A',
-    windRating: 'N/A',
-    weatherData: {
-      cloudiness: 'N/A',
-      humidity: 'N/A',
-      max_Temperature: 'N/A',
-      min_Temperature: 'N/A',
-      presssure: 'N/A',
-      temperature: 'N/A',
-      timeLocation: {
-        location: {
-          latitude: 43.508133,
-          longitude: 16.440193
+    VisibilityRating: 'N/A',
+    WindRating: 'N/A',
+    WeatherData: {
+      Cloudiness: 'N/A',
+      Humidity: 'N/A',
+      Max_Temperature: 'N/A',
+      Min_Temperature: 'N/A',
+      Presssure: 'N/A',
+      Temperature: 'N/A',
+      TimeLocation: {
+        Location: {
+          Latitude: 43.508133,
+          Longitude: 16.440193
         },
-        time: new Date().toISOString()
+        Time: new Date().toISOString()
       },
       UVIndex: 'N/A',
-      units: 'metric',
-      visibility: 'N/A',
-      weather: 'N/A',
-      weatherDescription: 'N/A',
-      weatherID: 'N/A',
-      windDirection: 'N/A',
-      windSpeed: 'N/A'
+      Units: 'metric',
+      Visibility: 'N/A',
+      Weather: 'N/A',
+      WeatherDescription: 'N/A',
+      WeatherID: 'N/A',
+      WindDirection: 'N/A',
+      WindSpeed: 'N/A'
     }
   }
 };

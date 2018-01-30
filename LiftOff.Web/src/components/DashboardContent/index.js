@@ -3,7 +3,7 @@ import Graph from '../Graph';
 import Map from '../Map';
 import Home from '../Home';
 import { connect } from 'react-redux';
-import { _start, _stop } from './_realtime.js';
+//import { _start, _stop } from './_realtime.js';
 import './style.css';
 
 class DashboardContent extends React.Component {
@@ -12,13 +12,13 @@ class DashboardContent extends React.Component {
   }
 
 
-  componentWillMount() {
-    _start(this.props.timeLocation, this.props.units);
-  }
+  // componentWillMount() {
+  //   _start(this.props.timeLocation, this.props.units);
+  // }
 
-  componentWillUnmount() {
-    _stop();
-  }
+  // componentWillUnmount() {
+  //   _stop();
+  // }
 
   render() {
     return (
@@ -26,9 +26,9 @@ class DashboardContent extends React.Component {
         <div className="grid__left">
           <Home
             list={this.props.home}
-            time={this.props.timeLocation.time}
-            string={this.props.home.advisoryRating}
-            rating={this.props.home.totalRating}
+            time={this.props.timeLocation.Time}
+            string={this.props.home.AdvisoryRating}
+            rating={this.props.home.TotalRating}
           />
         </div>
         <div className="grid__right">

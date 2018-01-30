@@ -6,53 +6,53 @@ import _temperature from './_temperature.js';
 import _distance from './_distance.js';
 
 export default ({ list, loaded }) => {
-  const nester = list.weatherData;
+  const nester = list.WeatherData;
   return (
     <div className="home__list">
       <HomeItem
         type="conditions"
-        rating={list.conditionsRating}
+        rating={list.ConditionsRating}
         fName="Weather"
-        fVal={nester.weather}
+        fVal={nester.Weather}
         sName="Description"
-        sVal={nester.weatherDescription}
+        sVal={nester.WeatherDescription}
       />
       <HomeItem
         type="wind"
-        rating={list.windRating}
+        rating={list.WindRating}
         fName="WindDirection"
-        fVal={nester.windDirection}
+        fVal={nester.WindDirection}
         sName="WindSpeed"
-        sVal={nester.windSpeed}
-        sAddon={_speed(nester.units)}
+        sVal={nester.WindSpeed}
+        sAddon={_speed(nester.Units)}
       />
       <HomeItem
         type="visibility"
-        rating={list.visibilityRating}
+        rating={list.VisibilityRating}
         fName="Visibility"
-        fVal={nester.visibility}
+        fVal={nester.Visibility}
         sName="Cloudiness"
-        sVal={nester.cloudiness}
-        fAddon={_distance(nester.units)}
+        sVal={nester.Cloudiness}
+        fAddon={_distance(nester.Units)}
         sAddon="%"
       />
       <HomeItem
         type="temperature"
-        rating={list.temperatureRating}
+        rating={list.TemperatureRating}
         fName="Min_Temperature"
-        fVal={nester.min_Temperature}
+        fVal={nester.Min_Temperature}
         sName="Max_Temperature"
-        sVal={nester.max_Temperature}
-        fAddon={_temperature(nester.units)}
-        sAddon={_temperature(nester.units)}
+        sVal={nester.Max_Temperature}
+        fAddon={_temperature(nester.Units)}
+        sAddon={_temperature(nester.Units)}
       />
       <HomeItem
         type="atmosphere"
-        rating={list.atmosphereRating}
+        rating={list.AtmosphereRating}
         fName="Humidity"
-        fVal={nester.humidity}
+        fVal={nester.Humidity}
         sName="Pressure"
-        sVal={`${nester.presssure}kPa`}
+        sVal={`${nester.Presssure}kPa`}
         fAddon="%"
       />
       <HomeItem
@@ -61,7 +61,7 @@ export default ({ list, loaded }) => {
         fName="Uv"
         fVal={nester.UVIndex}
         sName="Cloudiness"
-        sVal={nester.cloudiness}
+        sVal={nester.Cloudiness}
         sAddon="%"
       />
     </div>
