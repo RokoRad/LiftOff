@@ -17,7 +17,7 @@ const icons = {
 export default ({ type, fVal, sVal, fName, sName, fAddon, sAddon, rating }) => (
   <div className="home-item__wrapper">
     <div className="home-item__left home-item__aligned">
-      <img src={`${icons[type]}`} className="home-item__icon" />
+      <div style={{ backgroundImage: `url(${icons[type]})` }} className="home-item__icon" />
     </div>
     <div className="home-item__middle">
       <div>
@@ -41,6 +41,10 @@ export default ({ type, fVal, sVal, fName, sName, fAddon, sAddon, rating }) => (
       </div>
     </div>
     <div className="home-item__right home-item__aligned">
+      <span className={`home-item__rating`}>
+      3.3
+        {/* {isValueText(rating)} */}
+      </span>
       {/* <span className={[styles.rating, rating !== null ? globals[colorGenerator(rating)] : null]}>
         {isValueText(rating)}
       </span> */}

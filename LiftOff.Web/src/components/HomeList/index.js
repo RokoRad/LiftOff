@@ -15,5 +15,17 @@ export default ({ }) => (
         //sVal={nester.WeatherDescription}
         sVal="opis"
       />
+
+      <HomeItem
+        type="conditions"
+        //rating={list.ConditionsRating}
+        raiting={3.444444}
+        fName="Weather"
+        //fVal={nester.Weather}
+        fVal="Split"
+        sName="Description"
+        //sVal={nester.WeatherDescription}
+        sVal="opis"
+      />
   </div>
 );

@@ -8,7 +8,10 @@
 
 .home-item__image {
   width: 40px;
-  height: 40px
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
 }
 
 .home-item__left {
@@ -26,6 +29,11 @@
 .home-item__middle {
   width: 55%;
   height: 100%;
+}
+
+.home-item__rating {
+  font-size: 1.5em;
+  color: #3073f2
 }
 
 /* fontFamily: vars.medium,
