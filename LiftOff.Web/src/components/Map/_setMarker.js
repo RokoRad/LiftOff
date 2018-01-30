@@ -1,8 +1,10 @@
 import store from '../../store';
 import { setMarker, tooltipStatus, updateTimeLocation } from '../../actions';
-import { _updateTimeLocation } from '../../functions/realtime';
+import { _start, _stop } from '../../functions/realtime';
 
 export default event => {
+  _stop();
+
   store.dispatch(
     setMarker({
       lat: event.latLng.lat(),
@@ -26,13 +28,26 @@ export default event => {
   //   time: new Date().toISOString()
   // });
 
-  _updateTimeLocation({
-    location: {
-      latitude: 22,
-      longitude: 33
-    },
-    time: new Date().toISOString()
-  });
+  // _updateTimeLocation({
+  //   location: {
+  //     latitude: event.latLng.lat(),
+  //     longitude: event.latLng.lat()
+  //   },
+  //   // time: new Date().toISOString()
+  //   time: store.getState().timeLocationReducer.timeLocation.time
+  // });
+
+  let holder = {
+        location: {
+          latitude: event.latLng.lat(),
+          longitude: event.latLng.lat()
+        },
+        // time: new Date().toISOString()
+        time: store.getState().timeLocationReducer.timeLocation.time
+      }
+
+
+  _start(holder, 'metric');
 
   store.dispatch(tooltipStatus((store.getState().mapReducer.tooltipStatus = true)));
 };

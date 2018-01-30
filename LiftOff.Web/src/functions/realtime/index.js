@@ -25,21 +25,7 @@ const _start = async (object, units) => {
 };
 
 const _updateTimeLocation = async (object) => {
-  console.log(object)
-  console.log({
-    location: {
-      latitude: 22,
-      longitude: 33
-    },
-    time: new Date().toISOString()
-  })
-  proxy.invoke('updateLocation', {
-    location: {
-      latitude: 22,
-      longitude: 33
-    },
-    time: new Date().toISOString()
-  }); 
+  proxy.invoke('updateLocation', object); 
 }
 
 const _changeUnits = async () => {

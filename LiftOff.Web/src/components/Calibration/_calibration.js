@@ -3,7 +3,9 @@ import headers from '../../functions/headers';
 import language from '../../languages';
 import store from '../../store';
 import removeToken from '../../functions/removeToken';
-import { updateLocation, setMarker } from '../../actions';
+import storage from '../../functions/storage';
+import { updateLocation, setMarker, updateHome } from '../../actions';
+import pascalcaseKeys from 'pascalcase-keys';
 
 export default data => {
   const stored = store.getState().mapReducer.markerPosition;
@@ -32,13 +34,18 @@ export default data => {
               lng: location.longitude
             })
           );
+
           store.dispatch(
             setMarker({
               lat: location.latitude,
               lng: location.longitude
             })
           );
-          console.log("calibration", value)
+
+          store.dispatch(updateHome(value));
+          storage.set('@realtime', JSON.stringify(pascalcaseKeys(value)));
+  
+          console.log("calibration", pascalcaseKeys(value))
         });
       } else if (response.status === 401) {
         removeToken();
