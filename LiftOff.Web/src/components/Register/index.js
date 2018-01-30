@@ -20,7 +20,7 @@ export default class Login extends React.Component {
 
   componentWillMount() {
     if (token.get()) {
-      window.location.href = "/dashboard";
+      window.location.href = '/dashboard';
     }
   }
 
@@ -38,6 +38,6 @@ export default class Login extends React.Component {
         <InitalMessage type="register" />
         <Button onClick={() => _register(holder)}>{language.Register}</Button>
       </form>
-    )
+    );
   }
 }

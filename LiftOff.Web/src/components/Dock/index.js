@@ -4,7 +4,7 @@ import Picker from '../Picker';
 import Tooltip from '../Tooltip';
 import './style.css';
 
-export default ({ }) => (
+export default ({}) => (
   <div className="dock">
     <Calibration />
     <Picker />

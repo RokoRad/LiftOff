@@ -15,18 +15,20 @@ export default data => {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       },
       body: _encode(object)
-    }).then((response) => {
-      if (response.status === 200) {
-        response.json().then(value => {
-          token.set(value.access_token);
-        })
-      } else {
-        alert(language.Input);
-      }
-    }).catch((error) => {
-      alert(language.serverError)
     })
+      .then(response => {
+        if (response.status === 200) {
+          response.json().then(value => {
+            token.set(value.access_token);
+          });
+        } else {
+          alert(language.Input);
+        }
+      })
+      .catch(error => {
+        alert(language.serverError);
+      });
   } else {
-    alert(language.Input)
+    alert(language.Input);
   }
 };

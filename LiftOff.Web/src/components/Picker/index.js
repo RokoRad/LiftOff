@@ -7,7 +7,7 @@ import _onOpen from './_onOpen.js';
 import _onSelect from './_onSelect.js';
 import './style.css';
 
-export default ({ }) => (
+export default ({}) => (
   <div className="picker">
     <MuiThemeProvider>
       <DateTimePicker
@@ -17,7 +17,7 @@ export default ({ }) => (
         DatePicker={DatePickerDialog}
         TimePicker={TimePickerDialog}
         onDatePickerShow={() => _onOpen()}
-        onTimeSelected={(e) => _onSelect(e)}
+        onTimeSelected={e => _onSelect(e)}
         format="YYYY-MM-DDTHH:mm:ss.sssZ"
         showCurrentDateByDefault={true}
       />

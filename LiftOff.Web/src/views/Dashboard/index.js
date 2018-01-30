@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
 
   componentWillMount() {
     if (!token.get()) {
-      window.location.href = "/";
+      window.location.href = '/';
       token.remove();
     }
   }

@@ -14,9 +14,18 @@ class MapContainer extends React.Component {
   render() {
     return (
       <div className="map">
-        <Map google={this.props.google} zoom={14} disableDefaultUI={true} styles={mapStyle} initialCenter={this.props.location} onClick={(a, b, event) => _setMarker(event)}>
-          <Marker onClick={() => console.log("a")} position={this.props.marker} 
-          //icon={{ url: '../../images/map/pin.png' }} 
+        <Map
+          google={this.props.google}
+          zoom={14}
+          disableDefaultUI={true}
+          styles={mapStyle}
+          initialCenter={this.props.location}
+          onClick={(a, b, event) => _setMarker(event)}
+        >
+          <Marker
+            onClick={() => console.log('a')}
+            position={this.props.marker}
+            //icon={{ url: '../../images/map/pin.png' }}
           />
 
           <InfoWindow visible={true} position={this.props.marker}>
