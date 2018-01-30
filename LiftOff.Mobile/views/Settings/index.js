@@ -12,6 +12,7 @@ import UnitsSwitch from '../../components/UnitsSwitch';
 import LanguageSwitch from '../../components/LanguageSwitch';
 import LogPermission from '../../components/LogPermission';
 import Break from '../../components/Break';
+import _logout from './_logout.js';
 
 export default ({ location }) => (
   <Screen current={location} style={styles.settings}>
