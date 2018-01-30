@@ -1,4 +1,3 @@
-import signalr from 'react-native-signalr';
 import store from '../../store';
 import storage from '../../functions/storage';
 import { updateHome } from '../../actions';
