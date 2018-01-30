@@ -38,14 +38,13 @@ export default event => {
   // });
 
   let holder = {
-        location: {
-          latitude: event.latLng.lat(),
-          longitude: event.latLng.lat()
-        },
-        // time: new Date().toISOString()
-        time: store.getState().timeLocationReducer.timeLocation.time
-      }
-
+    location: {
+      latitude: event.latLng.lat(),
+      longitude: event.latLng.lat()
+    },
+    // time: new Date().toISOString()
+    time: store.getState().timeLocationReducer.timeLocation.time
+  };
 
   _start(holder, 'metric');
 

@@ -42,7 +42,7 @@ const initialState = {
 const cached = storage.get('@realtime');
 
 if (cached) {
-  initialState.home = JSON.parse(cached)
+  initialState.home = JSON.parse(cached);
 }
 
 export default (state = initialState, action) => {

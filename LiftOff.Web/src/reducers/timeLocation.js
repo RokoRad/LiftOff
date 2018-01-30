@@ -2,7 +2,7 @@ const initialState = {
   timeLocation: {
     location: {
       latitude: 43.508133,
-      longitude: 16.440193,
+      longitude: 16.440193
     },
     time: new Date().toISOString()
   }
@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
         }
       };
     case 'UPDATE_TIMELOCATION':
-      return  {
+      return {
         timeLocation: {
           time: state.timeLocation.time,
           location: action.payload

@@ -4,7 +4,7 @@ import './style.css';
 import mapStyle from './style.js';
 import _setMarker from './_setMarker.js';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import Search from '../Search'
+import Search from '../Search';
 
 class MapContainer extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class MapContainer extends React.Component {
   }
 
   render() {
+    console.log('MAPPROP', this.props.location);
     return (
       <div className="map">
         <Search />

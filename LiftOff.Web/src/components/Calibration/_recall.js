@@ -1,4 +1,4 @@
-export default (object) => {
+export default object => {
   return {
     AdvisoryRating: {
       Croatian: object.advisoryRating.croatian,
@@ -34,5 +34,5 @@ export default (object) => {
       WindDirection: object.weatherData.windDirection,
       WindSpeed: object.weatherData.windSpeed
     }
-  }
-}
+  };
+};
