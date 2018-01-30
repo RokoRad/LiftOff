@@ -5,7 +5,9 @@ import _speed from './_speed.js';
 import _temperature from './_temperature.js';
 import _distance from './_distance.js';
 
-export default ({ }) => (
+export default ({list, loaded }) => {
+  const nester = list.weatherData;
+  return (
   <div className="home__list">
   <HomeItem
   type="conditions"
@@ -63,4 +65,5 @@ export default ({ }) => (
   sAddon="%"
   />
   </div>
-);
+)
+}

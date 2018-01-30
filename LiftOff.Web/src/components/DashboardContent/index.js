@@ -14,7 +14,7 @@ class DashboardContent extends React.Component {
     return (
       <div className="grid">
         <div className="grid__left">
-          <Home />
+          <Home list={this.props.home} time={this.props.timeLocation.time} string={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating}/>
         </div>
         <div className="grid__right">
           <Map location={this.props.map} marker={this.props.markerPosition} tooltip={this.props.tooltip} tooltipStatus={this.props.tooltipStatus} />
@@ -29,7 +29,9 @@ class DashboardContent extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  ...state.mapReducer
+  ...state.mapReducer,
+  ...state.homeReducer,
+  ...state.timeLocationReducer
 });
 
 export default connect(mapStateToProps)(DashboardContent);
