@@ -1,6 +1,6 @@
 import signalr from 'react-native-signalr';
 import store from '../../store';
-import storage from '../__/functions/storage';
+import storage from '../../functions/storage';
 import { updateHome } from '../../actions';
 import language from '../../languages';
 
@@ -19,7 +19,7 @@ const _start = async (object, units) => {
       proxy.invoke('initiateConnection', object, units);
     })
     .fail(() => {
-      alert(`˘${language.serverError}`);
+      alert(`${language.serverError}`);
     });
 };
 
