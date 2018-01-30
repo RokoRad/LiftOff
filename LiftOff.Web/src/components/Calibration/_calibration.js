@@ -23,19 +23,26 @@ export default data => {
   }).then((response) => {
     if(response.status === 200) {
       response.json().then((value) => {
-        console.log(value)
-        // const parsed = JSON.parse(response._bodyInit).weatherData.timeLocation;
-        // store.dispatch(
-        //   updateLocation({
-        //     ...parsed.location
-        //   })
-        // );
-        // store.dispatch(
-        //   setMarker({
-        //     ...parsed.location
-        //   })
+        console.log(value);
 
-        console.log(value)
+        const parsed = value.weatherData,
+              location = parsed.timeLocation.location;
+
+        store.dispatch(
+          updateLocation({
+            lat: location.latitude,
+            lng: location.longitude
+          })
+        );
+        store.dispatch(
+          setMarker({
+            lat: location.latitude,
+            lng: location.longitude
+          })
+        );
+        //console.log(value)
+        console.log("city", parsed.city)
+        console.log("rating", parsed.totalRating)
       })
     } else if (response.status === 401){
       removeToken();
