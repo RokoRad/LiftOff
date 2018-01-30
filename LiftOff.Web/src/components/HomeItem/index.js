@@ -8,7 +8,7 @@ import round from '../../functions/round';
 
 const icons = {
   atmosphere: '../../images/weather/atmosphere.png',
-  conditions: '../../images/weather/conditions.png',
+  conditions: require('../../images/weather/conditions.png'),
   temperature: '../../images/weather/temperature.png',
   uv: '../../images/weather/uv.png',
   visibility: '../../images/weather/visibility.png',
