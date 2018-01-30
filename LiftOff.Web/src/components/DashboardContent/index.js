@@ -14,7 +14,7 @@ class DashboardContent extends React.Component {
     return (
       <div className="grid">
         <div className="grid__left">
-          <Home list={this.props.home} time={this.props.timeLocation.time} string={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating}/>
+          <Home list={this.props.home} time={this.props.timeLocation.time} string={this.props.home.advisoryRating} rating={this.props.home.totalRating}/>
         </div>
         <div className="grid__right">
           <Map location={this.props.map} marker={this.props.markerPosition} tooltip={this.props.tooltip} tooltipStatus={this.props.tooltipStatus} />
