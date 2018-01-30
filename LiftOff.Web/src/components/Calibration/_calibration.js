@@ -5,6 +5,7 @@ import store from '../../store';
 import removeToken from '../../functions/removeToken';
 import storage from '../../functions/storage';
 import { updateLocation, setMarker, updateHome } from '../../actions';
+import _recall from './_recall.js';
 
 export default data => {
   const stored = store.getState().mapReducer.markerPosition;
