@@ -13,17 +13,18 @@ export default ({ days, scores }) => {
       enabled: false
     },
     animation: false,
-    omitYLabels: true,
     scales: {
       xAxes: [{
         gridLines: {
-          drawOnChartArea: false
-        }
+          display: false,
+          drawBorder: false
+        },
       }],
       yAxes: [{
         gridLines: {
-          drawOnChartArea: false
-        }
+          display: false,
+          drawBorder: false
+        },
       }],
     }
   };
