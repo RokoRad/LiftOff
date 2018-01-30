@@ -18,8 +18,11 @@ export default event => {
   );
 
   _updateTimeLocation({
-    latitude: event.latLng.lat(),
-    longitude: event.latLng.lng()
+    location: {
+      latitude: event.latLng.lat(),
+      longitude: event.latLng.lng()
+    },
+    time: store.getState().timeLocationReducer.timeLocation.time
   });
 
   store.dispatch(tooltipStatus((store.getState().mapReducer.tooltipStatus = true)));

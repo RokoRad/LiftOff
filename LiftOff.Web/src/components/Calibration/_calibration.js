@@ -24,11 +24,7 @@ export default data => {
     .then(response => {
       if (response.status === 200) {
         response.json().then(value => {
-          console.log(value);
-
-          const data = value,
-            parsed = data.weatherData,
-            location = parsed.timeLocation.location;
+          const location = value.weatherData.timeLocation.location;
 
           store.dispatch(
             updateLocation({
@@ -42,9 +38,7 @@ export default data => {
               lng: location.longitude
             })
           );
-          //console.log(value)
-          console.log('city', parsed.city);
-          console.log('rating', data.totalRating);
+          console.log("calibration", value)
         });
       } else if (response.status === 401) {
         removeToken();

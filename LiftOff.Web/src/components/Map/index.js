@@ -12,7 +12,6 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props.tooltipStatus)
     return (
       <div className="map">
         <Search />
@@ -25,7 +24,6 @@ class MapContainer extends React.Component {
           onClick={(a, b, event) => _setMarker(event)}
         >
           <Marker
-            onClick={() => console.log('a')}
             position={this.props.marker}
             //icon={{ url: '../../images/map/pin.png' }}
           />

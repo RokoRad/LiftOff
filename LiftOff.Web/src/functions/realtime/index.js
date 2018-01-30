@@ -14,6 +14,7 @@ proxy.on('broadcastWeather', response => {
 });
 
 const _start = async (object, units) => {
+  console.log("start", object)
   connection
     .start()
     .done(() => {
@@ -25,6 +26,7 @@ const _start = async (object, units) => {
 };
 
 const _updateTimeLocation = async (object) => {
+  console.log("update", object)
   proxy.invoke('updateLocation', object); 
 }
 

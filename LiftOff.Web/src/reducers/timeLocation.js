@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
     case 'UPDATE_TIMELOCATION':
       return  {
         timeLocation: {
-          ...state.timeLocation,
+          time: state.timeLocation.time,
           location: action.payload
         }
       };
