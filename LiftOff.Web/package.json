@@ -20,6 +20,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
+    "signalr-no-jquery": "^0.1.8",
     "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
