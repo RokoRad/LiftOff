@@ -12,12 +12,12 @@ export default (object) => {
     VisibilityRating: object.visibilityRating,
     WindRating: object.windRating,
     weatherData: {
-      Cloudiness: object.cloudiness,
-      Humidity: object.humidity,
-      Max_Temperature: object.max_Temperature,
-      Min_Temperature: object.min_Temperature,
-      Presssure: object.pressure,
-      Temperature: object.temperature,
+      Cloudiness: object.weatherData.cloudiness,
+      Humidity: object.weatherData.humidity,
+      Max_Temperature: object.weatherData.max_Temperature,
+      Min_Temperature: object.weatherData.min_Temperature,
+      Presssure: object.weatherData.pressure,
+      Temperature: object.weatherData.temperature,
       timeLocation: {
         Location: {
           Latitude: object.weatherData.timeLocation.location.latitude,
@@ -25,14 +25,14 @@ export default (object) => {
         },
         Time: object.weatherData.timeLocation.time
       },
-      UVIndex: object.uvIndex,
-      Units: object.units,
-      Visibility: object.visibility,
-      Weather: object.weather,
-      WeatherDescription: object.weatherDescription,
-      WeatherID: object.weatherID,
-      WindDirection: object.windDirection,
-      WindSpeed: object.windSpeed
+      UVIndex: object.weatherData.uvIndex,
+      Units: object.weatherData.units,
+      Visibility: object.weatherData.visibility,
+      Weather: object.weatherData.weather,
+      WeatherDescription: object.weatherData.weatherDescription,
+      WeatherID: object.weatherData.weatherID,
+      WindDirection: object.weatherData.windDirection,
+      WindSpeed: object.weatherData.windSpeed
     }
   }
 }
