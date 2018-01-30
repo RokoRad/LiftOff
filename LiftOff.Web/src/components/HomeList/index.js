@@ -11,40 +11,40 @@ export default ({list, loaded }) => {
   <div className="home__list">
   <HomeItem
   type="conditions"
-  rating={list.ConditionsRating}
+  rating={list.conditionsRating}
   fName="Weather"
-  fVal={nester.Weather}
+  fVal={nester.weather}
   sName="Description"
-  sVal={nester.WeatherDescription}
+  sVal={nester.weatherDescription}
   />
   <HomeItem
   type="wind"
-  rating={list.WindRating}
+  rating={list.windRating}
   fName="WindDirection"
-  fVal={nester.WindDirection}
+  fVal={nester.windDirection}
   sName="WindSpeed"
-  sVal={nester.WindSpeed}
-  sAddon={_speed(nester.Units)}
+  sVal={nester.windSpeed}
+  sAddon={_speed(nester.units)}
   />
   <HomeItem
   type="visibility"
-  rating={list.VisibilityRating}
+  rating={list.visibilityRating}
   fName="Visibility"
-  fVal={nester.Visibility}
+  fVal={nester.visibility}
   sName="Cloudiness"
-  sVal={nester.Cloudiness}
-  fAddon={_distance(nester.Units)}
+  sVal={nester.cloudiness}
+  fAddon={_distance(nester.units)}
   sAddon="%"
   />
   <HomeItem
   type="temperature"
-  rating={list.TemperatureRating}
+  rating={list.temperatureRating}
   fName="Min_Temperature"
-  fVal={nester.Max_Temperature}
+  fVal={nester.min_Temperature}
   sName="Max_Temperature"
-  sVal={nester.Max_Temperature}
-  fAddon={_temperature(nester.Units)}
-  sAddon={_temperature(nester.Units)}
+  sVal={nester.max_Temperature}
+  fAddon={_temperature(nester.units)}
+  sAddon={_temperature(nester.units)}
   />
   <HomeItem
   type="atmosphere"
