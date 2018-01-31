@@ -24,7 +24,6 @@ export default event => {
       latitude: event.latLng.lat(),
       longitude: event.latLng.lat()
     },
-    // time: new Date().toISOString()
     time: store.getState().timeLocationReducer.timeLocation.time
   };
 

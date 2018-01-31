@@ -13,7 +13,7 @@ class DashboardContent extends React.Component {
   }
 
   componentWillMount() {
-    //_start(this.props.timeLocation, this.props.units);
+    // _start(this.props.timeLocation, this.props.units);
     _start(this.props.timeLocation, 'metric');
   }
 
