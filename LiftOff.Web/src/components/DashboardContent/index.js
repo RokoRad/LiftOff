@@ -39,7 +39,7 @@ class DashboardContent extends React.Component {
             tooltipStatus={this.props.tooltipStatus}
           />
           <Graph
-            days={['', 'Monday', '',  'Monday', '',  'Monday', '',  'Monday', '',  'Monday', '']} scores={[ 1, 5, 3, 2, 4 ]}
+            days={['Monday',  'Monday',  'Monday',  'Monday',  'Monday']} scores={[ 1, 5, 3, 2, 4 ]}
           />
         </div>
       </div>

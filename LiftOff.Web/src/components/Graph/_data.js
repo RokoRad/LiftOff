@@ -1,23 +1,17 @@
 export default (days, scores) => {
-  const object = scores;
+  let object = [];
+
   for(let i = 0; i < scores.length; i++) {
-    if(i !== 4) {
-      console.log(scores[i]);
-      console.error((scores[i] + scores[i+1]) / 2)
+    object.push(scores[i])
+    if(i === 0) {
+
+    } else if (i === 4) {
+      object.push(scores[4]);  
+      object.push(scores[4]);  
     }
   }
 
-
-              // //scores={[ 1, 5, 3, 2, 4 ]}
-              // scores={[ 
-              //   0.5, 1,
-              //   3, 5,
-              //   4, 3,
-              //   2.5, 2,
-              //   3, 4, 4 
-              // ]}
-
-
+  console.log(object)
    return {
     labels: days,
     datasets: [
