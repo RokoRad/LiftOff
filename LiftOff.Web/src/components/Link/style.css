@@ -5,18 +5,23 @@
   text-decoration: none;
   color: #4a4e57;
   font-weight: 300;
-  position: relative;
-  padding-left: 30px;
-  position: relative;
+  padding-left: 40px;
+  display: block
 }
 
-.link__inner:before {
-  content: '';
-  display: block;
+.link__badge {
   position: absolute;
-  left: 0;
   top: 0;
-  background-color: red;
-  width: 20px;
-  height: 20px;
+  left: 0;
+  border-radius: 5px;
+  padding: 3px 5px;
+  color: #fff
+}
+
+.link__badge--pdf {
+
+}
+
+.link__badge--link {
+  background-color: blue
 }
