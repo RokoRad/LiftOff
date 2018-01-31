@@ -32,7 +32,10 @@ class MapContainer extends React.Component {
           <Marker position={this.props.marker} icon={require('../../images/map/pin.png')} />
 
           
-          <Marker position={this.props.marker} icon={require('../../images/map/zone.png')} />
+          <Marker position={{
+            lat: 43.53,
+            lng: 16.29 
+          }} icon={require('../../images/map/zone.png')} style={{width: 20, height: 20}} />
         </Map>
         <Dock display={this.props.tooltipStatus} />
       </div>
