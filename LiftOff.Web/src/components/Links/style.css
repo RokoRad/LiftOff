@@ -14,5 +14,6 @@
 @media screen and (max-width: 1024px) {
   .links {
     width: 100%;
+    max-height: 200px
   }
 }

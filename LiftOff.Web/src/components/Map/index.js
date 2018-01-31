@@ -2,7 +2,6 @@ import React from 'react';
 import Dock from '../Dock';
 import './style.css';
 import mapStyle from './style.js';
-import NoFly from '../NoFly';
 import _setMarker from './_setMarker.js';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import Search from '../Search';
@@ -20,24 +19,18 @@ class MapContainer extends React.Component {
         <Map
           className="map"
           google={this.props.google}
-          zoom={14}
           disableDefaultUI={true}
           styles={mapStyle}
           initialCenter={this.props.location}
           center={this.props.location}
           onClick={(a, b, event) => _setMarker(event)}
+          zoom={12}
         >
-
-
-
           <Marker position={this.props.marker} icon={require('../../images/map/pin.png')} />
-
-          
-          <NoFly location={{
-            lat: 43.53,
-            lng: 16.29 
-          }} />
-
+          <Marker position={{
+            lat: 43.55,
+            lng: 16.47 
+          }} icon={require('../../images/map/zone.png')} />
         </Map>
         <Dock display={this.props.tooltipStatus} />
       </div>
