@@ -13,7 +13,11 @@ export default ({ days, scores }) => {
       enabled: false
     },
     animation: false,
-    pointDot: false,
+    elements: { 
+      point: { 
+        radius: 0 
+      }
+  },
     scales: {
       xAxes: [
         {
@@ -39,9 +43,9 @@ export default ({ days, scores }) => {
     datasets: [
       {
         data: scores,
-        borderColor: '#3073f2',
+        borderColor: '#fff',
         fillOpacity: 0.8,
-        backgroundColor: 'rgba(48, 115, 242, 0.5)'
+        backgroundColor: 'rgba(48, 115, 242, 0.7)'
       }
     ]
   };
