@@ -18,8 +18,7 @@ export default {
       {
         gridLines: {
           display: false,
-          drawBorder: false,
-          offsetGridLines: true
+          drawBorder: false
         },
         ticks: {
           fontFamily: "Roboto",
@@ -37,7 +36,6 @@ export default {
         ticks: {
           fontFamily: "Roboto",
           fontSize: 12,
-          paddingRight: 20,
           fontWeight: 300
         }
       }
