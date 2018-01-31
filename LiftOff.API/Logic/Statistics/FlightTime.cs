@@ -5,7 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LiftOff.API.Logic.Statistics
 {
-    public class FlightTime
+	//Klasa koja definira FlightTime objekt za bazu podataka
+	public class FlightTime
     {
         [ForeignKey("Flight")]
         public int FlightTimeId { get; set; }

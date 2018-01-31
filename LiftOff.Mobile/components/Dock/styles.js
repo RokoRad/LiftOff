@@ -1,16 +1,11 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   dock: {
-    borderRadius: 7,    
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
-    shadowOffset: {
-        height: 12,
-        width: 12
-    },
+    borderRadius: 7,
     elevation: 12,
-    backgroundColor: '#fff',
+    backgroundColor: vars.white,
     position: 'absolute',
     bottom: 100,
     right: -10,
@@ -22,5 +17,3 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   }
 });
-
-export default styles;

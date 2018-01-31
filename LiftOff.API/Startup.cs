@@ -3,38 +3,32 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 using LiftOff.API.App_Start;
-using Microsoft.Owin.Host.SystemWeb;
-using System.Security.Claims;
 using Microsoft.AspNet.SignalR;
 
 [assembly: OwinStartup(typeof(LiftOff.API.Startup))]
 namespace LiftOff.API
 {
-    class Program
+	class Program
     {
         static void Main(string[] args)
         {
-            // Make long polling connections wait a maximum of 110 seconds for a
-            // response. When that time expires, trigger a timeout command and
-            // make the client reconnect.
+			//Long polling veze će čekati 110 sekunda za odgovor.
+			//Kada vrijeme istekne pokrenuti će se komanda koja će pokušati ponovno spojiti klijenta.
             GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(110);
 
-            // Wait a maximum of 30 seconds after a transport connection is lost
-            // before raising the Disconnected event to terminate the SignalR connection.
-            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(30);
+			//Čekaj maksimalno 30 sekundi nakon što se veza izgubi 
+			//prije nego se pokrene Disconnected event koji će ukinuti real-time vezu
+			GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(30);
 
-            // For transports other than long polling, send a keepalive packet every
-            // 10 seconds. 
-            // This value must be no more than 1/3 of the DisconnectTimeout value.
+			//Za transporte koji nisu long polling, posalji keepalive paket svako 10 sekunda
+            //Vrijednost ne smije biti veća od 1/3 DisconnectTimeout vrijednosti
             GlobalHost.Configuration.KeepAlive = TimeSpan.FromSeconds(10);
         }
     }
 
+	//Klasa koja sadrži sve potrebne konfiguracije
     public class Startup
 	{
 		public void Configuration(IAppBuilder app)

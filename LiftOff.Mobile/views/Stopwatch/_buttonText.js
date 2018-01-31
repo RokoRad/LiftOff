@@ -1,9 +1,7 @@
-const _buttonText = (state) => {
-  if(state === true) {
-    return 'LAND'
+export default state => {
+  if (state === true) {
+    return 'LAND';
   } else {
-    return 'LIFTOFF'
+    return 'LIFTOFF';
   }
-}
-
-export default _buttonText;
+};

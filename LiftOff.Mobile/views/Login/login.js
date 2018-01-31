@@ -1,15 +1,13 @@
-import Toast from 'react-native-simple-toast';
+import Toast from '../../functions/toast';
 import { AsyncStorage } from 'react-native';
 import encode from './encode.js';
 import language from '../../languages';
+import { changeLoading } from '../../actions';
+import store from '../../store';
 
 export default (data, history) => {
-/*
-const encode = (value) => Object.keys(value)
-    .map(prop => `${encodeURIComponent(property)}=${encodeURIComponent(value[property])}`)
-    .join('&');
-    */
-  if(data.username.length != 0 && data.password.length > 8) {
+  store.dispatch(changeLoading());
+  if (data.username.length != 0 && data.password.length > 8) {
     const object = {
       ...data,
       grant_type: 'password'
@@ -20,22 +18,27 @@ const encode = (value) => Object.keys(value)
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       },
       body: encode(object)
-    }).then((response) => {
-      if(response.status === 200) {
-        AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
-          history.push('/home');
-        });
-      } else {
-        Toast.show(`${language.serverError}`)
-      }
-    }).catch((error) => {
-      Toast.show(`${language.serverError}`)
-    });
+    })
+      .then(response => {
+        if (response.status === 200) {
+          AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
+            history.push('/home');
+          });
+        } else {
+          Toast(`${language.serverError}`);
+        }
+        store.dispatch(changeLoading());
+      })
+      .catch(error => {
+        Toast(`${language.serverError}`);
+        store.dispatch(changeLoading());
+      });
   } else {
-    if(data.password.length < 7) {
-      Toast.show(`${language.passwordError}`)
+    if (data.password.length < 7) {
+      Toast(`${language.passwordError}`);
     } else {
-      Toast.show(`${language.invalidInput}`)
+      Toast(`${language.invalidInput}`);
     }
+    store.dispatch(changeLoading());
   }
-}
+};

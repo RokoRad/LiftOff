@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
 import styles from './styles.js';
 import { NativeRouter, Route } from 'react-router-native';
-import Expo from "expo";
+import Expo from 'expo';
 import Login from './views/Login';
 import Register from './views/Register';
 import Home from './views/Home';
@@ -13,10 +13,10 @@ import Settings from './views/Settings';
 import { Provider } from 'react-redux';
 import store from './store';
 
-class App extends React.Component {
+export default class App extends React.Component {
   state = {
     loaded: false
-  }
+  };
 
   componentWillMount() {
     this.loadFonts();
@@ -24,24 +24,17 @@ class App extends React.Component {
 
   async loadFonts() {
     await Expo.Font.loadAsync({
-      'barlowBold': require('./fonts/Barlow-Bold.ttf'),
-      'barlowExtraBold': require('./fonts/Barlow-ExtraBold.ttf'),
-      'barlowMedium': require('./fonts/Barlow-Medium.ttf'),
-      'barlowRegular': require('./fonts/Barlow-Regular.ttf'),
-      'barlowSemiBold': require('./fonts/Barlow-SemiBold.ttf'),
-      'robotoThin': require('./fonts/Roboto-Thin.ttf'),
-      'robotoRegular': require('./fonts/Roboto-Regular.ttf'),
-      'robotoMedium': require('./fonts/Roboto-Medium.ttf'),
-      'robotoLight': require('./fonts/Roboto-Light.ttf'),
-      'robotoBold': require('./fonts/Roboto-Bold.ttf'),
-      'robotoBlack': require('./fonts/Roboto-Black.ttf')
+      robotoLight: require('./fonts/Roboto-Light.ttf'),
+      robotoRegular: require('./fonts/Roboto-Regular.ttf'),
+      robotoMedium: require('./fonts/Roboto-Medium.ttf'),
+      robotoBold: require('./fonts/Roboto-Bold.ttf')
     });
-    this.setState({loaded: true});
-  };
+    this.setState({ loaded: true });
+  }
 
   render() {
-    if(!this.state.loaded) {
-      return  <Expo.AppLoading />;
+    if (!this.state.loaded) {
+      return <Expo.AppLoading />;
     } else {
       return (
         <NativeRouter>
@@ -62,5 +55,3 @@ class App extends React.Component {
     }
   }
 }
-
-export default App;

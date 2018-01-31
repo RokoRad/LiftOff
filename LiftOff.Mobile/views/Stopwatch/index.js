@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
-import globals from '../../config/styles.js';
 import Screen from '../../components/Screen';
+import Button from '../../components/Button';
 import SafetyscoreStopwatch from '../../components/SafetyscoreStopwatch';
 import StopwatchElement from '../../components/StopwatchElement';
 import StopwatchLogs from '../../components/StopwatchLogs';
@@ -12,30 +12,40 @@ import { connect } from 'react-redux';
 
 class Stopwatch extends Component {
   constructor(props) {
-     super(props);
-  };
+    super(props);
+  }
 
   render() {
-    console.log(this.props.logs)
-    //console.log(this.props.home)
-      return (
-        <Screen current={this.props.location}>
-          <SafetyscoreStopwatch comment={this.props.home.AdvisoryRating} rating={this.props.home.TotalRating} />
-          <StopwatchElement minutes={this.props.stopwatch.minutes} seconds={this.props.stopwatch.seconds} />
-          <TouchableOpacity activeOpacity={0.9} onPress={() => _stopwatch()} style={[globals.buttonWrapper, {backgroundColor: '#d41287'}]}>
-            <Text style={globals.buttonInner}>{_buttonText(this.props.stopwatch.active)}</Text>
-          </TouchableOpacity>
-          <StopwatchLogs data={this.props.logs} />
-        </Screen>  
-      );
+    return (
+      <Screen current={this.props.location}>
+        <SafetyscoreStopwatch
+          comment={this.props.home.AdvisoryRating}
+          rating={this.props.home.TotalRating}
+        />
+        <StopwatchElement
+          minutes={this.props.stopwatch.minutes}
+          seconds={this.props.stopwatch.seconds}
+          extended={this.props.logs.length}
+        />
+        <Button
+          onPress={() => _stopwatch(this.props.history, this.props.drone)}
+          type={this.props.stopwatch.active ? 'Land' : 'Liftoff'}
+        />
+        <StopwatchLogs
+          history={this.props.location}
+          data={this.props.logs}
+          hidden={this.props.logs.length}
+        />
+      </Screen>
+    );
   }
 }
-
 
 const mapStateToProps = state => ({
   ...state.stopwatchReducer,
   ...state.logsReducer,
-  ...state.homeReducer
+  ...state.homeReducer,
+  ...state.settingsReducer
 });
 
 export default connect(mapStateToProps)(Stopwatch);

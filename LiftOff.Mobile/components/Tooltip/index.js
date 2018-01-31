@@ -5,16 +5,20 @@ import animationGenerator from '../../functions/animationGenerator';
 import language from '../../languages';
 import styles from './styles.js';
 
-const Tooltip = ({displayed}) => {
-  if(displayed) {
+export default ({ displayed }) => {
+  if (displayed) {
     return (
-      <Animatable.View style={styles.tooltip} animation={animationGenerator('picker')} iterationCount={1} easing="ease-in-out" direction="alternate">
+      <Animatable.View
+        style={styles.tooltip}
+        animation={animationGenerator('picker')}
+        iterationCount={1}
+        easing="ease-in-out"
+        direction="alternate"
+      >
         <Text style={styles.text}>{language.ChooseWhen}</Text>
-      </Animatable.View>  
+      </Animatable.View>
     );
   } else {
-    return (null);
+    return null;
   }
 };
-
-export default Tooltip;

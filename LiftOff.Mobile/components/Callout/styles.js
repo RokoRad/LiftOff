@@ -1,14 +1,15 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   wrapper: {
     width: 200
   },
   title: {
     fontSize: 11,
-    fontFamily: 'robotoMedium',
+    fontFamily: vars.medium,
     textAlign: 'center',
-    color: '#2980b9',
+    color: vars.blue,
     marginBottom: 5
   },
   row: {
@@ -19,20 +20,9 @@ const styles = StyleSheet.create({
   },
   string: {
     fontSize: 10,
-    fontFamily: 'robotoRegular',
+    fontFamily: vars.regular
   },
   rating: {
-    fontFamily: 'robotoMedium'
-  },
-  green: {
-    color: '#47E389'
-  },
-  orange: {
-    color: '#FF9052'
-  },
-  red: {
-    color: '#F95F62'
+    fontFamily: vars.medium
   }
 });
-
-export default styles;

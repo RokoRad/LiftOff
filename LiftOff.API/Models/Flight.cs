@@ -3,12 +3,12 @@ using LiftOff.API.Logic.Statistics;
 using Newtonsoft.Json;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace LiftOff.API.Models
 {
-    public class Flight
+	//Klasa koja definira Flight objekt za bazu podataka
+	public class Flight
     {
         public int Id { get; set; }
 

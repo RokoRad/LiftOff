@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
+	//Controller zadužen za funkcionalnosti vezane specifično uz korisnikov račun
     [RoutePrefix("api/Account")]
 	public class AccountController : ApiController
 	{
@@ -34,6 +35,7 @@ namespace LiftOff.API.Controllers
 
         private readonly LiftOffContext _liftOffContext = new LiftOffContext();
 
+		//Funkcija koja registrira novog korisnika u bazu
 		[AllowAnonymous]
 		[Route("Register")]
 		public async Task<IHttpActionResult> Register(User userModel)
@@ -45,6 +47,7 @@ namespace LiftOff.API.Controllers
 			else return Ok();
 		}
 
+		//Funkcija koja korisniku vraća njegove trenutne statistike
         [Authorize]
         [HttpGet]
         [Route("GetUserData")]
@@ -56,12 +59,5 @@ namespace LiftOff.API.Controllers
 
             return Ok(user);
         }
-
-        //[Authorize]
-        //[Route("GetMyId")]
-        //public IHttpActionResult GetMyId()
-        //{
-        //    return Ok(User.Identity.GetUserId());
-        //}
     }
 }

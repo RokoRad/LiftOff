@@ -1,53 +1,33 @@
 import React, { Component } from 'react';
-import globals from '../../config/styles.js';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, CheckBox } from 'react-native';
 import colorGenerator from '../../functions/colorGenerator';
 import round from '../../functions/round';
-//import Toast from 'react-native-simple-toast';
+import globals from '../../config/styles.js';
 import styles from './styles.js';
+import _saveLog from './_saveLog.js';
 
-class StopwatchLog extends Component {
-  constructor(props) {
-     super(props);
-     this.state = {
-        active: this.props.active
-     };
-  };
-
-  active = () => {
-    // if(this.state.active) {
-    //   return;
-    // } else {
-    //   this.setState({
-    //     active: !this.state.active
-    //   });
-    //   Toast.show(language.logToast);
-    //   // šalje request
-    // }
-  };
-
-  render() {
-      return (
-        <View style={styles.wrapper}>
-          <TouchableWithoutFeedback onPress={this.active}>
-            <View style={[styles.left, (this.state.active ? styles.active : null), globals.bothAligned]}>
-              <Text style={styles.inner}>
-                {this.state.active ? '+' : '-'}
-              </Text>
-            </View>
-          </TouchableWithoutFeedback>
-          <View style={styles.middle}>
-            <Text style={styles.middleInner} numberOfLines={1} ellipsizeMode="tail">{this.props.location}</Text>
-          </View>
-          <View style={styles.middleRight}>
-            <Text style={[styles.middleRightInner, styles[colorGenerator(this.props.rating)]]}>{round(this.props.rating)}</Text>
-          </View>
-          <View style={styles.right}>
-            <Text style={styles.rightInner}>{this.props.time}</Text>
-          </View>
-        </View>
-      );
-  }
-}
-
-export default StopwatchLog;
+export default ({ history, rating, location, time, id, saved }) => (
+  <View style={styles.wrapper}>
+    <View style={[styles.left, styles.bothAligned]}>
+      <CheckBox
+        disabled={saved}
+        onValueChange={() => _saveLog(id)}
+        style={styles.checkbox}
+        value={saved}
+      />
+    </View>
+    <View style={styles.middle}>
+      <Text style={styles.middleInner} numberOfLines={1} ellipsizeMode="tail">
+        {location}
+      </Text>
+    </View>
+    <View style={styles.middleRight}>
+      <Text style={[styles.middleRightInner, globals[colorGenerator(rating)]]}>
+        {round(rating)}
+      </Text>
+    </View>
+    <View style={styles.right}>
+      <Text style={styles.rightInner}>{time}</Text>
+    </View>
+  </View>
+);

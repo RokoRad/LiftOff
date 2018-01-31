@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   navigationItemWrapper: {
     flex: 1,
     width: '20%',
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     backgroundColor: vars.white
   },
   navigationItem: {
-    width: '100%',
+    width: '100%'
   },
   navigationImage: {
     marginTop: 7.5,
@@ -30,5 +30,3 @@ const styles = StyleSheet.create({
     color: vars.blue
   }
 });
-
-export default styles;

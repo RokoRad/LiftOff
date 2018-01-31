@@ -8,28 +8,26 @@ import animationGenerator from '../../functions/animationGenerator';
 import round from '../../functions/round';
 import language from '../../languages';
 
-
-const HomeRating = ({string, rating}) => (
-    <View style={[styles.wrapper, globals[colorGenerator(rating)]]}>
-      <View style={[styles.top, globals.bothAligned]}>
-        <Animatable.Image source={require('../../images/drone.png')} style={styles.drone} animation={animationGenerator(colorGenerator(rating))} iterationCount="infinite" easing="ease-in-out" direction="alternate" />
+export default ({ string, rating }) => (
+  <View style={[styles.wrapper, styles[colorGenerator(rating)]]}>
+    <View style={[styles.top, styles.bothAligned]}>
+      <Animatable.Image
+        source={require('../../images/drone.png')}
+        style={styles.drone}
+        animation={animationGenerator(colorGenerator(rating))}
+        iterationCount="infinite"
+        easing="ease-in-out"
+        direction="alternate"
+      />
+    </View>
+    <View style={styles.bottom}>
+      <View style={styles.left}>
+        <Text style={styles.title}>{language.WeatherRating}</Text>
+        <Text style={styles.text}>{language.type === 'hr' ? string.Croatian : string.English}</Text>
       </View>
-      <View style={styles.bottom}>
-        <View style={styles.left}>
-          <Text style={styles.title}>
-            {language.WeatherRating}
-          </Text>
-          <Text style={styles.text}>
-            {(language.type === 'hr') ? string.Croatian : string.English}
-          </Text>
-        </View>
-        <View style={styles.right}>
-          <Text style={styles.rating}>
-            {round(rating)}
-          </Text>
-        </View>
+      <View style={styles.right}>
+        <Text style={styles.rating}>{round(rating)}</Text>
+      </View>
     </View>
   </View>
 );
-
-export default HomeRating;

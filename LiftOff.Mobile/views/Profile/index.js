@@ -12,24 +12,27 @@ class Account extends Component {
   // postavljanje defaultnih vrijednosti
   constructor(props) {
     super(props);
-  };
+  }
 
   // funckija renderiranja te sadržaj komponente
   render() {
     return (
       <Screen current={this.props.location}>
-        <AccountMap moreThan={language.moreThan} flewHere={language.flewHere} />
-        <View style={styles.container}>
-          {_list(this.props.stats)}
-          {console.log(this.props.stats)}
-        </View>
+        <AccountMap
+          markers={this.props.markers}
+          location={this.props.timeLocation.location}
+          moreThan={language.moreThan}
+          flewHere={language.flewHere}
+        />
+        <View style={styles.container}>{_list(this.props.stats)}</View>
       </Screen>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  ...state.profileReducer
+  ...state.profileReducer,
+  ...state.timeLocationReducer
 });
 
 export default connect(mapStateToProps)(Account);

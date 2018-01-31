@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   drone: {
     width: 50,
     height: 50
@@ -21,7 +22,8 @@ const styles = StyleSheet.create({
   information: {
     width: '50%',
     height: '100%',
-    padding: 8
+    padding: 8,
+    paddingTop: 6
   },
   rating: {
     backgroundColor: 'rgba(0,0,0,0.1)',
@@ -32,21 +34,33 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   ratingInner: {
-    color: '#fff',
+    color: vars.white,
     fontSize: 40,
-    fontFamily: 'robotoRegular'
+    fontFamily: vars.regular
   },
   informationTitle: {
-    color: '#fff',
-    fontFamily: 'robotoMedium',
+    color: vars.white,
+    fontFamily: vars.medium,
     marginBottom: 2,
     fontSize: 12
   },
   informationText: {
-    color: '#fff',
-    fontFamily: 'robotoRegular',
+    color: vars.white,
+    fontFamily: vars.regular,
     fontSize: 10
+  },
+  bothAligned: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  green: {
+    backgroundColor: vars.green
+  },
+  orange: {
+    backgroundColor: vars.orange
+  },
+  red: {
+    backgroundColor: vars.bad
   }
 });
-
-export default styles; 

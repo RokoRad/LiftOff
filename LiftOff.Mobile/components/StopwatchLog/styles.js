@@ -1,15 +1,8 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
-  green: {
-    color: '#47e389'
-  },
-  orange: {
-    color: '#FF9052'
-  },
-  red: {
-    color: '#F95F62'
-  },
+export default StyleSheet.create({
+  checkbox: {},
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
@@ -17,47 +10,48 @@ const styles = StyleSheet.create({
     marginBottom: 3
   },
   left: {
-    width: '10%'
-  },
-  active: {
+    width: '25%'
   },
   leftInner: {
     textAlign: 'center'
   },
   middle: {
-    width: '50%',
+    width: '25%',
     paddingTop: 12,
     paddingBottom: 12
   },
   middleInner: {
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: 'robotoRegular'
+    fontFamily: vars.regular
   },
   middleRightInner: {
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: 'robotoMedium' 
+    fontFamily: vars.medium
   },
   middleRight: {
     width: '25%',
     paddingTop: 12.5
   },
   right: {
-    width: '15%',
+    width: '25%',
     paddingTop: 12,
     paddingBottom: 12
   },
   rightInner: {
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: 'robotoRegular'
+    fontFamily: vars.regular
   },
   inner: {
     fontSize: 20,
-    fontFamily: 'robotoBold',
-    color: '#3498db'  
+    fontFamily: vars.bold,
+    color: '#3498db'
+  },
+  bothAligned: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
-
-export default styles;

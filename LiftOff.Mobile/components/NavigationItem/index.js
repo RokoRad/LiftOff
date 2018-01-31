@@ -12,7 +12,7 @@ const nav = {
   LiftOff: require('../../images/nav/stopwatch-nav.png'),
   Profile: require('../../images/nav/user-nav.png'),
   Settings: require('../../images/nav/settings-nav.png')
-}
+};
 
 const navActive = {
   FlySafe: require('../../images/nav-active/drone-nav.png'),
@@ -20,19 +20,24 @@ const navActive = {
   LiftOff: require('../../images/nav-active/stopwatch-nav.png'),
   Profile: require('../../images/nav-active/user-nav.png'),
   Settings: require('../../images/nav-active/settings-nav.png')
-}
-
-const NavigationItem = (props) => {
-  const isActive = props.current.pathname === props.route;
-
-  return (
-    <Link to={props.route} style={styles.navigationItemWrapper} component={TouchableOpacity} activeOpacity={1}>
-      <View style={styles.navigationItem}>
-        <Image source={isActive ? navActive[props.type] : nav[props.type]} style={styles.navigationImage}/>
-        <Text style={[styles.navigationText, (isActive ? styles.navigationTextActive : null)]}>{language[props.type]}</Text>
-      </View>
-    </Link> 
-  )
 };
 
-export default NavigationItem;
+export default ({ current, route, type }) => {
+  const isActive = current.pathname === route;
+
+  return (
+    <Link
+      to={route}
+      style={styles.navigationItemWrapper}
+      component={TouchableOpacity}
+      activeOpacity={1}
+    >
+      <View style={styles.navigationItem}>
+        <Image source={isActive ? navActive[type] : nav[type]} style={styles.navigationImage} />
+        <Text style={[styles.navigationText, isActive ? styles.navigationTextActive : null]}>
+          {language[type]}
+        </Text>
+      </View>
+    </Link>
+  );
+};

@@ -1,0 +1,24 @@
+.map__container {
+  flex: 3;
+  position: relative;
+  min-height: 500px;
+  background-color: #fff;
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+}
+
+.map {
+  position: relative;
+  z-index: 0;
+  background-color: transparent
+}
+
+.map > div {
+  border-radius: 10px;
+  background-color: transparent
+}
+
+@media screen and (max-width: 768px) {
+  .map__container {
+    min-height: 300px
+  }
+}

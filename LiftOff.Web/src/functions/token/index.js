@@ -10,6 +10,6 @@ const token = {
   remove: function() {
     storage.remove('@token');
   }
-}
+};
 
 export default token;

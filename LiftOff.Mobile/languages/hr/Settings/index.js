@@ -1,5 +1,4 @@
-const strings = {
-
+export default {
+  Logout: 'Odjava',
+  Permission: 'Dozvoli pohranu lokacije'
 };
-
-export default strings;

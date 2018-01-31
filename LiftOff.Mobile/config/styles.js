@@ -1,50 +1,14 @@
 import { StyleSheet } from 'react-native';
+import vars from './vars.js';
 
-const globals = StyleSheet.create({
+export default StyleSheet.create({
   green: {
-    backgroundColor: '#47E389'
+    color: vars.green
   },
   orange: {
-    backgroundColor: '#FF9052'
+    color: vars.orange
   },
   red: {
-    backgroundColor: '#F95F62'
-  },
-  bothAligned: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  outer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center' 
-  },
-  buttonWrapper: {
-    marginTop: 7.5,
-    paddingTop: 10,
-    paddingBottom: 10,
-    //width: 120,
-    paddingLeft: 20,
-    paddingRight: 20,
-    // marginLeft: 'auto',
-    // marginRight: 'auto',
-    borderRadius: 4,    
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
-    shadowOffset: {
-        height: 5,
-        width: 5
-    },
-    elevation: 5,
-    marginBottom: 15
-  },
-  buttonInner: {
-    color: '#fff',
-    textAlign: 'center',
-    fontSize: 20,
-    fontFamily: 'robotoMedium'
+    color: vars.bad
   }
 });
-
-export default globals;

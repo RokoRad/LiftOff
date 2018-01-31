@@ -1,27 +1,35 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import { Picker } from 'react-native';
+import _changeDrone from './_changeDrone.js';
+import { connect } from 'react-redux';
+import styles from './styles.js';
 
 class Dropdown extends Component {
-  constructor() {
-    super();
-    this.state = {
-      value: 'key1'
-    };
- };
+  constructor(props) {
+    super(props);
+  }
 
- render() {
+  render() {
     return (
-    <View style={{borderBottomWidth: 1, borderTopWidth: 1, borderColor: '#ccc', paddingTop: 5, paddingBottom: 5, marginTop: 5}}>
-      <Picker onValueChange={(value) => this.setState({value: value})}>
-        <Picker.Item label="Drone" value="key1" />
-        <Picker.Item label="Drone" value="key2" />
-        <Picker.Item label="Drone" value="key3" />
-        <Picker.Item label="Drone" value="key4" />
-      </Picker>  
-    </View>
-   );
- }
+      <Picker
+        selectedValue={this.props.drone}
+        onValueChange={drone => _changeDrone(drone)}
+        style={styles.picker}
+      >
+        <Picker.Item label="DJI Phantom 4 Pro" value="DJI Phantom 4 Pro" />
+        <Picker.Item label="DJI Phantom 4 Advanced" value="DJI Phantom 4 Advanced" />
+        <Picker.Item label="DJI Phantom 3 SE" value="DJI Phantom 3 SE" />
+        <Picker.Item label="DJI Mavic Air" value="DJI Mavic Air" />
+        <Picker.Item label="DJI Mavic Pro" value="DJI Mavic Pro" />
+        <Picker.Item label="DJI Spark" value="DJI Spark" />
+        <Picker.Item label="Yuneec Typhoon H Pro" value="Yuneec Typhoon H pro" />
+      </Picker>
+    );
+  }
 }
 
-export default Dropdown;
+const mapStateToProps = state => ({
+  ...state.settingsReducer
+});
+
+export default connect(mapStateToProps)(Dropdown);

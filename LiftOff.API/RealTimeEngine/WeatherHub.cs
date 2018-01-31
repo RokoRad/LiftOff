@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace LiftOff.API.RealTimeEngine
 {
+	//Klasa koja korisniku služi kao veza s LiftOff real-timeom
 	public class WeatherHub : Hub
 	{
+		//Popis svih real-time veza
 		private static List<WeatherGetter> _realTimeConnections = new List<WeatherGetter>();
 
+		//Funkcija koja pokreće real-time vezu
 		public void InitiateConnection(TimeLocation timeLocation, string units)
 		{
             //debug
@@ -20,6 +23,7 @@ namespace LiftOff.API.RealTimeEngine
                 _realTimeConnections.Add(new WeatherGetter(timeLocation, units, Context.ConnectionId));
 		}
 
+		//Funkcija koja mijenja klijentovu lokaciju
 		public void UpdateLocation(TimeLocation newTimeLocation)
 		{
             var clientWeatherGetter = _realTimeConnections.First(wg => wg.GetClient().ConnectionId == Context.ConnectionId);
@@ -30,11 +34,13 @@ namespace LiftOff.API.RealTimeEngine
             clientWeatherGetter.UpdateClientLocation(newTimeLocation);
 		}
 
+		//Funkcija koja mijenja klijentov izbor mjernih jedinica
 		public void ChangeUnits()
 		{
 			_realTimeConnections.First(wg => wg.GetClient().ConnectionId == Context.ConnectionId).ChangeUnits();
 		}
 
+		//Funkcija koja prekida real-time vezu
 		public override Task OnDisconnected(bool stopCalled)
 		{
             var clientConnection = _realTimeConnections.Where(wg => wg.GetClient().ConnectionId == Context.ConnectionId).DefaultIfEmpty(null).First();

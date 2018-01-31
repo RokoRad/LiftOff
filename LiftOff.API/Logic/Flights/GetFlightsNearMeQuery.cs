@@ -3,14 +3,15 @@ using LiftOff.API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace LiftOff.API.Logic.Flights
 {
-    public class GetFlightsNearMeQuery
+	//Klasa zadužena za pronalazak letova blizu korisnika
+	public class GetFlightsNearMeQuery
     {
         private static readonly LiftOffContext _liftOffContext = new LiftOffContext();
 
+		//Funkcija koja će vratiti letove koji su blizu dane lokacije uz uvjet da su stariji od jednog, a mlađi od 30 dana
         public static List<Flight> Execute(TimeLocation timeLocation)
         {
             var time1 = DateTime.Now - TimeSpan.FromDays(1);

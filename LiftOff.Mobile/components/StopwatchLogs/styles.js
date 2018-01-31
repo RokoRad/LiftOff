@@ -1,48 +1,56 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   wrapper: {
     width: '90%',
     marginLeft: 'auto',
-    marginRight: 'auto',   
-    marginTop: 40,
+    marginRight: 'auto',
+    marginTop: 80,
     paddingBottom: 40
   },
   head: {
-    borderBottomColor: '#9fb7d3',
-    borderBottomWidth: 1,
-    paddingBottom: 3,
+    paddingBottom: 5,
     display: 'flex',
     flexDirection: 'row',
     marginBottom: 5
   },
   left: {
-    width: '10%',
+    width: '25%',
     textAlign: 'center',
-    fontFamily: 'robotoMedium',
-    fontSize: 12
+    fontFamily: vars.medium,
+    color: vars.grey,
+    fontSize: 10,
+    opacity: 0.7
   },
   middleLeft: {
-    width: '50%',
+    width: '25%',
     textAlign: 'center',
-    fontFamily: 'robotoMedium',
-    fontSize: 12
+    fontFamily: vars.medium,
+    color: vars.grey,
+    fontSize: 10,
+    opacity: 0.7
   },
   middleRight: {
     width: '25%',
     textAlign: 'center',
-    fontFamily: 'robotoMedium',
-    fontSize: 12
+    color: vars.grey,
+    fontFamily: vars.medium,
+    fontSize: 10,
+    opacity: 0.7
   },
   right: {
-    width: '15%',
+    width: '25%',
     textAlign: 'center',
-    fontFamily: 'robotoMedium',
-    fontSize: 12
+    fontFamily: vars.medium,
+    color: vars.grey,
+    fontSize: 10,
+    opacity: 0.7
   },
   scroll: {
     height: '40%'
+  },
+  hidden: {
+    height: 0
   }
 });
-
-export default styles;

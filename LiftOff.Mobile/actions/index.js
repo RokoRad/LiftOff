@@ -1,60 +1,83 @@
-export const toggleStopwatch = (payload) => ({
+export const toggleStopwatch = payload => ({
   type: 'TOGGLE_STOPWATCH',
-  payload,
+  payload
 });
 
-export const setStarttime = (payload) => ({
+export const setStarttime = payload => ({
   type: 'SET_STARTTIME',
-  payload,
+  payload
 });
 
-export const updateSeconds = (payload) => ({
+export const updateSeconds = payload => ({
   type: 'UPDATE_SECONDS',
-  payload,
+  payload
 });
 
-export const updateMinutes = (payload) => ({
+export const updateMinutes = payload => ({
   type: 'UPDATE_MINUTES',
-  payload,
+  payload
 });
 
-export const addLog = (payload) => ({
+export const addLog = payload => ({
   type: 'ADD_LOG',
   payload
 });
 
-export const selectLog = (payload) => ({
-  type: 'SELECT_LOG',
+export const saveLog = payload => ({
+  type: 'SAVE_LOG',
   payload
 });
 
-export const updateStats = (payload) => ({
+export const updateStats = payload => ({
   type: 'UPDATE_STATS',
   payload
 });
 
-export const updateHome = (payload) => ({
+export const updateHome = payload => ({
   type: 'UPDATE_HOME',
   payload
 });
 
-export const updateDateTime = (payload) => ({
+export const updateDateTime = payload => ({
   type: 'UPDATE_DATETIME',
   payload
 });
 
-export const setMarker = (payload) => ({
+export const setMarker = payload => ({
   type: 'SET_MARKER',
   payload
 });
 
-
-export const updateLocation = (payload) => ({
+export const updateLocation = payload => ({
   type: 'UPDATE_LOCATION',
   payload
 });
 
-export const tooltipStatus = (payload) => ({
+export const tooltipStatus = payload => ({
   type: 'TOOLTIP_STATUS',
+  payload
+});
+
+export const updateTooltip = payload => ({
+  type: 'UPDATE_TOOLTIP',
+  payload
+});
+
+export const updateMarkers = payload => ({
+  type: 'UPDATE_MARKERS',
+  payload
+});
+
+export const changeLoading = () => ({
+  type: 'CHANGE_LOADING'
+});
+
+export const changeDrone = payload => ({
+  type: 'CHANGE_DRONE',
+  payload
+});
+
+export const changeUnits = payload => ({
+  type: 'CHANGE_UNITS',
   payload
 });

@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   wrapper: {
     position: 'absolute',
     top: 30,
@@ -9,20 +10,14 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 15,
     paddingRight: 15,
-    backgroundColor: '#fff',
-    zIndex: 999,    
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    shadowOffset: {
-        height: 8,
-        width: 8
-    },
+    backgroundColor: vars.white,
+    zIndex: 999,
     elevation: 10
   },
   input: {
     fontSize: 14,
-    fontFamily: 'robotoLight',
-    color: '#939393'
+    fontFamily: vars.light,
+    color: vars.grey
   },
   out: {
     position: 'absolute',
@@ -32,5 +27,3 @@ const styles = StyleSheet.create({
     zIndex: 999
   }
 });
-
-export default styles;

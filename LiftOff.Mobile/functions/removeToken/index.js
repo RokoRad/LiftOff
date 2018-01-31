@@ -1,7 +1,9 @@
 import { AsyncStorage } from 'react-native';
+import Toast from '../../functions/toast';
+import language from '../../languages';
 
-const removeToken = () => {
+export default history => {
   AsyncStorage.removeItem('@token').then();
-}
-
-export default removeToken;
+  Toast(`${language.Token}`);
+  history.push('/');
+};

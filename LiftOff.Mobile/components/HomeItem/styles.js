@@ -1,26 +1,18 @@
 import { StyleSheet } from 'react-native';
 import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
-  green: {
-    color: vars.green
-  },
-  orange: {
-    color: vars.orange
-  },
-  red: {
-    color: vars.bad
-  },
+export default StyleSheet.create({
   wrapper: {
     paddingTop: 15,
     paddingBottom: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#D8DADC',
+    borderBottomColor: 'rgba(216, 218, 220, 0.25)',
     display: 'flex',
     flexDirection: 'row'
   },
   left: {
-    width: '25%',
+    width: '20%',
+    display: 'flex',
     justifyContent: 'flex-start'
   },
   icon: {
@@ -28,7 +20,7 @@ const styles = StyleSheet.create({
     height: 40
   },
   middle: {
-    width: '50%',
+    width: '55%',
     height: '100%'
   },
   title: {
@@ -66,7 +58,10 @@ const styles = StyleSheet.create({
     fontFamily: vars.regular,
     fontSize: 30,
     color: vars.blue
+  },
+  bothAligned: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
-
-export default styles;

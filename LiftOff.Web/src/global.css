@@ -1,17 +1,53 @@
 @font-face {
-  font-family: 'Barlow';
-  src: url('./fonts/Barlow-Regular.ttf')  format('truetype');
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Regular.ttf')  format('truetype');
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Barlow';
+  font-family: 'Roboto';
   font-size: 18px;
 }
 
 .horizontal-align {
   margin-left: auto;
   margin-right: auto;
+}
+
+hr {
+  display: none
+}
+
+.color {
+  color: #3073f2;
+}
+
+.background {
+  background-color: #3073f2;
+}
+
+.background--green {
+  background-color: #47e389;
+}
+
+.background--orange {
+  background-color: #FF9052;
+}
+
+.background--red {
+  background-color: #F95F62;
+}
+
+.color--green {
+  color: #47e389;
+}
+
+.color--orange {
+  color: #FF9052;
+}
+
+.color--red {
+  color: #F95F62;
 }

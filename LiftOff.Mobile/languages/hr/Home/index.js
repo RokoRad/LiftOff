@@ -1,4 +1,4 @@
-const strings = {
+export default {
   WeatherRating: 'Ocjena vremena',
   Atmosphere: 'Stanje atmosfere',
   Humidity: 'Vlažnost',
@@ -7,14 +7,14 @@ const strings = {
   Weather: 'Vrijeme',
   Description: 'Opis',
   Temperature: 'Temperatura',
-  Min_Temperature: 'Min temperatura',
-  Max_Temperature: 'Max temperatura',
+  Min_Temperature: 'Minimalna temp.',
+  Max_Temperature: 'Maksimalna temp.',
   Uv: 'UV',
-  Cloudiness: 'Oblačnost',
+  Cloudiness: 'Naoblaka',
   Visibility: 'Vidljivost',
   Wind: 'Vjetar',
   WindDirection: 'Smjer vjetra',
-  WindSpeed: 'Brzina vjetra'
+  WindSpeed: 'Brzina vjetra',
+  Indicator: 'Pregled za',
+  Now: 'trenutno vrijeme'
 };
-
-export default strings;

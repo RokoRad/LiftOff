@@ -1,0 +1,8 @@
+.home__rating {
+  display: flex;
+  height: auto;
+  align-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 7px;
+}

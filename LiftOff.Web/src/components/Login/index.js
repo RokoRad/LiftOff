@@ -1,37 +1,42 @@
 import React from 'react';
-import axios from 'axios';
 import Input from '../Input';
 import Button from '../Button';
 import InitalMessage from '../InitalMessage';
 import storage from '../../functions/storage';
+import _login from './_login.js';
+import language from '../../languages';
+import token from '../../functions/token';
 import './style.css';
 
 let holder = {
-  username: null,
-  password: null
+  username: '',
+  password: ''
 };
 
-const login = () => {
-  // axios({
-  //   method: 'POST',
-  //   url: 'http://liftoffapi.azurewebsites.net/api/account/register',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   data: holder
-  // }).then((response) => {
-  //   console.log(response)
-  // });
-};
+export default class Login extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
+  componentWillMount() {
+    if (token.get()) {
+      window.location.href = '/dashboard';
+    }
+  }
 
-const Login = () => (
-  <form className="login">
-    <Input placeholder="Username" onChange={() => holder.username} />
-    <Input placeholder="Password" type="password" minLength="8" onChange={() => holder.password} />
-    <InitalMessage type="login" />
-    <Button onClick={() => login()}>Login</Button>
-  </form>
-);
-
-export default Login;
+  render() {
+    return (
+      <form className="login">
+        <Input placeholder="Username" onChange={e => (holder.username = e.target.value)} />
+        <Input
+          placeholder="Password"
+          type="password"
+          minLength="8"
+          onChange={e => (holder.password = e.target.value)}
+        />
+        <InitalMessage type="login" />
+        <Button onClick={() => _login(holder)}>{language.Login}</Button>
+      </form>
+    );
+  }
+}

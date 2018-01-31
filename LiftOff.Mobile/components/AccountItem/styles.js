@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
+import vars from '../../config/vars.js';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
@@ -10,22 +11,12 @@ const styles = StyleSheet.create({
     paddingRight: 7
   },
   string: {
-    fontFamily: 'robotoRegular',
+    fontFamily: vars.regular,
     fontSize: 14
   },
   bold: {
-    fontFamily: 'robotoMedium',
-    color: '#2980b9'
-  },
-  dropdownButton: {
-    borderTopWidth: 1,
-    borderTopColor: '#ccc',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    paddingTop: 10,
-    paddingBottom: 10,
-    width: '100%'
+    fontFamily: vars.regular,
+    color: vars.grey,
+    opacity: 0.7
   }
 });
-
-export default styles;

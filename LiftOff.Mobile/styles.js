@@ -1,16 +1,10 @@
-import { StyleSheet, Platform, StatusBar } from 'react-native';
+import { StyleSheet } from 'react-native';
+import vars from './config/vars.js';
 
-const styles = StyleSheet.create({
-  // Statusbar color
-  // statusBar: {
-  //    backgroundColor: '#3498db'
-  //  },
-  // Screen size fix for all platforms
+export default StyleSheet.create({
   fullScreen: {
     minHeight: '100%',
     width: '100%',
-    backgroundColor: '#fff'
+    backgroundColor: vars.white
   }
 });
-
-export default styles;

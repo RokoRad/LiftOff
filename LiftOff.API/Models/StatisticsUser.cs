@@ -1,5 +1,4 @@
 ﻿using LiftOff.API.Logic.Statistics;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LiftOff.API.Models
 {
-    public class StatisticsUser 
+	//Klasa koja definira StatisticsUser objekt za bazu podataka
+	public class StatisticsUser 
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

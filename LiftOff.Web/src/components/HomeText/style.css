@@ -1,0 +1,19 @@
+.home__text {
+  background-color: rgba(0,0,0,0.1);
+  padding: 15px;
+}
+
+.home-text__title {
+  font-weight: 500;
+  color: #f5f7fa;
+  border-bottom: 1px solid #f5f7fa;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  font-size: 20px
+}
+
+.home-text__message {
+  font-weight: 400;
+  color: #f5f7fa;
+  font-size: 18px;
+}

@@ -1,5 +1,4 @@
 export default {
-  // thin: 'robotoThin',
   light: 'robotoLight',
   regular: 'robotoRegular',
   medium: 'robotoMedium',
@@ -12,4 +11,4 @@ export default {
   green: '#47e389',
   orange: '#FF9052',
   bad: '#F95F62'
-}
+};

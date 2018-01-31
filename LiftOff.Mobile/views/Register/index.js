@@ -12,16 +12,16 @@ const holder = {
   username: '',
   email: '',
   password: ''
-}
+};
 
-const Register = ({history}) => (
-  <View style={inital.screen}>  
+export default ({ history }) => (
+  <View style={inital.screen}>
     <View style={inital.container}>
       <InitialLogo />
       <View style={inital.wrapper}>
-        <Input type="username" onChangeText={(value) => holder.username = value} />
-        <Input type="email" onChangeText={(value) => holder.email = value} />
-        <Input type="password" onChangeText={(value) => holder.password = value} />
+        <Input type="username" onChangeText={value => (holder.username = value)} />
+        <Input type="email" onChangeText={value => (holder.email = value)} />
+        <Input type="password" onChangeText={value => (holder.password = value)} />
         <KeyboardSpacer />
       </View>
       <InitialLink type="register" to="/" />
@@ -29,5 +29,3 @@ const Register = ({history}) => (
     </View>
   </View>
 );
-
-export default Register;
