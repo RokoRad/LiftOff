@@ -2,6 +2,7 @@ import React from 'react';
 import Dock from '../Dock';
 import './style.css';
 import mapStyle from './style.js';
+import NoFly from '../NoFly';
 import _setMarker from './_setMarker.js';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import Search from '../Search';
@@ -12,7 +13,7 @@ class MapContainer extends React.Component {
   }
 
   render() {
-
+    console.log("marker", this.props.marker)
     return (
       <div className="map__container">
         <Search />
@@ -32,10 +33,11 @@ class MapContainer extends React.Component {
           <Marker position={this.props.marker} icon={require('../../images/map/pin.png')} />
 
           
-          <Marker position={{
+          <NoFly location={{
             lat: 43.53,
             lng: 16.29 
-          }} icon={require('../../images/map/zone.png')} style={{width: 20, height: 20}} />
+          }} />
+
         </Map>
         <Dock display={this.props.tooltipStatus} />
       </div>
