@@ -1,5 +1,5 @@
 export default (days, scores) => {
-   return {
+  return {
     labels: days,
     datasets: [
       {
@@ -9,5 +9,5 @@ export default (days, scores) => {
         backgroundColor: 'rgba(48, 115, 242, 0.7)'
       }
     ]
-  }
-}
+  };
+};

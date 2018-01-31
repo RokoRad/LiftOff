@@ -8,11 +8,11 @@ export default {
     enabled: false
   },
   animation: false,
-  elements: { 
-    point: { 
-      radius: 0 
+  elements: {
+    point: {
+      radius: 0
     }
-},
+  },
   scales: {
     xAxes: [
       {
@@ -21,7 +21,7 @@ export default {
           drawBorder: false
         },
         ticks: {
-          fontFamily: "Roboto",
+          fontFamily: 'Roboto',
           fontSize: 16,
           fontWeight: 300,
           padding: 10
@@ -35,7 +35,7 @@ export default {
           drawBorder: false
         },
         ticks: {
-          fontFamily: "Roboto",
+          fontFamily: 'Roboto',
           fontSize: 16,
           fontWeight: 300,
           padding: 10,

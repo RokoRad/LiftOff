@@ -12,7 +12,7 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    console.log("marker", this.props.marker)
+    console.log('marker', this.props.marker);
     return (
       <div className="map__container">
         <Search />
@@ -27,10 +27,13 @@ class MapContainer extends React.Component {
           zoom={12}
         >
           <Marker position={this.props.marker} icon={require('../../images/map/pin.png')} />
-          <Marker position={{
-            lat: 43.55,
-            lng: 16.47 
-          }} icon={require('../../images/map/zone.png')} />
+          <Marker
+            position={{
+              lat: 43.55,
+              lng: 16.47
+            }}
+            icon={require('../../images/map/zone.png')}
+          />
         </Map>
         <Dock display={this.props.tooltipStatus} />
       </div>

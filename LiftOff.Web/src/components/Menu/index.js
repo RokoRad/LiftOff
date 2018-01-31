@@ -3,7 +3,7 @@ import _closeMenu from './_closeMenu.js';
 import _changeLanguage from './_changeLanguage.js';
 import language from '../../languages';
 // import { _changeUnits } from '../../functions/realtime';
-import removeToken from '../../functions/removeToken'
+import removeToken from '../../functions/removeToken';
 import Button from '../Button';
 import './style.css';
 
