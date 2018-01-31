@@ -13,6 +13,7 @@ export default ({ days, scores }) => {
       enabled: false
     },
     animation: false,
+    pointDot: false,
     scales: {
       xAxes: [
         {
