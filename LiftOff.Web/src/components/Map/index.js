@@ -12,7 +12,6 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    console.log('marker', this.props.marker);
     return (
       <div className="map__container">
         <Search />

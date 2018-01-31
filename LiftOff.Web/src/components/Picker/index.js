@@ -13,7 +13,6 @@ export default ({}) => (
       <DateTimePicker
         clearIcon={true}
         className="date-picker"
-        onChange={e => console.log(e)}
         DatePicker={DatePickerDialog}
         TimePicker={TimePickerDialog}
         onDatePickerShow={() => _onOpen()}
