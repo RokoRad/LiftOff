@@ -23,8 +23,9 @@ export default {
         ticks: {
           fontFamily: "Roboto",
           fontSize: 16,
-          fontWeight: 300
-        },
+          fontWeight: 300,
+          padding: 10
+        }
       }
     ],
     yAxes: [
@@ -35,8 +36,12 @@ export default {
         },
         ticks: {
           fontFamily: "Roboto",
-          fontSize: 12,
-          fontWeight: 300
+          fontSize: 16,
+          fontWeight: 300,
+          padding: 10,
+          min: 0,
+          max: 5,
+          stepSize: 1
         }
       }
     ]
