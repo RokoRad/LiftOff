@@ -13,8 +13,8 @@ class DashboardContent extends React.Component {
   }
 
   componentWillMount() {
-    //_start(this.props.timeLocation, this.props.units);
-    _start(this.props.timeLocation, 'metric');
+    _start(this.props.timeLocation, this.props.units);
+    //_start(this.props.timeLocation, 'metric');
   }
 
   componentWillUnmount() {
@@ -22,7 +22,6 @@ class DashboardContent extends React.Component {
   }
 
   render() {
-    console.log('map props', this.props.map);
     return (
       <div className="grid">
         <div className="grid__left">
