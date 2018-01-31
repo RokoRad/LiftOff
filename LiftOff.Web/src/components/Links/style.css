@@ -4,9 +4,11 @@
   margin-top: 20px;
   background-color: #fff;
   border-radius: 7px;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
-  position: relative
+  position: relative;
+  overflow-y: scroll
 }
 
 @media screen and (max-width: 1024px) {
