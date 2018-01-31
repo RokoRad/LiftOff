@@ -5,8 +5,6 @@
 - black - #34373d
 - grey - #4a4e57
 - počistit languages
-- počistit actione
-- background colore
-
+- colore
 - time picker color
 - current time na homeu
