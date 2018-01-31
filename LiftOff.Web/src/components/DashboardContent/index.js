@@ -2,6 +2,7 @@ import React from 'react';
 import Graph from '../Graph';
 import Map from '../Map';
 import Home from '../Home';
+import Links from '../Links';
 import { connect } from 'react-redux';
 import { _start, _stop } from '../../functions/realtime';
 import './style.css';
@@ -39,8 +40,9 @@ class DashboardContent extends React.Component {
             tooltipStatus={this.props.tooltipStatus}
           />
           <Graph
-            days={['Monday',  'Monday',  'Monday',  'Monday',  'Monday']} scores={[ 0, 3, 5, 3, 2, 4, 5 ]}
+            days={['Monday',  'Monday',  'Monday',  'Monday',  'Monday']} scores={[ 5, 3, 5, 3, 2, 4, 5 ]}
           />
+          <Links />
         </div>
       </div>
     );
