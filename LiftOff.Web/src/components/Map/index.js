@@ -3,7 +3,7 @@ import Dock from '../Dock';
 import './style.css';
 import mapStyle from './style.js';
 import _setMarker from './_setMarker.js';
-import { Map, GoogleApiWrapper, Marker, Polygon } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import Search from '../Search';
 
 class MapContainer extends React.Component {
@@ -12,12 +12,6 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    var triangleCoords = [
-      {lat: 25.774, lng: -80.190},
-      {lat: 0.466, lng: 66.118},
-      {lat: 0.321, lng: -64.757},
-      {lat: 15.774, lng: -80.190}
-    ];
 
     return (
       <div className="map__container">
@@ -34,16 +28,11 @@ class MapContainer extends React.Component {
         >
 
 
-        <Polygon
-          paths={triangleCoords}
-          strokeColor="#000"
-          strokeOpacity={0.8}
-          strokeWeight={2}
-          fillColor="#000"
-          fillOpacity={0.5} />
-
 
           <Marker position={this.props.marker} icon={require('../../images/map/pin.png')} />
+
+          
+          <Marker position={this.props.marker} icon={require('../../images/map/zone.png')} />
         </Map>
         <Dock display={this.props.tooltipStatus} />
       </div>

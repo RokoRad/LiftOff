@@ -8,15 +8,7 @@
 - počistit actione
 - background colore
 
-
-  componentDidUpdate(prevProps) {
-    if (this.props.map !== prevProps.map) {
-        if (this.polygon) {
-          this.polygon.setMap(null);
-          this.renderPolygon();
-        }
-    }
-  }
-
-  za polyline popravit
-
+- time picker color
+- menu 
+- current time na homeu
+probat polygon osposobit
