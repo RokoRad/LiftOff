@@ -1,0 +1,32 @@
+.link {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.link__inner {
+  text-decoration: none;
+  color: #4a4e57;
+  font-weight: 300;
+  padding-left: 35px;
+  display: block;
+  position: relative;
+}
+
+.link__badge {
+  position: absolute;
+  top: 2.5px;
+  left: 0;
+  border-radius: 4px;
+  padding: 2px 5px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600
+}
+
+.link__badge--pdf {
+  background-color: #d41287
+}
+
+.link__badge--link {
+  background-color: #3073f2
+}

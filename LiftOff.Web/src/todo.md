@@ -7,3 +7,6 @@
 - počistit languages
 - počistit actione
 - background colore
+
+- time picker color
+- current time na homeu

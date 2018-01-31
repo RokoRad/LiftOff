@@ -1,9 +1,10 @@
 .map__container {
   flex: 3;
   position: relative;
-  min-height: 500px;
+  height: 480px;
   background-color: #fff;
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+  border-radius: 7px
 }
 
 .map {
@@ -13,8 +14,7 @@
 }
 
 .map > div {
-  border-radius: 10px;
-  background-color: transparent
+  border-radius: 7px;
 }
 
 @media screen and (max-width: 768px) {
