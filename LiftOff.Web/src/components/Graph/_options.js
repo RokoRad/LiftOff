@@ -18,8 +18,14 @@ export default {
       {
         gridLines: {
           display: false,
-          drawBorder: false
-        }
+          drawBorder: false,
+          offsetGridLines: true
+        },
+        ticks: {
+          fontFamily: "Roboto",
+          fontSize: 16,
+          fontWeight: 300
+        },
       }
     ],
     yAxes: [
@@ -27,6 +33,12 @@ export default {
         gridLines: {
           display: false,
           drawBorder: false
+        },
+        ticks: {
+          fontFamily: "Roboto",
+          fontSize: 12,
+          paddingRight: 20,
+          fontWeight: 300
         }
       }
     ]
