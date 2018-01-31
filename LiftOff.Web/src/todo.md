@@ -9,6 +9,4 @@
 - background colore
 
 - time picker color
-- menu 
 - current time na homeu
-probat polygon osposobit

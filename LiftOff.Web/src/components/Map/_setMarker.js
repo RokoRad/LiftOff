@@ -19,24 +19,6 @@ export default event => {
     })
   );
 
-  // _updateTimeLocation({
-  //   location: {
-  //     latitude: event.latLng.lat(),
-  //     longitude: event.latLng.lng()
-  //   },
-  //   //time: store.getState().timeLocationReducer.timeLocation.time
-  //   time: new Date().toISOString()
-  // });
-
-  // _updateTimeLocation({
-  //   location: {
-  //     latitude: event.latLng.lat(),
-  //     longitude: event.latLng.lat()
-  //   },
-  //   // time: new Date().toISOString()
-  //   time: store.getState().timeLocationReducer.timeLocation.time
-  // });
-
   let holder = {
     location: {
       latitude: event.latLng.lat(),
