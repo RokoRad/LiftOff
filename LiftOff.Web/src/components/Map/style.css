@@ -1,7 +1,7 @@
 .map__container {
   flex: 3;
   position: relative;
-  height: 450px;
+  height: 480px;
   background-color: #fff;
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
   border-radius: 7px

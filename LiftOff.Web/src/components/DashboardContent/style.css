@@ -26,7 +26,7 @@
   flex-direction: row;
   position: relative;
   width: 100%;
-  height: 230px;
+  height: 200px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -47,6 +47,16 @@
     max-width: 500px;
     margin-left: auto;
     margin-right: auto
+  }
+
+  .grid-right__bottom {
+    flex: auto;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    height: auto
   }
 }
 

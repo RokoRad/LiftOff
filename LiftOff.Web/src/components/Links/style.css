@@ -4,5 +4,12 @@
   margin-top: 20px;
   background-color: #fff;
   border-radius: 7px;
+  padding: 10px;
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+}
+
+@media screen and (max-width: 1024px) {
+  .links {
+    width: 100%;
+  }
 }
