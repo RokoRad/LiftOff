@@ -1,6 +1,8 @@
 .links {
-  width: 40%;
-  height: 100%;
+  min-height: 100%;
   flex: 1;
-  background-color: red;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 7px;
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
 }

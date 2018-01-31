@@ -21,6 +21,13 @@
 }
 
 
+.grid-right__bottom {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+}
+
 @media screen and (max-width: 1024px) {
   .grid {
     flex-direction: column;

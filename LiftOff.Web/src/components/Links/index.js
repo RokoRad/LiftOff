@@ -3,6 +3,6 @@ import './style.css';
 
 export default ({  }) => (
   <div className="links">
-ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+    A
   </div>
 );

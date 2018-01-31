@@ -40,7 +40,8 @@ export default {
           fontWeight: 300,
           padding: 10,
           min: 0,
-          max: 5
+          max: 5,
+          stepSize: 1
         }
       }
     ]
