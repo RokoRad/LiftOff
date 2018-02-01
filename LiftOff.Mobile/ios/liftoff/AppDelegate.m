@@ -4,10 +4,12 @@
 #import "ExpoKit.h"
 #import "EXViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <WCSessionDelegate> {
+    
+    WCSession *session;
+}
 
 @property (nonatomic, strong) EXViewController *rootViewController;
-
 @end
 
 @implementation AppDelegate
@@ -22,6 +24,13 @@
     
     [_rootViewController loadReactApplication];
     [_window makeKeyAndVisible];
+    
+    if ([WCSession isSupported]) {
+        [WCSession defaultSession].delegate = self;
+        session = [WCSession defaultSession];
+        session.delegate = self;
+        [[WCSession defaultSession] activateSession];
+    }
     
     return YES;
 }
@@ -44,5 +53,13 @@
 {
     [[ExpoKit sharedInstance] application:application didReceiveLocalNotification:notification];
 }
+
+- (void)session:(nonnull WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(nullable NSError *)error {
+    [session updateApplicationContext:@{@"DeviceName": [[UIDevice currentDevice] name]} error: nil];
+}
+
+- (void)sessionDidBecomeInactive:(nonnull WCSession *)session {}
+
+- (void)sessionDidDeactivate:(nonnull WCSession *)session {}
 
 @end

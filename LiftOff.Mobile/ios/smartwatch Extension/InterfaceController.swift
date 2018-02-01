@@ -131,30 +131,30 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         print(applicationContext)
         
-        do {
-            let recivedScores = applicationContext["Scores"] as? [NSObject]
-            let recivedDrone = applicationContext["Drone"] as? NSObject
-            let recivedToken = applicationContext["Token"] as? NSObject
-            let recivedLocation = applicationContext["Location"] as? NSObject
-            
-            if (recivedScores != nil) {
-                FlySafeButton.setEnabled(true)
-                scores = recivedScores! as [NSObject?]
-                FlySafeButton.setTitle("FlySafe:     \(String(describing: scores[0]?.value(forKey: "score")))")
-                FlySafeButton.setBackgroundColor(UIColor.color(fromHexString: TableInterfaceController.GetColor(score: scores[0]?.value(forKey: "score") as! Double)))
-            }
-            if (recivedToken != nil) {
-                InterfaceController.token = recivedToken?.value(forKey: "token") as! String
-            }
-            if (recivedDrone != nil) {
-                InterfaceController.flight.drone.name = recivedDrone?.value(forKey: "name") as! String
-            }
-            if (recivedLocation != nil) {
-                InterfaceController.flight.flightLocation.flightSpot = recivedLocation?.value(forKey: "spot") as! String
-                InterfaceController.flight.flightLocation.longitude = recivedLocation?.value(forKey: "longitude") as! Double
-                InterfaceController.flight.flightLocation.latitude = recivedLocation?.value(forKey: "latitude") as! Double
-            }
-        }
+//        do {
+//            let recivedScores = applicationContext["Scores"] as? [NSObject]
+//            let recivedDrone = applicationContext["Drone"] as? NSObject
+//            let recivedToken = applicationContext["Token"] as? NSObject
+//            let recivedLocation = applicationContext["Location"] as? NSObject
+//            
+//            if (recivedScores != nil) {
+//                FlySafeButton.setEnabled(true)
+//                scores = recivedScores! as [NSObject?]
+//                FlySafeButton.setTitle("FlySafe:     \(String(describing: scores[0]?.value(forKey: "score")))")
+//                FlySafeButton.setBackgroundColor(UIColor.color(fromHexString: TableInterfaceController.GetColor(score: scores[0]?.value(forKey: "score") as! Double)))
+//            }
+//            if (recivedToken != nil) {
+//                InterfaceController.token = recivedToken?.value(forKey: "token") as! String
+//            }
+//            if (recivedDrone != nil) {
+//                InterfaceController.flight.drone.name = recivedDrone?.value(forKey: "name") as! String
+//            }
+//            if (recivedLocation != nil) {
+//                InterfaceController.flight.flightLocation.flightSpot = recivedLocation?.value(forKey: "spot") as! String
+//                InterfaceController.flight.flightLocation.longitude = recivedLocation?.value(forKey: "longitude") as! Double
+//                InterfaceController.flight.flightLocation.latitude = recivedLocation?.value(forKey: "latitude") as! Double
+//            }
+//        }
     }
     
     //Lista ocjena koje šaljemo listi koja se nalazi na idućem sučelju
