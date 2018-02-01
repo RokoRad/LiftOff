@@ -15,7 +15,7 @@ export default () => {
   }
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.text}>change text</Text>
+      <Text style={styles.text}>{language.changeLanguage}</Text>
       <Switch
         value={active}
         onValueChange={() => _onChange()}
