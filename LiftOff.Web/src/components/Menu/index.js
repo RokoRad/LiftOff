@@ -11,7 +11,15 @@ export default ({}) => (
   <div className="menu">
     <div onClick={() => _changeUnits()}>changeUnits</div>
     <div onClick={() => _changeLanguage()}>changeLanguage</div>
-    <div onClick={() => _closeMenu()}>closeMenu</div>
+    <div onClick={() => _closeMenu()} className="menu__close">X</div>
+
+
+    <label class="switch">
+  <input type="checkbox" />
+  <span class="slider round"></span>
+</label>
+
+
     <Button onClick={() => removeToken()}>{language.Logout}</Button>
   </div>
 );

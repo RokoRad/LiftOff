@@ -1,6 +1,8 @@
 import storage from '../functions/storage';
+import store from '../store';
 
 const initialState = {
+  units: 'metric',
   home: {
     AdvisoryRating: {
       Croatian: 'Učitavanje podatka..',
