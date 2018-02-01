@@ -19,7 +19,7 @@ export default () => {
 
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.text}>{languge.changeUnits}</Text>
+      <Text style={styles.text}>{language.changeUnits}</Text>
       <Switch
         value={state}
         onValueChange={val => _onChange(val)}
