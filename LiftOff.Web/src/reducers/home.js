@@ -51,10 +51,16 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'UPDATE_HOME':
       return {
+        ...state,
         home: {
           ...action.payload
         }
       };
+    case 'CHANGE_UNITS':
+      return {
+        ...state,
+        units: action.payload
+        };
     default:
       return state;
   }
