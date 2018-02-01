@@ -2,7 +2,7 @@ import storage from '../functions/storage';
 import store from '../store';
 
 const initialState = {
-  units: 'metric',
+  // units: 'metric',
   home: {
     AdvisoryRating: {
       Croatian: 'Učitavanje podatka..',
@@ -56,11 +56,11 @@ export default (state = initialState, action) => {
           ...action.payload
         }
       };
-    case 'CHANGE_UNITS':
-      return {
-        ...state,
-        units: action.payload
-        };
+    // case 'CHANGE_UNITS':
+    //   return {
+    //     ...state,
+    //     units: action.payload
+    //     };
     default:
       return state;
   }
