@@ -1,3 +1,5 @@
 export default {
-  Logout: 'Odjava'
+  Logout: 'Odjava',
+  changeLanguage: 'Promjeni jezik',
+  changeUnits: 'Promjeni jedinice'
 };

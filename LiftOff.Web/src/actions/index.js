@@ -31,3 +31,8 @@ export const updateTimeLocation = payload => ({
   type: 'UPDATE_TIMELOCATION',
   payload
 });
+
+export const changeUnits = payload => ({
+  type: 'CHANGE_UNITS',
+  payload
+});

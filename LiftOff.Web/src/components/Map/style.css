@@ -17,7 +17,7 @@
   border-radius: 7px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .map__container {
     min-height: 300px
   }

@@ -13,8 +13,7 @@ class DashboardContent extends React.Component {
   }
 
   componentWillMount() {
-    _start(this.props.timeLocation, this.props.units);
-    //_start(this.props.timeLocation, 'metric');
+    _start(this.props.timeLocation, this.props.home.weatherData.Units);
   }
 
   componentWillUnmount() {
@@ -22,6 +21,7 @@ class DashboardContent extends React.Component {
   }
 
   render() {
+    console.log(this.props.home.weatherData.Units)
     return (
       <div className="grid">
         <div className="grid__left">
