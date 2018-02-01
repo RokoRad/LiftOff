@@ -22,13 +22,14 @@
 }
 
 .menu__item {
-  width: 200px;
+  width: 250px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between
 }
 
 .menu-item__text {
-
+  margin-top: 5px;
 }
 
 .switch {
@@ -38,10 +39,8 @@
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {display:none;}
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
