@@ -21,7 +21,7 @@ const initialState = {
     {
       flightLocation: {
         latitude: 43.5178133,
-        longitude: 16.490193
+        longitude: 16.49
       },
       id: 1
     },
