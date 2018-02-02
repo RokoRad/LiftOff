@@ -10,13 +10,125 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smartwatch Extension/InterfaceController.swift"
-            timestampString = "539206015.4739439"
+            timestampString = "539285077.0991499"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "locationManager(_:didChangeAuthorization:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smartwatch_Extension.InterfaceController.locationManager(__ObjC.CLLocationManager, didChangeAuthorization: __C.CLAuthorizationStatus) -&gt; ()"
+                  moduleName = "smartwatch Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toma/Desktop/LiftOff/LiftOff.Mobile/ios/smartwatch%20Extension/InterfaceController.swift"
+                  timestampString = "539263116.623214"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "33">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in smartwatch_Extension.InterfaceController.locationManager(__ObjC.CLLocationManager, didChangeAuthorization: __C.CLAuthorizationStatus) -&gt; ()"
+                  moduleName = "smartwatch Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toma/Desktop/LiftOff/LiftOff.Mobile/ios/smartwatch%20Extension/InterfaceController.swift"
+                  timestampString = "539263116.6278909"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smartwatch Extension/InterfaceController.swift"
+            timestampString = "539285077.0999039"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "session(_:didReceiveApplicationContext:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smartwatch Extension/InterfaceController.swift"
+            timestampString = "539285077.1004339"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smartwatch Extension/InterfaceController.swift"
+            timestampString = "539285077.1008559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "session(_:didReceiveApplicationContext:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smartwatch_Extension.InterfaceController.session(__ObjC.WCSession, didReceiveApplicationContext: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "smartwatch Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toma/Desktop/LiftOff/LiftOff.Mobile/ios/smartwatch%20Extension/InterfaceController.swift"
+                  timestampString = "539271380.424729"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
+                  offsetFromSymbolStart = "2769">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in smartwatch_Extension.InterfaceController.session(__ObjC.WCSession, didReceiveApplicationContext: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "smartwatch Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toma/Desktop/LiftOff/LiftOff.Mobile/ios/smartwatch%20Extension/InterfaceController.swift"
+                  timestampString = "539271380.4294879"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

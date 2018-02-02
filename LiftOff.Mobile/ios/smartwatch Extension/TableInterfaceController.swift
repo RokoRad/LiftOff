@@ -9,31 +9,31 @@ class TableInterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         //Slijedeći nam kod uzima vrijednosti koje je glavno sučelje poslalo i formulira tablicu ocjena
-        if let newContext = context as? [NSObject] {
-            if (newContext.count != 0) {
+        if let newContext = context as? NSObject {
+            let categories = ["totalRating", "conditionsRating", "windRating", "visibilityRating", "temperatureRating", "atmosphereRating", "uvRating"]
+            
+            self.Table.setNumberOfRows(7, withRowType: "ScoreRow")
+            
+            
+            for i in 0...6 {
+                let row = Table.rowController(at: i) as! TableRow
                 
-                self.Table.setNumberOfRows(newContext.count, withRowType: "ScoreRow")
-                for i in 0...newContext.count - 1 {
-                    print(newContext[i])
-                    let row = Table.rowController(at: i) as! TableRow
-                    let category = newContext[i].value(forKey: "category") as? String ?? "no category"
-                    if (category == "Total" || category == "no category") {
-                        row.CategoryLabel.setText(category)
-                        row.CategoryIcon.setHidden(true)
-                    }
-                    else {
-                        row.CategoryLabel.setHidden(true)
-                        row.CategoryIcon.setImageNamed(category)
-                    }
-                    
-                    row.ScoreLabel.setText(newContext[i].value(forKey: "score") as? String ?? "/")
-                    
-                    let score = newContext[i].value(forKey: "score") as? Double ?? 5.0
-                    row.RowGroup.setBackgroundColor(UIColor.color(fromHexString: TableInterfaceController.GetColor(score: score)))
+                if (categories[i] == "totalRating") {
+                    row.CategoryLabel.setText("FlySafe:")
+                    row.CategoryIcon.setHidden(true)
                 }
+                else {
+                    row.CategoryLabel.setHidden(true)
+                    row.CategoryIcon.setImageNamed(categories[i])
+                }
+                
+                let score = newContext.value(forKey: categories[i])! as! Double
+                row.ScoreLabel.setText(String(format: "%.1f", score))
+                row.RowGroup.setBackgroundColor(UIColor.color(fromHexString: TableInterfaceController.GetColor(score: score)))
             }
         }
     }
+    
     
     @IBOutlet var Table: WKInterfaceTable!
     

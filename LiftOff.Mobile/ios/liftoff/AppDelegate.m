@@ -55,7 +55,7 @@
 }
 
 - (void)session:(nonnull WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(nullable NSError *)error {
-    [session updateApplicationContext:@{@"DeviceName": [[UIDevice currentDevice] name]} error: nil];
+    [session updateApplicationContext:@{@"DeviceID": [[UIDevice currentDevice] name]} error: nil];
 }
 
 - (void)sessionDidBecomeInactive:(nonnull WCSession *)session {}

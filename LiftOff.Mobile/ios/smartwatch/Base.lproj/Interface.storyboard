@@ -14,17 +14,17 @@
             <objects>
                 <controller id="sUi-lq-S6q" customClass="InterfaceController" customModule="smartwatch_Extension">
                     <items>
-                        <button width="1" alignment="center" verticalAlignment="bottom" title="LiftOff" id="r0A-Ch-Fyh">
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Please log into the mobile app" enabled="NO" id="r0A-Ch-Fyh">
                             <color key="titleColor" red="0.94113165140151978" green="0.94888252019882202" blue="0.96176761388778687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="backgroundColor" red="0.16492903232574463" green="0.44095277786254883" blue="0.97912448644638062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="font" type="system" pointSize="18"/>
+                            <fontDescription key="font" type="system" pointSize="16"/>
                             <connections>
                                 <action selector="LiftOffAction" destination="sUi-lq-S6q" id="oxl-Qx-t1F"/>
                             </connections>
                         </button>
                         <group width="1" alignment="left" id="ZTg-2I-7q8">
                             <items>
-                                <button width="133" alignment="left" title="FlySafe" enabled="NO" id="8Mg-8g-Ee9">
+                                <button width="133" alignment="left" title="Getting rating" enabled="NO" id="8Mg-8g-Ee9">
                                     <color key="titleColor" red="0.94113165139999999" green="0.94888252019999997" blue="0.96176761389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" red="0.1649290323" green="0.44095277789999998" blue="0.97912448640000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
@@ -62,7 +62,7 @@
                                             <label alignment="right" verticalAlignment="center" text="5.0" id="E71-qI-Dq5">
                                                 <fontDescription key="font" type="system" pointSize="19"/>
                                             </label>
-                                            <imageView width="36" height="1" alignment="left" id="0G1-bx-93v"/>
+                                            <imageView width="32" height="33" alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" id="0G1-bx-93v"/>
                                             <label alignment="left" verticalAlignment="center" text="Label" id="kjc-Ny-EK5"/>
                                         </items>
                                         <color key="backgroundColor" red="0.20349600910000001" green="0.66892594100000002" blue="0.32889950280000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
