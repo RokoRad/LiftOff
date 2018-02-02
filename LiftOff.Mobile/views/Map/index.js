@@ -41,12 +41,12 @@ class Map extends Component {
           cacheEnabled={true}
           showsCompass={false}
           showsScale={false}
-          ref={map => { this.map = map }}
         >
-          <Circle center={{
-            latitude: 43.52,
-            longitude: 16.43
-          }} radius={100} />
+          <Circle location={{
+            latitude: 43.523102,
+            longitude: 16.425945
+          }} radius={1000} />
+
           <Marker
             location={this.props.markerPosition}
             city={this.props.tooltip.city}
