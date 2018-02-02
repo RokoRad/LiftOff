@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { AsyncStorage } from 'react-native';
 import Screen from '../../components/Screen';
 import Marker from '../../components/Marker';
+import Circle from '../../components/Circle';
 import Dock from '../../components/Dock';
 import Tooltip from '../../components/Tooltip';
 import Search from '../../components/Search';
@@ -41,6 +42,11 @@ class Map extends Component {
           showsCompass={false}
           showsScale={false}
         >
+          <Circle location={{
+            latitude: 43.523102,
+            longitude: 16.425945
+          }} radius={500} />
+
           <Marker
             location={this.props.markerPosition}
             city={this.props.tooltip.city}

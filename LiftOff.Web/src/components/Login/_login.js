@@ -20,6 +20,7 @@ export default data => {
         if (response.status === 200) {
           response.json().then(value => {
             token.set(value.access_token);
+            window.location.href = '/dashboard';
           });
         } else {
           alert(language.Input);
