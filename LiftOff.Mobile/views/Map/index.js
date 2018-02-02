@@ -8,7 +8,7 @@ import Search from '../../components/Search';
 import styles from './styles.js';
 import style from '../../functions/mapStyle';
 import { connect } from 'react-redux';
-import { MapView, PROVIDER_GOOGLE } from 'expo';
+import { MapView, PROVIDER_GOOGLE, Polygon } from 'expo';
 import _getCurrentLocation from './_getCurrentLocation.js';
 import _changeCenter from './_changeCenter.js';
 import _setMarker from './_setMarker.js';
@@ -40,12 +40,20 @@ class Map extends Component {
           cacheEnabled={true}
           showsCompass={false}
           showsScale={false}
+          maxZoom={12}
         >
           <Marker
             location={this.props.markerPosition}
             city={this.props.tooltip.city}
             time={_currentTime()}
             rating={this.props.tooltip.rating}
+          />
+          <Marker
+            location={this.props.markerPosition}
+            city={this.props.tooltip.city}
+            time={_currentTime()}
+            rating={this.props.tooltip.rating}
+            image={require('../../images/map/nofly.png')}
           />
         </MapView>
       </Screen>
