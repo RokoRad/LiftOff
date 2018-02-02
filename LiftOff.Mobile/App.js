@@ -13,6 +13,8 @@ import Settings from './views/Settings';
 import { Provider } from 'react-redux';
 import store from './store';
 
+console.disableYellowBox = true;
+
 export default class App extends React.Component {
   state = {
     loaded: false
