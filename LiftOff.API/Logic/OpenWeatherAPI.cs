@@ -51,7 +51,7 @@ namespace LiftOff.API.Logic
         public WeatherData GetAlexaWeatherData(string postalCode, string state)
         {
             HttpWebRequest requestURL = WebRequest.Create(
-                    "api.openweathermap.org/data/2.5/weather?zip=[postalCode],[state]&appid=[apikey]"
+                    "http://api.openweathermap.org/data/2.5/weather?zip=[postalCode],[state]&appid=[apikey]"
                         .Replace("[apikey]", _openWeatherAPIKey)
                         .Replace("[postalCode]", postalCode)
                         .Replace("[state]", state))

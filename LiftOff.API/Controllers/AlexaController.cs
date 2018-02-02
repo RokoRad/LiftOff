@@ -10,19 +10,20 @@ using Newtonsoft.Json.Linq;
 
 namespace LiftOff.API.Controllers
 {
-    [RoutePrefix("api/drones")]
+    [RoutePrefix("api/alexa")]
     public class AlexaController : ApiController
     {
+        [HttpPost]
         [AllowAnonymous]
         [Route("getCurrentRating")]
-        public string Get(JObject json)
+        public string getCurrentRating(JObject json)
         {
             var postalCode = (string)json["postalCode"];
-            var state = (string)json["state"];
+            var state = (string)json["countryCode"];
 
             var rating = WeatherFetcher.Instance.GetConditionsRatingByPostalCode(postalCode, state);
 
-            string response = "The Flysafe Rating is " + rating.TotalRating + ". " + rating.AdvisoryRating.English;
+            string response = "The Flysafe Rating is " + (Math.Truncate(((double)rating.TotalRating) * 10) / 10)  + ". " + rating.AdvisoryRating.English;
             return response;
         }
     }
