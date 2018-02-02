@@ -20,10 +20,31 @@ const initialState = {
     },
     {
       flightLocation: {
-        latitude: 43.5408133,
-        longitude: 16.440193
+        latitude: 43.5178133,
+        longitude: 16.490193
       },
       id: 1
+    },
+    {
+      flightLocation: {
+        latitude: 43.5208133,
+        longitude: 16.440193
+      },
+      id: 2
+    },
+    {
+      flightLocation: {
+        latitude: 43.508308133,
+        longitude: 16.4290193
+      },
+      id: 3
+    },
+    {
+      flightLocation: {
+        latitude: 43.508308133,
+        longitude: 16.405193
+      },
+      id: 4
     }
   ]
 };
