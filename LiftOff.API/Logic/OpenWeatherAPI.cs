@@ -16,7 +16,7 @@ namespace LiftOff.API.Logic
 		private readonly string _openWeatherAPIKey = "3939e3c3ea8f513efb798c6deb5f9857";
 		private readonly string _openWeatherAPIURL = "http://api.openweathermap.org/data/2.5/[api]?lat=[lat]&lon=[lon]&mode=[mode]&units=metric&appid=[apikey]";
 		private enum _openWeatherAPIs { weather, uvi, forecast}
-        private enum _openWeatherModes { json, xml}
+        private enum _openWeatherModes { json, xml, postal}
 
         public List<WeatherData> GetForecastsPackageFromApi(TimeLocation timeLocation)
         {
@@ -47,6 +47,25 @@ namespace LiftOff.API.Logic
                 );
 
 		}
+
+        public WeatherData GetAlexaWeatherData(string postalCode, string state)
+        {
+            HttpWebRequest requestURL = WebRequest.Create(
+                    "api.openweathermap.org/data/2.5/weather?zip=[postalCode],[state]&appid=[apikey]"
+                        .Replace("[apikey]", _openWeatherAPIKey)
+                        .Replace("[postalCode]", postalCode)
+                        .Replace("[state]", state))
+                as HttpWebRequest;
+
+            string apiResponse = "";
+            using (HttpWebResponse response = requestURL.GetResponse() as HttpWebResponse)
+            {
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                apiResponse = reader.ReadToEnd();
+            }
+
+            return WeatherDataFromJObject(null, JObject.Parse(apiResponse), null,null);
+        }
 
 		private JObject requestApi(_openWeatherAPIs api, _openWeatherModes mode, TimeLocation timeLocation)
 		{
