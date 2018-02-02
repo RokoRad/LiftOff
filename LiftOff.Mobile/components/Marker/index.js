@@ -4,9 +4,9 @@ import { MapView } from 'expo';
 import Callout from '../Callout';
 import styles from './styles.js';
 
-export default ({ location, city, time, rating, image }) => (
+export default ({ location, city, time, rating }) => (
   <MapView.Marker
-    image={(image) ? image : require('../../images/map/pin.png')}
+    image={require('../../images/map/pin.png')}
     style={styles.marker}
     coordinate={location}
   >
