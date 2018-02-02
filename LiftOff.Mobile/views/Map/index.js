@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { AsyncStorage } from 'react-native';
 import Screen from '../../components/Screen';
 import Marker from '../../components/Marker';
+import Circle from '../../components/Circle';
 import Dock from '../../components/Dock';
 import Tooltip from '../../components/Tooltip';
 import Search from '../../components/Search';
 import styles from './styles.js';
 import style from '../../functions/mapStyle';
 import { connect } from 'react-redux';
-import { MapView, PROVIDER_GOOGLE, Polygon } from 'expo';
+import { MapView, PROVIDER_GOOGLE } from 'expo';
 import _getCurrentLocation from './_getCurrentLocation.js';
 import _changeCenter from './_changeCenter.js';
 import _setMarker from './_setMarker.js';
@@ -42,29 +43,15 @@ class Map extends Component {
           showsScale={false}
           ref={map => { this.map = map }}
         >
-          {this.map.Circle({
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35,
-            map: map,
-            center: this.props.map,
-            radius: 30
-          })
-          }
-          {/* <Marker
-            location={this.props.markerPosition}
-            city={this.props.tooltip.city}
-            time={_currentTime()}
-            rating={this.props.tooltip.rating}
-          /> */}
+          <Circle center={{
+            latitude: 43.52,
+            longitude: 16.43
+          }} radius={100} />
           <Marker
             location={this.props.markerPosition}
             city={this.props.tooltip.city}
             time={_currentTime()}
             rating={this.props.tooltip.rating}
-            image={require('../../images/map/nofly.png')}
           />
         </MapView>
       </Screen>
