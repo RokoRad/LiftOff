@@ -16,7 +16,7 @@ namespace LiftOff.API.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("getCurrentRating")]
-        public string getCurrentRating(JObject json)
+        public object getCurrentRating(JObject json)
         {
             var postalCode = (string)json["postalCode"];
             var state = (string)json["countryCode"];
@@ -24,7 +24,7 @@ namespace LiftOff.API.Controllers
             var rating = WeatherFetcher.Instance.GetConditionsRatingByPostalCode(postalCode, state);
 
             string response = "The Flysafe Rating is " + (Math.Truncate(((double)rating.TotalRating) * 10) / 10)  + ". " + rating.AdvisoryRating.English;
-            return response;
+            return new { WeatherRatingString = response };
         }
     }
 }
