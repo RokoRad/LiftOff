@@ -156,6 +156,7 @@
     <Compile Include="Controllers\DronesController.cs" />
     <Compile Include="Controllers\FlightsController.cs" />
     <Compile Include="Controllers\LoggingController.cs" />
+    <Compile Include="Controllers\SmartwatchController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Controllers\WeatherController.cs" />
     <Compile Include="Data\LiftOffContext.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Logic\FlySafe.cs" />
     <Compile Include="Logic\OpenWeatherAPI.cs" />
     <Compile Include="Logic\LogicIO.cs" />
+    <Compile Include="Logic\SmartwatchPairer.cs" />
     <Compile Include="Logic\Statistics\FlightLocation.cs" />
     <Compile Include="Logic\Statistics\FlightTime.cs" />
     <Compile Include="Logic\Statistics\StatisticsCalculator.cs" />
