@@ -20,8 +20,10 @@ namespace LiftOff.API.Logic
         {
             object lockObj = new object();
             lock (lockObj)
-            { 
-                RegisteredDevices.Add(new MobileDevice()
+            {
+				RegisteredDevices.RemoveAll(rd => rd.DeviceID == deviceID);
+
+				RegisteredDevices.Add(new MobileDevice()
                 {
                     DeviceID = deviceID,
                     Token = token,
