@@ -1,10 +1,12 @@
+//import { error } from 'util';
+
 'use strict'
 
 var APP_ID = 'amzn1.ask.skill.12c0e68a-9a8e-4053-9613-e7fc021e6dac'
 
 var AlexaSkill = require('./AlexaSkill');
-var axios = require('axios');
 var https = require('https');
+var request = require('request');
 
 var urlPrefix = 'http://liftoffapi.azurewebsites.net/';
 
@@ -74,7 +76,7 @@ function handleCanIFlyIntent(intent, session, response) {
         return keys;
      }
 
-    var request = https.request(options, function(res) {
+    var adressRequest = https.request(options, function(res) {
         if(res.statusCode == '200') {
             res.on('data', (data) => {
                 let responsePayloadObject = JSON.parse(data);
@@ -88,35 +90,62 @@ function handleCanIFlyIntent(intent, session, response) {
                         dataForApi.countryCode = responsePayloadObject[key];
                     }
                 }
+
+                //response.tell(dataForApi.postalCode);
+                var jsonData = JSON.stringify(dataForApi);
+
                 var weatherRequestOptions = {
-                    path: 'https://liftoffapi.azurewebsites.net/api/alexa/getCurrentRating',
-                    method: 'GET',
+                    method: 'POST',
+                    path: 'http://liftoffapi.azurewebsites.net/api/alexa/getCurrentRating',
+                    body: {
+                        dataForApi
+                    },
+                    json: true,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
                 }
-                var weatherRequest = https.request(weatherRequestOptions, function(ratingResponse) {
-                    if(res.statusCode == '200') {
-                        ratingResponse.on('data', (data) => {
-                            for(var key in JSON.parse(data)) {
-                                if(key == 'weatherRatingString') {
-                                    speechOutput = "<speak>" + JSON.parse(data)[key] + "</speak>";
-                                    response.tell(speechOutput);
-                                }
-                            }
-                        });
+
+                request({
+                    url: 'http://liftoffapi.azurewebsites.net/api/alexa/getCurrentRating',
+                    method: 'POST',
+                    body: {
+                        postalCode: dataForApi.postalCode,
+                        countryCode: dataForApi.countryCode
+                    },
+                    json: true,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }, (error, resp, body) => {
+                    if(!body.message) {
+                        console.log(body.weatherRatingString);
+                        response.tell(body.weatherRatingString);
+                    } else {
+                        response.tell(body.message);
                     }
                 });
-
-                weatherRequest.write(dataForApi);
-                weatherRequest.end();
+                
+                sleep(100000);
             });
         }
         else {
             speechOutput = "<speak>We are sorry, the device adress could not be accessed.</speak>"
             response.tell(speechOutput);
         }
-    });
+    })
+        
 
-    request.write(postData);
-    request.end();
+    adressRequest.write(postData);
+    adressRequest.end();
+}
+
+function sleep(miliseconds) {
+    // var currentTime = new Date().getTime();
+  
+    // while (currentTime + miliseconds >= new Date().getTime()) {
+    // }
+    setTimeout(() => {console.log('sleepEnd'), miliseconds});
 }
 
 var info = {};
