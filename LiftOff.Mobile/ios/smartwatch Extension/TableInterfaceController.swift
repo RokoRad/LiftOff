@@ -34,7 +34,7 @@ class TableInterfaceController: WKInterfaceController {
         }
     }
     
-    
+    //Referencing Outleti za elemente sučelja
     @IBOutlet var Table: WKInterfaceTable!
     
     //Pomoćna funkcija koja određuje boju reda tablice ovisno o ocjeni

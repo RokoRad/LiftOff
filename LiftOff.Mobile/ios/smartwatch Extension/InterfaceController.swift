@@ -52,6 +52,7 @@ struct Flight : Codable {
     }
 }
 
+//Strukture koje pomažu u komunikaciji sa serverom, točnije sa traženjem tokena, imena drona i WeatherRatinga
 struct Location : Codable {
     var longitude: Double = 0.0
     var latitude: Double = 0.0
@@ -90,14 +91,16 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         super.awake(withContext: context)
     }
     
-    //Varijabla koja je zaslušna za komunikaciju s iPhoneom
+    //Varijabla koja je zaslužna za komunikaciju s iPhoneom
     var session: WCSession!
+    //Varijabla koja kontrolira traženje lokacije
     let locationManager = CLLocationManager()
     
     //Funckija koja se pokreće pri aktivaciji sučelja
     public override func willActivate() {
         super.willActivate()
         
+        //Setup traženja lokacije
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -111,6 +114,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
             session.activate()
         }
         
+        //Pokretanje funkcije koja provjerava token i ime drona na serveru
         deviceInfoGetterTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(getDeviceDataCounter), userInfo: nil, repeats: true)
     }
     
@@ -119,6 +123,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         super.didDeactivate()
     }
     
+    //Funkcija koja se pokreće kada se promijeni lokacija
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard !locations.isEmpty else { return }
         
@@ -138,8 +143,10 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         }
     }
     
+    //Funkcija koja se pokreće kada lokacija naiđe na problem
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {}
     
+    //Funkcija koja se pokreće kada se promjeni status autorizacije za pristup lokaciji
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         DispatchQueue.main.async {
             switch status {
@@ -153,6 +160,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         }
     }
     
+    //Pomoćne funkcije za traženje tokena i imena drona sa servera
     var deviceID = ""
     var deviceInfoGetterTimer: Timer!
     var gotData: Bool = false
@@ -198,7 +206,6 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
     
     //Funkcija koja se pokreće kada iPhone pošalje nove podatke
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        //LiftOff gumb se osposobi
         LiftOffButton.setTitle("LiftOff")
         LiftOffButton.setEnabled(true)
         LiftOffButton.setAttributedTitle(NSAttributedString(string: "LiftOff", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0), NSAttributedStringKey.foregroundColor: UIColor.white]))
@@ -206,7 +213,6 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         if(applicationContext.keys.contains("DeviceID")) {
             deviceID = applicationContext["DeviceID"] as! String
         }
-        print(deviceID)
     }
     
     //Funkcija koja dohvaća podatke o vremenu s apija
@@ -260,6 +266,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         return scores
     }
     
+    //Referencing Outleti za elemente sučelja
     @IBOutlet var LiftOffButton: WKInterfaceButton!
     @IBOutlet var Stopwatch: WKInterfaceTimer!
     @IBOutlet var FlySafeButton: WKInterfaceButton!
@@ -294,7 +301,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
     
     var cancel = WKAlertAction.init(title: "No", style: WKAlertActionStyle.default, handler: {})
     
-    //Pomoćne varijable i funkcije
+    //Pomoćne varijable i funkcije za brojanje vremena štoperice
     var seconds = 0
     var stopwatchTimer : Timer?
     var isCounting = false
