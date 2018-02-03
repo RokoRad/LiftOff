@@ -7,6 +7,7 @@ import Input from '../../components/Input';
 import InitialLogo from '../../components/InitialLogo';
 import InitialLink from '../../components/InitialLink';
 import Button from '../../components/Button';
+import InitialBackground from '../../components/InitialBackground';
 
 const holder = {
   username: '',
@@ -29,6 +30,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <View style={inital.screen}>
+        <InitialBackground />
         <View style={inital.container}>
           <InitialLogo />
           <View style={inital.wrapper}>
