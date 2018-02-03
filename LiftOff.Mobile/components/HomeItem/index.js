@@ -8,12 +8,12 @@ import language from '../../languages';
 import globals from '../../config/styles.js';
 
 const icons = {
-  atmosphere: require('../../images/weather/atmosphere.png'),
-  conditions: require('../../images/weather/conditions.png'),
-  temperature: require('../../images/weather/temperature.png'),
-  uv: require('../../images/weather/uv.png'),
-  visibility: require('../../images/weather/visibility.png'),
-  wind: require('../../images/weather/wind.png')
+  atmosphere: require('../../images/weather/atmosphere-min.png'),
+  conditions: require('../../images/weather/conditions-min.png'),
+  temperature: require('../../images/weather/temperature-min.png'),
+  uv: require('../../images/weather/uv-min.png'),
+  visibility: require('../../images/weather/visibility-min.png'),
+  wind: require('../../images/weather/wind-min.png')
 };
 
 // metric i imperial
