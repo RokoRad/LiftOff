@@ -16,7 +16,7 @@ namespace LiftOff.API.Logic
 
         public static List<MobileDevice> RegisteredDevices = new List<MobileDevice>();
 
-        public void RegisterMobileDevice(string deviceID, string token)
+        public void RegisterMobileDevice(string deviceID, string token, string droneName)
         {
             object lockObj = new object();
             lock (lockObj)
@@ -25,14 +25,17 @@ namespace LiftOff.API.Logic
                 {
                     DeviceID = deviceID,
                     Token = token,
-                    TimeRegistered = DateTime.Now
+                    DroneName = droneName,
+                    TimeRegistered = DateTime.Now,
                 });
             }
         }
 
-        public string GetRegisteredMobileDeviceToken(string deviceID)
+        public TokenDroneDTO GetRegisteredMobileDeviceInfo(string deviceID)
         {
-            return RegisteredDevices.FirstOrDefault(d => d.DeviceID == deviceID).Token;
+            var device = RegisteredDevices.FirstOrDefault(d => d.DeviceID == deviceID);
+
+            return new TokenDroneDTO { Token = device.Token, DroneName = device.DroneName };
         }
 
         public void initiateListCleaner()
@@ -51,6 +54,13 @@ namespace LiftOff.API.Logic
     {
         public string DeviceID { get; set; }
         public string Token { get; set; }
+        public string DroneName { get; set; }
         public DateTime TimeRegistered { get; set; }
+    }
+
+    public struct TokenDroneDTO
+    {
+        public string Token { get; set; }
+        public string DroneName { get; set; }
     }
 }

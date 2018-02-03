@@ -1,15 +1,10 @@
 ﻿using LiftOff.API.Logic;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
-    
+
     [RoutePrefix("api/smartwatch")]
     public class SmartwatchController : ApiController
     {
@@ -20,18 +15,21 @@ namespace LiftOff.API.Controllers
         {
             var deviceID = (string)json["deviceID"];
             var token = (string)json["token"];
+            var droneName = (string)json["droneName"];
 
-            SmartwatchPairer.Instance.RegisterMobileDevice(deviceID, token);
+            SmartwatchPairer.Instance.RegisterMobileDevice(deviceID, token, droneName);
         }
 
         [HttpPost]
         [AllowAnonymous]
-        [Route("getDeviceToken")]
-        public object GetDeviceToken(JObject json)
+        [Route("getDeviceInfo")]
+        public object GetDeviceInfo(JObject json)
         {
             var deviceID = (string)json["deviceID"];
 
-            return new { token = SmartwatchPairer.Instance.GetRegisteredMobileDeviceToken(deviceID) };
+            var deviceInfo = SmartwatchPairer.Instance.GetRegisteredMobileDeviceInfo(deviceID);
+
+            return new { token = deviceInfo.Token, droneName = deviceInfo.DroneName };
         }
     }
 }
