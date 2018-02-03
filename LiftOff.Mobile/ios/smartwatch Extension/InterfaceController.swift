@@ -10,8 +10,8 @@ struct Drone : Codable {
 
 struct FlightLocation : Codable {
     var flightSpot: String = ""
-    var longitude: Double = 16.4
-    var latitude: Double = 43.5
+    var longitude: Double = 0.0
+    var latitude: Double = 0.0
 }
 
 struct FlightTime : Codable {
@@ -47,19 +47,18 @@ struct Flight : Codable {
             print("error")
         }
         
-//        URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-//
-//        })
+        let task = URLSession.shared.dataTask(with: request, completionHandler: {_,_,_ in })
+        task.resume()
     }
 }
 
 struct Location : Codable {
-    var longitude: Double = 16.4
-    var latitude: Double = 43.5
+    var longitude: Double = 0.0
+    var latitude: Double = 0.0
     
     init() {
-        longitude = 16.4
-        latitude = 43.5
+        longitude = 0.0
+        latitude = 0.0
     }
 }
 
@@ -93,17 +92,17 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
     
     //Varijabla koja je zaslušna za komunikaciju s iPhoneom
     var session: WCSession!
-    let manager = CLLocationManager()
+    let locationManager = CLLocationManager()
     
     //Funckija koja se pokreće pri aktivaciji sučelja
     public override func willActivate() {
         super.willActivate()
         
-        manager.requestWhenInUseAuthorization()
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestLocation()
-        manager.startUpdatingLocation()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
         
         //Započinjanje komunikacije s iPhoneom
         if WCSession.isSupported() {
@@ -111,6 +110,8 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
             session.delegate = self as WCSessionDelegate
             session.activate()
         }
+        
+        deviceInfoGetterTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(getDeviceDataCounter), userInfo: nil, repeats: true)
     }
     
     //Funckija koja se pokreće pri deaktivaciji sučelja
@@ -122,7 +123,15 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         guard !locations.isEmpty else { return }
         
         DispatchQueue.main.async {
-            let lastLocationCoordinate = locations.last!.coordinate
+            let lastLocation = locations.last!
+            let lastLocationCoordinate = lastLocation.coordinate
+            
+            let latDifference = abs(InterfaceController.flight.flightLocation.latitude - lastLocationCoordinate.latitude)
+            let longDifference = abs(InterfaceController.flight.flightLocation.longitude - lastLocationCoordinate.longitude)
+            
+            if((latDifference > 0.5 || longDifference > 0.5) && self.token != "") {
+                self.GetScores(token: InterfaceController.token)
+            }
             
             InterfaceController.flight.flightLocation.latitude = lastLocationCoordinate.latitude
             InterfaceController.flight.flightLocation.longitude = lastLocationCoordinate.longitude
@@ -145,17 +154,20 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
     }
     
     var deviceID = ""
-    //Funkcija koja se pokreće kada iPhone pošalje nove podatke
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        LiftOffButton.setTitle("LiftOff")
-        LiftOffButton.setEnabled(true)
-        LiftOffButton.setAttributedTitle(NSAttributedString(string: "LiftOff", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0), NSAttributedStringKey.foregroundColor: UIColor.white]))
-        
-        if(applicationContext.keys.contains("DeviceID")) {
-            deviceID = applicationContext["DeviceID"] as! String
+    var deviceInfoGetterTimer: Timer!
+    var gotData: Bool = false
+    var token: String? = ""
+    var deviceInfoGetterTimerCounting: Bool = false
+    
+    @objc func getDeviceDataCounter() {
+        if(deviceID != "") {
+            GetDeviceData(deviceID: deviceID)
         }
-        
-        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffapi.azurewebsites.net/api/smartwatch/getDeviceToken")!)
+    }
+    
+    //Slanje upita za ime drona i token
+    func GetDeviceData(deviceID: String) {
+        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffapi.azurewebsites.net/api/smartwatch/getDeviceInfo")!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -171,15 +183,33 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             do {
                 if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
-                    print(json)
-                    let token = "lb7QFE6z7gWg93UL60E_-1neg1jBRfqnlUYSuL7CIDvitHT_btzG6i2hTXIupfdNiyU5GgyXF7ZK2Y-8DbkMw2fjf0gM43aTD79RoUdJOHFtPagpj7ZuvckQWQ7V9V731s7BHYtVqKQmldNpnipLNdWjob9L8t-Bb1yzj9PjHFaAeDrIfQVdXcun1XB_-97v0usgYS_JdtUBGaFkF1BdfcjaiyBTejCPe2noFGn_GxH6ppushrJcdzKOUSK4UNGMc_t3LYJSWbvOeXPfX19hDv53UA-08YUEwAZEP3qAlKEnIkS5xe6vrHBDoHN0EK5Kzp2MxJAFMUUt9V3VQb6RTQ"
-                    self.GetScores(token: token)
+                    InterfaceController.flight.drone.name = json["droneName"]! as! String
+                    InterfaceController.token = json["token"]! as! String
+                    
+                    if(!self.gotData) {
+                        self.gotData = true;
+                        self.GetScores(token: InterfaceController.token)
+                    }
                 }
             } catch let error { print(error) }
         })
         task.resume()
     }
     
+    //Funkcija koja se pokreće kada iPhone pošalje nove podatke
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        //LiftOff gumb se osposobi
+        LiftOffButton.setTitle("LiftOff")
+        LiftOffButton.setEnabled(true)
+        LiftOffButton.setAttributedTitle(NSAttributedString(string: "LiftOff", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0), NSAttributedStringKey.foregroundColor: UIColor.white]))
+        
+        if(applicationContext.keys.contains("DeviceID")) {
+            deviceID = applicationContext["DeviceID"] as! String
+        }
+        print(deviceID)
+    }
+    
+    //Funkcija koja dohvaća podatke o vremenu s apija
     func GetScores(token: String) -> Void {
         var request: URLRequest = URLRequest(url: URL(string: "http://liftoffapi.azurewebsites.net/api/weather/getScore")!)
         request.httpMethod = "POST"
@@ -190,11 +220,12 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
             var timeLocation: TimeLocation = TimeLocation()
             timeLocation.location.latitude = InterfaceController.flight.flightLocation.latitude
             timeLocation.location.longitude = InterfaceController.flight.flightLocation.longitude
+            
             var add = DateComponents.init()
             add.hour = 1
             let date = Calendar.current.date(byAdding: add, to: Date.init())!
             timeLocation.time = ISO8601DateFormatter.init().string(from: date)
-            print(timeLocation.time)
+            print(timeLocation)
             let body = try JSONEncoder().encode(timeLocation)
             request.httpBody = body
             
@@ -206,8 +237,11 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
             do {
                 if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSObject {
                     self.scores = json
+                    print(json)
                     let score = self.scores.value(forKey: "totalRating")! as! Double
                     InterfaceController.flight.flySafeScore = score
+                    
+                    InterfaceController.flight.flightLocation.flightSpot = (json.value(forKey: "weatherData") as! NSObject).value(forKey: "city")! as! String
                     
                     self.FlySafeButton.setTitle("FlySafe:     \(String(format: "%.1f", score))")
                     self.FlySafeButton.setBackgroundColor(UIColor.color(fromHexString: TableInterfaceController.GetColor(score: score)))
@@ -237,7 +271,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
             InterfaceController.flight.timeFlown = seconds
             seconds = 0
             Stopwatch.stop()
-            myTimer!.invalidate()
+            stopwatchTimer!.invalidate()
             LiftOffButton.setTitle("LiftOff")
             presentAlert(withTitle: "Log", message: "Do you want to log this flight?", preferredStyle: .sideBySideButtonsAlert, actions: [ok, cancel])
         }
@@ -245,7 +279,9 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
             isCounting = true
             Stopwatch.setDate(NSDate().addingTimeInterval(0) as Date)
             Stopwatch.start()
-            myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector:#selector(InterfaceController.counter), userInfo: nil, repeats: true)
+            
+            stopwatchTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(InterfaceController.counter), userInfo: nil, repeats: true)
+            
             LiftOffButton.setTitle("Land")
             InterfaceController.flight.flightTime.flightStartTime = Date.init()
         }
@@ -260,7 +296,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
     
     //Pomoćne varijable i funkcije
     var seconds = 0
-    var myTimer : Timer?
+    var stopwatchTimer : Timer?
     var isCounting = false
     static var token = "token"
     static var flight = Flight()
