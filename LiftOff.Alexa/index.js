@@ -1,5 +1,3 @@
-//import { error } from 'util';
-
 'use strict'
 
 var APP_ID = 'amzn1.ask.skill.12c0e68a-9a8e-4053-9613-e7fc021e6dac'
@@ -10,6 +8,7 @@ var request = require('request');
 
 var urlPrefix = 'http://liftoffapi.azurewebsites.net/';
 
+//Konfiguracija skilla
 var LifOffSkill = function() {
     AlexaSkill.call(this, APP_ID);
 }
@@ -25,12 +24,14 @@ LifOffSkill.prototype.eventHandlers.onLaunch = function(launchRequest, session, 
 
 LifOffSkill.prototype.eventHandlers.onSessionEnded = function(sessionEndedRequest, session) {};
 
+//Dodijeljivanje intenta funkcijama
 LifOffSkill.prototype.intentHandlers = {
     "CanIFlyIntent": function(intent, session, response) {
         handleCanIFlyIntent(intent, session, response);
     }
 }
 
+//Funkcija koja se pokreće prvi prvom ulasku u skill
 function getWelcomeResponse(response) {
     var cardTitle = "Welcome to the LiftOff skill";
     var repromptText = "Welcome to the LifOff skill";
@@ -50,13 +51,15 @@ function getWelcomeResponse(response) {
     response.askWithCard(speechOutput, repromptOutput, cardTitle, cardOutput);
 }
 
-
+//Funkcija koja se pokreće na CanIFlyIntent
 function handleCanIFlyIntent(intent, session, response) {
     var speechOutput = {
         speech: "<speak>Let's go!</speak>",
         type: AlexaSkill.speechOutputType.SSML
     };
 
+    //Postavke za Device Adress Api koji će vratiti poštanski broj i državni kod
+    //postavljen za uređaj koji poziva intent
     var postData = JSON.stringify({deviceId: info.deviceId});
     var options = {
         hostname: 'api.amazonalexa.com',
@@ -67,14 +70,6 @@ function handleCanIFlyIntent(intent, session, response) {
              'Authorization': 'Bearer ' + info.accessToken
            }
       };
-
-    var getKeys = function(obj){
-        var keys = [];
-        for(var key in obj){
-           keys.push(key);
-        }
-        return keys;
-     }
 
     var adressRequest = https.request(options, function(res) {
         if(res.statusCode == '200') {
@@ -91,23 +86,11 @@ function handleCanIFlyIntent(intent, session, response) {
                     }
                 }
 
-                //response.tell(dataForApi.postalCode);
                 var jsonData = JSON.stringify(dataForApi);
 
-                var weatherRequestOptions = {
-                    method: 'POST',
-                    path: 'http://liftoffapi.azurewebsites.net/api/alexa/getCurrentRating',
-                    body: {
-                        dataForApi
-                    },
-                    json: true,
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }
-
+                //Poziv na LiftOff api koji će vratiti WeatherRating u obliku rečenica koje će Alexa pročitati
                 request({
-                    url: 'http://liftoffapi.azurewebsites.net/api/alexa/getCurrentRating',
+                    url: urlPrefix + 'api/alexa/getCurrentRating',
                     method: 'POST',
                     body: {
                         postalCode: dataForApi.postalCode,
@@ -119,14 +102,12 @@ function handleCanIFlyIntent(intent, session, response) {
                     }
                 }, (error, resp, body) => {
                     if(!body.message) {
-                        console.log(body.weatherRatingString);
                         response.tell(body.weatherRatingString);
                     } else {
                         response.tell(body.message);
                     }
                 });
-                
-                sleep(100000);
+                sleep(10000);
             });
         }
         else {
@@ -135,20 +116,19 @@ function handleCanIFlyIntent(intent, session, response) {
         }
     })
         
-
     adressRequest.write(postData);
     adressRequest.end();
 }
 
+//Funkcija koja će postaviti Timer na određeni broj sekundi.
+//Služi za produživanje Alexinog čekanja odgovora
 function sleep(miliseconds) {
-    // var currentTime = new Date().getTime();
-  
-    // while (currentTime + miliseconds >= new Date().getTime()) {
-    // }
-    setTimeout(() => {console.log('sleepEnd'), miliseconds});
+    setTimeout(() => {console.log('sleepEnd')}, miliseconds);
 }
 
 var info = {};
+
+//Glavni handler za skill
 exports.handler = function(event, context) {
     var skill = new LifOffSkill();
     info.deviceId = event.context.System.device.deviceId;
