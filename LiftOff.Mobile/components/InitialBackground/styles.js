@@ -3,10 +3,10 @@ import vars from '../../config/vars.js';
 
 export default StyleSheet.create({
   image: {
-    position: 'aboslute',
-    top: 0,
-    left: 0,
-    right: 0, 
-    bottom: 0
+    position: 'absolute',
+    right: 0,
+    top: -150,
+    bottom: 0,
+    left: -100
   }
 });

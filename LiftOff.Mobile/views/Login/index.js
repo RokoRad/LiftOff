@@ -30,7 +30,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <View style={inital.screen}>
-        <InitalBackground />
+        <InitialBackground />
         <View style={inital.container}>
           <InitialLogo />
           <View style={inital.wrapper}>
