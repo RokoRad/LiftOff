@@ -27,9 +27,9 @@ export default class Login extends React.Component {
   render() {
     return (
       <form className="login">
-        <Input placeholder="Username" onChange={e => (holder.username = e.target.value)} />
+        <Input placeholder={language.Username} onChange={e => (holder.username = e.target.value)} />
         <Input
-          placeholder="Password"
+          placeholder={language.Password}
           type="password"
           minLength="8"
           onChange={e => (holder.password = e.target.value)}
