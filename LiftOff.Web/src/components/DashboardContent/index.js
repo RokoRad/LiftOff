@@ -41,7 +41,7 @@ class DashboardContent extends React.Component {
 
           <div className="grid-right__bottom">
             <Graph
-              days={['Monday', 'Monday', 'Monday', 'Monday', 'Monday']}
+              days={['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']}
               scores={[5, 3, 5, 3, 2, 4, 5]}
             />
             <Links />
