@@ -7,5 +7,4 @@ export default bool => {
   } else {
     store.dispatch(changeUnits('metric'));
   }
-  console.log(bool);
 };
