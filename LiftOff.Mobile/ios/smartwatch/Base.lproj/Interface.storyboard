@@ -24,7 +24,7 @@
                         </button>
                         <group width="1" alignment="left" id="ZTg-2I-7q8">
                             <items>
-                                <button width="133" alignment="left" title="Getting rating" enabled="NO" id="8Mg-8g-Ee9">
+                                <button width="1" alignment="left" title="Getting rating" enabled="NO" id="8Mg-8g-Ee9">
                                     <color key="titleColor" red="0.94113165139999999" green="0.94888252019999997" blue="0.96176761389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" red="0.1649290323" green="0.44095277789999998" blue="0.97912448640000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
@@ -33,7 +33,7 @@
                                 </button>
                             </items>
                         </group>
-                        <timer width="85" height="63" alignment="center" verticalAlignment="center" textAlignment="center" previewedSeconds="0" id="H2F-Wq-Rf9">
+                        <timer width="1" height="63" alignment="center" verticalAlignment="center" textAlignment="center" previewedSeconds="0" id="H2F-Wq-Rf9">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="43"/>
                             <calendarUnit key="units" minute="YES" second="YES"/>

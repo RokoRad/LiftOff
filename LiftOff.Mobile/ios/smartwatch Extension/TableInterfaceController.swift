@@ -27,9 +27,14 @@ class TableInterfaceController: WKInterfaceController {
                     row.CategoryIcon.setImageNamed(categories[i])
                 }
                 
-                let score = newContext.value(forKey: categories[i])! as! Double
-                row.ScoreLabel.setText(String(format: "%.1f", score))
-                row.RowGroup.setBackgroundColor(UIColor.color(fromHexString: TableInterfaceController.GetColor(score: score)))
+                if let scoreFromRating = newContext.value(forKey: categories[i]) as? Double {
+                    let score = scoreFromRating
+                    row.ScoreLabel.setText(String(format: "%.1f", score))
+                    row.RowGroup.setBackgroundColor(UIColor.color(fromHexString: TableInterfaceController.GetColor(score: score)))
+                } else {
+                    row.ScoreLabel.setText("/")
+                    row.RowGroup.setBackgroundColor(UIColor.color(fromHexString: "3073F2"))
+                }
             }
         }
     }

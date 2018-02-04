@@ -191,12 +191,16 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             do {
                 if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
-                    InterfaceController.flight.drone.name = json["droneName"]! as! String
-                    InterfaceController.token = json["token"]! as! String
-                    
-                    if(!self.gotData) {
-                        self.gotData = true;
-                        self.GetScores(token: InterfaceController.token)
+                    if let droneName = json["droneName"] as? String {
+                        InterfaceController.flight.drone.name = droneName
+                    }
+                    if let token = json["token"] as? String {
+                        InterfaceController.token = token
+                        
+                        if(!self.gotData) {
+                            self.gotData = true;
+                            self.GetScores(token: InterfaceController.token)
+                        }
                     }
                 }
             } catch let error { print(error) }
@@ -243,7 +247,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
             do {
                 if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSObject {
                     self.scores = json
-                    print(json)
+                    
                     let score = self.scores.value(forKey: "totalRating")! as! Double
                     InterfaceController.flight.flySafeScore = score
                     
