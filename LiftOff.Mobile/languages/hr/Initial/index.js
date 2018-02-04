@@ -1,4 +1,7 @@
 export default {
+  Username: 'Korisničko ime',
+  Password: 'Lozinka',
+  Email: 'Email',
   Login: 'Prijava',
   Register: 'Registracija',
   ToRegister: `Nemaš račun?`,
