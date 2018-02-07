@@ -1,8 +1,13 @@
+// setup za pretvaranje ecmascript6 u obični js, a zatim u nativni kod
 {
-  "presets": ["babel-preset-expo"],
+  "presets": [
+    "babel-preset-expo"
+  ],
   "env": {
     "development": {
-      "plugins": ["transform-react-jsx-source"]
+      "plugins": [
+        "transform-react-jsx-source"
+      ]
     }
   }
 }
