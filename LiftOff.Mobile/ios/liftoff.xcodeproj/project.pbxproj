@@ -30,7 +30,7 @@
 		E289B5B82023669E00CF0505 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289B5B52023669E00CF0505 /* UIColorExtension.swift */; };
 		E289B5BB2023671500CF0505 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E289B5B92023671500CF0505 /* Interface.storyboard */; };
 		E2F7FA18202473B8003835BC /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FA17202473B8003835BC /* Device.m */; };
-		EBB8117C1BFA0514F79CAF74 /* libPods-liftoff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A88D15726AD99E8A257BC7 /* libPods-liftoff.a */; };
+		EBB8117C1BFA0514F79CAF74 /* libPods-liftoff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A88D15726AD99E8A257BC7 /* libPods-liftoff.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,7 +298,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "650 Industries, Inc.";
 				TargetAttributes = {
 					B56386401DB9693800A0598C = {
@@ -615,6 +615,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

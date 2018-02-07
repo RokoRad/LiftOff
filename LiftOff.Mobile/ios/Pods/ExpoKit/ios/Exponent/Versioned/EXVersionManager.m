@@ -303,7 +303,7 @@ void EXRegisterScopedModule(Class moduleClass, NSString *kernelServiceClassName)
                                     [[EXDevSettings alloc] initWithExperienceId:experienceId isDevelopment:isDeveloper],
                                     [[EXDisabledDevLoadingView alloc] init],
                                     [[EXStatusBarManager alloc] init],
-                                    [[RCTAsyncLocalStorage alloc] initWithStorageDirectory:localStorageDirectory],
+                                    //[[RCTAsyncLocalStorage alloc] initWithStorageDirectory:localStorageDirectory],
                                     ]];
   
   // add scoped modules

@@ -35,7 +35,7 @@ struct Flight : Codable {
     
     //Funkcija zaslužna za spremanje leta u korisnikove statistike
     func LogFlight(token: String) -> Void {
-        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffapi.azurewebsites.net/api/logging/logFlight")!)
+        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffinfokup.azurewebsites.net/api/logging/logFlight")!)
         request.httpMethod = "POST"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
@@ -175,7 +175,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
     
     //Slanje upita za ime drona i token
     func GetDeviceData(deviceID: String) {
-        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffapi.azurewebsites.net/api/smartwatch/getDeviceInfo")!)
+        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffinfokup.azurewebsites.net/api/smartwatch/getDeviceInfo")!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -191,6 +191,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             do {
                 if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
+                    print(json)
                     if let droneName = json["droneName"] as? String {
                         InterfaceController.flight.drone.name = droneName
                     }
@@ -219,9 +220,19 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         }
     }
     
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        LiftOffButton.setTitle("LiftOff")
+        LiftOffButton.setEnabled(true)
+        LiftOffButton.setAttributedTitle(NSAttributedString(string: "LiftOff", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0), NSAttributedStringKey.foregroundColor: UIColor.white]))
+        
+        if(message.keys.contains("DeviceID")) {
+            deviceID = message["DeviceID"] as! String
+        }
+    }
+    
     //Funkcija koja dohvaća podatke o vremenu s apija
     func GetScores(token: String) -> Void {
-        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffapi.azurewebsites.net/api/weather/getScore")!)
+        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffinfokup.azurewebsites.net/api/weather/getScore")!)
         request.httpMethod = "POST"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
