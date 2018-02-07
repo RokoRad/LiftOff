@@ -39,5 +39,17 @@ namespace LiftOff.API.Controllers
 
             return Ok(WeatherFetcher.Instance.GetBestWeatherRatingNearLocation(timeLocation));
         }
+
+        [Authorize]
+        [HttpPost]
+        [Route("getPrognosisForLocation")]
+        public IHttpActionResult GetPrognosisForLocation([FromBody]JObject json)
+        {
+            TimeLocation timeLocation = JsonConvert.DeserializeObject<TimeLocation>(JsonConvert.SerializeObject(json));
+
+            if (!timeLocation.LocationIsValid()) return BadRequest("location requested is not valid");
+
+            return Ok(WeatherFetcher.Instance.GetPrognosisForLocation(timeLocation));
+        }
     }
 }
