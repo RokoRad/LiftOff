@@ -1,3 +1,10 @@
+// niz akcija koje služe za lakše povezivanje sa redux storom
+// svaka je definirana kao funkcija koja prima podatke
+// zatim funkcija vraća objekt sa imenom akcije te istim podatcima
+// kada želimo potaknuti promjenu stanja u reduxu, pozovemo funkciju akcije i pošaljemo podatke
+// store prima ime (tip) akcije te podatke, čime definira što i kako će se promijeniti u storeu
+
+// svaka akcija je exportana kako bi se mogla direketno pristupiti u vanjskoj komponenti
 export const toggleStopwatch = payload => ({
   type: 'TOGGLE_STOPWATCH',
   payload

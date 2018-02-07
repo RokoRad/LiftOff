@@ -1,3 +1,7 @@
+// objekt koji prestavlja globalni niz podataka
+// izoliran je zbog lakšeg pristupa vanjskih komponenti i veće mogućnosti reusanja
+// objekt sadrži vrijednosti poput fontova i boja
+
 export default {
   light: 'robotoLight',
   regular: 'robotoRegular',
