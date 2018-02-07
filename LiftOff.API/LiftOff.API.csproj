@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\LiftOffAPI - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\LiftOffInfokup - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="index.html" />
     <Content Include="Scripts\jquery-3.2.1.js" />
