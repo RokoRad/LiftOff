@@ -1,6 +1,9 @@
+//dohvaćanje funkcije za animiranje
 import * as Animatable from 'react-native-animatable';
 
+// kreiranje animacija
 Animatable.initializeRegistryWithDefinitions({
+  // za dobru ocjenu, dron ima male pokrete
   green: {
     0: {
       rotate: '-1deg',
@@ -18,6 +21,7 @@ Animatable.initializeRegistryWithDefinitions({
       translateY: -1
     }
   },
+  // za srednju razinu, dron ima usmjerene pokrete
   orange: {
     0: {
       rotate: '-2deg',
@@ -35,6 +39,7 @@ Animatable.initializeRegistryWithDefinitions({
       translateY: -3
     }
   },
+  // za lošu ocjenu, dron ima velike pokrete
   red: {
     0: {
       rotate: '-3deg',
@@ -52,6 +57,7 @@ Animatable.initializeRegistryWithDefinitions({
       translateY: -5
     }
   },
+  // animacija za tooltip nad dateChooserom
   picker: {
     0: {
       opacity: 0,
@@ -64,6 +70,5 @@ Animatable.initializeRegistryWithDefinitions({
   }
 });
 
-const animationGenerator = value => value;
-
-export default animationGenerator;
+// funkcija koja za primljeni parametar vraća istoimeni objekt
+export default (value) => value;
