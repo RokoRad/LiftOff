@@ -107,6 +107,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         locationManager.requestLocation()
         locationManager.startUpdatingLocation()
         
+        
         //Započinjanje komunikacije s iPhoneom
         if WCSession.isSupported() {
             session = WCSession.default
@@ -121,6 +122,23 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
     //Funckija koja se pokreće pri deaktivaciji sučelja
     public override func didDeactivate() {
         super.didDeactivate()
+    }
+    
+    //Funkcija koja dohvaća ime uređaja iz contexta poslanog s iPhonea
+    func getDeviceNameFromContext() {
+        //if let context = session.receivedApplicationContext as? [String: Any] {
+        if (session) != nil {
+            if let idFromContext = session.receivedApplicationContext["DeviceID"] as? String {
+                deviceID = idFromContext
+                
+                if(isCounting == false) {
+                    LiftOffButton.setTitle("LiftOff")
+                    LiftOffButton.setEnabled(true)
+                    LiftOffButton.setAttributedTitle(NSAttributedString(string: "LiftOff", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0), NSAttributedStringKey.foregroundColor: UIColor.white]))
+                }
+            }
+        }
+        //}
     }
     
     //Funkcija koja se pokreće kada se promijeni lokacija
@@ -161,15 +179,16 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
     }
     
     //Pomoćne funkcije za traženje tokena i imena drona sa servera
-    var deviceID = ""
+    var deviceID: String? = ""
     var deviceInfoGetterTimer: Timer!
     var gotData: Bool = false
     var token: String? = ""
     var deviceInfoGetterTimerCounting: Bool = false
     
     @objc func getDeviceDataCounter() {
+        getDeviceNameFromContext()
         if(deviceID != "") {
-            GetDeviceData(deviceID: deviceID)
+            GetDeviceData(deviceID: deviceID!)
         }
     }
     
@@ -191,7 +210,6 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             do {
                 if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
-                    print(json)
                     if let droneName = json["droneName"] as? String {
                         InterfaceController.flight.drone.name = droneName
                     }
@@ -216,17 +234,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
         LiftOffButton.setAttributedTitle(NSAttributedString(string: "LiftOff", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0), NSAttributedStringKey.foregroundColor: UIColor.white]))
         
         if(applicationContext.keys.contains("DeviceID")) {
-            deviceID = applicationContext["DeviceID"] as! String
-        }
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        LiftOffButton.setTitle("LiftOff")
-        LiftOffButton.setEnabled(true)
-        LiftOffButton.setAttributedTitle(NSAttributedString(string: "LiftOff", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0), NSAttributedStringKey.foregroundColor: UIColor.white]))
-        
-        if(message.keys.contains("DeviceID")) {
-            deviceID = message["DeviceID"] as! String
+            deviceID = applicationContext["DeviceID"] as? String
         }
     }
     
@@ -243,13 +251,12 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
             timeLocation.location.longitude = InterfaceController.flight.flightLocation.longitude
             
             var add = DateComponents.init()
-            add.hour = 1
+            add.hour = 2
             let date = Calendar.current.date(byAdding: add, to: Date.init())!
             timeLocation.time = ISO8601DateFormatter.init().string(from: date)
             print(timeLocation)
             let body = try JSONEncoder().encode(timeLocation)
             request.httpBody = body
-            
         } catch {
             print("error")
         }
@@ -259,14 +266,18 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
                 if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSObject {
                     self.scores = json
                     
-                    let score = self.scores.value(forKey: "totalRating")! as! Double
-                    InterfaceController.flight.flySafeScore = score
-                    
-                    InterfaceController.flight.flightLocation.flightSpot = (json.value(forKey: "weatherData") as! NSObject).value(forKey: "city")! as! String
-                    
-                    self.FlySafeButton.setTitle("FlySafe:     \(String(format: "%.1f", score))")
-                    self.FlySafeButton.setBackgroundColor(UIColor.color(fromHexString: TableInterfaceController.GetColor(score: score)))
-                    self.FlySafeButton.setEnabled(true)
+                    if let message = json.value(forKey: "message") {
+                        print(message)
+                    } else {
+                        let score = self.scores.value(forKey: "totalRating")! as! Double
+                        InterfaceController.flight.flySafeScore = score
+                        
+                        InterfaceController.flight.flightLocation.flightSpot = (json.value(forKey: "weatherData") as! NSObject).value(forKey: "city")! as! String
+                        
+                        self.FlySafeButton.setTitle("FlySafe:     \(String(format: "%.1f", score))")
+                        self.FlySafeButton.setBackgroundColor(UIColor.color(fromHexString: TableInterfaceController.GetColor(score: score)))
+                        self.FlySafeButton.setEnabled(true)
+                    }
                 }
             } catch let error { print(error) }
         })

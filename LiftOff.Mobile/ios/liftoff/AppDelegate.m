@@ -14,10 +14,6 @@
 
 @implementation AppDelegate
 
--(void)onTick:(NSTimer *)timer {
-    
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -60,7 +56,6 @@
 
 - (void)session:(nonnull WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(nullable NSError *)error {
     [session updateApplicationContext:@{@"DeviceID": [[UIDevice currentDevice] name]} error: nil];
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(onTick:) userInfo:nil repeats:YES];
 }
 
 - (void)sessionDidBecomeInactive:(nonnull WCSession *)session {}
