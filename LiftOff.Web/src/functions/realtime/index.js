@@ -4,7 +4,7 @@ import { updateHome } from '../../actions';
 import { hubConnection } from 'signalr-no-jquery';
 import language from '../../languages';
 
-const connection = hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
+const connection = hubConnection('http://liftoffinfokup.azurewebsites.net/signalr'),
   proxy = connection.createHubProxy('weatherHub');
 
 proxy.on('broadcastWeather', response => {

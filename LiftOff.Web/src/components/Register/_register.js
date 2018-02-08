@@ -3,7 +3,7 @@ import language from '../../languages';
 
 export default object => {
   if (object.username.length > 0 && object.email.length > 0) {
-    fetch('http://liftoffapi.azurewebsites.net/api/account/register', {
+    fetch('http://liftoffinfokup.azurewebsites.net/api/account/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
