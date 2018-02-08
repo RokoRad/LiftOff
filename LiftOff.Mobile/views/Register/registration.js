@@ -24,6 +24,7 @@ export default (data, history) => {
       })
       .catch(error => {
         Toast(`${language.serverError}`);
+        console.log(error)
         store.dispatch(changeLoading());
       });
   } else {
