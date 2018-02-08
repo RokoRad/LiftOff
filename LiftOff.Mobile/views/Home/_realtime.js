@@ -5,7 +5,7 @@ import { updateHome } from '../../actions';
 import Toast from '../../functions/toast';
 import language from '../../languages';
 
-const connection = signalr.hubConnection('http://liftoffapi.azurewebsites.net/signalr'),
+const connection = signalr.hubConnection('http://liftoffinfokup.azurewebsites.net/signalr'),
   proxy = connection.createHubProxy('weatherHub');
 
 proxy.on('broadcastWeather', response => {

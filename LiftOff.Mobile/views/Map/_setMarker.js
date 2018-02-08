@@ -7,7 +7,7 @@ import { setMarker, updateLocation, tooltipStatus, updateTooltip } from '../../a
 export default (value, history) => {
   value.persist();
   AsyncStorage.getItem('@token').then(token => {
-    fetch('http://liftoffapi.azurewebsites.net/api/weather/getScore', {
+    fetch('http://liftoffinfokup.azurewebsites.net/api/weather/getScore', {
       method: 'POST',
       headers: headers(token),
       body: JSON.stringify({

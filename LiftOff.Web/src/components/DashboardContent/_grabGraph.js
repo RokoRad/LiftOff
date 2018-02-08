@@ -4,8 +4,6 @@ import language from '../../languages';
 import store from '../../store';
 import removeToken from '../../functions/removeToken';
 import storage from '../../functions/storage';
-import { updateLocation, setMarker, updateHome } from '../../actions';
-import _recall from './_recall.js';
 
 export default data => {
   const stored = store.getState().mapReducer.markerPosition;
@@ -26,25 +24,26 @@ export default data => {
     .then(response => {
       if (response.status === 200) {
         response.json().then(value => {
-          const location = value.weatherData.timeLocation.location;
+          console.log(value)
+          // const location = value.weatherData.timeLocation.location;
 
-          store.dispatch(
-            updateLocation({
-              lat: location.latitude,
-              lng: location.longitude
-            })
-          );
+          // store.dispatch(
+          //   updateLocation({
+          //     lat: location.latitude,
+          //     lng: location.longitude
+          //   })
+          // );
 
-          store.dispatch(
-            setMarker({
-              lat: location.latitude,
-              lng: location.longitude
-            })
-          );
-
-          store.dispatch(updateHome(_recall(value)));
-          storage.set('@realtime', JSON.stringify(_recall(value)));
+          // store.dispatch(
+          //   setMarker({
+          //     lat: location.latitude,
+          //     lng: location.longitude
+          //   })
         });
+
+        // store.dispatch(updateHome(_recall(value)));
+        // storage.set('@realtime', JSON.stringify(_recall(value)));
+
       } else if (response.status === 401) {
         removeToken();
       } else {

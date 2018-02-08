@@ -5,6 +5,12 @@
 // store prima ime (tip) akcije te podatke, čime definira što i kako će se promijeniti u storeu
 
 // svaka akcija je exportana kako bi se mogla direketno pristupiti u vanjskoj komponenti
+export const changeAllow = payload => ({
+  type: 'CHANGE_ALLOW',
+  payload
+});
+
+
 export const toggleStopwatch = payload => ({
   type: 'TOGGLE_STOPWATCH',
   payload

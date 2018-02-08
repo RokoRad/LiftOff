@@ -6,7 +6,7 @@ import store from '../../store';
 export default (data, history) => {
   store.dispatch(changeLoading());
   if (data.username.length != 0 && data.email.length != 0 && data.password.length > 8) {
-    fetch('http://liftoffapi.azurewebsites.net/api/account/register', {
+    fetch('http://liftoffinfokup.azurewebsites.net/api/account/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -24,6 +24,7 @@ export default (data, history) => {
       })
       .catch(error => {
         Toast(`${language.serverError}`);
+        console.log(error)
         store.dispatch(changeLoading());
       });
   } else {
