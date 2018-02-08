@@ -3,8 +3,8 @@ import store from '../../store';
 
 export default bool => {
   if (bool) {
-    store.dispatch(changeUnits('imperial'));
+    store.dispatch(changeUnits((store.getState().settingsReducer.units = 'imperial')));
   } else {
-    store.dispatch(changeUnits('metric'));
+    store.dispatch(changeUnits((store.getState().settingsReducer.units = 'metric')));
   }
 };
