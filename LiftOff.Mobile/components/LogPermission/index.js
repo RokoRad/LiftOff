@@ -6,9 +6,9 @@ import styles from './styles.js';
 import language from '../../languages';
 import _onChange from './_onChange.js';
 
-export default () => (
+export default (history) => (
   <View style={styles.wrapper}>
     <Text style={styles.text}>{language.Permission}</Text>
-    <CheckBox onChange={() => _onChange()} />
+    <CheckBox onChange={() => _onChange(history)} />
   </View>
 );
