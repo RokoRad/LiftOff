@@ -254,7 +254,6 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
             add.hour = 2
             let date = Calendar.current.date(byAdding: add, to: Date.init())!
             timeLocation.time = ISO8601DateFormatter.init().string(from: date)
-            print(timeLocation)
             let body = try JSONEncoder().encode(timeLocation)
             request.httpBody = body
         } catch {
