@@ -6,7 +6,7 @@ var AlexaSkill = require('./AlexaSkill');
 var https = require('https');
 var request = require('request');
 
-var urlPrefix = 'http://liftoffapi.azurewebsites.net/';
+var urlPrefix = 'http://liftoffinfokup.azurewebsites.net/';
 
 //Konfiguracija skilla
 var LifOffSkill = function() {
