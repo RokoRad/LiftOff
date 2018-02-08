@@ -16,7 +16,7 @@ export default (history) => {
         //   updateLocation({
         //     ...parsed.location
         //   })
-        console.log(JSON.parse(response))
+        console.log(response)
         // store.dispatch(
         //   setMarker({
         //     ...parsed.location
