@@ -2,7 +2,7 @@ import { AsyncStorage } from 'react-native';
 import headers from '../../functions/headers';
 import removeToken from '../../functions/removeToken';
 import store from '../../store';
-import { updateLocation, setMarker } from '../../actions';
+import { changeAllow } from '../../actions';
 
 export default (history) => {
   AsyncStorage.getItem('@token').then(token => {
@@ -16,6 +16,7 @@ export default (history) => {
         //   updateLocation({
         //     ...parsed.location
         //   })
+        store.dispatch(changeAllow())
         console.log(response)
         // store.dispatch(
         //   setMarker({
