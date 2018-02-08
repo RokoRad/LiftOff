@@ -6,7 +6,7 @@ import { updateMarkers } from '../../actions';
 
 export default (location, history) => {
   AsyncStorage.getItem('@token').then(token => {
-    fetch('http://liftoffapi.azurewebsites.net/api/flights/getFlightsNearMe', {
+    fetch('http://liftoffinfokup.azurewebsites.net/api/flights/getFlightsNearMe', {
       method: 'POST',
       headers: headers(token),
       body: JSON.stringify({

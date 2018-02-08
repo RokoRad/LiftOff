@@ -13,7 +13,7 @@ export default (id, history) => {
     drone = store.getState().settingsReducer.drone;
 
   AsyncStorage.getItem('@token').then(token => {
-    fetch('http://liftoffapi.azurewebsites.net/api/logging/logFlight', {
+    fetch('http://liftoffinfokup.azurewebsites.net/api/logging/logFlight', {
       method: 'POST',
       headers: headers(token),
       body: JSON.stringify({
