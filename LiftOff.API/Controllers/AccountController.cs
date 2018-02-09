@@ -2,13 +2,12 @@
 using LiftOff.API.Data.Repos;
 using LiftOff.API.Models;
 using Microsoft.AspNet.Identity;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
-	//Controller zadužen za funkcionalnosti vezane specifično uz korisnikov račun
+    //Controller zadužen za funkcionalnosti vezane specifično uz korisnikov račun
     [RoutePrefix("api/Account")]
 	public class AccountController : ApiController
 	{
@@ -33,9 +32,9 @@ namespace LiftOff.API.Controllers
 
         #endregion
 
-        private readonly LiftOffContext _liftOffContext = new LiftOffContext();
+        private readonly RepoBridge _repoBridge = new RepoBridge();
 
-		//Funkcija koja registrira novog korisnika u bazu
+		//Ruta koja registrira novog korisnika u bazu
 		[AllowAnonymous]
 		[Route("Register")]
 		public async Task<IHttpActionResult> Register(User userModel)
@@ -47,17 +46,15 @@ namespace LiftOff.API.Controllers
 			else return Ok();
 		}
 
-		//Funkcija koja korisniku vraća njegove trenutne statistike
+		//Ruta koja korisniku vraća njegove trenutne statistike
         [Authorize]
         [HttpGet]
         [Route("GetUserData")]
         public IHttpActionResult GetUserData()
         {
             var userId = User.Identity.GetUserId();
-
-            var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
-
-            return Ok(user);
+            
+            return Ok(_repoBridge.GetUserData(userId));
         }
     }
 }

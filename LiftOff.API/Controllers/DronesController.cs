@@ -8,15 +8,15 @@ namespace LiftOff.API.Controllers
     [RoutePrefix("api/drones")]
     public class DronesController : ApiController
     {
-        private readonly LiftOffContext _liftOffContext = new LiftOffContext();
+        private readonly RepoBridge _repoBridge = new RepoBridge();
 
-		//Funkcija koja korisniku vraća listu svih dronova koji se nalaze u bazi
-        [Authorize]
+        //Ruta koja korisniku vraća listu svih dronova koji se nalaze u bazi
         [HttpGet]
+        [Authorize]
         [Route("getDrones")]
         public IHttpActionResult GetDrones()
         {
-            return Ok(_liftOffContext.Drones.ToList());
+            return Ok(_repoBridge.GetDrones());
         }
     }
 }

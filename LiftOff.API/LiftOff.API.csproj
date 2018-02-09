@@ -161,6 +161,7 @@
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Controllers\WeatherController.cs" />
     <Compile Include="Data\LiftOffContext.cs" />
+    <Compile Include="Data\RepoBridge.cs" />
     <Compile Include="Data\Repos\AuthRepo.cs" />
     <Compile Include="Initialization\LiftOffDatabaseInitialization.cs" />
     <Compile Include="Logic\Flights\GetFlightsNearMeQuery.cs" />

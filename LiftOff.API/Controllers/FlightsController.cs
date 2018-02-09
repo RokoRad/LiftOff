@@ -1,5 +1,4 @@
-﻿using LiftOff.API.Data;
-using LiftOff.API.Logic.Flights;
+﻿using LiftOff.API.Logic.Flights;
 using LiftOff.API.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -11,11 +10,9 @@ namespace LiftOff.API.Controllers
     [RoutePrefix("api/flights")]
     public class FlightsController : ApiController
     {
-        private readonly LiftOffContext _liftOffContext = new LiftOffContext();
-
-		//Funkcija koja korisniku vraća letove u blizini
-        [Authorize]
+        //Ruta koja korisniku vraća letove u blizini
         [HttpPost]
+        [Authorize]
         [Route("getFlightsNearMe")]
         public IHttpActionResult GetFlightsNearMe([FromBody]JObject json)
         {
