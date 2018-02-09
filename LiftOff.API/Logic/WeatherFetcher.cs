@@ -126,6 +126,13 @@ namespace LiftOff.API.Logic
         {
             return FlySafe.RateWeather(_openWeatherApi.GetAlexaWeatherData(postalCode, state));
         }
+
+        public List<WeatherRating> GetPrognosisForLocation(TimeLocation timeLocation)
+        {
+            var data = _openWeatherApi.GetForecastsPackageFromApi(timeLocation);
+            var ratings = data.Select(wd => FlySafe.RateWeather(wd)).ToList();
+            return ratings;
+        }
     }
 
     public static class LogicConstants

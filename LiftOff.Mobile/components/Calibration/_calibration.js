@@ -13,7 +13,7 @@ export default history => {
   };
 
   AsyncStorage.getItem('@token').then(token => {
-    fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
+    fetch('http://liftoffinfokup.azurewebsites.net/Api/weather/getBestRatingNearMe', {
       method: 'POST',
       headers: headers(token),
       body: JSON.stringify({

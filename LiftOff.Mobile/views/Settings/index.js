@@ -19,7 +19,7 @@ export default ({ location, history }) => (
     <View style={styles.wrapper}>
       <Dropdown />
       <Break />
-      <LogPermission />
+      <LogPermission history={history} />
       <Break />
       <UnitsSwitch />
       <Break />

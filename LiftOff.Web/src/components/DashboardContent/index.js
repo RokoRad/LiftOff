@@ -5,6 +5,7 @@ import Home from '../Home';
 import Links from '../Links';
 import { connect } from 'react-redux';
 import { _start, _stop } from '../../functions/realtime';
+import _grabGraph from './_grabGraph.js';
 import './style.css';
 
 class DashboardContent extends React.Component {
@@ -14,6 +15,7 @@ class DashboardContent extends React.Component {
 
   componentWillMount() {
     _start(this.props.timeLocation, this.props.home.weatherData.Units);
+    _grabGraph();
   }
 
   componentWillUnmount() {
