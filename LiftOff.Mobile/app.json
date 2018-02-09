@@ -10,6 +10,12 @@
     "splash": {
       "backgroundColor": "#3073f2",
       "image": "./images/logotip.png"
+    },
+    "ios": {
+      "bundleIdentifier": "com.LiftOff.LiftOff"
+    },
+    "android": {
+      "package": "com.LiftOff.LiftOff"
     }
   }
 }
