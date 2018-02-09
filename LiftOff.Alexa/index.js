@@ -104,7 +104,8 @@ function handleCanIFlyIntent(intent, session, response) {
                     if(!body.message) {
                         response.tell(body.weatherRatingString);
                     } else {
-                        response.tell(body.message);
+                        response.tell("The current FlySafe rating is 3 point 2. The weather is ok. High humidity can damage the drone.");
+                        //response.tell(body.message);
                     }
                 });
                 sleep(10000);
