@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sUi-lq-S6q">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="3tj-jz-wPR">
+            <objects>
+                <controller id="sUi-lq-S6q" customClass="InterfaceController" customModule="smartwatch_Extension">
+                    <items>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Please log into the mobile app" enabled="NO" id="r0A-Ch-Fyh">
+                            <color key="titleColor" red="0.94113165140151978" green="0.94888252019882202" blue="0.96176761388778687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.16492903232574463" green="0.44095277786254883" blue="0.97912448644638062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="16"/>
+                            <connections>
+                                <action selector="LiftOffAction" destination="sUi-lq-S6q" id="oxl-Qx-t1F"/>
+                            </connections>
+                        </button>
+                        <group width="1" alignment="left" id="ZTg-2I-7q8">
+                            <items>
+                                <button width="1" alignment="left" title="Getting rating" enabled="NO" id="8Mg-8g-Ee9">
+                                    <color key="titleColor" red="0.94113165139999999" green="0.94888252019999997" blue="0.96176761389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.1649290323" green="0.44095277789999998" blue="0.97912448640000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <segue destination="LpO-vZ-amL" kind="push" id="ojO-D7-wIx"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <timer width="1" height="63" alignment="center" verticalAlignment="center" textAlignment="center" previewedSeconds="0" id="H2F-Wq-Rf9">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="43"/>
+                            <calendarUnit key="units" minute="YES" second="YES"/>
+                        </timer>
+                    </items>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="FlySafeButton" destination="8Mg-8g-Ee9" id="fP1-Zf-4Df"/>
+                        <outlet property="LiftOffButton" destination="r0A-Ch-Fyh" id="Dkr-5H-zL0"/>
+                        <outlet property="Stopwatch" destination="H2F-Wq-Rf9" id="Sao-xf-e2Z"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="301" y="321"/>
+        </scene>
+        <!--Table Interface Controller-->
+        <scene sceneID="Fr1-kd-AEK">
+            <objects>
+                <controller id="LpO-vZ-amL" customClass="TableInterfaceController" customModule="smartwatch_Extension">
+                    <items>
+                        <table alignment="left" id="Wl6-Zg-gqS">
+                            <items>
+                                <tableRow identifier="ScoreRow" id="MER-HJ-ecE" customClass="TableRow" customModule="smartwatch_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="9bZ-70-xoI">
+                                        <items>
+                                            <label alignment="right" verticalAlignment="center" text="5.0" id="E71-qI-Dq5">
+                                                <fontDescription key="font" type="system" pointSize="19"/>
+                                            </label>
+                                            <imageView width="32" height="33" alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" id="0G1-bx-93v"/>
+                                            <label alignment="left" verticalAlignment="center" text="Label" id="kjc-Ny-EK5"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.20349600910000001" green="0.66892594100000002" blue="0.32889950280000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="CategoryIcon" destination="0G1-bx-93v" id="sZF-yH-Ya1"/>
+                                        <outlet property="CategoryLabel" destination="kjc-Ny-EK5" id="vbv-jb-fsT"/>
+                                        <outlet property="RowGroup" destination="9bZ-70-xoI" id="EFo-TP-1nE"/>
+                                        <outlet property="ScoreLabel" destination="E71-qI-Dq5" id="6UX-OE-8Yh"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="Table" destination="Wl6-Zg-gqS" id="0y6-dT-8dr"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="626" y="321"/>
+        </scene>
+    </scenes>
+</document>
