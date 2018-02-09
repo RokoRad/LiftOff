@@ -8,10 +8,10 @@ export default props => (
     circleSize={50}
     barHeight={50}
     circleBorderWidth={3}
-    backgroundActive={vars.red}
+    backgroundActive={vars.blue}
     backgroundInactive={vars.blue}
-    circleActiveColor={vars.blue}
-    circleInActiveColor={vars.red}
+    circleActiveColor={'#7aa5f7'}
+    circleInActiveColor={'#7aa5f7'}
     {...props}
   />
 );

@@ -15,7 +15,7 @@ export default data => {
     longitude: stored.lng
   };
 
-  fetch('http://liftoffapi.azurewebsites.net/Api/weather/getBestRatingNearMe', {
+  fetch('http://liftoffinfokup.azurewebsites.net/api/weather/getPrognosisForLocation', {
     method: 'POST',
     headers: headers(),
     body: JSON.stringify({

@@ -7,6 +7,7 @@ import Input from '../../components/Input';
 import InitialLogo from '../../components/InitialLogo';
 import InitialLink from '../../components/InitialLink';
 import Button from '../../components/Button';
+import InitialBackground from '../../components/InitialBackground';
 
 const holder = {
   username: '',
@@ -16,6 +17,7 @@ const holder = {
 
 export default ({ history }) => (
   <View style={inital.screen}>
+    <InitialBackground />
     <View style={inital.container}>
       <InitialLogo />
       <View style={inital.wrapper}>

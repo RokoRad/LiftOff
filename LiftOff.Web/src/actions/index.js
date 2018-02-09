@@ -1,38 +1,3 @@
-export const toggleStopwatch = payload => ({
-  type: 'TOGGLE_STOPWATCH',
-  payload
-});
-
-export const setStarttime = payload => ({
-  type: 'SET_STARTTIME',
-  payload
-});
-
-export const updateSeconds = payload => ({
-  type: 'UPDATE_SECONDS',
-  payload
-});
-
-export const updateMinutes = payload => ({
-  type: 'UPDATE_MINUTES',
-  payload
-});
-
-export const addLog = payload => ({
-  type: 'ADD_LOG',
-  payload
-});
-
-export const saveLog = payload => ({
-  type: 'SAVE_LOG',
-  payload
-});
-
-export const updateStats = payload => ({
-  type: 'UPDATE_STATS',
-  payload
-});
-
 export const updateHome = payload => ({
   type: 'UPDATE_HOME',
   payload
@@ -58,25 +23,16 @@ export const tooltipStatus = payload => ({
   payload
 });
 
-export const updateTooltip = payload => ({
-  type: 'UPDATE_TOOLTIP',
-  payload
-});
-
-export const updateMarkers = payload => ({
-  type: 'UPDATE_MARKERS',
-  payload
-});
-
-export const changeLoading = () => ({
-  type: 'CHANGE_LOADING'
-});
-
 export const changeMenu = () => ({
   type: 'CHANGE_MENU'
 });
 
 export const updateTimeLocation = payload => ({
   type: 'UPDATE_TIMELOCATION',
+  payload
+});
+
+export const changeUnits = payload => ({
+  type: 'CHANGE_UNITS',
   payload
 });

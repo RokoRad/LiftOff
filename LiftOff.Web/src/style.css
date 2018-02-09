@@ -2,3 +2,15 @@ html, body {
   overflow-x: hidden;
   background-color: #f5f7fa;
 }
+
+.inital {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3073f2;
+  height: 100vh;
+  background-image: url('./images/wallpaper.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover
+}

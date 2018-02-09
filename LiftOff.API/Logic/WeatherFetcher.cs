@@ -23,7 +23,13 @@ namespace LiftOff.API.Logic
 
         private List<TLEntity> _TLEntities { get; set; } = new List<TLEntity>();
 		private List<WeatherData> _weatherData { get; set; } = new List<WeatherData>();
-		private OpenWeatherAPI _openWeatherApi = new OpenWeatherAPI();
+
+        internal object GetConditionsRating(string postalCode, string state)
+        {
+            throw new NotImplementedException();
+        }
+
+        private OpenWeatherAPI _openWeatherApi = new OpenWeatherAPI();
 
 
         private void _refresh()
@@ -114,6 +120,18 @@ namespace LiftOff.API.Logic
             List<WeatherRating> WeatherRatingsNearLocation = WeatherDataNearLocation.Select(WD => FlySafe.RateWeather(WD)).ToList();
 
             return WeatherRatingsNearLocation.OrderByDescending(WR => WR.TotalRating).First();
+        }
+
+        public WeatherRating GetConditionsRatingByPostalCode(string postalCode, string state)
+        {
+            return FlySafe.RateWeather(_openWeatherApi.GetAlexaWeatherData(postalCode, state));
+        }
+
+        public List<WeatherRating> GetPrognosisForLocation(TimeLocation timeLocation)
+        {
+            var data = _openWeatherApi.GetForecastsPackageFromApi(timeLocation);
+            var ratings = data.Select(wd => FlySafe.RateWeather(wd)).ToList();
+            return ratings;
         }
     }
 

@@ -1,3 +1,4 @@
+// json koji definira paket aplikacije, ikonu, glavnu boju te splash screen
 {
   "expo": {
     "name": "LiftOff",

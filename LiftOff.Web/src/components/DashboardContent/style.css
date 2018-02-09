@@ -21,13 +21,20 @@
 }
 
 
+.grid-right__bottom {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
 @media screen and (max-width: 1024px) {
   .grid {
     flex-direction: column;
     height: auto;
   }
   .grid__left {
-    flex: auto;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
@@ -40,11 +47,20 @@
     margin-left: auto;
     margin-right: auto
   }
+
+  .grid-right__bottom {
+    flex: auto;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    height: auto
+  }
 }
 
 @media screen and (max-width: 480px) {
   .grid__left {
-    flex: auto;
     max-width: auto;
     margin-left: 10px;
     margin-right: 10px;

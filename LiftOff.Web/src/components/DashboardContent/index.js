@@ -2,8 +2,10 @@ import React from 'react';
 import Graph from '../Graph';
 import Map from '../Map';
 import Home from '../Home';
+import Links from '../Links';
 import { connect } from 'react-redux';
 import { _start, _stop } from '../../functions/realtime';
+import _grabGraph from './_grabGraph.js';
 import './style.css';
 
 class DashboardContent extends React.Component {
@@ -12,8 +14,8 @@ class DashboardContent extends React.Component {
   }
 
   componentWillMount() {
-    //_start(this.props.timeLocation, this.props.units);
-    _start(this.props.timeLocation, 'metric');
+    _start(this.props.timeLocation, this.props.home.weatherData.Units);
+    _grabGraph();
   }
 
   componentWillUnmount() {
@@ -21,7 +23,7 @@ class DashboardContent extends React.Component {
   }
 
   render() {
-    console.log('map props', this.props.map);
+    console.log(this.props.home.weatherData.Units)
     return (
       <div className="grid">
         <div className="grid__left">
@@ -38,10 +40,14 @@ class DashboardContent extends React.Component {
             tooltip={this.props.tooltip}
             tooltipStatus={this.props.tooltipStatus}
           />
-          <Graph
-            days={['Monday', 'Monday', 'Monday', 'Monday', 'Monday']}
-            scores={[1.7, 2.3, 4.6, 4.2, 1.5]}
-          />
+
+          <div className="grid-right__bottom">
+            <Graph
+              days={['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']}
+              scores={[5, 3, 5, 3, 2, 4, 5]}
+            />
+            <Links />
+          </div>
         </div>
       </div>
     );

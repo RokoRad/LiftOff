@@ -4,6 +4,7 @@ import encode from './encode.js';
 import language from '../../languages';
 import { changeLoading } from '../../actions';
 import store from '../../store';
+import { Platform } from 'react-native';
 
 export default (data, history) => {
   store.dispatch(changeLoading());
@@ -12,7 +13,7 @@ export default (data, history) => {
       ...data,
       grant_type: 'password'
     };
-    fetch('http://liftoffapi.azurewebsites.net/token', {
+    fetch('http://liftoffinfokup.azurewebsites.net/token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -23,6 +24,14 @@ export default (data, history) => {
         if (response.status === 200) {
           AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
             history.push('/home');
+            if (Platform.OS === 'ios') {
+              // token ti je = JSON.parse(response._bodyInit).access_token
+              // drone ti je store.getState().settingsReducer.drone
+              // var Device = require('react-native').NativeModules.Device;
+              // Device.deviceName((name) => {
+              //   console.log(name)
+              // });
+            }
           });
         } else {
           Toast(`${language.serverError}`);

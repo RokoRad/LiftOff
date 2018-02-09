@@ -1,0 +1,3 @@
+## Reducers
+Reduceri su grupe funkcija koje definiraju tok komunikacije aplikacije sa Redux storeom.
+Svaki reducer ima defaultne vrijednosti, u slučaju prvog učitavnja. Zatim, povlači podatke iz lokalne memorije koje postavi kao primarne, a tek nakon toga, ovisno o nadolazećim akcijama proširuje vrijednosti iz Redux storea te ih prenosi kao trenutno stanje. Na ovaj način su strukturirani svi reduceri u ovoj aplikaciji.

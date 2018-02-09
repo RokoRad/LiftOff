@@ -1,3 +1,4 @@
+// dohvaćanje modula za kreiranje komponenti, ruta te svih prikaza aplikacije
 import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
 import styles from './styles.js';
@@ -13,15 +14,22 @@ import Settings from './views/Settings';
 import { Provider } from 'react-redux';
 import store from './store';
 
+// uklanjanje upozorenja za development mode
+console.disableYellowBox = true;
+
+// kreiranje klase koja je ovojnica aplikacije
 export default class App extends React.Component {
+  // stanje koje definira jesu li stilovi učitani
   state = {
     loaded: false
   };
 
+  // prije učitavanja, dohvaćamo fontove
   componentWillMount() {
     this.loadFonts();
   }
 
+  // poziv za linkanje fontova
   async loadFonts() {
     await Expo.Font.loadAsync({
       robotoLight: require('./fonts/Roboto-Light.ttf'),
@@ -29,16 +37,21 @@ export default class App extends React.Component {
       robotoMedium: require('./fonts/Roboto-Medium.ttf'),
       robotoBold: require('./fonts/Roboto-Bold.ttf')
     });
+    // nakon izvršavanja, stanje je pozitivno
     this.setState({ loaded: true });
   }
 
   render() {
+    // ako fontovi nisu uččitani, prikazuje se splash screen
     if (!this.state.loaded) {
       return <Expo.AppLoading />;
     } else {
+      // ako su se fontovi učitali, kreiramo ovojnicu aplikacije
       return (
+        // sve obuhvaćamo komponentom za rutiranje i redux storom
         <NativeRouter>
           <Provider store={store}>
+            {/* unutar okvira aplikacije, staturbar je sakriven te se definiraju prikazi */}
             <View style={styles.fullScreen}>
               <StatusBar hidden={true} />
               <Route exact strict path="/" component={Login} />
