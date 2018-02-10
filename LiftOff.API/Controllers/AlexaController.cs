@@ -16,7 +16,7 @@ namespace LiftOff.API.Controllers
     {
         [HttpPost]
         [AllowAnonymous]
-        [Route("get-rating")]
+        [Route("get-current-rating")]
         public object GetRatingForAlexa(JObject json)
         {
             string postalCode = (string)json["postalCode"];
