@@ -24,7 +24,7 @@ export default data => {
     .then(response => {
       if (response.status === 200) {
         response.json().then(value => {
-          console.log(value)
+          console.log("graph", value)
           // const location = value.weatherData.timeLocation.location;
 
           // store.dispatch(

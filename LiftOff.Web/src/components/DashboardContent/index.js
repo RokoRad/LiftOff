@@ -23,7 +23,6 @@ class DashboardContent extends React.Component {
   }
 
   render() {
-    console.log(this.props.home.weatherData.Units)
     return (
       <div className="grid">
         <div className="grid__left">
