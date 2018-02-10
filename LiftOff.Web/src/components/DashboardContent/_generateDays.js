@@ -1,14 +1,22 @@
 import language from '../../languages';
 
-let days = [],
-  reset;
+export default () => {
+  const today = new Date().getDay();
 
-const today = reset = new Date().getDay();
+  const numbers = [
 
-for (let i = today; i < today + 5; i++) {
-  reset++;
-  if (reset === 7) {
-    // reset = 1;
+  ]
+
+  let date = today;
+  numbers.push(language.Days[new Date().getDay()]);
+
+  for (let i = today; i < today + 4; i++) {
+    date += 1;
+    if (date === 7) {
+      date = 0;
+    }
+    numbers.push(language.Days[date]);
   }
-  console.log("i", reset);
+
+  return numbers
 }

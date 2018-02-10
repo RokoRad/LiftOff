@@ -43,7 +43,7 @@ class DashboardContent extends React.Component {
 
           <div className="grid-right__bottom">
             <Graph
-              days={['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']}
+              days={_generateDays()}
               scores={this.props.graph}
             />
             <Links />
