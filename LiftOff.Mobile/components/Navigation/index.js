@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import NavigationItem from '../NavigationItem';
 import styles from './styles.js';
 
+// wrapper navigacije
 export default ({ current }) => (
   <View style={styles.navigation}>
     <NavigationItem route="/home" type="FlySafe" current={current} />
