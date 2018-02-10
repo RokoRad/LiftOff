@@ -12,6 +12,7 @@ namespace LiftOff.API.Controllers
     [RoutePrefix("api/logging")]
     public class LoggingController : ApiController
     {
+        //Potrebne konekcije na bazu i njihova inicijacija i odlaganje 
         #region Dependancy management
 
         private readonly LiftOffRepo _liftOffRepo;

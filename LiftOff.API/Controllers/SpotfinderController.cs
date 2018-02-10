@@ -12,9 +12,11 @@ using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
+    //Controller zaduzen za spotfinder funkcionalnost
     [RoutePrefix("api/spotfinder")]
     public class SpotfinderController : ApiController
     {
+        //Ruta koja vraca najbolji rejting i njegovo mjesto i vrijeme u okolici odabrane lokacije
         [HttpPost]
         [Authorize]
         [Route("find-best-rating")]

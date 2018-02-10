@@ -12,14 +12,15 @@ namespace LiftOff.API.App_Start
 {
 	public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
 	{
+        //metoda za provjeravanje validnosti 
 		public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
 		{
 			context.Validated();
 		}
 
+        //"logiranje" korisnika, odnosno nabavljanje tokena
 		public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
 		{
-
 			context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
             ClaimsIdentity identity = new ClaimsIdentity(OAuthDefaults.AuthenticationType);

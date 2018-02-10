@@ -13,6 +13,7 @@ using System.Web;
 
 namespace LiftOff.API.Data.Repos
 {
+    //Repozitorij klasa za manipuliranje bazom podataka korisnickih racuna
 	public class AuthRepo : IDisposable
 	{
 		#region dependancy management
@@ -35,6 +36,7 @@ namespace LiftOff.API.Data.Repos
 
 		#endregion
 
+        //Metoda za registriranje korisnickog racuna u bazu
 		public async Task<IdentityResult> RegisterUser(User userModel)
 		{
 			IdentityUser user = new IdentityUser
@@ -58,12 +60,12 @@ namespace LiftOff.API.Data.Repos
 			return result;
 		}
 
+        //Metoda za pronalazak korisnika medu registriranim
 		public async Task<IdentityUser> FindUser(string userName, string password)
 		{
 			IdentityUser user = await _userManager.FindAsync(userName, password);
 
 			return user;
 		}
-
 	}
 }

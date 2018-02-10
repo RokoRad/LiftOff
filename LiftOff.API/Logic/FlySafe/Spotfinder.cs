@@ -7,8 +7,11 @@ using System.Web;
 
 namespace LiftOff.API.Logic.FlySafe
 {
+    //Klasa koja sadrzava metode spotfinder funkcionalnosti
     public class Spotfinder
     {
+        #region Singleton pattern
+
         private static Spotfinder _instance;
 
         private Spotfinder() { }
@@ -25,8 +28,11 @@ namespace LiftOff.API.Logic.FlySafe
             }
         }
 
+        #endregion
+
         private OpenWeatherAPI _openWeatherApi = new OpenWeatherAPI();
 
+        //Metoda koja dohvaca i probavlja podatke po lokacijsko-vremenskom rasteru i vraca najbolji dobiveni rezultat 
         public WeatherRating GetBestWeatherRatingNearLocation(TimeLocation timeLocation)
         {
             List<WeatherData> WeatherDataNearLocation = new List<WeatherData>();

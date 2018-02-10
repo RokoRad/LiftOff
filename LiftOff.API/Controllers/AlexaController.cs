@@ -11,9 +11,11 @@ using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
+    //Controller za funkcionalnosti Amazon Alexae, jos u procesu prosiravanja
     [RoutePrefix("api/alexa")]
     public class AlexaController : ApiController
     {
+        //Ruta za pribavljanje FlySafe procjene metodom i u formatu prikladan Alexi
         [HttpPost]
         [AllowAnonymous]
         [Route("get-current-rating")]

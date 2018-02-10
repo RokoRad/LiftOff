@@ -6,8 +6,11 @@ using System.Web;
 
 namespace LiftOff.API.Logic.SmartWatch
 {
+    //Klasa koja sadrzava mehanizme uparivanja mobilne i smartwatch aplikacije
     public class SmartwatchPairer
     {
+        #region Singleton
+
         private static SmartwatchPairer _instance;
 
         private SmartwatchPairer()
@@ -27,8 +30,11 @@ namespace LiftOff.API.Logic.SmartWatch
             }
         }
 
+        #endregion
+
         public static List<MobileDevice> RegisteredDevices = new List<MobileDevice>();
 
+        //Dodavanje mobilnog uredaja na dinamicki popis pracenih uredaja
         public void RegisterMobileDevice(string deviceID, string token, string droneName)
         {
             object lockObj = new object();
@@ -46,6 +52,7 @@ namespace LiftOff.API.Logic.SmartWatch
             }
         }
 
+        //Dohvacanje podataka potrebni smartwatchu registriranog mobilnog uredaja
         public TokenDroneDTO GetRegisteredMobileDeviceInfo(string deviceID)
         {
             var device = RegisteredDevices.FirstOrDefault(d => d.DeviceID == deviceID);
@@ -53,6 +60,7 @@ namespace LiftOff.API.Logic.SmartWatch
             return new TokenDroneDTO { Token = device.Token, DroneName = device.DroneName };
         }
 
+        //Mehanizam ciscenja suvislih podataka
         private void _initiateListCleaner()
         {
             var startTimeSpan = TimeSpan.Zero;

@@ -3,6 +3,7 @@ using System;
 
 namespace LiftOff.API.Models.Dynamic
 {
+    //Model vremenskih podataka
 	public class WeatherData
 	{
 		public TimeLocation TimeLocation { get; set; }

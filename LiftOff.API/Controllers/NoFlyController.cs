@@ -8,9 +8,11 @@ using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
+    //Controller za nofly zone zabranjenog leta na planning karti
     [RoutePrefix("api/nofly")]
     public class NoFlyController : ApiController
     {
+        //Potrebne konekcije na bazu i njihova inicijacija i odlaganje 
         #region Dependancy management
 
         private readonly LiftOffRepo _liftOffRepo;
@@ -32,6 +34,7 @@ namespace LiftOff.API.Controllers
 
         #endregion
 
+        //Ruta za dohvacanje nofly zona
         [HttpGet]
         [Authorize]
         [Route("get-nofly-zones")]

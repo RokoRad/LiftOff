@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 namespace LiftOff.API.Models.Dynamic
 {
+    //Model FlySafe procjene
 	public class WeatherRating
 	{
         public double? TotalRating { get; set; }

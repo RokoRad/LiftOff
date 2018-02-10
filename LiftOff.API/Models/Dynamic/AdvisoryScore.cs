@@ -6,6 +6,7 @@ using System.Web;
 
 namespace LiftOff.API.Models.Dynamic
 {
+    //Model savjetujuceg teksta
     public class AdvisoryRating
     {
         public string Croatian { get; set; } = "";

@@ -6,6 +6,7 @@ using System.Web;
 
 namespace LiftOff.API.Models.Persistent
 {
+    //Klasa koja definira podatke nofly zone za bazu podataka
     public class NoFlyZone
     {
         public int Id { get; set; }

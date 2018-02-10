@@ -7,6 +7,7 @@ using System.Web;
 
 namespace LiftOff.API.Models.Dynamic
 {
+    //Model mjesta-vremena, glavnog parametra sto se koristi unutar flysafe algoritma
     public class TimeLocation
     {
         public Coordinates Location { get; set; }

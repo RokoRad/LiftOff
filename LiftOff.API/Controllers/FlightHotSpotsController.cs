@@ -1,5 +1,6 @@
 ﻿using LiftOff.API.Logic.Statistics;
 using LiftOff.API.Models.Dynamic;
+using LiftOff.API.Models.Persistent;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -11,6 +12,7 @@ using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
+    //Controller zaduzen za funkcionalnost flight hotspotova
     [RoutePrefix("api/flight-hotspots")]
     public class FlightHotSpotsController : ApiController
     {
@@ -25,12 +27,11 @@ namespace LiftOff.API.Controllers
             if (!timeLocation.TimeIsValid()) return BadRequest("time requested is not valid");
             if (!timeLocation.LocationIsValid()) return BadRequest("location requested is not valid");
 
-            var flights = FlightHotSpots.ExecuteQuery(timeLocation);
+            List<Flight> flights = FlightHotSpots.ExecuteQuery(timeLocation);
 
             if (flights != null && flights.Count != 0)
                 return Ok(flights);
-            else
-                return Ok("no flights");
+            return Ok("no flights");
         }
     }
 }

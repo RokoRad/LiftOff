@@ -11,6 +11,7 @@ namespace LiftOff.API
 {
 	class Program
     {
+        //Dodatne konfiguracije za realtime
         static void Main(string[] args)
         {
 			//Long polling veze će čekati 110 sekunda za odgovor.
@@ -36,16 +37,19 @@ namespace LiftOff.API
 
 			ConfigureOAuth(app);
 
+            //Dodatne konfiguracija autentikacije
 			WebApiConfig.Register(config);
 			app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 			app.UseWebApi(config);
 
+            //Realtime konfiguracija
             var hubConfiguration = new HubConfiguration();
             hubConfiguration.EnableDetailedErrors = true;
             app.MapSignalR(hubConfiguration);
 		}
 
-		public void ConfigureOAuth(IAppBuilder app)
+        //Konfiguracija autentikacije
+        public void ConfigureOAuth(IAppBuilder app)
 		{
 			OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
 			{
@@ -55,10 +59,8 @@ namespace LiftOff.API
 				Provider = new SimpleAuthorizationServerProvider()
 			};
 
-            // Token Generation
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
 			app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
-
 		}
 	}
 }

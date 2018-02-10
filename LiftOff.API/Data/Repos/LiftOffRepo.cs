@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace LiftOff.API.Data
 {
-    //Klasa koja služi kao posrednik između baze podataka i ostatka aplikacije
+    //Repozitorij klasa koja služi kao posrednik između baze podataka i ostatka aplikacije
     public class LiftOffRepo : System.IDisposable
     {
         #region dependancy management
@@ -26,19 +26,19 @@ namespace LiftOff.API.Data
 
         #endregion
 
-        //Funkcija koja vraća korisnikove statistike
+        //Metoda koja vraća korisnikove statistike
         public StatisticsUser GetUserData(string userId)
         {
             return _liftOffContext.StatisticsUsers.FirstOrDefault(usr => usr.IdentityUserId == userId);
         }
 
-        //Funkcija koja vraća listu dronova koji su spremljeni u bazi
+        //Metoda koja vraća listu dronova koji su spremljeni u bazi
         public List<Drone> GetDrones()
         {
             return _liftOffContext.Drones.ToList();
         }
 
-        //Funkcija koja ažurira korisnikovu statistiku u skladu s novim letom
+        //Metoda koja ažurira korisnikovu statistiku u skladu s novim letom
         public StatisticsUser UpdateUserStats(Flight flight, string userId)
         {
             var user = _liftOffContext.StatisticsUsers.FirstOrDefault(usr => usr.IdentityUserId == userId);
@@ -67,7 +67,7 @@ namespace LiftOff.API.Data
             return user;
         }
 
-        //Funkcija koja vraća korisnikove spremljene letove
+        //Metoda koja vraća korisnikove spremljene letove
         public List<Flight> GetLogs(string userId)
         {
             var statsUserId = _liftOffContext.StatisticsUsers.FirstOrDefault(usr => usr.IdentityUserId == userId).Id;
@@ -77,7 +77,7 @@ namespace LiftOff.API.Data
             return flights;
         }
 
-        //Funkcija koja mijenja korisnikov izbor za pokazivanje leta ostalim korisnicima
+        //Metoda koja mijenja korisnikov izbor za pokazivanje leta ostalim korisnicima
         public void ShowFlightsSwitch(string userId)
         {
             var user = _liftOffContext.StatisticsUsers.First(usr => usr.IdentityUserId == userId);
@@ -85,11 +85,13 @@ namespace LiftOff.API.Data
             user.ShowWhereIFly = !user.ShowWhereIFly;
         }
 
+        //Metoda koja dohvaca dosad registrane zone zabranjenog leta
         public List<NoFlyZone> GetNoFlyZones()
         {
             return _liftOffContext.NoFlyZones.ToList();
         }
 
+        //Metoda koja dohvaca podatke o dronu na temelju imena drona
         public Drone GetDroneByName(string droneName)
         {
             return _liftOffContext.Drones.FirstOrDefault(d => d.Name == droneName);

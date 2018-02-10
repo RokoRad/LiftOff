@@ -12,6 +12,7 @@ namespace LiftOff.API.Controllers
     [RoutePrefix("api/account")]
 	public class AccountController : ApiController
 	{
+        //Potrebne konekcije na bazu i njihova inicijacija i odlaganje 
 		#region Dependancy management
 
 		private readonly AuthRepo _authRepo;
@@ -62,6 +63,7 @@ namespace LiftOff.API.Controllers
             return Ok();
         }
 
+        //Slijepa ruta za provjeravanje validnosti tokena
         [HttpGet]
         [Authorize]
         [Route("validate-token")]

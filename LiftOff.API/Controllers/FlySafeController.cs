@@ -14,9 +14,11 @@ using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
+    //Controller zaduzen za flysafe funkcionalnost
     [RoutePrefix("api/flysafe")]
     public class FlySafeController : ApiController
     {
+        //Potrebne konekcije na bazu i njihova inicijacija i odlaganje 
         #region Dependancy management
 
         private readonly LiftOffRepo _liftOffRepo;
@@ -38,6 +40,7 @@ namespace LiftOff.API.Controllers
 
         #endregion
 
+        //Ruta koja dohvaca FlySafe rating za vrijeme i lokaciju bez odredenog drona
         [HttpPost]
         [Authorize]
         [Route("get-rating")]
@@ -53,6 +56,7 @@ namespace LiftOff.API.Controllers
             return Ok(rating);
         }
 
+        //Ruta koja dohvaca FlySafe rating za vrijeme i lokaciju s odredenim dronom
         [HttpPost]
         [Authorize]
         [Route("get-rating-for-drone")]
@@ -71,6 +75,7 @@ namespace LiftOff.API.Controllers
             return Ok(rating);
         }
 
+        //Ruta koja dohvaca paket FlySafe procjena za prognozirana vremena u buducnosti na odredenoj lokaciji
         [HttpPost]
         [Authorize]
         [Route("get-prognosis-for-location")]
@@ -83,6 +88,7 @@ namespace LiftOff.API.Controllers
             return Ok(Weatherer.Instance.GetPrognosisForLocation(timeLocation));
         }
         
+        //Ruta koja dohvaca podrzane dronove
         [HttpGet]
         [Authorize]
         [Route("get-drones")]

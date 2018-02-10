@@ -12,6 +12,7 @@ using System.Xml.Linq;
 
 namespace LiftOff.API.Logic
 {
+    //Klasa zaduzena za pribavljanje vremenskih podataka
 	public class OpenWeatherAPI
 	{
 		private readonly string _openWeatherAPIKey = LogicParameters.OpenWeatherAPIKey;
@@ -20,9 +21,10 @@ namespace LiftOff.API.Logic
 		private enum _openWeatherAPIs { weather, uvi, forecast}
         private enum _openWeatherModes { json, xml, postal}
 
-
+        //Osnovno dohvacanje seta vremenskih podataka
         public WeatherData GetWeatherDataFromApi(TimeLocation timeLocation)
         {
+            //Vrse se razlicita dohvacanja ovisno radi li se o trenutnom stanju ili prognozi
             if (!timeLocation.IsForecast())
                 return _weatherDataFromJObject(
                     timeLocation,
@@ -38,6 +40,7 @@ namespace LiftOff.API.Logic
 
         }
 
+        //Dohvacanje veceg paketa prognoza
         public List<WeatherData> GetForecastsPackageFromApi(TimeLocation timeLocation)
         {
             return _weatherDataForecastsFromForecastJObject(
@@ -46,6 +49,7 @@ namespace LiftOff.API.Logic
                 );
         }
 
+        //Dohvacanje po specificnoj metodi postanskog broja u skladu s Aleksom
         public WeatherData GetAlexaWeatherData(string postalCode, string state)
         {
             HttpWebRequest requestURL = WebRequest.Create(
@@ -65,7 +69,7 @@ namespace LiftOff.API.Logic
             return _weatherDataFromJObject(null, JObject.Parse(apiResponse), null, null);
         }
 
-
+        //Metoda koji vrsi sami zahtjev ovisno o proslijedenim postavkama poziva
         private JObject _requestApi(_openWeatherAPIs api, _openWeatherModes mode, TimeLocation timeLocation)
 		{
 			HttpWebRequest requestURL = WebRequest.Create(
@@ -94,6 +98,7 @@ namespace LiftOff.API.Logic
             return json;
 		}
 
+        //pretvaranje JSON modela u C# objekt
         private T? _parseTo<T>(JObject fromObject, string[] keys) where T : struct
         {
             var parsingToken = fromObject as JToken;
@@ -131,6 +136,7 @@ namespace LiftOff.API.Logic
             return dtDateTime;
         }
 
+        //Metoda koja spaja i parsira rezultate s vise izvora za trenutno vrijeme
         private WeatherData _weatherDataFromJObject(TimeLocation timeLocation, JObject weatherJson, JObject uviJson, JObject visibilityJson)
 		{
             return new WeatherData()
@@ -154,6 +160,7 @@ namespace LiftOff.API.Logic
             };
 		}
 
+        //Metoda koja parsira rezultate za buduce vrijeme
         private WeatherData _weatherDataFromForecastJObject(TimeLocation timeLocation, JObject forecast)
         {
             JObject jWeatherData = new JObject();
@@ -187,6 +194,7 @@ namespace LiftOff.API.Logic
             };
         }
 
+        //Metoda koja parsira pakete rezultata
         private List<WeatherData> _weatherDataForecastsFromForecastJObject(TimeLocation timeLocation, JObject forecast)
         {
             List<WeatherData> WeatherDataForecasts = new List<WeatherData>();

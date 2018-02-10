@@ -15,6 +15,7 @@ namespace LiftOff.API.Data
 			//Lista dronova koje LiftOff podržaje i koji se učitaju u bazu
             context.Drones.AddRange(LogicParameters.SupportedDrones);
 
+            //Lista dosad registriranih zona zabranjenih letova
             context.NoFlyZones.AddRange(LogicParameters.NoFlyZones);
 
             context.SaveChanges();

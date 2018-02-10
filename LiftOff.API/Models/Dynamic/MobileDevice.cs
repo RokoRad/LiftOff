@@ -5,6 +5,7 @@ using System.Web;
 
 namespace LiftOff.API.Models.Dynamic
 {
+    //Model mobilnog uredaja
     public struct MobileDevice
     {
         public string DeviceID { get; set; }
