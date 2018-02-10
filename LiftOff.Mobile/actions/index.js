@@ -10,7 +10,6 @@ export const changeAllow = payload => ({
   payload
 });
 
-
 export const toggleStopwatch = payload => ({
   type: 'TOGGLE_STOPWATCH',
   payload

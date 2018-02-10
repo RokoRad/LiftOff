@@ -36,3 +36,9 @@ export const changeUnits = payload => ({
   type: 'CHANGE_UNITS',
   payload
 });
+
+export const updateGraph = payload => ({
+  type: 'UPDATE_GRAPH',
+  payload
+});
+

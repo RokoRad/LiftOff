@@ -25,7 +25,7 @@ class UnitsChange extends Component {
           inActiveText={'mil'}
         />
       </View>
-    )
+    );
   }
 }
 

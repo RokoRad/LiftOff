@@ -71,4 +71,4 @@ Animatable.initializeRegistryWithDefinitions({
 });
 
 // funkcija koja za primljeni parametar vraća istoimeni objekt
-export default (value) => value;
+export default value => value;

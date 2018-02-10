@@ -29,7 +29,6 @@ const _updateTimeLocation = async object => {
 
 const _changeUnits = async () => {
   proxy.invoke('changeUnits');
-  console.log("invoked")
 };
 
 const _stop = async () => {

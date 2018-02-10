@@ -7,7 +7,6 @@ import _distance from './_distance.js';
 
 export default ({ list, loaded }) => {
   const nester = list.weatherData;
-  console.log(list.TotalRating)
   return (
     <div className="home__list">
       <HomeItem

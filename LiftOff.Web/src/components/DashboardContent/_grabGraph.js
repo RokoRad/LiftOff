@@ -1,8 +1,9 @@
 import 'whatwg-fetch';
 import headers from '../../functions/headers';
 import language from '../../languages';
-import store from '../../store';
 import removeToken from '../../functions/removeToken';
+import store from '../../store';
+import { updateGraph } from '../../actions';
 import storage from '../../functions/storage';
 
 export default data => {
@@ -13,7 +14,7 @@ export default data => {
     longitude: stored.lng
   };
 
-  fetch('http://liftoffinfokup.azurewebsites.net/api/weather/getPrognosisForLocation', {
+  fetch('http://liftoffinfokup.azurewebsites.net/api/flysafe/get-prognosis-for-location', {
     method: 'POST',
     headers: headers(),
     body: JSON.stringify({
@@ -24,26 +25,14 @@ export default data => {
     .then(response => {
       if (response.status === 200) {
         response.json().then(value => {
-          console.log(value)
-          // const location = value.weatherData.timeLocation.location;
-
-          // store.dispatch(
-          //   updateLocation({
-          //     lat: location.latitude,
-          //     lng: location.longitude
-          //   })
-          // );
-
-          // store.dispatch(
-          //   setMarker({
-          //     lat: location.latitude,
-          //     lng: location.longitude
-          //   })
+          let scores = [];
+          value.map(score => {
+            scores.push(score.totalRating);
+          });
+          store.dispatch(
+            updateGraph(scores)
+          );
         });
-
-        // store.dispatch(updateHome(_recall(value)));
-        // storage.set('@realtime', JSON.stringify(_recall(value)));
-
       } else if (response.status === 401) {
         removeToken();
       } else {
