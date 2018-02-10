@@ -4,6 +4,7 @@ import styles from './styles.js';
 import language from '../../languages';
 import capitalize from '../../functions/capitalize';
 
+// komponenta za textinput - unos
 export default ({ type, onChangeText }) => (
   <ScrollView contentContainerStyle={styles.wrapper} scrollEnabled={false}>
     <TextInput

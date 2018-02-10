@@ -1,6 +1,5 @@
 import React from 'react';
-import Expo from 'expo';
-import { View, Text, Picker, AsyncStorage, TouchableWithoutFeedback, CheckBox } from 'react-native';
+import { View, Text, Picker, TouchableWithoutFeedback, CheckBox } from 'react-native';
 import vars from '../../config/vars.js';
 import Button from '../../components/Button';
 import styles from './styles.js';
@@ -30,15 +29,3 @@ export default ({ location, history }) => (
     </View>
   </Screen>
 );
-
-// promjena jezika invoka refreshanje aplikaicje jer je jezik pohranjen u lokalnoj memoriji
-const changeLanguage = () => {
-  AsyncStorage.getItem('@language').then(response => {
-    if (response === 'hr') {
-      AsyncStorage.setItem('@language', 'en');
-    } else {
-      AsyncStorage.setItem('@language', 'hr');
-    }
-    Expo.Util.reload();
-  });
-};
