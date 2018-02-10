@@ -7,7 +7,6 @@ import globals from '../../config/styles.js';
 import { MapView } from 'expo';
 import round from '../../functions/round';
 
-// tooltip koji se prikazuje na mapi nakon što se fetchanje podatakak o spotfinderu izvrši
 export default ({ location, time, rating }) => (
   <MapView.Callout style={styles.wrapper}>
     <View>

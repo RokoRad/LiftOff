@@ -11,7 +11,6 @@ class Button extends React.Component {
   }
 
   render() {
-    // tekst wrappan u touchable komponentu koja za propse prenosi zadane
     return (
       <TouchableOpacity
         onPress={this.props.onPress}
@@ -20,7 +19,6 @@ class Button extends React.Component {
         disabled={this.props.loading}
       >
         <View style={styles.buttonWrapper}>
-          {/* ovisno o stanju loadinga prikazuje sdržaj u obliku: */}
           {this.props.loading ? _loading() : _default(this.props.type)}
         </View>
       </TouchableOpacity>

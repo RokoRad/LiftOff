@@ -7,7 +7,6 @@ import styles from './styles.js';
 import _onChange from './_onChange.js';
 
 export default () => {
-  // ovisno o trenutnom jeziku vrši se promeja switcha
   let active;
   if (language.language === 'Croatian') {
     active = true;

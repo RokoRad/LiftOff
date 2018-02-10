@@ -3,7 +3,7 @@ import Dock from '../Dock';
 import './style.css';
 import mapStyle from './style.js';
 import _setMarker from './_setMarker.js';
-import { Map, GoogleApiWrapper, Marker, Polygon } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import Search from '../Search';
 
 class MapContainer extends React.Component {
@@ -12,13 +12,6 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    var triangleCoords = [
-      { lat: 43.538882, lng: 16.3883400 },
-      { lat: 43.5007916, lng: 16.241055 },
-      { lat: 43.482360, lng: 16.465588 }
-    ];
-    const { google } = this.props || undefined;
-    const zoom = 10;
     return (
       <div className="map__container">
         <Search />
@@ -30,20 +23,18 @@ class MapContainer extends React.Component {
           initialCenter={this.props.location}
           center={this.props.location}
           onClick={(a, b, event) => _setMarker(event)}
-          zoom={this.props.zoom}
-          ref={(map) => { this.map = map }}
+          zoom={12}
         >
           <Marker position={this.props.marker} icon={require('../../images/map/pin.png')} />
-          <Marker
-            position={{
-              lat: 43.55,
-              lng: 16.47
-            }}
-            icon={require('../../images/map/zone.png')}
-          />
+          {this.props.zones.map(zone => {
+            <Marker
+              position={zone.location}
+              icon={require('../../images/map/zone.png')}
+            />
+          })}
         </Map>
         <Dock display={this.props.tooltipStatus} />
-      </div >
+      </div>
     );
   }
 }

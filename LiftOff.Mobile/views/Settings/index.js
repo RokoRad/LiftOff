@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Picker, TouchableWithoutFeedback, CheckBox } from 'react-native';
+import Expo from 'expo';
+import { View, Text, Picker, AsyncStorage, TouchableWithoutFeedback, CheckBox } from 'react-native';
 import vars from '../../config/vars.js';
 import Button from '../../components/Button';
 import styles from './styles.js';
@@ -13,7 +14,6 @@ import LogPermission from '../../components/LogPermission';
 import Break from '../../components/Break';
 import _logout from './_logout.js';
 
-// ovojnica settings komponenti
 export default ({ location, history }) => (
   <Screen current={location} style={styles.settings}>
     <View style={styles.wrapper}>
@@ -29,3 +29,14 @@ export default ({ location, history }) => (
     </View>
   </Screen>
 );
+
+const changeLanguage = () => {
+  AsyncStorage.getItem('@language').then(response => {
+    if (response === 'hr') {
+      AsyncStorage.setItem('@language', 'en');
+    } else {
+      AsyncStorage.setItem('@language', 'hr');
+    }
+    Expo.Util.reload();
+  });
+};

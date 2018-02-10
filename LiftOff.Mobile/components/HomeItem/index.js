@@ -16,7 +16,7 @@ const icons = {
   wind: require('../../images/weather/wind-min.png')
 };
 
-// sučelje prikaza home item komponente u što manje inner komponente
+// metric i imperial
 
 export default ({ type, fVal, sVal, fName, sName, fAddon, sAddon, rating }) => (
   <View style={styles.wrapper}>

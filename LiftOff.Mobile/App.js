@@ -15,7 +15,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 // uklanjanje upozorenja za development mode
-// console.disableYellowBox = true;
+console.disableYellowBox = true;
 
 // kreiranje klase koja je ovojnica aplikacije
 export default class App extends React.Component {

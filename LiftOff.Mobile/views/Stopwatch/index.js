@@ -16,7 +16,6 @@ class Stopwatch extends Component {
   }
 
   render() {
-    // ui viewa sastoji se od komponenti koje dohvaćaju propse
     return (
       <Screen current={this.props.location}>
         <SafetyscoreStopwatch

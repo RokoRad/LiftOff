@@ -10,7 +10,6 @@ class Dropdown extends Component {
   }
 
   render() {
-    // prikaz dropdowna dronova koje korisnik moze odabrati
     return (
       <Picker
         selectedValue={this.props.drone}

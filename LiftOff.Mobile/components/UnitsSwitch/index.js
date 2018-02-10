@@ -14,7 +14,6 @@ class UnitsChange extends Component {
   }
 
   render() {
-    //switch za promjenu jedinica
     return (
       <View style={styles.wrapper}>
         <Text style={styles.text}>{language.changeUnits}</Text>
@@ -25,7 +24,7 @@ class UnitsChange extends Component {
           inActiveText={'mil'}
         />
       </View>
-    );
+    )
   }
 }
 

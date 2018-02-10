@@ -14,19 +14,19 @@ import _getCurrentLocation from './_getCurrentLocation.js';
 import _changeCenter from './_changeCenter.js';
 import _setMarker from './_setMarker.js';
 import _currentTime from './_currentTime.js';
+import _noFly from './_noFly.js';
 
 class Map extends Component {
   constructor(props) {
     super(props);
   }
 
-  // prilikom prvog renderiranje pokreće se funckija za gettanje trenutne gps lokacije
   componentWillMount() {
     _getCurrentLocation();
   }
 
   render() {
-    // prikaz mape i svih komponenti koje se prikazuju
+    _noFly();
     return (
       <Screen current={this.props.location}>
         <Search />
@@ -44,14 +44,9 @@ class Map extends Component {
           showsCompass={false}
           showsScale={false}
         >
-          <Circle
-            location={{
-              latitude: 43.523102,
-              longitude: 16.425945
-            }}
-            radius={500}
-          />
-
+          {this.props.zones.map((zone) => {
+            <Circle location={zone.location} radius={zone.radius} key={zone.id} />
+          })}
           <Marker
             location={this.props.markerPosition}
             city={this.props.tooltip.city}

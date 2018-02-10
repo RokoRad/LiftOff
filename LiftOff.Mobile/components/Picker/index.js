@@ -5,12 +5,10 @@ import styles from './styles.js';
 import _hideTooltip from './_hideTooltip.js';
 import _dateChange from './_dateChange.js';
 
-// konstante za datepickera
 const today = new Date().toISOString().slice(0, 10),
   inFive = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10),
   image = require('../../images/map/date.png');
 
-// ui sučelje datepickera
 export default ({ history }) => (
   <View style={styles.item}>
     <DatePicker

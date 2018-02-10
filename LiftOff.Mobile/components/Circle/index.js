@@ -1,7 +1,6 @@
 import React from 'react';
 import { MapView } from 'expo';
 
-// komponenta nofly zone
 export default ({ location, radius }) => (
   <MapView.Circle
     center={location}

@@ -5,7 +5,6 @@ import StopwatchLog from '../StopwatchLog';
 import uppercase from '../../functions/uppercase';
 import language from '../../languages';
 
-// porikazivanje tablice letova
 export default ({ data, hidden, history }) => (
   <View style={[styles.wrapper, hidden === 0 ? styles.hidden : null]}>
     <View style={styles.head}>

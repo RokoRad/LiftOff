@@ -5,29 +5,26 @@ import { updateHome } from '../../actions';
 import Toast from '../../functions/toast';
 import language from '../../languages';
 
-// definiranje huba na koji će se naša realtime komunikacija ostvariti
 const connection = signalr.hubConnection('http://liftoffinfokup.azurewebsites.net/signalr'),
   proxy = connection.createHubProxy('weatherHub');
 
-// funkcija koja se izvrši nakon što server dostavi nove podatke
 proxy.on('broadcastWeather', response => {
   store.dispatch(updateHome(response));
   AsyncStorage.setItem('@realtime', JSON.stringify(response));
+  console.log(response)
 });
 
-// funkcija start koja pokreće našu konekciju
-const _start = async (object, units) => {
+const _start = async (object, drone, units) => {
   connection
     .start()
     .done(() => {
-      proxy.invoke('initiateConnection', object, units);
+      proxy.invoke('initiateConnection', object, drone, units);
     })
     .fail(() => {
       Toast(`${language.serverError}`);
     });
 };
 
-// funkcija za zaustavljanje konekcije
 const _stop = async () => {
   connection.stop();
 };

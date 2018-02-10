@@ -6,7 +6,7 @@ import { updateMarkers } from '../../actions';
 
 export default (location, history) => {
   AsyncStorage.getItem('@token').then(token => {
-    fetch('http://liftoffinfokup.azurewebsites.net/api/flights/getFlightsNearMe', {
+    fetch('http://liftoffinfokup.azurewebsites.net/api/flight-hotspots/get-flights-near-me', {
       method: 'POST',
       headers: headers(token),
       body: JSON.stringify({
@@ -17,10 +17,11 @@ export default (location, history) => {
         time: new Date()
       })
     }).then(response => {
+      console.log(response)
       if (response.status === 200) {
-        if (JSON.parse(response._bodyInit) === 'no flights') {
-          // no flights
-        } else {
+        if (JSON.parse(response._bodyInit) !== 'no flights') {
+
+
           // set state
         }
       } else if (response.status === 401) {

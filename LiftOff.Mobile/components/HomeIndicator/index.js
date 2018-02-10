@@ -5,7 +5,6 @@ import language from '../../languages';
 import _getTime from './_getTime.js';
 import _restore from './_restore.js';
 
-// ui ovojnica top komponente na home sučelju
 export default ({ time }) => (
   <View style={styles.wrapper}>
     <Text style={styles.left}>{language.Indicator}</Text>

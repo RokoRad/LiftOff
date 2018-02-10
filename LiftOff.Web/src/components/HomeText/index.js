@@ -11,8 +11,6 @@ export default ({ content, rating }) => (
         {language.language === 'Croatian' ? content.Croatian : content.English}
       </div>
     </div>
-    <div className="home__number">
-      {round(rating)}
-    </div>
+    <div className="home__number">{round(rating)}</div>
   </div>
 );

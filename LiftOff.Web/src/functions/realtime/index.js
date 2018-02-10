@@ -10,13 +10,15 @@ const connection = hubConnection('http://liftoffinfokup.azurewebsites.net/signal
 proxy.on('broadcastWeather', response => {
   store.dispatch(updateHome(response));
   storage.set('@realtime', JSON.stringify(response));
+  console.log("a");
 });
 
 const _start = async (object, units) => {
   connection
     .start()
     .done(() => {
-      proxy.invoke('initiateConnection', object, units);
+      proxy.invoke('initiateConnection', object, '', units);
+      console.log("started")
     })
     .fail(() => {
       alert(`${language.serverError}`);

@@ -9,14 +9,12 @@ import InitialLink from '../../components/InitialLink';
 import Button from '../../components/Button';
 import InitialBackground from '../../components/InitialBackground';
 
-// privremena memroija regster podataka
 const holder = {
   username: '',
   email: '',
   password: ''
 };
 
-// view koji sadrži logo, formu i botun za registraciju
 export default ({ history }) => (
   <View style={inital.screen}>
     <InitialBackground />

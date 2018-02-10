@@ -5,7 +5,6 @@ import _calibration from './_calibration.js';
 
 const image = require('../../images/map/crosshair.png');
 
-// komponentea spotfinder sunkcijonalnosti
 export default ({ history }) => (
   <TouchableWithoutFeedback onPress={() => _calibration(history)}>
     <View style={styles.item}>

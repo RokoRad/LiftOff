@@ -20,7 +20,7 @@
     "expo": "^23.0.4",
     "prettier": "^1.10.2",
     "react": "16.0.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
+    "react-native": "0.50.3",
     "react-native-animatable": "^1.2.4",
     "react-native-keyboard-spacer": "^0.4.1",
     "react-native-signalr": "^1.0.6",

@@ -4,7 +4,6 @@ import { MapView } from 'expo';
 import Callout from '../Callout';
 import styles from './styles.js';
 
-// definiranje podataka markera te njegovo kreiranje
 export default ({ location, city, time, rating }) => (
   <MapView.Marker
     image={require('../../images/map/pin.png')}

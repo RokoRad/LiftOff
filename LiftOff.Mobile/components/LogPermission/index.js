@@ -13,13 +13,12 @@ class LogPermission extends Component {
   }
 
   render() {
-    // prikazuje se checkbox za promjenu permissije svaenja podataka
     return (
       <View style={styles.wrapper}>
         <Text style={styles.text}>{language.Permission}</Text>
         <CheckBox value={this.props.allow} onValueChange={() => _onChange(this.props.history)} />
       </View>
-    );
+    )
   }
 }
 

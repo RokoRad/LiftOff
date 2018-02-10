@@ -10,6 +10,7 @@ export const changeAllow = payload => ({
   payload
 });
 
+
 export const toggleStopwatch = payload => ({
   type: 'TOGGLE_STOPWATCH',
   payload
@@ -91,5 +92,10 @@ export const changeDrone = payload => ({
 
 export const changeUnits = payload => ({
   type: 'CHANGE_UNITS',
+  payload
+});
+
+export const updateZones = payload => ({
+  type: 'UPDATE_ZONES',
   payload
 });

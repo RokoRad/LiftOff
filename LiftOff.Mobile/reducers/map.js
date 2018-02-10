@@ -9,6 +9,13 @@ const deltas = {
 };
 
 const initialState = {
+  zones: [
+    {
+      id: 0,
+      location: initialLocation,
+      radius: 0
+    }
+  ],
   map: {
     ...initialLocation,
     ...deltas
@@ -27,6 +34,14 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case 'UPDATE_ZONES':
+      return {
+        ...state,
+        zones: [
+          ...state.zones,
+          ...action.payload
+        ]
+      };
     case 'UPDATE_LOCATION':
       return {
         ...state,

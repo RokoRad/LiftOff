@@ -9,7 +9,6 @@ import InitialLink from '../../components/InitialLink';
 import Button from '../../components/Button';
 import InitialBackground from '../../components/InitialBackground';
 
-// privremena memorija login podataka
 const holder = {
   username: '',
   password: ''
@@ -21,7 +20,6 @@ export default class Login extends React.Component {
   }
 
   componentWillMount() {
-    // ako token postoji, slijedi redirect na home
     AsyncStorage.getItem('@token').then(response => {
       if (response !== null) {
         this.props.history.push('/home');

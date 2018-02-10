@@ -3,7 +3,6 @@ import { Switch } from 'react-native-switch';
 import styles from './styles.js';
 import vars from '../../config/vars.js';
 
-// definiranje komponente switcha
 export default props => (
   <Switch
     circleSize={50}

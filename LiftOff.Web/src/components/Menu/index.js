@@ -10,13 +10,15 @@ import './style.css';
 
 export default ({}) => (
   <div className="menu">
-    <div onClick={() => _closeMenu()} className="menu__close">X</div>
+    <div onClick={() => _closeMenu()} className="menu__close">
+      X
+    </div>
 
     <div className="menu__item">
       <span className="menu-item__text">{language.changeUnits}</span>
       <label class="switch" onClick={() => _changeUnits()}>
         <input type="checkbox" />
-        <span class="slider round"></span>
+        <span class="slider round" />
       </label>
     </div>
 
@@ -24,10 +26,9 @@ export default ({}) => (
       <span className="menu-item__text">{language.changeLanguage}</span>
       <label class="switch" onClick={() => _changeLanguage()}>
         <input type="checkbox" />
-        <span class="slider round"></span>
+        <span class="slider round" />
       </label>
     </div>
-
 
     <Button onClick={() => removeToken()}>{language.Logout}</Button>
   </div>

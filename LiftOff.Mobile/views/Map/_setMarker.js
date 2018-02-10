@@ -5,10 +5,9 @@ import store from '../../store';
 import { setMarker, updateLocation, tooltipStatus, updateTooltip } from '../../actions';
 
 export default (value, history) => {
-  value.persist(); // eventiranje react nativea
-  // dohvaćanje tokena te slajne requesta za dohvaćanje podataka o novoj lokaciji
+  value.persist();
   AsyncStorage.getItem('@token').then(token => {
-    fetch('http://liftoffinfokup.azurewebsites.net/api/weather/getScore', {
+    fetch('http://liftoffinfokup.azurewebsites.net/api/flysafe/get-rating', {
       method: 'POST',
       headers: headers(token),
       body: JSON.stringify({
@@ -21,7 +20,6 @@ export default (value, history) => {
     }).then(response => {
       if (response.status === 200) {
         const parsed = JSON.parse(response._bodyInit);
-        // ažuriranje lokalnih podataka
         store.dispatch(
           updateTooltip({
             city: parsed.weatherData.city,
@@ -33,7 +31,7 @@ export default (value, history) => {
       }
     });
   });
-  // ažuriranje ostalih lokalnih podataka
+
   store.dispatch(setMarker(value.nativeEvent.coordinate));
   store.dispatch(tooltipStatus((store.getState().mapReducer.tooltipStatus = true)));
 };

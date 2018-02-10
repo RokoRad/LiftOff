@@ -6,9 +6,8 @@ import _speed from './_speed.js';
 import _temperature from './_temperature.js';
 import _distance from './_distance.js';
 
-// lista komponenti je uvijek ista i ručno namještena iz razloga što se može na serveru mijenjati, stoga nije korištena lista
 export default ({ list, loaded }) => {
-  const nester = list.weatherData;
+  const nester = list.WeatherData;
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 7 }}>
       <HomeItem

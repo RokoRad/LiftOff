@@ -37,8 +37,7 @@ export const changeUnits = payload => ({
   payload
 });
 
-export const updateGraph = payload => ({
-  type: 'UPDATE_GRAPH',
+export const updateZones = payload => ({
+  type: 'UPDATE_ZONES',
   payload
 });
-

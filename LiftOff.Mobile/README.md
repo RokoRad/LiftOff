@@ -1,16 +1,12 @@
 # Uvod
 U ovom fileu pronalaze se upute za instaliranje i pokretanje aplikacije. U slučaju greške, ispod se pronalaze upute za debuggiranje najčešćih, no u slučaju neke druge greške, možete me kontaktirati na [drazen@dump.hr](mailto:drazen@dump.hr "drazen@dump.hr") kako bi vas uputio u detaljnije riješavanje problema.
 
-# Setupiranje mobilne aplikacije
-## Mobilna aplikacija
+# Setupiranje
 1. Instalirati najnoviju verziju Nodea i pacakge managera (Yarn/NPM).
 2. Pokrenuti instalaciju sa `yarn` ili `npm install`.
 3. Instalirati Expo aplikaciju na mobilnom uređaju.
 4. Pokrenuti projekt sa `yarn start` ili `npm start`.
 5. Skenirati QR kod iz konzole nakon pokretanja servera preko Expoa.
-
-## iOS (Smartwatch)
-Upute za ostvarivanje veze sa iOS uređajima koji imaju pristup Apple watchu mogu se pronaći u `\ios` folderu.
 
 # Najčešće greške
 ### Setting a timer for a long period of time

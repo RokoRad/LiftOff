@@ -1,9 +1,8 @@
 import 'whatwg-fetch';
 import headers from '../../functions/headers';
 import language from '../../languages';
-import removeToken from '../../functions/removeToken';
 import store from '../../store';
-import { updateGraph } from '../../actions';
+import removeToken from '../../functions/removeToken';
 import storage from '../../functions/storage';
 
 export default data => {
@@ -25,14 +24,25 @@ export default data => {
     .then(response => {
       if (response.status === 200) {
         response.json().then(value => {
-          let scores = [];
-          value.map(score => {
-            scores.push(score.totalRating);
-          });
-          store.dispatch(
-            updateGraph(scores)
-          );
+          console.log(value);
+          // const location = value.weatherData.timeLocation.location;
+
+          // store.dispatch(
+          //   updateLocation({
+          //     lat: location.latitude,
+          //     lng: location.longitude
+          //   })
+          // );
+
+          // store.dispatch(
+          //   setMarker({
+          //     lat: location.latitude,
+          //     lng: location.longitude
+          //   })
         });
+
+        // store.dispatch(updateHome(_recall(value)));
+        // storage.set('@realtime', JSON.stringify(_recall(value)));
       } else if (response.status === 401) {
         removeToken();
       } else {

@@ -6,7 +6,11 @@ import './style.css';
 
 export default ({ list, time, rating }) => (
   <div className="home">
-    <HomeRating color={colorGenerator(rating)} string={list.AdvisoryRating} rating={list.TotalRating} />
+    <HomeRating
+      color={colorGenerator(rating)}
+      string={list.AdvisoryRating}
+      rating={list.TotalRating}
+    />
     {/* <HomeIndicator time={time} /> */}
     <HomeList list={list} />
   </div>

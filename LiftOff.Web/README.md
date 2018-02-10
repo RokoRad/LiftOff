@@ -3,3 +3,6 @@
 2. Pokrenuti instalaciju sa `yarn` ili `npm install`.
 3. Buildati projekt sa `yarn build` ili `npm build`
 4. Pokrenuti projekt sa `yarn start` ili `npm start`.
+
+# Debugiranje
+1. U slučaju 503 - Unexpected errora priliom porketanje web stranice te ažuriranja podataka sa mape, obratite nam se na mail drazen@dump.hr
