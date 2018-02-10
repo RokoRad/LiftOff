@@ -7,6 +7,7 @@ import { updateLocation, setMarker } from '../../actions';
 export default history => {
   const stored = store.getState().mapReducer.markerPosition;
 
+  // dohvaćanje trenutne lokacije
   const location = {
     latitude: stored.latitude,
     longitude: stored.longitude
@@ -22,12 +23,14 @@ export default history => {
       })
     }).then(response => {
       if (response.status === 200) {
+        // podatke o kalibraciji sprema u redux store
         const parsed = JSON.parse(response._bodyInit).weatherData.timeLocation;
         store.dispatch(
           updateLocation({
             ...parsed.location
           })
         );
+        // mijenja pozociji markera
         store.dispatch(
           setMarker({
             ...parsed.location

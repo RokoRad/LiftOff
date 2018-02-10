@@ -6,6 +6,7 @@ import language from '../../languages';
 
 let input;
 
+// komponenta pretranje koja sadrži input field
 export default () => (
   <ScrollView contentContainerStyle={styles.wrapper} style={styles.out} scrollEnabled={false}>
     <TextInput

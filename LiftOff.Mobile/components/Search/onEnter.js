@@ -3,6 +3,7 @@ import { updateLocation } from '../../actions';
 import key from '../../config/googleKey.js';
 
 export default value => {
+  // fetchanje googleapi podataka o lokaciji te njihovo ažuriranje u storeu
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${key}`).then(
     response => {
       const data = JSON.parse(response._bodyInit),
@@ -13,10 +14,6 @@ export default value => {
           longitude: parsed.lng
         })
       );
-      // findNodeHandle(this.map).animateToCoordinate({
-      //   latitude: 22,
-      //   longitude: 22
-      // }, 5000);
     }
   );
 };

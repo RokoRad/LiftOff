@@ -8,6 +8,7 @@ import animationGenerator from '../../functions/animationGenerator';
 import round from '../../functions/round';
 import language from '../../languages';
 
+// top ui komponenta za home sučelje
 export default ({ string, rating }) => (
   <View style={[styles.wrapper, styles[colorGenerator(rating)]]}>
     <View style={[styles.top, styles.bothAligned]}>

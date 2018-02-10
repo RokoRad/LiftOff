@@ -12,7 +12,6 @@ export default async () => {
     enableHighAccuracy: true,
     maximumAge: 900
   }).then(response => {
-    // store.dispatch(updateLocation(value));
-    console.log('gps', response)
+
   });
 };

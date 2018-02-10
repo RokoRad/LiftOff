@@ -5,6 +5,7 @@ import language from '../../languages';
 import _getTime from './_getTime.js';
 import _restore from './_restore.js';
 
+// ui ovojnica top komponente na home sučelju
 export default ({ time }) => (
   <View style={styles.wrapper}>
     <Text style={styles.left}>{language.Indicator}</Text>
@@ -13,15 +14,15 @@ export default ({ time }) => (
         {_getTime(time) === _getTime(new Date().toISOString()) ? (
           <Text style={styles.rightText}>{language.Now}</Text>
         ) : (
-          <View style={styles.inner}>
-            <Text style={styles.rightText}>{_getTime(time)}</Text>
-            <Image
-              source={require('../../images/restore.png')}
-              style={styles.image}
-              resizeMode="contain"
-            />
-          </View>
-        )}
+            <View style={styles.inner}>
+              <Text style={styles.rightText}>{_getTime(time)}</Text>
+              <Image
+                source={require('../../images/restore.png')}
+                style={styles.image}
+                resizeMode="contain"
+              />
+            </View>
+          )}
       </TouchableOpacity>
     </View>
   </View>

@@ -11,18 +11,7 @@ export default (history) => {
       headers: headers(token)
     }).then(response => {
       if (response.status === 200) {
-        // const parsed = JSON.parse(response._bodyInit).weatherData.timeLocation;
-        // store.dispatch(
-        //   updateLocation({
-        //     ...parsed.location
-        //   })
         store.dispatch(changeAllow())
-        console.log(response)
-        // store.dispatch(
-        //   setMarker({
-        //     ...parsed.location
-        //   })
-        // );
       } else if (response.status === 401) {
         removeToken(history);
       }

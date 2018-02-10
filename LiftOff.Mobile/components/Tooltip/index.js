@@ -5,6 +5,7 @@ import animationGenerator from '../../functions/animationGenerator';
 import language from '../../languages';
 import styles from './styles.js';
 
+// prikazivanje tooltipa poviše datepickera
 export default ({ displayed }) => {
   if (displayed) {
     return (

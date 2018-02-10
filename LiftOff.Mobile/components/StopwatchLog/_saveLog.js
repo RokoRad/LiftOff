@@ -4,6 +4,7 @@ import headers from '../../functions/headers';
 import removeToken from '../../functions/removeToken';
 import { updateStats, saveLog } from '../../actions';
 
+// funckij za pogranjivanje flight loga
 export default (id, history) => {
   let state = store.getState().logsReducer.logs,
     home = store.getState().homeReducer.home,
