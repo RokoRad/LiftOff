@@ -14,6 +14,7 @@ import LogPermission from '../../components/LogPermission';
 import Break from '../../components/Break';
 import _logout from './_logout.js';
 
+// ovojnica settings komponenti
 export default ({ location, history }) => (
   <Screen current={location} style={styles.settings}>
     <View style={styles.wrapper}>
@@ -30,6 +31,7 @@ export default ({ location, history }) => (
   </Screen>
 );
 
+// promjena jezika invoka refreshanje aplikaicje jer je jezik pohranjen u lokalnoj memoriji
 const changeLanguage = () => {
   AsyncStorage.getItem('@language').then(response => {
     if (response === 'hr') {

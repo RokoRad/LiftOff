@@ -7,7 +7,9 @@ import store from '../../store';
 import { Platform } from 'react-native';
 
 export default (data, history) => {
+  // promjena statea i contenta botuna
   store.dispatch(changeLoading());
+  // invokanje fetcha ako su podatci fizički validni
   if (data.username.length != 0 && data.password.length > 8) {
     const object = {
       ...data,
@@ -22,6 +24,7 @@ export default (data, history) => {
     })
       .then(response => {
         if (response.status === 200) {
+          // spremanje tokena u lokalnu memorij
           AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
             history.push('/home');
             if (Platform.OS === 'ios') {
