@@ -20,11 +20,13 @@ class Map extends Component {
     super(props);
   }
 
+  // prilikom prvog renderiranje pokreće se funckija za gettanje trenutne gps lokacije
   componentWillMount() {
     _getCurrentLocation();
   }
 
   render() {
+    // prikaz mape i svih komponenti koje se prikazuju
     return (
       <Screen current={this.props.location}>
         <Search />

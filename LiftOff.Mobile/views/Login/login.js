@@ -28,6 +28,7 @@ export default (data, history) => {
           // spremanje tokena u lokalnu memorij
           AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
             history.push('/home');
+            // za iOS uređaje definiraju se podatci za konekciju sa smartwatchom
             if (Platform.OS === 'ios') {
               var Device = require('react-native').NativeModules.Device;
               Device.deviceName((name) => {
