@@ -14,21 +14,13 @@ namespace LiftOff.API
         //Dodatne konfiguracije za realtime
         static void Main(string[] args)
         {
-			//Long polling veze će čekati 110 sekunda za odgovor.
-			//Kada vrijeme istekne pokrenuti će se komanda koja će pokušati ponovno spojiti klijenta.
             GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(110);
-
-			//Čekaj maksimalno 30 sekundi nakon što se veza izgubi 
-			//prije nego se pokrene Disconnected event koji će ukinuti real-time vezu
 			GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(30);
-
-			//Za transporte koji nisu long polling, posalji keepalive paket svako 10 sekunda
-            //Vrijednost ne smije biti veća od 1/3 DisconnectTimeout vrijednosti
             GlobalHost.Configuration.KeepAlive = TimeSpan.FromSeconds(10);
         }
     }
 
-	//Klasa koja sadrži sve potrebne konfiguracije
+	//Potrebne pocetne konfiguracije
     public class Startup
 	{
 		public void Configuration(IAppBuilder app)

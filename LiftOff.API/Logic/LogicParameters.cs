@@ -59,7 +59,7 @@ namespace LiftOff.API.Logic
             {new RatingCategoryState(){ Category = RatingCategories.visibility,      State = RatingStates.green },  new AdvisoryRating(){ English = "Great visiblity",             Croatian = "Odlična vidljivost"} },
         };
 
-        //Prosjecna brzina vjetra koji podnosi prosjecni dron
+        //Prosjecna brzina vjetra koju podnosi prosjecni dron
         public static double BaseWindSpeed = 30;
         public static int PivotTemperature = 20;
         public static double YellowScoreStateLimit = 2;
@@ -75,7 +75,8 @@ namespace LiftOff.API.Logic
             new Drone() { Name = "DJI Mavic Pro", TopSpeed = 65 },
             new Drone() { Name = "DJI Inspire 2", TopSpeed = 94 },
             new Drone() { Name = "Yuneec Typhoon H Pro", TopSpeed = 48.2 },
-            new Drone() { Name = "Parrot Disco FPV", TopSpeed = 80.5 } };
+            new Drone() { Name = "Parrot Disco FPV", TopSpeed = 80.5 }
+        };
 
         //NoFly zone
         public static List<NoFlyZone> NoFlyZones = new List<NoFlyZone>() {
