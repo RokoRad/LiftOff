@@ -1,3 +1,5 @@
+// ovisno o jedinicama vraća vrijednosti za temperaturu
+
 export default type => {
   if (type === 'metric') {
     return '°';

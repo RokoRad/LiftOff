@@ -4,7 +4,9 @@ import { changeDrone } from '../../actions';
 import { Platform } from 'react-native';
 
 export default drone => {
+  // za svaku promjenu drona izvrši promjenu u storeu
   store.dispatch(changeDrone((store.getState().settingsReducer.drone = drone)));
+  // za iOS platformu vrši se promejna drona
   if (Platform.OS === 'ios') {
     AsyncStorage.getItem('@token').then(token => {
       var Device = require('react-native').NativeModules.Device;
@@ -21,5 +23,6 @@ export default drone => {
       });
     })
   }
+  // pohrana u lokalnu memorija
   AsyncStorage.setItem('@drone', drone);
 };
