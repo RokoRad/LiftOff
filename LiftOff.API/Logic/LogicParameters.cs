@@ -84,5 +84,8 @@ namespace LiftOff.API.Logic
         public static Coordinates MapParseDensity = new Coordinates() { Latitude = 0.009009009, Longitude = 0.01440776866 };
         public static int MapParseSize = 3;
         public static int MaxAdvisoryStringLenght = 105;
+
+        public static string OpenWeatherAPIKey = "3939e3c3ea8f513efb798c6deb5f9857";
+        public static string OpenWeatherAPIURL = "http://api.openweathermap.org/data/2.5/[api]?lat=[lat]&lon=[lon]&mode=[mode]&units=metric&appid=[apikey]";
     }
 }

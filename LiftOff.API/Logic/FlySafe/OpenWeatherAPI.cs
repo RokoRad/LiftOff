@@ -14,40 +14,37 @@ namespace LiftOff.API.Logic
 {
 	public class OpenWeatherAPI
 	{
-		private readonly string _openWeatherAPIKey = "3939e3c3ea8f513efb798c6deb5f9857";
-		private readonly string _openWeatherAPIURL = "http://api.openweathermap.org/data/2.5/[api]?lat=[lat]&lon=[lon]&mode=[mode]&units=metric&appid=[apikey]";
+		private readonly string _openWeatherAPIKey = LogicParameters.OpenWeatherAPIKey;
+        private readonly string _openWeatherAPIURL = LogicParameters.OpenWeatherAPIURL;
+
 		private enum _openWeatherAPIs { weather, uvi, forecast}
         private enum _openWeatherModes { json, xml, postal}
 
-        public List<WeatherData> GetForecastsPackageFromApi(TimeLocation timeLocation)
+
+        public WeatherData GetWeatherDataFromApi(TimeLocation timeLocation)
         {
-            return WeatherDataForecastsFromForecastJObject(
-                timeLocation,
-                requestApi(_openWeatherAPIs.forecast, _openWeatherModes.json, timeLocation)
-                );
-        }
-
-		public WeatherData GetWeatherDataFromApi(TimeLocation timeLocation)
-		{
-			//debug
-			System.Diagnostics.Debug.WriteLine("requested openweather server");
-
-            var isforecast = timeLocation.IsForecast();
-
-            if (!isforecast)
-                return WeatherDataFromJObject(
+            if (!timeLocation.IsForecast())
+                return _weatherDataFromJObject(
                     timeLocation,
-                    requestApi(_openWeatherAPIs.weather,  _openWeatherModes.json, timeLocation),
-                    requestApi(_openWeatherAPIs.uvi,      _openWeatherModes.json, timeLocation),
-                    requestApi(_openWeatherAPIs.weather,  _openWeatherModes.xml,  timeLocation)
+                    _requestApi(_openWeatherAPIs.weather, _openWeatherModes.json, timeLocation),
+                    _requestApi(_openWeatherAPIs.uvi, _openWeatherModes.json, timeLocation),
+                    _requestApi(_openWeatherAPIs.weather, _openWeatherModes.xml, timeLocation)
                 );
             else
-                return WeatherDataFromForecastJObject(
+                return _weatherDataFromForecastJObject(
                     timeLocation,
-                    requestApi(_openWeatherAPIs.forecast, _openWeatherModes.json, timeLocation)
+                    _requestApi(_openWeatherAPIs.forecast, _openWeatherModes.json, timeLocation)
                 );
 
-		}
+        }
+
+        public List<WeatherData> GetForecastsPackageFromApi(TimeLocation timeLocation)
+        {
+            return _weatherDataForecastsFromForecastJObject(
+                timeLocation,
+                _requestApi(_openWeatherAPIs.forecast, _openWeatherModes.json, timeLocation)
+                );
+        }
 
         public WeatherData GetAlexaWeatherData(string postalCode, string state)
         {
@@ -65,10 +62,11 @@ namespace LiftOff.API.Logic
                 apiResponse = reader.ReadToEnd();
             }
 
-            return WeatherDataFromJObject(null, JObject.Parse(apiResponse), null,null);
+            return _weatherDataFromJObject(null, JObject.Parse(apiResponse), null, null);
         }
 
-		private JObject requestApi(_openWeatherAPIs api, _openWeatherModes mode, TimeLocation timeLocation)
+
+        private JObject _requestApi(_openWeatherAPIs api, _openWeatherModes mode, TimeLocation timeLocation)
 		{
 			HttpWebRequest requestURL = WebRequest.Create(
 					_openWeatherAPIURL
@@ -96,7 +94,7 @@ namespace LiftOff.API.Logic
             return json;
 		}
 
-        private T? ParseTo<T>(JObject fromObject, string[] keys) where T : struct
+        private T? _parseTo<T>(JObject fromObject, string[] keys) where T : struct
         {
             var parsingToken = fromObject as JToken;
             foreach (var key in keys)
@@ -104,14 +102,14 @@ namespace LiftOff.API.Logic
                 {
                     parsingToken = parsingToken[key];
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     return null;
                 }
             return parsingToken.ToObject<T?>();
         }
 
-        private string ParseToString(JObject fromObject, string[] keys)
+        private string _parseToString(JObject fromObject, string[] keys)
         {
             var parsingToken = fromObject as JToken;
             foreach (var key in keys)
@@ -126,51 +124,43 @@ namespace LiftOff.API.Logic
             return (string)parsingToken;
         }
 
-		private WeatherData WeatherDataFromJObject(TimeLocation timeLocation, JObject weatherJson, JObject uviJson, JObject visibilityJson)
-		{
-            var Humidity           = ParseTo<double>(weatherJson, new string[]{ "main", "humidity"});
-            var Presssure          = ParseTo<double>(weatherJson, new string[] { "main", "pressure" });
-            var Temperature        = ParseTo<double>(weatherJson, new string[] { "main", "temp" });
-            var Max_Temperature    = ParseTo<double>(weatherJson, new string[] { "main", "temp_max" });
-            var Min_Temperature    = ParseTo<double>(weatherJson, new string[] { "main", "temp_min" });
-            var UVIndex            = ParseTo<double>(uviJson, new string[] { "value" });
-            var WindSpeed          = ParseTo<double>(weatherJson, new string[] { "wind", "speed" });
-            var WindDirection      = ParseTo<double>(weatherJson, new string[] { "wind", "deg" });
-            var WeatherID          = ParseTo<int>((weatherJson["weather"] as JArray).First() as JObject, new string[] { "id" });
-            var Weather            = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "main" });
-            var WeatherDescription = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "description" });
-            var Visibility         = ParseTo<double>(visibilityJson, new string[] { "current", "visibility", "@value" });
-            var Cloudiness         = ParseTo<double>(visibilityJson, new string[] { "current", "clouds", "@value" });
-            var Name               = ParseToString(weatherJson, new string[] { "name" });
+        private DateTime _unixTimeStampToDateTime(double unixTimeStamp)
+        {
+            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            return dtDateTime;
+        }
 
+        private WeatherData _weatherDataFromJObject(TimeLocation timeLocation, JObject weatherJson, JObject uviJson, JObject visibilityJson)
+		{
             return new WeatherData()
 			{
 				TimeLocation = timeLocation,
 
-				Humidity            = ParseTo<double>(weatherJson, new string[]{ "main", "humidity"}),
-				Presssure           = ParseTo<double>(weatherJson, new string[] { "main", "pressure" }),
-				Temperature         = ParseTo<double>(weatherJson, new string[] { "main", "temp" }),
-				Max_Temperature     = ParseTo<double>(weatherJson, new string[] { "main", "temp_max" }),
-				Min_Temperature     = ParseTo<double>(weatherJson, new string[] { "main", "temp_min" }),
-				UVIndex             = ParseTo<double>(uviJson, new string[] { "value" }),
-				WindSpeed           = ParseTo<double>(weatherJson, new string[] { "wind", "speed" }),
-				WindDirection       = ParseTo<double>(weatherJson, new string[] { "wind", "deg" }),
-				WeatherID           = ParseTo<int>((weatherJson["weather"] as JArray).First() as JObject, new string[] { "id" }),
-				Weather             = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "main" }),
-				WeatherDescription  = ParseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "description" }),
-				Visibility          = ParseTo<double>(visibilityJson, new string[] { "current", "visibility", "@value" }),
-			    Cloudiness          = ParseTo<double>(visibilityJson, new string[] { "current", "clouds", "@value" }),
-                City                = ParseToString(weatherJson, new string[] { "name" }),
-        };
+				Humidity            = _parseTo<double>(weatherJson, new string[]{ "main", "humidity"}),
+				Presssure           = _parseTo<double>(weatherJson, new string[] { "main", "pressure" }),
+				Temperature         = _parseTo<double>(weatherJson, new string[] { "main", "temp" }),
+				Max_Temperature     = _parseTo<double>(weatherJson, new string[] { "main", "temp_max" }),
+				Min_Temperature     = _parseTo<double>(weatherJson, new string[] { "main", "temp_min" }),
+				UVIndex             = _parseTo<double>(uviJson, new string[] { "value" }),
+				WindSpeed           = _parseTo<double>(weatherJson, new string[] { "wind", "speed" }),
+				WindDirection       = _parseTo<double>(weatherJson, new string[] { "wind", "deg" }),
+				WeatherID           = _parseTo<int>((weatherJson["weather"] as JArray).First() as JObject, new string[] { "id" }),
+				Weather             = _parseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "main" }),
+				WeatherDescription  = _parseToString((weatherJson["weather"] as JArray).First() as JObject, new string[] { "description" }),
+				Visibility          = _parseTo<double>(visibilityJson, new string[] { "current", "visibility", "@value" }),
+			    Cloudiness          = _parseTo<double>(visibilityJson, new string[] { "current", "clouds", "@value" }),
+                City                = _parseToString(weatherJson, new string[] { "name" }),
+            };
 		}
 
-        public WeatherData WeatherDataFromForecastJObject(TimeLocation timeLocation, JObject forecast)
+        private WeatherData _weatherDataFromForecastJObject(TimeLocation timeLocation, JObject forecast)
         {
             JObject jWeatherData = new JObject();
 
             foreach (JToken JWeatherDataForecast in (forecast["list"] as JArray))
             {
-                var jweatherforecasttime = UnixTimeStampToDateTime((double)(JWeatherDataForecast as JObject)["dt"]);
+                var jweatherforecasttime = _unixTimeStampToDateTime((double)(JWeatherDataForecast as JObject)["dt"]);
                 var isequalbytimetodatetime = timeLocation.EqualsByTime(jweatherforecasttime);
 
                 if (isequalbytimetodatetime) jWeatherData = JWeatherDataForecast as JObject;
@@ -180,24 +170,24 @@ namespace LiftOff.API.Logic
             {
                 TimeLocation = timeLocation,
 
-                Humidity = ParseTo<double>(jWeatherData, new string[] { "main", "humidity" }),
-                Presssure = ParseTo<double>(jWeatherData, new string[] { "main", "pressure" }),
-                Temperature = ParseTo<double>(jWeatherData, new string[] { "main", "temp" }),
-                Max_Temperature = ParseTo<double>(jWeatherData, new string[] { "main", "temp_max" }),
-                Min_Temperature = ParseTo<double>(jWeatherData, new string[] { "main", "temp_min" }),
+                Humidity = _parseTo<double>(jWeatherData, new string[] { "main", "humidity" }),
+                Presssure = _parseTo<double>(jWeatherData, new string[] { "main", "pressure" }),
+                Temperature = _parseTo<double>(jWeatherData, new string[] { "main", "temp" }),
+                Max_Temperature = _parseTo<double>(jWeatherData, new string[] { "main", "temp_max" }),
+                Min_Temperature = _parseTo<double>(jWeatherData, new string[] { "main", "temp_min" }),
                 UVIndex = null,
-                WindSpeed = ParseTo<double>(jWeatherData, new string[] { "wind", "speed" }),
-                WindDirection = ParseTo<double>(jWeatherData, new string[] { "wind", "deg" }),
-                WeatherID = ParseTo<int>((jWeatherData["weather"] as JArray).First() as JObject, new string[] { "id" }),
-                Weather = ParseToString((jWeatherData["weather"] as JArray).First() as JObject, new string[] { "main" }),
-                WeatherDescription = ParseToString((jWeatherData["weather"] as JArray).First() as JObject, new string[] { "description" }),
+                WindSpeed = _parseTo<double>(jWeatherData, new string[] { "wind", "speed" }),
+                WindDirection = _parseTo<double>(jWeatherData, new string[] { "wind", "deg" }),
+                WeatherID = _parseTo<int>((jWeatherData["weather"] as JArray).First() as JObject, new string[] { "id" }),
+                Weather = _parseToString((jWeatherData["weather"] as JArray).First() as JObject, new string[] { "main" }),
+                WeatherDescription = _parseToString((jWeatherData["weather"] as JArray).First() as JObject, new string[] { "description" }),
                 Visibility = null,
-                Cloudiness = ParseTo<double>(jWeatherData, new string[] { "clouds", "all" }),
-                City = ParseToString(forecast, new string[] { "city", "name" })
+                Cloudiness = _parseTo<double>(jWeatherData, new string[] { "clouds", "all" }),
+                City = _parseToString(forecast, new string[] { "city", "name" })
             };
         }
 
-        public List<WeatherData> WeatherDataForecastsFromForecastJObject(TimeLocation timeLocation, JObject forecast)
+        private List<WeatherData> _weatherDataForecastsFromForecastJObject(TimeLocation timeLocation, JObject forecast)
         {
             List<WeatherData> WeatherDataForecasts = new List<WeatherData>();
 
@@ -207,31 +197,24 @@ namespace LiftOff.API.Logic
                 {
                     TimeLocation = timeLocation,
 
-                    Humidity = ParseTo<double>(JWeatherDataForecast, new string[] { "main", "humidity" }),
-                    Presssure = ParseTo<double>(JWeatherDataForecast, new string[] { "main", "pressure" }),
-                    Temperature = ParseTo<double>(JWeatherDataForecast, new string[] { "main", "temp" }),
-                    Max_Temperature = ParseTo<double>(JWeatherDataForecast, new string[] { "main", "temp_max" }),
-                    Min_Temperature = ParseTo<double>(JWeatherDataForecast, new string[] { "main", "temp_min" }),
+                    Humidity = _parseTo<double>(JWeatherDataForecast, new string[] { "main", "humidity" }),
+                    Presssure = _parseTo<double>(JWeatherDataForecast, new string[] { "main", "pressure" }),
+                    Temperature = _parseTo<double>(JWeatherDataForecast, new string[] { "main", "temp" }),
+                    Max_Temperature = _parseTo<double>(JWeatherDataForecast, new string[] { "main", "temp_max" }),
+                    Min_Temperature = _parseTo<double>(JWeatherDataForecast, new string[] { "main", "temp_min" }),
                     UVIndex = null,
-                    WindSpeed = ParseTo<double>(JWeatherDataForecast, new string[] { "wind", "speed" }),
-                    WindDirection = ParseTo<double>(JWeatherDataForecast, new string[] { "wind", "deg" }),
-                    WeatherID = ParseTo<int>((JWeatherDataForecast["weather"] as JArray).First() as JObject, new string[] { "id" }),
-                    Weather = ParseToString((JWeatherDataForecast["weather"] as JArray).First() as JObject, new string[] { "main" }),
-                    WeatherDescription = ParseToString((JWeatherDataForecast["weather"] as JArray).First() as JObject, new string[] { "description" }),
+                    WindSpeed = _parseTo<double>(JWeatherDataForecast, new string[] { "wind", "speed" }),
+                    WindDirection = _parseTo<double>(JWeatherDataForecast, new string[] { "wind", "deg" }),
+                    WeatherID = _parseTo<int>((JWeatherDataForecast["weather"] as JArray).First() as JObject, new string[] { "id" }),
+                    Weather = _parseToString((JWeatherDataForecast["weather"] as JArray).First() as JObject, new string[] { "main" }),
+                    WeatherDescription = _parseToString((JWeatherDataForecast["weather"] as JArray).First() as JObject, new string[] { "description" }),
                     Visibility = null,
-                    Cloudiness = ParseTo<double>(JWeatherDataForecast, new string[] { "clouds", "all" }),
-                    City = ParseToString(forecast, new string[] { "city", "name" })
+                    Cloudiness = _parseTo<double>(JWeatherDataForecast, new string[] { "clouds", "all" }),
+                    City = _parseToString(forecast, new string[] { "city", "name" })
                 });
             }
 
             return WeatherDataForecasts;
-        }
-
-        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
-        {
-            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-            dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
-            return dtDateTime;
         }
     }
 }
