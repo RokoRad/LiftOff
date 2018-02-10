@@ -44,10 +44,13 @@ class Map extends Component {
           showsCompass={false}
           showsScale={false}
         >
-          <Circle location={{
-            latitude: 43.523102,
-            longitude: 16.425945
-          }} radius={500} />
+          <Circle
+            location={{
+              latitude: 43.523102,
+              longitude: 16.425945
+            }}
+            radius={500}
+          />
 
           <Marker
             location={this.props.markerPosition}

@@ -31,7 +31,7 @@ export default (data, history) => {
             // za iOS uređaje definiraju se podatci za konekciju sa smartwatchom
             if (Platform.OS === 'ios') {
               var Device = require('react-native').NativeModules.Device;
-              Device.deviceName((name) => {
+              Device.deviceName(name => {
                 fetch('http://liftoffinfokup.azurewebsites.net/Api/smartwatch/registerDevice', {
                   method: 'POST',
                   headers: headers(token),

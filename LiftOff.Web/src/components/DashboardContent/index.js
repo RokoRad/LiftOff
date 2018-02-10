@@ -6,6 +6,7 @@ import Links from '../Links';
 import { connect } from 'react-redux';
 import { _start, _stop } from '../../functions/realtime';
 import _grabGraph from './_grabGraph.js';
+import _generateDays from './_generateDays.js';
 import './style.css';
 
 class DashboardContent extends React.Component {
@@ -23,7 +24,6 @@ class DashboardContent extends React.Component {
   }
 
   render() {
-    console.log(this.props.home.weatherData.Units)
     return (
       <div className="grid">
         <div className="grid__left">
@@ -43,8 +43,8 @@ class DashboardContent extends React.Component {
 
           <div className="grid-right__bottom">
             <Graph
-              days={['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']}
-              scores={[5, 3, 5, 3, 2, 4, 5]}
+              days={_generateDays()}
+              scores={this.props.graph}
             />
             <Links />
           </div>
@@ -57,7 +57,8 @@ class DashboardContent extends React.Component {
 const mapStateToProps = state => ({
   ...state.mapReducer,
   ...state.homeReducer,
-  ...state.timeLocationReducer
+  ...state.timeLocationReducer,
+  ...state.dashboardReducer
 });
 
 export default connect(mapStateToProps)(DashboardContent);

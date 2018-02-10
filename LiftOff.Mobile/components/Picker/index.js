@@ -10,7 +10,6 @@ const today = new Date().toISOString().slice(0, 10),
   inFive = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10),
   image = require('../../images/map/date.png');
 
-
 // ui sučelje datepickera
 export default ({ history }) => (
   <View style={styles.item}>
