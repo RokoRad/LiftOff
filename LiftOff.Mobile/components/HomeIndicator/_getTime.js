@@ -1,3 +1,5 @@
+// dohvaćannje vremena u Date()-now formatu te convertanje u HH:mm format
+
 export default time => {
   const parsed = new Date(time);
   let hours = parsed.getHours(),

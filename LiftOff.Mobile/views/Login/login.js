@@ -5,10 +5,13 @@ import language from '../../languages';
 import { changeLoading } from '../../actions';
 import store from '../../store';
 import { Platform } from 'react-native';
+import headers from '../../functions/headers';
 
 export default (data, history) => {
+  // promjena statea i contenta botuna
   store.dispatch(changeLoading());
-  if (data.username.length != 0 && data.password.length > 8) {
+  // invokanje fetcha ako su podatci fizički validni
+  if (data.username.length != 0 && data.password.length > 7) {
     const object = {
       ...data,
       grant_type: 'password'
@@ -22,15 +25,23 @@ export default (data, history) => {
     })
       .then(response => {
         if (response.status === 200) {
+          // spremanje tokena u lokalnu memorij
           AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
             history.push('/home');
+            // za iOS uređaje definiraju se podatci za konekciju sa smartwatchom
             if (Platform.OS === 'ios') {
-              // token ti je = JSON.parse(response._bodyInit).access_token
-              // drone ti je store.getState().settingsReducer.drone
-              // var Device = require('react-native').NativeModules.Device;
-              // Device.deviceName((name) => {
-              //   console.log(name)
-              // });
+              var Device = require('react-native').NativeModules.Device;
+              Device.deviceName((name) => {
+                fetch('http://liftoffinfokup.azurewebsites.net/Api/smartwatch/registerDevice', {
+                  method: 'POST',
+                  headers: headers(token),
+                  body: JSON.stringify({
+                    deviceName: name,
+                    token: JSON.parse(response._bodyInit).access_token,
+                    droneName: store.getState().settingsReducer.drone
+                  })
+                }).then();
+              });
             }
           });
         } else {

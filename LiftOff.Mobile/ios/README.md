@@ -1,9 +1,14 @@
-Ono što je potrebno da možete pokrenuti nativni ios kod uz Apple Watch aplikaciju je:
+# Uvod
+U ovom fileu pronalaze se upute za instaliranje i pokretanje nativne iOS komponente za Apple watch uređaje. U slučaju greške možete me kontaktirati na [toma@dump.hr](mailto:toma@dump.hr "toma@dump.hr") kako bi vas uputio u detaljnije riješavanje problema.
+
+# Setupiranje
+## Potrebni alati
 1. Xcode verzija 9.2
 2. iPhone iOS verzije 11 uparen sa Apple Watchom watchOS verzije 4.2 ili iPhone i Watch simulatori prikladnih operacijskih sustava
-3. Pokrenut expo server (ako Vam treba pomoć oko ovog postupka, pročitajte README.md u LiftOff.Mobile folderu)
+3. Pokrenut Expo server (ako Vam treba pomoć oko ovog postupka, pročitajte README.md u LiftOff.Mobile folderu)
 
-Koraci za pokretanje:
+
+## Pokretanje
 1. Otvorite liftoff.xcodeworkspace u Xcodeu.
 2. Otvorite EXShell.plist file koji ćete pronaći u liftoff/Supporting folderu.
 3. U njemu, morate promijeniti "manifestURL" i "developmentURL" na onaj koji vam je prikazan u expo konzoli

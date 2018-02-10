@@ -8,6 +8,7 @@ import animationGenerator from '../../functions/animationGenerator';
 import language from '../../languages';
 import round from '../../functions/round';
 
+// ui top komponent na stopwatch sučelju
 export default ({ comment, rating }) => (
   <View style={[styles.wrapper, styles[colorGenerator(rating)]]}>
     <View style={[styles.droneWrapper, styles.bothAligned]}>

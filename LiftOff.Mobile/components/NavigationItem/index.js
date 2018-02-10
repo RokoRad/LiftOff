@@ -24,7 +24,7 @@ const navActive = {
 
 export default ({ current, route, type }) => {
   const isActive = current.pathname === route;
-
+  // ovisno o ruti mijenja ikonu
   return (
     <Link
       to={route}

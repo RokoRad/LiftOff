@@ -4,8 +4,10 @@ import { changeLoading } from '../../actions';
 import store from '../../store';
 
 export default (data, history) => {
+  // promjena contenta botuna
   store.dispatch(changeLoading());
-  if (data.username.length != 0 && data.email.length != 0 && data.password.length > 8) {
+  // fetchanje ako su podatci ispravni fizički
+  if (data.username.length != 0 && data.email.length != 0 && data.password.length > 7) {
     fetch('http://liftoffinfokup.azurewebsites.net/api/account/register', {
       method: 'POST',
       headers: {
@@ -15,6 +17,7 @@ export default (data, history) => {
     })
       .then(response => {
         if (response.status === 200) {
+          // povratak na login i prikazivanje toasta
           history.push('/');
           Toast(`${language.registrationSuccess}`);
         } else {
@@ -24,11 +27,10 @@ export default (data, history) => {
       })
       .catch(error => {
         Toast(`${language.serverError}`);
-        console.log(error)
         store.dispatch(changeLoading());
       });
   } else {
-    if ([data.password].length < 7) {
+    if ([data.password].length < 8) {
       Toast(`${language.passwordError}`);
     } else {
       Toast(`${language.invalidInput}`);
