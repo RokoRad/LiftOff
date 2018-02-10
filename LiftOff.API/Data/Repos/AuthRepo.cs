@@ -1,5 +1,6 @@
 ﻿using LiftOff.API.Data;
 using LiftOff.API.Models;
+using LiftOff.API.Models.Persistent;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;

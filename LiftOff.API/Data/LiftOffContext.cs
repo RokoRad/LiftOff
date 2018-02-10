@@ -1,8 +1,8 @@
-﻿using LiftOff.API.Initialization;
-using LiftOff.API.Logic.Statistics;
+﻿using LiftOff.API.Logic.Statistics;
 using LiftOff.API.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using LiftOff.API.Models.Persistent;
 
 namespace LiftOff.API.Data
 {
@@ -22,6 +22,7 @@ namespace LiftOff.API.Data
         public virtual DbSet<FlightLocation> FlightLocations { get; set; }
         public virtual DbSet<FlightTime> FlightTimes { get; set; }
         public virtual DbSet<StatisticsUser> StatisticsUsers { get; set; }
+        public virtual DbSet<NoFlyZone> NoFlyZones { get; set; }
 
 		//Funkcija koja povezuje relacije između pojedinih tablica u bazi
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

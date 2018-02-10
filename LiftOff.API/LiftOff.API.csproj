@@ -154,35 +154,47 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlexaController.cs" />
-    <Compile Include="Controllers\DronesController.cs" />
-    <Compile Include="Controllers\FlightsController.cs" />
+    <Compile Include="Controllers\FlightHotSpotsController.cs" />
+    <Compile Include="Controllers\FlySafeController.cs" />
     <Compile Include="Controllers\LoggingController.cs" />
+    <Compile Include="Controllers\NoFlyController.cs" />
     <Compile Include="Controllers\SmartwatchController.cs" />
-    <Compile Include="Controllers\TokenController.cs" />
-    <Compile Include="Controllers\WeatherController.cs" />
+    <Compile Include="Controllers\SpotfinderController.cs" />
     <Compile Include="Data\LiftOffContext.cs" />
-    <Compile Include="Data\RepoBridge.cs" />
+    <Compile Include="Data\Repos\LiftOffRepo.cs" />
     <Compile Include="Data\Repos\AuthRepo.cs" />
-    <Compile Include="Initialization\LiftOffDatabaseInitialization.cs" />
-    <Compile Include="Logic\Flights\GetFlightsNearMeQuery.cs" />
-    <Compile Include="Logic\FlySafe.cs" />
-    <Compile Include="Logic\OpenWeatherAPI.cs" />
+    <Compile Include="Data\LiftOffDatabaseInitialization.cs" />
+    <Compile Include="Logic\Alexa\Alexa.cs" />
+    <Compile Include="Logic\FlySafe\Spotfinder.cs" />
+    <Compile Include="Logic\Statistics\FlightHotSpots.cs" />
+    <Compile Include="Logic\FlySafe\Algorithm\FlySafe.cs" />
+    <Compile Include="Logic\LogicParameters.cs" />
+    <Compile Include="Logic\FlySafe\Algorithm\LOMath.cs" />
+    <Compile Include="Logic\FlySafe\OpenWeatherAPI.cs" />
     <Compile Include="Logic\LogicIO.cs" />
-    <Compile Include="Logic\SmartwatchPairer.cs" />
-    <Compile Include="Logic\Statistics\FlightLocation.cs" />
-    <Compile Include="Logic\Statistics\FlightTime.cs" />
+    <Compile Include="Logic\SmartWatch\SmartwatchPairer.cs" />
+    <Compile Include="Models\Dynamic\Coordinates.cs" />
+    <Compile Include="Models\Dynamic\MobileDevice.cs" />
+    <Compile Include="Models\Dynamic\TimeLocation.cs" />
+    <Compile Include="Models\Dynamic\TLEntity.cs" />
+    <Compile Include="Models\Dynamic\TokenDroneDTO.cs" />
+    <Compile Include="Models\Persistent\FlightLocation.cs" />
+    <Compile Include="Models\Persistent\FlightTime.cs" />
     <Compile Include="Logic\Statistics\StatisticsCalculator.cs" />
-    <Compile Include="Logic\WeatherFetcher.cs" />
-    <Compile Include="Models\Drone.cs" />
-    <Compile Include="Models\Flight.cs" />
-    <Compile Include="Models\StatisticsUser.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\WeatherData.cs" />
-    <Compile Include="Models\WeatherRating.cs" />
+    <Compile Include="Logic\FlySafe\Weatherer.cs" />
+    <Compile Include="Models\Persistent\Drone.cs" />
+    <Compile Include="Models\Dynamic\AdvisoryScore.cs" />
+    <Compile Include="Models\Dynamic\RatingCategoryState.cs" />
+    <Compile Include="Models\Persistent\Flight.cs" />
+    <Compile Include="Models\Persistent\NoFlyZone.cs" />
+    <Compile Include="Models\Persistent\StatisticsUser.cs" />
+    <Compile Include="Models\Persistent\User.cs" />
+    <Compile Include="Models\Dynamic\WeatherData.cs" />
+    <Compile Include="Models\Dynamic\WeatherRating.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
-    <Compile Include="RealTimeEngine\WeatherGetter.cs" />
-    <Compile Include="RealTimeEngine\WeatherHub.cs" />
+    <Compile Include="App_Start\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Logic\FlySafe\RealTimeEngine\WeatherGetter.cs" />
+    <Compile Include="Logic\FlySafe\RealTimeEngine\WeatherHub.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -196,9 +208,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,4 +1,5 @@
 ﻿using LiftOff.API.Logic;
+using LiftOff.API.Logic.SmartWatch;
 using Newtonsoft.Json.Linq;
 using System.Web.Http;
 
@@ -10,7 +11,7 @@ namespace LiftOff.API.Controllers
     {
         [HttpPost]
         [AllowAnonymous]
-        [Route("registerDevice")]
+        [Route("register-device")]
         public void RegisterDevice(JObject json)
         {
             var deviceID = (string)json["deviceID"];
@@ -22,7 +23,7 @@ namespace LiftOff.API.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [Route("getDeviceInfo")]
+        [Route("get-device-info")]
         public object GetDeviceInfo(JObject json)
         {
             var deviceID = (string)json["deviceID"];

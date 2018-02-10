@@ -1,5 +1,4 @@
-﻿using LiftOff.API.Providers;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
@@ -51,7 +50,7 @@ namespace LiftOff.API
 			OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
 			{
 				AllowInsecureHttp = true,
-				TokenEndpointPath = new PathString("/token"),
+				TokenEndpointPath = new PathString("/api/account/token"),
 				AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
 				Provider = new SimpleAuthorizationServerProvider()
 			};
