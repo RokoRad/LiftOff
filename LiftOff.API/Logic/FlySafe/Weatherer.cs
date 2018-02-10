@@ -103,7 +103,9 @@ namespace LiftOff.API.Logic
 
         private WeatherData _getStoredWeatherData(TimeLocation timeLocation)
         {
-            return _weatherData.First(WR => WR.TimeLocation.Equals(timeLocation));
+            if(_weatherData.FirstOrDefault(WR => WR.TimeLocation.Equals(timeLocation)) == null) AddTimeLocationToTrack(timeLocation);
+
+            return _weatherData.FirstOrDefault(WR => WR.TimeLocation.Equals(timeLocation));
         }
 
         public void AddTimeLocationToTrack(TimeLocation timeLocation)

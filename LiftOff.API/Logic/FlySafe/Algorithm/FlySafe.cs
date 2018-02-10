@@ -12,11 +12,12 @@ namespace LiftOff.API.Logic.FlySafe.Algorithm
     {
         public static WeatherRating RateWeather(WeatherData weatherData, Drone drone)
         {
+            drone = drone ?? new Drone { TopSpeed = LogicParameters.BaseWindSpeed };
 
             WeatherRating weatherRating = new WeatherRating()
             {
                 WeatherData = weatherData,
-                Drone = drone ?? new Drone { TopSpeed = LogicParameters.BaseWindSpeed },
+                Drone = drone,
 
                 WindRating        = _rateWind(weatherData.WindSpeed, weatherData.WindDirection, drone),
                 ConditionsRating  = _rateConditions(weatherData.WeatherID, weatherData.Weather, weatherData.WeatherDescription),
@@ -98,7 +99,7 @@ namespace LiftOff.API.Logic.FlySafe.Algorithm
                                                 atmosphereWeight,
                                                 uvWeight };
 
-            return LOMath.WeightedAverage(parameters, weights);
+            return LOMath.ClampScore(LOMath.WeightedAverage(parameters, weights));
         }
 
         private static AdvisoryRating _getAdvisoryRating(WeatherRating weatherRating)

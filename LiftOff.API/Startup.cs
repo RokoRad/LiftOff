@@ -50,7 +50,7 @@ namespace LiftOff.API
 			OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
 			{
 				AllowInsecureHttp = true,
-				TokenEndpointPath = new PathString("/api/account/token"),
+				TokenEndpointPath = new PathString("/api/account/get-token"),
 				AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
 				Provider = new SimpleAuthorizationServerProvider()
 			};

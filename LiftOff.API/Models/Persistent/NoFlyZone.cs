@@ -8,6 +8,8 @@ namespace LiftOff.API.Models.Persistent
 {
     public class NoFlyZone
     {
+        public int Id { get; set; }
+
         public Coordinates Location { get; set; }
         public double Radius { get; set; }
     }

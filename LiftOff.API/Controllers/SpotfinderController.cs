@@ -12,6 +12,7 @@ using System.Web.Http;
 
 namespace LiftOff.API.Controllers
 {
+    [RoutePrefix("api/spotfinder")]
     public class SpotfinderController : ApiController
     {
         [HttpPost]
