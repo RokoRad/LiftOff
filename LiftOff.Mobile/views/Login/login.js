@@ -5,6 +5,7 @@ import language from '../../languages';
 import { changeLoading } from '../../actions';
 import store from '../../store';
 import { Platform } from 'react-native';
+import headers from '../../functions/headers';
 
 export default (data, history) => {
   // promjena statea i contenta botuna
@@ -28,12 +29,18 @@ export default (data, history) => {
           AsyncStorage.setItem('@token', JSON.parse(response._bodyInit).access_token).then(() => {
             history.push('/home');
             if (Platform.OS === 'ios') {
-              // token ti je = JSON.parse(response._bodyInit).access_token
-              // drone ti je store.getState().settingsReducer.drone
-              // var Device = require('react-native').NativeModules.Device;
-              // Device.deviceName((name) => {
-              //   console.log(name)
-              // });
+              var Device = require('react-native').NativeModules.Device;
+              Device.deviceName((name) => {
+                fetch('http://liftoffinfokup.azurewebsites.net/Api/smartwatch/registerDevice', {
+                  method: 'POST',
+                  headers: headers(token),
+                  body: JSON.stringify({
+                    deviceName: name,
+                    token: JSON.parse(response._bodyInit).access_token,
+                    droneName: store.getState().settingsReducer.drone
+                  })
+                }).then();
+              });
             }
           });
         } else {

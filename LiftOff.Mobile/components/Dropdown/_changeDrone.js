@@ -6,12 +6,20 @@ import { Platform } from 'react-native';
 export default drone => {
   store.dispatch(changeDrone((store.getState().settingsReducer.drone = drone)));
   if (Platform.OS === 'ios') {
-    // token ti je = JSON.parse(response._bodyInit).access_token
-    // drone ti je = drone
-    // var Device = require('react-native').NativeModules.Device;
-    // Device.deviceName((name) => {
-    //   console.log(name)
-    // });
+    AsyncStorage.getItem('@token').then(token => {
+      var Device = require('react-native').NativeModules.Device;
+      Device.deviceName((name) => {
+        fetch('http://liftoffinfokup.azurewebsites.net/Api/smartwatch/registerDevice', {
+          method: 'POST',
+          headers: headers(token),
+          body: JSON.stringify({
+            deviceName: name,
+            token: token,
+            droneName: drone
+          })
+        }).then();
+      });
+    })
   }
   AsyncStorage.setItem('@drone', drone);
 };
