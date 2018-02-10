@@ -35,7 +35,7 @@ struct Flight : Codable {
     
     //Funkcija zaslužna za spremanje leta u korisnikove statistike
     func LogFlight(token: String) -> Void {
-        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffinfokup.azurewebsites.net/api/logging/logFlight")!)
+        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffinfokup.azurewebsites.net/api/logging/log-flight")!)
         request.httpMethod = "POST"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
@@ -194,7 +194,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
     
     //Slanje upita za ime drona i token
     func GetDeviceData(deviceID: String) {
-        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffinfokup.azurewebsites.net/api/smartwatch/getDeviceInfo")!)
+        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffinfokup.azurewebsites.net/api/smartwatch/get-device-info")!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -240,7 +240,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate, WCS
     
     //Funkcija koja dohvaća podatke o vremenu s apija
     func GetScores(token: String) -> Void {
-        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffinfokup.azurewebsites.net/api/weather/getScore")!)
+        var request: URLRequest = URLRequest(url: URL(string: "http://liftoffinfokup.azurewebsites.net/api/flysafe/get-rating")!)
         request.httpMethod = "POST"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
