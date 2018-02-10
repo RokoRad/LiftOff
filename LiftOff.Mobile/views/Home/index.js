@@ -13,10 +13,12 @@ class Home extends React.Component {
     super(props);
   }
 
+  // prilikom prvog kreiranja komponente, ostvaruje se konekcija sa serverom
   componentWillMount() {
     _start(this.props.timeLocation, this.props.units);
   }
 
+  // prilikom "uništenja" komponente konekcija se gasi
   componentWillUnmount() {
     _stop();
   }
