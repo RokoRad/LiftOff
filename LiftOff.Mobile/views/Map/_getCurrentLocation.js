@@ -11,7 +11,5 @@ export default async () => {
   let location = await Location.getCurrentPositionAsync({
     enableHighAccuracy: true,
     maximumAge: 900
-  }).then(response => {
-
-  });
+  }).then(response => {});
 };

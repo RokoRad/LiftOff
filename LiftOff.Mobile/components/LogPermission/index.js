@@ -19,7 +19,7 @@ class LogPermission extends Component {
         <Text style={styles.text}>{language.Permission}</Text>
         <CheckBox value={this.props.allow} onValueChange={() => _onChange(this.props.history)} />
       </View>
-    )
+    );
   }
 }
 

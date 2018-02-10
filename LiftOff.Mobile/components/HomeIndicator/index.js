@@ -14,15 +14,15 @@ export default ({ time }) => (
         {_getTime(time) === _getTime(new Date().toISOString()) ? (
           <Text style={styles.rightText}>{language.Now}</Text>
         ) : (
-            <View style={styles.inner}>
-              <Text style={styles.rightText}>{_getTime(time)}</Text>
-              <Image
-                source={require('../../images/restore.png')}
-                style={styles.image}
-                resizeMode="contain"
-              />
-            </View>
-          )}
+          <View style={styles.inner}>
+            <Text style={styles.rightText}>{_getTime(time)}</Text>
+            <Image
+              source={require('../../images/restore.png')}
+              style={styles.image}
+              resizeMode="contain"
+            />
+          </View>
+        )}
       </TouchableOpacity>
     </View>
   </View>
