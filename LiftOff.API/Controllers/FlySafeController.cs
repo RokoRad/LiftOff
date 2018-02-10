@@ -19,7 +19,7 @@ namespace LiftOff.API.Controllers
     {
         #region Dependancy management
 
-        private LiftOffRepo _liftOffRepo;
+        private readonly LiftOffRepo _liftOffRepo;
 
         public FlySafeController()
         {
@@ -39,7 +39,7 @@ namespace LiftOff.API.Controllers
         #endregion
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         [Route("get-rating")]
         public IHttpActionResult GetRating([FromBody]JObject json)
         {
@@ -54,7 +54,7 @@ namespace LiftOff.API.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         [Route("get-rating-for-drone")]
         public IHttpActionResult GetRatingForDrone([FromBody]JObject json)
         {

@@ -14,8 +14,8 @@ namespace LiftOff.API.Controllers
 	{
 		#region Dependancy management
 
-		private AuthRepo _authRepo;
-        private LiftOffRepo _liftOffRepo;
+		private readonly AuthRepo _authRepo;
+        private readonly LiftOffRepo _liftOffRepo;
 
         public AccountController()
 		{

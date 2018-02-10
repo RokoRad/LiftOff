@@ -13,7 +13,7 @@ namespace LiftOff.API.Controllers
     {
         #region Dependancy management
 
-        private LiftOffRepo _liftOffRepo;
+        private readonly LiftOffRepo _liftOffRepo;
 
         public NoFlyController()
         {
@@ -33,7 +33,7 @@ namespace LiftOff.API.Controllers
         #endregion
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize]
         [Route("get-nofly-zones")]
         public IHttpActionResult GetNoFlyZones()
         { 

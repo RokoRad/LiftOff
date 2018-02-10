@@ -14,7 +14,7 @@ namespace LiftOff.API.Controllers
     {
         #region Dependancy management
 
-        private LiftOffRepo _liftOffRepo;
+        private readonly LiftOffRepo _liftOffRepo;
 
         public LoggingController()
         {
