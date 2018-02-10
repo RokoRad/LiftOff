@@ -90,7 +90,7 @@ function handleCanIFlyIntent(intent, session, response) {
 
                 //Poziv na LiftOff api koji će vratiti WeatherRating u obliku rečenica koje će Alexa pročitati
                 request({
-                    url: urlPrefix + 'api/alexa/getCurrentRating',
+                    url: urlPrefix + 'api/alexa/get-current-rating',
                     method: 'POST',
                     body: {
                         postalCode: dataForApi.postalCode,
@@ -104,8 +104,7 @@ function handleCanIFlyIntent(intent, session, response) {
                     if(!body.message) {
                         response.tell(body.weatherRatingString);
                     } else {
-                        response.tell("The current FlySafe rating is 3 point 2. The weather is ok. High humidity can damage the drone.");
-                        //response.tell(body.message);
+                        response.tell(body.message);
                     }
                 });
                 sleep(10000);
