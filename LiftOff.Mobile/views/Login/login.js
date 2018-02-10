@@ -10,7 +10,7 @@ export default (data, history) => {
   // promjena statea i contenta botuna
   store.dispatch(changeLoading());
   // invokanje fetcha ako su podatci fizički validni
-  if (data.username.length != 0 && data.password.length > 8) {
+  if (data.username.length != 0 && data.password.length > 7) {
     const object = {
       ...data,
       grant_type: 'password'
