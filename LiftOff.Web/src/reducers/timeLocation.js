@@ -1,8 +1,8 @@
 const initialState = {
   timeLocation: {
     location: {
-      latitude: 43.508133,
-      longitude: 16.440193
+      lat: 45.8157778,
+      lng: 16.0091944
     },
     time: new Date().toISOString()
   }

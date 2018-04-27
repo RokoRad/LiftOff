@@ -1,7 +1,9 @@
 const initialLocation = {
-  lat: 43.5432,
-  lng: 16.49314
+  lat: 45.8157778,
+  lng: 16.0091944
 };
+
+// 45°48'56.8"N 16°00'33.1"E
 
 const initialState = {
   map: {

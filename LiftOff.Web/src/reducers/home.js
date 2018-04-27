@@ -23,8 +23,8 @@ const initialState = {
       Temperature: 'N/A',
       TimeLocation: {
         Location: {
-          Latitude: 43.508133,
-          Longitude: 16.440193
+          lat: 45.8157778,
+          lng: 16.0091944
         },
         Time: new Date().toISOString()
       },

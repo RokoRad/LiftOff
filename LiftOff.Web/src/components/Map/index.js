@@ -12,11 +12,11 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    var triangleCoords = [
-      { lat: 43.538882, lng: 16.3883400 },
-      { lat: 43.5007916, lng: 16.241055 },
-      { lat: 43.482360, lng: 16.465588 }
-    ];
+    // var triangleCoords = [
+    //   { lat: 43.538882, lng: 16.3883400 },
+    //   { lat: 43.5007916, lng: 16.241055 },
+    //   { lat: 43.482360, lng: 16.465588 }
+    // ];
     const { google } = this.props || undefined;
     const zoom = 10;
     return (
@@ -34,13 +34,13 @@ class MapContainer extends React.Component {
           ref={(map) => { this.map = map }}
         >
           <Marker position={this.props.marker} icon={require('../../images/map/pin.png')} />
-          <Marker
+          {/* <Marker
             position={{
               lat: 43.55,
               lng: 16.47
             }}
             icon={require('../../images/map/zone.png')}
-          />
+          /> */}
         </Map>
         <Dock display={this.props.tooltipStatus} />
       </div >
