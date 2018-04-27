@@ -8,13 +8,13 @@ import { updateStats, saveLog } from '../../actions';
 export default (id, history) => {
   let state = store.getState().logsReducer.logs,
     home = store.getState().homeReducer.home,
-    location = home.weatherData.TimeLocation.Location,
-    flightSpot = home.weatherData.City,
+    location = home.WeatherData.TimeLocation.Location,
+    flightSpot = home.WeatherData.City,
     flySafeScore = home.TotalRating,
     drone = store.getState().settingsReducer.drone;
 
   AsyncStorage.getItem('@token').then(token => {
-    fetch('http://liftoffinfokup.azurewebsites.net/api/logging/logFlight', {
+    fetch('http://liftoffinfokup.azurewebsites.net/api/logging/log-flight', {
       method: 'POST',
       headers: headers(token),
       body: JSON.stringify({

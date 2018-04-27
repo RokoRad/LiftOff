@@ -8,8 +8,8 @@ const deltas = {
 const initialState = {
   timeLocation: {
     location: {
-      latitude: 43.508133,
-      longitude: 16.440193,
+      latitude: 45.8157778,
+      longitude: 16.0091944,
       ...deltas
     },
     time: new Date().toISOString()

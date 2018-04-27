@@ -13,7 +13,7 @@ const initialState = {
     UVRating: 'N/A',
     VisibilityRating: 'N/A',
     WindRating: 'N/A',
-    weatherData: {
+    WeatherData: {
       Cloudiness: 'N/A',
       Humidity: 'N/A',
       Max_Temperature: 'N/A',
@@ -22,8 +22,8 @@ const initialState = {
       Temperature: 'N/A',
       TimeLocation: {
         Location: {
-          Latitude: 43.508133,
-          Longitude: 16.440193
+          Latitude: 45.8157778,
+          Longitude: 16.0091944
         },
         Time: new Date().toISOString()
       },

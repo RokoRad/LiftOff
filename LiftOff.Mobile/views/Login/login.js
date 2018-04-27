@@ -16,7 +16,7 @@ export default (data, history) => {
       ...data,
       grant_type: 'password'
     };
-    fetch('http://liftoffinfokup.azurewebsites.net/token', {
+    fetch('http://liftoffinfokup.azurewebsites.net/api/account/get-token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'

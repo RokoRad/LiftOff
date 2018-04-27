@@ -1,6 +1,6 @@
 const initialLocation = {
-  latitude: 43.5432,
-  longitude: 16.49314
+  latitude: 45.8157778,
+  longitude: 16.0091944
 };
 
 const deltas = {

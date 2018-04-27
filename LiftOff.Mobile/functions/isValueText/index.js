@@ -5,7 +5,7 @@ import capitalize from '../capitalize';
 // koristimo funkciju isValueText koja za određeni tip podatka obvlja zadanu funkciju
 
 export default value => {
-  if (value === null) {
+  if (value === null || value === undefined) {
     return '/';
   } else {
     if (isNaN(value)) {

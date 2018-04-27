@@ -13,6 +13,7 @@ const connection = signalr.hubConnection('http://liftoffinfokup.azurewebsites.ne
 proxy.on('broadcastWeather', response => {
   store.dispatch(updateHome(response));
   AsyncStorage.setItem('@realtime', JSON.stringify(response));
+  console.log(response)
 });
 
 // funkcija start koja pokreće našu konekciju
@@ -20,7 +21,7 @@ const _start = async (object, units) => {
   connection
     .start()
     .done(() => {
-      proxy.invoke('initiateConnection', object, units);
+      proxy.invoke('initiateConnection', object, 'DJI Mavic Pro', units);
     })
     .fail(() => {
       Toast(`${language.serverError}`);

@@ -8,7 +8,7 @@ export default (value, history) => {
   value.persist(); // eventiranje react nativea
   // dohvaćanje tokena te slajne requesta za dohvaćanje podataka o novoj lokaciji
   AsyncStorage.getItem('@token').then(token => {
-    fetch('http://liftoffinfokup.azurewebsites.net/api/weather/getScore', {
+    fetch('http://liftoffinfokup.azurewebsites.net/api/flysafe/get-rating', {
       method: 'POST',
       headers: headers(token),
       body: JSON.stringify({

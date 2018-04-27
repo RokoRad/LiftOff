@@ -11,7 +11,7 @@ export default (history, drone) => {
   // dohvaćanje vrijednosti storea
   let state = store.getState().stopwatchReducer.stopwatch,
     home = store.getState().homeReducer.home,
-    flightSpot = home.weatherData.City,
+    flightSpot = home.WeatherData.City,
     flySafeScore = home.TotalRating;
 
   // case koji se izvršava ako je štoperica trenutno aktivna
