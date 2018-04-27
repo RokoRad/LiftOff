@@ -8,9 +8,11 @@
 }
 
 .date-picker {
-  width: 110%;
-  position: absolute;
+  /* width: 110%; */
+  width: 110% !important;
+  opacity: 0 !important;
+  color: red;
+  position: absolute !important;
   display: block;
   z-index: 995;
-  margin-left: -10%;
 }

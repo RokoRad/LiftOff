@@ -11,7 +11,7 @@ export default object => {
     UVRating: object.uvRating,
     VisibilityRating: object.visibilityRating,
     WindRating: object.windRating,
-    weatherData: {
+    WeatherData: {
       Cloudiness: object.weatherData.cloudiness,
       Humidity: object.weatherData.humidity,
       Max_Temperature: object.weatherData.max_Temperature,

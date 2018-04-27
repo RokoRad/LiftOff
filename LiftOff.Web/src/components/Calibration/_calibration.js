@@ -43,6 +43,7 @@ export default data => {
           );
 
           store.dispatch(updateHome(_recall(value)));
+          console.log(value)
           storage.set('@realtime', JSON.stringify(_recall(value)));
         });
       } else if (response.status === 401) {

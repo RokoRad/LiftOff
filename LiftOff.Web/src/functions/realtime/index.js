@@ -8,6 +8,7 @@ const connection = hubConnection('http://liftoffinfokup.azurewebsites.net/signal
   proxy = connection.createHubProxy('weatherHub');
 
 proxy.on('broadcastWeather', response => {
+  console.log("realtime", response)
   store.dispatch(updateHome(response));
   storage.set('@realtime', JSON.stringify(response));
 });
@@ -16,7 +17,8 @@ const _start = async (object, units) => {
   connection
     .start()
     .done(() => {
-      proxy.invoke('initiateConnection', object, units);
+      proxy.invoke('InitiateConnection', object, 'DJI Mavic Pro', units);
+      console.log("rt invoked")
     })
     .fail(() => {
       alert(`${language.serverError}`);
@@ -24,6 +26,7 @@ const _start = async (object, units) => {
 };
 
 const _updateTimeLocation = async object => {
+  console.log("rt update timeLoc")
   proxy.invoke('updateLocation', object);
 };
 

@@ -15,7 +15,8 @@ class DashboardContent extends React.Component {
   }
 
   componentWillMount() {
-    _start(this.props.timeLocation, this.props.home.weatherData.Units);
+    console.log(this.props)
+    _start(this.props.timeLocation, this.props.home.WeatherData.Units);
     _grabGraph();
   }
 
